@@ -355,7 +355,7 @@ expectAbsent(
   "archscry/index.html should not ship inline event attributes"
 );
 expect(
-  sources.archscry.includes('<link rel="stylesheet" href="../assets/css/archscry.css?v=vm625h">'),
+  sources.archscry.includes('<link rel="stylesheet" href="../assets/css/archscry.css?v=vm628">'),
   'archscry/index.html should load "../assets/css/archscry.css"'
 );
 expectAbsent(
@@ -368,7 +368,7 @@ expect(
   'index.html should load the pinned local Keyrune stylesheet'
 );
 expect(
-  sources.home.includes('<link rel="stylesheet" href="./assets/css/home.css?v=vm620" />'),
+  sources.home.includes('<link rel="stylesheet" href="./assets/css/home.css?v=vm628" />'),
   'index.html should load "./assets/css/home.css"'
 );
 expect(
@@ -396,7 +396,7 @@ expect(
 );
 
 expect(
-  sources.guide.includes('<link rel="stylesheet" href="../assets/css/maze.css?v=vm612">') &&
+  sources.guide.includes('<link rel="stylesheet" href="../assets/css/maze.css?v=vm628">') &&
     sources.guide.includes('<link rel="stylesheet" href="../assets/css/guide.css?v=vm614r8">'),
   "guide/index.html should inherit the actual Maze route stylesheet before its Guide adapters"
 );
@@ -544,7 +544,7 @@ for (const key of ["strategiumConsole", "strategiumReview"]) {
 const homeStylesheetHrefs = getStylesheetHrefs(sources.home);
 const homeTopbarLinkIndex = homeStylesheetHrefs.indexOf('./assets/css/topbar.css?v=vm618');
 const homeKeyruneLinkIndex = homeStylesheetHrefs.indexOf('./assets/vendor/keyrune/css/keyrune.min.css?v=3.19.0');
-const homeRouteCssIndex = homeStylesheetHrefs.indexOf('./assets/css/home.css?v=vm620');
+const homeRouteCssIndex = homeStylesheetHrefs.indexOf('./assets/css/home.css?v=vm628');
 expect(
   homeTopbarLinkIndex !== -1 &&
     homeKeyruneLinkIndex !== -1 &&
@@ -554,12 +554,12 @@ expect(
   "index.html should load topbar.css, then Keyrune, then home.css"
 );
 expect(
-  homeStylesheetHrefs[homeStylesheetHrefs.length - 1] === './assets/css/home.css?v=vm620',
+  homeStylesheetHrefs[homeStylesheetHrefs.length - 1] === './assets/css/home.css?v=vm628',
   "index.html should keep home.css as the last stylesheet in the head"
 );
 
 const archscryLastStylesheetTagIndex = sources.archscry.lastIndexOf('<link rel="stylesheet"');
-const archscryRouteCssIndex = sources.archscry.lastIndexOf('../assets/css/archscry.css?v=vm625h');
+const archscryRouteCssIndex = sources.archscry.lastIndexOf('../assets/css/archscry.css?v=vm628');
 expect(
   archscryLastStylesheetTagIndex !== -1 &&
     archscryRouteCssIndex !== -1 &&
@@ -575,7 +575,7 @@ expect(
 
 const guideStylesheetHrefs = getStylesheetHrefs(sources.guide);
 expect(
-  guideStylesheetHrefs.at(-2) === "../assets/css/maze.css?v=vm612" &&
+  guideStylesheetHrefs.at(-2) === "../assets/css/maze.css?v=vm628" &&
     guideStylesheetHrefs.at(-1) === "../assets/css/guide.css?v=vm614r8",
   "guide/index.html should keep guide.css as the last stylesheet in the head"
 );

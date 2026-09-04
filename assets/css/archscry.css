@@ -41,7 +41,7 @@ body.vm-archscry-route::after {
   pointer-events: none;
   background:
     linear-gradient(90deg, rgba(0, 0, 0, 0.93), rgba(0, 0, 0, 0.18) 22%, rgba(0, 0, 0, 0.14) 76%, rgba(0, 0, 0, 0.92)),
-    radial-gradient(circle at var(--mx, 50%) var(--my, 40%), rgba(88, 186, 255, 0.28), transparent 28rem),
+    radial-gradient(circle at var(--mx, 50%) var(--my, 40%), rgba(88, 186, 255, 0.028), transparent 28rem),
     radial-gradient(ellipse at 50% 100%, rgba(215, 162, 60, 0.14), transparent 44rem),
     linear-gradient(180deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.72));
   mix-blend-mode: normal;
