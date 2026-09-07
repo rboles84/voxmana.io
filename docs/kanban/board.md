@@ -40,6 +40,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
+- [VM-638 — Task Admission, Baseline, and Scope Validation](in-progress/VM-638-task-admission.md) — Phase 2 admitted from verified main; implementation and independent QA pending.
+
 
 
 
