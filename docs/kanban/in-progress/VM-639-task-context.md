@@ -27,12 +27,12 @@ Record version: 1
 Branch: codex/vm-639-task-context
 Admission baseline: ad0dce76147b2857241ca6987007698b103536aa
 Candidate: PENDING
-RobQA: PENDING
+RobQA: PENDING; prior candidate superseded after incidental-reference correction.
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Decisions: Owner approved Phase 4 and fifteen corrections in this task; admission wrapper only, informational tolerant reader, progressive bounded recall, no bulk normalization, VM-637 remains separate. Stop at independent engineering PASS and Owner Review.
-Evidence: [Implementation handoff](../../handoffs/2026-09-07-1300-codex-vm639-task-context.md); [approved course correction](../../plans/workflow-course-correction.md).
+Evidence: [Independent review history](../../handoffs/2026-09-07-1300-independent-robqa-vm639-task-context.md); [Implementation handoff](../../handoffs/2026-09-07-1300-codex-vm639-task-context.md); [approved course correction](../../plans/workflow-course-correction.md).
 
 ## Admission Scope
 

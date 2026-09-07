@@ -2,7 +2,7 @@
 
 Date: 2026-09-07
 Agent: Codex (main implementation agent)
-Status: Implementation; independent exact-candidate QA pending.
+Status: Independent review correction; new exact-candidate QA pending.
 Related card: [VM-639](../kanban/in-progress/VM-639-task-context.md)
 Related plan: [Course correction](../plans/workflow-course-correction.md)
 Authority: [Task context contract](../reference/task-context.md)
@@ -36,7 +36,7 @@ After acceptance, authorized lifecycle-only source changes may regenerate views 
 
 Substantive governance and shared repository tooling require SEPARATE independent QA, with focused Node/Git/document coverage. QA-0 governance plus shared-tool behavioral risk; ordinary integration follows the existing delivery gate. The focused set exercises progressive recall, ambiguity/provenance, deterministic dates/views, direct admission delegation, unsupported stages, archive preservation, read-only checks and transactional rollback/recovery.
 Retain and run admission and change-report compatibility tests. Run the existing required deterministic validation commands; no additional browser, visual, Placement certification, semantic, CRIT or SIRF suite is justified. CPU-heavy additional validation: NOT REQUIRED. Required existing deterministic checks retain their established scope.
-Development validation: 28 focused task-context fixtures PASS; 43 unchanged admission fixtures and two unchanged change-report fixtures PASS. Existing deterministic lint:html, lint:js, validate:source-generated, test:parser, test:placement, test:maze-finds, test:deck-links, test:copy-boundaries and test:frontend-smoke all PASS. Live index check and dirty in-scope admission continuation PASS. Git confirms strict admission/helper/report sources and prior compatibility fixtures unchanged. VM-637 preservation hashes match for all five files. A final writer review added a passing regression proving pre-existing temporary files survive refusal. Exact-candidate Git accounting follows in review evidence. Independent QA must read the full actual baseline-to-candidate diff, rerun focused evidence, challenge authority/recall and pair-write failure boundaries, and author its independent handoff.
+Development validation: 29 focused task-context fixtures PASS; 43 unchanged admission fixtures and two unchanged change-report fixtures PASS. Existing deterministic lint:html, lint:js, validate:source-generated, test:parser, test:placement, test:maze-finds, test:deck-links, test:copy-boundaries and test:frontend-smoke all PASS. Live index check and dirty in-scope admission continuation PASS. Git confirms strict admission/helper/report sources and prior compatibility fixtures unchanged. VM-637 preservation hashes match for all five files. A final writer review added a passing regression proving pre-existing temporary files survive refusal. Exact-candidate Git accounting follows in review evidence. Independent QA must read the full actual baseline-to-candidate diff, rerun focused evidence, challenge authority/recall and pair-write failure boundaries, and author its independent handoff.
 
 ## Phase Accounting
 
@@ -53,8 +53,21 @@ Strict admission parser/validator/helpers, Git report machinery and compatibilit
 
 ## Follow-Up / Next Suggested Agent
 
-Independent RobQA reviews the exact candidate and focused recall/authority/writer evidence. Owner then reviews the bounded task interface and approved governance behavior. No push, PR, merge or later-phase work before the corresponding delivery authority.
+Independent RobQA must re-review the next corrected exact candidate; see the linked independent history. Owner reviews the bounded task interface and approved governance behavior. No push, PR, merge or later-phase work before the corresponding delivery authority.
 
 ## Independent Review Remediation
 
 The first material candidate 508ce91106b54e71baff84a911ec7260c47430d3 was superseded after independent QA found that a decisive plan linked only from an older direct handoff was absent in focused context. The reader now retains explicit source links from every direct root while still refusing recursive expansion. The regression confirms the old plan is included and counted, the older handoff remains disclosed as additional, and the plan's unrelated outbound link is not traversed. Independent review must bind its final verdict to the corrected candidate.
+
+## Superseded Exact-Candidate Review
+
+Historical SEPARATE independent RobQA PASS, subsequently withdrawn for example-ID promotion, at f1924e13e82e7fb2a87f54d4ce389e7476457de1. [Independent handoff](2026-09-07-1300-independent-robqa-vm639-task-context.md). Owner: PENDING. Integration: PENDING. No publication is authorized by this engineering verdict.
+The reviewer independently reran all 73 context/admission/report fixtures, live clean admission, index freshness, JS lint/source guardrails, archive byte/hash parity, source-link coverage and VM-637 preservation checks. The existing deterministic validation set remains green from development. Relative file links across changed nonarchive Markdown resolve. Historical metadata diagnostics and two existing source-guardrail warnings remain visible; neither is a Phase 4 defect.
+
+Shortest Owner path: read docs/reference/task-context.md; run npm run task -- context VM-639, then context VM-632 --deep; inspect generated board/index notices and archive provenance; run indexes --check. Review the selected packet boundary and preserved raw-source access. No browser/manual visual check is required.
+
+Earlier material scope remains preserved in Git at f1924e13e82e7fb2a87f54d4ce389e7476457de1; the final report will derive the corrected scope from Git.
+
+## Final Evidence Inspection Correction
+
+Generated review evidence exposed that IDs used as QA test examples under an Evidence heading were being promoted to direct task relationships. Independent review confirmed the defect and withdrew the preceding PASS. Explicit Related/Dependency/Predecessor/Successor declarations now determine task-ID relationships; evidence/decision source links remain independently retrievable. The regression covers incidental disclosure, absence of unrelated deep card expansion and continued declared dependency expansion. New exact-candidate QA is required. Previously recorded scope and verdict above remain historical only.

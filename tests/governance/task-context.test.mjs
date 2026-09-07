@@ -258,3 +258,17 @@ test("old directly linked decisive plans survive focused recency and are disclos
   assert.ok(p.connectedSources.some(s => s.file === "docs/plans/critical.md"));
   assert.ok(!p.connectedSources.some(s => s.file.endsWith("/unrelated.md")));
 });
+
+test("example IDs in evidence remain incidental and cannot expand deep task records", () => {
+  const root = fixture();
+  put(root, "docs/kanban/backlog/VM-002-example.md", "# VM-002\nID: VM-002\nStatus: Backlog");
+  handoff(root, "2026-01-01-vm002-qa.md", "# VM-002 QA\nRelated task: VM-002\n\n## Tests Selected and Objective Evidence\n\nVM-001 is a retrieval test example.");
+  const p = packet(root, { deep: true });
+  assert.equal(p.handoffs.length, 0); assert.equal(p.incidentalReferences.length, 1);
+  handoff(root, "2026-01-02-vm001-qa.md", "# VM-001 QA\n\n## Objective Evidence\n\nVM-002 is another retrieval example.");
+  assert.deepEqual(packet(root, { deep: true }).relatedCards, []);
+  fs.appendFileSync(path.join(root, "docs/kanban/backlog/VM-001-example.md"), "\n## Evidence\nVM-002 is a fixture.\n");
+  assert.deepEqual(packet(root, { deep: true }).relatedCards, []);
+  fs.appendFileSync(path.join(root, "docs/kanban/backlog/VM-001-example.md"), "\n## Dependencies\nVM-002\n");
+  assert.deepEqual(packet(root, { deep: true }).relatedCards.map(c => c.id), ["VM-002"]);
+});

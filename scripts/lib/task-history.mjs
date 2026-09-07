@@ -57,6 +57,14 @@ function relationshipText(text) {
   }
   return result.join("\n");
 }
+function declaredTaskText(text) {
+  const result = []; let related = false;
+  for (const line of text.split("\n")) {
+    if (/^#{1,6} /.test(line)) related = /^#{1,6} (?:Related(?: .*)?|Dependencies|Dependency|Predecessors?|Successors?)(?: records)?$/i.test(line);
+    if (related || /^(?:Related[^:]*|Dependencies|Dependency|Predecessors?|Successors?):/i.test(line)) result.push(line);
+  }
+  return result.join("\n");
+}
 export function parseHistorical(text, file, kind) {
   text = norm(text);
   const diagnostics = [], heading = text.match(/^# (.+)$/m)?.[1] ?? null;
@@ -78,7 +86,7 @@ export function parseHistorical(text, file, kind) {
   const filenameDate = fm ? validDate(fm[1] + (fm[2] ? " " + fm[2] + ":" + fm[3] : "")) : null;
   const date = authored ?? filenameDate;
   if (authoredDate && !authored) diagnostics.push("Invalid authored date; filename fallback or undated ordering used.");
-  const relatedText = relationshipText(text), relatedIds = ids(relatedText);
+  const relatedText = relationshipText(text), relatedIds = ids(declaredTaskText(text));
   const fnIds = [...path.posix.basename(file).matchAll(/(?:^|-)vm-?(\d+)([a-z]?)(?=-|\.md$)/gi)].map(m => "VM-" + m[1] + m[2].toUpperCase());
   const directIds = [...new Set([...fnIds, ...ids(heading ?? ""), ...relatedIds])];
   return { kind, file, id: actualId, title, status, rawStatus, date: date?.value ?? null, dateTime: date?.time ?? null,
@@ -169,7 +177,7 @@ export function contextPacket(root, task, { deep = false, card: selectedPath, gi
   const incidental = corpus.handoffs.filter(h => !direct.includes(h) && h.mentionedIds.includes(task));
   const sourceLinks = new Set([...selected.links, ...roots.flatMap(h => h.relationshipLinks)]);
   const declared = section(selected.text, "Delivery") ?? "";
-  const relations = ids(relationshipText(selected.text) + "\n" + (declared.match(/^Dependencies:.*$/m)?.[0] ?? "") + (deep ? "\n" + roots.map(h => relationshipText(h.text)).join("\n") : ""));
+  const relations = ids(declaredTaskText(selected.text) + "\n" + (declared.match(/^Dependencies:.*$/m)?.[0] ?? "") + (deep ? "\n" + roots.map(h => declaredTaskText(h.text)).join("\n") : ""));
   const relatedCards = corpus.cards.filter(c => c.file !== selected.file && (sourceLinks.has(c.file) || relations.includes(c.id)));
   const ambiguous = duplicates(corpus.cards).filter(d => d.id === task || relations.includes(d.id) || d.files.some(f => sourceLinks.has(f)));
   const connected = [], unavailable = [...git.unavailable];
