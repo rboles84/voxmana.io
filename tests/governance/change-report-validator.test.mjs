@@ -108,3 +108,26 @@ test("Git-backed reporting rejects 14, accepts 15, and separates a two-path evid
     fs.rmSync(repoRoot, { recursive: true, force: true });
   }
 });
+
+test("Git change rows preserve rename sources, deletions, spaces, and Unicode without changing counts", () => {
+  const repoRoot = fs.mkdtempSync(path.join(os.tmpdir(), "voxmana-change-report-"));
+  try {
+    git(repoRoot, ["init", "--quiet"]);
+    fs.writeFileSync(path.join(repoRoot, "old name é.md"), "unchanged rename payload\n");
+    fs.writeFileSync(path.join(repoRoot, "delete.md"), "delete\n");
+    const baseline = commit(repoRoot, "baseline");
+    fs.renameSync(path.join(repoRoot, "old name é.md"), path.join(repoRoot, "new name é.md"));
+    fs.unlinkSync(path.join(repoRoot, "delete.md"));
+    const candidate = commit(repoRoot, "rename and delete");
+    const changes = gitChangeSet(repoRoot, baseline, candidate);
+    assert.equal(changes.count, 2);
+    assert.equal(changes.entries.find((entry) => entry.status.startsWith("R")).sourcePath, "old name é.md");
+    assert(changes.entries.some((entry) => entry.status === "D" && entry.path === "delete.md"));
+    const result = validateChangeReport({ repoRoot, baseline, candidate, markdown: report({ baseline, candidate, materialPaths: changes.paths }) });
+    assert.deepEqual(result.errors, []);
+  } finally {
+    const resolved = path.resolve(repoRoot);
+    assert(resolved.startsWith(path.resolve(os.tmpdir()) + path.sep) && path.basename(resolved).startsWith("voxmana-change-report-"));
+    fs.rmSync(resolved, { recursive: true, force: true });
+  }
+});

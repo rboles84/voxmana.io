@@ -168,6 +168,103 @@ Evidence changes receive proportionate record/link/diff validation and are ident
 they do not become a new material candidate when the exception is proven. They must never self-author
 Owner acceptance. Optional evidence commits do not waive the existing handoff requirements.
 
+### Task Admission
+
+Use this gate before implementing a new material task, when resuming it, and before candidate QA.
+It replaces repeated manual reconstruction of branch ownership, admission baseline, and path scope.
+The card owns declared task metadata; Git supplies repository facts.
+
+```text
+npm run validate:admission -- --task=VM-638 --mode=start --branch=codex/vm-638-task-admission
+npm run validate:admission -- --task=VM-638 --mode=continue
+```
+
+Append `--json` for structured facts. Exit codes: `0` for ELIGIBLE or PASS, `2` for RESUME,
+`1` for BLOCKED. Inspect the result: ELIGIBLE permits creation only; PASS permits in-scope
+implementation only. Neither is RobQA PASS, Owner acceptance, or proof of a clean QA candidate.
+
+**Start is pre-admission.** For an unused exact ID it checks the environment without requiring a card
+or validating Admission Scope. Normal admission requires clean local main equal to live remote main.
+Inspect existing cards, relevant branches, and registered worktrees first. If one consistent unfinished
+same-task admission exists, return RESUME and use continue on that existing branch/worktree; do not
+create another branch or admission commit. Conflicting or multiple same-task records block.
+Requested-ID ambiguity blocks even among historical records. Duplicates for other IDs and unrelated
+historical branches do not block. Preserve suffix-bearing IDs and match complete identities.
+
+Normal sequence: start -> create the task branch from the permitted starting commit -> create/update
+the card and board -> commit only those admission records -> continue -> implementation.
+The initial admission commit is a durable ownership/scope anchor, not another Owner approval or a
+routine evidence-status commit. A missing/inconsistent existing admission must be reconciled rather
+than replaced. An untracked new card created too early does not establish authority.
+
+**Continue is authoritative admission.** Read ID, Branch, Admission baseline, Dependencies, Decisions,
+and Admission Scope from the committed card. A normal admission commit's parent must equal its recorded
+accepted-main baseline. Validate that baseline in both verified main history and task ancestry.
+Require one matching active card/branch and consistent worktree ownership. Inspect every branch commit
+as well as net differences; reverted changes remain historical scope. Report the frozen-baseline,
+current-merge-base, and task-owned scopes distinctly. Baseline overrides are not accepted.
+
+A clean continuation may PASS. Dirty continuation may also PASS when all staged, unstaged, and untracked
+changes fall inside committed scope. Check deleted paths and both source/destination paths of renames;
+a Git rename remains one change-report row. Uncommitted admission metadata cannot authorize other edits.
+Admission PASS with dirty work remains insufficient for exact-candidate QA under RobQA.
+
+**Admission Scope grammar.** Add `## Admission Scope` to the existing Markdown card with one
+backtick-quoted literal path per bullet. An entry is an exact repository-relative file or a
+repository-relative directory prefix ending in `/`. Normalize separators to `/`. Reject absolute,
+empty, root, dot, traversal, glob/pattern, duplicate, and ambiguous file/directory entries. Reject
+symlink path components rather than treating them as ordinary in-repository scope. Include the card
+itself and the explicitly needed lifecycle records; do not use a repository-wide permission pattern.
+
+```markdown
+## Admission Scope
+
+- `assets/css/archscry.css`
+- `scripts/validate/`
+```
+
+Scope amendment: make a dedicated card-only commit changing Admission Scope and its Decisions field,
+with a new `Scope amendment: <reason>` in Decisions. Do not include implementation or changes to other
+card fields in that commit. Then rerun continue before implementation resumes. Existing task authority
+covers routine in-scope additions; changed requirements still require their existing Owner gate.
+No amend-scope mode is provided. Scope entries and task meaning remain subject to RobDev/RobQA review;
+path membership alone cannot prove semantic task ownership.
+
+**Explicit dependency exception.** The Owner must authorize the dependency/isolation under the existing
+single-active-worktree rules. Start accepts `--dependency-task=VM-###`, `--dependency-head=<exact-sha>`,
+and `--owner-authorization=<decision-reference>` together. These never override the main baseline.
+The dependency must have a valid admission chain and exact locally available head. Its active local
+branch must match that head at start, with a clean dependency worktree. Start may run on clean verified
+main or the exact dependency branch; it permits creating a distinct task branch at the dependency head.
+
+Record `Dependencies: VM-###`, `Dependency head: <exact-sha>`, and
+`Owner authorization: <decision-reference>` in the new card's Delivery block. For normal work use
+`Dependencies: None` and omit the two exception fields. Each exception names one direct dependency;
+a chain is checked recursively with cycle rejection. The dependent admission commit's parent must
+equal that dependency head, while its Admission baseline equals the chain's verified main baseline.
+Show inherited dependency scope separately and retain the full combined scope. A missing/mismatched
+relationship, ancestry, scope, or reference blocks. The operator verifies authentic Owner authority;
+the validator does not infer consent from prose. There is no general bypass flag.
+
+**Read-only observations and recovery.** Observe live remote heads with Git without changing refs.
+Do not fetch automatically. Required origin/main tracking/history must match the remote observation;
+start also requires synchronized local main. Continue reports local-main lag separately when verified
+origin/main supplies the required ancestry. Missing/stale history, remote same-task work not rehydrated
+locally, divergence, or access failure blocks with the evidence that must be refreshed or reconciled.
+Do not automatically stash, commit, fetch, switch, rebase, reset, delete, or repair history. An unexpected
+merge or rewritten admission chain requires explicit reconciliation under existing task governance;
+do not silently substitute a convenient baseline.
+
+Legacy cards without an admission record are not migrated by this command. An unused ID or unique
+unadmitted Backlog/Ready card may start normally. Existing material work with missing/ambiguous metadata
+must be reconciled through its existing task, preserving its actual history and Owner decisions.
+VM-638 bootstraps this tooling with documented manual Git checks and explicit isolated-worktree authority;
+that bootstrap does not create a general exception for later tasks.
+
+**Enforcement limit:** the command owns workflow admission, not filesystem security. Agents must invoke
+it at the stated boundaries; it cannot intercept arbitrary editor writes, prove authenticity of Owner
+consent, or establish semantic ownership merely from allowed paths. No hooks or workflow engine are added.
+
 ## Standard Branch to Owner to PR to Merge Delivery
 
 Vox Mana uses a small-team trunk-based workflow:
@@ -201,7 +298,7 @@ Resume valid work at the correct point. Do not discard, duplicate, reset, clean,
 
 `SHIP` owns the normal engineering loop through Owner Review readiness:
 
-1. Rehydrate the card and repository state above.
+1. Rehydrate the card and repository state above; apply the [Task Admission](#task-admission) continuation check before resumed implementation and candidate QA. Admission PASS does not waive exact-candidate cleanliness or RobQA.
 2. Apply RobDev to the accepted card scope. Inspect the final diff, remove accidental artifacts, run card-required developer verification, update required documentation and handoff records, and leave only intended candidate changes.
 3. Commit a stable Owner Review candidate on the feature branch. Pushing the branch or opening a PR is optional at this stage unless remote infrastructure or collaboration is concretely needed.
 4. Apply RobQA to that exact candidate commit using its [QA execution independence rule](../qa/RobQAPass.md#qa-execution-independence). The authoritative scope is `merge-base(feature branch, main)..candidate SHA`, or the equivalent PR base/head diff when an early PR exists. Inspect changed files, acceptance criteria, relevant automated/manual evidence, and plausible regression surfaces rather than trusting the RobDev summary. Rerun only the risk-proportional set selected for the actual candidate; do not rerun every historical suite automatically.

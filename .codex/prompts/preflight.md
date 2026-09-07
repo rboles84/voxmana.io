@@ -6,6 +6,9 @@ Run this before any meaningful work.
 
 Review project memory before acting.
 
+Apply [Task Admission](../../docs/reference/workflow.md#task-admission): start checks new-task eligibility;
+continue validates existing committed admission. RESUME never authorizes another branch or admission commit.
+
 Read:
 - `AGENTS.md`
 - `.agents/skills/robdev/SKILL.md` and `.agents/skills/robdev/robdev.md`

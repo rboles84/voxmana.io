@@ -23,16 +23,16 @@ VM-633 is integrated and closed. This authorizes implementation, not acceptance 
 
 ## Acceptance Criteria
 
-- [ ] Start checks the environment without requiring a new card or granting implementation permission.
-- [ ] Existing same-task work returns RESUME; requested-ID ambiguity blocks; unrelated history is ignored.
-- [ ] Continue validates committed ownership, normal/dependency baselines, ancestry, historical/net scope, and dirty changes.
-- [ ] Scope grammar is exact files or directory prefixes, without globs; rename endpoints and deleted paths are checked.
-- [ ] Uncommitted metadata cannot authorize changes; only a dedicated reasoned card-only commit amends scope.
-- [ ] Live remote observation is read-only; stale evidence blocks with precise refresh guidance.
-- [ ] Dependency evidence agrees structurally, while authentic Owner authority remains human-verified.
-- [ ] Shared Git reporting remains compatible and focused temporary-repository adversarial tests pass.
+- [x] Start checks the environment without requiring a new card or granting implementation permission.
+- [x] Existing same-task work returns RESUME; requested-ID ambiguity blocks; unrelated history is ignored.
+- [x] Continue validates committed ownership, normal/dependency baselines, ancestry, historical/net scope, and dirty changes.
+- [x] Scope grammar is exact files or directory prefixes, without globs; rename endpoints and deleted paths are checked.
+- [x] Uncommitted metadata cannot authorize changes; only a dedicated reasoned card-only commit amends scope.
+- [x] Live remote observation is read-only; stale evidence blocks with precise refresh guidance.
+- [x] Dependency evidence agrees structurally, while authentic Owner authority remains human-verified.
+- [x] Shared Git reporting remains compatible and focused temporary-repository adversarial tests pass.
 - [ ] Independent exact-candidate RobQA passes; the handoff includes removal accounting.
-- [ ] Admission PASS is not candidate QA; Phase 3, product behavior, and protected authorities remain untouched.
+- [x] Admission PASS is not candidate QA; Phase 3, product behavior, and protected authorities remain untouched.
 
 ## Files Likely Impacted
 
@@ -62,7 +62,7 @@ Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Decisions: Owner-approved Phase 2 plan and final clarifications; explicit isolated-worktree authorization in this task.
-Evidence: Main and independent handoff paths are reserved in Admission Scope and will be created during execution.
+Evidence: [Implementation handoff](../../handoffs/2026-09-06-1802-codex-vm638-task-admission.md); independent exact-candidate evidence pending.
 
 ## Admission Scope
 
