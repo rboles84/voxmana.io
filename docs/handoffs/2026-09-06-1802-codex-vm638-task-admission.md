@@ -2,9 +2,9 @@
 
 Date: 2026-09-06
 Agent: Codex (main implementation agent)
-Related card: [VM-638](../kanban/in-progress/VM-638-task-admission.md)
+Related card: [VM-638](../kanban/done/VM-638-task-admission.md)
 Related plan: [Workflow course correction](../plans/workflow-course-correction.md)
-Status: Accepted; independent engineering PASS and exact-candidate Owner ACCEPT; integration pending.
+Status: Done; exact-candidate QA/Owner evidence preserved. PR #31 integrated; see the [closeout record](2026-09-06-2306-codex-vm638-owner-accepted-closeout.md).
 
 ## Task Requested
 
@@ -139,12 +139,11 @@ credentials, npm's general test bundle, CI configuration, and unrelated branches
 
 ## Follow-Up Recommendations
 
-Review the exact candidate through the workflow's Task Admission section and focused test evidence.
-Integrate only after Owner ACCEPT. Phase 3 remains the separately scoped VM-632 routing task.
+VM-638 is integrated through PR #31 and closed. Phase 3 remains the separately scoped, unstarted VM-632 routing task.
 
 ## Next Suggested Agent
 
-Owner for the exact-candidate acceptance decision, then the existing integration path after ACCEPT.
+No further Owner approval or implementation for VM-638; use the integrated admission contract for separately scoped work.
 
 ## Owner Acceptance And Integration
 

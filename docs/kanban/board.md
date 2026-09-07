@@ -40,7 +40,6 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-638 — Task Admission, Baseline, and Scope Validation](in-progress/VM-638-task-admission.md) — Phase 2 Accepted; independent RobQA PASS and Owner ACCEPT at `13b3aee05d80e0269164d7b6f88807851ec24e13`; integration and closeout pending. Phase 3 blocked until Done.
 
 
 
@@ -50,6 +49,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - Deferred and explicitly incomplete; the protocol needs five real outside responses and should be refreshed against the then-current product before execution. Engineering and release work are not blocked.
 
 ## Done
+
+- [VM-638 — Task Admission, Baseline, and Scope Validation](done/VM-638-task-admission.md) — Owner-accepted exact candidate integrated by PR #31; required CI and squash tree parity PASS. Phase 2 closed; Phase 3 unstarted.
 
 - [VM-636 — Atlas Mana Alignment Matrix](done/VM-636-atlas-mana-matrix.md) — Done; QA-2 PASS and Owner acceptance at `58ddae53`. PR #30 passed required CI and squash-merged as `fc8faca1`. Main synchronized; feature branches removed. Personal Placement, saved readings, protected art and VM-634/635 preserved.
 - [VM-635 - Replace Designated Background Imagery with Black](done/VM-635-black-page-backgrounds.md) - Done — Owner Accepted exact candidate `246f40ca11ebecd37b102eeb38a1f181b115cca9`; PR #29 passed required CI and squash-merged as `3fc83c4c`. Main synchronized; feature branches removed. Protected art and VM-634 preserved; later enhancement awaits Owner details.

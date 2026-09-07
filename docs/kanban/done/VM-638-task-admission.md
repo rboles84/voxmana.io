@@ -2,7 +2,7 @@
 
 ID: VM-638
 Title: Task Admission, Baseline, and Scope Validation
-Status: Accepted
+Status: Done
 Type: Repository governance and tooling
 Area: Task admission, Git ownership, scope validation
 Priority: High
@@ -59,10 +59,10 @@ Admission baseline: 2109b0049c02566802526c965ab3fb7c114c6764
 Candidate: 13b3aee05d80e0269164d7b6f88807851ec24e13
 RobQA: PASS at 13b3aee05d80e0269164d7b6f88807851ec24e13; independent evidence linked below.
 Owner: ACCEPTED at 13b3aee05d80e0269164d7b6f88807851ec24e13; explicit Owner ACCEPT in the course-correction task, authorizing integration.
-Integration: PENDING; existing PR/CI/squash and lifecycle closeout authorized.
+Integration: PR #31 squash-merged as 430777ab4223ed146cd6c7f59d1cda20b14e0eae after required CI PASS; lifecycle closeout at HEAD.
 Dependencies: None
 Decisions: Owner-approved Phase 2 plan and final clarifications; explicit isolated-worktree authorization in this task.
-Evidence: [Implementation handoff](../../handoffs/2026-09-06-1802-codex-vm638-task-admission.md); [Independent RobQA PASS](../../handoffs/2026-09-06-1802-independent-robqa-vm638-task-admission.md).
+Evidence: [Implementation handoff](../../handoffs/2026-09-06-1802-codex-vm638-task-admission.md); [Independent RobQA PASS](../../handoffs/2026-09-06-1802-independent-robqa-vm638-task-admission.md); [Integration closeout](../../handoffs/2026-09-06-2306-codex-vm638-owner-accepted-closeout.md).
 
 ## Admission Scope
 

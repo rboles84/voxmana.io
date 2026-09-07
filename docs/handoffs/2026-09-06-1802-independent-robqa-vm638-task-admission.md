@@ -2,11 +2,11 @@
 
 Agent: Kepler, independent RobQA reviewer (vm638_independent_qa)
 Review completed: 2026-09-07T00:46:27.866Z
-Related card: [VM-638](../kanban/in-progress/VM-638-task-admission.md)
+Related card: [VM-638](../kanban/done/VM-638-task-admission.md)
 Related plan: [Workflow course correction](../plans/workflow-course-correction.md)
 Implementation evidence: [RobDev handoff](2026-09-06-1802-codex-vm638-task-admission.md)
 RobQA: PASS at `13b3aee05d80e0269164d7b6f88807851ec24e13`
-Owner: PENDING for this exact candidate
+Owner: PENDING at review time; subsequent exact-candidate ACCEPT and PR #31 integration are recorded in the [closeout](2026-09-06-2306-codex-vm638-owner-accepted-closeout.md).
 Integration: PENDING at review time
 
 ## Task Requested
