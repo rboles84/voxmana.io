@@ -3,7 +3,7 @@
 Date: 2026-09-07
 Agent: Codex (main implementation agent)
 Status: Owner Review; independent RobQA PASS at `75c380ad170fda1b7453a84ceb5d3f3f20ef257f`; Owner acceptance PENDING.
-Related card: [VM-632](../kanban/in-progress/VM-632-github-connector-discovery-before-browser-fallback.md)
+Related card: [VM-632](../kanban/done/VM-632-github-connector-discovery-before-browser-fallback.md)
 Related plan: [Workflow course correction](../plans/workflow-course-correction.md)
 
 ## Task Requested
@@ -100,3 +100,7 @@ Runtime/data, admission validator and its tests, frozen RobDev/RobQA gates, GitH
 ## Follow-Up Recommendations / Next Suggested Agent
 
 Owner reviews [GitHub Operation Routing](../reference/workflow.md#github-operation-routing) and its escalation/recovery boundaries for the exact candidate. Independent engineering QA is complete. No publication or integration before ACCEPT; Phase 4 remains unstarted.
+
+## Subsequent Owner Acceptance And Integration
+
+The Owner subsequently ACCEPTED material candidate 75c380ad170fda1b7453a84ceb5d3f3f20ef257f and authorized the existing integration/closeout path. [PR #32](https://github.com/rboles84/voxmana.io/pull/32) integrated the candidate and proven evidence-only delta as 592a7c56691cf7a3a853a168fae4c338700b85cc. The review-time decisions above remain historical; current lifecycle evidence is in [the closeout](2026-09-07-1156-codex-vm632-owner-accepted-closeout.md). Phase 4 remains unstarted.

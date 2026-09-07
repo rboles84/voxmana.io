@@ -2,7 +2,7 @@
 
 ID: VM-632
 Title: GitHub Connector Discovery Before Browser Fallback
-Status: Owner Review
+Status: Done
 Type: Development governance / execution tooling
 Area: GitHub delivery and agent tool discovery
 Priority: High
@@ -48,11 +48,11 @@ Branch: codex/vm-632-github-routing
 Admission baseline: e97740ed5d7d485aba282e19607119862fba94e8
 Candidate: 75c380ad170fda1b7453a84ceb5d3f3f20ef257f
 RobQA: PASS at 75c380ad170fda1b7453a84ceb5d3f3f20ef257f; SEPARATE independent governance review.
-Owner: PENDING
-Integration: PENDING
+Owner: ACCEPTED at 75c380ad170fda1b7453a84ceb5d3f3f20ef257f; explicit Owner ACCEPT in the course-correction task authorizes integration and closeout.
+Integration: INTEGRATED by [PR #32](https://github.com/rboles84/voxmana.io/pull/32), squash 592a7c56691cf7a3a853a168fae4c338700b85cc; required CI and full tree parity PASS. Lifecycle closeout recorded below.
 Dependencies: None
 Decisions: Owner-approved course-correction Phase 3 and explicit proceed after VM-638 closeout; normal main-based admission, with VM-637 work preserved in the original checkout.
-Evidence: [Implementation handoff](../../handoffs/2026-09-07-0000-codex-vm632-github-routing.md); [Independent RobQA PASS](../../handoffs/2026-09-07-0000-independent-robqa-vm632-github-routing.md).
+Evidence: [Owner acceptance and closeout](../../handoffs/2026-09-07-1156-codex-vm632-owner-accepted-closeout.md); [Implementation handoff](../../handoffs/2026-09-07-0000-codex-vm632-github-routing.md); [Independent RobQA PASS](../../handoffs/2026-09-07-0000-independent-robqa-vm632-github-routing.md).
 
 ## Admission Scope
 
@@ -65,3 +65,7 @@ Evidence: [Implementation handoff](../../handoffs/2026-09-07-0000-codex-vm632-gi
 - `docs/handoffs/HANDOFF_INDEX.md`
 - `docs/handoffs/2026-09-07-0000-codex-vm632-github-routing.md`
 - `docs/handoffs/2026-09-07-0000-independent-robqa-vm632-github-routing.md`
+
+## Lifecycle Closeout
+
+The implementation-stage Owner Review stop above was completed, followed by the Owner ACCEPT of the exact candidate in Delivery. PR #32 passed required Deterministic Validation at evidence head 0a8f27f01579019921551d1afb4a1f35dbc966b8 and used guarded squash merge. The closeout handoff records main synchronization, preservation of unrelated VM-637 work, and safe branch/worktree cleanup. Phase 3 is closed; Phase 4 remains unstarted. Historical admission metadata and accepted scope remain as committed for the feature work.

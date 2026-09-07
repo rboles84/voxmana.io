@@ -39,7 +39,6 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-632 — GitHub Connector Discovery Before Browser Fallback](in-progress/VM-632-github-connector-discovery-before-browser-fallback.md) — Phase 3 Owner Review; independent RobQA PASS at `75c380ad170fda1b7453a84ceb5d3f3f20ef257f`; Owner acceptance pending. Phase 4 unstarted.
 
 
 
@@ -50,6 +49,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - Deferred and explicitly incomplete; the protocol needs five real outside responses and should be refreshed against the then-current product before execution. Engineering and release work are not blocked.
 
 ## Done
+
+- [VM-632 — GitHub Connector Discovery Before Browser Fallback](done/VM-632-github-connector-discovery-before-browser-fallback.md) — Done; Owner-accepted candidate integrated through PR #32. Required CI and full squash tree parity PASS. Phase 3 closed; Phase 4 unstarted.
 
 - [VM-638 — Task Admission, Baseline, and Scope Validation](done/VM-638-task-admission.md) — Owner-accepted exact candidate integrated by PR #31; required CI and squash tree parity PASS. Phase 2 closed; Phase 3 unstarted.
 
