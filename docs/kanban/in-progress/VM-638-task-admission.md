@@ -2,7 +2,7 @@
 
 ID: VM-638
 Title: Task Admission, Baseline, and Scope Validation
-Status: In Progress
+Status: Owner Review
 Type: Repository governance and tooling
 Area: Task admission, Git ownership, scope validation
 Priority: High
@@ -31,7 +31,7 @@ VM-633 is integrated and closed. This authorizes implementation, not acceptance 
 - [x] Live remote observation is read-only; stale evidence blocks with precise refresh guidance.
 - [x] Dependency evidence agrees structurally, while authentic Owner authority remains human-verified.
 - [x] Shared Git reporting remains compatible and focused temporary-repository adversarial tests pass.
-- [ ] Independent exact-candidate RobQA passes; the handoff includes removal accounting.
+- [x] Independent exact-candidate RobQA passes; the handoff includes removal accounting.
 - [x] Admission PASS is not candidate QA; Phase 3, product behavior, and protected authorities remain untouched.
 
 ## Files Likely Impacted
@@ -56,13 +56,13 @@ Review; do not publish, integrate, or begin Phase 3.
 Record version: 1
 Branch: codex/vm-638-task-admission
 Admission baseline: 2109b0049c02566802526c965ab3fb7c114c6764
-Candidate: PENDING
-RobQA: PENDING
+Candidate: 13b3aee05d80e0269164d7b6f88807851ec24e13
+RobQA: PASS at 13b3aee05d80e0269164d7b6f88807851ec24e13; independent evidence linked below.
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Decisions: Owner-approved Phase 2 plan and final clarifications; explicit isolated-worktree authorization in this task.
-Evidence: [Implementation handoff](../../handoffs/2026-09-06-1802-codex-vm638-task-admission.md); independent exact-candidate evidence pending.
+Evidence: [Implementation handoff](../../handoffs/2026-09-06-1802-codex-vm638-task-admission.md); [Independent RobQA PASS](../../handoffs/2026-09-06-1802-independent-robqa-vm638-task-admission.md).
 
 ## Admission Scope
 

@@ -40,7 +40,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-638 — Task Admission, Baseline, and Scope Validation](in-progress/VM-638-task-admission.md) — Phase 2 admitted from verified main; implementation and independent QA pending.
+- [VM-638 — Task Admission, Baseline, and Scope Validation](in-progress/VM-638-task-admission.md) — Phase 2 Owner Review; independent RobQA PASS at `13b3aee05d80e0269164d7b6f88807851ec24e13`; Owner acceptance pending. Phase 3 unstarted.
 
 
 

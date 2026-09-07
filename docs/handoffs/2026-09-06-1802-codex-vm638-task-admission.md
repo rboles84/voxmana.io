@@ -4,7 +4,7 @@ Date: 2026-09-06
 Agent: Codex (main implementation agent)
 Related card: [VM-638](../kanban/in-progress/VM-638-task-admission.md)
 Related plan: [Workflow course correction](../plans/workflow-course-correction.md)
-Status: Implementation; exact-candidate independent QA pending.
+Status: Owner Review; independent engineering PASS; Owner acceptance PENDING.
 
 ## Task Requested
 
@@ -32,12 +32,28 @@ branch at `C:/dev/voxmana.io/artifacts/vm638-worktree`. No config or original-ch
 Admission commit `a856db3852fbc99666abf3a104831f4c2fe8296c` contains only this task's card and board entry
 and has the verified baseline as its parent.
 
-## Files Changed
+## Material candidate
 
-The final Git-derived material report will enumerate the exact baseline-to-candidate paths after the
-candidate is committed. The admission card records prospective scope; it is not substituted for Git
-accounting. Current changes implement the validator/reader, extend shared Git path handling, add focused
-tests and command entries, and connect governing workflow, preflight, card, plan, and handoff records.
+- Baseline: `2109b0049c02566802526c965ab3fb7c114c6764`
+- Candidate: `13b3aee05d80e0269164d7b6f88807851ec24e13`
+- Changed paths: `14`
+
+## Files changed
+
+- `.codex/prompts/preflight.md`
+- `AGENTS.md`
+- `docs/handoffs/2026-09-06-1802-codex-vm638-task-admission.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-638-task-admission.md`
+- `docs/plans/workflow-course-correction.md`
+- `docs/reference/workflow.md`
+- `package.json`
+- `scripts/lib/task-admission-record.mjs`
+- `scripts/validate/validate-change-report.mjs`
+- `scripts/validate/validate-task-admission.mjs`
+- `tests/governance/change-report-validator.test.mjs`
+- `tests/governance/task-admission.test.mjs`
 
 ## What Changed And Why
 
@@ -81,7 +97,11 @@ Substantive governance and integration tooling requires SEPARATE exact-candidate
 contract tests and QA-0 document checks; ordinary required PR CI remains at the accepted delivery stage.
 Development results: all 43 admission scenarios and both change-report compatibility cases pass. Syntax
 checks and diff whitespace pass. A live VM-638 continue check passed with in-scope dirty development
-changes and explicitly reported dirtyCandidate; independent exact-candidate evidence follows.
+changes and explicitly reported dirtyCandidate. Independent RobQA reran all 45 focused tests at
+`13b3aee05d80e0269164d7b6f88807851ec24e13` and passed; its [evidence](2026-09-06-1802-independent-robqa-vm638-task-admission.md)
+records the exact scope, corrections, and document checks. Live clean continue passed at that candidate;
+start from the original dirty checkout returned RESUME with both permissions false and the existing
+worktree. All five preserved VM-637 file hashes match preflight.
 No local browser, visual, Placement, semantic, CRIT, SIRF, or exhaustive product suite is justified.
 
 ## Independent Review Corrections
@@ -92,8 +112,8 @@ dangling junctions bypassed link checks guarded by existsSync. These were reprod
 Discovery now reconciles requested records across local branch heads and registered worktrees, accepting
 copies from canonical task history while blocking new/conflicting records. Link inspection uses lstat,
 including dangling links; unreadable linked Kanban paths fail discovery. Eight regression cases cover
-the defects and valid inherited/unrelated records. The replacement exact candidate requires fresh
-independent evidence; the superseded candidate is not eligible for Owner acceptance.
+the defects and valid inherited/unrelated records. The replacement candidate `13b3aee05d80e0269164d7b6f88807851ec24e13` received independent engineering PASS;
+the superseded candidate is not eligible for Owner acceptance.
 
 ## Phase Accounting
 
@@ -124,4 +144,4 @@ Integrate only after Owner ACCEPT. Phase 3 remains the separately scoped VM-632 
 
 ## Next Suggested Agent
 
-Independent RobQA reviewer, then Owner for the exact-candidate decision.
+Owner for the exact-candidate acceptance decision, then the existing integration path after ACCEPT.
