@@ -167,7 +167,7 @@ export function contextPacket(root, task, { deep = false, card: selectedPath, gi
   const included = deep ? direct : direct.filter((h, i) => i < 3 || decisive.has(h.file));
   const additional = direct.filter(h => !included.includes(h));
   const incidental = corpus.handoffs.filter(h => !direct.includes(h) && h.mentionedIds.includes(task));
-  const sourceLinks = new Set([...selected.links, ...included.filter(h => roots.includes(h)).flatMap(h => h.relationshipLinks)]);
+  const sourceLinks = new Set([...selected.links, ...roots.flatMap(h => h.relationshipLinks)]);
   const declared = section(selected.text, "Delivery") ?? "";
   const relations = ids(relationshipText(selected.text) + "\n" + (declared.match(/^Dependencies:.*$/m)?.[0] ?? "") + (deep ? "\n" + roots.map(h => relationshipText(h.text)).join("\n") : ""));
   const relatedCards = corpus.cards.filter(c => c.file !== selected.file && (sourceLinks.has(c.file) || relations.includes(c.id)));

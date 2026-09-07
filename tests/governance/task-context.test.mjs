@@ -245,3 +245,16 @@ test("unexpected temporary files survive refused pair writes", () => {
   VIEWS.forEach((p, i) => assert.deepEqual(fs.readFileSync(path.join(root, p)), before[i]));
   assert.equal(fs.existsSync(path.join(root, ".git/task-index-transaction.json")), false);
 });
+
+test("old directly linked decisive plans survive focused recency and are disclosed", () => {
+  const root = fixture();
+  for (const day of ["01", "02", "03", "04"]) handoff(root, "2026-01-" + day + "-vm001-history.md", "# VM-001\n" + (day === "01" ? "\nDecisions: [Critical plan](../plans/critical.md)\n" : ""));
+  put(root, "docs/plans/critical.md", "# Critical older architecture\nEvidence: [Do not traverse](unrelated.md)");
+  put(root, "docs/plans/unrelated.md", "# Unrelated expansion");
+  const p = packet(root);
+  assert.equal(p.handoffs.length, 3);
+  assert.equal(p.disclosure.additionalDirectHandoffs, 1);
+  assert.equal(p.disclosure.directlyReferencedPlans, 1);
+  assert.ok(p.connectedSources.some(s => s.file === "docs/plans/critical.md"));
+  assert.ok(!p.connectedSources.some(s => s.file.endsWith("/unrelated.md")));
+});
