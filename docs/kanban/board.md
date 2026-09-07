@@ -13,7 +13,6 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Backlog
 
-- [VM-632 — GitHub Connector Discovery Before Browser Fallback](backlog/VM-632-github-connector-discovery-before-browser-fallback.md) - require authenticated GitHub connector discovery before browser sign-in fallback when `gh` is unavailable, while retaining Git/GCM API access as the bounded secondary path.
 - [VM-630 — CRIT-001 Live Provenance Pointer Normalization](backlog/VM-630-crit001-live-provenance-pointer-normalization.md) - documentation-only classification and normalization of authoritative live CRIT-001 commit/certification pointers; historical event-time `PENDING_*` values remain preserved.
 - [VM-629 — Placement Language Repetition Reduction](backlog/VM-629-placement-language-repetition-reduction.md) - bounded inventory and rewrite of unnecessary cross-identity boilerplate while preserving useful shared terminology, semantics, evidence, Placement, and accepted SIRF section roles.
 - [VM-628 — Archscry Portable Reading Recovery](backlog/VM-628-archscry-portable-reading-recovery.md) - personal QR/cross-device recovery for one completed reading, with VM-016's shipped local-device return as the baseline and no account/profile architecture expansion.
@@ -39,6 +38,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 ## Ready
 
 ## In Progress
+
+- [VM-632 — GitHub Connector Discovery Before Browser Fallback](in-progress/VM-632-github-connector-discovery-before-browser-fallback.md) — Phase 3 Owner Review; independent RobQA PASS at `75c380ad170fda1b7453a84ceb5d3f3f20ef257f`; Owner acceptance pending. Phase 4 unstarted.
 
 
 

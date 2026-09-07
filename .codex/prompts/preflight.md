@@ -8,6 +8,7 @@ Review project memory before acting.
 
 Apply [Task Admission](../../docs/reference/workflow.md#task-admission): start checks new-task eligibility;
 continue validates existing committed admission. RESUME never authorizes another branch or admission commit.
+Before GitHub operations, apply [GitHub Operation Routing](../../docs/reference/workflow.md#github-operation-routing).
 
 Read:
 - `AGENTS.md`
