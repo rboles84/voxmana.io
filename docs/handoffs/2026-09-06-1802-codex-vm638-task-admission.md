@@ -4,7 +4,7 @@ Date: 2026-09-06
 Agent: Codex (main implementation agent)
 Related card: [VM-638](../kanban/in-progress/VM-638-task-admission.md)
 Related plan: [Workflow course correction](../plans/workflow-course-correction.md)
-Status: Owner Review; independent engineering PASS; Owner acceptance PENDING.
+Status: Accepted; independent engineering PASS and exact-candidate Owner ACCEPT; integration pending.
 
 ## Task Requested
 
@@ -145,3 +145,7 @@ Integrate only after Owner ACCEPT. Phase 3 remains the separately scoped VM-632 
 ## Next Suggested Agent
 
 Owner for the exact-candidate acceptance decision, then the existing integration path after ACCEPT.
+
+## Owner Acceptance And Integration
+
+The Owner explicitly accepted material candidate `13b3aee05d80e0269164d7b6f88807851ec24e13` and authorized the existing integration and closeout path in this task. Phase 3 remains blocked until VM-638 is integrated and closed. Independent QA remains bound to the same immutable candidate. Current live main equals the reviewed baseline; no material changes followed acceptance. PR CI, exact base/head and full-scope inspection, squash tree parity, main synchronization, and lifecycle-only closeout remain required.

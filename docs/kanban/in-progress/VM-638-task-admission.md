@@ -2,7 +2,7 @@
 
 ID: VM-638
 Title: Task Admission, Baseline, and Scope Validation
-Status: Owner Review
+Status: Accepted
 Type: Repository governance and tooling
 Area: Task admission, Git ownership, scope validation
 Priority: High
@@ -58,8 +58,8 @@ Branch: codex/vm-638-task-admission
 Admission baseline: 2109b0049c02566802526c965ab3fb7c114c6764
 Candidate: 13b3aee05d80e0269164d7b6f88807851ec24e13
 RobQA: PASS at 13b3aee05d80e0269164d7b6f88807851ec24e13; independent evidence linked below.
-Owner: PENDING
-Integration: PENDING
+Owner: ACCEPTED at 13b3aee05d80e0269164d7b6f88807851ec24e13; explicit Owner ACCEPT in the course-correction task, authorizing integration.
+Integration: PENDING; existing PR/CI/squash and lifecycle closeout authorized.
 Dependencies: None
 Decisions: Owner-approved Phase 2 plan and final clarifications; explicit isolated-worktree authorization in this task.
 Evidence: [Implementation handoff](../../handoffs/2026-09-06-1802-codex-vm638-task-admission.md); [Independent RobQA PASS](../../handoffs/2026-09-06-1802-independent-robqa-vm638-task-admission.md).

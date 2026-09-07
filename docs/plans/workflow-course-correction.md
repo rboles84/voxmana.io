@@ -2,7 +2,7 @@
 
 Status: Owner-approved implementation plan; staged delivery, not blanket candidate acceptance.
 Source: Owner discussion and approval in the course-correction task, 2026-09-05.
-Current implementation: [VM-633 — Phase 1](../kanban/done/VM-633-lifecycle-state-contract.md) is integrated and closed; [VM-638 — Phase 2](../kanban/in-progress/VM-638-task-admission.md) is in Owner Review with independent engineering PASS; Owner acceptance remains pending. Phase 3 remains unstarted.
+Current implementation: [VM-633 — Phase 1](../kanban/done/VM-633-lifecycle-state-contract.md) is integrated and closed; [VM-638 — Phase 2](../kanban/in-progress/VM-638-task-admission.md) is Accepted with independent engineering PASS; integration and lifecycle closeout are authorized. Phase 3 remains blocked until VM-638 is integrated and closed.
 
 ## Outcome And Authority
 
