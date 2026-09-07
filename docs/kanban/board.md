@@ -39,7 +39,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-632 — GitHub Connector Discovery Before Browser Fallback](in-progress/VM-632-github-connector-discovery-before-browser-fallback.md) — Phase 3 admitted from verified main after VM-638 closeout; implementation and independent governance QA pending.
+- [VM-632 — GitHub Connector Discovery Before Browser Fallback](in-progress/VM-632-github-connector-discovery-before-browser-fallback.md) — Phase 3 Owner Review; independent RobQA PASS at `75c380ad170fda1b7453a84ceb5d3f3f20ef257f`; Owner acceptance pending. Phase 4 unstarted.
 
 
 

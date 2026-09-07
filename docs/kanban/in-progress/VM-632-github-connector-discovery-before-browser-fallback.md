@@ -2,7 +2,7 @@
 
 ID: VM-632
 Title: GitHub Connector Discovery Before Browser Fallback
-Status: In Progress
+Status: Owner Review
 Type: Development governance / execution tooling
 Area: GitHub delivery and agent tool discovery
 Priority: High
@@ -46,13 +46,13 @@ Focused verification covers missing gh, deferred discovery, operation-specific c
 Record version: 1
 Branch: codex/vm-632-github-routing
 Admission baseline: e97740ed5d7d485aba282e19607119862fba94e8
-Candidate: PENDING
-RobQA: PENDING
+Candidate: 75c380ad170fda1b7453a84ceb5d3f3f20ef257f
+RobQA: PASS at 75c380ad170fda1b7453a84ceb5d3f3f20ef257f; SEPARATE independent governance review.
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Decisions: Owner-approved course-correction Phase 3 and explicit proceed after VM-638 closeout; normal main-based admission, with VM-637 work preserved in the original checkout.
-Evidence: [Implementation handoff](../../handoffs/2026-09-07-0000-codex-vm632-github-routing.md); independent QA pending.
+Evidence: [Implementation handoff](../../handoffs/2026-09-07-0000-codex-vm632-github-routing.md); [Independent RobQA PASS](../../handoffs/2026-09-07-0000-independent-robqa-vm632-github-routing.md).
 
 ## Admission Scope
 

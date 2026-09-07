@@ -2,7 +2,7 @@
 
 Date: 2026-09-07
 Agent: Codex (main implementation agent)
-Status: Implementation; independent exact-candidate governance QA pending.
+Status: Owner Review; independent RobQA PASS at `75c380ad170fda1b7453a84ceb5d3f3f20ef257f`; Owner acceptance PENDING.
 Related card: [VM-632](../kanban/in-progress/VM-632-github-connector-discovery-before-browser-fallback.md)
 Related plan: [Workflow course correction](../plans/workflow-course-correction.md)
 
@@ -20,9 +20,25 @@ Initial start correctly BLOCKED on unrelated dirty work. A bounded operator acti
 
 Worktree: C:/dev/voxmana.io/artifacts/vm632-worktree. Branch: codex/vm-632-github-routing. Admission commit 20ed9794daff0cf20aea0cfc937089ae5801a33e has verified main as its parent and changes only the relocated card and board. Continue then PASSed clean. This follows normal admission; no VM-638 bootstrap exception or inherited dependency was used.
 
-## Files Changed
+## Material candidate
 
-The material Git report is added after committing the exact candidate. The card's prospective Admission Scope is not substituted for measured Git accounting. The implementation changes the canonical workflow and its AGENTS/preflight pointers, plus ordinary card/board/plan/handoff records. The relocated card may be counted as deletion/addition by Git's default similarity threshold; final reporting follows actual Git output.
+- Baseline: `e97740ed5d7d485aba282e19607119862fba94e8`
+- Candidate: `75c380ad170fda1b7453a84ceb5d3f3f20ef257f`
+- Changed paths: `9`
+
+## Files changed
+
+- `.codex/prompts/preflight.md`
+- `AGENTS.md`
+- `docs/handoffs/2026-09-07-0000-codex-vm632-github-routing.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/kanban/backlog/VM-632-github-connector-discovery-before-browser-fallback.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-632-github-connector-discovery-before-browser-fallback.md`
+- `docs/plans/workflow-course-correction.md`
+- `docs/reference/workflow.md`
+
+Git records the expanded card relocation as deletion plus addition; both paths are included. This is the complete material scope, including admission, rather than the last commit alone.
 
 ## RobDevPass Pre-Edit Contract / What Changed And Why
 
@@ -67,7 +83,7 @@ Discovered relevant GitHub tools through host metadata, including deferred schem
 
 Read-only live connector probes PASS: authenticated profile returned an identity; get_repo returned rboles84/voxmana.io with permission metadata; get_pr_info confirmed PR #31 is merged. Permission metadata is reported only as evidence, not a claim that all future writes are guaranteed. Once the connector proved suitable for these reads, no REST/GCM credential retrieval, gh lookup, browser opening, installation, auth change, or test mutation was performed.
 
-Admission start/continue observations and preservation checks passed as recorded above. Development checks passed: 11 changed link destinations and three heading anchors resolve, all changed paths are within the admitted document scope, diff whitespace is clean, and all five original VM-637 hashes remain unchanged. Independent review follows exact candidate creation. No CPU-heavy or product/browser/Placement/semantic/CRIT/SIRF suite is justified by this document-only changed contract.
+Admission start/continue observations and preservation checks passed as recorded above. Development checks passed: 11 changed link destinations and three heading anchors resolve, all changed paths are within the admitted document scope, diff whitespace is clean, and all five original VM-637 hashes remain unchanged. Independent QA passed the exact candidate `75c380ad170fda1b7453a84ceb5d3f3f20ef257f`, including all twelve manual scenarios, the incomplete-discovery and cross-route uncertainty boundaries, live read-only connector probes, clean exact-candidate admission, links/anchors, full-scope inspection and Git reporting. See the [independent evidence](2026-09-07-0000-independent-robqa-vm632-github-routing.md). No material correction was needed. No CPU-heavy or product/browser/Placement/semantic/CRIT/SIRF suite is justified by this document-only changed contract.
 
 ## Phase Accounting
 
@@ -83,4 +99,4 @@ Runtime/data, admission validator and its tests, frozen RobDev/RobQA gates, GitH
 
 ## Follow-Up Recommendations / Next Suggested Agent
 
-Independent RobQA reviews the exact material candidate, scenario boundaries, and direct invocation points. Then Owner reviews the bounded workflow change. No publication or integration before ACCEPT.
+Owner reviews [GitHub Operation Routing](../reference/workflow.md#github-operation-routing) and its escalation/recovery boundaries for the exact candidate. Independent engineering QA is complete. No publication or integration before ACCEPT; Phase 4 remains unstarted.
