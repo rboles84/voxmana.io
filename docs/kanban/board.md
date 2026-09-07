@@ -39,6 +39,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
+- [VM-639 — Generated Views and Progressive Task Rehydration](in-progress/VM-639-task-context.md) — Phase 4 admitted; implementation and independent QA pending.
+
 
 
 
