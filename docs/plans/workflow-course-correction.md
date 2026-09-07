@@ -2,7 +2,7 @@
 
 Status: Owner-approved implementation plan; staged delivery, not blanket candidate acceptance.
 Source: Owner discussion and approval in the course-correction task, 2026-09-05.
-Current implementation: [VM-633 — Phase 1](../kanban/done/VM-633-lifecycle-state-contract.md) is integrated and closed; Phase 2 remains unstarted.
+Current implementation: [VM-633 — Phase 1](../kanban/done/VM-633-lifecycle-state-contract.md) is integrated and closed; [VM-638 — Phase 2](../kanban/in-progress/VM-638-task-admission.md) is Accepted with independent engineering PASS; integration and lifecycle closeout are authorized. Phase 3 remains blocked until VM-638 is integrated and closed.
 
 ## Outcome And Authority
 
@@ -56,6 +56,15 @@ Phase 3. Approval of this plan authorizes scoped implementation, not acceptance 
 | 6 — Delivery facts and protection | Validate baseline/full scope, exact QA/Owner binding, evidence contents, fresh local/remote state, CI, merge and closeout; activate previously approved main protection after verifying the transition and closeout path. | Git-derived report and narrow adversarial fixtures; verified host settings. Keep the accepted lifecycle-only bypass explicitly process-enforced, zero duplicate GitHub approval requirement, and strict meaningful CI. |
 | 7 — Proportionate QA execution | Expose actual command behavior and changed-risk selection using existing tests. Preserve npm test compatibility and the initial CI baseline; add focused governance coverage. | Documentation, local presentation, shared behavior, and protected semantic fixtures select appropriate evidence. Split bundles only where they obstruct justified focused execution. |
 | 8 — Adopt and stop | Validate the combined path and use the next suitable real documentation, local presentation/component, and shared-behavior tasks as pilots. | Record context, commands, duplicated updates, Owner interactions, and escapes in normal handoffs. No protected work reopened merely for a pilot; further work requires demonstrated need. |
+
+## Phase 2 Approved Admission Amendments
+
+The Owner approved a committed admission card before implementation and scoped dirty continuation.
+Use the canonical [Task Admission contract](../reference/workflow.md#task-admission) for start versus
+continue, RESUME without duplicate creation, requested-ID ambiguity, normal/dependency parent rules,
+literal scope grammar, committed scope amendments, read-only remote evidence, and the distinction
+between admission and exact-candidate QA. VM-634 was subsequently allocated to unrelated completed
+work; Phase 2 is VM-638. The Owner explicitly authorized isolation to preserve dirty VM-637 planning work.
 
 ## Phase 4 Interface And Migration Contract
 

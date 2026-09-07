@@ -25,6 +25,9 @@ For any non-trivial work, the main agent must follow:
 
 Do not work from blank context.
 
+Apply [Task Admission](docs/reference/workflow.md#task-admission) before new material implementation,
+on resumption, and before candidate QA. Use its start/continue distinction; admission is not RobQA PASS.
+
 ## Standard Delivery Commands
 
 Use [Vox Mana Workflow](docs/reference/workflow.md#standard-branch-to-owner-to-pr-to-merge-delivery) as the durable delivery authority.

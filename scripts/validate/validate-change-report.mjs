@@ -5,31 +5,32 @@ import { fileURLToPath } from "node:url";
 
 const modulePath = fileURLToPath(import.meta.url);
 
-function runGit(repoRoot, args) {
-  return execFileSync("git", args, { cwd: repoRoot, encoding: "utf8" }).trim();
+export function readGit(repoRoot, args) {
+  return execFileSync("git", ["--no-optional-locks", ...args], {
+    cwd: repoRoot, encoding: "utf8", stdio: ["pipe", "pipe", "pipe"],
+    env: { ...process.env, GIT_OPTIONAL_LOCKS: "0", GIT_TERMINAL_PROMPT: "0" },
+    timeout: 20000, maxBuffer: 32 * 1024 * 1024,
+  });
 }
-
+function runGit(repoRoot, args) { return readGit(repoRoot, args).trim(); }
 function resolveCommit(repoRoot, revision) {
-  return runGit(repoRoot, ["rev-parse", `${revision}^{commit}`]);
+  return runGit(repoRoot, ["rev-parse", "--verify", "--end-of-options", revision + "^{commit}"]);
 }
-
-export function gitChangeSet(repoRoot, fromRevision, toRevision) {
-  const output = runGit(repoRoot, [
-    "diff",
-    "--name-status",
-    "--find-renames",
-    `${fromRevision}..${toRevision}`,
-  ]);
-  const entries = output
-    ? output.split(/\r?\n/).map((line) => {
-        const fields = line.split("\t");
-        const status = fields[0];
-        const changedPath = /^[RC]/.test(status) ? fields[2] : fields[1];
-        if (!status || !changedPath) throw new Error(`Unrecognized git name-status row: ${line}`);
-        return { status, path: changedPath.replaceAll("\\", "/"), raw: line };
-      })
-    : [];
+export function gitDiffChanges(repoRoot, args) {
+  const tokens = readGit(repoRoot, ["diff", "--no-ext-diff", "--no-textconv", "--name-status", "--find-renames", "-z", ...args, "--"]).split("\0");
+  const entries = [];
+  for (let index = 0; index < tokens.length && tokens[index]; index++) {
+    const status = tokens[index], first = tokens[++index];
+    const sourcePath = /^[RC]/.test(status) ? first : undefined;
+    const changedPath = sourcePath ? tokens[++index] : first;
+    if (!changedPath || !/^[A-Z][0-9]*$/.test(status)) throw new Error("Unrecognized Git name-status row");
+    entries.push({ status, path: changedPath, ...(sourcePath ? { sourcePath } : {}),
+      raw: [status, ...(sourcePath ? [sourcePath] : []), changedPath].join("\t") });
+  }
   return { entries, count: entries.length, paths: entries.map((entry) => entry.path) };
+}
+export function gitChangeSet(repoRoot, fromRevision, toRevision) {
+  return gitDiffChanges(repoRoot, [fromRevision + ".." + toRevision]);
 }
 
 function markdownSection(markdown, heading, level = 2) {

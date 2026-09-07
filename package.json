@@ -131,7 +131,9 @@
     "test:visual:home": "node scripts/visual-regression-home.mjs --mode=compare",
     "test:visual:home:baseline": "node scripts/visual-regression-home.mjs --mode=baseline",
     "test:syntax": "node tests/maze/research-syntax-language-tests.js",
-    "test:watch": "node --watch tests/run-tests.js"
+    "test:watch": "node --watch tests/run-tests.js",
+    "validate:admission": "node scripts/validate/validate-task-admission.mjs",
+    "test:admission": "node --test tests/governance/task-admission.test.mjs"
   },
   "devDependencies": {
     "chrome-launcher": "^1.2.1",
