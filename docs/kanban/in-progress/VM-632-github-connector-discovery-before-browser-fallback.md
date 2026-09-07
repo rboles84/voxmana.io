@@ -18,12 +18,12 @@ During the Owner-authorized VM-631 integration, Git push succeeded through Git C
 
 ## Acceptance Criteria
 
-- [ ] GitHub delivery guidance requires agents to search the available and deferred tool inventory for an authenticated GitHub connector before using browser authentication.
-- [ ] PR creation, status/check inspection, and merge prefer the authenticated connector when it supports the required operation.
-- [ ] Existing Git/GCM-backed GitHub API access is retained as the next fallback when connector support is unavailable or insufficient.
-- [ ] Browser authentication is requested only after connector and existing non-browser integration paths are genuinely unavailable.
-- [ ] The workflow does not expose credential values, install `gh`, modify authentication configuration, or log the user out.
-- [ ] A lightweight deterministic check or equivalent enforceable instruction covers the connector-before-browser ordering.
+- [x] GitHub delivery guidance requires agents to search the available and deferred tool inventory for an authenticated GitHub connector before using browser authentication.
+- [x] PR creation, status/check inspection, and merge prefer the authenticated connector when it supports the required operation.
+- [x] Existing Git/GCM-backed GitHub API access is retained as the next fallback when connector support is unavailable or insufficient.
+- [x] Browser authentication is requested only after connector and existing non-browser integration paths are genuinely unavailable.
+- [x] The workflow does not expose credential values, install `gh`, modify authentication configuration, or log the user out.
+- [x] A lightweight deterministic check or equivalent enforceable instruction covers the connector-before-browser ordering.
 
 ## Scope Boundary
 

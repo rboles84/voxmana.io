@@ -269,7 +269,94 @@ that bootstrap does not create a general exception for later tasks.
 it at the stated boundaries; it cannot intercept arbitrary editor writes, prove authenticity of Owner
 consent, or establish semantic ownership merely from allowed paths. No hooks or workflow engine are added.
 
+### GitHub Operation Routing
+
+This section owns GitHub operation routing. Apply it before GitHub reads or writes during preflight,
+SHIP, ACCEPT, integration recovery, or other repository work. Routing selects a mechanism; the task,
+exact-candidate QA/Owner gates, and repository policy still determine which actions are authorized.
+Native Git remains the authority for local history, diffs, refs, and worktree state. Keep ordinary
+fetch/push on the established Git transport; successful Git/GCM authentication does not prove GitHub
+API permissions.
+
+**Discover before fallback.** Identify the repository and actual operation first: repository inspection,
+PR lookup/create/update, CI inspection, merge, or another explicitly authorized action. Search the
+host's exposed and deferred tool inventory by capability and read the matching tools' actual schemas.
+Use the discovery/loading interface provided by that host; visible browser controls or a missing CLI
+do not establish that the connector is absent. A repository script cannot enumerate host connectors.
+If discovery cannot be completed, record that limitation rather than silently treating unknown as absent.
+
+Use this priority for the operation, stopping when a suitable route is established:
+
+| Priority | Route | Suitability check |
+|---|---|---|
+| 1 | Authenticated GitHub connector | The discovered callable tool supports this operation, target repository, and required safeguards. Inspect deferred tools before concluding a capability is missing. |
+| 2 | Established REST/GCM API access | An existing usable API path supports the operation without exposing credentials or changing authentication. Git transport success alone is insufficient. |
+| 3 | Suitable installed gh | Use only an already available CLI with applicable repository access and the required operation/flags. Do not install or configure it as part of fallback. |
+| 4 | Necessary browser use | Use only when earlier routes are demonstrably unsuitable for this operation and the browser can preserve its required safeguards. Request sign-in only if this remaining route actually needs it. |
+
+Probe candidates with read-only identity/repository/status operations as needed. Public repository reads
+alone do not prove authentication; identity alone does not prove repository write permission. Permission
+metadata is evidence, not a guarantee that a token/app can perform every write. Never create a branch,
+PR, comment, merge, or other mutation merely to test access. Execute writes only for the authorized task.
+
+Select per operation: a connector that can inspect a PR may lack merge support. Preserve its useful read
+route while discovering the appropriate write route. Reuse valid discovery/access observations within
+the current host session; reassess when the operation, host, authentication, or observed capability
+changes. Refresh operation-specific Git/PR facts where the delivery contract requires it. Do not probe
+REST, gh, or browser after an adequate connector route is established merely to complete an inventory.
+
+**Classify the obstacle before choosing another route.**
+
+| Observation | Required next action |
+|---|---|
+| Missing/unsupported capability, or a confirmed unavailable mechanism before any write was submitted | Discover the next suitable existing route for this operation. |
+| Authentication failure | Distinguish it from absence of tools or repository authority; use another already authorized existing route if available. Do not change credentials, request browser sign-in prematurely, or log the Owner out. |
+| Authenticated but denied, or an ambiguous 403/404 | Inspect the response and one relevant read-only check to distinguish credential scope, repository access, policy, rate/service limits, and operation prerequisites. Do not equate these responses with a browser-login requirement. |
+| Route-specific credential scope is insufficient, while the action and alternate access are authorized | An existing alternate route may be suitable. Never use fallback to evade repository/org policy or a missing Owner decision. |
+| Policy denial, unmet CI/review requirements, changed expected head, or invalid request/state | Reconcile the actual prerequisite under the existing delivery rules. Switching credentials or interfaces does not satisfy it. |
+| A write may have been submitted but its result is unknown | Stop further writes, including via other routes, and reconcile remote state as below. |
+
+Escalate to the Owner only for a real access/authorization decision, an unresolved requirement, or when
+no suitable existing route can complete the operation. State the operation, decisive observed obstacle,
+routes ruled out and why, and the smallest missing action. Unknown capability, missing gh, or a visible
+logged-out browser alone is insufficient evidence for a sign-in request. Do not expose credential
+values, install tools/plugins, alter auth configuration, modify repository permissions, or change
+browser sessions as an implicit repair.
+
+**Preserve operation safeguards.** A merge route must submit the expected PR head to the server's
+atomic head check (the connector's actual expected-head argument or the equivalent API/CLI feature).
+A preceding read does not replace that server-side condition. If a route cannot carry the required
+condition, it is unsuitable for the merge, even if it supports an unguarded merge button. A changed head
+blocks the operation and returns through the existing candidate/evidence rules. Keep the verified
+base, full PR scope, required CI, Owner/QA bindings, and normal squash method; routing does not weaken
+or add a second approval to those gates.
+
+**Reconcile unknown write outcomes before retrying.** A timeout, interrupted response, or lost connection
+after submission is not proof of failure. Query the authoritative remote state using a suitable read
+route, retaining the original repository, PR/ref identifiers, expected head, and intended operation:
+
+- PR creation: look up the existing PR for the exact head repository/branch and base, reconcile it with
+  the task's single-PR record, and reuse a confirmed match. Multiple/conflicting matches require
+  reconciliation; do not create another PR because the creation response was lost.
+- Merge: inspect the original PR's merged state and resulting merge SHA. If it succeeded, verify the
+  resulting commit/tree and continue closeout under the existing ACCEPT path. Do not merge again or
+  seek a second acceptance because the response was lost.
+- Other writes, including a Git push with uncertain delivery: inspect the corresponding remote ref or
+  resource and compare its observed result with the intended change and original preconditions.
+
+Only a definitively unapplied operation may be retried, with fresh prerequisites and the same required
+guards. An absent immediate result, eventual-consistency delay, in-flight operation, ambiguous match,
+or unavailable read leaves the outcome UNKNOWN; pause writes and report the narrow unresolved fact.
+Do not switch routes to bypass that uncertainty.
+
+Keep the route and decisive observations in the existing task/PR/handoff evidence when reporting
+delivery or fallback. No separate capability database, per-operation journal, or new approval form is
+required. These are enforceable agent workflow instructions, not a repository sandbox or a claim that
+prose can intercept host tool calls.
+
 ## Standard Branch to Owner to PR to Merge Delivery
+
+Before host operations, apply [GitHub Operation Routing](#github-operation-routing).
 
 Vox Mana uses a small-team trunk-based workflow:
 

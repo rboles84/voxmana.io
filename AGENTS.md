@@ -31,6 +31,7 @@ on resumption, and before candidate QA. Use its start/continue distinction; admi
 ## Standard Delivery Commands
 
 Use [Vox Mana Workflow](docs/reference/workflow.md#standard-branch-to-owner-to-pr-to-merge-delivery) as the durable delivery authority.
+Before GitHub operations, apply its [GitHub Operation Routing](docs/reference/workflow.md#github-operation-routing).
 
 - `SHIP VM-###` means rehydrate the card's current feature branch, worktree, optional PR, Dev, QA, and Owner state; apply RobDev; commit a stable Owner Review candidate; run RobQA against that exact commit using its [QA execution independence rule](docs/qa/RobQAPass.md#qa-execution-independence); resolve routine Dev/QA findings automatically; and stop when engineering PASS applies to the exact current candidate with Owner Review pending. Report the card, branch, candidate SHA, RobQA status, shortest manual review path, and known non-blocking issues. A PR is not required before Owner Review, and `SHIP` never merges or pushes material feature work directly to `main`.
 - `ACCEPT VM-###` is the Owner's single approval of the exact current RobQA-passed candidate and authorization to integrate it. Verify that SHA, push the feature branch if needed, create or update the card's single PR against `main`, record exact-SHA RobQA and Owner evidence, run required PR CI and diff/integration checks, squash merge, verify and sync `main`, complete lifecycle documentation, and safely delete the feature branch. Do not ask for a second approval while the merged code remains the exact accepted candidate.
