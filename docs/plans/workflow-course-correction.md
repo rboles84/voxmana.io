@@ -2,7 +2,7 @@
 
 Status: Owner-approved implementation plan; staged delivery, not blanket candidate acceptance.
 Source: Owner discussion and approval in the course-correction task, 2026-09-05.
-Current implementation: [VM-633 — Phase 1](../kanban/done/VM-633-lifecycle-state-contract.md) is integrated and closed; [VM-638 — Phase 2](../kanban/done/VM-638-task-admission.md) is integrated and closed after Owner acceptance and PR #31. [VM-632 — Phase 3](../kanban/done/VM-632-github-connector-discovery-before-browser-fallback.md) is integrated and closed after exact-candidate Owner ACCEPT and PR #32; Phase 4 remains unstarted.
+Current implementation: [VM-633 — Phase 1](../kanban/done/VM-633-lifecycle-state-contract.md) is integrated and closed; [VM-638 — Phase 2](../kanban/done/VM-638-task-admission.md) is integrated and closed after Owner acceptance and PR #31. [VM-632 — Phase 3](../kanban/done/VM-632-github-connector-discovery-before-browser-fallback.md) is integrated and closed after exact-candidate Owner ACCEPT and PR #32; [VM-639 — Phase 4](../kanban/in-progress/VM-639-task-context.md) is admitted and implementing the approved retrieval safeguards.
 
 ## Outcome And Authority
 
@@ -70,7 +70,7 @@ work; Phase 2 is VM-638. The Owner explicitly authorized isolation to preserve d
 
 - `npm run task -- context VM-632`: card, fresh Git observations, decisions, declared dependencies,
   applicable authority pointers, and directly related handoff references; optional JSON output.
-- `npm run task -- check VM-632 --stage=admission`: admission, candidate, integration, or closeout checks.
+- `npm run task -- check VM-632 --stage=admission`: admission only in Phase 4; candidate, integration and closeout checks remain explicitly unimplemented until Phase 6.
 - `npm run task -- indexes --check` / `--write`: freshness checking or explicit regeneration.
 
 These commands are prospective; Phase 1 does not install them. Use one shared parser and model. Default
@@ -78,7 +78,7 @@ context includes the latest three directly related handoffs plus explicitly link
 Never silently drop mandatory authority or unresolved decisions to meet a size target. Show additional
 matches and how to retrieve them.
 
-Normalize current unfinished records; read historical records through a compatibility layer. Preserve
+Prefer tolerant read-only compatibility and diagnostics; do not bulk-normalize current or historical records. Necessary deterministic metadata corrections require unambiguous existing evidence and explicit migration accounting. Preserve
 letter-suffixed IDs. Historical IDs are not globally unique: VM-044 has different completed cards and
 VM-551 has multiple program records. An ambiguous lookup lists all matches with their paths rather than
 choosing one. New admission requires a unique canonical task. Legacy ambiguity blocks only operations
@@ -122,3 +122,7 @@ catalog into another authority. Stop at each candidate's Owner Review. No Phase 
 Phase 1 is accepted and integrated. Product runtime, source semantics, certification history, credentials,
 and unrelated retained branches are outside this course correction unless a later bounded phase
 explicitly owns the relevant operation.
+
+## Phase 4 Approved Pre-Implementation Corrections
+
+The Owner approved progressive focused/deep retrieval, completeness disclosure, raw-source escape hatches, deterministic authored-date ordering, visible historical ambiguity, unchanged strict admission authority, paired view replacement, exact archive provenance, minimal instruction cutover, separate VM-637 preservation and lifecycle-only derived-output accounting. Apply the implemented [Phase 4 contract](../reference/task-context.md). Targeted retrieval reduces routine reading without reducing accessible knowledge. No later-stage readiness, semantic retrieval infrastructure, bulk normalization or Phase 5 consolidation is authorized.

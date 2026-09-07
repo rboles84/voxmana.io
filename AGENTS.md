@@ -78,9 +78,9 @@ Before starting any planning, implementation, documentation, JSON/data, or testi
 
 1. `.agents/skills/robdev/SKILL.md` and `.agents/skills/robdev/robdev.md`
 2. `.agents/skills/robqa/SKILL.md` and `.agents/skills/robqa/robqa.md` before test selection or owner-QA work
-3. `docs/handoffs/HANDOFF_INDEX.md`
+3. Run `npm run task -- context VM-###` for the selected task; apply [progressive rehydration](docs/reference/task-context.md).
 4. Recent relevant handoff files in `docs/handoffs/`
-5. `docs/kanban/board.md`
+5. Review context disclosure and retrieve additional/deep/raw sources when needed; generated indexes are navigation aids, not mandatory full-context input.
 6. Related Kanban cards
 7. Related docs/plans
 
@@ -147,9 +147,9 @@ Every handoff must include:
 
 Implementation handoffs must use the repo-local `robdev` skill and transfer the compact packet from `docs/dev/RobDevPass.md`. Handoffs that claim owner-QA readiness must also use the repo-local `robqa` skill and the readiness fields in `docs/qa/RobQAPass.md`; reference the skills and frozen gates rather than restating their policies.
 
-Also update:
+After updating source cards/handoffs, regenerate and check both derived views:
 
-`docs/handoffs/HANDOFF_INDEX.md`
+`npm run task -- indexes --write` then `npm run task -- indexes --check`
 
 ## Final Git Reporting Contract
 

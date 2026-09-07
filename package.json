@@ -133,7 +133,9 @@
     "test:syntax": "node tests/maze/research-syntax-language-tests.js",
     "test:watch": "node --watch tests/run-tests.js",
     "validate:admission": "node scripts/validate/validate-task-admission.mjs",
-    "test:admission": "node --test tests/governance/task-admission.test.mjs"
+    "test:admission": "node --test tests/governance/task-admission.test.mjs",
+    "task": "node scripts/task.mjs",
+    "test:task-context": "node --test tests/governance/task-context.test.mjs"
   },
   "devDependencies": {
     "chrome-launcher": "^1.2.1",

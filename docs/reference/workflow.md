@@ -17,6 +17,13 @@ handoff, and PR summaries reference the card and evidence rather than independen
 
 GitHub Issues and GitHub Projects may mirror this state when useful, but they are optional and should not replace the local board unless the project explicitly changes this workflow.
 
+## Task Context and Derived Views
+
+Use [Task Context and Derived Views](task-context.md) for focused/deep retrieval, historical ambiguity,
+raw-source access, generated maintenance and archival provenance. Routine index review is fulfilled by
+the selected task packet plus necessary referenced sources, not an unconditional full-index read.
+The strict admission validator remains the sole admission authority; retrieval never authorizes work.
+
 ## Standard Flow
 
 For non-trivial work:
@@ -28,7 +35,7 @@ For non-trivial work:
 5. Use the repo-local [RobQA skill](../../.agents/skills/robqa/SKILL.md) and its [usage guide](../../.agents/skills/robqa/robqa.md), then apply the frozen [RobQAPass authority](../qa/RobQAPass.md) before selecting tests.
 6. Run the narrowest risk-proportional objective checks. Under OWNER-VISUAL MODE, add focused browser automation only when objective changed behavior cannot reasonably be protected below the browser; defer subjective visual review to the Owner.
 7. Update affected docs when behavior, data contracts, workflows, or public surfaces change.
-8. Create or update a handoff in `docs/handoffs/` and update `docs/handoffs/HANDOFF_INDEX.md`.
+8. Create or update source cards/handoffs, then run `npm run task -- indexes --write` and `npm run task -- indexes --check`; do not manually author derived-view summaries.
 
 Apply [Token And Reasoning Cost Control](token-reasoning-cost-control.md): perform proportionate checks by default. Broaden validation only when the current Owner request explicitly asks for it or a current stricter protected workflow requires it for the changed risk.
 
@@ -62,8 +69,7 @@ Faction identity, placement, dossier, and gold-standard parity cards must follow
 
 Cards should use `VM-###` IDs and live in the folder mapped by the
 [lifecycle contract](#lifecycle-states-and-transitions). Move a card when its mapped folder changes, and
-update `docs/kanban/board.md` in the same change. Generated views are future work; current manual updates
-remain required until their replacement is adopted.
+regenerate both derived views in the same change under [Task Context and Derived Views](task-context.md).
 
 Each card should include:
 
@@ -163,6 +169,8 @@ material change set, evidence delta, and total branch scope distinct.
 
 Recording the result of an unchanged acceptance criterion is evidence; changing the criterion's wording
 or required outcome is material.
+
+Authorized lifecycle-only source updates may regenerate views as evidence under the [Phase 4 accounting rule](task-context.md#cutover-vm-637-and-delivery). Verify generator/tooling, policy and test bytes still match the accepted material candidate; inspect source changes and account separately for derived outputs.
 
 Evidence changes receive proportionate record/link/diff validation and are identified at integration;
 they do not become a new material candidate when the exception is proven. They must never self-author

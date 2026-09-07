@@ -31,6 +31,10 @@ jobs:
 
       - name: Run deterministic checks
         run: |
+          npm run test:task-context
+          npm run test:admission
+          npm run test:change-report
+          npm run task -- indexes --check
           npm run lint:html
           npm run lint:js
           npm run validate:source-generated

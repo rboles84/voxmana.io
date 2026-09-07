@@ -6,9 +6,9 @@ Spawn a Kanban Steward subagent.
 
 Before updating the board:
 - Read `AGENTS.md`
-- Read `docs/handoffs/HANDOFF_INDEX.md`
+- Run `npm run task -- context VM-###`; use the [context disclosure and deep/raw retrieval](../../docs/reference/task-context.md) as needed.
 - Read recent relevant handoffs
-- Read `docs/kanban/board.md`
+- Review disclosed related task records; a full generated-board read is not routine preflight.
 - Read existing cards in `docs/kanban/`
 
 ## Task
@@ -30,10 +30,10 @@ Physical folders (card states map through the [workflow lifecycle contract](../.
 
 - Apply `docs/reference/token-reasoning-cost-control.md`; keep checks proportionate without omitting any checks required by this prompt.
 - Do not modify runtime code.
-- Required handoff and `docs/handoffs/HANDOFF_INDEX.md` updates are allowed.
+- Required handoff and generated-view updates are allowed.
 - Create new cards in `docs/kanban/backlog/` unless told otherwise.
 - Use the next available `VM-###` ID.
-- Update `docs/kanban/board.md`.
+- Regenerate both views with `npm run task -- indexes --write` after editing source records; do not hand-edit derived summaries.
 - Do not delete cards.
 - Apply the workflow's lifecycle and Done requirements; tests or Owner acceptance alone do not establish integration or closeout.
 - Do not invent requirements not present in the source plan.
@@ -65,6 +65,6 @@ Create a handoff file:
 
 `docs/handoffs/YYYY-MM-DD-HHMM-kanban-steward-short-task.md`
 
-Update:
+Regenerate/check derived views after editing source records:
 
-`docs/handoffs/HANDOFF_INDEX.md`
+`npm run task -- indexes --write` then `npm run task -- indexes --check`

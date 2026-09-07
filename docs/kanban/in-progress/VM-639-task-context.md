@@ -12,13 +12,13 @@ Implement the Owner-approved Phase 4 plan and all fifteen pre-implementation cor
 
 ## Acceptance Criteria
 
-- [ ] Focused and explicit bounded deep retrieval preserve raw sources, older decisive evidence, completeness diagnostics and historical ambiguity.
-- [ ] One tolerant informational reader supplies deterministic generated views and retrieval; strict admission parser and behavior remain unchanged.
-- [ ] Admission wrapper delegates start/continue; all other stage checks are explicitly unsupported without readiness verdicts.
-- [ ] Archive committed manual views byte-for-byte with revision and hashes; retain index-only history with provenance.
-- [ ] Generate both indexes deterministically with validated pair replacement and preservation of unexpected manual edits.
-- [ ] Minimal conflicting-instruction cutover only; no bulk card normalization or later-phase work.
-- [ ] Preserve VM-637 exact sources and tracker backups separately; no VM-637 material enters this task.
+- [x] Focused and explicit bounded deep retrieval preserve raw sources, older decisive evidence, completeness diagnostics and historical ambiguity.
+- [x] One tolerant informational reader supplies deterministic generated views and retrieval; strict admission parser and behavior remain unchanged.
+- [x] Admission wrapper delegates start/continue; all other stage checks are explicitly unsupported without readiness verdicts.
+- [x] Archive committed manual views byte-for-byte with revision and hashes; retain index-only history with provenance.
+- [x] Generate both indexes deterministically with validated pair replacement and preservation of unexpected manual edits.
+- [x] Minimal conflicting-instruction cutover only; no bulk card normalization or later-phase work.
+- [x] Preserve VM-637 exact sources and tracker backups separately; no VM-637 material enters this task.
 - [ ] Focused Node/Git/document tests, retained admission/report compatibility, and existing deterministic validation pass; independent exact-candidate RobQA required.
 
 ## Delivery
