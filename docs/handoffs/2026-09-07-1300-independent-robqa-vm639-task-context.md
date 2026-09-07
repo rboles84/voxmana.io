@@ -2,7 +2,7 @@
 
 Date: 2026-09-07
 Agent: Codex independent reviewer (vm639_independent_qa)
-Status: RobQA BLOCKED; prior PASS withdrawn after new correctness evidence. Corrected exact-candidate review pending.
+Status: RobQA PASS for b627b552241941ea9ec6079f6a3fc04b75d229b9; Owner Review pending. Prior candidates remain superseded.
 Related card: [VM-639](../kanban/in-progress/VM-639-task-context.md)
 Related plan: [Course correction, Phase 4](../plans/workflow-course-correction.md)
 
@@ -21,14 +21,14 @@ Owning authority/producer: cards and handoffs own authored observations; Git own
 Protected: strict admission options/exits/RESUME; exact-candidate QA and authentic Owner authority; legacy/suffixed/duplicate records; historical authored bodies; product/runtime/data/placement/source semantics; VM-637; later phases. No bulk normalization, automatic Git repair, recursive graph, dependency, workflow engine or later-stage readiness was introduced.
 Relevant risks/states: lost old decisions, incidental authority, ambiguity, stale views, unavailable observations, unstable dates, manual-edit loss, partial replacement and interruption recovery. Browser accessibility/responsiveness is unaffected.
 
-## Exact-Candidate Verdict and Resolved Finding
+## Historical Exact-Candidate Review and First Finding
 
 The prior RobQA PASS for f1924e13e82e7fb2a87f54d4ce389e7476457de1 is WITHDRAWN. The observations and tests below remain historical evidence for that reviewed state, not a current PASS. Clean continuation admission passed against live remote/local main ad0dce76147b2857241ca6987007698b103536aa, one related branch/worktree, no dirty paths and in-scope full history. The task checkout was clean before corrected-candidate QA and before evidence authoring. Current review HEAD equals the material candidate; there is no committed evidence head yet. Owner acceptance/integration/deployment/semantic certification are not asserted.
 
 Superseded candidate 508ce91106b54e71baff84a911ec7260c47430d3 did not receive PASS. Independent review reproduced four direct handoffs dated January 1–4, with January 1 linking a decisive plan under Decisions: focused output selected the newest three but omitted the plan and reported directlyReferencedPlans: 0; deep recovered it. This violated age-independent decisive recall.
 The implementation agent changed source-link selection to include relationship links from every direct root. The added regression proves three recent handoffs, one disclosed older handoff, included/countable decisive plan and no traversal of its outbound unrelated link. Complete correction diff reviewed and corrected focused suite rerun: finding resolved. The first recall finding was resolved at that review. A second correctness defect was subsequently confirmed below; no current PASS applies. This is an engineering finding, not an Owner manual finding; its systemic invariant is age-independent linked decisive-source retention while preserving one-hop expansion.
 
-## Tests Selected and Objective Evidence
+## Historical Tests Selected and Objective Evidence
 
 - Public-wrapper clean live admission: PASS on both reviewed commits, including corrected candidate. Initial sandbox network denial failed closed; authorized read-only retry passed. No fetch/repair. Protects ownership, baseline, scope and clean candidate entry.
 - npm run test:task-context: 27/27 initially; 28/28 on corrected exact candidate. Protects focused/deep disclosure, old evidence, suffixes/duplicates, provenance, stale-index independence, deterministic dates/views, source preservation, corrupt archives, manual edits, second-replacement rollback, interrupted recovery, pre-existing temporary preservation, admission delegation/exits and unsupported stages.
@@ -50,12 +50,12 @@ The implementation agent changed source-link selection to include relationship l
 5. Deterministic complete views/pair replacement/manual preservation: PASS, all-source parity and failure/recovery tests.
 6. Minimal cutover/no normalization/later phases: PASS, full material/instruction review.
 7. Separate VM-637 preservation: PASS, original file hashes and Git scope.
-8. Historical focused/compatibility/deterministic checks passed, but independent review is now BLOCKED on the second correctness finding. New exact-candidate review is required before Owner Review.
+8. PASS on the final corrected exact candidate, as recorded in Final Exact-Candidate Review below. Historical blocked/superseded decisions remain preserved. Owner Review is pending.
 
 ## Tests Skipped and Risks / Uncertainties
 
 CPU-heavy validation: NOT REQUIRED. No additional browser/screenshots/visual regression/viewport matrix, exhaustive Placement/journey/synthetic/mutation, CRIT, SIRF or semantic certification suite: those protected contracts are unchanged. OWNER-VISUAL MODE remains controlling; no browser justification exists for this CLI/governance work.
-Legacy metadata may remain incomplete/contradictory; diagnostics/raw files remain necessary. Deep mode intentionally stops at explicit one hop. Remote observations can be unavailable. Pair-write recovery is bounded and does not promise security against arbitrary external edits. Existing source-generated warnings remain unchanged. Git warned that sandboxed user-global ignore configuration was inaccessible; tests passed and configuration was untouched. Initial handoff write was sandbox-denied (no file created); an authorized evidence-only write was used. The newly confirmed incidental-ID classification gap remains open until independent verification of a corrected committed candidate.
+Legacy metadata may remain incomplete/contradictory; diagnostics/raw files remain necessary. Deep mode intentionally stops at explicit one hop. Remote observations can be unavailable. Pair-write recovery is bounded and does not promise security against arbitrary external edits. Existing source-generated warnings remain unchanged. Git warned that sandboxed user-global ignore configuration was inaccessible; tests passed and configuration was untouched. Initial handoff write was sandbox-denied (no file created); an authorized evidence-only write was used. The incidental-ID classification gap was subsequently resolved and independently verified in the Final Exact-Candidate Review below.
 
 ## Subsequent Correctness Finding — Incidental Test IDs Promoted
 
@@ -63,14 +63,32 @@ The main agent observed the generated index assigning this QA handoff to VM-632,
 
 This violates the direct-versus-incidental authority and bounded retrieval contract. Newly discovered correctness evidence revokes the earlier exact-SHA PASS under RobQAPass even though the reviewed bytes did not change. Candidate f1924e13e82e7fb2a87f54d4ce389e7476457de1 is superseded for approval purposes; verdict BLOCKED until correction and exact-candidate re-review. The previous 508ce911 recall defect and passing historical test results remain preserved above.
 
-Required narrow invariant: only declared Related/Dependency/Predecessor/Successor task relationships plus filename/title identity contribute task relationship IDs; ordinary evidence/decision examples remain incidental. Preserve explicit evidence/decision source links independently and retain one-hop limits. The implementation agent reports a local declaredTaskText correction and new fixture; these uncommitted changes are not yet independently reviewed or passed. No material files were edited by this reviewer.
+Required narrow invariant: only declared Related/Dependency/Predecessor/Successor task relationships plus filename/title identity contribute task relationship IDs; ordinary evidence/decision examples remain incidental. Preserve explicit evidence/decision source links independently and retain one-hop limits. At withdrawal, the implementation agent reported a local declaredTaskText correction and new fixture; these had not yet been independently reviewed or passed. The final corrected-commit review below supersedes that pending state. No material files were edited by this reviewer.
 
 ## Owner Review and Follow-Up
 
 Purpose: judge context usefulness and whether the approved retrieval/maintenance interface fits resumption.
 Open a terminal in C:/dev/voxmana.io/artifacts/vm639-worktree. Run npm run task -- context VM-632, then npm run task -- context VM-632 --deep. Inspect disclosure, direct evidence, archive provenance and raw-source escape hatches. Optionally context VM-044 shows ambiguity.
 PASS if context is useful and its limits/authority are clear. FAIL if relevant history is misleadingly represented or absent beyond the disclosed boundary; return the exact example to the reader seam. Owner need not rerun fixtures or compare archives.
-Next suggested agent: main implementation agent to commit the narrow correction, then independent RobQA to review that clean exact candidate. The Owner path below is prospective until engineering PASS is re-established; regenerate/check views and validate final accounting as required. Stop there; authentic ACCEPT alone authorizes integration. Reviewer performed no PR/push/merge/branch/worktree operation. Admission reports no related remote branch; local main remains baseline, so candidate is unintegrated.
+Next suggested agent: main delivery agent to record the final exact-candidate engineering PASS, regenerate/check evidence views, verify no material drift and present Owner Review. Engineering PASS is re-established only for the final candidate below. Stop there; authentic ACCEPT alone authorizes integration. Reviewer performed no PR/push/merge/branch/worktree operation. Admission reports no related remote branch; local main remains baseline, so candidate is unintegrated.
+
+## Final Exact-Candidate Review
+
+SEPARATE RobQA PASS: b627b552241941ea9ec6079f6a3fc04b75d229b9. Reviewer remains vm639_independent_qa, which implemented no material correction. Both prior candidates remain superseded: 508ce91106b54e71baff84a911ec7260c47430d3 for omitted older decisive plans, and f1924e13e82e7fb2a87f54d4ce389e7476457de1 for incidental example-ID promotion. No prior PASS is revived. Owner: PENDING; integration: PENDING.
+
+Reviewed the complete f1924e13-to-final correction: declaredTaskText now owns explicit task-ID relationships in both directIds and deep relatedCards; evidence/decision source-link extraction remains separate and unchanged. The contract clarification matches that boundary. Reviewed the new regression, main/card/plan historical status updates and the committed withdrawn QA record. Read-only comparison of every previous generated-index row confirmed all 1059 historical records retained: 316 related-reference-only changes, with other columns unchanged, plus this new QA record. No historical authored record was normalized.
+
+Independent final-candidate evidence:
+
+- Clean exact-candidate admission through the task wrapper: PASS, HEAD b627b552241941ea9ec6079f6a3fc04b75d229b9, branch codex/vm-639-task-context, live remote main ad0dce76147b2857241ca6987007698b103536aa, dirty empty, dirtyCandidate false, errors empty.
+- npm run test:task-context: 29/29 PASS. The new invariant keeps evidence examples incidental, excludes their unrelated deep card bodies and still expands declared dependencies. Earlier decisive-plan, explicit source-link and one-hop tests remain green.
+- Actual committed QA handoff directIds is exactly VM-639. In VM-632, source-selected VM-044 and source-selected VM-551 deep contexts this record is incidental and absent from direct handoffs. VM-637 has no committed source card in this checkout; its mention remains non-direct.
+- npm run task -- indexes --check: PASS before evidence edits. Independent read-only full-output/source-link parity confirms every one of 681 cards and 1060 handoffs represented.
+- Git confirms strict admission/report/helper implementations and existing compatibility fixtures unchanged, retaining independently executed 43 admission and two report PASS results. Product assets/data, frozen gates, package/CI commands and their prior deterministic evidence also remain unchanged. No repeat of those unaffected suites is justified by the narrow correction.
+- All five original VM-637 preservation hashes rechecked and matching. Archive content remains unchanged from the earlier complete baseline/blob/hash proof.
+- Full baseline-to-final git diff --check: PASS. Material accounting below is freshly Git-derived and validated before delivery.
+
+All eight card criteria now have sufficient engineering evidence; both discovered regressions are resolved. No new material finding or changed-behavior coverage gap remains. Historical metadata ambiguity, explicit one-hop limits, possible unavailable remote facts, bounded pair recovery and existing model-prior warnings retain their previously stated non-blocking dispositions. CPU-heavy/browser/certification scope remains NOT REQUIRED. The bounded Owner review path above now applies to this final candidate.
 
 ## Reviewer Output and Not Touched
 
@@ -79,8 +97,8 @@ Reviewer authored only this handoff to bind independent evidence and the resolve
 ## Material candidate
 
 - Baseline: `ad0dce76147b2857241ca6987007698b103536aa`
-- Candidate: `f1924e13e82e7fb2a87f54d4ce389e7476457de1`
-- Changed paths: `25`
+- Candidate: `b627b552241941ea9ec6079f6a3fc04b75d229b9`
+- Changed paths: `26`
 
 ## Files changed
 
@@ -98,6 +116,7 @@ Reviewer authored only this handoff to bind independent evidence and the resolve
 - `docs/archive/phase4-manual-views/board.md`
 - `docs/archive/phase4-manual-views/manifest.json`
 - `docs/handoffs/2026-09-07-1300-codex-vm639-task-context.md`
+- `docs/handoffs/2026-09-07-1300-independent-robqa-vm639-task-context.md`
 - `docs/handoffs/HANDOFF_INDEX.md`
 - `docs/kanban/board.md`
 - `docs/kanban/in-progress/VM-639-task-context.md`
@@ -112,4 +131,4 @@ Reviewer authored only this handoff to bind independent evidence and the resolve
 
 ## Repository State at Review
 
-Material accounting above comes from git diff --name-status --find-renames baseline..candidate. Review HEAD equals candidate, so committed final branch delta equals material delta. This handoff is subsequent uncommitted evidence, outside that material list. Only this handoff is expected untracked after writing; main-agent evidence/index changes require separate final Git accounting. No competing edit counter was used.
+Material accounting comes from git diff --name-status --find-renames baseline..candidate. Final review HEAD is b627b552241941ea9ec6079f6a3fc04b75d229b9, so the committed final branch delta equals the material delta. The historical withdrawn QA record is part of this material candidate; this final PASS update is subsequent uncommitted evidence. The reviewer changed only this handoff after clean-candidate verification. Main-agent evidence/index updates require separate final Git accounting and material-byte preservation. No commit, index write, push or merge was performed by this reviewer.

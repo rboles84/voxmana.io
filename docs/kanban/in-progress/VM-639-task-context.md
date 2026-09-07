@@ -2,7 +2,7 @@
 
 ID: VM-639
 Title: Generated Views and Progressive Task Rehydration
-Status: In Progress
+Status: Owner Review
 Type: Governance / repository tooling
 Created: 2026-09-07
 
@@ -19,20 +19,20 @@ Implement the Owner-approved Phase 4 plan and all fifteen pre-implementation cor
 - [x] Generate both indexes deterministically with validated pair replacement and preservation of unexpected manual edits.
 - [x] Minimal conflicting-instruction cutover only; no bulk card normalization or later-phase work.
 - [x] Preserve VM-637 exact sources and tracker backups separately; no VM-637 material enters this task.
-- [ ] Focused Node/Git/document tests, retained admission/report compatibility, and existing deterministic validation pass; independent exact-candidate RobQA required.
+- [x] Focused Node/Git/document tests, retained admission/report compatibility, and existing deterministic validation pass; independent exact-candidate RobQA required.
 
 ## Delivery
 
 Record version: 1
 Branch: codex/vm-639-task-context
 Admission baseline: ad0dce76147b2857241ca6987007698b103536aa
-Candidate: PENDING
-RobQA: PENDING; prior candidate superseded after incidental-reference correction.
+Candidate: b627b552241941ea9ec6079f6a3fc04b75d229b9
+RobQA: PASS at b627b552241941ea9ec6079f6a3fc04b75d229b9; SEPARATE independent governance and shared-tool review.
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Decisions: Owner approved Phase 4 and fifteen corrections in this task; admission wrapper only, informational tolerant reader, progressive bounded recall, no bulk normalization, VM-637 remains separate. Stop at independent engineering PASS and Owner Review.
-Evidence: [Independent review history](../../handoffs/2026-09-07-1300-independent-robqa-vm639-task-context.md); [Implementation handoff](../../handoffs/2026-09-07-1300-codex-vm639-task-context.md); [approved course correction](../../plans/workflow-course-correction.md).
+Evidence: [Independent RobQA PASS and review history](../../handoffs/2026-09-07-1300-independent-robqa-vm639-task-context.md); [Implementation handoff](../../handoffs/2026-09-07-1300-codex-vm639-task-context.md); [approved course correction](../../plans/workflow-course-correction.md).
 
 ## Admission Scope
 

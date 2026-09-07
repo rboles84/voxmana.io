@@ -2,7 +2,7 @@
 
 Date: 2026-09-07
 Agent: Codex (main implementation agent)
-Status: Independent review correction; new exact-candidate QA pending.
+Status: Independent engineering PASS; Owner Review pending.
 Related card: [VM-639](../kanban/in-progress/VM-639-task-context.md)
 Related plan: [Course correction](../plans/workflow-course-correction.md)
 Authority: [Task context contract](../reference/task-context.md)
@@ -53,7 +53,7 @@ Strict admission parser/validator/helpers, Git report machinery and compatibilit
 
 ## Follow-Up / Next Suggested Agent
 
-Independent RobQA must re-review the next corrected exact candidate; see the linked independent history. Owner reviews the bounded task interface and approved governance behavior. No push, PR, merge or later-phase work before the corresponding delivery authority.
+Independent RobQA PASS applies to the final corrected candidate; see the linked independent handoff. Owner reviews the bounded task interface and approved governance behavior. No push, PR, merge or later-phase work before the corresponding delivery authority.
 
 ## Independent Review Remediation
 
@@ -71,3 +71,44 @@ Earlier material scope remains preserved in Git at f1924e13e82e7fb2a87f54d4ce389
 ## Final Evidence Inspection Correction
 
 Generated review evidence exposed that IDs used as QA test examples under an Evidence heading were being promoted to direct task relationships. Independent review confirmed the defect and withdrew the preceding PASS. Explicit Related/Dependency/Predecessor/Successor declarations now determine task-ID relationships; evidence/decision source links remain independently retrievable. The regression covers incidental disclosure, absence of unrelated deep card expansion and continued declared dependency expansion. New exact-candidate QA is required. Previously recorded scope and verdict above remain historical only.
+
+## Final Exact-Candidate Review
+
+SEPARATE independent RobQA PASS applies to b627b552241941ea9ec6079f6a3fc04b75d229b9. Both superseded findings are resolved; Owner and integration remain PENDING. The reviewer reran 29 focused fixtures, clean live admission, complete derived-view parity and the actual example-ID boundary; 43 unchanged admission and two unchanged report fixtures retain their independently verified results. All source records remain represented, including the historical index rows whose relationship labels changed. VM-637 hashes match. No additional coverage gap remains.
+
+Subsequent changes record this result, card/plan lifecycle state and faithful derived views only. Generator, retrieval contract, policies, parser, tests and archive bytes remain identical to the exact material candidate. Final B/C/evidence-HEAD accounting is in the external VM-639-owner-review.md report. No push, PR or merge; Phase 5 remains untouched.
+
+## Material candidate
+
+- Baseline: `ad0dce76147b2857241ca6987007698b103536aa`
+- Candidate: `b627b552241941ea9ec6079f6a3fc04b75d229b9`
+- Changed paths: `26`
+
+## Files changed
+
+- `.codex/prompts/board.md`
+- `.codex/prompts/docs.md`
+- `.codex/prompts/json.md`
+- `.codex/prompts/plan.md`
+- `.codex/prompts/preflight.md`
+- `.codex/prompts/test.md`
+- `.github/workflows/validation.yml`
+- `AGENTS.md`
+- `docs/archive/phase4-manual-views/.gitattributes`
+- `docs/archive/phase4-manual-views/HANDOFF_INDEX.md`
+- `docs/archive/phase4-manual-views/README.md`
+- `docs/archive/phase4-manual-views/board.md`
+- `docs/archive/phase4-manual-views/manifest.json`
+- `docs/handoffs/2026-09-07-1300-codex-vm639-task-context.md`
+- `docs/handoffs/2026-09-07-1300-independent-robqa-vm639-task-context.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-639-task-context.md`
+- `docs/plans/workflow-course-correction.md`
+- `docs/reference/task-context.md`
+- `docs/reference/workflow.md`
+- `package.json`
+- `scripts/lib/task-history.mjs`
+- `scripts/lib/task-indexes.mjs`
+- `scripts/task.mjs`
+- `tests/governance/task-context.test.mjs`
