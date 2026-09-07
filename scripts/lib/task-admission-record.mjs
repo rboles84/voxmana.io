@@ -22,6 +22,12 @@ export function idFromFilename(file) {
 export function declaresId(text, task) {
   return [...text.matchAll(/^ID:\s*\x60?([^\x60\s]+)\x60?\s*$/gm)].some((m) => m[1].toUpperCase() === task);
 }
+export function lstatIfPresent(file) {
+  try { return fs.lstatSync(file); } catch (error) {
+    if (error.code === "ENOENT" || error.code === "ENOTDIR") return null;
+    throw error;
+  }
+}
 export function parseScope(text, repoRoot) {
   const body = section(text, "Admission Scope");
   if (!body) throw new Error("Missing Admission Scope");
@@ -38,7 +44,7 @@ export function parseScope(text, repoRoot) {
     const absolute = path.resolve(repoRoot, value);
     let cursor = absolute;
     while (cursor !== path.resolve(repoRoot)) {
-      if (fs.existsSync(cursor) && fs.lstatSync(cursor).isSymbolicLink()) throw new Error("Symlink in scope path: " + value);
+      if (lstatIfPresent(cursor)?.isSymbolicLink()) throw new Error("Symlink in scope path: " + value);
       const parent = path.dirname(cursor);
       if (parent === cursor) throw new Error("Scope escapes repository: " + value);
       cursor = parent;

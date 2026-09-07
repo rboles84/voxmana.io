@@ -79,10 +79,21 @@ Non-goals: later-phase routing/indexing/protection/QA-runner work, product chang
 
 Substantive governance and integration tooling requires SEPARATE exact-candidate QA. Use focused Node/Git
 contract tests and QA-0 document checks; ordinary required PR CI remains at the accepted delivery stage.
-Development results: all 35 admission scenarios and both change-report compatibility cases pass. Syntax
+Development results: all 43 admission scenarios and both change-report compatibility cases pass. Syntax
 checks and diff whitespace pass. A live VM-638 continue check passed with in-scope dirty development
 changes and explicitly reported dirtyCandidate; independent exact-candidate evidence follows.
 No local browser, visual, Placement, semantic, CRIT, SIRF, or exhaustive product suite is justified.
+
+## Independent Review Corrections
+
+Independent review blocked candidate `8f10cb5500c0e6679c13b90b21da9615ecafa354`: requested-ID discovery
+could miss uncommitted records in another worktree or legacy records on retained local branches, and
+dangling junctions bypassed link checks guarded by existsSync. These were reproducible admission defects.
+Discovery now reconciles requested records across local branch heads and registered worktrees, accepting
+copies from canonical task history while blocking new/conflicting records. Link inspection uses lstat,
+including dangling links; unreadable linked Kanban paths fail discovery. Eight regression cases cover
+the defects and valid inherited/unrelated records. The replacement exact candidate requires fresh
+independent evidence; the superseded candidate is not eligible for Owner acceptance.
 
 ## Phase Accounting
 

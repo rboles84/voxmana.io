@@ -189,7 +189,11 @@ Inspect existing cards, relevant branches, and registered worktrees first. If on
 same-task admission exists, return RESUME and use continue on that existing branch/worktree; do not
 create another branch or admission commit. Conflicting or multiple same-task records block.
 Requested-ID ambiguity blocks even among historical records. Duplicates for other IDs and unrelated
-historical branches do not block. Preserve suffix-bearing IDs and match complete identities.
+historical branches do not block. Discovery inspects requested-ID records on every local branch and in
+both HEAD and current files of every registered worktree, including legacy records without admission
+metadata. Identical inherited cards and their versions in the canonical task history are one record;
+new, missing, duplicate, or conflicting requested-ID records require reconciliation. Linked Kanban
+paths that prevent complete discovery also block. Preserve suffix-bearing IDs and match complete identities.
 
 Normal sequence: start -> create the task branch from the permitted starting commit -> create/update
 the card and board -> commit only those admission records -> continue -> implementation.

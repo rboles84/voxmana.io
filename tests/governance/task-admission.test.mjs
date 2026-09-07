@@ -300,3 +300,76 @@ test("a changed dependency head cannot exclude already inherited commits", (t) =
   admit(f, "VM-2", { dependency: { task: "VM-1", head: a.head } });
   blocked(run(f, "VM-2"), /records|admission/i);
 });
+
+
+test("requested-ID discovery blocks an uncommitted card in another worktree on an unhelpful branch", (t) => {
+  const f = fixture(t), other = path.join(f.directory, "other");
+  git(f.repo, "worktree", "add", "-qb", "unhelpful-name", other, "main");
+  write(other, "docs/kanban/in-progress/VM-1-task.md", cardText(f, "VM-1", "unhelpful-name", ["allowed/"]));
+  blocked(run(f, "VM-1", "start", { branch: "codex/vm-1-new" }), /Uncommitted.*registered worktree/);
+});
+
+test("requested-ID discovery blocks a differently named duplicate in another worktree before resume", (t) => {
+  const f = fixture(t); admit(f);
+  const other = path.join(f.directory, "other");
+  git(f.repo, "worktree", "add", "-qb", "unrelated", other, "main");
+  write(other, "docs/kanban/done/odd-history.md", "ID: VM-1\nStatus: Done\n");
+  blocked(run(f, "VM-1", "start", { branch: "codex/vm-1-new" }), /Uncommitted.*registered worktree/);
+});
+
+test("requested-ID discovery surfaces legacy requested records on retained local branches", (t) => {
+  const f = fixture(t);
+  git(f.repo, "switch", "-qc", "old-unrelated-branch");
+  write(f.repo, "docs/kanban/backlog/VM-1-old.md", "ID: VM-1\nStatus: Backlog\n");
+  commit(f.repo, "legacy requested ID"); git(f.repo, "switch", "-q", "main");
+  blocked(run(f, "VM-1", "start", { branch: "codex/vm-1-new" }), /Requested-ID record exists/);
+});
+
+test("requested-ID discovery permits identical and ancestral inherited cards without duplicate admission", (t) => {
+  const f = fixture(t), a = admit(f), other = path.join(f.directory, "other");
+  git(f.repo, "worktree", "add", "-qb", "unrelated", other, a.head);
+  assert.equal(run(f).status, "PASS");
+  write(f.repo, a.card, fs.readFileSync(path.join(f.repo, a.card), "utf8").replace("Task notes.", "Updated task notes."));
+  commit(f.repo, "update task notes");
+  write(other, "peer.txt", "unrelated branch change"); commit(other, "peer changes after fork");
+  const result = run(f);
+  assert.equal(result.status, "PASS", result.errors.join("\n"));
+});
+
+test("requested-ID discovery rejects conflicting committed records even on retained unrelated branches", (t) => {
+  const f = fixture(t), a = admit(f);
+  git(f.repo, "switch", "-qc", "retained");
+  write(f.repo, a.card, fs.readFileSync(path.join(f.repo, a.card), "utf8").replace("Task notes.", "Independent conflicting record."));
+  commit(f.repo, "conflicting task record");
+  git(f.repo, "switch", "-q", a.branch);
+  blocked(run(f), /Conflicting requested-ID record/);
+});
+
+test("requested-ID discovery does not block unrelated duplicate IDs in another worktree", (t) => {
+  const f = fixture(t), other = path.join(f.directory, "other");
+  git(f.repo, "worktree", "add", "-qb", "unrelated", other, "main");
+  write(other, "docs/kanban/done/VM-9-one.md", "ID: VM-9\nStatus: Done\n");
+  write(other, "docs/kanban/done/VM-9-two.md", "ID: VM-9\nStatus: Done\n");
+  const result = run(f, "VM-1", "start", { branch: "codex/vm-1-new" });
+  assert.equal(result.status, "ELIGIBLE", result.errors.join("\n"));
+});
+
+test("dangling junctions cannot declare scope or hide changed-path ancestry", (t) => {
+  const f = fixture(t); admit(f);
+  fs.symlinkSync(path.join(f.directory, "missing-scope"), path.join(f.repo, "dangling"), "junction");
+  assert.throws(() => parseScope("## Admission Scope\n\n- " + tick + "dangling/" + tick, f.repo), /Symlink/);
+  fs.unlinkSync(path.join(f.repo, "dangling"));
+  write(f.repo, "allowed/pending/file.txt", "tracked"); commit(f.repo, "allowed payload");
+  const pending = path.resolve(f.repo, "allowed/pending");
+  assert(pending.startsWith(path.resolve(f.repo) + path.sep));
+  fs.rmSync(pending, { recursive: true });
+  fs.symlinkSync(path.join(f.directory, "missing-changes"), pending, "junction");
+  blocked(run(f), /Symlink changed path/);
+});
+
+test("dangling Kanban junctions block requested-ID discovery instead of hiding records", (t) => {
+  const f = fixture(t), other = path.join(f.directory, "other");
+  git(f.repo, "worktree", "add", "-qb", "unrelated", other, "main");
+  fs.symlinkSync(path.join(f.directory, "missing-cards"), path.join(other, "docs/kanban/hidden"), "junction");
+  blocked(run(f, "VM-1", "start", { branch: "codex/vm-1-new" }), /Symlink prevents requested-ID discovery/);
+});

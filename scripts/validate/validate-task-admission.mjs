@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { readGit, gitDiffChanges, gitChangeSet } from "./validate-change-report.mjs";
-import { TASK_ID, CLOSED, field, idFromFilename, declaresId, parseRecord, inScope, immutableRecord, withoutScopeDecision } from "../lib/task-admission-record.mjs";
+import { TASK_ID, CLOSED, lstatIfPresent, field, idFromFilename, declaresId, parseRecord, inScope, immutableRecord, withoutScopeDecision } from "../lib/task-admission-record.mjs";
 
 const BOARD = "docs/kanban/board.md";
 function git(root, args) { return readGit(root, args).trim(); }
@@ -33,18 +33,21 @@ function oneRecord(root, revision, task) {
 function workingRecords(root, task) {
   const result = [];
   function walk(folder) {
-    if (!fs.existsSync(folder)) return;
+    const info = lstatIfPresent(folder);
+    check(!info?.isSymbolicLink(), "Symlink prevents requested-ID discovery: " + folder);
+    if (!info) return;
     for (const item of fs.readdirSync(folder, { withFileTypes: true })) {
       const absolute = path.join(folder, item.name);
-      if (item.isSymbolicLink()) continue;
+      check(!item.isSymbolicLink(), "Symlink prevents requested-ID discovery: " + absolute);
       if (item.isDirectory()) walk(absolute);
       else if (item.name.endsWith(".md")) {
         const text = fs.readFileSync(absolute, "utf8");
         const file = path.relative(root, absolute).replaceAll("\\", "/");
-        if (idFromFilename(file) === task || declaresId(text, task)) result.push(file);
+        if (idFromFilename(file) === task || declaresId(text, task)) result.push({ file, text });
       }
     }
   }
+  check(!lstatIfPresent(path.join(root, "docs"))?.isSymbolicLink(), "Symlink prevents requested-ID discovery: docs");
   walk(path.join(root, "docs/kanban"));
   return result;
 }
@@ -78,7 +81,7 @@ function safePaths(root, files, scope, label) {
     const resolvedRoot = path.resolve(root);
     check(cursor.startsWith(resolvedRoot + path.sep), "Path escapes repository: " + file);
     while (cursor !== resolvedRoot) {
-      check(!fs.existsSync(cursor) || !fs.lstatSync(cursor).isSymbolicLink(), "Symlink changed path requires reconciliation: " + file);
+      check(!lstatIfPresent(cursor)?.isSymbolicLink(), "Symlink changed path requires reconciliation: " + file);
       cursor = path.dirname(cursor);
     }
   }
@@ -152,15 +155,50 @@ function audit(root, head, task, main, seen = new Set()) {
 }
 function relatedBranches(root, task) {
   const refs = git(root, ["for-each-ref", "--format=%(refname:short)", "refs/heads"]).split("\n").filter(Boolean);
-  const result = new Set(), token = new RegExp("(^|[/_-])" + task.toLowerCase() + "($|[-_/])", "i");
+  const records = [], result = new Set(), token = new RegExp("(^|[/_-])" + task.toLowerCase() + "($|[-_/])", "i");
   for (const ref of refs) {
     if (ref !== "main" && token.test(ref)) result.add(ref);
-    for (const candidate of recordAt(root, ref, task)) {
+    const candidates = recordAt(root, ref, task);
+    records.push({ revision: ref, records: candidates });
+    for (const candidate of candidates) {
       const branch = candidate.text.match(/^Branch:\s*\x60?([^\x60\r\n]+?)\x60?\s*$/m)?.[1];
       if (branch && refs.includes(branch)) result.add(branch);
     }
   }
-  return [...result];
+  return { branches: [...result], snapshots: records };
+}
+
+function validateDiscoveredRecords(root, task, canonical, snapshots, trees) {
+  const current = recordAt(root, canonical, task);
+  check(current.length <= 1, "Duplicate/ambiguous records for requested task " + task);
+  const same = (a, b) => a.file === b.file && a.text.replaceAll("\r\n", "\n") === b.text.replaceAll("\r\n", "\n");
+  const historical = new Map();
+  function inspect(records, location) {
+    check(records.length <= 1, "Duplicate/ambiguous records for requested task " + task + " at " + location);
+    for (const record of records) {
+      check(field(record.text, "ID").toUpperCase() === task, "Requested task filename and ID disagree at " + location);
+      check(current.length === 1, "Requested-ID record exists outside the current task record; reconcile " + location);
+      if (same(record, current[0])) continue;
+      if (!historical.has(record.file)) {
+        const commits = git(root, ["log", "--format=%H", canonical, "--", record.file]).split("\n").filter(Boolean);
+        historical.set(record.file, commits.map((sha) => optional(root, ["show", sha + ":" + record.file])).filter((text) => text !== null)
+          .map((text) => ({ file: record.file, text: text.trimEnd() })));
+      }
+      check(historical.get(record.file).some((old) => same(old, { ...record, text: record.text.trimEnd() })),
+        "Conflicting requested-ID record outside canonical task history; reconcile " + location + ":" + record.file);
+    }
+  }
+  for (const snapshot of snapshots) inspect(snapshot.records, snapshot.revision);
+  for (const tree of trees) {
+    check(lstatIfPresent(tree.path)?.isDirectory(), "Registered worktree unavailable; reconcile " + tree.path);
+    const committed = recordAt(root, tree.head, task), working = workingRecords(tree.path, task);
+    inspect(committed, tree.path);
+    check(working.length <= 1, "Duplicate/ambiguous records for requested task " + task + " at " + tree.path);
+    check(working.length === committed.length && working.every((record) => committed.some((old) => old.file === record.file)),
+      "Uncommitted/missing requested-ID record in registered worktree; reconcile " + tree.path);
+    if (tree.branch !== canonical) check(working.every((record, index) => same(record, committed[index])),
+      "Requested-ID record edited outside its owning branch; reconcile " + tree.path);
+  }
 }
 
 /** Read-only admission: remote observation is performed by Git, never supplied as a baseline argument. */
@@ -185,7 +223,7 @@ export function validateAdmission({ repoRoot = process.cwd(), task, mode, branch
     const localRecords = recordAt(root, head, task), diskRecords = workingRecords(root, task);
     check(localRecords.length <= 1 && diskRecords.length <= 1, "Duplicate/ambiguous records for requested task " + task);
     if (localRecords.length === 1) check(field(localRecords[0].text, "ID").toUpperCase() === task, "Requested task filename and ID disagree");
-    const related = relatedBranches(root, task); result.relatedBranches = related;
+    const discovered = relatedBranches(root, task), related = discovered.branches; result.relatedBranches = related;
     const taskToken = new RegExp("(^|[/_-])" + task.toLowerCase() + "($|[-_/])", "i");
     const knownBranch = localRecords[0]?.text.match(/^Branch:\s*\x60?([^\x60\r\n]+?)\x60?\s*$/m)?.[1];
     const remoteRelated = remoteBranches.filter((item) => taskToken.test(item.name) || item.name === knownBranch);
@@ -196,6 +234,7 @@ export function validateAdmission({ repoRoot = process.cwd(), task, mode, branch
     check(related.length <= 1, "Multiple existing same-task branches; reconcile: " + related.join(", "));
     const matchingTrees = result.worktrees.filter((item) => related.includes(item.branch));
     check(matchingTrees.length <= 1, "Multiple same-task worktrees; reconcile existing work");
+    validateDiscoveredRecords(root, task, related[0] ?? currentBranch, discovered.snapshots, result.worktrees);
     if (mode === "start" && related.length === 1) {
       const existing = audit(root, git(root, ["rev-parse", related[0]]), task, main);
       check(existing.record.branch === related[0] && ["In Progress", "Owner Review", "Accepted"].includes(existing.record.status), "Existing same-task record is closed or inconsistent; reconcile");
@@ -247,7 +286,7 @@ export function validateAdmission({ repoRoot = process.cwd(), task, mode, branch
     const checked = audit(root, head, task, main);
     check(checked.record.branch === currentBranch, "Current branch is owned by another task");
     check(["In Progress", "Owner Review", "Accepted"].includes(checked.record.status), "Task is not active for continuation; reconcile its committed status");
-    check(diskRecords.length === 1 && diskRecords[0] === checked.record.file, "Working card is missing/moved/ambiguous; committed record remains authoritative");
+    check(diskRecords.length === 1 && diskRecords[0].file === checked.record.file, "Working card is missing/moved/ambiguous; committed record remains authoritative");
     safePaths(root, endpoints(dirty), checked.record.scope, "Working change");
     const staged = gitDiffChanges(root, ["--cached", head]), unstaged = gitDiffChanges(root, []);
     safePaths(root, endpoints([...staged.entries, ...unstaged.entries]), checked.record.scope, "Index/worktree change");
