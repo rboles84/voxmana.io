@@ -23,7 +23,7 @@ npm run task -- indexes --write
 ```
 
 Context and handoff lookup are read-only. JSON is available for machine consumption. Unknown/duplicate flags are errors. Exact task IDs include letter suffixes. Ambiguity lists all source paths; --card must select one matching source and is accepted only for informational context.
-Admission forwards existing start/continue and dependency options directly to the strict validator, including its existing exits: PASS/ELIGIBLE 0, RESUME 2, BLOCKED 1. No historical selection, archive or generated metadata enters this delegation. Candidate, integration and closeout stages return unsupported-stage with exit 1 and no readiness verdict. They remain deferred to Phase 6.
+Admission forwards existing start/continue and dependency options directly to the strict validator, including its existing exits: PASS/ELIGIBLE 0, RESUME 2, BLOCKED 1. No historical selection, archive or generated metadata enters this delegation. Candidate, integration and closeout use the separately implemented [read-only delivery checks](task-delivery.md). Historical context, archives and generated views cannot supply their decisions.
 Context exits 0 for a selected packet, 2 for ambiguity and 1 for missing/invalid input. These are retrieval outcomes, never engineering or lifecycle decisions. Index checking exits 0 when fresh and 1 for stale/unavailable/invalid input; that is output freshness only.
 
 ## Focused and Deep Rehydration

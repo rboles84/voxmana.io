@@ -55,6 +55,7 @@
     "test:vm547-browser": "node scripts/vm547-discovery-browser.mjs",
     "test:faction-context-isolation": "node tests/semantic/faction-context-isolation-tests.js",
     "test:source-generated": "node scripts/validate/validate-source-generated-guardrails.mjs",
+    "test:task-delivery": "node --test tests/governance/task-delivery.test.mjs",
     "test:change-report": "node --test tests/governance/change-report-validator.test.mjs",
     "test:identity-dossier-content": "node scripts/build/build-identity-dossier-content-catalog.mjs --check",
     "test:wubrg-semantic-repair": "node tests/archscry/wubrg-semantic-repair-tests.js",

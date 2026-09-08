@@ -156,11 +156,11 @@ test('durable protection and reusable admission examples do not carry transition
   assert.doesNotMatch(admission, /--task=VM-\d+/);
 });
 
-test('delivery routes remain canonical and deferred stage enforcement is stated honestly', () => {
+test('delivery routes remain canonical and stage invocation is explicit', () => {
   for (const anchor of ['ship-vm-', 'accept-vm-', 'reject-vm--reason']) {
     assert.ok(links('AGENTS.md').includes(`docs/reference/workflow.md#${anchor}`));
   }
-  assert.match(section('docs/reference/workflow.md', 'Required Reading Model'), /Candidate\/integration\/closeout CLI checks remain unimplemented until Phase 6/);
-  // Actual unsupported-stage/delegation behavior is exercised by the retained task-context suite.
+  assert.match(section('docs/reference/workflow.md', 'Required Reading Model'), /read-only delivery checks/);
+  // Unknown-stage/admission behavior remains covered by task-context; delivery has focused fixtures.
   assert.ok(links('docs/reference/workflow.md').includes('task-context.md#focused-and-deep-rehydration'));
 });

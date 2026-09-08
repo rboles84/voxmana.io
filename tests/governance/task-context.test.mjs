@@ -159,7 +159,7 @@ test("wrapper delegates exact existing arguments and preserves verdict exits", (
   }
 });
 test("unsupported stages never invoke admission or emit synthetic readiness", () => {
-  for (const stage of ["candidate", "integration", "closeout"]) {
+  for (const stage of ["unknown", "deploy", "release"]) {
     let output = "", called = false;
     const exit = run(["check", "VM-001", "--stage=" + stage], { stdout(s) { output = s; }, stderr() {}, admission() { called = true; } });
     assert.equal(exit, 1); assert.equal(called, false); assert.equal(JSON.parse(output).kind, "unsupported-stage");

@@ -1,4 +1,4 @@
-<!-- task-view-sha256:4e7085815c5cb71a6c1cbd52755b8b52e6af9bdca6d009ec4bc93b64caba5cc0 -->
+<!-- task-view-sha256:171b3780de564588e38979c6c049392e2eb51ff95adbb9ba3ced25262d444dc3 -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -8,7 +8,12 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 
 | Authored / filename date | Agent | Handoff | Related task references | Diagnostics |
 |---|---|---|---|---|
+| 2026-09-08T15:30:00Z (authored) | Codex / RobDev | [VM-641 — Phase 6 deterministic delivery checks](2026-09-08-1100-codex-vm641-delivery-checks.md) | VM-641 | Identity displayed from heading; not admission metadata. |
 | 2026-09-08T00:00:00Z (authored) | Codex (delivery coordinator) | [VM-640 — Integration and Lifecycle Closeout](2026-09-08-0835-codex-vm640-integration-closeout.md) | VM-640 | Identity displayed from heading; not admission metadata. |
+| 2026-09-08T00:00:00Z (authored) | vm641_independent_qa | [VM-641 — Independent exact-candidate RobQA](2026-09-08-1100-independent-robqa-vm641-delivery-checks.md) | VM-641 | Identity displayed from heading; not admission metadata. |
+| 2026-09-08T00:00:00Z (authored) | vm641_independent_qa | [VM-641 — Independent corrected-candidate review](2026-09-08-1545-independent-robqa-vm641-corrections.md) | VM-641 | Identity displayed from heading; not admission metadata. |
+| 2026-09-08T00:00:00Z (authored) | vm641_independent_qa | [VM-641 — Independent Linux CI fixture correction review](2026-09-08-1635-independent-robqa-vm641-linux-ci.md) | VM-641 | Identity displayed from heading; not admission metadata. |
+| 2026-09-08T00:00:00Z (authored) | vm641_independent_qa | [VM-641 — Independent final exact-candidate RobQA](2026-09-08-1700-independent-robqa-vm641-final.md) | VM-641 | Identity displayed from heading; not admission metadata. |
 | 2026-09-07T00:00:00Z (authored) | Codex (main implementation agent) | [VM-632 — GitHub Operation Routing](2026-09-07-0000-codex-vm632-github-routing.md) | VM-632 | Identity displayed from heading; not admission metadata. |
 | 2026-09-07T00:00:00Z (authored) | Codex independent reviewer (vm632_independent_qa) | [VM-632 Independent RobQA — GitHub Operation Routing](2026-09-07-0000-independent-robqa-vm632-github-routing.md) | VM-632 | Identity displayed from heading; not admission metadata. |
 | 2026-09-07T00:00:00Z (authored) | Codex (main integration and closeout agent) | [VM-632 — Owner-Accepted Integration And Closeout](2026-09-07-1156-codex-vm632-owner-accepted-closeout.md) | VM-632 | Identity displayed from heading; not admission metadata. |
