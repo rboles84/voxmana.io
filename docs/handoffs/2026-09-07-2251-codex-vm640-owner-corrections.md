@@ -94,3 +94,7 @@ RobQA: PASS at b6c8eebbfda1efd528ad6d29a11c0a604febcc4c. Execution: SEPARATE by 
 This binding supersedes implementation-time pending statements above. The old independent report remains unchanged historical evidence of the rejected candidate. The six new tests also reject the old operating text in a temporary fixture and pass this corrected candidate.
 
 The shortest Owner review is AGENTS plus workflow preflight/reading, single-active-work, admission sequence and durable protection policy. Judge fresh-agent usability; deterministic checks need no manual replay. Preserve the two existing model-prior warnings as non-blocking. Only evidence and deterministic lifecycle-derived views follow this candidate; instruction/tool/parser/test bytes remain fixed. No push, merge, closeout or Phase 6.
+
+## Owner acceptance and integration authorization
+
+On 2026-09-08 the Owner ACCEPTED exact material candidate b6c8eebbfda1efd528ad6d29a11c0a604febcc4c and authorized established integration/closeout. The preceding Owner-PENDING and no-publication statements record earlier stages. Independent QA remains valid; only lifecycle evidence has changed. Context/admission confirmed clean worktree and live main at the recorded baseline. GitHub connector discovery and authenticated repository metadata support PR operations and an expected-head guarded squash merge. Native Git remains the transport. VM-637 integration preservation includes exact source bytes, full tracker backups and matching VM-637 tracker lines. Phase 6 remains unstarted.

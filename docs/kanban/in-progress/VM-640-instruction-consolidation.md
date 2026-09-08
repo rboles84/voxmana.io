@@ -2,7 +2,7 @@
 
 ID: VM-640
 Title: Workflow Instruction Consolidation and Context Reduction
-Status: Owner Review
+Status: Accepted
 Type: Governance / documentation
 Created: 2026-09-07
 
@@ -28,7 +28,7 @@ Branch: codex/vm-640-instruction-consolidation
 Admission baseline: c6dc83a754f75c7a5afc9db66e771fa42215b6e8
 Candidate: b6c8eebbfda1efd528ad6d29a11c0a604febcc4c
 RobQA: PASS at b6c8eebbfda1efd528ad6d29a11c0a604febcc4c — SEPARATE; [corrected independent evidence](../../handoffs/2026-09-07-2251-independent-robqa-vm640-owner-corrections.md)
-Owner: PENDING at b6c8eebbfda1efd528ad6d29a11c0a604febcc4c; prior REJECT preserved below
+Owner: ACCEPTED at b6c8eebbfda1efd528ad6d29a11c0a604febcc4c — explicit Owner ACCEPT on 2026-09-08 authorizes integration and lifecycle closeout; preserve VM-637; Phase 6 remains unstarted.
 Integration: PENDING
 Dependencies: None
 Decisions: Owner explicitly authorized one clean admitted Phase 5 worktree, subtractive consolidation, preserved Phase 1–4 behavior and VM-637, independent exact-candidate QA and stop at Owner Review. No Phase 6 work or publication. Scope amendment: add two separate correction/review handoffs to preserve the superseded candidate evidence unchanged.
@@ -68,3 +68,7 @@ No validators/Phase 4 parser/CLI changes, new enforcement/engine/roles, product/
 ## Owner rejection and correction history
 
 Owner REJECTED material candidate 7bfa3485cd2cf0a68d13a1b18cf6441128d9efe5 after evidence head 3554416024ebdf6447469404a32485cb684b71d0. The prior independent PASS remains historical, not current readiness. Owner request (2026-09-07): remove duplicate preflight/admission reconstruction, correct generated-view admission wording, retire VM-625/datetime transition state from active policy, stage role reading, genericize examples and verify the bounded authority inventory. Keep the same branch, preserve VM-637 and all previous evidence, create a new material candidate and run independent QA. No push, merge, completion or Phase 6.
+
+## Owner acceptance
+
+Owner ACCEPT on 2026-09-08 binds b6c8eebbfda1efd528ad6d29a11c0a604febcc4c and authorizes the established guarded integration and closeout. It supersedes the prior stop-before-publication instruction for VM-640 only; Phase 6 is not started.
