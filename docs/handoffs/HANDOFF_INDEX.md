@@ -1,4 +1,4 @@
-<!-- task-view-sha256:d615f457f37406cf2c7991b287769f28ed3dc1f97c1752962ec5866fbeb9a806 -->
+<!-- task-view-sha256:985b7294d2c240a8c435eb1540be44fc5a6dbd3c83f857592b75cb2991e14b78 -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -16,6 +16,7 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 | 2026-09-07T00:00:00Z (authored) | Codex (RobDev implementation) | [VM-640 — Workflow Instruction Consolidation](2026-09-07-2130-codex-vm640-instruction-consolidation.md) | VM-640 | Identity displayed from heading; not admission metadata. |
 | 2026-09-07T00:00:00Z (authored) | Codex independent reviewer (vm640_independent_qa) | [VM-640 Independent RobQA — Instruction Consolidation](2026-09-07-2130-independent-robqa-vm640-instruction-consolidation.md) | VM-640 | Identity displayed from heading; not admission metadata. |
 | 2026-09-07T00:00:00Z (authored) | Codex (RobDev correction) | [VM-640 — Bounded Owner Corrections](2026-09-07-2251-codex-vm640-owner-corrections.md) | VM-640 | Identity displayed from heading; not admission metadata. |
+| 2026-09-07T00:00:00Z (authored) | vm640_correction_qa (separate independent reviewer) | [VM-640 — Independent RobQA of Owner Corrections](2026-09-07-2251-independent-robqa-vm640-owner-corrections.md) | VM-640 | Identity displayed from heading; not admission metadata. |
 | 2026-09-06T18:02:00Z (filename) | Kepler, independent RobQA reviewer (vm638_independent_qa) | [VM-638 Independent RobQA — Task Admission](2026-09-06-1802-independent-robqa-vm638-task-admission.md) | VM-638 | Identity displayed from heading; not admission metadata. |
 | 2026-09-06T12:32:00Z (filename) | Codex | [VM-636 — Owner-accepted integration and closeout](2026-09-06-1232-codex-vm636-owner-accepted-closeout.md) | VM-636 | Identity displayed from heading; not admission metadata. |
 | 2026-09-06T12:15:00Z (filename) | Codex | [VM-636 — Atlas Mana Alignment Matrix](2026-09-06-1215-codex-vm636-atlas-mana-matrix.md) | VM-636, VM-625 | Identity displayed from heading; not admission metadata. |

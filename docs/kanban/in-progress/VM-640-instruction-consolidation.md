@@ -2,7 +2,7 @@
 
 ID: VM-640
 Title: Workflow Instruction Consolidation and Context Reduction
-Status: In Progress
+Status: Owner Review
 Type: Governance / documentation
 Created: 2026-09-07
 
@@ -19,20 +19,20 @@ Implement Owner-approved Phase 5: subtract duplicate/superseded active instructi
 - [x] Specialist triggers, source/provenance, independent review, handoff duties and stop conditions remain discoverable and controlling.
 - [x] Phase 4 tooling, retrieval/deep/disclosure/raw access, generated-view behavior and archive bytes remain unchanged; history and VM-637 remain preserved.
 - [x] Focused link/anchor/instruction checks, context/admission/report compatibility, view freshness and existing deterministic validation pass.
-- [ ] Independent exact-candidate RobQA confirms all seven scenario paths, burden reduction and no safeguard loss; stop at Owner Review without push/merge/Phase 6.
+- [x] Independent exact-candidate RobQA confirms all seven scenario paths, burden reduction and no safeguard loss; stop at Owner Review without push/merge/Phase 6.
 
 ## Delivery
 
 Record version: 1
 Branch: codex/vm-640-instruction-consolidation
 Admission baseline: c6dc83a754f75c7a5afc9db66e771fa42215b6e8
-Candidate: PENDING
-RobQA: PENDING — prior exact-candidate PASS retained as superseded evidence
-Owner: PENDING for corrected candidate; prior REJECT preserved below
+Candidate: b6c8eebbfda1efd528ad6d29a11c0a604febcc4c
+RobQA: PASS at b6c8eebbfda1efd528ad6d29a11c0a604febcc4c — SEPARATE; [corrected independent evidence](../../handoffs/2026-09-07-2251-independent-robqa-vm640-owner-corrections.md)
+Owner: PENDING at b6c8eebbfda1efd528ad6d29a11c0a604febcc4c; prior REJECT preserved below
 Integration: PENDING
 Dependencies: None
 Decisions: Owner explicitly authorized one clean admitted Phase 5 worktree, subtractive consolidation, preserved Phase 1–4 behavior and VM-637, independent exact-candidate QA and stop at Owner Review. No Phase 6 work or publication. Scope amendment: add two separate correction/review handoffs to preserve the superseded candidate evidence unchanged.
-Evidence: [Correction handoff](../../handoffs/2026-09-07-2251-codex-vm640-owner-corrections.md); [Implementation handoff](../../handoffs/2026-09-07-2130-codex-vm640-instruction-consolidation.md); [Independent RobQA](../../handoffs/2026-09-07-2130-independent-robqa-vm640-instruction-consolidation.md); [Course correction](../../plans/workflow-course-correction.md); [Phase 5 inventory and measurements](../../plans/vm640-instruction-consolidation.md).
+Evidence: [Corrected independent QA](../../handoffs/2026-09-07-2251-independent-robqa-vm640-owner-corrections.md); [Correction handoff](../../handoffs/2026-09-07-2251-codex-vm640-owner-corrections.md); [Superseded implementation handoff](../../handoffs/2026-09-07-2130-codex-vm640-instruction-consolidation.md); [Superseded independent RobQA](../../handoffs/2026-09-07-2130-independent-robqa-vm640-instruction-consolidation.md); [Course correction](../../plans/workflow-course-correction.md); [Phase 5 inventory and measurements](../../plans/vm640-instruction-consolidation.md).
 
 ## Admission Scope
 

@@ -13,9 +13,45 @@ Prior independent evidence: [Original QA](2026-09-07-2130-independent-robqa-vm64
 
 Owner rejection request; targeted VM-640 packet/disclosure; current AGENTS, workflow, role skills and unchanged full passes; original plan and QA; existing task-context contract and admission/source ownership; focused tests and deterministic CI. Applied repo-local RobDev; RobQA governs the selected QA-0 document test breadth with SEPARATE execution for substantive governance.
 
+## Material candidate
+
+- Baseline: `c6dc83a754f75c7a5afc9db66e771fa42215b6e8`
+- Candidate: `b6c8eebbfda1efd528ad6d29a11c0a604febcc4c`
+- Changed paths: `29`
+
 ## Files changed
 
-The corrected material candidate is pending. Git-derived material/correction/evidence accounting will be attached after the commit is pinned; no edit-counter list is asserted here.
+- `.agents/skills/robdev/SKILL.md`
+- `.agents/skills/robdev/robdev.md`
+- `.agents/skills/robqa/SKILL.md`
+- `.agents/skills/robqa/robqa.md`
+- `.codex/prompts/board.md`
+- `.codex/prompts/docs.md`
+- `.codex/prompts/json.md`
+- `.codex/prompts/plan.md`
+- `.codex/prompts/preflight.md`
+- `.codex/prompts/test.md`
+- `.github/pull_request_template.md`
+- `.github/workflows/validation.yml`
+- `AGENTS.md`
+- `README.md`
+- `docs/README.md`
+- `docs/dev/RobDevPass.md`
+- `docs/handoffs/2026-09-07-2130-codex-vm640-instruction-consolidation.md`
+- `docs/handoffs/2026-09-07-2130-independent-robqa-vm640-instruction-consolidation.md`
+- `docs/handoffs/2026-09-07-2251-codex-vm640-owner-corrections.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-640-instruction-consolidation.md`
+- `docs/plans/vm640-instruction-consolidation.md`
+- `docs/plans/workflow-course-correction.md`
+- `docs/qa/vox-mana-test-plan.md`
+- `docs/reference/README.md`
+- `docs/reference/workflow.md`
+- `package.json`
+- `tests/governance/workflow-instructions.test.mjs`
+
+This is the full Phase 5 baseline-to-corrected-candidate scope, including the retained prior QA history. It is not merely the last correction commit. Subsequent independent QA/card/derived-view records are evidence-only and do not replace this material scope.
 
 ## What changed and why
 
@@ -50,3 +86,11 @@ Prose-equivalence requires independent review beyond keyword/link checks. The pr
 Independent RobQA must inspect the full baseline-to-corrected-candidate scope, Owner-requested delta and all seven scenarios, confirm preservation and accurate metrics, then return the exact candidate to Owner Review. No push, merge, task closeout or later phase.
 
 Next suggested agent: Separate independent RobQA reviewer.
+
+## Current exact-candidate Owner Review binding
+
+RobQA: PASS at b6c8eebbfda1efd528ad6d29a11c0a604febcc4c. Execution: SEPARATE by [correction reviewer](2026-09-07-2251-independent-robqa-vm640-owner-corrections.md). Owner: PENDING. Integration: PENDING. The reviewer independently reran all 86 document/compatibility cases and verified seven scenarios, protected contracts, revised metrics, clean candidate admission and all five VM-637 hashes. No blocker remains identified.
+
+This binding supersedes implementation-time pending statements above. The old independent report remains unchanged historical evidence of the rejected candidate. The six new tests also reject the old operating text in a temporary fixture and pass this corrected candidate.
+
+The shortest Owner review is AGENTS plus workflow preflight/reading, single-active-work, admission sequence and durable protection policy. Judge fresh-agent usability; deterministic checks need no manual replay. Preserve the two existing model-prior warnings as non-blocking. Only evidence and deterministic lifecycle-derived views follow this candidate; instruction/tool/parser/test bytes remain fixed. No push, merge, closeout or Phase 6.
