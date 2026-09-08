@@ -136,3 +136,11 @@ No push, PR, merge, integration or later-phase work. VM-637's original authored 
 - `tests/governance/workflow-instructions.test.mjs`
 
 This primary material scope includes both preserved blocked-review artifacts because they were committed before C3. The new final PASS handoff and subsequent lifecycle records are post-candidate evidence and are accounted separately in the final external Owner report.
+
+## Owner acceptance and integration preparation
+
+Owner ACCEPT explicitly binds material 0a2830054480d2b8d17d3fdee4e499402338801f, not evidence HEAD f0a062e925bca131ab314fd7ccfc0557f1a66c01. The original decision is preserved at C:/Users/obake/.codex/visualizations/2026/09/05/01a073d2-da16-7462-a7ef-bc8eb59ce4a0/vm641-owner-acceptance.md and will be linked by the PR. Acceptance authorizes the established guarded squash integration and lifecycle closeout, exact VM-637 preservation, and no later governance phase. Independent exact-candidate PASS remains valid; all material/tool/policy/test bytes are unchanged.
+
+Preflight: current admission PASS, clean feature worktree, same baseline/local/live main cf0d8b34ca4ce1f06a9f92ccb48f50dfb78dcbc8, no existing task PR, and all five original VM-637 hashes match. Existing separate QA and bounded correction history were rehydrated. Delivery work changes lifecycle/evidence only; no new material implementation or QA policy.
+
+Connector discovery found authenticated repository administration/push metadata and expected-head guarded squash capability. Connector protection read was denied (403), and its branch-rule endpoint was unsupported. The established REST/GCM route was used only for these read-only policy facts: main is unprotected, no active branch rules and no repository rulesets. Existing process safeguards remain enforced; no settings/auth change. Native Git retains fetch/push; connector retains PR/CI/merge.

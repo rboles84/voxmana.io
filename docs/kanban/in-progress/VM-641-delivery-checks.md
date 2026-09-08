@@ -2,7 +2,7 @@
 
 ID: VM-641
 Title: Deterministic Candidate, Integration and Closeout Checks
-Status: Owner Review
+Status: Accepted
 Type: Governance / tooling
 Created: 2026-09-08
 
@@ -27,7 +27,7 @@ Branch: codex/vm-641-delivery-checks
 Admission baseline: cf0d8b34ca4ce1f06a9f92ccb48f50dfb78dcbc8
 Candidate: 0a2830054480d2b8d17d3fdee4e499402338801f
 RobQA: PASS at 0a2830054480d2b8d17d3fdee4e499402338801f — SEPARATE; [independent final QA](../../handoffs/2026-09-08-1700-independent-robqa-vm641-final.md)
-Owner: PENDING
+Owner: ACCEPTED at 0a2830054480d2b8d17d3fdee4e499402338801f — current Owner conversation; original decision retained in integration evidence
 Integration: PENDING
 Dependencies: None
 Decisions: Owner authorized Phase 6 after VM-640 Done, one newly admitted isolated branch/worktree, existing rules only, exact VM-637 preservation and independent QA before Owner Review. Scope amendment: export the existing read-only admission history audit for post-squash closeout without changing strict parser or validation semantics. Scope amendment: retain the blocked exact-candidate QA artifact unchanged and add a separate corrected-candidate independent review handoff. Scope amendment: preserve the blocked corrected-candidate review and admit a distinct final independent QA handoff for the bounded scope/optional-evidence/invocation corrections.
