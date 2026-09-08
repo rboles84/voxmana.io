@@ -4,20 +4,13 @@ Spawn a JSON Cartographer subagent.
 
 ## Required Pre-Flight
 
-Before JSON/data work:
-- Read `AGENTS.md`
-- Run `npm run task -- context VM-###`; use the [context disclosure and deep/raw retrieval](../../docs/reference/task-context.md) as needed.
-- Read recent relevant handoffs
-- Review disclosed related task records; a full generated-board read is not routine preflight.
-- Read related cards
+Read [AGENTS](../../AGENTS.md) and follow the [stage reading model and preflight](../../docs/reference/workflow.md#required-reading-model). Retrieve [targeted task context](../../docs/reference/task-context.md#focused-and-deep-rehydration), expanding deep/raw sources when needed. Use [existing admission](../../docs/reference/workflow.md#task-admission) for new/resumed material work.
 
 ## Task
 
 Map, validate, and explain the Vox Mana JSON/data layer.
 
 ## Rules
-
-Apply `docs/reference/token-reasoning-cost-control.md`; keep checks proportionate without omitting any checks required by this prompt.
 
 Allowed:
 - Inventory JSON files.
@@ -30,7 +23,6 @@ Allowed:
 - Detect stale fields.
 - Recommend validation improvements.
 - Create documentation reports.
-- Create the required handoff and regenerate derived views with `npm run task -- indexes --write`.
 
 Not allowed:
 - Invent lore or commander facts.
@@ -54,10 +46,4 @@ Return Markdown with:
 
 ## Required Handoff
 
-Create a handoff file:
-
-`docs/handoffs/YYYY-MM-DD-HHMM-json-cartographer-short-task.md`
-
-Regenerate/check derived views after editing source records:
-
-`npm run task -- indexes --write` then `npm run task -- indexes --check`
+Follow [Required Agent Handoff](../../docs/reference/workflow.md#required-agent-handoff), including the role's attributed report, applicable gate packet, [Git accounting](../../docs/reference/workflow.md#final-git-reporting-contract) and [generated-view maintenance/freshness](../../docs/reference/task-context.md#generated-views-and-safe-replacement).

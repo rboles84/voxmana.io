@@ -8,14 +8,9 @@ The individual card in `docs/kanban/` owns declared task state. Git and GitHub e
 candidate, CI, and integration facts; reconcile the card with those observations before acting. Board,
 handoff, and PR summaries reference the card and evidence rather than independently deciding its state.
 
-- `docs/kanban/board.md` summarizes the active board.
-- `docs/kanban/backlog/` contains unscheduled cards.
-- `docs/kanban/ready/` contains scoped work ready to start.
-- `docs/kanban/in-progress/` contains active work.
-- `docs/kanban/blocked/` contains paused work with blockers.
-- `docs/kanban/done/` contains completed work.
+The [lifecycle table](#lifecycle-states-and-transitions) owns card-folder mapping. The [generated board](task-context.md) is a derived navigation view.
 
-GitHub Issues and GitHub Projects may mirror this state when useful, but they are optional and should not replace the local board unless the project explicitly changes this workflow.
+GitHub Issues and GitHub Projects may mirror card state when useful; they do not replace the authoritative cards or turn generated views into state owners.
 
 ## Task Context and Derived Views
 
@@ -26,44 +21,122 @@ The strict admission validator remains the sole admission authority; retrieval n
 
 ## Standard Flow
 
-For non-trivial work:
+For non-trivial work: preflight -> planning -> Kanban update -> implementation -> testing -> documentation update -> handoff. Apply the [reading model](#required-reading-model) and [preflight](#mandatory-pre-flight-review) before implementation. Use [RobDev](../../.agents/skills/robdev/SKILL.md) before implementation and [RobQA](../../.agents/skills/robqa/SKILL.md) when entering test selection or QA; their full passes and triggered specialists govern substance.
 
-1. Run the pre-flight review from `AGENTS.md`.
-2. Create or identify the relevant Kanban card.
-3. Use the repo-local [RobDev skill](../../.agents/skills/robdev/SKILL.md) and its [usage guide](../../.agents/skills/robdev/robdev.md), then apply the frozen [RobDevPass authority](../dev/RobDevPass.md).
-4. Implement the scoped change.
-5. Use the repo-local [RobQA skill](../../.agents/skills/robqa/SKILL.md) and its [usage guide](../../.agents/skills/robqa/robqa.md), then apply the frozen [RobQAPass authority](../qa/RobQAPass.md) before selecting tests.
-6. Run the narrowest risk-proportional objective checks. Under OWNER-VISUAL MODE, add focused browser automation only when objective changed behavior cannot reasonably be protected below the browser; defer subjective visual review to the Owner.
-7. Update affected docs when behavior, data contracts, workflows, or public surfaces change.
-8. Create or update source cards/handoffs, then run `npm run task -- indexes --write` and `npm run task -- indexes --check`; do not manually author derived-view summaries.
+Use the [existing delivery commands](#standard-branch-to-owner-to-pr-to-merge-delivery) and [handoff/reporting contracts](#required-agent-handoff). Small read-only questions, quick status checks and simple command lookups do not need a card or handoff unless they reveal follow-up work.
 
-Apply [Token And Reasoning Cost Control](token-reasoning-cost-control.md): perform proportionate checks by default. Broaden validation only when the current Owner request explicitly asks for it or a current stricter protected workflow requires it for the changed risk.
+## Mandatory Pre-Flight Review
 
-Use the [standard delivery sequence](#standard-branch-to-owner-to-pr-to-merge-delivery): SHIP ends with
-engineering PASS and pending Owner Review. Owner visual/product judgment precedes ACCEPT and integration,
-not completion of engineering PASS.
+Use the selected task's [context packet](task-context.md#focused-and-deep-rehydration) as normal rehydration before meaningful planning, implementation, documentation, data or testing work. Review its authored card, Git observations, evidence and disclosure; satisfy source-reading obligations from material already included. Do not separately reread handoffs, related cards or plans already supplied by the packet, or reconstruct board/index state.
 
-The current Owner request and canonical governance determine scope. Historical cards, handoffs, test catalogs,
-or phrases such as "all existing tests," "no skipped tests," and "full validation" do not authorize
-indiscriminate historical-harness execution. A browser is an engineering tool, not a ritual.
+Expand only when disclosure shows relevant omissions or unavailable observations, or task risk, contradiction, unfamiliarity or an applicable specialist requires more evidence. Follow the [reading model](#required-reading-model) for deep/raw access and role timing. Discoverable source paths are navigation, not an unconditional reading list; never treat omission as proof that no relevant history exists.
 
-The operating sequence is: **Request -> repo-local RobDev skill / RobDevPass -> implementation -> repo-local RobQA skill / RobQAPass -> owner judgment -> integration.** The skills explain and invoke the workflow; the frozen pass documents remain authoritative. Both defer to stricter project-specific authorities.
+Before implementation, summarize the grounded scope/Owner decisions, related work and changed files, known risks and do-not-touch boundaries using the packet and any necessary expansion. If no relevant handoff exists, state: `No relevant prior handoff found.` Use [admission](#task-admission) results for task ownership, branch/worktree discovery and scope; do not reproduce those checks manually.
 
-`RobQAPass` governs how QA scope is selected and how owner acceptance is prepared. It does not replace project-specific commands or stricter protected contracts. The command lists in this workflow and the comprehensive test plan are catalogs, not automatic per-change checklists; CPU-heavy or exhaustive suites require a concrete changed-risk justification.
+## Required Reading Model
 
-Small read-only questions, quick status checks, and simple command lookups do not need a Kanban card or handoff unless they reveal follow-up work.
+For ordinary implementation, follow this staged path:
+
+1. Read repository [AGENTS](../../AGENTS.md).
+2. Run `npm run task -- context VM-###`. Review the packet, its [disclosure](task-context.md#focused-and-deep-rehydration) and directly required source material. Included authored sources fulfill the corresponding reading; do not fetch them again merely because another instruction names their category.
+3. Apply [admission start/continue](#task-admission) at the required boundary and act on its observed verdict. The [single-active-work rule](#single-active-work-branch-and-worktree) preserves the human decisions left outside the validator.
+4. Load the [RobDev skill](../../.agents/skills/robdev/SKILL.md) and full governing pass before implementation/planning, then inspect the task-specific source/code/docs needed to perform that work.
+5. Expand context only for relevant disclosed gaps, risk, contradiction, unfamiliarity or a [triggered specialist](#source-bound-data-work-modes). Use `npm run task -- context VM-### --deep` and direct raw-source inspection as needed. Full indexes, historical handoffs/cards/plans, archives, Git history and decisive old evidence remain accessible; retrieval does not resolve legacy ambiguity or authorize work.
+
+At test selection, candidate QA or Owner Review preparation, load the [RobQA skill](../../.agents/skills/robqa/SKILL.md) and full governing pass. Do not preload RobQA for ordinary implementation. A QA task may enter here directly; a plan selecting tests invokes both roles at the relevant stage. Reuse already-read unchanged authority in the current task; compatibility usage guides add no mandatory hop.
+
+At shipping/Owner acceptance/integration, read the applicable [delivery contract](#standard-branch-to-owner-to-pr-to-merge-delivery), evidence rules and [capability routing](#github-operation-routing) before host operations. Use [handoff/reporting](#required-agent-handoff) at transfer. The [cost policy](token-reasoning-cost-control.md) applies throughout and cannot waive a safeguard. Context authority lists and atlases are conditional navigation, not instructions to preload all roles or specialists.
+
+Before a new card exists, use relevant predecessor context/raw sources, then admission start. Historical records preserve event-time rationale; old procedures do not override current authority. Less mandatory reading, same accessible knowledge: targeted retrieval is an optimization layer, not an information boundary. Candidate/integration/closeout CLI checks remain unimplemented until Phase 6; existing workflow obligations still govern those stages.
+
+## Optional Work Intake Triage
+
+For non-CRIT, non-certification, non-destructive, non-migration work, an agent may run a lightweight intake check before planning when scope is ambiguous or likely to exceed one window.
+
+Record:
+
+1. Verdict: proceed, shrink, table, or stop.
+2. Smallest safe version.
+3. Review level.
+4. Stop condition.
+
+This triage cannot weaken existing program, CRIT-001, source-authority, MTG factual, Kanban, handoff, or destructive-change governance. If another card, prompt, or program requires stricter workflow, the stricter rule wins.
+
+## Single Active Work Branch And Worktree
+
+Keep one active branch/worktree for a continuing task; resume valid existing work rather than duplicating or replacing it. Before creating or resuming material work, follow [Task Admission](#task-admission) start/continue and obey ELIGIBLE, PASS, RESUME or BLOCKED. Admission owns same-task discovery, ownership, ancestry and scope checks; do not independently reconstruct that discovery before invoking it.
+
+RESUME directs continuation in the reported work; it never authorizes another admission. BLOCKED requires the reported reconciliation, not a replacement branch or repaired history. A suggested branch name does not waive these results.
+
+Human authority remains required for a genuinely separate dependency/isolation exception, including exact-SHA review isolation, and for deleting, force-removing, merging or consolidating existing work. Explain why the existing worktree cannot safely serve the requested exception and obtain explicit Owner authority before creating another; a dependency authorization reference does not prove authentic consent. Preserve unrelated WIP and reconcile ambiguous task meaning with the Owner. Escalate for those decisions or a validator-reported reconciliation requirement, not for routine discovery already resolved by admission.
+
+## Required Agent Handoff
+
+Every specialist subagent and every major main-agent task must create or update a handoff file.
+
+Location:
+
+`docs/handoffs/`
+
+Filename format:
+
+`YYYY-MM-DD-HHMM-agent-name-short-task.md`
+
+Every handoff must include:
+- Agent name
+- Task requested
+- Files reviewed
+- Files changed
+- What changed
+- Why it changed
+- Decisions made
+- Risks / uncertainties
+- Tests run
+- Not touched
+- Follow-up recommendations
+- Next suggested agent
+- Related Kanban card, docs, or plans
+
+Implementation handoffs must use the repo-local `robdev` skill and transfer the compact packet from [RobDevPass](../dev/RobDevPass.md#18-handoff-to-robqapass). Handoffs that claim owner-QA readiness must also use the repo-local `robqa` skill and the readiness fields in [RobQAPass](../qa/RobQAPass.md#24-robqapass-exit-criteria); reference the skills and frozen gates rather than restating their policies.
+
+After updating source cards/handoffs, follow the [generated-view maintenance and freshness contract](task-context.md#generated-views-and-safe-replacement); both views must be current. Do not hand-maintain derived summaries.
+
+## Final Git Reporting Contract
+
+For every implementation task with Git changes, Git is the authority for final changed-file accounting.
+Before the final response, identify the task baseline and derive the material path list and count from
+`git diff --name-status --find-renames <task-baseline>..<material-candidate>` (or baseline to final `HEAD`
+when there is no separate material candidate). Compute the count from that output. Do not substitute
+remembered edits, opened files, patch history, tool/UI edit totals, or a hand-authored list.
+
+When commits follow the material candidate, report three scopes distinctly:
+
+- **Material change set:** task baseline to material candidate; this is the primary Files changed list.
+- **Evidence delta:** material candidate to evidence head; label it explicitly as evidence-only and never
+  present it as the whole task diff.
+- **Final branch delta:** task baseline to current `HEAD`; use it as the total-branch sanity check.
+
+The final report must name the baseline, material candidate when applicable, current evidence head/`HEAD`,
+Git-derived material count and paths, and Git-confirmed worktree state. Report push and merge state from Git
+or the repository host rather than assumption. If another edit counter disagrees with Git, Git wins and the
+material discrepancy must be disclosed. Keep trivial read-only or no-change work proportional.
+
+Use `node scripts/validate/validate-change-report.mjs --baseline=<sha> --candidate=<sha> --report=<path>
+[--evidence-head=<sha>]` for a Markdown handoff/report that states an explicit count or enumerates changed
+paths. The validator must pass before such a report is treated as authoritative.
 
 ## Source-Bound Data Work Modes
 
-Faction identity, placement, dossier, and gold-standard parity cards must follow the source-bound rule in [Source / Generated Guardrails](source-generated-guardrails.md).
+Apply bounded specialist authorities when the changed scope triggers them; do not load every specialist guide for ordinary work.
 
-- Recon cards may inspect generated/runtime surfaces only to identify gaps.
-- Review cards may approve, reject, or narrow proposed repairs, but must not promote missing evidence into source backing.
-- Review cards may authorize later repair cards only after the source category for each field is known.
-- Repair cards may edit only fields backed by existing official researched data.
-- Source-intake cards may fetch or add new legitimate sources, but must record them in the appropriate source/evidence ledger before generated/display parity work consumes them.
-- Implementation cards must classify every changed or preserved field as one of: `backed-repair`, `source-normalization`, `source-intake-needed`, or `blocked-noncanonical`.
-- Runtime/generated files may be regenerated from canonical source, but not hand-edited as source.
+| Trigger | Governing source |
+|---|---|
+| Faction identity, placement, dossier or gold-standard parity/source authoring | [Source / Generated Guardrails and work modes](source-generated-guardrails.md#work-mode-rules), [data contracts](data-contracts.md), and the active card's approved source/producer |
+| Semantic claim entailment, provenance or certification | [Semantic Readiness Contract](semantic-readiness-contract.md), current certified source and applicable incident/program |
+| Any CRIT-001 Goal, review, remediation or certification task | Mandatory [drift-control baseline](../incidents/CRIT-001-drift-control-template.md) and [controlling incident](../incidents/CRIT-001-faction-semantic-readiness-integrity.md); apply every triggered checkpoint and stop on FAIL/UNKNOWN |
+| SIRF meaning-fidelity work | [SIRF workspace and required governing process](../sirf/SIRF-README.md); read the full applicable SIRF authority |
+| Placement, CECOS, Scryfall facts, enrichment or evidence-role changes | [RobDev authority router](../dev/RobDevPass.md#5-vox-mana-authority-router) and the current card's distinct approved contracts; structural validity never substitutes for meaning/approval |
+| Route/shared state, security, migration, accessibility or protected integration | Owning contract/source identified by [RobDev](../dev/RobDevPass.md), [route ownership](../architecture/route-ownership-matrix.md), and [RobQA classification](../qa/RobQAPass.md#2-mandatory-pre-qa-classification); retain any stricter bounded gate |
 
 ## Kanban Cards
 
@@ -183,8 +256,8 @@ It replaces repeated manual reconstruction of branch ownership, admission baseli
 The card owns declared task metadata; Git supplies repository facts.
 
 ```text
-npm run validate:admission -- --task=VM-638 --mode=start --branch=codex/vm-638-task-admission
-npm run validate:admission -- --task=VM-638 --mode=continue
+npm run validate:admission -- --task=VM-### --mode=start --branch=codex/vm-###-<purpose>
+npm run validate:admission -- --task=VM-### --mode=continue
 ```
 
 Append `--json` for structured facts. Exit codes: `0` for ELIGIBLE or PASS, `2` for RESUME,
@@ -193,8 +266,8 @@ implementation only. Neither is RobQA PASS, Owner acceptance, or proof of a clea
 
 **Start is pre-admission.** For an unused exact ID it checks the environment without requiring a card
 or validating Admission Scope. Normal admission requires clean local main equal to live remote main.
-Inspect existing cards, relevant branches, and registered worktrees first. If one consistent unfinished
-same-task admission exists, return RESUME and use continue on that existing branch/worktree; do not
+The validator inspects existing cards, relevant branches and registered worktrees. If one consistent
+unfinished same-task admission exists, it returns RESUME; use continue on that existing branch/worktree; do not
 create another branch or admission commit. Conflicting or multiple same-task records block.
 Requested-ID ambiguity blocks even among historical records. Duplicates for other IDs and unrelated
 historical branches do not block. Discovery inspects requested-ID records on every local branch and in
@@ -204,12 +277,12 @@ new, missing, duplicate, or conflicting requested-ID records require reconciliat
 paths that prevent complete discovery also block. Preserve suffix-bearing IDs and match complete identities.
 
 Normal sequence: start -> create the task branch from the permitted starting commit -> create/update
-the card and board -> commit only those admission records -> continue -> implementation.
+the authoritative admission card -> regenerate/check derived views under [task-context](task-context.md#generated-views-and-safe-replacement) -> commit only the admission card and required derived records -> continue -> implementation. The board and handoff index are never manually authored admission sources.
 The initial admission commit is a durable ownership/scope anchor, not another Owner approval or a
 routine evidence-status commit. A missing/inconsistent existing admission must be reconciled rather
 than replaced. An untracked new card created too early does not establish authority.
 
-**Continue is authoritative admission.** Read ID, Branch, Admission baseline, Dependencies, Decisions,
+**Continue is authoritative admission.** The validator reads ID, Branch, Admission baseline, Dependencies, Decisions,
 and Admission Scope from the committed card. A normal admission commit's parent must equal its recorded
 accepted-main baseline. Validate that baseline in both verified main history and task ancestry.
 Require one matching active card/branch and consistent worktree ownership. Inspect every branch commit
@@ -270,8 +343,7 @@ do not silently substitute a convenient baseline.
 Legacy cards without an admission record are not migrated by this command. An unused ID or unique
 unadmitted Backlog/Ready card may start normally. Existing material work with missing/ambiguous metadata
 must be reconciled through its existing task, preserving its actual history and Owner decisions.
-VM-638 bootstraps this tooling with documented manual Git checks and explicit isolated-worktree authority;
-that bootstrap does not create a general exception for later tasks.
+Historical bootstrap checks and isolation authority remain in the admission implementation history; they are not a normal-path exception. See the original workflow at revision `c6dc83a754f75c7a5afc9db66e771fa42215b6e8` for that event-time record.
 
 **Enforcement limit:** the command owns workflow admission, not filesystem security. Agents must invoke
 it at the stated boundaries; it cannot intercept arbitrary editor writes, prove authenticity of Owner
@@ -374,10 +446,10 @@ Vox Mana uses a small-team trunk-based workflow:
 
 ### Rehydrate Before Acting
 
-Every delivery command begins by establishing the real current state:
+Begin with targeted task context and the required admission result; reuse supplied facts and refresh only what is missing or stale at the relevant delivery boundary:
 
 - current branch, worktree, HEAD, accepted `main`, merge base, and uncommitted work;
-- every branch/worktree associated with the card, under the single-active-worktree rule in `AGENTS.md`;
+- admission results for same-task branch/worktree ownership; apply the [single-active-work rule](#single-active-work-branch-and-worktree) for unresolved human authority;
 - existing PR, if any, including its base/head, Draft state, checks, and changed-file scope;
 - card, RobDev, RobQA, and Owner Review status.
 
@@ -451,14 +523,7 @@ RobQA is a repository process gate, not a pretend second GitHub identity. Do not
 
 ### Main Protection And Exceptions
 
-Repository protection should require a PR and the existing meaningful deterministic CI before merge, prevent force pushes and branch deletion, and avoid a required GitHub approval count. Conversation resolution is required only if the team has already adopted it. Keep administrator bypass available only where the narrow lifecycle-closeout exception requires it, and record what remains process-enforced.
-
-Current and proposed GitHub enforcement as of 2026-09-03:
-
-- **Configured now:** merged feature branches are deleted automatically. This does not change how active VM-625 work may reach `main`.
-- **Deferred transition:** do not activate new `main` protection until this workflow candidate has RobQA PASS, the Owner has accepted it, and VM-625 is no longer relying on the previous direct-integration process.
-- **Proposed protection at that gate:** require PRs and the strict `Deterministic Validation` status check; disable force pushes and deletion of `main`; require zero GitHub approving reviews; leave conversation resolution off; and retain administrator bypass only for the narrow lifecycle-only closeout exception.
-- **Process rule after acceptance:** squash is normal; GitHub's merge/rebase methods remain available only for an explicitly justified exceptional history.
+Intended host protection is PR-based integration with the strict `Deterministic Validation` check, no force pushes or deletion of `main`, zero required GitHub approving reviews and administrator bypass only for the narrow lifecycle-only closeout exception. Conversation resolution is required only if the team has adopted it. These are policy intentions, not a claim about configured host state. Verify actual current settings through the authorized read-only host route when delivery depends on them; record observations and process-enforced gaps in task/PR/handoff evidence. Configuration changes require explicit authority and are outside ordinary fallback or admission. Squash is normal; an exceptional merge/rebase history requires explicit justification.
 
 Direct-to-`main` work is limited to truly trivial repository administration and lifecycle-only closeout that cannot change product behavior. Public UI, JavaScript, CSS, routes, persistence, scoring, identity data, Maze, Loom, Archscry, generated production content, and shared runtime behavior always use a branch and PR. When uncertain, use a branch and PR.
 
@@ -466,26 +531,8 @@ Direct-to-`main` work is limited to truly trivial repository administration and 
 
 Work already underway when this workflow is adopted keeps its accepted card, branch, worktree, commits, tests, and any existing PR. Once it has a coherent candidate, continue at `SHIP` step 3: commit the stable candidate, bind RobQA to that exact commit, and stop for Owner Review. On rejection, use the same correction loop; on acceptance, continue through PR, CI, and merge. Do not restart implementation, replace the branch, or create a second PR merely to conform to this workflow.
 
-VM-625 is the transition guardrail for this initial adoption. It is already implemented on its feature branch and awaiting Owner Review: do not restart or modify its product implementation for workflow conformance. Commit its current stable candidate, bind RobQA evidence to that exact commit, and stop for Owner Review. Rejection uses the amended correction loop; acceptance continues through PR, CI, and merge. Do not enable deferred `main` protection underneath VM-625 while it remains in flight; activate protection only after its transition or completion state is explicit.
+Historical adoption and protection observations remain in Git history and the original task evidence. They are not current task state or activation prerequisites.
 
 ## Checks
 
-For the current static site, each non-trivial change should verify the narrowest relevant subset of:
-
-- Pages still open locally.
-- Shared JavaScript has no obvious console/runtime errors.
-- Navigation and visible content still work.
-- Data, parser, placement, or dossier behavior still passes relevant scripts.
-- Git working tree changes are understood before handoff.
-
-Useful commands include:
-
-```bash
-npm test
-npm run test:parser
-npm run test:builder
-npm run test:bias
-npm run test:mode
-npm run test:placement
-npm run test:syntax
-```
+Select evidence through [RobQA](../qa/RobQAPass.md). [Package scripts](../../package.json) define commands; the [product test catalog](../qa/vox-mana-test-plan.md) supplies conditional cases; [required CI](../../.github/workflows/validation.yml) remains authoritative for integration. Historical test inventories are not blanket execution requirements. Apply [Owner-First verification](../qa/RobQAPass.md#owner-first-visual-verification-policy) for browser/visual scope and harness failures.

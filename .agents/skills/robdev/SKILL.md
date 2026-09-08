@@ -5,8 +5,8 @@ description: Apply Vox Mana's repository-grounded implementation gate before and
 
 # RobDev
 
-Read [robdev.md](robdev.md) completely when this skill applies. It explains how to use the gate in Vox Mana.
+Read and apply the full governing [RobDevPass](../../../docs/dev/RobDevPass.md) before implementation planning or execution. It remains the canonical behavioral authority; applicable specialist gates control their domains.
 
-Before implementation, also read the governing [RobDevPass](../../../docs/dev/RobDevPass.md) completely. The repository authority remains frozen; this skill and its supporting document are invocation and usage layers, not replacements.
+Use the repository [stage reading model](../../../docs/reference/workflow.md#required-reading-model). Transfer the pass's compact implementation packet to the separate RobQA role.
 
-Do not select the final QA tier or suite here. Apply the repo-local [RobQA skill](../robqa/SKILL.md) after implementation.
+[robdev.md](robdev.md) is optional navigation for existing links, not another mandatory contract.

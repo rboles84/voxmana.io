@@ -104,7 +104,7 @@ npm run test:browser-smoke
 
 ## Contributing Safely
 
-Issues and focused feedback are welcome. Before proposing code, data, or documentation changes, read [docs/reference/workflow.md](docs/reference/workflow.md).
+Issues and focused feedback are welcome. Before proposing code, data or documentation changes, enter through [AGENTS](AGENTS.md) and the [stage reading model](docs/reference/workflow.md#required-reading-model).
 
 Changes affecting semantic placement, generated artifacts, research canon, or source-governed data follow protected workflows. Do not directly edit generated artifacts when an authoritative source file or builder should be updated instead.
 

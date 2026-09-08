@@ -2,7 +2,7 @@
 
 Status: Owner-approved implementation plan; staged delivery, not blanket candidate acceptance.
 Source: Owner discussion and approval in the course-correction task, 2026-09-05.
-Current implementation: [VM-633 — Phase 1](../kanban/done/VM-633-lifecycle-state-contract.md) is integrated and closed; [VM-638 — Phase 2](../kanban/done/VM-638-task-admission.md) is integrated and closed after Owner acceptance and PR #31. [VM-632 — Phase 3](../kanban/done/VM-632-github-connector-discovery-before-browser-fallback.md) is integrated and closed after exact-candidate Owner ACCEPT and PR #32; [VM-639 — Phase 4](../kanban/done/VM-639-task-context.md) is integrated and closed after exact-candidate Owner ACCEPT and PR #33. Phase 5 has not begun.
+Current implementation: [VM-633 — Phase 1](../kanban/done/VM-633-lifecycle-state-contract.md) is integrated and closed; [VM-638 — Phase 2](../kanban/done/VM-638-task-admission.md) is integrated and closed after Owner acceptance and PR #31. [VM-632 — Phase 3](../kanban/done/VM-632-github-connector-discovery-before-browser-fallback.md) is integrated and closed after exact-candidate Owner ACCEPT and PR #32; [VM-639 — Phase 4](../kanban/done/VM-639-task-context.md) is integrated and closed after exact-candidate Owner ACCEPT and PR #33. [VM-640 — Phase 5](../kanban/in-progress/VM-640-instruction-consolidation.md) is admitted for Owner-authorized subtractive consolidation; Phase 6 remains unstarted.
 
 ## Outcome And Authority
 
@@ -68,6 +68,8 @@ work; Phase 2 is VM-638. The Owner explicitly authorized isolation to preserve d
 
 ## Phase 4 Interface And Migration Contract
 
+Historical planning record: Phase 4 is now implemented under [task-context](../reference/task-context.md). Retain this rationale without treating prospective wording as current operating instructions.
+
 - `npm run task -- context VM-632`: card, fresh Git observations, decisions, declared dependencies,
   applicable authority pointers, and directly related handoff references; optional JSON output.
 - `npm run task -- check VM-632 --stage=admission`: admission only in Phase 4; candidate, integration and closeout checks remain explicitly unimplemented until Phase 6.
@@ -124,5 +126,7 @@ and unrelated retained branches are outside this course correction unless a late
 explicitly owns the relevant operation.
 
 ## Phase 4 Approved Pre-Implementation Corrections
+
+This paragraph records Phase 4 scope, not a prohibition on the separately approved VM-640 Phase 5 task.
 
 The Owner approved progressive focused/deep retrieval, completeness disclosure, raw-source escape hatches, deterministic authored-date ordering, visible historical ambiguity, unchanged strict admission authority, paired view replacement, exact archive provenance, minimal instruction cutover, separate VM-637 preservation and lifecycle-only derived-output accounting. Apply the implemented [Phase 4 contract](../reference/task-context.md). Targeted retrieval reduces routine reading without reducing accessible knowledge. No later-stage readiness, semantic retrieval infrastructure, bulk normalization or Phase 5 consolidation is authorized.

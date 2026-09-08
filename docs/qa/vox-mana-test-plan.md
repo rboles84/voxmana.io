@@ -5,7 +5,7 @@ Related card: VM-430
 Prepared by: Codex, Senior QA Lead / SDET / Release Readiness Reviewer
 Status: Execution-ready QA plan
 
-Scope-selection invocation: use the repo-local [RobQA skill](../../.agents/skills/robqa/SKILL.md) and [usage guide](../../.agents/skills/robqa/robqa.md), with [RobQAPass](RobQAPass.md) remaining authoritative, before choosing from this plan. This document preserves Vox Mana's product-specific test inventory and contracts; it is not a requirement to run every listed suite for every change.
+Scope-selection invocation: use the repo-local [RobQA skill](../../.agents/skills/robqa/SKILL.md) with [RobQAPass](RobQAPass.md) remaining authoritative, before choosing from this plan. This document preserves Vox Mana's product-specific test inventory and contracts; it is not a requirement to run every listed suite for every change.
 
 Update, 2026-07-03: VM-467 adds `.github/workflows/browser-smoke.yml` as a manual/on-demand browser-smoke pilot. Do not add `npm run test:browser-smoke` to the push/PR hard gate until a hosted manual run is observed green. VM-468 found the currently deployed `voxmana.io` routes load without critical browser console errors, but deployed social metadata is stale versus local VM-451 metadata and should be treated as a sharing hold until redeployed and rechecked.
 
