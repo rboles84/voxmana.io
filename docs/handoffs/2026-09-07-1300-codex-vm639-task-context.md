@@ -112,3 +112,8 @@ Subsequent changes record this result, card/plan lifecycle state and faithful de
 - `scripts/lib/task-indexes.mjs`
 - `scripts/task.mjs`
 - `tests/governance/task-context.test.mjs`
+
+## Owner-Accepted Integration Preflight
+
+Owner explicitly ACCEPTED b627b552241941ea9ec6079f6a3fc04b75d229b9 and authorized established integration/closeout, preserving VM-637 and excluding Phase 5. Rehydrated the same branch/worktree at 94a41377b599031965e6fd4d8936716a554516b7, clean; live/local main remains the recorded baseline. Continue PASS; final independent exact-candidate PASS and material/evidence separation remain valid. Applied the already reviewed RobDev/RobQA gates, workflow delivery/routing, card, relevant index entries, both task handoffs and approved plan. Risks are lifecycle-derived output classification and preserving the original VM-637 dirty checkout; no new implementation risk or independent QA repetition is required for unchanged material bytes.
+GitHub tool discovery found repository/PR/CI/squash-merge connector support including atomic expected-head guard. Authenticated repository permission metadata permits push/admin; exact-branch PR lookup returned none. Use connector for host operations and established native Git for push/fetch. No credential, policy, browser, product or later-phase changes. All five VM-637 preserved files still match their saved hashes.

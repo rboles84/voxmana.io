@@ -2,7 +2,7 @@
 
 ID: VM-639
 Title: Generated Views and Progressive Task Rehydration
-Status: Owner Review
+Status: Accepted
 Type: Governance / repository tooling
 Created: 2026-09-07
 
@@ -28,7 +28,7 @@ Branch: codex/vm-639-task-context
 Admission baseline: ad0dce76147b2857241ca6987007698b103536aa
 Candidate: b627b552241941ea9ec6079f6a3fc04b75d229b9
 RobQA: PASS at b627b552241941ea9ec6079f6a3fc04b75d229b9; SEPARATE independent governance and shared-tool review.
-Owner: PENDING
+Owner: ACCEPTED at b627b552241941ea9ec6079f6a3fc04b75d229b9; explicit Owner ACCEPT in the course-correction task authorizes integration and lifecycle closeout.
 Integration: PENDING
 Dependencies: None
 Decisions: Owner approved Phase 4 and fifteen corrections in this task; admission wrapper only, informational tolerant reader, progressive bounded recall, no bulk normalization, VM-637 remains separate. Stop at independent engineering PASS and Owner Review.
