@@ -2,7 +2,7 @@
 
 ID: VM-641
 Title: Deterministic Candidate, Integration and Closeout Checks
-Status: Integrated
+Status: Done
 Type: Governance / tooling
 Created: 2026-09-08
 

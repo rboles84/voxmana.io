@@ -1,4 +1,4 @@
-<!-- task-view-sha256:9f9c0aa979565149aa050608e1a5918d522528025dc6dbd18caf812f914932a4 -->
+<!-- task-view-sha256:6b85bd130370a450e19f4d40b3e30c7c1a283fdd0aaa76a8573147c1b8aac7cb -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -57,7 +57,6 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 
 | ID | Card | Declared status | Diagnostics |
 |---|---|---|---|
-| VM-641 | [Deterministic Candidate, Integration and Closeout Checks](in-progress/VM-641-delivery-checks.md) | Integrated |  |
 
 ## Blocked
 
@@ -660,6 +659,7 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | VM-638 | [Task Admission, Baseline, and Scope Validation](done/VM-638-task-admission.md) | Done |  |
 | VM-639 | [Generated Views and Progressive Task Rehydration](done/VM-639-task-context.md) | Done |  |
 | VM-640 | [Workflow Instruction Consolidation and Context Reduction](done/VM-640-instruction-consolidation.md) | Done |  |
+| VM-641 | [Deterministic Candidate, Integration and Closeout Checks](done/VM-641-delivery-checks.md) | Done |  |
 
 ## Unresolved
 

@@ -181,3 +181,10 @@ Owner-authorized PR35 was squash merged through the connector with expected-head
 Actual read-only host policy observation found main unprotected, no branch rules or rulesets; required CI and guarded integration were process-enforced. No protection or runner settings were changed. The full 23-path, 13-commit PR scope matched local Git blobs and history. Accepted tooling, policy, tests and retrieval behavior remain unchanged.
 
 The clean feature worktree and local branch were removed after squash parity verification; the remote branch was already absent following hosted merge, confirmed by live Git observation. Ignored task logs were copied byte-for-byte to the external VM-641 evidence directory. VM-637 authored files and original tracker bytes remain preserved in the original hash snapshot and identified temporary stash until final main closeout synchronization. No VM-637 source is committed. No later governance phase has begun.
+
+
+## VM-641 Done lifecycle closeout
+
+Closeout check PASS was obtained at synchronized Integrated main 77b1f3cd87c148044007c4c2e2437ef1214a36da, with authentic exact-C4 Owner/SEPARATE QA evidence, full Git accounting, verified squash identity and completed branch/worktree cleanup. The canonical card is now [Done](../kanban/done/VM-641-delivery-checks.md); its accepted scope, criteria, baseline and material candidate remain unchanged. This commit only records Done and regenerates derived lifecycle rows.
+
+Final-main accounting and the final Done check are retained in the external VM-641 Integration-Closeout report and observation artifacts. After this lifecycle commit is synchronized, restore the three original VM-637 authored sources exactly and regenerate only their local uncommitted derived rows, comparing the original tracker text and source hashes before dropping the identified preservation stash. No later governance phase is authorized by this closeout.
