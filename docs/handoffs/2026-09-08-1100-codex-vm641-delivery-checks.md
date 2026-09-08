@@ -88,3 +88,51 @@ Separate RobQA reviewed 6c1840d9a1d3572c21272d24f867c58a1a0699eb: all 77 deliver
 Final corrections reuse strict inScope for the linked plan lifecycle exception; retain the optional evidence-commit path only for genuine durable QA at the exact clean current HEAD with pending committed candidate/QA/Owner and In Progress lifecycle; reject contradictory or stale records; and bind durable QA before invoking the checker. Admission metadata and integration acceptance remain committed and strict. No existing decision or lifecycle is inferred or overwritten. New regression witnesses cover admitted/unadmitted plans and the positive and rejection boundaries of durable QA binding. A fresh material candidate and separate review are required.
 
 Final correction development checks: ten selected delivery regressions and all twelve instruction-compatibility tests pass. Updated canonical workflow measurement: 6279 to 6264 whitespace-delimited words (15 fewer); earlier counts above retain their event-time scope. The substantive reduction is deterministic fact reconstruction, not a claimed net reduction in all new tooling documentation.
+
+## Final exact-candidate engineering result
+
+Candidate: 0a2830054480d2b8d17d3fdee4e499402338801f
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: vm641_independent_qa
+Owner: PENDING
+
+The [final independent handoff](2026-09-08-1700-independent-robqa-vm641-final.md) records 86 delivery and 86 compatibility cases, nine independent witnesses, required deterministic CI evidence and its explicitly scoped unchanged-byte reuse. Two additional QA-mode fixtures pass following the Owner's confirmation of the existing low-risk exception. No RobQA policy changed; substantive governance requires separate review for VM-641. Authentic task-specific mode permission remains an explicit verified QA responsibility, not a convenience inference.
+
+The actual repository candidate checker passed at clean material HEAD using this genuine durable QA artifact outside the worktree, with no binding-only commit and zero evidence delta. The identical authored handoff bytes were then restored for consolidated lifecycle persistence. This exercise proves the optional path in the actual task, not only in fixtures. This subsequent record changes lifecycle/evidence only; implementation, policy, scope and test contracts remain the exact reviewed candidate.
+
+QA classification: governance/shared delivery verification; separate execution with focused Node/Git/document checks. CPU-heavy certification NOT REQUIRED; no browser or additional product/specialist suite. Existing two model-prior warnings remain non-blocking. Owner review is the command contract's observation/authenticity boundaries and whether the deterministic interface satisfies the approved architecture. The Owner need not repeat deterministic tests.
+
+No push, PR, merge, integration or later-phase work. VM-637's original authored and tracker bytes remain preserved on unchanged main. Stop: Owner Review for this exact candidate.
+
+## Material candidate
+
+- Baseline: `cf0d8b34ca4ce1f06a9f92ccb48f50dfb78dcbc8`
+- Candidate: `0a2830054480d2b8d17d3fdee4e499402338801f`
+- Changed paths: `21`
+
+## Files changed
+
+- `.github/workflows/validation.yml`
+- `docs/handoffs/2026-09-08-1100-codex-vm641-delivery-checks.md`
+- `docs/handoffs/2026-09-08-1100-independent-robqa-vm641-delivery-checks.md`
+- `docs/handoffs/2026-09-08-1545-independent-robqa-vm641-corrections.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-641-delivery-checks.md`
+- `docs/plans/vm641-delivery-checks.md`
+- `docs/plans/workflow-course-correction.md`
+- `docs/reference/task-context.md`
+- `docs/reference/task-delivery.md`
+- `docs/reference/workflow.md`
+- `package.json`
+- `scripts/lib/task-delivery-evidence.mjs`
+- `scripts/lib/task-delivery-host.mjs`
+- `scripts/lib/task-delivery.mjs`
+- `scripts/task.mjs`
+- `scripts/validate/validate-task-admission.mjs`
+- `tests/governance/task-context.test.mjs`
+- `tests/governance/task-delivery.test.mjs`
+- `tests/governance/workflow-instructions.test.mjs`
+
+This primary material scope includes both preserved blocked-review artifacts because they were committed before C3. The new final PASS handoff and subsequent lifecycle records are post-candidate evidence and are accounted separately in the final external Owner report.
