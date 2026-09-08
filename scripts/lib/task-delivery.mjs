@@ -124,7 +124,7 @@ export function checkDelivery({ root = process.cwd(), task, stage, observations,
     const card = strictCard(root, result.head, task, { closed: stage === "closeout" });
     const expectedFolder = card.status === "Done" ? "done" : "in-progress";
     requireFact(card.file.startsWith("docs/kanban/" + expectedFolder + "/"), "Lifecycle status/folder mismatch: " + card.status + " requires " + expectedFolder + "/");
-    result.card = card.file; result.baseline = exactCommit(root, card.baseline); result.candidate = exactCommit(root, card.candidate);
+    result.card = card.file; result.baseline = exactCommit(root, card.baseline);
     const refs = remoteRefs(root); result.remoteMain = refs.main;
     exactCommit(root, refs.main);
     requireFact(git(root, ["rev-parse", "--verify", "refs/remotes/origin/main"]) === refs.main, "Stale origin/main history; explicitly refresh before rerunning (no automatic fetch)");
@@ -132,6 +132,19 @@ export function checkDelivery({ root = process.cwd(), task, stage, observations,
     requireFact(packet.version === 1 && packet.task === task && packet.stage === stage && packet.head === result.head && packet.actor,
       "Observation packet task/stage/head/actor mismatch");
     freshObservation(packet.observedAt, now, "Decision verification");
+    result.candidateBinding = { kind: "committed-card", file: card.file };
+    if (stage === "candidate" && card.candidate === "PENDING") {
+      const delivery = section(card.text, "Delivery");
+      requireFact(card.status === "In Progress" && field(delivery, "RobQA") === "PENDING" && field(delivery, "Owner") === "PENDING",
+        "Durable QA fallback cannot override declared lifecycle or decisions");
+      requireFact(packet.qa?.verified === true, "Acting agent must verify authentic QA before resolving a pending candidate");
+      const qaText = source(root, packet.qa.source, result.head);
+      const candidate = field(qaText, "Candidate");
+      requireFact(candidate === result.head, "Pending candidate requires durable QA bound to the exact current HEAD; reconcile stale evidence");
+      card.candidate = candidate; card.pendingDecision = true;
+      result.candidateBinding = { kind: "durable-qa", source: packet.qa.source, declaredCardCandidate: "PENDING" };
+    }
+    result.candidate = exactCommit(root, card.candidate);
     if (stage !== "closeout") {
       result.admission = validateAdmission({ repoRoot: root, task, mode: "continue" });
       requireFact(result.admission.status === "PASS", "Admission invalid: " + result.admission.errors.join("; "));
@@ -173,6 +186,7 @@ export function checkDelivery({ root = process.cwd(), task, stage, observations,
 export function renderStage(result) {
   const lines = [result.status + " " + result.task + " " + result.stage];
   for (const name of ["card", "baseline", "candidate", "evidenceHead", "head", "remoteMain"]) if (result[name]) lines.push(name + ": " + result[name]);
+  if (result.candidateBinding) lines.push("candidate binding: " + result.candidateBinding.kind);
   for (const name of ["material", "evidence", "total"]) if (result[name]) lines.push(name + " paths: " + result[name].count);
   for (const blocker of result.blockers) lines.push("BLOCKER: " + blocker);
   lines.push(result.note);

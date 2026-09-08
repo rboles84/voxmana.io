@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { createHash } from "node:crypto";
 import { readGit, gitChangeSet } from "../validate/validate-change-report.mjs";
-import { field, section, TASK_ID, idFromFilename, parseRecord } from "./task-admission-record.mjs";
+import { field, section, TASK_ID, idFromFilename, parseRecord, inScope } from "./task-admission-record.mjs";
 import { VIEWS } from "./task-indexes.mjs";
 import { linksFrom } from "./task-history.mjs";
 
@@ -66,9 +66,9 @@ export function decision(root, packet, card, head, kind) {
   requireFact(field(text, "Task") === card.id && field(text, "Candidate") === card.candidate, label + " durable evidence has wrong task/candidate");
   const declared = field(section(card.text, "Delivery"), label);
   if (kind === "qa") {
-    requireFact(field(text, "RobQA") === "PASS" && /^PASS at ([0-9a-f]{40})(?:\s|$)/.exec(declared)?.[1] === card.candidate, "Missing exact-candidate RobQA PASS");
+    requireFact(field(text, "RobQA") === "PASS" && (card.pendingDecision ? declared === "PENDING" : /^PASS at ([0-9a-f]{40})(?:\s|$)/.exec(declared)?.[1] === card.candidate), "Missing exact-candidate RobQA PASS");
     const mode = field(text, "Execution"), reviewer = field(text, "Reviewer"), implementer = field(text, "Implementer");
-    requireFact(reviewer && implementer && declared.includes(mode), "Missing or contradictory QA reviewer/implementer/execution mode");
+    requireFact(reviewer && implementer && (card.pendingDecision || declared.includes(mode)), "Missing or contradictory QA reviewer/implementer/execution mode");
     if (mode === "SEPARATE") requireFact(reviewer !== implementer, "Independent QA requires a separate non-implementing reviewer");
     else requireFact(mode === "SAME-AGENT DISTINCT PHASE" && reviewer === implementer && field(text, "Independence required") === "no" && field(text, "Execution reason").trim(), "Same-agent QA requires the verified bounded-low-risk exception and its reason; stricter independence remains required");
     return { source: verification.source, mode, reviewer, candidate: card.candidate };
@@ -132,6 +132,7 @@ export function evidenceDelta(root, from, to, card, packet, { lifecycle = false,
         continue;
       }
       if (linkedPlans.has(p) && entry.status === "M" && !entry.sourcePath) {
+        requireFact(inScope(p, materialCard.scope), "Linked plan is outside admitted scope: " + p);
         const before = textAt(root, previous, p), after = textAt(root, commit, p);
         const oldStatus = field(before, "Status"), newStatus = field(after, "Status");
         const current = strictCard(root, commit, card.id, { closed: lifecycle });

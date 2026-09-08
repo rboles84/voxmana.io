@@ -40,7 +40,7 @@ function advance(f, label, { reviewed = true } = {}) {
   if (reviewed) review(f, from, to);
   return to;
 }
-function fixture({ linkedPlan = true } = {}) {
+function fixture({ linkedPlan = true, admittedPlan = true, recordQa = true } = {}) {
   const outer = fs.mkdtempSync(path.join(os.tmpdir(), "vox-delivery-")); fixtures.push(outer);
   const root = path.join(outer, "repo"), remote = path.join(outer, "remote.git");
   fs.mkdirSync(root); git(root, "init", "-q", "-b", "main");
@@ -64,11 +64,12 @@ function fixture({ linkedPlan = true } = {}) {
   f.baseline = commit(f, "baseline"); git(root, "push", "-q", "origin", "main"); git(root, "checkout", "-qb", branch);
   const card = "# " + task + " delivery\n\nID: " + task + "\nTitle: Delivery checks\nStatus: In Progress\n\n## Acceptance Criteria\n\n- [ ] Preserve exact behavior.\n\n## Delivery\n\nRecord version: 1\nBranch: " + branch +
     "\nAdmission baseline: " + f.baseline + "\nCandidate: PENDING\nRobQA: PENDING\nOwner: PENDING\nIntegration: PENDING\nDependencies: None\nDecisions: Owner authorized this task.\nEvidence: Pending\n\n## Admission Scope\n\n" +
-    [cardPath, ...VIEWS, "implementation.js", "tests/", "docs/handoffs/task901.md", "docs/plans/task901.md"].map(p => "- \x60" + p + "\x60").join("\n") + "\n";
+    [cardPath, ...VIEWS, "implementation.js", "tests/", "docs/handoffs/task901.md", ...(admittedPlan ? ["docs/plans/task901.md"] : [])].map(p => "- \x60" + p + "\x60").join("\n") + "\n";
   put(root, f.card, card + (linkedPlan ? "\n## References\n\n[Task plan](../../plans/task901.md)\n" : "")); indexes(root, { write: true }); git(root, "add", f.card, VIEWS[0]); git(root, "commit", "-qm", "admission");
   put(root, "implementation.js", "export const value = 2;\n"); f.candidate = commit(f, "material");
   f.packet = { version: 1, task, stage: "candidate", head: f.candidate, observedAt: new Date().toISOString(), actor: "Acting agent", evidenceReviews: [] };
   f.packet.qa = { verified: true, source: ref(f, "qa.md", "Task: " + task + "\nCandidate: " + f.candidate + "\nRobQA: PASS\nExecution: SEPARATE\nReviewer: QA reviewer\nImplementer: Dev\n") };
+  if (!recordQa) { f.reviewHead = f.candidate; return f; }
   modifyCard(f, { Status: "Owner Review", Candidate: f.candidate, RobQA: "PASS at " + f.candidate + " — SEPARATE", Evidence: "QA: " + f.packet.qa.source.file });
   f.reviewHead = advance(f, "QA evidence");
   return f;
@@ -99,8 +100,8 @@ function accounting(f) {
     "\x60\nThis is evidence-only, not the full task diff.\n\n## Evidence-only paths\n\n" + evidence.paths.map(p => "- \x60" + p + "\x60").join("\n") +
     "\n\n## Final main\n\nHead: " + f.packet.head + "\nChanged paths: " + final.count + "\n";
 }
-function closeout({ done = false, keepBranch = false, linkedPlan = true } = {}) {
-  const f = integration({ linkedPlan }), e = f.packet.head;
+function closeout({ done = false, keepBranch = false, linkedPlan = true, admittedPlan = true } = {}) {
+  const f = integration({ linkedPlan, admittedPlan }), e = f.packet.head;
   git(f.root, "checkout", "-q", "main"); git(f.root, "merge", "--squash", branch);
   f.merge = commit(f, "squash"); f.packet.stage = "closeout";
   modifyCard(f, { Status: done ? "Done" : "Integrated", Integration: "INTEGRATED PR7 squash " + f.merge });
@@ -286,10 +287,40 @@ test("closeout regression: referenced admitted plan permits status-only lifecycl
   const f = closeout({ done: true }); put(f.root, "docs/plans/task901.md", get(f.root, "docs/plans/task901.md").replace("Status: In Progress", "Status: Done")); finishCloseoutEvidence(f, "plan lifecycle"); pass(f);
 });
 for (const [name, content, options, pattern] of [
+  ["unadmitted linked plan", "# VM-901 plan\nStatus: Done\nUnchanged material contract.\n", { admittedPlan: false }, /outside admitted scope/],
   ["unlinked plan", "# VM-901 plan\nStatus: Done\nUnchanged material contract.\n", { linkedPlan: false }, /unclassified/],
   ["changed plan prose", "# VM-901 plan\nStatus: Done\nWeakened material contract.\n", {}, /uncertain plan/],
   ["decorated governing status", "# VM-901 plan\nStatus: Done - skip checks\nUnchanged material contract.\n", {}, /uncertain plan/],
   ["status differs from card", "# VM-901 plan\nStatus: Integrated\nUnchanged material contract.\n", {}, /uncertain plan/],
 ]) test("closeout regression: " + name + " cannot become evidence by path", () => {
   const f = closeout({ done: true, ...options }); put(f.root, "docs/plans/task901.md", content); finishCloseoutEvidence(f, name); blocked(f, pattern);
+});
+
+// Durable QA can preserve the optional evidence-commit path without overriding strict admission.
+test("candidate optional evidence: durable exact-HEAD QA needs no binding-only commit", () => {
+  const f = fixture({ recordQa: false }), before = git(f.root, "rev-parse", "HEAD"), r = pass(f);
+  assert.equal(r.candidate, before); assert.equal(r.evidence.count, 0); assert.equal(r.candidateBinding.kind, "durable-qa");
+  assert.equal(git(f.root, "rev-parse", "HEAD"), before); assert.equal(git(f.root, "status", "--porcelain"), "");
+  assert.match(get(f.root, f.card), /Candidate: PENDING/); assert.match(get(f.root, f.card), /RobQA: PENDING/);
+});
+test("candidate optional evidence: unverified QA remains blocked", () => {
+  const f = fixture({ recordQa: false }); f.packet.qa.verified = false; blocked(f, /authentic QA/);
+});
+test("candidate optional evidence: missing durable evidence remains blocked", () => {
+  const f = fixture({ recordQa: false }); delete f.packet.qa.source; blocked(f, /durable source/);
+});
+test("candidate optional evidence: stale source cannot select an earlier candidate", () => {
+  const f = fixture({ recordQa: false }); mutateEvidence(f, "qa", t => t.replace(f.candidate, f.baseline)); blocked(f, /exact current HEAD/);
+});
+test("candidate optional evidence: conflicting card QA cannot be overridden", () => {
+  const f = fixture({ recordQa: false }); modifyCard(f, { RobQA: "BLOCKED" }); f.packet.head = commit(f, "conflicting record"); blocked(f, /cannot override/);
+});
+test("candidate optional evidence: recorded Owner decision cannot be overridden", () => {
+  const f = fixture({ recordQa: false }); modifyCard(f, { Owner: "REJECTED" }); f.packet.head = commit(f, "Owner finding"); blocked(f, /cannot override/);
+});
+test("candidate optional evidence: wrong task source cannot manufacture QA", () => {
+  const f = fixture({ recordQa: false }); mutateEvidence(f, "qa", t => t.replace("Task: VM-901", "Task: VM-902")); blocked(f, /wrong task/);
+});
+test("candidate optional evidence: dirty in-scope changes are still non-exact", () => {
+  const f = fixture({ recordQa: false }); put(f.root, "implementation.js", "export const value = 3;\n"); blocked(f, /dirty.non-exact/);
 });

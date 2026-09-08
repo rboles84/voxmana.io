@@ -39,3 +39,7 @@ Stop: independent engineering PASS and Owner Review; no push/merge/later phases 
 ## Bounded C1 corrections
 
 Independent review of cb4ba61e9f1ac9c8e551c958c2a932c80530a980 blocked advancement. Correct lifecycle/folder agreement and track the verified Done relocation through later evidence commits. Permit only directly linked, admitted plan status-only lifecycle updates matching the card, preserving all other content and exact-delta review. Eight targeted regression cases cover valid lifecycle evidence and protected-content rejection. Preserve the original blocked QA artifact and obtain a fresh separate verdict on the corrected material candidate.
+
+## Final correction boundaries
+
+C2 independent review remained BLOCKED despite green suites. Reuse strict inScope to require admitted linked-plan status updates. Preserve optional evidence commits with an exact clean-HEAD durable-QA candidate path only while committed candidate/QA/Owner are pending and lifecycle is In Progress; contradictions, stale evidence, missing authentic QA and dirty material still block. Prepare durable bindings before checker invocation. Integration still requires declared Accepted and exact recorded QA/Owner bindings. Preserve both blocked reviews and obtain separate QA on the final corrected material candidate.

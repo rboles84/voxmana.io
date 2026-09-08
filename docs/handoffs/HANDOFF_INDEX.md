@@ -1,4 +1,4 @@
-<!-- task-view-sha256:0138238233ae1999d2ae59901d2e70574aa4a4ffc6f02c3ccb515bf7a0682bcb -->
+<!-- task-view-sha256:2e48d20d722555a57b307ac04c236cd32b010840d09e2f294c54a7cc4970b018 -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -11,6 +11,7 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 | 2026-09-08T15:30:00Z (authored) | Codex / RobDev | [VM-641 — Phase 6 deterministic delivery checks](2026-09-08-1100-codex-vm641-delivery-checks.md) | VM-641 | Identity displayed from heading; not admission metadata. |
 | 2026-09-08T00:00:00Z (authored) | Codex (delivery coordinator) | [VM-640 — Integration and Lifecycle Closeout](2026-09-08-0835-codex-vm640-integration-closeout.md) | VM-640 | Identity displayed from heading; not admission metadata. |
 | 2026-09-08T00:00:00Z (authored) | vm641_independent_qa | [VM-641 — Independent exact-candidate RobQA](2026-09-08-1100-independent-robqa-vm641-delivery-checks.md) | VM-641 | Identity displayed from heading; not admission metadata. |
+| 2026-09-08T00:00:00Z (authored) | vm641_independent_qa | [VM-641 — Independent corrected-candidate review](2026-09-08-1545-independent-robqa-vm641-corrections.md) | VM-641 | Identity displayed from heading; not admission metadata. |
 | 2026-09-07T00:00:00Z (authored) | Codex (main implementation agent) | [VM-632 — GitHub Operation Routing](2026-09-07-0000-codex-vm632-github-routing.md) | VM-632 | Identity displayed from heading; not admission metadata. |
 | 2026-09-07T00:00:00Z (authored) | Codex independent reviewer (vm632_independent_qa) | [VM-632 Independent RobQA — GitHub Operation Routing](2026-09-07-0000-independent-robqa-vm632-github-routing.md) | VM-632 | Identity displayed from heading; not admission metadata. |
 | 2026-09-07T00:00:00Z (authored) | Codex (main integration and closeout agent) | [VM-632 — Owner-Accepted Integration And Closeout](2026-09-07-1156-codex-vm632-owner-accepted-closeout.md) | VM-632 | Identity displayed from heading; not admission metadata. |

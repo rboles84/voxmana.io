@@ -80,3 +80,11 @@ Separate RobQA reviewed cb4ba61e9f1ac9c8e551c958c2a932c80530a980 and returned BL
 The correction enforces lifecycle/folder agreement, follows the verified card relocation through subsequent commits, and permits only a directly material-card-linked, admitted plan's single exact lifecycle Status field to follow the card while all other text remains unchanged. It still requires exact-delta content review. Unlinked plans, changed prose, decorated status and status disagreement remain blocked. No parser, admission semantics, host authority or protected material exception is weakened.
 
 Eight focused regression witnesses pass. This correction requires a new material candidate and a new separate exact-candidate QA verdict; the blocked C1 verdict is never relabeled.
+
+## Independent C2 review and final bounded corrections
+
+Separate RobQA reviewed 6c1840d9a1d3572c21272d24f867c58a1a0699eb: all 77 delivery tests and remaining required CI passed, but independent boundary witnesses still BLOCKED advancement. The immutable [C2 review](2026-09-08-1545-independent-robqa-vm641-corrections.md) identified an unadmitted linked-plan false PASS, a forced binding-only commit despite existing optional evidence semantics, and SHIP instruction ordering.
+
+Final corrections reuse strict inScope for the linked plan lifecycle exception; retain the optional evidence-commit path only for genuine durable QA at the exact clean current HEAD with pending committed candidate/QA/Owner and In Progress lifecycle; reject contradictory or stale records; and bind durable QA before invoking the checker. Admission metadata and integration acceptance remain committed and strict. No existing decision or lifecycle is inferred or overwritten. New regression witnesses cover admitted/unadmitted plans and the positive and rejection boundaries of durable QA binding. A fresh material candidate and separate review are required.
+
+Final correction development checks: ten selected delivery regressions and all twelve instruction-compatibility tests pass. Updated canonical workflow measurement: 6279 to 6264 whitespace-delimited words (15 fewer); earlier counts above retain their event-time scope. The substantive reduction is deterministic fact reconstruction, not a claimed net reduction in all new tooling documentation.
