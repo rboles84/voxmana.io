@@ -4,6 +4,7 @@ import { createHash } from "node:crypto";
 import { readGit, gitChangeSet } from "../validate/validate-change-report.mjs";
 import { field, section, TASK_ID, idFromFilename, parseRecord } from "./task-admission-record.mjs";
 import { VIEWS } from "./task-indexes.mjs";
+import { linksFrom } from "./task-history.mjs";
 
 export const sha256 = bytes => createHash("sha256").update(bytes).digest("hex");
 export const git = (root, args) => readGit(root, args).trim();
@@ -96,11 +97,13 @@ function changedReceipt(root, from, to, reviews, head, actor) {
 }
 /** Mechanical checks cannot infer prose semantics. Narrative deltas require an explicitly
  * verified content review, bound to exact commits, in addition to these protected-content checks. */
-export function evidenceDelta(root, from, to, card, packet, { lifecycle = false } = {}) {
+export function evidenceDelta(root, from, to, card, packet, { lifecycle = false, materialCard = card } = {}) {
   if (from === to) return { count: 0, entries: [], paths: [], contentReviews: [] };
   const commits = git(root, ["rev-list", "--reverse", "--first-parent", from + ".." + to]).split("\n").filter(Boolean);
   requireFact(commits.length > 0 && optionalGit(root, ["merge-base", "--is-ancestor", from, to]) !== null, "Evidence head does not descend from candidate");
-  let previous = from;
+  let previous = from, currentCardPath = card.file;
+  const linkedPlans = new Set(linksFrom(materialCard.text, materialCard.file).filter(file => file.startsWith("docs/plans/")));
+  const lifecycleStates = new Set(["Backlog", "Ready", "In Progress", "Owner Review", "Accepted", "Integrated", "Done", "Blocked", "Deferred"]);
   const contentReviews = [];
   for (const commit of commits) {
     requireFact(git(root, ["show", "-s", "--format=%P", commit]) === previous, "Unexpected merged/rewritten evidence history");
@@ -119,11 +122,20 @@ export function evidenceDelta(root, from, to, card, packet, { lifecycle = false 
         narrative = true;
         continue;
       }
-      const cardMove = lifecycle && old === card.file && p === card.file.replace("/in-progress/", "/done/") && /^R/.test(entry.status);
-      if ((p === card.file && entry.status === "M") || cardMove) {
+      const cardMove = lifecycle && old === currentCardPath && currentCardPath.includes("/in-progress/") && p === currentCardPath.replace("/in-progress/", "/done/") && /^R/.test(entry.status);
+      if ((p === currentCardPath && entry.status === "M") || cardMove) {
         const before = textAt(root, previous, old), after = textAt(root, commit, p);
         requireFact(protectedCard(before) === protectedCard(after), "Material card scope/criteria/contract change after candidate: " + p);
         // Values hidden from the comparison still need a human content review: they can contain prose.
+        currentCardPath = p;
+        narrative = true;
+        continue;
+      }
+      if (linkedPlans.has(p) && entry.status === "M" && !entry.sourcePath) {
+        const before = textAt(root, previous, p), after = textAt(root, commit, p);
+        const oldStatus = field(before, "Status"), newStatus = field(after, "Status");
+        const current = strictCard(root, commit, card.id, { closed: lifecycle });
+        requireFact(lifecycleStates.has(oldStatus) && lifecycleStates.has(newStatus) && newStatus === current.status && before.replace(/^Status:.*$/m, "Status:") === after.replace(/^Status:.*$/m, "Status:"), "Material or uncertain plan change after candidate: " + p);
         narrative = true;
         continue;
       }

@@ -75,7 +75,7 @@ function closeoutChecks(root, packet, card, refs, host, result) {
   requireFact(prNumbers.length === 1 && prNumbers[0] === host.pr.number && integrationText.includes(merge), "Lifecycle PR/merge binding disagrees with verified host result");
   const original = strictCard(root, e, card.id);
   requireFact(original.candidate === card.candidate && original.baseline === card.baseline && original.branch === card.branch, "Closeout changed original candidate/admission identity");
-  result.lifecycleDelta = evidenceDelta(root, merge, final, original, packet, { lifecycle: true });
+  result.lifecycleDelta = evidenceDelta(root, merge, final, original, packet, { lifecycle: true, materialCard: strictCard(root, card.candidate, card.id) });
   requireFact(Array.isArray(close.references) && ["implementation", "qa", "owner", "integration"].every(role => close.references.some(r => r.role === role)),
     "Missing required implementation/QA/Owner/integration handoff references");
   for (const ref of close.references) {
@@ -122,6 +122,8 @@ export function checkDelivery({ root = process.cwd(), task, stage, observations,
     Object.assign(result, { head: git(root, ["rev-parse", "HEAD"]), branch: git(root, ["symbolic-ref", "--quiet", "--short", "HEAD"]), localMain: git(root, ["rev-parse", "--verify", "refs/heads/main"]) });
     const initialDirty = JSON.stringify(dirty(root));
     const card = strictCard(root, result.head, task, { closed: stage === "closeout" });
+    const expectedFolder = card.status === "Done" ? "done" : "in-progress";
+    requireFact(card.file.startsWith("docs/kanban/" + expectedFolder + "/"), "Lifecycle status/folder mismatch: " + card.status + " requires " + expectedFolder + "/");
     result.card = card.file; result.baseline = exactCommit(root, card.baseline); result.candidate = exactCommit(root, card.candidate);
     const refs = remoteRefs(root); result.remoteMain = refs.main;
     exactCommit(root, refs.main);

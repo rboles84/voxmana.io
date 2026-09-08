@@ -35,3 +35,7 @@ Substantive governance/shared validation requires SEPARATE exact-candidate RobQA
 
 Remaining human judgment: authentic decisions, host capability discovery, semantic evidence classification, Owner product/visual/architecture and protected specialist decisions. No second Owner approval.
 Stop: independent engineering PASS and Owner Review; no push/merge/later phases without their governing authority.
+
+## Bounded C1 corrections
+
+Independent review of cb4ba61e9f1ac9c8e551c958c2a932c80530a980 blocked advancement. Correct lifecycle/folder agreement and track the verified Done relocation through later evidence commits. Permit only directly linked, admitted plan status-only lifecycle updates matching the card, preserving all other content and exact-delta review. Eight targeted regression cases cover valid lifecycle evidence and protected-content rejection. Preserve the original blocked QA artifact and obtain a fresh separate verdict on the corrected material candidate.

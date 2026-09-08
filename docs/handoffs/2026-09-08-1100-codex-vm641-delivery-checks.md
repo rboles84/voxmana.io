@@ -72,3 +72,11 @@ Next suggested agent: separate RobQA reviewer; inspect the full candidate and at
 Related: [VM-641 card](../kanban/in-progress/VM-641-delivery-checks.md), [plan](../plans/vm641-delivery-checks.md), [command contract](../reference/task-delivery.md), [workflow](../reference/workflow.md), [RobDev](../dev/RobDevPass.md), [RobQA](../qa/RobQAPass.md).
 
 Exact Git accounting and the independent result are appended after candidate creation; the statements above retain their event-time meaning.
+
+## Independent C1 review and bounded correction
+
+Separate RobQA reviewed cb4ba61e9f1ac9c8e551c958c2a932c80530a980 and returned BLOCKED despite 69 delivery and 86 compatibility tests passing. The original review remains byte-for-byte preserved in [its handoff](2026-09-08-1100-independent-robqa-vm641-delivery-checks.md). It found one false PASS (Done still in in-progress) and two false BLOCKED results (evidence after Done relocation; directly linked plan status-only lifecycle updates).
+
+The correction enforces lifecycle/folder agreement, follows the verified card relocation through subsequent commits, and permits only a directly material-card-linked, admitted plan's single exact lifecycle Status field to follow the card while all other text remains unchanged. It still requires exact-delta content review. Unlinked plans, changed prose, decorated status and status disagreement remain blocked. No parser, admission semantics, host authority or protected material exception is weakened.
+
+Eight focused regression witnesses pass. This correction requires a new material candidate and a new separate exact-candidate QA verdict; the blocked C1 verdict is never relabeled.

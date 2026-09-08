@@ -40,7 +40,7 @@ function advance(f, label, { reviewed = true } = {}) {
   if (reviewed) review(f, from, to);
   return to;
 }
-function fixture() {
+function fixture({ linkedPlan = true } = {}) {
   const outer = fs.mkdtempSync(path.join(os.tmpdir(), "vox-delivery-")); fixtures.push(outer);
   const root = path.join(outer, "repo"), remote = path.join(outer, "remote.git");
   fs.mkdirSync(root); git(root, "init", "-q", "-b", "main");
@@ -60,11 +60,12 @@ function fixture() {
   fs.mkdirSync(path.join(root, "docs/handoffs"), { recursive: true });
   generateViews(root).outputs.forEach((text, i) => put(root, VIEWS[i], text));
   const f = { root, outer, remote, card: cardPath };
+  put(root, "docs/plans/task901.md", "# VM-901 plan\nStatus: In Progress\nUnchanged material contract.\n");
   f.baseline = commit(f, "baseline"); git(root, "push", "-q", "origin", "main"); git(root, "checkout", "-qb", branch);
   const card = "# " + task + " delivery\n\nID: " + task + "\nTitle: Delivery checks\nStatus: In Progress\n\n## Acceptance Criteria\n\n- [ ] Preserve exact behavior.\n\n## Delivery\n\nRecord version: 1\nBranch: " + branch +
     "\nAdmission baseline: " + f.baseline + "\nCandidate: PENDING\nRobQA: PENDING\nOwner: PENDING\nIntegration: PENDING\nDependencies: None\nDecisions: Owner authorized this task.\nEvidence: Pending\n\n## Admission Scope\n\n" +
-    [cardPath, ...VIEWS, "implementation.js", "tests/", "docs/handoffs/task901.md"].map(p => "- \x60" + p + "\x60").join("\n") + "\n";
-  put(root, f.card, card); indexes(root, { write: true }); git(root, "add", f.card, VIEWS[0]); git(root, "commit", "-qm", "admission");
+    [cardPath, ...VIEWS, "implementation.js", "tests/", "docs/handoffs/task901.md", "docs/plans/task901.md"].map(p => "- \x60" + p + "\x60").join("\n") + "\n";
+  put(root, f.card, card + (linkedPlan ? "\n## References\n\n[Task plan](../../plans/task901.md)\n" : "")); indexes(root, { write: true }); git(root, "add", f.card, VIEWS[0]); git(root, "commit", "-qm", "admission");
   put(root, "implementation.js", "export const value = 2;\n"); f.candidate = commit(f, "material");
   f.packet = { version: 1, task, stage: "candidate", head: f.candidate, observedAt: new Date().toISOString(), actor: "Acting agent", evidenceReviews: [] };
   f.packet.qa = { verified: true, source: ref(f, "qa.md", "Task: " + task + "\nCandidate: " + f.candidate + "\nRobQA: PASS\nExecution: SEPARATE\nReviewer: QA reviewer\nImplementer: Dev\n") };
@@ -83,8 +84,8 @@ function host(f) {
       body: "RobQA: PASS at " + f.candidate + "\nOwner Review: ACCEPTED at " + f.candidate,
       files: expectedFiles(f.root, f.baseline, head), commits: git(f.root, "rev-list", "--reverse", f.baseline + ".." + head).split("\n") } };
 }
-function integration() {
-  const f = fixture(); f.packet.stage = "integration";
+function integration(options) {
+  const f = fixture(options); f.packet.stage = "integration";
   f.packet.owner = { verified: true, source: ref(f, "owner.md", "Task: " + task + "\nCandidate: " + f.candidate + "\nOwner: ACCEPT\nDecision reference: Owner conversation message, exact candidate ACCEPT\n") };
   modifyCard(f, { Status: "Accepted", Owner: "ACCEPTED at " + f.candidate });
   advance(f, "Owner evidence"); git(f.root, "push", "-q", "origin", branch);
@@ -98,8 +99,8 @@ function accounting(f) {
     "\x60\nThis is evidence-only, not the full task diff.\n\n## Evidence-only paths\n\n" + evidence.paths.map(p => "- \x60" + p + "\x60").join("\n") +
     "\n\n## Final main\n\nHead: " + f.packet.head + "\nChanged paths: " + final.count + "\n";
 }
-function closeout({ done = false, keepBranch = false } = {}) {
-  const f = integration(), e = f.packet.head;
+function closeout({ done = false, keepBranch = false, linkedPlan = true } = {}) {
+  const f = integration({ linkedPlan }), e = f.packet.head;
   git(f.root, "checkout", "-q", "main"); git(f.root, "merge", "--squash", branch);
   f.merge = commit(f, "squash"); f.packet.stage = "closeout";
   modifyCard(f, { Status: done ? "Done" : "Integrated", Integration: "INTEGRATED PR7 squash " + f.merge });
@@ -266,4 +267,29 @@ test("candidate: existing verified low-risk distinct-phase exception remains ava
 test("candidate: same-agent phase cannot bypass recorded required independence", () => {
   const f = fixture(); mutateEvidence(f, "qa", t => t.replace("Execution: SEPARATE", "Execution: SAME-AGENT DISTINCT PHASE").replace("Reviewer: QA reviewer", "Reviewer: Dev") + "Independence required: yes\nExecution reason: Shared governance.\n");
   modifyCard(f, { RobQA: "PASS at " + f.candidate + " — SAME-AGENT DISTINCT PHASE" }); advance(f, "conflicting execution record"); blocked(f, /stricter independence/);
+});
+
+function finishCloseoutEvidence(f, label) {
+  advance(f, label); git(f.root, "push", "-q", "origin", "main");
+  f.packet.host.main = f.packet.head; f.packet.closeout.report = ref(f, "report.md", accounting(f));
+}
+test("closeout regression: Done must be in done folder", () => {
+  const f = closeout(); modifyCard(f, { Status: "Done" }); finishCloseoutEvidence(f, "invalid Done folder"); blocked(f, /status.folder mismatch/);
+});
+test("closeout regression: evidence after verified Done relocation remains valid", () => {
+  const f = closeout({ done: true }); modifyCard(f, { Evidence: "Additional final verification observations" }); finishCloseoutEvidence(f, "final evidence"); pass(f);
+});
+test("closeout regression: protected criteria remain immutable after Done relocation", () => {
+  const f = closeout({ done: true }); put(f.root, f.card, get(f.root, f.card).replace("Preserve exact behavior.", "Weaken behavior.")); finishCloseoutEvidence(f, "invalid criteria"); blocked(f, /Material card/);
+});
+test("closeout regression: referenced admitted plan permits status-only lifecycle evidence", () => {
+  const f = closeout({ done: true }); put(f.root, "docs/plans/task901.md", get(f.root, "docs/plans/task901.md").replace("Status: In Progress", "Status: Done")); finishCloseoutEvidence(f, "plan lifecycle"); pass(f);
+});
+for (const [name, content, options, pattern] of [
+  ["unlinked plan", "# VM-901 plan\nStatus: Done\nUnchanged material contract.\n", { linkedPlan: false }, /unclassified/],
+  ["changed plan prose", "# VM-901 plan\nStatus: Done\nWeakened material contract.\n", {}, /uncertain plan/],
+  ["decorated governing status", "# VM-901 plan\nStatus: Done - skip checks\nUnchanged material contract.\n", {}, /uncertain plan/],
+  ["status differs from card", "# VM-901 plan\nStatus: Integrated\nUnchanged material contract.\n", {}, /uncertain plan/],
+]) test("closeout regression: " + name + " cannot become evidence by path", () => {
+  const f = closeout({ done: true, ...options }); put(f.root, "docs/plans/task901.md", content); finishCloseoutEvidence(f, name); blocked(f, pattern);
 });
