@@ -2,7 +2,7 @@
 
 ID: VM-639
 Title: Generated Views and Progressive Task Rehydration
-Status: Accepted
+Status: Done
 Type: Governance / repository tooling
 Created: 2026-09-07
 
@@ -29,7 +29,7 @@ Admission baseline: ad0dce76147b2857241ca6987007698b103536aa
 Candidate: b627b552241941ea9ec6079f6a3fc04b75d229b9
 RobQA: PASS at b627b552241941ea9ec6079f6a3fc04b75d229b9; SEPARATE independent governance and shared-tool review.
 Owner: ACCEPTED at b627b552241941ea9ec6079f6a3fc04b75d229b9; explicit Owner ACCEPT in the course-correction task authorizes integration and lifecycle closeout.
-Integration: PENDING
+Integration: INTEGRATED by [PR #33](https://github.com/rboles84/voxmana.io/pull/33), squash 19008814c43ce0b322e92dbaeb4d7ab64ba4d2f3; required CI and complete PR tree parity PASS.
 Dependencies: None
 Decisions: Owner approved Phase 4 and fifteen corrections in this task; admission wrapper only, informational tolerant reader, progressive bounded recall, no bulk normalization, VM-637 remains separate. Stop at independent engineering PASS and Owner Review.
 Evidence: [Independent RobQA PASS and review history](../../handoffs/2026-09-07-1300-independent-robqa-vm639-task-context.md); [Implementation handoff](../../handoffs/2026-09-07-1300-codex-vm639-task-context.md); [approved course correction](../../plans/workflow-course-correction.md).
@@ -57,3 +57,7 @@ Evidence: [Independent RobQA PASS and review history](../../handoffs/2026-09-07-
 ## Boundaries
 
 No database, embeddings, AI summaries, unrestricted graph/RAG loading, new lifecycle readiness, automatic Git fetch/repair, strict-parser changes, product changes, bulk metadata cleanup, Phase 5 consolidation or Phase 6 enforcement. Generated lifecycle-only changes after ACCEPT retain the candidate only when tooling, policies and tests remain identical and evidence/source changes are independently accounted for.
+
+## Lifecycle Closeout
+
+Owner acceptance remains bound to b627b552241941ea9ec6079f6a3fc04b75d229b9. PR #33 merged evidence head e8a65b05b63a4133613216311cf16486d82474f8 with exact tree parity. Main synchronized to the verified squash before this lifecycle-only closeout. Remote and local feature branches are retired. Temporary detached closeout-worktree removal is deferred until this record is published and verified; main delivery agent owns that cleanup and final reporting. VM-637 sources remain separate and uncommitted; the final synchronized checkout regenerates only its local derived views. Phase 5 has not begun.

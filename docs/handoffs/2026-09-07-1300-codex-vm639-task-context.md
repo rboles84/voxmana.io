@@ -2,8 +2,8 @@
 
 Date: 2026-09-07
 Agent: Codex (main implementation agent)
-Status: Independent engineering PASS; Owner Review pending.
-Related card: [VM-639](../kanban/in-progress/VM-639-task-context.md)
+Status: Integrated; lifecycle closeout recorded below.
+Related card: [VM-639](../kanban/done/VM-639-task-context.md)
 Related plan: [Course correction](../plans/workflow-course-correction.md)
 Authority: [Task context contract](../reference/task-context.md)
 
@@ -117,3 +117,9 @@ Subsequent changes record this result, card/plan lifecycle state and faithful de
 
 Owner explicitly ACCEPTED b627b552241941ea9ec6079f6a3fc04b75d229b9 and authorized established integration/closeout, preserving VM-637 and excluding Phase 5. Rehydrated the same branch/worktree at 94a41377b599031965e6fd4d8936716a554516b7, clean; live/local main remains the recorded baseline. Continue PASS; final independent exact-candidate PASS and material/evidence separation remain valid. Applied the already reviewed RobDev/RobQA gates, workflow delivery/routing, card, relevant index entries, both task handoffs and approved plan. Risks are lifecycle-derived output classification and preserving the original VM-637 dirty checkout; no new implementation risk or independent QA repetition is required for unchanged material bytes.
 GitHub tool discovery found repository/PR/CI/squash-merge connector support including atomic expected-head guard. Authenticated repository permission metadata permits push/admin; exact-branch PR lookup returned none. Use connector for host operations and established native Git for push/fetch. No credential, policy, browser, product or later-phase changes. All five VM-637 preserved files still match their saved hashes.
+
+## Integrated Lifecycle Closeout
+
+PR #33: https://github.com/rboles84/voxmana.io/pull/33. Owner ACCEPT and SEPARATE independent PASS bind b627b552241941ea9ec6079f6a3fc04b75d229b9. Final published evidence head e8a65b05b63a4133613216311cf16486d82474f8. Required Deterministic Validation passed (run 34183144191; job 101926118639). The connector returned successful guarded squash merge 19008814c43ce0b322e92dbaeb4d7ab64ba4d2f3; fetched commit parent is the recorded baseline and its complete tree equals the PR head. Main fast-forwarded to that squash. Remote feature branch is absent and local feature branch was safely deleted after parity verification.
+This closeout moves the card to Done, fixes current source links, records facts and regenerates views only. Accepted tooling/policy/parser/retrieval/test/archive bytes remain unchanged. Temporary detached worktree cleanup is deferred until publication verification, owned by the main agent. Final external integration report records final main SHA, actual cleanup, material/evidence/total Git accounting and preserved VM-637 state.
+Before main cutover all five original VM-637 files matched both their saved hashes and exact backup bytes. Only the old derived trackers were reset after that verification; the three untracked authored sources were left in place. After final main synchronization, regenerate local uncommitted views from those sources, verify their hashes and represented meaning, and preserve the original tracker text in the external record. No VM-637 source is committed; Phase 5 is untouched.

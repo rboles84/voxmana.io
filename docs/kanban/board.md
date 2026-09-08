@@ -1,4 +1,4 @@
-<!-- task-view-sha256:96778643b221e833f5e22ed355d324bdb3aadcfe15d9b14ac7b8f942a14ab4ab -->
+<!-- task-view-sha256:700bce8f3cc44e3dc76443cee11d304ab022edf5ede2b4711c154338e85246a7 -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -52,7 +52,6 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 
 | ID | Card | Declared status | Diagnostics |
 |---|---|---|---|
-| VM-639 | [Generated Views and Progressive Task Rehydration](in-progress/VM-639-task-context.md) | Accepted |  |
 
 ## Integrated
 
@@ -658,6 +657,7 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | VM-635 | [Replace Designated Background Imagery with Black](done/VM-635-black-page-backgrounds.md) | Done |  |
 | VM-636 | [VM-636 — Restore the Mana Alignment Matrix in Atlas dossiers](done/VM-636-atlas-mana-matrix.md) | Done |  |
 | VM-638 | [Task Admission, Baseline, and Scope Validation](done/VM-638-task-admission.md) | Done |  |
+| VM-639 | [Generated Views and Progressive Task Rehydration](done/VM-639-task-context.md) | Done |  |
 
 ## Unresolved
 

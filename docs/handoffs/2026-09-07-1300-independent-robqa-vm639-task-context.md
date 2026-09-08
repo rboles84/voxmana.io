@@ -3,7 +3,7 @@
 Date: 2026-09-07
 Agent: Codex independent reviewer (vm639_independent_qa)
 Status: RobQA PASS for b627b552241941ea9ec6079f6a3fc04b75d229b9; Owner Review pending. Prior candidates remain superseded.
-Related card: [VM-639](../kanban/in-progress/VM-639-task-context.md)
+Related card: [VM-639](../kanban/done/VM-639-task-context.md)
 Related plan: [Course correction, Phase 4](../plans/workflow-course-correction.md)
 
 ## Task Requested and Files Reviewed

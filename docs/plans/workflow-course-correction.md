@@ -2,7 +2,7 @@
 
 Status: Owner-approved implementation plan; staged delivery, not blanket candidate acceptance.
 Source: Owner discussion and approval in the course-correction task, 2026-09-05.
-Current implementation: [VM-633 — Phase 1](../kanban/done/VM-633-lifecycle-state-contract.md) is integrated and closed; [VM-638 — Phase 2](../kanban/done/VM-638-task-admission.md) is integrated and closed after Owner acceptance and PR #31. [VM-632 — Phase 3](../kanban/done/VM-632-github-connector-discovery-before-browser-fallback.md) is integrated and closed after exact-candidate Owner ACCEPT and PR #32; [VM-639 — Phase 4](../kanban/in-progress/VM-639-task-context.md) has independent engineering PASS at b627b552241941ea9ec6079f6a3fc04b75d229b9 and is pending Owner Review. Phase 5 has not begun.
+Current implementation: [VM-633 — Phase 1](../kanban/done/VM-633-lifecycle-state-contract.md) is integrated and closed; [VM-638 — Phase 2](../kanban/done/VM-638-task-admission.md) is integrated and closed after Owner acceptance and PR #31. [VM-632 — Phase 3](../kanban/done/VM-632-github-connector-discovery-before-browser-fallback.md) is integrated and closed after exact-candidate Owner ACCEPT and PR #32; [VM-639 — Phase 4](../kanban/done/VM-639-task-context.md) is integrated and closed after exact-candidate Owner ACCEPT and PR #33. Phase 5 has not begun.
 
 ## Outcome And Authority
 
