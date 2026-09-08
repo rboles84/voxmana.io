@@ -1,4 +1,4 @@
-<!-- task-view-sha256:320af210b8e69c767bcf131c16fa682b380fdb9779a89feb28de12b43bad992f -->
+<!-- task-view-sha256:91f5a4b79b391ac210baefb1a445587601d1ee9c64e49e7ec817be764c1fc861 -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -47,12 +47,12 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 
 | ID | Card | Declared status | Diagnostics |
 |---|---|---|---|
-| VM-641 | [Deterministic Candidate, Integration and Closeout Checks](in-progress/VM-641-delivery-checks.md) | Owner Review |  |
 
 ## Accepted
 
 | ID | Card | Declared status | Diagnostics |
 |---|---|---|---|
+| VM-641 | [Deterministic Candidate, Integration and Closeout Checks](in-progress/VM-641-delivery-checks.md) | Accepted |  |
 
 ## Integrated
 

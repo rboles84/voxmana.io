@@ -162,3 +162,9 @@ Material 978c191fc5d1fe94eef84a18588ab16b5684a4c2 has separate exact-candidate e
 Only the disposable fixture setup differs behaviorally from the earlier accepted candidate: chmod aligns its working mode before staging. The assertion and readiness implementation are unchanged. All five VM-637 original hashes and all historical QA bytes remain exact. No merge occurred; main remains at the original baseline.
 
 Current state is Owner Review with Owner PENDING for 978c191fc5d1fe94eef84a18588ab16b5684a4c2. Prior ACCEPT of 0a2830054480d2b8d17d3fdee4e499402338801f remains recorded, but does not cover the material fixture correction. The shortest Owner review is the chmod line with its unchanged assertion and the exact-C4 successful Linux job; no unchanged architecture or deterministic suite needs manual repetition. Resume PR35 only after exact corrected-candidate ACCEPT. No later governance phase has begun.
+
+## Corrected material Owner acceptance
+
+The Owner explicitly ACCEPTED material 978c191fc5d1fe94eef84a18588ab16b5684a4c2 in the current conversation, authorizing the established guarded integration and lifecycle closeout path. Original consent is preserved in C:/Users/obake/.codex/visualizations/2026/09/05/01a073d2-da16-7462-a7ef-bc8eb59ce4a0/vm641-c4-owner-acceptance.md. This is distinct from the earlier C3 acceptance and from current evidence HEAD 0c02eeb1a5b7f23d1defe84376cd8b826d774d1d.
+
+Fresh preflight confirms clean task worktree, admission PASS, existing sole PR35, unchanged accepted material and baseline/local/live main cf0d8b34ca4ce1f06a9f92ccb48f50dfb78dcbc8, plus all five exact original VM-637 hashes. Independent QA and hosted Linux validation passed on corrected material and its prior evidence head. Record only authorized lifecycle/evidence changes; Ubuntu runner configuration, checker/test/policy bytes and later-phase boundaries remain unchanged.

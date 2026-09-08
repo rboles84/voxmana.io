@@ -2,7 +2,7 @@
 
 ID: VM-641
 Title: Deterministic Candidate, Integration and Closeout Checks
-Status: Owner Review
+Status: Accepted
 Type: Governance / tooling
 Created: 2026-09-08
 
@@ -27,11 +27,11 @@ Branch: codex/vm-641-delivery-checks
 Admission baseline: cf0d8b34ca4ce1f06a9f92ccb48f50dfb78dcbc8
 Candidate: 978c191fc5d1fe94eef84a18588ab16b5684a4c2
 RobQA: PASS at 978c191fc5d1fe94eef84a18588ab16b5684a4c2 — SEPARATE; [Linux CI correction QA](../../handoffs/2026-09-08-1635-independent-robqa-vm641-linux-ci.md)
-Owner: PENDING
-Integration: PENDING — PR35; corrected material requires exact Owner ACCEPT before merge
+Owner: ACCEPTED at 978c191fc5d1fe94eef84a18588ab16b5684a4c2 — current Owner message; original decision preserved in delivery evidence
+Integration: PENDING — PR35; guarded integration authorized for the exact accepted material
 Dependencies: None
 Decisions: Owner authorized Phase 6 after VM-640 Done, one newly admitted isolated branch/worktree, existing rules only, exact VM-637 preservation and independent QA before Owner Review. Scope amendment: export the existing read-only admission history audit for post-squash closeout without changing strict parser or validation semantics. Scope amendment: retain the blocked exact-candidate QA artifact unchanged and add a separate corrected-candidate independent review handoff. Scope amendment: preserve the blocked corrected-candidate review and admit a distinct final independent QA handoff for the bounded scope/optional-evidence/invocation corrections. Scope amendment: admit a distinct independent QA handoff for the bounded Linux executable-mode fixture correction found by required hosted CI; retain the prior accepted material and original QA evidence as history.
-Evidence: [implementation and historical acceptance](../../handoffs/2026-09-08-1100-codex-vm641-delivery-checks.md); [current independent QA](../../handoffs/2026-09-08-1635-independent-robqa-vm641-linux-ci.md); [plan](../../plans/vm641-delivery-checks.md). Prior QA and Owner acceptance remain historical; current Owner is PENDING.
+Evidence: [implementation and acceptance history](../../handoffs/2026-09-08-1100-codex-vm641-delivery-checks.md); [current independent QA](../../handoffs/2026-09-08-1635-independent-robqa-vm641-linux-ci.md); [plan](../../plans/vm641-delivery-checks.md). Current Owner ACCEPT binds corrected material 978c191fc5d1fe94eef84a18588ab16b5684a4c2.
 
 ## Admission Scope
 
