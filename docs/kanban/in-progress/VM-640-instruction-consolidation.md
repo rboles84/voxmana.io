@@ -1,0 +1,63 @@
+# VM-640 — Workflow Instruction Consolidation and Context Reduction
+
+ID: VM-640
+Title: Workflow Instruction Consolidation and Context Reduction
+Status: In Progress
+Type: Governance / documentation
+Created: 2026-09-07
+
+## Summary
+
+Implement Owner-approved Phase 5: subtract duplicate/superseded active instructions, retain one canonical owner per responsibility and concise entry pointers, and prove less required reading with unchanged safeguards and accessible history.
+
+## Acceptance Criteria
+
+- [ ] Read-only inventory, full responsibility map and reproducible baseline/before-after burden measurements precede material editing.
+- [ ] Common entry points use concise pointers; obsolete manual tracker maintenance and routine full-index reading are removed.
+- [ ] Lifecycle, strict admission/dependency/RESUME, capability routing/uncertain writes, exact-candidate Owner/QA and Git accounting remain intact and reachable.
+- [ ] Frozen RobDev/RobQA behavior remains intact except an explicitly justified Phase 4 index-reading contradiction correction.
+- [ ] Specialist triggers, source/provenance, independent review, handoff duties and stop conditions remain discoverable and controlling.
+- [ ] Phase 4 tooling, retrieval/deep/disclosure/raw access, generated-view behavior and archive bytes remain unchanged; history and VM-637 remain preserved.
+- [ ] Focused link/anchor/instruction checks, context/admission/report compatibility, view freshness and existing deterministic validation pass.
+- [ ] Independent exact-candidate RobQA confirms all seven scenario paths, burden reduction and no safeguard loss; stop at Owner Review without push/merge/Phase 6.
+
+## Delivery
+
+Record version: 1
+Branch: codex/vm-640-instruction-consolidation
+Admission baseline: c6dc83a754f75c7a5afc9db66e771fa42215b6e8
+Candidate: PENDING
+RobQA: PENDING
+Owner: PENDING
+Integration: PENDING
+Dependencies: None
+Decisions: Owner explicitly authorized one clean admitted Phase 5 worktree, subtractive consolidation, preserved Phase 1–4 behavior and VM-637, independent exact-candidate QA and stop at Owner Review. No Phase 6 work or publication.
+Evidence: [Course correction](../../plans/workflow-course-correction.md); [Phase 5 inventory and measurements](../../plans/vm640-instruction-consolidation.md).
+
+## Admission Scope
+
+- `AGENTS.md`
+- `README.md`
+- `.codex/prompts/`
+- `.agents/skills/robdev/`
+- `.agents/skills/robqa/`
+- `docs/dev/RobDevPass.md`
+- `docs/reference/workflow.md`
+- `docs/reference/README.md`
+- `docs/README.md`
+- `docs/qa/vox-mana-test-plan.md`
+- `.github/pull_request_template.md`
+- `.github/workflows/validation.yml`
+- `package.json`
+- `tests/governance/workflow-instructions.test.mjs`
+- `docs/plans/workflow-course-correction.md`
+- `docs/plans/vm640-instruction-consolidation.md`
+- `docs/kanban/in-progress/VM-640-instruction-consolidation.md`
+- `docs/kanban/board.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/handoffs/2026-09-07-2130-codex-vm640-instruction-consolidation.md`
+- `docs/handoffs/2026-09-07-2130-independent-robqa-vm640-instruction-consolidation.md`
+
+## Boundaries
+
+No validators/Phase 4 parser/CLI changes, new enforcement/engine/roles, product/data/semantic changes, auth/branch-protection changes, automatic Git repair, historical record rewriting or VM-637 content. Any genuine newly discovered behavioral defect is recorded separately. Frozen RobDev index-reading wording may receive only the narrowly justified pointer correction required by integrated Phase 4; RobQA gate remains byte-unchanged.
