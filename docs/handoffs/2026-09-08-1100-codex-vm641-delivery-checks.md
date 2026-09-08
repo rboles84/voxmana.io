@@ -168,3 +168,16 @@ Current state is Owner Review with Owner PENDING for 978c191fc5d1fe94eef84a18588
 The Owner explicitly ACCEPTED material 978c191fc5d1fe94eef84a18588ab16b5684a4c2 in the current conversation, authorizing the established guarded integration and lifecycle closeout path. Original consent is preserved in C:/Users/obake/.codex/visualizations/2026/09/05/01a073d2-da16-7462-a7ef-bc8eb59ce4a0/vm641-c4-owner-acceptance.md. This is distinct from the earlier C3 acceptance and from current evidence HEAD 0c02eeb1a5b7f23d1defe84376cd8b826d774d1d.
 
 Fresh preflight confirms clean task worktree, admission PASS, existing sole PR35, unchanged accepted material and baseline/local/live main cf0d8b34ca4ce1f06a9f92ccb48f50dfb78dcbc8, plus all five exact original VM-637 hashes. Independent QA and hosted Linux validation passed on corrected material and its prior evidence head. Record only authorized lifecycle/evidence changes; Ubuntu runner configuration, checker/test/policy bytes and later-phase boundaries remain unchanged.
+
+
+## VM-641 integration result
+
+Task: VM-641
+Candidate: 978c191fc5d1fe94eef84a18588ab16b5684a4c2
+Boundaries: PASS
+
+Owner-authorized PR35 was squash merged through the connector with expected-head guard 1d7d5072726c6284574ad4516661332f24b17f08, after actual integration PASS and successful exact-head Deterministic Validation job 102259023832. Result: f34bd9e04b58a618d9604ff50c8e7b5a42068c8c. Its sole parent is accepted baseline cf0d8b34ca4ce1f06a9f92ccb48f50dfb78dcbc8 and its tree exactly equals verified PR input. Local main was synchronized before this lifecycle-only record.
+
+Actual read-only host policy observation found main unprotected, no branch rules or rulesets; required CI and guarded integration were process-enforced. No protection or runner settings were changed. The full 23-path, 13-commit PR scope matched local Git blobs and history. Accepted tooling, policy, tests and retrieval behavior remain unchanged.
+
+The clean feature worktree and local branch were removed after squash parity verification; the remote branch was already absent following hosted merge, confirmed by live Git observation. Ignored task logs were copied byte-for-byte to the external VM-641 evidence directory. VM-637 authored files and original tracker bytes remain preserved in the original hash snapshot and identified temporary stash until final main closeout synchronization. No VM-637 source is committed. No later governance phase has begun.
