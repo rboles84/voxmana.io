@@ -34,6 +34,7 @@ jobs:
           npm run test:workflow-instructions
           npm run test:task-context
           npm run test:admission
+          npm run test:task-delivery
           npm run test:change-report
           npm run task -- indexes --check
           npm run lint:html

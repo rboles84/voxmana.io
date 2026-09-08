@@ -93,7 +93,7 @@ function branchOwners(root, revision, branch, task) {
     if (field(text, "Branch", false) === branch) check(field(text, "ID").toUpperCase() === task, "Another task card claims this branch: " + file);
   }
 }
-function audit(root, head, task, main, seen = new Set()) {
+export function audit(root, head, task, main, seen = new Set()) {
   check(!seen.has(task), "Cyclic dependency: " + task);
   const visiting = new Set([...seen, task]);
   let record = oneRecord(root, head, task);

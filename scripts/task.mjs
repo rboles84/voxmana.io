@@ -5,10 +5,13 @@ import { contextPacket, readCorpus, validDate } from "./lib/task-history.mjs";
 import { indexes } from "./lib/task-indexes.mjs";
 import { validateAdmission, parseArgs as parseAdmissionArgs } from "./validate/validate-task-admission.mjs";
 
+import { checkDelivery, renderStage } from "./lib/task-delivery.mjs";
+
 const usage = [
   "npm run task -- context VM-### [--deep] [--card=repo/path.md] [--json]",
   "npm run task -- handoffs [--task=VM-###] [--date=YYYY-MM-DD] [--json]",
   "npm run task -- check VM-### --stage=admission --mode=start|continue [existing admission options] [--json]",
+  "npm run task -- check VM-### --stage=candidate|integration|closeout [--observations=external.json] [--json]",
   "npm run task -- indexes --check|--write [--json]",
 ].join("\n");
 function flags(args, allowed) {
@@ -41,9 +44,15 @@ export function run(args, { root = process.cwd(), stdout = console.log, stderr =
     const [command, ...rest] = args;
     if (!command || command === "--help") { stdout(usage); return 0; }
     if (command === "check") {
-      const [task, ...options] = rest, parsed = flags(options, ["stage", "mode", "branch", "dependency-task", "dependency-head", "owner-authorization", "json"]);
+      const [task, ...options] = rest, parsed = flags(options, ["stage", "mode", "branch", "dependency-task", "dependency-head", "owner-authorization", "observations", "json"]);
+      if (["candidate", "integration", "closeout"].includes(parsed.stage)) {
+        if (Object.keys(parsed).some(k => !["stage", "observations", "json"].includes(k))) throw new Error("Admission options cannot override delivery facts.");
+        const result = checkDelivery({ root, task, stage: parsed.stage, observations: parsed.observations });
+        stdout(parsed.json ? JSON.stringify(result, null, 2) : renderStage(result));
+        return result.status === "PASS" ? 0 : 1;
+      }
       if (parsed.stage !== "admission") {
-        stdout(JSON.stringify({ kind: "unsupported-stage", stage: parsed.stage ?? null, message: "Only admission is implemented. Candidate, integration and closeout remain deferred; no readiness decision is produced." }, null, 2));
+        stdout(JSON.stringify({ kind: "unsupported-stage", stage: parsed.stage ?? null, message: "Unsupported stage; use admission, candidate, integration or closeout." }, null, 2));
         return 1;
       }
       const pass = options.filter(o => !o.startsWith("--stage="));

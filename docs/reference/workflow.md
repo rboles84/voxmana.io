@@ -47,7 +47,7 @@ At test selection, candidate QA or Owner Review preparation, load the [RobQA ski
 
 At shipping/Owner acceptance/integration, read the applicable [delivery contract](#standard-branch-to-owner-to-pr-to-merge-delivery), evidence rules and [capability routing](#github-operation-routing) before host operations. Use [handoff/reporting](#required-agent-handoff) at transfer. The [cost policy](token-reasoning-cost-control.md) applies throughout and cannot waive a safeguard. Context authority lists and atlases are conditional navigation, not instructions to preload all roles or specialists.
 
-Before a new card exists, use relevant predecessor context/raw sources, then admission start. Historical records preserve event-time rationale; old procedures do not override current authority. Less mandatory reading, same accessible knowledge: targeted retrieval is an optimization layer, not an information boundary. Candidate/integration/closeout CLI checks remain unimplemented until Phase 6; existing workflow obligations still govern those stages.
+Before a new card exists, use relevant predecessor context/raw sources, then admission start. Historical records preserve event-time rationale; old procedures do not override current authority. Less mandatory reading, same accessible knowledge: targeted retrieval is an optimization layer, not an information boundary. Use the [read-only delivery checks](task-delivery.md#commands-and-verdicts) at candidate, integration and closeout boundaries; the acting agent retains authentic decisions and host discovery.
 
 ## Optional Work Intake Triage
 
@@ -446,14 +446,7 @@ Vox Mana uses a small-team trunk-based workflow:
 
 ### Rehydrate Before Acting
 
-Begin with targeted task context and the required admission result; reuse supplied facts and refresh only what is missing or stale at the relevant delivery boundary:
-
-- current branch, worktree, HEAD, accepted `main`, merge base, and uncommitted work;
-- admission results for same-task branch/worktree ownership; apply the [single-active-work rule](#single-active-work-branch-and-worktree) for unresolved human authority;
-- existing PR, if any, including its base/head, Draft state, checks, and changed-file scope;
-- card, RobDev, RobQA, and Owner Review status.
-
-Resume valid work at the correct point. Do not discard, duplicate, reset, clean, or replace work merely to recreate an ideal sequence.
+Begin with targeted task context and admission for implementation. At delivery boundaries, use the [stage checker](task-delivery.md) for deterministic Git, task, QA/Owner-binding and host facts; refresh missing/stale observations through the governed route. Human consent and isolation authority remain explicit. Resume valid existing work; do not discard, duplicate or replace it to recreate a sequence.
 
 ### Branch And PR Contract
 
@@ -474,7 +467,7 @@ Resume valid work at the correct point. Do not discard, duplicate, reset, clean,
 3. Commit a stable Owner Review candidate on the feature branch. Pushing the branch or opening a PR is optional at this stage unless remote infrastructure or collaboration is concretely needed.
 4. Apply RobQA to that exact candidate commit using its [QA execution independence rule](../qa/RobQAPass.md#qa-execution-independence). The authoritative scope is `merge-base(feature branch, main)..candidate SHA`, or the equivalent PR base/head diff when an early PR exists. Inspect changed files, acceptance criteria, relevant automated/manual evidence, and plausible regression surfaces rather than trusting the RobDev summary. Rerun only the risk-proportional set selected for the actual candidate; do not rerun every historical suite automatically.
 5. If RobQA is `BLOCKED`, record concrete findings and return the same card and branch to RobDev. Resolve ordinary bugs, missed acceptance criteria, directly relevant lint/test failures, and bounded implementation mistakes automatically; commit the correction and rerun proportionate QA until `PASS` or a genuine Owner decision is required. After one reasonable causal check, unrelated or ambiguous browser failures are disclosed as known or suspected harness debt and are not repeatedly retried or repaired inside the feature task.
-6. Bind final engineering `PASS` to the exact reviewed candidate under [candidate and evidence records](#candidate-and-evidence-records) and, when a PR exists, in its body. Move the card to Owner Review with Owner PENDING. Any later material change makes affected QA/Owner evidence stale; documentation is not automatically evidence-only.
+6. Run `npm run task -- check VM-### --stage=candidate --observations=<external.json>` using [verified decision observations](task-delivery.md#observation-transport-and-authenticity). Bind final engineering `PASS` to the exact reviewed candidate under [candidate and evidence records](#candidate-and-evidence-records) and, when a PR exists, in its body. Move the card to Owner Review with Owner PENDING. Any later material change makes affected QA/Owner evidence stale; documentation is not automatically evidence-only.
 7. Stop with a concise Owner handoff: card, feature branch, exact candidate SHA, RobQA status and evidence, the shortest manual inspection, and non-blocking limitations. A PR is not required for this Owner Review gate.
 
 Escalate from the Dev/QA loop only for changed accepted scope, Owner-reserved architecture, semantic authority, destructive behavior, or a genuine requirement conflict.
@@ -483,16 +476,13 @@ Escalate from the Dev/QA loop only for changed accepted scope, Owner-reserved ar
 
 `ACCEPT` is the Owner's single approval of the exact current RobQA-passed candidate and authorization to integrate it:
 
-1. Verify the candidate SHA equals the Owner-reviewed, RobQA-passed candidate.
-2. Push the feature branch if it is not already published.
-3. Create or update the card's single PR against `main`.
-4. Record Owner `ACCEPTED` and RobQA `PASS` against the exact candidate SHA in the PR and durable evidence.
-5. Run and verify required PR CI/status checks.
-6. Verify the PR is mergeable and its base/head diff contains no unexpected work, commits, or artifacts.
-7. If all integration checks pass, use GitHub squash merge with the preferred subject `VM-###: <accepted card title>`.
-8. Obtain and verify the resulting merge commit, record Integrated, sync local `main`, and verify the squash commit and worktree.
-9. Complete the card, board, and handoff closeout and record the final merge SHA. Delete the remote/local feature branch when safe; otherwise record the concrete reason and owner of deferred cleanup without discarding work.
-10. Persist the Done closeout record and verify the final clean worktree and completed closeout before reporting Done. A truthful cleanup deferral does not imply that deletion occurred.
+1. Verify genuine Owner ACCEPT for the exact RobQA-passed material candidate; record Accepted and retain durable decision evidence.
+2. Push the feature branch if needed and create/update its single PR against main, recording the same exact QA/Owner bindings.
+3. Collect current host facts through the governed route and run `npm run task -- check VM-### --stage=integration --observations=<external.json>`. The [read-only checker](task-delivery.md) validates PR scope/parity, evidence content, CI/head, policy and guarded capability. Reconcile blockers; do not retry an unknown write.
+4. On PASS, perform the authorized expected-head guarded squash merge with subject `VM-###: <accepted card title>`.
+5. Obtain the actual merge result, sync main and record Integrated. Complete authorized lifecycle documentation, regenerate derived views, and safely clean up the feature branch/worktree or record the existing truthful deferral.
+6. Run `npm run task -- check VM-### --stage=closeout --observations=<external.json>` with current host, report and preservation evidence. It validates the squash parent/tree, final main, records, generated views and cleanup.
+7. Persist Done and final closeout evidence; rerun closeout against the final state before reporting completion. PASS performs no delivery action and a truthful deferral never claims deletion.
 
 Do not request a second Owner approval while the candidate and its evidence remain valid. An
 integration-only blockage preserves Accepted. If resolving a CI failure, merge conflict, discovered defect,
