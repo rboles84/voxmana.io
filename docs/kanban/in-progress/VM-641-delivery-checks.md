@@ -30,10 +30,12 @@ RobQA: PENDING
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
-Decisions: Owner authorized Phase 6 after VM-640 Done, one newly admitted isolated branch/worktree, existing rules only, exact VM-637 preservation and independent QA before Owner Review.
+Decisions: Owner authorized Phase 6 after VM-640 Done, one newly admitted isolated branch/worktree, existing rules only, exact VM-637 preservation and independent QA before Owner Review. Scope amendment: export the existing read-only admission history audit for post-squash closeout without changing strict parser or validation semantics.
 Evidence: Phase 6 request in current Owner conversation; [plan](../../plans/vm641-delivery-checks.md).
 
 ## Admission Scope
+
+- `scripts/validate/validate-task-admission.mjs`
 
 - `scripts/task.mjs`
 - `scripts/lib/task-delivery.mjs`
