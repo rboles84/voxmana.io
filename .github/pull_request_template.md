@@ -30,7 +30,7 @@ VM-### — Accepted card title
 - Execution: `SEPARATE` | `SAME-AGENT DISTINCT PHASE`; classification/reason: `PENDING`
 - Evidence: `PENDING`
 
-`PASS` is engineering evidence sufficiency; Owner acceptance is recorded separately.
+Apply the [canonical QA/Owner lifecycle](../docs/reference/workflow.md#lifecycle-states-and-transitions).
 
 ### Owner Review
 
@@ -44,8 +44,7 @@ VM-### — Accepted card title
 - Obstacle or verified merge reference: `PENDING`
 - Evidence delta after material candidate: `NONE` or head/reference plus bounded content disposition
 
-An integration-only blockage preserves valid Owner acceptance. Apply the repository
-[lifecycle and evidence contract](../docs/reference/workflow.md#candidate-and-evidence-records).
+Apply the [canonical evidence/invalidation contract](../docs/reference/workflow.md#candidate-and-evidence-records).
 
 ### Delivery checks
 

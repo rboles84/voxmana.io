@@ -4,6 +4,8 @@ This folder is the developer map for the current Vox Mana working tree. It docum
 
 ## Start Here
 
+For task execution, use [repository entry instructions](../../AGENTS.md) and the [required reading model](workflow.md#required-reading-model). The maps below are conditional reference material, not a mandatory full reading list.
+
 - [Project Atlas](../architecture/project-atlas.md) - product shape, route map, entrypoints, runtime layers, external services, scripts, and generated artifacts.
 - [Route Ownership Matrix](../architecture/route-ownership-matrix.md) - per-route ownership map for page purpose, HTML/CSS/JS, storage, data, services, tests, risks, and scoped-protection boundaries.
 - [Core Logic And Algorithms](../architecture/core-logic-and-algorithms.md) - adaptive placement, legacy quick scoring, Scryfall parsing, visual builder, persistence, archived terminal, rate limiting, and build logic.
@@ -25,7 +27,7 @@ This folder is the developer map for the current Vox Mana working tree. It docum
 - [Visual Style Guide](../design/visual-style-guide.md)
 - [Asset Manifest](../design/asset-manifest.md)
 - [Implementation Notes](../design/implementation-notes.md)
-- [Move Into Repo](./move-into-repo.md)
+- [Historical Move Into Repo migration note](./move-into-repo.md) — event-time migration evidence, not current operating instructions.
 - [Workflow](./workflow.md)
 
 ## Scope Notes

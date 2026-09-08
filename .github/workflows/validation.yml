@@ -31,6 +31,7 @@ jobs:
 
       - name: Run deterministic checks
         run: |
+          npm run test:workflow-instructions
           npm run test:task-context
           npm run test:admission
           npm run test:change-report

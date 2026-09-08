@@ -4,41 +4,15 @@ Spawn a Planning Architect subagent.
 
 ## Required Pre-Flight
 
-Before planning:
-- Read `AGENTS.md`
-- Read `.agents/skills/robdev/SKILL.md` and `.agents/skills/robdev/robdev.md`
-- Read `docs/dev/RobDevPass.md`
-- Read `.agents/skills/robqa/SKILL.md` and `.agents/skills/robqa/robqa.md`
-- Read `docs/qa/RobQAPass.md`
-- Run `npm run task -- context VM-###`; use the [context disclosure and deep/raw retrieval](../../docs/reference/task-context.md) as needed.
-- Read recent/relevant handoffs
-- Review disclosed related task records; a full generated-board read is not routine preflight.
-- Read related Kanban cards
-
-Do not proceed from a blank slate.
+Read [AGENTS](../../AGENTS.md) and follow the [stage reading model and preflight](../../docs/reference/workflow.md#required-reading-model). Retrieve [targeted task context](../../docs/reference/task-context.md#focused-and-deep-rehydration), expanding deep/raw sources when needed. Use [existing admission](../../docs/reference/workflow.md#task-admission) for new/resumed material work.
 
 ## Task
 
-Create a full implementation plan for the requested Vox Mana enhancement.
+Create a repository-grounded implementation plan. Apply [RobDev](../../.agents/skills/robdev/SKILL.md), then [RobQA](../../.agents/skills/robqa/SKILL.md) when planning validation. Their full passes own the pre-edit packet, QA classification, proportional evidence and Owner-Visual boundaries.
 
 ## Rules
 
-- Apply `docs/reference/token-reasoning-cost-control.md`; keep checks proportionate without omitting any checks required by this prompt.
-- Use the repo-local `robdev` skill and `robdev.md` before proposing implementation; `docs/dev/RobDevPass.md` remains authoritative. Identify the owning layer and producer, nearest reusable machinery, changed and protected behavior, consumers and blast radius, relevant failure/recovery states, smallest complete implementation, non-goals, and stop conditions.
-- Read relevant repo files before recommending changes.
-- Do not modify files except for the required handoff file and regenerated derived views.
-- Identify current state.
-- Identify impacted files.
-- Identify data/schema impacts.
-- Identify UI/UX impacts.
-- Identify risks and guardrails.
-- Use the repo-local `robqa` skill and `robqa.md`, with `docs/qa/RobQAPass.md` remaining authoritative: classify the QA tier, name changed behavior and protected contracts, then identify the smallest risk-proportional tests needed.
-- Record expensive suites intentionally skipped and require concrete changed-risk justification for any CPU-heavy or exhaustive suite.
-- Apply OWNER-VISUAL MODE by default: identify what changed, the realistic risk, the cheapest reliable verification layer, whether focused browser automation is objectively necessary, and which visual judgment is deferred to the Owner.
-- Do not automatically plan screenshots, browser walkthroughs, visual self-QA, animation-fidelity waits, or exhaustive responsive testing merely because UI or CSS changes.
-- Preserve existing architecture and naming.
-- Preserve Vox Mana tone and Commander-first direction.
-- Do not invent lore or commander facts.
+Do not modify files except the required handoff and regenerated views. Preserve existing architecture, naming and the repository's tone/factual boundaries. Identify current state, impacted files, data/schema and UI/UX impacts, risks, guardrails and acceptance criteria from actual sources.
 
 ## Output Format
 
@@ -61,10 +35,4 @@ Return Markdown with:
 
 ## Required Handoff
 
-Create a handoff file:
-
-`docs/handoffs/YYYY-MM-DD-HHMM-planning-architect-short-task.md`
-
-Regenerate/check derived views after editing source records:
-
-`npm run task -- indexes --write` then `npm run task -- indexes --check`
+Follow [Required Agent Handoff](../../docs/reference/workflow.md#required-agent-handoff), including the role's attributed report, applicable gate packet, [Git accounting](../../docs/reference/workflow.md#final-git-reporting-contract) and [generated-view maintenance/freshness](../../docs/reference/task-context.md#generated-views-and-safe-replacement).

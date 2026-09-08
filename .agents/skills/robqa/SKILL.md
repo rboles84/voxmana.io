@@ -5,8 +5,8 @@ description: Apply Vox Mana's risk-proportional owner-QA gate when selecting tes
 
 # RobQA
 
-Read [robqa.md](robqa.md) completely when this skill applies. It explains how to use the gate in Vox Mana.
+Read and apply the full governing [RobQAPass](../../../docs/qa/RobQAPass.md) before selecting tests, validating changes or preparing Owner Review. It remains the canonical behavioral authority; applicable specialist gates control their domains.
 
-Before selecting tests, also read the governing [RobQAPass](../../../docs/qa/RobQAPass.md) completely. The repository authority remains frozen; this skill and its supporting document are invocation and usage layers, not replacements.
+Use the repository [stage reading model](../../../docs/reference/workflow.md#required-reading-model). Apply RobQAPass QA execution independence and Owner-First policy; scope drift returns to RobDev.
 
-Do not weaken stricter protected workflows. Return to the repo-local [RobDev skill](../robdev/SKILL.md) when validation exposes an implementation defect or scope drift.
+[robqa.md](robqa.md) is optional navigation for existing links, not another mandatory contract.

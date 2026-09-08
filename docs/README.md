@@ -2,6 +2,8 @@
 
 The `docs/` tree is the project memory for Vox Mana. It preserves architecture, research, decisions, quality evidence, and agent coordination without mixing those concerns into production code.
 
+For current operations, use [repository entry instructions](../AGENTS.md) and [stage-specific reading](reference/workflow.md#required-reading-model). Historical handoffs, context briefings and migration plans retain event-time evidence; their old procedures do not override current workflow authority.
+
 Use the most specific folder that matches the work. Do not create a new top-level folder unless the current structure cannot reasonably hold the document.
 
 | Folder | Purpose | Typical Contents | Intended Audience |

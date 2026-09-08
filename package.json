@@ -135,7 +135,8 @@
     "validate:admission": "node scripts/validate/validate-task-admission.mjs",
     "test:admission": "node --test tests/governance/task-admission.test.mjs",
     "task": "node scripts/task.mjs",
-    "test:task-context": "node --test tests/governance/task-context.test.mjs"
+    "test:task-context": "node --test tests/governance/task-context.test.mjs",
+    "test:workflow-instructions": "node --test tests/governance/workflow-instructions.test.mjs"
   },
   "devDependencies": {
     "chrome-launcher": "^1.2.1",

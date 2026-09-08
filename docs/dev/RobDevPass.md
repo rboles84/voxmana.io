@@ -161,8 +161,8 @@ substitute for inspecting the current implementation.
 
 ## Handoffs
 
-Read the handoff index and only the recent or historically decisive handoffs relevant to the affected
-system. Use them to recover:
+Use [targeted task context and deep/raw retrieval](../reference/task-context.md#focused-and-deep-rehydration)
+to read the recent or historically decisive handoffs relevant to the affected system. Use them to recover:
 
 - why an implementation exists;
 - files and contracts recently changed;

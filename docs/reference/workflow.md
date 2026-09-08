@@ -8,12 +8,7 @@ The individual card in `docs/kanban/` owns declared task state. Git and GitHub e
 candidate, CI, and integration facts; reconcile the card with those observations before acting. Board,
 handoff, and PR summaries reference the card and evidence rather than independently deciding its state.
 
-- `docs/kanban/board.md` summarizes the active board.
-- `docs/kanban/backlog/` contains unscheduled cards.
-- `docs/kanban/ready/` contains scoped work ready to start.
-- `docs/kanban/in-progress/` contains active work.
-- `docs/kanban/blocked/` contains paused work with blockers.
-- `docs/kanban/done/` contains completed work.
+The [lifecycle table](#lifecycle-states-and-transitions) owns card-folder mapping. The [generated board](task-context.md) is a derived navigation view.
 
 GitHub Issues and GitHub Projects may mirror this state when useful, but they are optional and should not replace the local board unless the project explicitly changes this workflow.
 
@@ -26,44 +21,131 @@ The strict admission validator remains the sole admission authority; retrieval n
 
 ## Standard Flow
 
-For non-trivial work:
+For non-trivial work: preflight -> planning -> Kanban update -> implementation -> testing -> documentation update -> handoff. Apply the [reading model](#required-reading-model) and [preflight](#mandatory-pre-flight-review) before implementation. Use [RobDev](../../.agents/skills/robdev/SKILL.md) for grounded engineering and [RobQA](../../.agents/skills/robqa/SKILL.md) for risk-proportional evidence; their full passes and triggered specialists govern substance.
 
-1. Run the pre-flight review from `AGENTS.md`.
-2. Create or identify the relevant Kanban card.
-3. Use the repo-local [RobDev skill](../../.agents/skills/robdev/SKILL.md) and its [usage guide](../../.agents/skills/robdev/robdev.md), then apply the frozen [RobDevPass authority](../dev/RobDevPass.md).
-4. Implement the scoped change.
-5. Use the repo-local [RobQA skill](../../.agents/skills/robqa/SKILL.md) and its [usage guide](../../.agents/skills/robqa/robqa.md), then apply the frozen [RobQAPass authority](../qa/RobQAPass.md) before selecting tests.
-6. Run the narrowest risk-proportional objective checks. Under OWNER-VISUAL MODE, add focused browser automation only when objective changed behavior cannot reasonably be protected below the browser; defer subjective visual review to the Owner.
-7. Update affected docs when behavior, data contracts, workflows, or public surfaces change.
-8. Create or update source cards/handoffs, then run `npm run task -- indexes --write` and `npm run task -- indexes --check`; do not manually author derived-view summaries.
+Use the [existing delivery commands](#standard-branch-to-owner-to-pr-to-merge-delivery) and [handoff/reporting contracts](#required-agent-handoff). Small read-only questions, quick status checks and simple command lookups do not need a card or handoff unless they reveal follow-up work.
 
-Apply [Token And Reasoning Cost Control](token-reasoning-cost-control.md): perform proportionate checks by default. Broaden validation only when the current Owner request explicitly asks for it or a current stricter protected workflow requires it for the changed risk.
+## Mandatory Pre-Flight Review
 
-Use the [standard delivery sequence](#standard-branch-to-owner-to-pr-to-merge-delivery): SHIP ends with
-engineering PASS and pending Owner Review. Owner visual/product judgment precedes ACCEPT and integration,
-not completion of engineering PASS.
+Before meaningful planning, implementation, documentation, data or testing work, use the [required reading model](#required-reading-model) and the selected task packet. Establish current root/branch/worktree/HEAD, dirty and untracked work, active scope and locked Owner decisions, recent related work, known risks, files recently changed and what must not be touched. Review relevant handoffs, cards, plans, learnings and incident records; do not work from blank context or absorb unrelated WIP.
 
-The current Owner request and canonical governance determine scope. Historical cards, handoffs, test catalogs,
-or phrases such as "all existing tests," "no skipped tests," and "full validation" do not authorize
-indiscriminate historical-harness execution. A browser is an engineering tool, not a ritual.
+Summarize those findings before implementation. If no relevant handoff exists, state: `No relevant prior handoff found.` Planning uses RobDev; test selection additionally invokes RobQA. Apply [admission](#task-admission) before new material work, on resumption and before candidate QA. Before creating branches/worktrees, apply the [single-active-work rule](#single-active-work-branch-and-worktree).
 
-The operating sequence is: **Request -> repo-local RobDev skill / RobDevPass -> implementation -> repo-local RobQA skill / RobQAPass -> owner judgment -> integration.** The skills explain and invoke the workflow; the frozen pass documents remain authoritative. Both defer to stricter project-specific authorities.
+## Required Reading Model
 
-`RobQAPass` governs how QA scope is selected and how owner acceptance is prepared. It does not replace project-specific commands or stricter protected contracts. The command lists in this workflow and the comprehensive test plan are catalogs, not automatic per-change checklists; CPU-heavy or exhaustive suites require a concrete changed-risk justification.
+For an ordinary role phase, read:
 
-Small read-only questions, quick status checks, and simple command lookups do not need a Kanban card or handoff unless they reveal follow-up work.
+1. Repository [AGENTS](../../AGENTS.md).
+2. The selected task context and its [focused/deep disclosure contract](task-context.md#focused-and-deep-rehydration); retrieve necessary linked/raw sources.
+3. Sections of this workflow relevant to the current stage: preflight/admission for starting or resuming, delivery/evidence/routing for shipping or integrating, handoff/reporting for transfer.
+4. The applicable [RobDev skill](../../.agents/skills/robdev/SKILL.md) and full governing pass for implementation/planning, or [RobQA skill](../../.agents/skills/robqa/SKILL.md) and full governing pass before selecting tests or performing QA. A plan that selects tests invokes both roles. Reuse already-read unchanged authority in the current task; the compatibility usage guides add no mandatory reading hop.
+5. Task-specific source/code/data and applicable [specialist authority](#source-bound-data-work-modes). The [cost policy](token-reasoning-cost-control.md) applies throughout and cannot waive a safeguard.
+
+Context authority lists and documentation atlases are navigation pointers; read the roles/stages that apply, not every linked governance file. The task card, relevant handoffs/plans and affected source files remain required according to task risk. Use deep rehydration for architectural, historical, contradictory or unfamiliar work when needed, then raw sources if necessary. Targeted retrieval is an optimization layer, not an information boundary. No routine full-board/full-handoff-index reading is required.
+
+Historical handoffs, migration notes, archives and plans preserve event-time rationale; their old procedures do not override current canonical contracts. Before a new card exists, retrieve relevant predecessor context and raw sources under task-context, then apply admission start. Candidate/integration/closeout deterministic stage checks remain unimplemented until Phase 6; existing human/workflow delivery obligations still apply.
+
+## Optional Work Intake Triage
+
+For non-CRIT, non-certification, non-destructive, non-migration work, an agent may run a lightweight intake check before planning when scope is ambiguous or likely to exceed one window.
+
+Record:
+
+1. Verdict: proceed, shrink, table, or stop.
+2. Smallest safe version.
+3. Review level.
+4. Stop condition.
+
+This triage cannot weaken existing program, CRIT-001, source-authority, MTG factual, Kanban, handoff, or destructive-change governance. If another card, prompt, or program requires stricter workflow, the stricter rule wins.
+
+## Single Active Work Branch And Worktree
+
+The default is one active branch and one active worktree for a continuing task or initiative. Continue the existing related branch/worktree instead of creating a new branch for each prompt, remediation, test pass, review response, or closeout.
+
+Before running any branch- or worktree-creation command, the agent must:
+
+1. List the repository's registered worktrees and relevant local branches.
+2. Identify every existing branch/worktree associated with the same task, ticket, gate, or continuing initiative.
+3. State why the requested work cannot safely continue in the existing active worktree.
+
+If a related active branch or worktree already exists, this is a **HARD STOP**. Do not create another one. Report the existing branch/worktree set and ask the owner whether to:
+
+- continue one existing branch;
+- integrate completed work first;
+- close or clean up superseded work first; or
+- authorize a genuinely separate branch after explaining why isolation is required.
+
+A task prompt that supplies a new branch or worktree name does not by itself waive this hard stop when it would multiply branches for the same continuing work. The agent must surface the conflict and question why another branch is necessary before creating it.
+
+Do not create a replacement branch merely because the prior branch is completed but unintegrated. Do not delete, force-remove, merge, or consolidate existing branches/worktrees without explicit owner authority. Exact-SHA review, certification, or integration isolation may use another worktree only after the owner explicitly confirms that exception following the hard-stop review.
+
+## Required Agent Handoff
+
+Every specialist subagent and every major main-agent task must create or update a handoff file.
+
+Location:
+
+`docs/handoffs/`
+
+Filename format:
+
+`YYYY-MM-DD-HHMM-agent-name-short-task.md`
+
+Every handoff must include:
+- Agent name
+- Task requested
+- Files reviewed
+- Files changed
+- What changed
+- Why it changed
+- Decisions made
+- Risks / uncertainties
+- Tests run
+- Not touched
+- Follow-up recommendations
+- Next suggested agent
+- Related Kanban card, docs, or plans
+
+Implementation handoffs must use the repo-local `robdev` skill and transfer the compact packet from [RobDevPass](../dev/RobDevPass.md#18-handoff-to-robqapass). Handoffs that claim owner-QA readiness must also use the repo-local `robqa` skill and the readiness fields in [RobQAPass](../qa/RobQAPass.md#24-robqapass-exit-criteria); reference the skills and frozen gates rather than restating their policies.
+
+After updating source cards/handoffs, follow the [generated-view maintenance and freshness contract](task-context.md#generated-views-and-safe-replacement); both views must be current. Do not hand-maintain derived summaries.
+
+## Final Git Reporting Contract
+
+For every implementation task with Git changes, Git is the authority for final changed-file accounting.
+Before the final response, identify the task baseline and derive the material path list and count from
+`git diff --name-status --find-renames <task-baseline>..<material-candidate>` (or baseline to final `HEAD`
+when there is no separate material candidate). Compute the count from that output. Do not substitute
+remembered edits, opened files, patch history, tool/UI edit totals, or a hand-authored list.
+
+When commits follow the material candidate, report three scopes distinctly:
+
+- **Material change set:** task baseline to material candidate; this is the primary Files changed list.
+- **Evidence delta:** material candidate to evidence head; label it explicitly as evidence-only and never
+  present it as the whole task diff.
+- **Final branch delta:** task baseline to current `HEAD`; use it as the total-branch sanity check.
+
+The final report must name the baseline, material candidate when applicable, current evidence head/`HEAD`,
+Git-derived material count and paths, and Git-confirmed worktree state. Report push and merge state from Git
+or the repository host rather than assumption. If another edit counter disagrees with Git, Git wins and the
+material discrepancy must be disclosed. Keep trivial read-only or no-change work proportional.
+
+Use `node scripts/validate/validate-change-report.mjs --baseline=<sha> --candidate=<sha> --report=<path>
+[--evidence-head=<sha>]` for a Markdown handoff/report that states an explicit count or enumerates changed
+paths. The validator must pass before such a report is treated as authoritative.
 
 ## Source-Bound Data Work Modes
 
-Faction identity, placement, dossier, and gold-standard parity cards must follow the source-bound rule in [Source / Generated Guardrails](source-generated-guardrails.md).
+Apply bounded specialist authorities when the changed scope triggers them; do not load every specialist guide for ordinary work.
 
-- Recon cards may inspect generated/runtime surfaces only to identify gaps.
-- Review cards may approve, reject, or narrow proposed repairs, but must not promote missing evidence into source backing.
-- Review cards may authorize later repair cards only after the source category for each field is known.
-- Repair cards may edit only fields backed by existing official researched data.
-- Source-intake cards may fetch or add new legitimate sources, but must record them in the appropriate source/evidence ledger before generated/display parity work consumes them.
-- Implementation cards must classify every changed or preserved field as one of: `backed-repair`, `source-normalization`, `source-intake-needed`, or `blocked-noncanonical`.
-- Runtime/generated files may be regenerated from canonical source, but not hand-edited as source.
+| Trigger | Governing source |
+|---|---|
+| Faction identity, placement, dossier or gold-standard parity/source authoring | [Source / Generated Guardrails and work modes](source-generated-guardrails.md#work-mode-rules), [data contracts](data-contracts.md), and the active card's approved source/producer |
+| Semantic claim entailment, provenance or certification | [Semantic Readiness Contract](semantic-readiness-contract.md), current certified source and applicable incident/program |
+| Any CRIT-001 Goal, review, remediation or certification task | Mandatory [drift-control baseline](../incidents/CRIT-001-drift-control-template.md) and [controlling incident](../incidents/CRIT-001-faction-semantic-readiness-integrity.md); apply every triggered checkpoint and stop on FAIL/UNKNOWN |
+| SIRF meaning-fidelity work | [SIRF workspace and required governing process](../sirf/SIRF-README.md); read the full applicable SIRF authority |
+| Placement, CECOS, Scryfall facts, enrichment or evidence-role changes | [RobDev authority router](../dev/RobDevPass.md#5-vox-mana-authority-router) and the current card's distinct approved contracts; structural validity never substitutes for meaning/approval |
+| Route/shared state, security, migration, accessibility or protected integration | Owning contract/source identified by [RobDev](../dev/RobDevPass.md), [route ownership](../architecture/route-ownership-matrix.md), and [RobQA classification](../qa/RobQAPass.md#2-mandatory-pre-qa-classification); retain any stricter bounded gate |
 
 ## Kanban Cards
 
@@ -470,22 +552,4 @@ VM-625 is the transition guardrail for this initial adoption. It is already impl
 
 ## Checks
 
-For the current static site, each non-trivial change should verify the narrowest relevant subset of:
-
-- Pages still open locally.
-- Shared JavaScript has no obvious console/runtime errors.
-- Navigation and visible content still work.
-- Data, parser, placement, or dossier behavior still passes relevant scripts.
-- Git working tree changes are understood before handoff.
-
-Useful commands include:
-
-```bash
-npm test
-npm run test:parser
-npm run test:builder
-npm run test:bias
-npm run test:mode
-npm run test:placement
-npm run test:syntax
-```
+Select evidence through [RobQA](../qa/RobQAPass.md). [Package scripts](../../package.json) define commands; the [product test catalog](../qa/vox-mana-test-plan.md) supplies conditional cases; [required CI](../../.github/workflows/validation.yml) remains authoritative for integration. Historical test inventories are not blanket execution requirements. Apply [Owner-First verification](../qa/RobQAPass.md#owner-first-visual-verification-policy) for browser/visual scope and harness failures.

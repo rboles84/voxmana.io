@@ -12,13 +12,13 @@ Implement Owner-approved Phase 5: subtract duplicate/superseded active instructi
 
 ## Acceptance Criteria
 
-- [ ] Read-only inventory, full responsibility map and reproducible baseline/before-after burden measurements precede material editing.
-- [ ] Common entry points use concise pointers; obsolete manual tracker maintenance and routine full-index reading are removed.
-- [ ] Lifecycle, strict admission/dependency/RESUME, capability routing/uncertain writes, exact-candidate Owner/QA and Git accounting remain intact and reachable.
-- [ ] Frozen RobDev/RobQA behavior remains intact except an explicitly justified Phase 4 index-reading contradiction correction.
-- [ ] Specialist triggers, source/provenance, independent review, handoff duties and stop conditions remain discoverable and controlling.
-- [ ] Phase 4 tooling, retrieval/deep/disclosure/raw access, generated-view behavior and archive bytes remain unchanged; history and VM-637 remain preserved.
-- [ ] Focused link/anchor/instruction checks, context/admission/report compatibility, view freshness and existing deterministic validation pass.
+- [x] Read-only inventory, full responsibility map and reproducible baseline/before-after burden measurements precede material editing.
+- [x] Common entry points use concise pointers; obsolete manual tracker maintenance and routine full-index reading are removed.
+- [x] Lifecycle, strict admission/dependency/RESUME, capability routing/uncertain writes, exact-candidate Owner/QA and Git accounting remain intact and reachable.
+- [x] Frozen RobDev/RobQA behavior remains intact except an explicitly justified Phase 4 index-reading contradiction correction.
+- [x] Specialist triggers, source/provenance, independent review, handoff duties and stop conditions remain discoverable and controlling.
+- [x] Phase 4 tooling, retrieval/deep/disclosure/raw access, generated-view behavior and archive bytes remain unchanged; history and VM-637 remain preserved.
+- [x] Focused link/anchor/instruction checks, context/admission/report compatibility, view freshness and existing deterministic validation pass.
 - [ ] Independent exact-candidate RobQA confirms all seven scenario paths, burden reduction and no safeguard loss; stop at Owner Review without push/merge/Phase 6.
 
 ## Delivery
