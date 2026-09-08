@@ -144,3 +144,13 @@ Owner ACCEPT explicitly binds material 0a2830054480d2b8d17d3fdee4e499402338801f,
 Preflight: current admission PASS, clean feature worktree, same baseline/local/live main cf0d8b34ca4ce1f06a9f92ccb48f50dfb78dcbc8, no existing task PR, and all five original VM-637 hashes match. Existing separate QA and bounded correction history were rehydrated. Delivery work changes lifecycle/evidence only; no new material implementation or QA policy.
 
 Connector discovery found authenticated repository administration/push metadata and expected-head guarded squash capability. Connector protection read was denied (403), and its branch-rule endpoint was unsupported. The established REST/GCM route was used only for these read-only policy facts: main is unprotected, no active branch rules and no repository rulesets. Existing process safeguards remain enforced; no settings/auth change. Native Git retains fetch/push; connector retains PR/CI/merge.
+
+## Hosted CI blocker and bounded material correction
+
+PR35 head d3c91923852ea95c3d6dfcbd9c2e6b364bd8b9bb failed required Deterministic Validation job 102145333767 (run 34251069010). Linux delivery case 67 staged an executable-bit change while leaving the working file non-executable; the checker correctly BLOCKED the dirty worktree before reaching the intended committed evidence file-mode check. All other delivery cases passed; admission/context/instruction suites passed before it. This is a fixture portability defect, not permission to waive required CI.
+
+The bounded correction applies chmod 0755 to that disposable fixture file before staging the executable bit. The rejection assertion, checker code, policy and all other tests remain unchanged. Since fixture bytes are material, earlier Owner ACCEPT of 0a2830054480d2b8d17d3fdee4e499402338801f does not authorize this new candidate. The same task/branch/PR returns through exact independent QA and Owner Review; no merge occurs without acceptance of the corrected material.
+
+The attempted detailed PR body was rejected by automatic approval review as public disclosure; no write was submitted. A reduced body using existing public task/QA/Owner bindings was approved through the same connector and created PR35. No alternate route bypassed that rejection.
+
+Main remains at cf0d8b34ca4ce1f06a9f92ccb48f50dfb78dcbc8. The owned temporary stash was restored from the original snapshot, all five VM-637 hashes reverified, and only that identified stash dropped. No unrelated work was committed, no settings/auth changed, and no later governance phase began.

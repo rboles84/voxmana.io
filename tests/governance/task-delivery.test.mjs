@@ -257,7 +257,10 @@ test("closeout: original untracked task bytes and tracker rows survive lifecycle
   blocked(f, /Preserved bytes|Preserved generated/);
 });
 test("candidate: evidence file mode changes cannot retain QA", () => {
-  const f = fixture(); git(f.root, "update-index", "--chmod=+x", f.card); const old = f.packet.head;
+  const f = fixture();
+  // Match the working file to the staged executable bit on file-mode-sensitive hosts.
+  fs.chmodSync(path.join(f.root, f.card), 0o755);
+  git(f.root, "update-index", "--chmod=+x", f.card); const old = f.packet.head;
   git(f.root, "commit", "-qm", "mode change"); f.packet.head = git(f.root, "rev-parse", "HEAD"); review(f, old, f.packet.head); blocked(f, /file-mode/);
 });
 

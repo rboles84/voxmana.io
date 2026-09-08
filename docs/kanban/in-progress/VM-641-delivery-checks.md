@@ -2,7 +2,7 @@
 
 ID: VM-641
 Title: Deterministic Candidate, Integration and Closeout Checks
-Status: Accepted
+Status: In Progress
 Type: Governance / tooling
 Created: 2026-09-08
 
@@ -12,23 +12,23 @@ Implement the Owner-approved Phase 6 request through the existing task interface
 
 ## Acceptance Criteria
 
-- [x] Three stages return read-only PASS/BLOCKED with authoritative observations and text/JSON.
-- [x] Exact candidate, independent QA, genuine Owner authority, content-sensitive evidence validation, host/CI/head parity and unknown-write blocking are preserved.
-- [x] Closeout verifies actual squash tree/parent, synchronized main, lifecycle, reports, safe cleanup and unrelated-work preservation.
-- [x] Strict admission and context/index/report/instruction compatibility remain intact.
-- [x] Focused temporary-Git/adversarial/read-only tests and required deterministic CI pass.
-- [x] Canonical invocation cutover replaces manual reconstruction; remaining human judgment is explicit.
-- [x] Separate independent exact-candidate RobQA; stop at Owner Review without integration or later-phase work.
+- [ ] Three stages return read-only PASS/BLOCKED with authoritative observations and text/JSON.
+- [ ] Exact candidate, independent QA, genuine Owner authority, content-sensitive evidence validation, host/CI/head parity and unknown-write blocking are preserved.
+- [ ] Closeout verifies actual squash tree/parent, synchronized main, lifecycle, reports, safe cleanup and unrelated-work preservation.
+- [ ] Strict admission and context/index/report/instruction compatibility remain intact.
+- [ ] Focused temporary-Git/adversarial/read-only tests and required deterministic CI pass.
+- [ ] Canonical invocation cutover replaces manual reconstruction; remaining human judgment is explicit.
+- [ ] Separate independent exact-candidate RobQA; stop at Owner Review without integration or later-phase work.
 
 ## Delivery
 
 Record version: 1
 Branch: codex/vm-641-delivery-checks
 Admission baseline: cf0d8b34ca4ce1f06a9f92ccb48f50dfb78dcbc8
-Candidate: 0a2830054480d2b8d17d3fdee4e499402338801f
-RobQA: PASS at 0a2830054480d2b8d17d3fdee4e499402338801f — SEPARATE; [independent final QA](../../handoffs/2026-09-08-1700-independent-robqa-vm641-final.md)
-Owner: ACCEPTED at 0a2830054480d2b8d17d3fdee4e499402338801f — current Owner conversation; original decision retained in integration evidence
-Integration: PENDING
+Candidate: PENDING
+RobQA: PENDING
+Owner: PENDING
+Integration: BLOCKED — PR35 hosted Linux fixture failure; material correction requires fresh exact-candidate QA and Owner Review
 Dependencies: None
 Decisions: Owner authorized Phase 6 after VM-640 Done, one newly admitted isolated branch/worktree, existing rules only, exact VM-637 preservation and independent QA before Owner Review. Scope amendment: export the existing read-only admission history audit for post-squash closeout without changing strict parser or validation semantics. Scope amendment: retain the blocked exact-candidate QA artifact unchanged and add a separate corrected-candidate independent review handoff. Scope amendment: preserve the blocked corrected-candidate review and admit a distinct final independent QA handoff for the bounded scope/optional-evidence/invocation corrections. Scope amendment: admit a distinct independent QA handoff for the bounded Linux executable-mode fixture correction found by required hosted CI; retain the prior accepted material and original QA evidence as history.
 Evidence: [implementation](../../handoffs/2026-09-08-1100-codex-vm641-delivery-checks.md); [final independent QA](../../handoffs/2026-09-08-1700-independent-robqa-vm641-final.md); [plan](../../plans/vm641-delivery-checks.md). Original blocked reviews remain preserved. Owner confirmed the existing low-risk QA exception; VM-641 remains SEPARATE.
