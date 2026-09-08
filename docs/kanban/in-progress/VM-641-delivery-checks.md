@@ -30,10 +30,12 @@ RobQA: PENDING
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
-Decisions: Owner authorized Phase 6 after VM-640 Done, one newly admitted isolated branch/worktree, existing rules only, exact VM-637 preservation and independent QA before Owner Review. Scope amendment: export the existing read-only admission history audit for post-squash closeout without changing strict parser or validation semantics.
+Decisions: Owner authorized Phase 6 after VM-640 Done, one newly admitted isolated branch/worktree, existing rules only, exact VM-637 preservation and independent QA before Owner Review. Scope amendment: export the existing read-only admission history audit for post-squash closeout without changing strict parser or validation semantics. Scope amendment: retain the blocked exact-candidate QA artifact unchanged and add a separate corrected-candidate independent review handoff.
 Evidence: Phase 6 request in current Owner conversation; [plan](../../plans/vm641-delivery-checks.md).
 
 ## Admission Scope
+
+- `docs/handoffs/2026-09-08-1545-independent-robqa-vm641-corrections.md`
 
 - `scripts/validate/validate-task-admission.mjs`
 
