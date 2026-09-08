@@ -1,0 +1,16 @@
+{
+  "revision": "ad0dce76147b2857241ca6987007698b103536aa",
+  "authority": "Historical context only; never current lifecycle or admission metadata.",
+  "files": [
+    {
+      "source": "docs/kanban/board.md",
+      "archive": "board.md",
+      "sha256": "87dfa535eb997790fcd817aabe7e7306cb1865fbfee134c048a3a12c4ca79128"
+    },
+    {
+      "source": "docs/handoffs/HANDOFF_INDEX.md",
+      "archive": "HANDOFF_INDEX.md",
+      "sha256": "f6d8d9a9cef137f285c695f3190672b6b8c5753a4981fa236185efcc42d9a3bf"
+    }
+  ]
+}

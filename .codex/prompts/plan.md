@@ -10,9 +10,9 @@ Before planning:
 - Read `docs/dev/RobDevPass.md`
 - Read `.agents/skills/robqa/SKILL.md` and `.agents/skills/robqa/robqa.md`
 - Read `docs/qa/RobQAPass.md`
-- Read `docs/handoffs/HANDOFF_INDEX.md`
+- Run `npm run task -- context VM-###`; use the [context disclosure and deep/raw retrieval](../../docs/reference/task-context.md) as needed.
 - Read recent/relevant handoffs
-- Read `docs/kanban/board.md`
+- Review disclosed related task records; a full generated-board read is not routine preflight.
 - Read related Kanban cards
 
 Do not proceed from a blank slate.
@@ -26,7 +26,7 @@ Create a full implementation plan for the requested Vox Mana enhancement.
 - Apply `docs/reference/token-reasoning-cost-control.md`; keep checks proportionate without omitting any checks required by this prompt.
 - Use the repo-local `robdev` skill and `robdev.md` before proposing implementation; `docs/dev/RobDevPass.md` remains authoritative. Identify the owning layer and producer, nearest reusable machinery, changed and protected behavior, consumers and blast radius, relevant failure/recovery states, smallest complete implementation, non-goals, and stop conditions.
 - Read relevant repo files before recommending changes.
-- Do not modify files except for the required handoff file and `docs/handoffs/HANDOFF_INDEX.md`.
+- Do not modify files except for the required handoff file and regenerated derived views.
 - Identify current state.
 - Identify impacted files.
 - Identify data/schema impacts.
@@ -65,6 +65,6 @@ Create a handoff file:
 
 `docs/handoffs/YYYY-MM-DD-HHMM-planning-architect-short-task.md`
 
-Update:
+Regenerate/check derived views after editing source records:
 
-`docs/handoffs/HANDOFF_INDEX.md`
+`npm run task -- indexes --write` then `npm run task -- indexes --check`

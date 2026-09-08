@@ -8,9 +8,9 @@ Before testing work:
 - Read `AGENTS.md`
 - Read `.agents/skills/robqa/SKILL.md` and `.agents/skills/robqa/robqa.md`
 - Read `docs/qa/RobQAPass.md`
-- Read `docs/handoffs/HANDOFF_INDEX.md`
+- Run `npm run task -- context VM-###`; use the [context disclosure and deep/raw retrieval](../../docs/reference/task-context.md) as needed.
 - Read recent relevant handoffs
-- Read `docs/kanban/board.md`
+- Review disclosed related task records; a full generated-board read is not routine preflight.
 - Read related cards
 
 ## Task
@@ -29,7 +29,7 @@ Create or update the testing plan for the current Vox Mana enhancement.
 - Convert manual owner findings into the narrowest appropriate systemic regression invariant and bound final owner review to genuine product judgment.
 - Identify regression risks.
 - Recommend exact commands to run.
-- Do not implement unless explicitly asked, except for the required handoff and `docs/handoffs/HANDOFF_INDEX.md` updates.
+- Do not implement unless explicitly asked, except for the required handoff and generated-view updates.
 - Preserve current test conventions.
 
 ## Required Output
@@ -52,6 +52,6 @@ Create a handoff file:
 
 `docs/handoffs/YYYY-MM-DD-HHMM-test-strategist-short-task.md`
 
-Update:
+Regenerate/check derived views after editing source records:
 
-`docs/handoffs/HANDOFF_INDEX.md`
+`npm run task -- indexes --write` then `npm run task -- indexes --check`

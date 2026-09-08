@@ -16,9 +16,9 @@ Read:
 - `docs/dev/RobDevPass.md`
 - `.agents/skills/robqa/SKILL.md` and `.agents/skills/robqa/robqa.md`
 - `docs/qa/RobQAPass.md`
-- `docs/handoffs/HANDOFF_INDEX.md`
+- Task-specific output from `npm run task -- context VM-###` under [progressive rehydration](../../docs/reference/task-context.md)
 - recent relevant files in `docs/handoffs/`
-- `docs/kanban/board.md`
+- Context disclosure and additional/deep/raw sources needed for this task
 - related cards in `docs/kanban/`
 - related docs/plans if referenced
 

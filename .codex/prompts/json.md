@@ -6,9 +6,9 @@ Spawn a JSON Cartographer subagent.
 
 Before JSON/data work:
 - Read `AGENTS.md`
-- Read `docs/handoffs/HANDOFF_INDEX.md`
+- Run `npm run task -- context VM-###`; use the [context disclosure and deep/raw retrieval](../../docs/reference/task-context.md) as needed.
 - Read recent relevant handoffs
-- Read `docs/kanban/board.md`
+- Review disclosed related task records; a full generated-board read is not routine preflight.
 - Read related cards
 
 ## Task
@@ -30,7 +30,7 @@ Allowed:
 - Detect stale fields.
 - Recommend validation improvements.
 - Create documentation reports.
-- Create the required handoff and update `docs/handoffs/HANDOFF_INDEX.md`.
+- Create the required handoff and regenerate derived views with `npm run task -- indexes --write`.
 
 Not allowed:
 - Invent lore or commander facts.
@@ -58,6 +58,6 @@ Create a handoff file:
 
 `docs/handoffs/YYYY-MM-DD-HHMM-json-cartographer-short-task.md`
 
-Update:
+Regenerate/check derived views after editing source records:
 
-`docs/handoffs/HANDOFF_INDEX.md`
+`npm run task -- indexes --write` then `npm run task -- indexes --check`
