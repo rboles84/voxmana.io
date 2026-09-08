@@ -6,11 +6,11 @@ Vox Mana is a Commander-first MTG discovery, lore, identity and search experienc
 
 ## Required Workflow
 
-For non-trivial work, follow [Standard Flow](docs/reference/workflow.md#standard-flow) and its [required reading model](docs/reference/workflow.md#required-reading-model). Start with targeted task context; keep deep/raw history accessible. Apply [Task Admission](docs/reference/workflow.md#task-admission) before material work, on resumption and before candidate QA; admission is not engineering PASS.
+For non-trivial work, follow [Standard Flow](docs/reference/workflow.md#standard-flow) and the [staged reading path](docs/reference/workflow.md#required-reading-model): targeted task context → admission → applicable role → work → QA → Owner → integration.
 
 ## Standard Delivery Commands
 
-Use the canonical [delivery sequence](docs/reference/workflow.md#standard-branch-to-owner-to-pr-to-merge-delivery): `SHIP VM-###` ends at exact-candidate engineering PASS and pending Owner Review; `ACCEPT VM-###` authorizes integration of that accepted candidate; `REJECT VM-###` returns the same task for correction. Read the applicable command contract, including evidence and invalidation rules. Before GitHub operations, apply [GitHub Operation Routing](docs/reference/workflow.md#github-operation-routing).
+Follow the canonical commands: [SHIP](docs/reference/workflow.md#ship-vm-) stops at exact-candidate engineering PASS and Owner Review; [ACCEPT](docs/reference/workflow.md#accept-vm-) integrates the exact accepted candidate; [REJECT](docs/reference/workflow.md#reject-vm--reason) corrects the same task/branch. Apply [capability routing](docs/reference/workflow.md#github-operation-routing) before host operations.
 
 ## Optional Work Intake Triage
 
@@ -22,11 +22,11 @@ Apply [Token And Reasoning Cost Control](docs/reference/token-reasoning-cost-con
 
 ## Governing Developer Gate
 
-Use the repo-local [RobDev skill](.agents/skills/robdev/SKILL.md) for planning/implementation. Its full governing pass owns the engineering obligations.
+Load the [RobDev skill and full authority](.agents/skills/robdev/SKILL.md) before implementation/planning.
 
 ## Governing Owner-QA Gate
 
-Use the repo-local [RobQA skill](.agents/skills/robqa/SKILL.md) before test selection, QA or Owner-review preparation. Its full pass owns risk-proportional evidence, required independence and OWNER-VISUAL MODE; specialist gates remain controlling.
+Load [RobQA and its full authority](.agents/skills/robqa/SKILL.md) at test selection, QA or Owner-review preparation, not ordinary implementation preflight. It owns independence, exact-candidate evidence, proportional validation, OWNER-VISUAL and harness-debt handling.
 
 ## Mandatory Pre-Flight Review
 
@@ -34,7 +34,7 @@ Complete the canonical [preflight](docs/reference/workflow.md#mandatory-pre-flig
 
 ## Single Active Work Branch And Worktree
 
-Before branch/worktree creation, apply the full [single-active-work rule](docs/reference/workflow.md#single-active-work-branch-and-worktree), including its existing Owner decision hard stop. Resume related work rather than duplicating it.
+Use [admission start/continue](docs/reference/workflow.md#task-admission) for discovery and obey its verdict. The [single-active-work rule](docs/reference/workflow.md#single-active-work-branch-and-worktree) retains human exception authority; do not duplicate same-task work.
 
 ## Required Agent Handoff
 
@@ -58,7 +58,7 @@ Use existing scoped role prompts: [Planning Architect](.codex/prompts/plan.md), 
 
 ## CRIT-001 Drift Control
 
-For every CRIT-001 Goal, review, remediation or certification task, apply the mandatory [drift-control baseline](docs/incidents/CRIT-001-drift-control-template.md) before advancing. FAIL or UNKNOWN stops progression. Use the [specialist routing table](docs/reference/workflow.md#source-bound-data-work-modes) for other triggered authorities; do not weaken their gates.
+CRIT-001 Goal/review/remediation/certification triggers the mandatory [drift-control authority](docs/incidents/CRIT-001-drift-control-template.md), including its stop line. Other [specialist triggers](docs/reference/workflow.md#source-bound-data-work-modes) route to their existing owners.
 
 ## Common Commands
 

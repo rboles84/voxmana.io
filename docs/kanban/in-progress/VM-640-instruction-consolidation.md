@@ -12,13 +12,13 @@ Implement Owner-approved Phase 5: subtract duplicate/superseded active instructi
 
 ## Acceptance Criteria
 
-- [ ] Read-only inventory, full responsibility map and reproducible baseline/before-after burden measurements precede material editing.
-- [ ] Common entry points use concise pointers; obsolete manual tracker maintenance and routine full-index reading are removed.
-- [ ] Lifecycle, strict admission/dependency/RESUME, capability routing/uncertain writes, exact-candidate Owner/QA and Git accounting remain intact and reachable.
-- [ ] Frozen RobDev/RobQA behavior remains intact except an explicitly justified Phase 4 index-reading contradiction correction.
-- [ ] Specialist triggers, source/provenance, independent review, handoff duties and stop conditions remain discoverable and controlling.
-- [ ] Phase 4 tooling, retrieval/deep/disclosure/raw access, generated-view behavior and archive bytes remain unchanged; history and VM-637 remain preserved.
-- [ ] Focused link/anchor/instruction checks, context/admission/report compatibility, view freshness and existing deterministic validation pass.
+- [x] Read-only inventory, full responsibility map and reproducible baseline/before-after burden measurements precede material editing.
+- [x] Common entry points use concise pointers; obsolete manual tracker maintenance and routine full-index reading are removed.
+- [x] Lifecycle, strict admission/dependency/RESUME, capability routing/uncertain writes, exact-candidate Owner/QA and Git accounting remain intact and reachable.
+- [x] Frozen RobDev/RobQA behavior remains intact except an explicitly justified Phase 4 index-reading contradiction correction.
+- [x] Specialist triggers, source/provenance, independent review, handoff duties and stop conditions remain discoverable and controlling.
+- [x] Phase 4 tooling, retrieval/deep/disclosure/raw access, generated-view behavior and archive bytes remain unchanged; history and VM-637 remain preserved.
+- [x] Focused link/anchor/instruction checks, context/admission/report compatibility, view freshness and existing deterministic validation pass.
 - [ ] Independent exact-candidate RobQA confirms all seven scenario paths, burden reduction and no safeguard loss; stop at Owner Review without push/merge/Phase 6.
 
 ## Delivery
@@ -28,11 +28,11 @@ Branch: codex/vm-640-instruction-consolidation
 Admission baseline: c6dc83a754f75c7a5afc9db66e771fa42215b6e8
 Candidate: PENDING
 RobQA: PENDING — prior exact-candidate PASS retained as superseded evidence
-Owner: REJECTED at 7bfa3485cd2cf0a68d13a1b18cf6441128d9efe5; corrected candidate review pending
+Owner: PENDING for corrected candidate; prior REJECT preserved below
 Integration: PENDING
 Dependencies: None
 Decisions: Owner explicitly authorized one clean admitted Phase 5 worktree, subtractive consolidation, preserved Phase 1–4 behavior and VM-637, independent exact-candidate QA and stop at Owner Review. No Phase 6 work or publication. Scope amendment: add two separate correction/review handoffs to preserve the superseded candidate evidence unchanged.
-Evidence: [Implementation handoff](../../handoffs/2026-09-07-2130-codex-vm640-instruction-consolidation.md); [Independent RobQA](../../handoffs/2026-09-07-2130-independent-robqa-vm640-instruction-consolidation.md); [Course correction](../../plans/workflow-course-correction.md); [Phase 5 inventory and measurements](../../plans/vm640-instruction-consolidation.md).
+Evidence: [Correction handoff](../../handoffs/2026-09-07-2251-codex-vm640-owner-corrections.md); [Implementation handoff](../../handoffs/2026-09-07-2130-codex-vm640-instruction-consolidation.md); [Independent RobQA](../../handoffs/2026-09-07-2130-independent-robqa-vm640-instruction-consolidation.md); [Course correction](../../plans/workflow-course-correction.md); [Phase 5 inventory and measurements](../../plans/vm640-instruction-consolidation.md).
 
 ## Admission Scope
 

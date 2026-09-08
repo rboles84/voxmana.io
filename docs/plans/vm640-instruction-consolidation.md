@@ -1,6 +1,6 @@
 # VM-640 — Instruction Consolidation Inventory and Evidence
 
-Status: Task-specific recon/implementation evidence, not a new operating authority.
+Status: Task-specific evidence. Owner rejected the first candidate; the final Owner-rejection correction section is current. Earlier measurements/conclusions are preserved as superseded history, not operating authority.
 Date: 2026-09-07
 Related card: [VM-640](../kanban/in-progress/VM-640-instruction-consolidation.md)
 Pre-edit baseline: c6dc83a754f75c7a5afc9db66e771fa42215b6e8.
@@ -175,3 +175,64 @@ These are implementation-side walkthroughs, not independent QA. The independent 
 Selected QA surface: documentation/governance with focused QA-0 document checks; execution mode must be SEPARATE because the changed shared governance is substantive. Test breadth and independence are distinct. Six focused instruction/navigation checks pass. Existing compatibility passes: task-context 29, admission 43, change-report 2. Existing required deterministic commands pass: lint:html, lint:js, validate:source-generated, test:parser, test:placement, test:maze-finds, test:deck-links, test:copy-boundaries and test:frontend-smoke. Source guardrails retain the same two JESKAI/MARDU model-prior warnings.
 
 The Placement check above is retained existing deterministic CI, not added Phase 5 testing. No browser, visual, exhaustive engine, semantic certification, CRIT or SIRF suite was added. Fresh indexes, clean candidate admission, Git report and independent exact-candidate verdict are recorded with the final candidate/evidence handoffs.
+
+## Owner-rejection correction — current inventory
+
+This section supersedes the earlier candidate's operating-path conclusions and headline measurements; the preceding inventory remains event-time evidence. Owner REJECTED 7bfa3485cd2cf0a68d13a1b18cf6441128d9efe5 after evidence head 3554416024ebdf6447469404a32485cb684b71d0. The prior independent PASS did not detect duplicate manual reconstruction and stale active transition prose. Those findings are accepted as usability/correctness defects, not reasons to redesign Phase 1–4.
+
+Reconciliation is bounded: keep the same admitted task/branch and original evidence; use context and admission outputs before manual expansion; retain canonical detail where it belongs. Admission continuation passed on the clean existing worktree before edits. Two separate correction handoff paths were added through a dedicated committed card-only scope amendment. VM-637's five exact hashes matched before corrections.
+
+### Corrected contract inventory
+
+The family unit below is a responsibility, not just a filename. This broader audit catches duplicated manual steps inside a single file, which the earlier file-location count missed. Each row distinguishes full behavioral authority, entry pointers and historical evidence; no current conflict or divergent full-rule owner remains identified.
+
+| Family | Canonical full authority | Active pointer locations | Historical-only copies / correction |
+|---|---|---|---|
+| Lifecycle | workflow Lifecycle States And Transitions / Candidate And Evidence Records | AGENTS, PR template, QA purpose | Original Phase 1 cards/handoffs and prior candidates; unchanged exact decisions |
+| Task admission | Strict validator/record parser own deterministic verdicts; workflow Task Admission documents its contract and invocation | AGENTS, workflow preflight/reading, operational prompts, task wrapper | Phase 2 bootstrap and prior workflow revision; generic examples replace task-specific interface text; no parser edits |
+| Branch/worktree ownership | Admission owns discovery/RESUME/ancestry; workflow Single Active Work owns unresolved human isolation/dependency/destructive decisions | AGENTS and delivery rehydration route to results | Prior manual discovery procedure survives in Git; removed its duplicate operator reconstruction, kept human authority |
+| Targeted context | task-context and existing deterministic reader | AGENTS, workflow preflight/reading, prompts, Dev retrieval pointer | Archived manual views and original handoffs remain retrievable; included records satisfy reading without category-based rereads |
+| RobDev | Full RobDevPass | Dev skill, optional guide, AGENTS and plan prompt | Old guide copies and prior candidate remain in Git; no further frozen-pass change |
+| RobQA | Full RobQAPass | QA skill, optional guide, AGENTS, test/plan prompts | Old guide copies and prior QA report remain history; role is loaded at test selection/QA transition |
+| OWNER-VISUAL | RobQAPass Owner-First policy | AGENTS reminder, workflow Checks, Dev pointer | Existing product/test history; no extra browser or optical obligations |
+| Capability routing | workflow GitHub Operation Routing | AGENTS, delivery, preflight prompt | Phase 3 evidence; routing and uncertain-write safeguards unchanged |
+| SHIP / ACCEPT / REJECT | workflow command sections | Three direct AGENTS anchors and PR/card pointers | Prior candidate and transition evidence; command behavior unchanged |
+| Board/index maintenance | task-context generated maintenance and task-index producer | Handoff/role pointers and corrected admission sequence | Archives/prior workflow preserve manual history; admission now authors the card and regenerates views |
+| Specialist governance | Existing CRIT drift/incident, SIRF process, source guardrail/work-mode, semantic/other bounded authorities | AGENTS CRIT trigger, workflow trigger table and Dev router | Original specialist records unchanged; no rules moved merely for metrics |
+
+Current duplicate divergent full-rule owners: **0 in these eleven audited families**. This is a bounded manual conclusion, not a semantic scan of the repository or a claim that repeated terminology disappeared. The previous nine-family 32→0 location statistic is retained only as that earlier narrower audit; it did not cover all reconstruction conflicts. The correction removes two redundant operating procedures (manual category rehydration and same-task discovery), one stale manual-board sequence, task-specific examples and dated transition instructions.
+
+### Historical preservation and durable policy
+
+The removed VM-625 adoption/protection snapshot and VM-638 bootstrap prose are available byte-for-byte in workflow at revision c6dc83a754f75c7a5afc9db66e771fa42215b6e8 and the original task records. Use Git source inspection for historical investigation. No historical card, handoff, archive or specialist source was edited. The canonical workflow now describes intended protection and requires actual host-state observation when relevant; it does not assert configuration or change settings. Generic in-flight adoption remains.
+
+The former broad manual worktree rule is replaced by invocation of the existing validator, not deleted protection. RESUME cannot authorize duplicate admission; BLOCKED requires reconciliation; explicit dependency/isolation and destructive-work authority remain human decisions. Context remains informational and cannot substitute for strict admission, source authority or Owner consent.
+
+### Recalculated reading and reduction
+
+Using exactly the same thirteen files and whitespace/newline counting convention:
+
+| Measure | Pre-Phase 5 baseline | Rejected candidate | Corrected operating text |
+|---|---:|---:|---:|
+| Core operating words | 12,852 | 9,438 | 9,335 |
+| Core operating lines | 1,786 | 1,235 | 1,218 |
+| Ordinary Dev-only instruction files, via preflight prompt | 11 | 7 | 7 |
+| Ordinary QA-only instruction files, via test prompt | 11 | 7 | 7 |
+| Active manual derived-view authoring sequences | 1 discovered retrospectively | 1 | 0 |
+| Routine full-index-reading directives | 2 | 0 | 0 |
+| Routine extra category reread beyond supplied packet | Present | Present | None |
+| Manual same-task discovery before validator | Present | Present | None |
+
+The corrected word reduction is **3,517 words / 27.4%**; line reduction is **568 lines / 31.8%**. The correction itself removes 103 words and 17 lines from the rejected operating set. The old 26.6% headline is superseded. The previous zero manual-view count was wrong because it missed the admission phrase “card and board”; this table corrects that finding rather than preserving a favorable number.
+
+Seven-file role measurement retains AGENTS, workflow's relevant sections, task-context disclosure/expansion contract, cost policy, applicable skill, full applicable pass and the invoked role/preflight prompt. Direct fresh entry without an optional prompt is six instruction files. A context command's returned data is not another instruction file; variable task sources and triggered specialists remain additional. The full files need not be reread after being read unchanged in this task. This correction improves stage necessity and removes repeat reconstruction; it does not claim another file-count reduction.
+
+For ordinary implementation: AGENTS → task context/disclosure → admission → RobDev/full pass and needed source/code/docs. RobQA is loaded at test selection/candidate QA/Owner preparation; QA-only work may begin there. Included authored evidence fulfills relevant source reading. Deep/raw expansion is required when disclosure, task risk, contradiction, unfamiliarity or specialist authority indicates it, not merely because another instruction names handoffs/cards/plans. Missing observations stay visible; no Phase 4 recall, provenance, ambiguity or history access is weakened.
+
+### Correction regression evidence and limits
+
+Six new bounded document assertions protect generated admission records, packet-based preflight, staged role loading, admission-owned discovery, durable protection/generic examples and canonical delivery/deferred stages. The existing six pointer checks remain. No natural-language parser or new workflow engine was created. Existing task-context fixtures continue to prove deep/raw recall and unsupported candidate/integration/closeout CLI stages; existing admission/report fixtures remain unchanged.
+
+Direct comparisons to the prior evidence head confirm unchanged lifecycle/candidate rules, GitHub routing, SHIP/ACCEPT/REJECT command bodies, Branch And PR Contract, PR evidence, specialist trigger table and final Git-report contract. Both full engineering passes, Phase 4/admission/report tooling and the original implementation/independent QA handoffs are unchanged from that head. Only the Owner-requested entry, reconstruction and historical-policy sections are corrected.
+
+Final test results, exact candidate scope, VM-637 hash recheck and the new independent verdict belong in the separate correction handoffs. No push, merge, closeout or Phase 6 is authorized. The current task-specific inventory/evidence is not a mandatory master document.

@@ -84,3 +84,83 @@ test('compatibility guides point directly to full governing contracts and remain
     assert.match(read(`.agents/skills/${role}/SKILL.md`), /optional navigation/);
   }
 });
+
+function section(file, heading) {
+  const text = read(file);
+  const lines = text.split('\n');
+  const start = lines.findIndex(line => /^#{1,6} /.test(line) && line.replace(/^#+ /, '') === heading);
+  assert.ok(start >= 0, `missing ${heading}`);
+  const depth = lines[start].match(/^#+/)[0].length;
+  const end = lines.findIndex((line, i) => i > start && new RegExp(`^#{1,${depth}} `).test(line));
+  return lines.slice(start + 1, end < 0 ? undefined : end).join('\n');
+}
+
+test('admission sequence authors the card and regenerates derived views, never a manual board', () => {
+  const admission = section('docs/reference/workflow.md', 'Task Admission');
+  assert.match(admission, /authoritative admission card -> regenerate\/check derived views/);
+  assert.match(admission, /task-context\.md#generated-views-and-safe-replacement/);
+  assert.doesNotMatch(admission, /(?:the )?card and board\s*->/);
+  for (const file of entries) {
+    assert.doesNotMatch(prose(read(file)), /(?:create\/update|create|update|maintain)\s+(?:the\s+)?(?:card and board|board and card)\b/i, file);
+  }
+});
+
+test('preflight consumes the context packet before triggered expansion instead of category rereads', () => {
+  const workflow = 'docs/reference/workflow.md';
+  const preflight = section(workflow, 'Mandatory Pre-Flight Review');
+  assert.match(preflight, /context packet/);
+  assert.match(preflight, /Do not separately reread handoffs, related cards or plans already supplied/);
+  assert.match(preflight, /Expand only when disclosure/);
+  assert.doesNotMatch(preflight, /Review relevant handoffs, cards, plans/);
+  const reading = section(workflow, 'Required Reading Model');
+  assert.match(reading, /npm run task -- context VM-###/);
+  assert.match(reading, /Included authored sources fulfill the corresponding reading/);
+  assert.match(reading, /--deep/);
+  assert.match(reading, /raw-source inspection/);
+  assert.match(reading, /optimization layer, not an information boundary/);
+});
+
+test('ordinary implementation loads RobDev and leaves RobQA for its actual stage', () => {
+  const reading = section('docs/reference/workflow.md', 'Required Reading Model');
+  const transition = reading.indexOf('At test selection, candidate QA or Owner Review preparation');
+  assert.ok(transition > 0);
+  assert.match(reading.slice(0, transition), /RobDev skill/);
+  assert.doesNotMatch(reading.slice(0, transition), /RobQA skill/);
+  assert.match(reading.slice(transition), /RobQA skill/);
+  assert.match(reading, /Do not preload RobQA for ordinary implementation/);
+  assert.match(reading, /A QA task may enter here directly/);
+});
+
+test('admission owns discovery and RESUME while human isolation authority stays explicit', () => {
+  const ownership = section('docs/reference/workflow.md', 'Single Active Work Branch And Worktree');
+  assert.match(ownership, /Admission owns same-task discovery/);
+  assert.match(ownership, /RESUME[\s\S]*never authorizes another admission/);
+  assert.match(ownership, /Human authority remains required/);
+  assert.match(ownership, /exact-SHA review isolation/);
+  assert.doesNotMatch(ownership, /List the repository|Identify every existing branch|Before running any branch/);
+  const admission = section('docs/reference/workflow.md', 'Task Admission');
+  assert.match(admission, /The validator inspects existing cards/);
+  assert.doesNotMatch(admission, /Inspect existing cards, relevant branches, and registered worktrees first/);
+});
+
+test('durable protection and reusable admission examples do not carry transition task state', () => {
+  const workflow = read('docs/reference/workflow.md');
+  assert.doesNotMatch(workflow, /VM-625/);
+  assert.doesNotMatch(workflow, /Current and proposed GitHub enforcement as of|Configured now|Deferred transition|Proposed protection at that gate/);
+  const protection = section('docs/reference/workflow.md', 'Main Protection And Exceptions');
+  assert.match(protection, /Verify actual current settings/);
+  assert.match(protection, /Configuration changes require explicit authority/);
+  const admission = section('docs/reference/workflow.md', 'Task Admission');
+  assert.match(admission, /--task=VM-### --mode=start --branch=codex\/vm-###-<purpose>/);
+  assert.match(admission, /--task=VM-### --mode=continue/);
+  assert.doesNotMatch(admission, /--task=VM-\d+/);
+});
+
+test('delivery routes remain canonical and deferred stage enforcement is stated honestly', () => {
+  for (const anchor of ['ship-vm-', 'accept-vm-', 'reject-vm--reason']) {
+    assert.ok(links('AGENTS.md').includes(`docs/reference/workflow.md#${anchor}`));
+  }
+  assert.match(section('docs/reference/workflow.md', 'Required Reading Model'), /Candidate\/integration\/closeout CLI checks remain unimplemented until Phase 6/);
+  // Actual unsupported-stage/delegation behavior is exercised by the retained task-context suite.
+  assert.ok(links('docs/reference/workflow.md').includes('task-context.md#focused-and-deep-rehydration'));
+});
