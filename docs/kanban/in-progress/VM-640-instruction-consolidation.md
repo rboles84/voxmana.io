@@ -31,7 +31,7 @@ RobQA: PENDING — prior exact-candidate PASS retained as superseded evidence
 Owner: REJECTED at 7bfa3485cd2cf0a68d13a1b18cf6441128d9efe5; corrected candidate review pending
 Integration: PENDING
 Dependencies: None
-Decisions: Owner explicitly authorized one clean admitted Phase 5 worktree, subtractive consolidation, preserved Phase 1–4 behavior and VM-637, independent exact-candidate QA and stop at Owner Review. No Phase 6 work or publication.
+Decisions: Owner explicitly authorized one clean admitted Phase 5 worktree, subtractive consolidation, preserved Phase 1–4 behavior and VM-637, independent exact-candidate QA and stop at Owner Review. No Phase 6 work or publication. Scope amendment: add two separate correction/review handoffs to preserve the superseded candidate evidence unchanged.
 Evidence: [Implementation handoff](../../handoffs/2026-09-07-2130-codex-vm640-instruction-consolidation.md); [Independent RobQA](../../handoffs/2026-09-07-2130-independent-robqa-vm640-instruction-consolidation.md); [Course correction](../../plans/workflow-course-correction.md); [Phase 5 inventory and measurements](../../plans/vm640-instruction-consolidation.md).
 
 ## Admission Scope
@@ -57,6 +57,9 @@ Evidence: [Implementation handoff](../../handoffs/2026-09-07-2130-codex-vm640-in
 - `docs/handoffs/HANDOFF_INDEX.md`
 - `docs/handoffs/2026-09-07-2130-codex-vm640-instruction-consolidation.md`
 - `docs/handoffs/2026-09-07-2130-independent-robqa-vm640-instruction-consolidation.md`
+
+- `docs/handoffs/2026-09-07-2251-codex-vm640-owner-corrections.md`
+- `docs/handoffs/2026-09-07-2251-independent-robqa-vm640-owner-corrections.md`
 
 ## Boundaries
 
