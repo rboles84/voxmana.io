@@ -154,3 +154,11 @@ The bounded correction applies chmod 0755 to that disposable fixture file before
 The attempted detailed PR body was rejected by automatic approval review as public disclosure; no write was submitted. A reduced body using existing public task/QA/Owner bindings was approved through the same connector and created PR35. No alternate route bypassed that rejection.
 
 Main remains at cf0d8b34ca4ce1f06a9f92ccb48f50dfb78dcbc8. The owned temporary stash was restored from the original snapshot, all five VM-637 hashes reverified, and only that identified stash dropped. No unrelated work was committed, no settings/auth changed, and no later governance phase began.
+
+## Corrected candidate returns to Owner Review
+
+Material 978c191fc5d1fe94eef84a18588ab16b5684a4c2 has separate exact-candidate engineering PASS in [the Linux CI correction review](2026-09-08-1635-independent-robqa-vm641-linux-ci.md). The affected Windows fixture passes. Hosted Linux run 34251700843/job 102147434551 passes the corrected executable-mode case, all 86 delivery tests, all 86 compatibility tests and remaining required deterministic checks. The reviewer independently observed the exact-C4 hosted run/job success and verified unchanged checker/policy/assertion bytes.
+
+Only the disposable fixture setup differs behaviorally from the earlier accepted candidate: chmod aligns its working mode before staging. The assertion and readiness implementation are unchanged. All five VM-637 original hashes and all historical QA bytes remain exact. No merge occurred; main remains at the original baseline.
+
+Current state is Owner Review with Owner PENDING for 978c191fc5d1fe94eef84a18588ab16b5684a4c2. Prior ACCEPT of 0a2830054480d2b8d17d3fdee4e499402338801f remains recorded, but does not cover the material fixture correction. The shortest Owner review is the chmod line with its unchanged assertion and the exact-C4 successful Linux job; no unchanged architecture or deterministic suite needs manual repetition. Resume PR35 only after exact corrected-candidate ACCEPT. No later governance phase has begun.
