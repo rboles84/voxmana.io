@@ -2,7 +2,7 @@
 
 ID: VM-640
 Title: Workflow Instruction Consolidation and Context Reduction
-Status: Accepted
+Status: Done
 Type: Governance / documentation
 Created: 2026-09-07
 
@@ -29,7 +29,7 @@ Admission baseline: c6dc83a754f75c7a5afc9db66e771fa42215b6e8
 Candidate: b6c8eebbfda1efd528ad6d29a11c0a604febcc4c
 RobQA: PASS at b6c8eebbfda1efd528ad6d29a11c0a604febcc4c — SEPARATE; [corrected independent evidence](../../handoffs/2026-09-07-2251-independent-robqa-vm640-owner-corrections.md)
 Owner: ACCEPTED at b6c8eebbfda1efd528ad6d29a11c0a604febcc4c — explicit Owner ACCEPT on 2026-09-08 authorizes integration and lifecycle closeout; preserve VM-637; Phase 6 remains unstarted.
-Integration: PENDING
+Integration: INTEGRATED — PR34 squash 52a6849d2364c56a3ece86c22c0360d2f28c128f verified; main synchronized; feature branch/worktree cleanup complete.
 Dependencies: None
 Decisions: Owner explicitly authorized one clean admitted Phase 5 worktree, subtractive consolidation, preserved Phase 1–4 behavior and VM-637, independent exact-candidate QA and stop at Owner Review. No Phase 6 work or publication. Scope amendment: add two separate correction/review handoffs to preserve the superseded candidate evidence unchanged.
 Evidence: [Corrected independent QA](../../handoffs/2026-09-07-2251-independent-robqa-vm640-owner-corrections.md); [Correction handoff](../../handoffs/2026-09-07-2251-codex-vm640-owner-corrections.md); [Superseded implementation handoff](../../handoffs/2026-09-07-2130-codex-vm640-instruction-consolidation.md); [Superseded independent RobQA](../../handoffs/2026-09-07-2130-independent-robqa-vm640-instruction-consolidation.md); [Course correction](../../plans/workflow-course-correction.md); [Phase 5 inventory and measurements](../../plans/vm640-instruction-consolidation.md).
@@ -72,3 +72,7 @@ Owner REJECTED material candidate 7bfa3485cd2cf0a68d13a1b18cf6441128d9efe5 after
 ## Owner acceptance
 
 Owner ACCEPT on 2026-09-08 binds b6c8eebbfda1efd528ad6d29a11c0a604febcc4c and authorizes the established guarded integration and closeout. It supersedes the prior stop-before-publication instruction for VM-640 only; Phase 6 is not started.
+
+## Lifecycle closeout
+
+PR34 merged with expected head e72cf8622baa1ba54e7da7bc62e546bdabb411b8; resulting squash 52a6849d2364c56a3ece86c22c0360d2f28c128f has the exact verified tree. Hosted Deterministic Validation passed. Local main is synchronized and the feature branch/worktree removed. [Closeout evidence](../../handoffs/2026-09-08-0835-codex-vm640-integration-closeout.md) records preservation and final verification. VM-637 remains separate; Phase 6 is unstarted. Original Admission Scope is retained as the historical ownership contract, not rewritten to infer new material permission.

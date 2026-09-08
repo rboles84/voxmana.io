@@ -1,8 +1,8 @@
 # VM-640 — Instruction Consolidation Inventory and Evidence
 
-Status: Task-specific evidence. Owner rejected the first candidate; the final Owner-rejection correction section is current. Earlier measurements/conclusions are preserved as superseded history, not operating authority.
+Status: Phase 5 integrated and closed through Owner ACCEPT and PR34. This task-specific inventory retains superseded history and current correction evidence; it is not operating authority. Phase 6 remains unstarted.
 Date: 2026-09-07
-Related card: [VM-640](../kanban/in-progress/VM-640-instruction-consolidation.md)
+Related card: [VM-640](../kanban/done/VM-640-instruction-consolidation.md)
 Pre-edit baseline: c6dc83a754f75c7a5afc9db66e771fa42215b6e8.
 Admission: 12c485f0390ee9139e81123f23fedbccee083350.
 
