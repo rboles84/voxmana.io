@@ -10,9 +10,43 @@ Date: 2026-09-07
 
 Reviewed the active entry/prompt/skill/pass/workflow/context/cost sources, repository and documentation entry maps, source/semantic/CRIT/SIRF authority entry points, relevant Phase 4 evidence and current plan. The linked inventory records the complete reviewed responsibility map and classifications.
 
+## Material candidate
+
+- Baseline: `c6dc83a754f75c7a5afc9db66e771fa42215b6e8`
+- Candidate: `7bfa3485cd2cf0a68d13a1b18cf6441128d9efe5`
+- Changed paths: `27`
+
 ## Files changed
 
-The material candidate is not yet pinned in this implementation packet. Git-derived final material/evidence accounting will be bound after exact-candidate review; no remembered file list or editor counter is asserted here.
+- `.agents/skills/robdev/SKILL.md`
+- `.agents/skills/robdev/robdev.md`
+- `.agents/skills/robqa/SKILL.md`
+- `.agents/skills/robqa/robqa.md`
+- `.codex/prompts/board.md`
+- `.codex/prompts/docs.md`
+- `.codex/prompts/json.md`
+- `.codex/prompts/plan.md`
+- `.codex/prompts/preflight.md`
+- `.codex/prompts/test.md`
+- `.github/pull_request_template.md`
+- `.github/workflows/validation.yml`
+- `AGENTS.md`
+- `README.md`
+- `docs/README.md`
+- `docs/dev/RobDevPass.md`
+- `docs/handoffs/2026-09-07-2130-codex-vm640-instruction-consolidation.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-640-instruction-consolidation.md`
+- `docs/plans/vm640-instruction-consolidation.md`
+- `docs/plans/workflow-course-correction.md`
+- `docs/qa/vox-mana-test-plan.md`
+- `docs/reference/README.md`
+- `docs/reference/workflow.md`
+- `package.json`
+- `tests/governance/workflow-instructions.test.mjs`
+
+This is the complete material scope from baseline to candidate, including admission. Subsequent independent QA/card/derived-view updates are evidence-only and do not replace this scope.
 
 ## What changed and why
 
@@ -48,3 +82,13 @@ Six focused instruction checks; 29 task-context, 43 admission and 2 change-repor
 Independent RobQA should red-team all seven paths and before/after accounting, then return the exact candidate for Owner Review. No push, merge, lifecycle completion or later-phase implementation is authorized by this handoff.
 
 Next suggested agent: Independent RobQA reviewer.
+
+## Final engineering and Owner-review binding
+
+RobQA: PASS at 7bfa3485cd2cf0a68d13a1b18cf6441128d9efe5; execution SEPARATE by [independent reviewer](2026-09-07-2130-independent-robqa-vm640-instruction-consolidation.md). Owner: PENDING. Integration: PENDING. Status: Owner Review.
+
+The reviewer independently passed all 80 focused/compatibility cases and seven operating-path scenarios, verified the actual diff, protected blobs, metrics and VM-637 hashes. Clean admission and generated freshness passed at the exact material candidate. The preceding pending statements preserve implementation-time sequence; this binding is the current engineering verdict.
+
+Only QA/Owner lifecycle evidence and deterministic generated views follow the material candidate. No accepted instruction, test, parser, retrieval or policy bytes change. No push, merge, Phase 6 work or Owner acceptance is implied.
+
+Owner review: read AGENTS and workflow Required Reading Model, then the plan's burden/safeguard table. Judge whether the shorter navigation is clear and useful; deterministic checks need not be repeated manually. Remaining known issues are the two pre-existing source model-prior warnings and the inherent limit that link tests alone cannot prove prose equivalence; independent review found no blocker.
