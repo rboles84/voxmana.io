@@ -30,10 +30,12 @@ RobQA: PASS at 0a2830054480d2b8d17d3fdee4e499402338801f — SEPARATE; [independe
 Owner: ACCEPTED at 0a2830054480d2b8d17d3fdee4e499402338801f — current Owner conversation; original decision retained in integration evidence
 Integration: PENDING
 Dependencies: None
-Decisions: Owner authorized Phase 6 after VM-640 Done, one newly admitted isolated branch/worktree, existing rules only, exact VM-637 preservation and independent QA before Owner Review. Scope amendment: export the existing read-only admission history audit for post-squash closeout without changing strict parser or validation semantics. Scope amendment: retain the blocked exact-candidate QA artifact unchanged and add a separate corrected-candidate independent review handoff. Scope amendment: preserve the blocked corrected-candidate review and admit a distinct final independent QA handoff for the bounded scope/optional-evidence/invocation corrections.
+Decisions: Owner authorized Phase 6 after VM-640 Done, one newly admitted isolated branch/worktree, existing rules only, exact VM-637 preservation and independent QA before Owner Review. Scope amendment: export the existing read-only admission history audit for post-squash closeout without changing strict parser or validation semantics. Scope amendment: retain the blocked exact-candidate QA artifact unchanged and add a separate corrected-candidate independent review handoff. Scope amendment: preserve the blocked corrected-candidate review and admit a distinct final independent QA handoff for the bounded scope/optional-evidence/invocation corrections. Scope amendment: admit a distinct independent QA handoff for the bounded Linux executable-mode fixture correction found by required hosted CI; retain the prior accepted material and original QA evidence as history.
 Evidence: [implementation](../../handoffs/2026-09-08-1100-codex-vm641-delivery-checks.md); [final independent QA](../../handoffs/2026-09-08-1700-independent-robqa-vm641-final.md); [plan](../../plans/vm641-delivery-checks.md). Original blocked reviews remain preserved. Owner confirmed the existing low-risk QA exception; VM-641 remains SEPARATE.
 
 ## Admission Scope
+
+- `docs/handoffs/2026-09-08-1635-independent-robqa-vm641-linux-ci.md`
 
 - `docs/handoffs/2026-09-08-1700-independent-robqa-vm641-final.md`
 
