@@ -1,4 +1,4 @@
-<!-- task-view-sha256:f1fe67ffd2bad52b7a4683e327d76b21ce443b41252e7604c6a700f8227cea4c -->
+<!-- task-view-sha256:62ce2e338e640847f5e6f1cd0131c5ed755b538d9d97680b095e687bfe04dd51 -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -32,6 +32,14 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | VM-628 | [Archscry Portable Reading Recovery](backlog/VM-628-archscry-portable-reading-recovery.md) | Backlog |  |
 | VM-629 | [Placement Language Repetition Reduction](backlog/VM-629-placement-language-repetition-reduction.md) | Backlog |  |
 | VM-630 | [CRIT-001 Live Provenance Pointer Normalization](backlog/VM-630-crit001-live-provenance-pointer-normalization.md) | Backlog |  |
+| VM-637 | [Public Content Retention and Owner Prose Plan](backlog/VM-637-public-content-retention.md) | Backlog |  |
+| VM-642 | [Home Public Content and Owner Prose Pass](backlog/VM-642-home-owner-prose-pass.md) | Backlog |  |
+| VM-643 | [Archscry Atlas and Dossier Owner Prose Pass](backlog/VM-643-archscry-owner-prose-pass.md) | Backlog |  |
+| VM-644 | [Maze Search Guidance and Owner Prose Pass](backlog/VM-644-maze-owner-prose-pass.md) | Backlog |  |
+| VM-645 | [Apocrypha Source Annotations and Owner Prose Pass](backlog/VM-645-apocrypha-owner-prose-pass.md) | Backlog |  |
+| VM-646 | [Strategium Table Guidance and Owner Prose Pass](backlog/VM-646-strategium-owner-prose-pass.md) | Backlog |  |
+| VM-647 | [Privacy Service Accuracy and Owner Prose Pass](backlog/VM-647-privacy-service-accuracy-pass.md) | Backlog |  |
+| VM-648 | [Terms Service Accuracy and Owner Prose Pass](backlog/VM-648-terms-service-accuracy-pass.md) | Backlog |  |
 
 ## Ready
 
