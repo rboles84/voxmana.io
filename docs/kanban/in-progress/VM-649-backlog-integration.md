@@ -43,7 +43,7 @@ Branch: codex/vm-649-backlog-integration
 Admission baseline: 45e9d61d017ff1a2d8f3a98165dbd7e7cc076bf7
 Candidate: 4db3a42169cf3a09ba253f7fc13342b65bc29d46
 RobQA: PASS at 4db3a42169cf3a09ba253f7fc13342b65bc29d46 SEPARATE; docs/handoffs/2026-09-08-2310-independent-robqa-vm649-backlog-integration.md
-Owner: ACCEPTED at 4db3a42169cf3a09ba253f7fc13342b65bc29d46; docs/handoffs/2026-09-08-2315-codex-vm649-owner-integration.md
+Owner: ACCEPTED at 4db3a42169cf3a09ba253f7fc13342b65bc29d46 ; docs/handoffs/2026-09-08-2315-codex-vm649-owner-integration.md
 Integration: PENDING
 Dependencies: None
 Decisions: Owner authorized this bounded intake integration in the current conversation; source snapshot preserved before clean-main admission. No public changes or child admission authorized.
