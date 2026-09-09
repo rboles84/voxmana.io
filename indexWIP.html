@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vox Mana - Home Preview</title>
+  <!-- VM-642: review beside index.html; remove noindex only when this page is promoted. -->
+  <meta name="robots" content="noindex" />
+  <meta name="description" content="Vox Mana is a Commander identity and taste compass for understanding color signals, placement, play patterns, and what to look for before browsing elsewhere." />
+  <link rel="canonical" href="https://voxmana.io/" />
+  <meta property="og:site_name" content="Vox Mana" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Vox Mana - Commander Identity Compass" />
+  <meta property="og:description" content="Understand your Commander color identity, placement, play patterns, and browsing direction before you build or compare decks elsewhere." />
+  <meta property="og:url" content="https://voxmana.io/" />
+  <meta property="og:image" content="https://voxmana.io/assets/img/social/vox-mana-share-v1.png" />
+  <meta property="og:image:alt" content="Vox Mana gold sigil and Commander Identity Compass lettering on black." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Vox Mana - Commander Identity Compass" />
+  <meta name="twitter:description" content="A Commander identity and taste compass for color signals, placement, play patterns, and browsing direction." />
+  <meta name="twitter:image" content="https://voxmana.io/assets/img/social/vox-mana-share-v1.png" />
+  <link rel="icon" type="image/svg+xml" href="./assets/img/vox-mana-header-logo.svg" />
+  <link rel="preload" href="./assets/fonts/almendra-700-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="./assets/css/tokens.css?v=vm635" />
+  <link rel="stylesheet" href="./assets/css/fonts.css?v=vm612" />
+  <script src="./assets/js/shared/vm-radar.js" defer></script>
+  <link rel="stylesheet" href="./assets/css/layout.css?v=vm635" />
+  <link rel="stylesheet" href="./assets/css/topbar.css?v=vm618" />
+  <link rel="stylesheet" href="./assets/vendor/keyrune/css/keyrune.min.css?v=3.19.0" />
+  <link rel="stylesheet" href="./assets/css/guide-beacon.css?v=vm620" />
+  <link rel="stylesheet" href="./assets/css/home.css?v=vm635" />
+  <link rel="stylesheet" href="./assets/css/home-wip.css?v=vm642" />
+</head>
+<body class="vm-home-preview" data-page="home" data-vm-current="home" data-bg="light">
+  <div class="vm-bg" aria-hidden="true">
+    <div class="vm-bg__nebula"></div>
+    <canvas class="vm-bg__stars" aria-hidden="true"></canvas>
+  </div>
+
+  <!-- Existing shared navigation/feedback/menu contracts; styles are preview-local. -->
+  <header class="vm-topbar" role="banner">
+    <a class="vm-brand" href="./index.html" aria-label="Vox Mana - home">
+      <span class="vm-brand-mark" aria-hidden="true">
+        <img src="./assets/img/vox-mana-header-logo.svg" alt="" width="44" height="44" decoding="async" fetchpriority="high" />
+      </span>
+      <span class="vm-brand-text">Vox Mana</span>
+    </a>
+    <nav class="vm-nav" aria-label="Main Navigation">
+      <a class="vm-nav-link" href="./index.html" data-vm-nav="home" data-nav-hint="Identity signal hub">Home<span class="vm-nav-hint" aria-hidden="true">Identity signal hub</span></a>
+      <a class="vm-nav-link" href="./archscry/index.html" data-vm-nav="archscry" data-nav-hint="Color identity reading">Archscry<span class="vm-nav-hint" aria-hidden="true">Color identity reading</span></a>
+      <a class="vm-nav-link" href="./maze/index.html" data-vm-nav="maze" data-nav-hint="Guided card search">The Implicit Maze<span class="vm-nav-hint" aria-hidden="true">Guided card search</span></a>
+      <a class="vm-nav-link" href="./strategium/index.html" data-vm-nav="strategium" data-nav-hint="Commander table literacy">Strategium<span class="vm-nav-hint" aria-hidden="true">Commander table literacy</span></a>
+      <a class="vm-nav-link" href="./apocrypha/index.html" data-vm-nav="apocrypha" data-nav-hint="Lore and source library">Apocrypha<span class="vm-nav-hint" aria-hidden="true">Lore and source library</span></a>
+    </nav>
+    <div class="vm-utility">
+      <a class="vm-utility-link" href="./guide/index.html" data-vm-nav="guide">Guide</a>
+      <button type="button" class="vm-menu-button" aria-label="Open menu" aria-expanded="false" aria-haspopup="true" aria-controls="vm-menu-panel" data-vm-menu-trigger>
+        <span class="vm-menu-dots" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
+      <div id="vm-menu-panel" class="vm-menu-panel" data-open="false" data-vm-menu-panel>
+        <nav class="vm-menu-nav" aria-label="Mobile Navigation" data-vm-menu-nav></nav>
+        <button type="button" class="vm-menu-item" data-vm-toggle="reduce-motion" data-vm-tooltip-on="Stillness - on" data-vm-tooltip-off="Quiet the motion">
+          <span>Reduce motion</span><span class="vm-menu-item-status" data-vm-status>Off</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top" class="vm-shell">
+    <section class="vm-hero vm-home-hero" aria-labelledby="home-preview-title">
+      <div class="vm-hero-grid">
+        <div class="vm-hero-copy">
+          <div class="vm-eyebrow">VOX MANA</div>
+          <h1 class="vm-hero-title" id="home-preview-title"><span>Find your place</span><span>Shape your play</span></h1>
+          <div class="vm-hero-signature" aria-hidden="true"><i class="ss ss-fdn ss-mythic" aria-hidden="true"></i></div>
+          <p class="vm-hero-lede">Vox Mana is a Commander identity and taste compass. It helps you understand your colors, placement, play patterns, and what to look for when exploring commanders or decks elsewhere.</p>
+          <p class="vm-hero-note">Not a deckbuilder: Vox Mana helps you choose a direction before you build or browse decklists somewhere else.</p>
+          <div class="vm-preview-start">
+            <a class="vm-preview-primary" href="./archscry/index.html">Start with Archscry <span aria-hidden="true">→</span></a>
+            <a class="vm-guide-beacon vm-guide-beacon--entry" href="./guide/?guided=vox-mana-intro" data-guide-beacon-id="home-guide-entry">
+              <span class="vm-guide-beacon__mark" aria-hidden="true">✦</span>
+              <span class="vm-guide-beacon__copy">
+                <span class="vm-guide-beacon__eyebrow">Field Guide</span>
+                <span class="vm-guide-beacon__context">New to Vox Mana?</span>
+                <span class="vm-guide-beacon__action">Start with the Guide <span aria-hidden="true">→</span></span>
+              </span>
+            </a>
+          </div>
+          <!-- Author's note intentionally awaits the Owner's words. No public placeholder. -->
+        </div>
+
+        <!-- Static presentation excerpt, not a personal placement or a second data producer.
+             Copy: identity-dossier-content.source.json, packet2_identity_mardu,
+             APPROVED_PUBLIC, what_to_look_for items 1 and 2, preserved verbatim.
+             Art/credit: existing dossier-view.js MARDU hero configuration.
+             Before promotion, recheck this excerpt against that same approved source. -->
+        <article class="vm-preview-dossier" aria-labelledby="preview-dossier-title">
+          <div class="vm-preview-dossier-label"><span>Inside a dossier</span><span>Example</span></div>
+          <figure class="vm-preview-art">
+            <a href="./archscry/index.html?explore=mardu" aria-label="Explore the Mardu Horde dossier">
+              <img src="./assets/img/identity-hero/official/mardu-neriv-heart-storm.jpg" alt="Neriv, Heart of the Storm artwork" width="972" height="677" decoding="async" />
+            </a>
+            <figcaption>Art: Victor Adame Minguez · Neriv, Heart of the Storm</figcaption>
+          </figure>
+          <div class="vm-preview-dossier-heading">
+            <h2 id="preview-dossier-title">Mardu Horde</h2>
+            <span class="vm-preview-colors">Red · White · Black</span>
+          </div>
+          <div class="vm-preview-excerpt">
+            <h3>What to look for</h3>
+            <dl>
+              <div><dt>Raid Momentum</dt><dd>Commit early, keep pressure coordinated, and make the table answer the charge before it stabilizes.</dd></div>
+              <div><dt>War-Name Oath</dt><dd>Let formation, code, and named commitment give speed its shape.</dd></div>
+            </dl>
+          </div>
+          <a class="vm-preview-dossier-link" href="./archscry/index.html?explore=mardu">Explore this dossier <span aria-hidden="true">→</span></a>
+        </article>
+      </div>
+    </section>
+
+    <section id="what" class="vm-section vm-home-index" aria-labelledby="home-preview-index-title">
+      <div class="vm-preview-directory-heading">
+        <h2 id="home-preview-index-title">What can you do here?</h2>
+        <p class="vm-section-intro">Four focused paths for finding your Commander direction, searching cards, reading the sources, and learning the table.</p>
+      </div>
+      <div class="vm-preview-directory">
+        <a class="vm-preview-destination" href="./archscry/index.html">
+          <h3>Archscry</h3><p>Find your Commander color identity and placement.</p><span class="vm-cta">Start with Archscry <span aria-hidden="true">→</span></span>
+        </a>
+        <a class="vm-preview-destination" href="./maze/index.html">
+          <h3>The Implicit Maze</h3><p>Search Magic cards in plain English.</p><span class="vm-cta">Search the Maze <span aria-hidden="true">→</span></span>
+        </a>
+        <a class="vm-preview-destination" href="./strategium/index.html">
+          <h3>Strategium</h3><p>Learn Commander concepts, archetypes, and table patterns.</p><span class="vm-cta">Learn Commander <span aria-hidden="true">→</span></span>
+        </a>
+        <a class="vm-preview-destination" href="./apocrypha/index.html">
+          <h3>Apocrypha</h3><p>Read the sources, lore, and design logic behind the model.</p><span class="vm-cta">Open Apocrypha <span aria-hidden="true">→</span></span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="vm-shell vm-footer">
+    <span>Vox Mana — color philosophy, Commander identity, symbolic search, and lore research.</span>
+    <span><a href="#top">Back to top</a> · <a href="./strategium/index.html">Strategium</a> · <a href="./archscry/index.html">Archscry</a> · <a href="./maze/index.html">Maze</a> · <a href="./apocrypha/index.html">Apocrypha</a> · <a href="./privacy/index.html">Privacy</a> · <a href="./terms/index.html">Terms</a></span>
+  </footer>
+  <a class="vm-button vm-backtop" id="backTop" href="#top" aria-label="Back to top">↑</a>
+
+  <!-- Unchanged runtime; absent chart markup is handled by its existing null guard. -->
+  <script src="./assets/js/home/home.js" defer></script>
+  <script src="./assets/js/shared/reduce-motion.js" defer></script>
+  <script src="./assets/js/shared/guide-beacon.js?v=vm620" defer></script>
+  <script src="./assets/js/shared/vm-feedback.js" defer></script>
+  <script src="./assets/js/shared/vm-topbar.js?v=vm618" defer></script>
+</body>
+</html>
