@@ -38,3 +38,9 @@ The actual baseline-to-candidate scope will be reported from Git in the separate
 ## Follow-up
 
 Complete independent candidate QA, bind the Owner's explicit integration authorization to the verified bounded package, integrate using the normal guarded PR process, synchronize main, and rerun VM-642 start read-only. Do not start its implementation. Next agent: independent RobQA, then main delivery agent. Related card: `docs/kanban/in-progress/VM-649-backlog-integration.md`.
+
+## Candidate reviewed
+
+Candidate: 4db3a42169cf3a09ba253f7fc13342b65bc29d46
+
+Independent RobQA and the deterministic candidate check passed. The Owner's explicit integration authorization applies to this verified bounded package; no product-page change was added.
