@@ -2,7 +2,7 @@
 
 ID: VM-649
 Title: Integrate public-content backlog intake
-Status: Accepted
+Status: Done
 Type: Documentation and intake integration
 Area: Kanban and task-context documentation
 Priority: High
@@ -19,12 +19,12 @@ The Owner asked why admission was blocked and whether the package should be inte
 
 ## Acceptance Criteria
 
-- [ ] Original draft source files are committed without content loss; generated views faithfully include them.
-- [ ] The preservation note clearly retains historical migration protection without blocking separately authorized intake work.
-- [ ] VM-637 and VM-642 through VM-648 remain Backlog with pending product decisions; VM-649 alone carries this integration lifecycle.
-- [ ] No runtime, public prose, data, model, tests, or executable workflow behavior changes.
-- [ ] Independent QA, required PR CI, exact-candidate bindings and Git-derived reporting are complete.
-- [ ] Integration is verified on clean synchronized main and the read-only VM-642 start check reports ELIGIBLE; do not create its implementation branch.
+- [x] Original draft source files are committed without content loss; generated views faithfully include them.
+- [x] The preservation note clearly retains historical migration protection without blocking separately authorized intake work.
+- [x] VM-637 and VM-642 through VM-648 remain Backlog with pending product decisions; VM-649 alone carries this integration lifecycle.
+- [x] No runtime, public prose, data, model, tests, or executable workflow behavior changes.
+- [x] Independent QA, required PR CI, exact-candidate bindings and Git-derived reporting are complete.
+- [x] Integration is verified on clean synchronized main and the read-only VM-642 start check reports ELIGIBLE; do not create its implementation branch.
 
 ## Scope and risks
 
@@ -44,7 +44,7 @@ Admission baseline: 45e9d61d017ff1a2d8f3a98165dbd7e7cc076bf7
 Candidate: 4db3a42169cf3a09ba253f7fc13342b65bc29d46
 RobQA: PASS at 4db3a42169cf3a09ba253f7fc13342b65bc29d46 SEPARATE; docs/handoffs/2026-09-08-2310-independent-robqa-vm649-backlog-integration.md
 Owner: ACCEPTED at 4db3a42169cf3a09ba253f7fc13342b65bc29d46 ; docs/handoffs/2026-09-08-2315-codex-vm649-owner-integration.md
-Integration: PENDING
+Integration: INTEGRATED PR #36 704b867d5621a02fc2c5fef70a5a265ba8f13b2d
 Dependencies: None
 Decisions: Owner authorized this bounded intake integration in the current conversation; source snapshot preserved before clean-main admission. No public changes or child admission authorized.
 

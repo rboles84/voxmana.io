@@ -1,4 +1,4 @@
-<!-- task-view-sha256:2165fc352319c735a10e54d56a3b04edd3b5567029ef232a5755e253a40cd81e -->
+<!-- task-view-sha256:c5e0196a1a6402a495756162157aa539df77a3594fe1a26849f7ab3d75735ac8 -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -60,7 +60,6 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 
 | ID | Card | Declared status | Diagnostics |
 |---|---|---|---|
-| VM-649 | [Integrate public-content backlog intake](in-progress/VM-649-backlog-integration.md) | Accepted |  |
 
 ## Integrated
 
@@ -669,6 +668,7 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | VM-639 | [Generated Views and Progressive Task Rehydration](done/VM-639-task-context.md) | Done |  |
 | VM-640 | [Workflow Instruction Consolidation and Context Reduction](done/VM-640-instruction-consolidation.md) | Done |  |
 | VM-641 | [Deterministic Candidate, Integration and Closeout Checks](done/VM-641-delivery-checks.md) | Done |  |
+| VM-649 | [Integrate public-content backlog intake](done/VM-649-backlog-integration.md) | Done |  |
 
 ## Unresolved
 
