@@ -2,7 +2,7 @@
 
 ID: VM-642
 Title: Home Public Content and Owner Prose Pass
-Status: In Progress
+Status: Owner Review
 Type: Page content review and bounded implementation
 Area: Main / Home
 Priority: Medium
@@ -31,12 +31,12 @@ The earlier “No redesign ... is implied” boundary prevents unsolicited expan
 
 ### Preview acceptance criteria
 
-- [ ] `indexWIP.html` works as a separate Home entry point with real existing destinations and applicable existing interactions.
-- [ ] Preview styling is isolated; the original Home, other pages, existing source data and scripts remain unchanged.
-- [ ] Existing Owner-valued text, Foundations symbol, typography and black background remain; the sample dossier and stronger Guide entry implement the selected visual direction.
-- [ ] The static dossier excerpt is traced to existing approved material and labeled as an example; it does not imply a personal reading or add unsupported claims.
-- [ ] The author’s note remains absent until the Owner supplies wording; no unfinished writing is disguised as final copy.
-- [ ] Proportional objective evidence and an exact-candidate Owner review path are recorded. Visual acceptance, any filename promotion and integration remain separate pending decisions.
+- [x] `indexWIP.html` works as a separate Home entry point with real existing destinations and applicable existing interactions.
+- [x] Preview styling is isolated; the original Home, other pages, existing source data and scripts remain unchanged.
+- [x] Existing Owner-valued text, Foundations symbol, typography and black background remain; the sample dossier and stronger Guide entry implement the selected visual direction.
+- [x] The static dossier excerpt is traced to existing approved material and labeled as an example; it does not imply a personal reading or add unsupported claims.
+- [x] The author’s note remains absent until the Owner supplies wording; no unfinished writing is disguised as final copy.
+- [x] Proportional objective evidence and an exact-candidate Owner review path are recorded. Visual acceptance, any filename promotion and integration remain separate pending decisions.
 
 ## Overall goal — preserve voice, improve trust and usefulness
 
@@ -179,10 +179,10 @@ The backlog intake was integrated through VM-649 before this admission. The Owne
 Record version: 1
 Branch: codex/vm-642-home-wip
 Admission baseline: cd94d3052836cd9b69889bca478166fc8a2d00f6
-Candidate: PENDING
-RobQA: PENDING
+Candidate: efece2091512243de8a05c574778dac4def30ca6
+RobQA: PASS at efece2091512243de8a05c574778dac4def30ca6 — SAME-AGENT DISTINCT PHASE; docs/handoffs/2026-09-09-0000-codex-vm642-home-preview.md#final-qa-evidence
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Decisions: Intake authorized 2026-09-08; preserve-voice direction retained; Owner authorized the bounded functional sibling Home preview and start after VM-649 integration on 2026-09-09. Existing Home prose retained for preview; author’s note, broader player feedback, visual acceptance and promotion remain pending. Related-page coordination is not a dependency-isolation authorization.
-Evidence: Admission start ELIGIBLE reported by the main agent against the recorded clean-main baseline; admission continue and implementation/QA evidence pending.
+Evidence: Admission start ELIGIBLE and exact-candidate continue PASS; candidate delivery check PASS with durable QA. Implementation and Final QA evidence: docs/handoffs/2026-09-09-0000-codex-vm642-home-preview.md. Preview skin is in Owner Review at http://127.0.0.1:4174/indexWIP.html; broader prose/Guide work, author wording, player feedback, visual acceptance and promotion remain pending.

@@ -68,3 +68,55 @@ Next suggested agent: Owner for skin review; Codex for bounded corrections on th
 
 Baseline: `cd94d3052836cd9b69889bca478166fc8a2d00f6`.
 Material candidate, Git-derived paths/count, evidence delta and final state are recorded below after committing and checking the exact candidate.
+
+## Candidate review completion — 2026-09-09
+
+Material candidate: efece2091512243de8a05c574778dac4def30ca6. The preceding pending statements describe the development handoff at commit time. RobQA now records PASS in docs/qa/2026-09-09-vm642-home-preview.md using SAME-AGENT DISTINCT PHASE, with the actual committed diff and preview criteria reread. This is not independent review. Exact-candidate admission continue, focused source assertions, HTML lint, unchanged-protected-file comparison, diff hygiene and generated-view freshness passed. The read-only candidate delivery gate passed with durable-qa provenance before lifecycle edits.
+
+Current status: Owner Review for the bounded sibling preview; Owner PENDING, Integration PENDING. Original Home is unchanged. Broader prose/Guide inventory and player evidence remain open; author note remains absent until supplied. The local preview URL and the limitations above remain applicable. No filename promotion, public deployment, push or merge occurred.
+
+The final Git report is generated from baseline/material/evidence comparisons outside the repository at C:/Users/obake/AppData/Local/Temp/vm642-change-report.md after this lifecycle evidence is committed. It contains the complete material path list, evidence-only delta, total branch count, final HEAD and Git-confirmed state, and is checked with the existing change-report validator.
+
+## Final QA evidence
+
+
+Task: VM-642
+Candidate: efece2091512243de8a05c574778dac4def30ca6
+RobQA: PASS
+Execution: SAME-AGENT DISTINCT PHASE
+Reviewer: Codex main agent
+Implementer: Codex main agent
+Independence required: no
+Execution reason: Bounded sibling HTML and body-scoped CSS presentation; no shared behavior, governance authority, protected semantic producer, security, migration or significant integration change. This is a separate post-commit review phase, not independent review.
+Date: 2026-09-09
+Owner: PENDING
+
+### Scope and risk
+
+Applied the RobQA skill and full governing pass. Reviewed the committed baseline-to-candidate diff and the card's preview criteria after material commit. QA-1, with focused interaction evidence for the restyled existing menu and new dossier/Guide entry points. The original Home and every existing shared style, script and data file are unchanged. The card and handoffs record a bounded Owner request without modifying workflow authority. No stricter separation trigger applies.
+
+CPU-heavy QA: NOT REQUIRED. No new tests, broad journeys, engine certification, screenshot suite or visual acceptance claim. Subjective design approval remains OWNER-VISUAL.
+
+### Exact-candidate evidence
+
+- Admission continue: PASS at the candidate; local main, live remote main and merge base equal cd94d3052836cd9b69889bca478166fc8a2d00f6. Worktree clean.
+- Post-commit actual HTML/CSS diff and preview acceptance criteria reviewed. All override selectors are scoped to the new body class; the original page does not load the stylesheet.
+- npm run lint:html: PASS after commit. This established command covers canonical public routes, not the sibling WIP, which received the focused assertions below.
+- Post-commit one-off Node assertions: PASS for retained introduction/note, every original local destination href, all local HTML asset references, unique IDs, exact approved MARDU excerpt, Foundations class, noindex, separate stylesheet and both canonical example URLs.
+- git diff --check baseline..candidate: PASS. Git comparison of canonical index.html, existing CSS, assets/js and data against the baseline: no change.
+- npm run task -- indexes --check: PASS at the clean candidate.
+- Focused browser evidence inspected against the unchanged committed runtime: at 1280 wide, loaded images, Keyrune, flat navigation and no horizontal overflow; Guide action within the opening viewport. At 390 wide, no horizontal overflow, six mobile links, menu inside the viewport; Escape closed it and returned focus to Open menu. Dossier click reached Mardu Horde in browsing-without-a-reading state; Back returned to the preview. Guide click opened the existing first guided-reading dialog; closed and returned. Final desktop reload captured no warnings/errors. These interaction checks were executed immediately before commit; post-commit review verified the tested runtime bytes match the candidate. No aesthetic verdict is inferred.
+
+A one-off CSS selector assertion incorrectly split commas inside :is(), producing a tooling false positive. Inspected the actual selectors directly and completed the focused assertions without that invalid grammar assumption. No product change or expanded harness work was justified. An initial admission invocation used the wrong CLI syntax; the canonical --task/--mode invocation above passed. Neither invocation error is reported as a product defect.
+
+### Criteria and limitations
+
+All six preview criteria are supported for engineering review: a separate navigable page, isolated styling, retained valued text/assets, labeled approved sample, absent author placeholder, and exact-candidate evidence/review route. The broader Home/Guide inventory, player usefulness evidence, Owner prose, visual acceptance, promotion and integration remain pending.
+
+The unchanged Home script still schedules its registry/Chart load before its absent-chart null guard returns. This is retained overhead, not a new script regression. A later promotion must recheck excerpt parity, remove preview-only metadata and retain the accompanying CSS. No live filename swap, push, PR, deployment or merge was performed.
+
+### Owner review
+
+Open http://127.0.0.1:4174/indexWIP.html and compare http://127.0.0.1:4174/index.html. Judge the header density, Guide prominence, dossier balance and compact directory. Follow the example, Guide and existing destinations. Cross-page Home links return to the original Home. The loopback server remains available for this local review.
+
+The final recorded-state checker permits post-candidate narrative evidence under docs/handoffs, but classified the new docs/qa path as unclassified. This consolidated section is the current durable QA record and supersedes the earlier proposed repository QA path above. The original standalone report is preserved at C:/Users/obake/AppData/Local/Temp/vm642-home-preview-qa.md; its repository copy was archived at C:/Users/obake/AppData/Local/Temp/vm642-home-preview-qa-repo-archive.md. No QA decision or material runtime byte changed. The evidence-only commit is consolidated locally before any push.
