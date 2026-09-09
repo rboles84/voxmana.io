@@ -1,4 +1,4 @@
-<!-- task-view-sha256:6b85bd130370a450e19f4d40b3e30c7c1a283fdd0aaa76a8573147c1b8aac7cb -->
+<!-- task-view-sha256:2165fc352319c735a10e54d56a3b04edd3b5567029ef232a5755e253a40cd81e -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -32,6 +32,14 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | VM-628 | [Archscry Portable Reading Recovery](backlog/VM-628-archscry-portable-reading-recovery.md) | Backlog |  |
 | VM-629 | [Placement Language Repetition Reduction](backlog/VM-629-placement-language-repetition-reduction.md) | Backlog |  |
 | VM-630 | [CRIT-001 Live Provenance Pointer Normalization](backlog/VM-630-crit001-live-provenance-pointer-normalization.md) | Backlog |  |
+| VM-637 | [Public Content Retention and Owner Prose Plan](backlog/VM-637-public-content-retention.md) | Backlog |  |
+| VM-642 | [Home Public Content and Owner Prose Pass](backlog/VM-642-home-owner-prose-pass.md) | Backlog |  |
+| VM-643 | [Archscry Atlas and Dossier Owner Prose Pass](backlog/VM-643-archscry-owner-prose-pass.md) | Backlog |  |
+| VM-644 | [Maze Search Guidance and Owner Prose Pass](backlog/VM-644-maze-owner-prose-pass.md) | Backlog |  |
+| VM-645 | [Apocrypha Source Annotations and Owner Prose Pass](backlog/VM-645-apocrypha-owner-prose-pass.md) | Backlog |  |
+| VM-646 | [Strategium Table Guidance and Owner Prose Pass](backlog/VM-646-strategium-owner-prose-pass.md) | Backlog |  |
+| VM-647 | [Privacy Service Accuracy and Owner Prose Pass](backlog/VM-647-privacy-service-accuracy-pass.md) | Backlog |  |
+| VM-648 | [Terms Service Accuracy and Owner Prose Pass](backlog/VM-648-terms-service-accuracy-pass.md) | Backlog |  |
 
 ## Ready
 
@@ -52,6 +60,7 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 
 | ID | Card | Declared status | Diagnostics |
 |---|---|---|---|
+| VM-649 | [Integrate public-content backlog intake](in-progress/VM-649-backlog-integration.md) | Accepted |  |
 
 ## Integrated
 
