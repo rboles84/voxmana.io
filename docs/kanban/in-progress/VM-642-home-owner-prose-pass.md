@@ -126,7 +126,7 @@ Owner direction: lock the existing homepage layout and finish VM-642 using curat
 
 These are starting points, not a pre-approved Admission Scope. Read-only evidence owners are not permission to edit model, storage, service configuration or source semantics. Reconcile exact paths and producers during pickup.
 
-Only the exact paths in Admission Scope are editable. The final runtime change promotes the reviewed Home HTML and isolated stylesheet and preserves the original page. Shared script, Guide and source owners below remain read-only; three existing deterministic Home checks receive bounded assertion updates.
+Only the exact paths in Admission Scope are editable. The final runtime change promotes the reviewed Home HTML and isolated stylesheet and preserves the original page. Shared script, Guide and source owners below remain read-only; four existing deterministic Home checks receive bounded assertion updates.
 
 - [index.html](../../../index.html)
 - [assets/js/home/home.js](../../../assets/js/home/home.js)
