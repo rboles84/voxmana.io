@@ -517,12 +517,11 @@ body.vm-site-skin.vm-archscry-route .dossier-rail .dossier-tab:hover { color: va
 body.vm-site-skin.vm-archscry-route :is(.dossier-view-toggle, .dossier-utility-btn, .dossier-tabs-scroll) { border-radius: 2px; box-shadow: none; }
 body.vm-site-skin.vm-archscry-route .dossier-segment-controls { padding-bottom: 12px; border-bottom: 1px solid var(--site-rule); }
 
-/* Section headings replace the box-within-box framing throughout all dossier tabs. */
+/* Headings and spacing carry informational sections; reserve rules for navigation. */
 body.vm-site-skin.vm-archscry-route :is(.precons-section, .scores-section, .archetypes-section, .starter-section, .adjacent-section, .staples-section, .lands-section, .decks-section, .deck-link-section, .footer-actions) {
-  padding: 0 0 28px;
-  margin-bottom: 28px;
+  padding: 0;
+  margin-bottom: 40px;
   border: 0;
-  border-bottom: 1px solid var(--site-rule);
   background: transparent;
   overflow: visible;
 }
@@ -538,7 +537,7 @@ body.vm-site-skin.vm-archscry-route .section-label {
   padding: 0;
   margin-bottom: 18px;
 }
-body.vm-site-skin.vm-archscry-route :is(.starter-card, .starter-note, .tag-explainer-card, .tag-interpretation, .land-tier, .lands-guide, .staples-category, .how-this-plays-block) {
+body.vm-site-skin.vm-archscry-route :is(.starter-card, .starter-note, .tag-explainer-card, .tag-interpretation, .land-tier, .lands-guide, .staples-category, .how-this-plays-block, .arch-card) {
   border: 0;
   border-radius: 0;
   padding: 0;
@@ -548,12 +547,13 @@ body.vm-site-skin.vm-archscry-route :is(.starter-card, .starter-note, .tag-expla
 body.vm-site-skin.vm-archscry-route :is(.starter-notes, .identity-story-grid, .how-this-plays-grid, .lands-tiers) { gap: 24px; }
 body.vm-site-skin.vm-archscry-route :is(.starter-note, .identity-story-card, .how-this-plays-block, .land-tier, .staples-category) {
   padding-top: 14px;
-  border-top: 1px solid var(--site-rule);
+  border-top: 0;
 }
+body.vm-site-skin.vm-archscry-route .archetypes-grid { gap: 24px; background: transparent; }
 body.vm-site-skin.vm-archscry-route .starter-title { font-size: 1.25rem; color: var(--site-ink); }
 body.vm-site-skin.vm-archscry-route :is(.starter-copy, .signals-intro) { line-height: 1.65; color: var(--site-copy); }
 body.vm-site-skin.vm-archscry-route .starter-note-label { color: var(--site-gold); text-shadow: none; }
-body.vm-site-skin.vm-archscry-route :is(.precon-card, .deck-card, .arch-card, .adjacent-card, .commander-preview-card, .flavor-echo-card) {
+body.vm-site-skin.vm-archscry-route :is(.precon-card, .deck-card, .adjacent-card, .commander-preview-card, .flavor-echo-card) {
   border: 1px solid var(--site-rule);
   border-radius: 2px;
   background: var(--site-surface);
@@ -562,6 +562,7 @@ body.vm-site-skin.vm-archscry-route :is(.precon-card, .deck-card, .arch-card, .a
 }
 body.vm-site-skin.vm-archscry-route .adjacent-card.active { border-color: var(--site-gold); box-shadow: inset 0 -2px var(--site-gold); }
 body.vm-site-skin.vm-archscry-route :is(.service-chip, .precon-reveal-btn) { border-radius: 2px; background: #15130f; }
+body.vm-site-skin.vm-archscry-route .land-wrap { width: 128px; }
 
 /* The alignment matrix is a chart and its notes, with no enclosing stack of cards. */
 body.vm-site-skin.vm-archscry-route :is(.vm-dossier-radar-panel, .vm-radar-card, .vm-chart-wrap, .vm-matrix-summary-card, .vm-identity-copy-card, .vm-identity-reading-panel, .vm-placeholder-note) {
@@ -576,8 +577,8 @@ body.vm-site-skin.vm-archscry-route .vm-matrix-v2-grid { grid-template-columns: 
 body.vm-site-skin.vm-archscry-route .vm-radar-card { min-height: 0; }
 body.vm-site-skin.vm-archscry-route .vm-radar-wrap { height: 300px; }
 body.vm-site-skin.vm-archscry-route .vm-identity-rail { gap: 20px; }
-body.vm-site-skin.vm-archscry-route .vm-identity-reading-panel { border-top: 1px solid var(--site-rule); padding-top: 16px; }
-body.vm-site-skin.vm-archscry-route .vm-matrix-summary-card { border-top: 1px solid var(--site-rule); padding-top: 16px; }
+body.vm-site-skin.vm-archscry-route .vm-identity-reading-panel { padding-top: 16px; }
+body.vm-site-skin.vm-archscry-route .vm-matrix-summary-card { padding-top: 16px; }
 body.vm-site-skin.vm-archscry-route .vm-trait-row { background: transparent; border-radius: 0; }
 body.vm-site-skin.vm-archscry-route .vm-trait-row:is(.is-active, :hover, :focus-visible) { background: #252116; }
 body.vm-site-skin.vm-archscry-route .vm-trait-row:focus-visible {
@@ -629,4 +630,5 @@ body.vm-site-skin.vm-archscry-route .identity-atlas-stage { min-height: 0; }
   body.vm-site-skin.vm-archscry-route .guild-name { font-size: 2.8rem; }
   body.vm-site-skin.vm-archscry-route .vm-matrix-v2-grid { grid-template-columns: minmax(0, 1fr); gap: 24px; }
   body.vm-site-skin.vm-archscry-route .identity-atlas-grid { grid-template-columns: minmax(0, 1fr); }
+  body.vm-site-skin.vm-archscry-route .land-wrap { width: 105px; }
 }

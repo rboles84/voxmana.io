@@ -208,6 +208,7 @@ const {
   selectCuratedFlavorEchoesForFaction,
   selectFlavorEchoes,
 } = await import("../../assets/js/archscry/index.js");
+const { buildPreconSectionHtml, togglePreconPreview } = await import("../../assets/js/archscry/runtime/dossier-view.js?v=vm636");
 const {
   renderDossierRadarSection,
 } = await import("../../assets/js/archscry/dossier-radar.js");
@@ -255,6 +256,32 @@ assert.match(indexSource, /taxonomy\/vox-mana-precon-themes\.json/, "expected Ar
 assert.match(indexSource, /Precon Starting Points/, "expected Archscry to render a support-navigation precon starting-points subsection");
 assert.doesNotMatch(indexSource, /Recommended Precon Decks|Showing the strongest starting points from this recommendation pool|Best for:|Find decklists/, "expected Archscry precon labels to avoid ranking-coded wording");
 assert.match(indexSource, /selectPreconPreviewRecommendations/, "expected Archscry to cap precon presentation through the preview selector");
+assert.match(preconRendererSource, /selectPreconPreviewRecommendations\(preconRecommendations, 6\)/, "the wider dossier starts with six precons without changing the shared selector default");
+for (const count of [0, 3, 6, 8]) {
+  const recommendations = { hasAny: count > 0, otherExact: preconCatalog.precons.slice(0, count) };
+  const html = buildPreconSectionHtml(recommendations);
+  const primary = (html.split('data-precon-preview-grid="primary">')[1] || "").split('data-precon-preview-grid="remaining"')[0];
+  assert.equal((primary.match(/data-precon-card/g) || []).length, Math.min(6, count), `${count} recommendations: only available first-six entries`);
+  assert.equal((html.match(/data-precon-card/g) || []).length, count, `${count} recommendations: no cards lost or duplicated`);
+  assert.equal(html.includes('data-precon-preview-overflow'), count > 6, `${count} recommendations: overflow only when needed`);
+  if (count > 6) {
+    assert.match(html, /Display other 2/);
+    assert.match(html, /Show first 6 precons/);
+  }
+}
+const primaryPreconGrid = { hidden: false };
+const remainingPreconGrid = { hidden: true };
+const preconToggle = {
+  expanded: "false",
+  dataset: { expandedLabel: "Show first 6 precons", collapsedLabel: "Display other 2" },
+  closest: () => ({ querySelector: (selector) => selector.includes('"primary"') ? primaryPreconGrid : remainingPreconGrid }),
+  getAttribute() { return this.expanded; },
+  setAttribute(_name, value) { this.expanded = value; },
+};
+togglePreconPreview(preconToggle);
+assert.deepEqual([primaryPreconGrid.hidden, remainingPreconGrid.hidden, preconToggle.expanded, preconToggle.textContent], [true, false, "true", "Show first 6 precons"]);
+togglePreconPreview(preconToggle);
+assert.deepEqual([primaryPreconGrid.hidden, remainingPreconGrid.hidden, preconToggle.expanded, preconToggle.textContent], [false, true, "false", "Display other 2"]);
 assert.match(preconRendererSource, /data-precon-card/, "expected compact precon cards to expose a stable test hook");
 assert.match(preconRendererSource, /Native fit/, "expected native exact precons to render as Native fit cards");
 assert.match(preconRendererSource, /Exact-color fit/, "expected sibling exact precons to render as Exact-color fit cards");

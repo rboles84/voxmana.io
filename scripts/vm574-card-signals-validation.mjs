@@ -14,8 +14,9 @@ const {
   filterStarterCardsForUsage,
   selectApprovedCardRationales,
   selectApprovedCardVoices,
-} = await import("../assets/js/archscry/runtime/content.js");
-const { APP_STATE } = await import("../assets/js/archscry/runtime/state.js");
+} = await import("../assets/js/archscry/runtime/content.js?v=vm636");
+const { APP_STATE } = await import("../assets/js/archscry/runtime/state.js?v=vm636");
+const { buildArchscryAuthoredCardLookup } = await import("../assets/js/archscry/runtime/data.js?v=vm636");
 const { normalizeCardName } = await import("../assets/js/archscry/runtime/render-utils.js");
 
 const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
@@ -139,20 +140,6 @@ function teachingDimension(group) {
   return "engine, rule, or table-shape texture";
 }
 
-function recordsByName(records = []) {
-  const byName = new Map();
-  for (const record of records) {
-    const names = [
-      ...(record.raw_authored_names || []),
-      record.canonical_name,
-      record.selected_face_name,
-      ...(record.card_faces || []).map((face) => face.name),
-    ].filter(Boolean);
-    for (const name of names) byName.set(normalizeCardName(name), record);
-  }
-  return byName;
-}
-
 function resolveRecord(name, { mediaByResolverKey, rawLookup }) {
   return mediaByResolverKey.get(normalizeArchscryMediaKey(name)) || rawFallbackRecord(name, rawLookup);
 }
@@ -172,7 +159,7 @@ function indexAppState(mediaIndex, cardRationaleCatalog, cardVoiceCatalog, preco
   APP_STATE.cardVoiceCatalog = cardVoiceCatalog;
   APP_STATE.preconCatalog = preconCatalog;
   APP_STATE.preconThemeTaxonomy = {};
-  APP_STATE.scryfallLocalCardByName = recordsByName(records);
+  APP_STATE.scryfallLocalCardByName = buildArchscryAuthoredCardLookup({ records });
 }
 
 function pageUsageForFaction(faction, dossierStarterCards) {
@@ -187,9 +174,10 @@ function pageUsageForFaction(faction, dossierStarterCards) {
   };
 }
 
-function collisionStatus(record, pageCardUsage) {
+function collisionStatus(record, pageCardUsage, necessaryRepeatIds) {
   const id = record.oracle_id || normalizeCardName(record.canonical_name);
-  return pageCardUsage.has(id) ? "blocked-by-page-usage" : "clear";
+  if (!pageCardUsage.has(id)) return "clear";
+  return necessaryRepeatIds.has(id) ? "retained-for-three-card-floor" : "unnecessary-page-repeat";
 }
 
 function visibleStatus(record, visibleNames) {
@@ -222,6 +210,24 @@ const mediaByResolverKey = new Map((mediaIndex.records || []).map((record) => [r
 const rawLookup = buildRawLookup(rawCards);
 indexAppState(mediaIndex, cardRationaleCatalog, cardVoiceCatalog, preconCatalog, factions, mediaByResolverKey, rawLookup);
 
+// Exercise populated runtime state and real cross-section reuse, not a second empty singleton.
+for (const key of ["WR", "UR"]) {
+  const cards = buildCommanderStarterCards(factions[key]);
+  const { pageCardUsage } = pageUsageForFaction(factions[key], cards);
+  assert.equal(cards.creatures.filter((name) => pageCardUsage.has(canonicalUsageCardId(name))).length, 2,
+    `${key} must exercise its two real editorial collisions`);
+}
+
+const sample = Object.freeze({ creatures: Object.freeze(["Repeat A", "Fresh A", "Repeat B", "Fresh B", "Fresh C"]) });
+const excluded = new Set([canonicalUsageCardId("Repeat A"), canonicalUsageCardId("Repeat B")]);
+const beforeSample = JSON.stringify(sample);
+assert.deepEqual(filterStarterCardsForUsage(sample, excluded).creatures, ["Fresh A", "Fresh B", "Fresh C"]);
+assert.deepEqual(filterStarterCardsForUsage({ creatures: sample.creatures.slice(0, 4) }, excluded).creatures, ["Repeat A", "Fresh A", "Fresh B"]);
+assert.deepEqual(filterStarterCardsForUsage({ creatures: sample.creatures.slice(0, 3) }, excluded).creatures, ["Repeat A", "Fresh A", "Repeat B"]);
+assert.deepEqual(filterStarterCardsForUsage({ creatures: ["Repeat A"] }, excluded).creatures, ["Repeat A"]);
+assert.deepEqual(filterStarterCardsForUsage({}, excluded), { creatures: [], spells: [], permanents: [] });
+assert.equal(JSON.stringify(sample), beforeSample, "selection must not mutate authored data");
+
 const ledger = [];
 const issues = [];
 const aggregate = {
@@ -230,6 +236,7 @@ const aggregate = {
   visible: Object.fromEntries(EXPECTED_GROUPS.map((group) => [group, 0])),
   unresolved: 0,
   collision_failures: 0,
+  necessary_floor_reuses: 0,
   wrong_type: 0,
   banned_type: 0,
   color_identity_failures: 0,
@@ -246,6 +253,11 @@ for (const identity of Object.keys(factions).sort()) {
 
   for (const category of EXPECTED_GROUPS) {
     const names = starterCards[category] || [];
+    const unused = names.filter((name) => !pageCardUsage.has(canonicalUsageCardId(name)));
+    const necessaryRepeatIds = new Set(names
+      .filter((name) => pageCardUsage.has(canonicalUsageCardId(name)))
+      .slice(0, Math.max(0, Math.min(EXPECTED_GROUP_COUNT, names.length) - unused.length))
+      .map(canonicalUsageCardId));
     const cardRows = [];
     const allowedColors = new Set(faction.colors || []);
     aggregate.categories[category] += names.length;
@@ -290,11 +302,12 @@ for (const identity of Object.keys(factions).sort()) {
         aggregate.media_missing += 1;
         issues.push(`${identity}/${category}/${position}: ${name} has no media candidate`);
       }
-      const collision = collisionStatus(record, pageCardUsage);
+      const collision = collisionStatus(record, pageCardUsage, necessaryRepeatIds);
       const visible = visibleStatus(record, visibleStarterCards[category] || []);
-      if (collision !== "clear") {
+      if (collision === "retained-for-three-card-floor") aggregate.necessary_floor_reuses += 1;
+      if (collision === "unnecessary-page-repeat") {
         aggregate.collision_failures += 1;
-        issues.push(`${identity}/${category}/${position}: ${name} collides with earlier page usage`);
+        issues.push(`${identity}/${category}/${position}: ${name} repeats earlier page usage without needing to restore the category floor`);
       }
       if (visible !== "visible") {
         issues.push(`${identity}/${category}/${position}: ${name} is not visible after usage filtering`);
@@ -318,7 +331,8 @@ for (const identity of Object.keys(factions).sort()) {
       type: category === "creatures" ? "Creature" : (category === "spells" ? "Instant/Sorcery" : "Artifact/Enchantment"),
       evidence_route: `data/factions.json#/factions/${identity}/staples/${category}`,
       teaching_dimension: teachingDimension(category),
-      collision_result: cardRows.every((row) => row.collision_result === "clear") ? "clear" : "blocked",
+      collision_result: cardRows.some((row) => row.collision_result === "unnecessary-page-repeat") ? "blocked" :
+        cardRows.some((row) => row.collision_result === "retained-for-three-card-floor") ? "necessary-floor-reuse" : "clear",
       visible_result: cardRows.every((row) => row.visible_result === "visible") ? "3/3 visible" : `${cardRows.filter((row) => row.visible_result === "visible").length}/3 visible`,
     });
   }
@@ -343,7 +357,8 @@ assert.equal(aggregate.identities, EXPECTED_IDENTITIES, "must cover all 37 ident
 assert.deepEqual(aggregate.categories, { creatures: 111, spells: 111, permanents: 111 });
 assert.deepEqual(aggregate.visible, { creatures: 111, spells: 111, permanents: 111 });
 assert.equal(aggregate.unresolved, 0, "all Card Signals must resolve");
-assert.equal(aggregate.collision_failures, 0, "Card Signals must not collide with earlier page usage");
+assert.equal(aggregate.collision_failures, 0, "Card Signals may repeat earlier examples only to restore the category floor");
+assert.equal(aggregate.necessary_floor_reuses, 4, "only the two Boros and two Izzet creatures need floor-preserving reuse");
 assert.equal(aggregate.wrong_type, 0, "Card Signals must match their category type");
 assert.equal(aggregate.banned_type, 0, "Card Signals must not be lands");
 assert.equal(aggregate.color_identity_failures, 0, "Card Signals must be legal for their identity color set");
@@ -352,5 +367,5 @@ assert.equal(aggregate.duplicate_cards, 0, "Card Signals must not duplicate with
 assert.equal(aggregate.media_missing, 0, "Card Signals must have media");
 assert.deepEqual(issues, [], issues.join("\n"));
 
-console.log(`VM-574 Card Signals: PASS (${aggregate.identities} identities, 111/111/111 visible).`);
+console.log(`VM-574 Card Signals: PASS (${aggregate.identities} identities, 111/111/111 visible, ${aggregate.necessary_floor_reuses} necessary cross-section reuses).`);
 if (WRITE_LEDGER) console.log(`VM-574 ledger written: ${LEDGER_PATH}`);

@@ -19,6 +19,7 @@ Implement and review the continuation one page at a time, beginning with an Arch
 - Owner correction, 2026-09-09: “If Im on the new main and click anything else it goes back to the old view, cnat have that if we just pushed to main.”
 - Owner review steering, 2026-09-09: “I think we should do them one by one so I can qa them better perhaps unless we are too far along”.
 - Owner Archscry steering, 2026-09-10: finish the page's visual hierarchy after the first pass changed mostly backgrounds and corners. Extend the accepted Home direction to the existing opening, reading choices, Atlas directory and dossier sections while preserving their content and behavior.
+- Owner Archscry corrections, 2026-09-10: retain the wider layout, reduce nested divider rules, leave informational What to Look For rows unboxed, show the first six precons, give Basics and other lands equal sizing, and ensure at least three Card Signals with all 37 placements checked.
 - [VM-642 accepted Home](../done/VM-642-home-owner-prose-pass.md) supplies the approved visual reference; its completed delivery remains unchanged.
 - [VM-643 Archscry prose pass](../backlog/VM-643-archscry-owner-prose-pass.md) remains separate, to resume after this visual follow-up.
 
@@ -26,19 +27,20 @@ Implement and review the continuation one page at a time, beginning with an Arch
 
 - [ ] Home and every admitted public route load one shared, opt-in presentation layer after their existing page styles, including nested Guide and Strategium routes and the legal/library pages.
 - [ ] Shared navigation and Guide treatments carry the accepted Home appearance: slimmer header, black/cream/gold palette, opaque surfaces and restrained borders and controls. Home retains its accepted composition, copy and computed presentation.
-- [ ] Contextual surface styling preserves each destination's functional layout, art, text, DOM identifiers, actions, links, script hooks, data and state behavior.
+- [ ] Contextual surface styling preserves each destination's functional layout, art, text, DOM identifiers, actions, links, script hooks, data and state behavior except the explicitly admitted Archscry presentation corrections: first-six precon display and restoration of the available authored three Card Signals when editorial-use filtering would underfill a category.
 - [ ] Focus, active navigation, mobile containment and representative dynamic states remain usable across materially different consumers; proportional objective evidence is recorded under RobQA.
 - [ ] The Owner reviews the visual continuation on the exact engineering-passed candidate before integration; delivery and closeout follow the existing workflow.
 
 ## Files Likely Impacted
 
-The exact admitted paths below cover the shared stylesheet, its public HTML consumers, the existing Home stylesheet, focused frontend/Guide assertions and lifecycle records. Existing runtime JavaScript, source/generated data and the original Home rollback file are outside scope.
+The exact admitted paths below cover the shared stylesheet, its public HTML consumers, the existing Home stylesheet, the bounded Archscry presenter/content correction, focused frontend/Guide/Card Signals assertions and lifecycle records. Other runtime JavaScript, source/generated data and the original Home rollback file are outside scope.
 
 ## Risks
 
 - A shared CSS layer can override route-specific controls, selected states, overlays or responsive layouts. Use explicit opt-in and contextual selectors; avoid universal element resets.
 - Moving existing Home navigation and Guide rules into the shared owner must preserve the accepted Home appearance.
 - Existing assertions may encode the former presentation. Update only affected presentation expectations while retaining route, state and interaction invariants.
+- Existing browser caches can retain the previous runtime despite a normal reload. Keep the `vm636` module graph coherent for local review; coordinated cache versioning is required before integration. Fresh-origin local evidence does not establish production readiness.
 
 ## Implementation Prompt
 
@@ -48,11 +50,19 @@ Defer extracting Home navigation and Guide styling from `assets/css/home-wip.css
 
 ### Current phase — Archscry hierarchy
 
-The Owner-requested continuation goes beyond surface colors and corners: use a route-local editorial opening with two columns, full-width reading choice rows, a compact Atlas directory, wider dossier content, a tighter art header, and a left-aligned dossier directory. Replace nested visual frames with section headings and rules. Preserve all prose, art and attribution, DOM actions, identifiers, scripts, data and state; keep Home and other routes at baseline during this phase.
+The Owner-requested continuation goes beyond surface colors and corners: use a route-local editorial opening with two columns, full-width reading choice rows, a compact Atlas directory, wider dossier content, a tighter art header, and a left-aligned dossier directory. Replace nested visual frames with section headings and restrained rules. Preserve prose, art and attribution, DOM actions and identifiers, source data and state; the only runtime behavior changes are the admitted precon count and Card Signals floor restoration. Keep Home and other routes at baseline during this phase.
+
+The latest local draft retains the 1280px dossier width, removes nested section/subsection and informational `arch-card` borders, and leaves What to Look For as open informational rows. All land tiers share a 128px desktop image size and 105px at widths up to 760px. The dossier renderer requests six precons using the existing first/remainder toggle; shared recommendation order is unchanged. Card Signals prefer cards unused by other teaching sections, restoring only the necessary approved authored cards if filtering would leave fewer than the available three. The all-37 runtime audit reports three cards in each of three categories, or 333 displayed signals; UR and WR each recover two authored creatures that editorial-use filtering previously removed. Source JSON is unchanged.
+
+The VM-574 validator now uses the runtime's versioned state singleton and the real `buildArchscryAuthoredCardLookup` adapter for media-record names. It distinguishes necessary floor-restoring reuse from other collisions without rewriting the historical ledger. Development checks are recorded in the main-agent handoff; a new exact-SHA phase review is still required.
+
+Historical phase QA: `promotion_checks` passed `64df468d11caf7617edf3854449394ef988baa97` before these Owner corrections. That verdict is superseded for the current draft and does not cover the new runtime behavior.
 
 - [x] Archscry hierarchy implementation is in the local draft; the main-agent handoff records its changes and evidence.
-- [x] Focused Archscry engineering review passed at `64df468d11caf7617edf3854449394ef988baa97`, including the affected responsive layout and interaction states. Separate reviewer: `promotion_checks`; exact phase evidence is in the handoff. This phase check does not declare whole-task RobQA PASS.
-- [ ] Obtain the Owner's Archscry visual feedback and address it before enabling the next page.
+- [x] Latest Owner corrections and focused development checks are complete in the local draft, including the all-37 Card Signals audit and desktop/mobile precon and land-sizing checks.
+- [ ] Complete a fresh exact-SHA engineering review of the corrected Archscry phase. This phase check does not declare whole-task RobQA PASS.
+- [ ] Obtain the Owner's feedback on the corrected Archscry draft and address it before enabling the next page.
+- [ ] Complete coordinated runtime cache versioning and its validation before integration; current fresh-origin local review is not production readiness.
 
 ## Notes
 

@@ -955,7 +955,7 @@ export function buildPreconCardHtml(precon) {
 }
 
 export function buildPreconSectionHtml(preconRecommendations) {
-  const preview = selectPreconPreviewRecommendations(preconRecommendations);
+  const preview = selectPreconPreviewRecommendations(preconRecommendations, 6);
   if (!preconRecommendations?.hasAny || !preview.visible.length) {
     return `
       <div class="precons-section">
@@ -1006,7 +1006,7 @@ export function togglePreconPreview(actionNode) {
   remainingGrid.hidden = !nextExpanded;
   actionNode.setAttribute("aria-expanded", nextExpanded ? "true" : "false");
   actionNode.textContent = nextExpanded
-    ? actionNode.dataset.expandedLabel || "Show first 4 precons"
+    ? actionNode.dataset.expandedLabel || "Show initial precons"
     : actionNode.dataset.collapsedLabel || "Display other precons";
 }
 

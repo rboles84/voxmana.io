@@ -154,10 +154,16 @@ export function dedupePreconRecommendationsByProduct(preconRecommendations = {})
 }
 
 export function filterStarterCardsForUsage(starterCards = {}, excludedCardIds = new Set()) {
-  return Object.fromEntries(["creatures", "spells", "permanents"].map((group) => [
-    group,
-    (starterCards[group] || []).filter((name) => !excludedCardIds.has(canonicalUsageCardId(name))),
-  ]));
+  return Object.fromEntries(["creatures", "spells", "permanents"].map((group) => {
+    const authored = starterCards[group] || [];
+    const unused = authored.filter((name) => !excludedCardIds.has(canonicalUsageCardId(name)));
+    // Prefer distinct examples, but do not hollow out an approved three-card teaching set.
+    const needed = Math.max(0, Math.min(3, authored.length) - unused.length);
+    const retained = new Set(authored
+      .filter((name) => excludedCardIds.has(canonicalUsageCardId(name)))
+      .slice(0, needed));
+    return [group, authored.filter((name) => retained.has(name) || !excludedCardIds.has(canonicalUsageCardId(name)))];
+  }));
 }
 
 export function buildCardVoicesHtml(voices = [], faction = {}, { availability = "available" } = {}) {
