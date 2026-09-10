@@ -339,3 +339,33 @@ Deferred harness maintenance: browser-smoke.mjs:546–547, visual-regression-hom
 ### Promotion QA correction
 
 Initial promotion checks passed for HTML, frontend routes/dossier, metadata, copy boundaries, guided reading, background guard, exact original blob and approved HTML/CSS parity. VM620's repository-wide beacon scan additionally found the requested index_old.html backup. Admitted its exact existing test path in a dedicated card-only scope amendment at cccdba6e0d2d353db9af9fb7a9fc26703f335af7; admission continue passed before editing. Registered the backup explicitly in the expected owner map, retaining the complete scan and every active route assertion. No runtime correction was needed. Final candidate must rerun that failed check; other unchanged passing checks remain applicable with exact-diff verification.
+## Promotion QA
+
+Task: VM-642
+Candidate: cfbfddf763152b0f73191872d0d3edbc7a30a678
+RobQA: PASS
+Execution: SAME-AGENT DISTINCT PHASE
+Reviewer: Codex main agent
+Implementer: Codex main agent
+Independence required: no
+Execution reason: QA-1 bounded Home presentation promotion and matching existing Home assertions. No shared behavior, model, security, policy or protected semantics changed. Test Strategist performed separate read-only selection; this verdict is the main agent's distinct post-commit review, not independent QA.
+
+Reviewed the committed promotion diff, subsequent exact correction and card criteria. At 7f8f172d7cad11afcd6e3cce1dd6706590389b6e, HTML lint, frontend smoke, route metadata, copy boundaries, VM621 guided reading, page backgrounds, diff hygiene and index freshness passed. File comparisons proved the promoted HTML is the accepted 062e4c19902a4cc5a27bb65cfe5e5daaeabe375c preview with only the production title restored and temporary noindex/comment removed; original Home has an identical Git blob in index_old.html; CSS differs only in its ownership comment. Source data, Archscry, Guide, JS, shared CSS, images and backend owners are unchanged from admission baseline.
+
+VM620 first failed because its scan found the requested original Home backup. Scoped correction adds that exact backup owner without excluding any scan surface or weakening active page checks. The final committed candidate cfbfddf763152b0f73191872d0d3edbc7a30a678 passed VM620, diff hygiene, fresh admission continue and generated-view checks. Exact comparison from the prior passing promotion confirms only the backup inventory test and task records changed; runtime and other tested sources are identical, so their passing evidence remains applicable.
+
+CUA navigation to http://127.0.0.1:4174/ confirmed the production title, accepted intro/author note, labeled Mardu dossier and approved summary, correct mana identity and dossier URL, Guide entry and four existing tool destinations. The review tab now displays the root Home. Earlier unchanged interaction and Owner visual evidence is reused; no new visual matrix or unclaimed player usability research.
+
+Known deferred harness debt: nonrequired browser-smoke, visual-regression-home and lighthouse-home still assume the retired Mana Lens. Not run and not certified. Unchanged home.js still schedules legacy chart/data requests; no zero-request claim. Required hosted deterministic CI remains an integration prerequisite.
+
+
+## Promotion Owner acceptance
+
+Task: VM-642
+Candidate: cfbfddf763152b0f73191872d0d3edbc7a30a678
+Owner: ACCEPT
+Decision reference: Current task Owner message, 2026-09-09, “final copy looks fine to me,” following the layout lock and the earlier explicit instruction to move index.html to index_old.html and rename indexWIP.html to index.html once liked.
+
+The Owner viewed preview 062e4c19902a4cc5a27bb65cfe5e5daaeabe375c. The final promotion candidate preserves that accepted body and stylesheet rules; only its entry filename, production title/noindex cleanup, ownership comment and necessary regression expectations differ. Acceptance of the displayed content plus the explicit conditional promotion instruction covers this mechanical release mapping. This is not a claim the Owner separately viewed or approved a later SHA or authored the test corrections. No additional product decision was introduced. Engineering candidate gate PASS at cfbfddf763152b0f73191872d0d3edbc7a30a678 precedes this integration binding.
+
+Host routing discovery: authenticated GitHub connector confirms repository push/admin access, user rboles84 and no existing matching task PR. Use connector creation and expected-head guarded squash merge, established Git transport for push/fetch, and existing REST/GCM supplemental read for policy, complete file/blob/commit observations and check-runs missing from callable connector capabilities. No credential changes or unresolved writes.
