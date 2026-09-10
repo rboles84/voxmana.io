@@ -2364,6 +2364,49 @@
       "occurrence_count": 1
     },
     {
+      "resolver_key": "aurelia exemplar of justice",
+      "raw_authored_names": [
+        "Aurelia, Exemplar of Justice"
+      ],
+      "canonical_name": "Aurelia, Exemplar of Justice",
+      "oracle_id": "2e1e0385-1537-4cb6-9d24-e4593d9a8f4a",
+      "scryfall_id": "f129569e-b14e-435f-bdb6-138ca67eb922",
+      "layout": "normal",
+      "selected_face_name": "",
+      "type_line": "Legendary Creature — Angel",
+      "mana_cost": "{2}{R}{W}",
+      "oracle_excerpt": "Flying Mentor (Whenever this creature attacks, put a +1/+1 counter on target attacking creature with lesser power.) At the beginning of combat on your turn, choose up to one target creature you control. Until end of turn, that creature gets",
+      "color_identity": [
+        "R",
+        "W"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "scryfall_uri": "https://scryfall.com/card/rvr/164/aurelia-exemplar-of-justice?utm_source=api",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/f/1/f129569e-b14e-435f-bdb6-138ca67eb922.jpg?1783913297",
+        "normal": "https://cards.scryfall.io/normal/front/f/1/f129569e-b14e-435f-bdb6-138ca67eb922.jpg?1783913297",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/f/1/f129569e-b14e-435f-bdb6-138ca67eb922.jpg?1783913297"
+      },
+      "card_faces": [],
+      "image_candidates": [
+        {
+          "kind": "card-normal",
+          "url": "https://cards.scryfall.io/normal/front/f/1/f129569e-b14e-435f-bdb6-138ca67eb922.jpg?1783913297"
+        },
+        {
+          "kind": "card-art-crop",
+          "url": "https://cards.scryfall.io/art_crop/front/f/1/f129569e-b14e-435f-bdb6-138ca67eb922.jpg?1783913297"
+        },
+        {
+          "kind": "card-small",
+          "url": "https://cards.scryfall.io/small/front/f/1/f129569e-b14e-435f-bdb6-138ca67eb922.jpg?1783913297"
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
       "resolver_key": "aurelia the warleader",
       "raw_authored_names": [
         "Aurelia, the Warleader"
@@ -10936,7 +10979,7 @@
           "url": "https://cards.scryfall.io/small/front/e/4/e4a2d2c6-8eaa-4760-b620-921b807baa2e.jpg?1783933396"
         }
       ],
-      "occurrence_count": 3
+      "occurrence_count": 2
     },
     {
       "resolver_key": "feldon of the third path",
@@ -13002,6 +13045,48 @@
           "kind": "face-small",
           "url": "https://cards.scryfall.io/small/front/7/e/7ef37cb3-d803-47d7-8a01-9c803aa2eadc.jpg?1783928182",
           "face_name": "Hengegate Pathway"
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "resolver_key": "hero of bladehold",
+      "raw_authored_names": [
+        "Hero of Bladehold"
+      ],
+      "canonical_name": "Hero of Bladehold",
+      "oracle_id": "454a8902-8120-4373-96ee-bbf352b04e8d",
+      "scryfall_id": "8ca58965-1dfa-40ac-b6c8-f957167ff066",
+      "layout": "normal",
+      "selected_face_name": "",
+      "type_line": "Creature — Human Knight",
+      "mana_cost": "{2}{W}{W}",
+      "oracle_excerpt": "Battle cry (Whenever this creature attacks, each other attacking creature gets +1/+0 until end of turn.) Whenever this creature attacks, create two 1/1 white Soldier creature tokens that are tapped and attacking.",
+      "color_identity": [
+        "W"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "scryfall_uri": "https://scryfall.com/card/tdc/119/hero-of-bladehold?utm_source=api",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/8/c/8ca58965-1dfa-40ac-b6c8-f957167ff066.jpg?1783907125",
+        "normal": "https://cards.scryfall.io/normal/front/8/c/8ca58965-1dfa-40ac-b6c8-f957167ff066.jpg?1783907125",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/8/c/8ca58965-1dfa-40ac-b6c8-f957167ff066.jpg?1783907125"
+      },
+      "card_faces": [],
+      "image_candidates": [
+        {
+          "kind": "card-normal",
+          "url": "https://cards.scryfall.io/normal/front/8/c/8ca58965-1dfa-40ac-b6c8-f957167ff066.jpg?1783907125"
+        },
+        {
+          "kind": "card-art-crop",
+          "url": "https://cards.scryfall.io/art_crop/front/8/c/8ca58965-1dfa-40ac-b6c8-f957167ff066.jpg?1783907125"
+        },
+        {
+          "kind": "card-small",
+          "url": "https://cards.scryfall.io/small/front/8/c/8ca58965-1dfa-40ac-b6c8-f957167ff066.jpg?1783907125"
         }
       ],
       "occurrence_count": 1
@@ -16309,7 +16394,7 @@
           "url": "https://cards.scryfall.io/small/front/6/6/66011fe8-8c5d-4990-a324-5839515dcacb.jpg?1783915613"
         }
       ],
-      "occurrence_count": 3
+      "occurrence_count": 2
     },
     {
       "resolver_key": "memory erosion",
@@ -18049,7 +18134,7 @@
           "url": "https://cards.scryfall.io/small/front/1/b/1b1c4bed-9b6b-42f9-939d-ece0f959a0a3.jpg?1783935877"
         }
       ],
-      "occurrence_count": 1
+      "occurrence_count": 2
     },
     {
       "resolver_key": "niv mizzet parun",
@@ -18092,7 +18177,7 @@
           "url": "https://cards.scryfall.io/small/front/8/6/86c5c337-d25f-4c3e-9762-09ed0c2d36d7.jpg?1783911897"
         }
       ],
-      "occurrence_count": 3
+      "occurrence_count": 2
     },
     {
       "resolver_key": "niv mizzet reborn",
@@ -23796,7 +23881,7 @@
           "url": "https://cards.scryfall.io/small/front/4/5/45c4c3b3-be18-4d74-99d8-f137498673d7.jpg?1783913272"
         }
       ],
-      "occurrence_count": 3
+      "occurrence_count": 2
     },
     {
       "resolver_key": "takenuma abandoned mire",
@@ -28163,6 +28248,48 @@
         }
       ],
       "occurrence_count": 3
+    },
+    {
+      "resolver_key": "young pyromancer",
+      "raw_authored_names": [
+        "Young Pyromancer"
+      ],
+      "canonical_name": "Young Pyromancer",
+      "oracle_id": "5fac139a-07d3-4e6c-98e3-d98b199f7a6f",
+      "scryfall_id": "c0d74ecd-a595-4012-81b4-083264b40c94",
+      "layout": "normal",
+      "selected_face_name": "",
+      "type_line": "Creature — Human Shaman",
+      "mana_cost": "{1}{R}",
+      "oracle_excerpt": "Whenever you cast an instant or sorcery spell, create a 1/1 red Elemental creature token.",
+      "color_identity": [
+        "R"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "scryfall_uri": "https://scryfall.com/card/tdc/95/young-pyromancer?utm_source=api",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/c/0/c0d74ecd-a595-4012-81b4-083264b40c94.jpg?1783907139",
+        "normal": "https://cards.scryfall.io/normal/front/c/0/c0d74ecd-a595-4012-81b4-083264b40c94.jpg?1783907139",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/c/0/c0d74ecd-a595-4012-81b4-083264b40c94.jpg?1783907139"
+      },
+      "card_faces": [],
+      "image_candidates": [
+        {
+          "kind": "card-normal",
+          "url": "https://cards.scryfall.io/normal/front/c/0/c0d74ecd-a595-4012-81b4-083264b40c94.jpg?1783907139"
+        },
+        {
+          "kind": "card-art-crop",
+          "url": "https://cards.scryfall.io/art_crop/front/c/0/c0d74ecd-a595-4012-81b4-083264b40c94.jpg?1783907139"
+        },
+        {
+          "kind": "card-small",
+          "url": "https://cards.scryfall.io/small/front/c/0/c0d74ecd-a595-4012-81b4-083264b40c94.jpg?1783907139"
+        }
+      ],
+      "occurrence_count": 1
     },
     {
       "resolver_key": "zagoth triome",

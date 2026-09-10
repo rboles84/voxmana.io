@@ -59,6 +59,7 @@ import {
   canonicalUsageCardId,
   cardVoiceAvailabilityForFaction,
   dedupePreconRecommendationsByProduct,
+  filterLandCardsForUsage,
   filterStarterCardsForUsage,
   selectApprovedCardRationales,
   selectApprovedCardVoices,
@@ -923,7 +924,7 @@ export function preconRationaleForDisplay(precon, previewGroup) {
   return previewGroup !== "stretch" && repeatsFitBadge ? strategy : text;
 }
 
-export function buildPreconCardHtml(precon) {
+export function buildPreconCardHtml(precon, usedCardIds = new Set()) {
   const previewGroup = precon?.previewGroup || precon?.group || (precon?.lane === "stretch" ? "stretch" : "otherExact");
   const badge = PRECON_BADGE_META[previewGroup] || PRECON_BADGE_META.otherExact;
   const publicRationale = preconRationaleForDisplay(precon, previewGroup);
@@ -938,6 +939,11 @@ export function buildPreconCardHtml(precon) {
     cardTags: chips.join("|"),
   });
   const researchLinks = buildPreconResearchLinks(precon);
+  const commanderId = canonicalUsageCardId(precon.mainCommander);
+  const commanderHtml = usedCardIds.has(commanderId)
+    ? escapeHtml(precon.mainCommander)
+    : `<button class="precon-commander-trigger" type="button" data-card-preview-name="${escapeAttributeValue(precon.mainCommander)}" ${commanderButtonAttrs}>${escapeHtml(precon.mainCommander)}</button>`;
+  usedCardIds.add(commanderId);
 
   return `
     <div class="precon-card is-compact" data-precon-card data-precon-group="${escapeHtml(previewGroup)}"${rationaleProvenance ? ` data-rationale-provenance="${escapeAttributeValue(JSON.stringify(rationaleProvenance))}"` : ""}>
@@ -946,7 +952,7 @@ export function buildPreconCardHtml(precon) {
         <span class="precon-product">${escapeHtml(precon.productSection)}</span>
       </div>
       <div class="precon-title">${escapeHtml(precon.deckName)}</div>
-      <div class="precon-commander">Main commander: <button class="precon-commander-trigger" type="button" data-card-preview-name="${escapeAttributeValue(precon.mainCommander)}" ${commanderButtonAttrs}>${escapeHtml(precon.mainCommander)}</button></div>
+      <div class="precon-commander">Main commander: ${commanderHtml}</div>
       ${chips.length ? `<div class="precon-chip-row">${chips.map((chip) => `<span class="precon-chip">${escapeHtml(chip)}</span>`).join("")}</div>` : ""}
       ${publicRationale ? `<div class="precon-copy">${escapeHtml(publicRationale)}</div>` : ""}
       ${researchLinks.length ? `<div class="precon-links">${buildLinkButtons(researchLinks)}</div>` : ""}
@@ -954,7 +960,8 @@ export function buildPreconCardHtml(precon) {
     </div>`;
 }
 
-export function buildPreconSectionHtml(preconRecommendations) {
+export function buildPreconSectionHtml(preconRecommendations, excludedCardIds = new Set()) {
+  const usedCardIds = new Set(excludedCardIds);
   const preview = selectPreconPreviewRecommendations(preconRecommendations, 6);
   if (!preconRecommendations?.hasAny || !preview.visible.length) {
     return `
@@ -981,8 +988,8 @@ export function buildPreconSectionHtml(preconRecommendations) {
       <div class="section-label">Precon Starting Points</div>
       <div class="precon-intro">Ready-made Commander decks compared through verified color identity and cataloged deck facts.</div>
       <div class="precon-meta">Use the recorded themes and mechanics to decide whether each deck is worth a closer look.</div>
-      <div class="precon-grid is-compact" data-precon-preview-grid="primary">${preview.visible.map((precon) => buildPreconCardHtml(precon)).join("")}</div>
-      ${canExpand ? `<div class="precon-grid is-compact" data-precon-preview-grid="remaining" hidden>${remaining.map((precon) => buildPreconCardHtml(precon)).join("")}</div>` : ""}
+      <div class="precon-grid is-compact" data-precon-preview-grid="primary">${preview.visible.map((precon) => buildPreconCardHtml(precon, usedCardIds)).join("")}</div>
+      ${canExpand ? `<div class="precon-grid is-compact" data-precon-preview-grid="remaining" hidden>${remaining.map((precon) => buildPreconCardHtml(precon, usedCardIds)).join("")}</div>` : ""}
       ${canExpand ? `
         <div class="precon-reveal-row" data-precon-preview-overflow>
           <button class="precon-reveal-btn" type="button" aria-expanded="false" ${toggleAttrs}>
@@ -1745,7 +1752,6 @@ export function renderResult(viewKey, { mode = "placement", exploreSlug = "", ha
   const commanderLane = dossier.commanderLane;
   const commanderDirectoryLinks = dossier.links.commanderStart || [];
   const commanderPreviewCandidates = dossier.commanderRecommendations || [];
-  const landRecommendations = dossier.landRecommendations || {};
   const modelMechanics = APP_STATE.placementModel?.factions?.[dossier.targetFactionKey]?.identity?.mechanics || "";
   const readingTagRefs = selectReadingTagRefs({
     dossier,
@@ -1770,6 +1776,10 @@ export function renderResult(viewKey, { mode = "placement", exploreSlug = "", ha
   const cardVoiceAvailability = cardVoiceAvailabilityForFaction({ faction });
   addUsageCards(editorialCardUsage, cardVoices.map((entry) => entry.card));
   const starterCardsForUsage = filterStarterCardsForUsage(dossier.starterCards, editorialCardUsage);
+  addUsageCards(editorialCardUsage, Object.values(starterCardsForUsage).flat());
+  const landRecommendations = filterLandCardsForUsage(
+    dossier.landRecommendations, buildBasicLandCards(faction.colors || []), editorialCardUsage
+  );
   const canonicalDiscoveryProfile = APP_STATE.mazeDiscoveryProfileCatalog?.profiles
     ?.find((profile) => profile.identity_key === activeKey);
   if (!APP_STATE.mazeDiscoveryProfileProvenance || !canonicalDiscoveryProfile) {
@@ -1916,6 +1926,10 @@ export function renderResult(viewKey, { mode = "placement", exploreSlug = "", ha
   const hasStarterCardReferences = renderState.hasStarterCardReferences;
   const basicLandCopy = renderState.basicLandCopy;
   const basicLandCards = renderState.basicLandCards;
+  addUsageCards(editorialCardUsage, basicLandCards);
+  for (const tier of ["premium", "midrange", "budget", "utility"]) {
+    addUsageCards(editorialCardUsage, landRecommendations[tier]);
+  }
   const commanderPreviewHtml = commanderPreviewCandidates.length ? `
     <div class="commander-preview-block" data-commander-preview-block hidden>
       <div class="commander-preview-grid" id="commander-preview-grid">${commanderPreviewSlots(commanderPreviewCandidates)}</div>
@@ -1974,7 +1988,7 @@ export function renderResult(viewKey, { mode = "placement", exploreSlug = "", ha
     tagRefs: readingTagRefs,
   }));
   const preconSectionHtml = Array.isArray(APP_STATE.preconCatalog?.precons)
-    ? buildPreconSectionHtml(usablePreconRecommendations)
+    ? buildPreconSectionHtml(usablePreconRecommendations, editorialCardUsage)
     : "";
   const landLaneCopy = landLaneCopyForFaction(faction);
   const isColorlessFaction = String(faction?.key || "").toUpperCase() === "COLORLESS";
