@@ -369,3 +369,16 @@ Decision reference: Current task Owner message, 2026-09-09, “final copy looks 
 The Owner viewed preview 062e4c19902a4cc5a27bb65cfe5e5daaeabe375c. The final promotion candidate preserves that accepted body and stylesheet rules; only its entry filename, production title/noindex cleanup, ownership comment and necessary regression expectations differ. Acceptance of the displayed content plus the explicit conditional promotion instruction covers this mechanical release mapping. This is not a claim the Owner separately viewed or approved a later SHA or authored the test corrections. No additional product decision was introduced. Engineering candidate gate PASS at cfbfddf763152b0f73191872d0d3edbc7a30a678 precedes this integration binding.
 
 Host routing discovery: authenticated GitHub connector confirms repository push/admin access, user rboles84 and no existing matching task PR. Use connector creation and expected-head guarded squash merge, established Git transport for push/fetch, and existing REST/GCM supplemental read for policy, complete file/blob/commit observations and check-runs missing from callable connector capabilities. No credential changes or unresolved writes.
+
+## Promotion integration
+
+Task: VM-642
+Candidate: cfbfddf763152b0f73191872d0d3edbc7a30a678
+Boundaries: PASS
+Integration: PR37 (https://github.com/rboles84/voxmana.io/pull/37), squash ba00f3fc87c3970fcb52481e6cff1170b3d53767
+
+Required Deterministic Validation succeeded at PR head d67888336696f965863d0b044de0fab122866ce0: https://github.com/rboles84/voxmana.io/actions/runs/34439531705/job/102751482846 . Authenticated host observations established the complete 13-path diff, 20 commits, matching base/head blobs, unique task PR, clean mergeability and permitted squash access. No configured branch protection or active rulesets were observed; PR/CI/expected-head safeguards were enforced by the repository process without changing host configuration. Integration checker PASS preceded the connector merge guarded by the exact PR head. Connector merge response and subsequent PR read confirmed merged/closed and the actual squash SHA.
+
+Git fetch verified the squash parent is admission baseline cd94d3052836cd9b69889bca478166fc8a2d00f6 and its tree exactly matches the verified PR input. Switched the clean canonical worktree to main and fast-forwarded. The local feature branch was deleted only after verifying its tip and integrated tree; GitHub had already removed the remote branch, confirmed by fresh remote inventory. No extra worktree was created or removed, and no unrelated dirty work existed.
+
+Material candidate and accepted layout/copy remain intact. Closeout edits are confined to this handoff, allowed task lifecycle fields/relocation and generated views; no later-phase or other task work. Existing optional browser-harness debt remains disclosed above. The original Home is preserved in index_old.html; the approved Home is now index.html. This integration record precedes the final pushed-main closeout checkpoint; it does not claim that pending checkpoint already passed.

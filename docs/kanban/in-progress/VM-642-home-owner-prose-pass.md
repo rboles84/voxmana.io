@@ -2,7 +2,7 @@
 
 ID: VM-642
 Title: Home Public Content and Owner Prose Pass
-Status: Accepted
+Status: Integrated
 Type: Page content review and bounded implementation
 Area: Main / Home
 Priority: Medium
@@ -204,7 +204,7 @@ Admission baseline: cd94d3052836cd9b69889bca478166fc8a2d00f6
 Candidate: cfbfddf763152b0f73191872d0d3edbc7a30a678
 RobQA: PASS at cfbfddf763152b0f73191872d0d3edbc7a30a678 — SAME-AGENT DISTINCT PHASE; implementation handoff Promotion QA
 Owner: ACCEPTED at cfbfddf763152b0f73191872d0d3edbc7a30a678 — implementation handoff Promotion Owner acceptance records final-copy approval and authorized mechanical promotion
-Integration: PENDING
+Integration: INTEGRATED PR #37 — ba00f3fc87c3970fcb52481e6cff1170b3d53767
 Dependencies: None
 Decisions: Scope amendment: admit the existing Guide Beacon inventory check after the promotion QA found the requested index_old.html backup as a fourth owner. Explicitly register that preserved backup; retain all current surface assertions. Final-copy and earlier filename-swap authorization remain the release authority.
-Evidence: Candidate gate PASS; final-copy acceptance bound transparently to the verified promotion. See docs/handoffs/2026-09-09-0000-codex-vm642-home-preview.md#promotion-qa and #promotion-owner-acceptance. Root Home is available at http://127.0.0.1:4174/. PR/CI and guarded integration follow.
+Evidence: PR #37 required deterministic CI and exact integration gate passed; guarded squash ba00f3fc87c3970fcb52481e6cff1170b3d53767 verified against PR input. Local main synchronized; implementation handoff Promotion integration records delivery and cleanup. Final closeout checkpoint pending.
