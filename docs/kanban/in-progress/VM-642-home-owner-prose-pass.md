@@ -2,7 +2,7 @@
 
 ID: VM-642
 Title: Home Public Content and Owner Prose Pass
-Status: In Progress
+Status: Owner Review
 Type: Page content review and bounded implementation
 Area: Main / Home
 Priority: Medium
@@ -36,7 +36,7 @@ The earlier “No redesign ... is implied” boundary prevents unsolicited expan
 - [x] Owner-selected introduction and author’s note accompany the retained headline, feature prose, Foundations symbol, typography and black background; the sample dossier and Guide entry implement the selected visual direction.
 - [x] The static dossier excerpt is traced to existing approved material and labeled as an example; it does not imply a personal reading or add unsupported claims.
 - [x] The Owner-supplied author’s note replaces the scaffold; the note, Guide and deckbuilder clarification follow the requested placement without changing their destination behavior.
-- [ ] Proportional objective evidence and an exact-candidate Owner review path are recorded. Visual acceptance, any filename promotion and integration remain separate pending decisions.
+- [x] Proportional objective evidence and an exact-candidate Owner review path are recorded. Visual acceptance, any filename promotion and integration remain separate pending decisions.
 
 ## Overall goal — preserve voice, improve trust and usefulness
 
@@ -179,10 +179,10 @@ The backlog intake was integrated through VM-649 before this admission. The Owne
 Record version: 1
 Branch: codex/vm-642-home-wip
 Admission baseline: cd94d3052836cd9b69889bca478166fc8a2d00f6
-Candidate: PENDING
-RobQA: PENDING
+Candidate: e23312622240c2ffd3bc3c327d066ffc2121162f
+RobQA: PASS at e23312622240c2ffd3bc3c327d066ffc2121162f — SAME-AGENT DISTINCT PHASE; docs/handoffs/2026-09-09-0000-codex-vm642-home-preview.md#revision-3-qa
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Decisions: Intake authorized 2026-09-08; preserve-voice direction retained; Owner authorized the bounded functional sibling Home preview and start after VM-649 integration on 2026-09-09. Existing Home prose retained for preview; author’s note, broader player feedback, visual acceptance and promotion remain pending. Related-page coordination is not a dependency-isolation authorization.
-Evidence: Revision 3 implements the Owner-selected introduction option 3, supplied author note and screenshot-directed placement of the note, Guide and deckbuilder clarification. Prior candidate c243d1c3f923d8adfe0ce9388455a2f35be61730 remains historical only. Admission continue passed at e99eb22b4672cf6b5a9e221c652847f21ac3f751. Current implementation/QA follow-up: docs/handoffs/2026-09-09-0000-codex-vm642-home-preview.md. Visual approval and promotion remain pending; no integration authorized.
+Evidence: Revision 3 implements selected introduction option 3, edited Owner note and requested note/Guide/deckbuilder placement. Exact-candidate admission, RobQA and candidate delivery check passed at e23312622240c2ffd3bc3c327d066ffc2121162f. Current evidence: docs/handoffs/2026-09-09-0000-codex-vm642-home-preview.md#revision-3-qa. Review http://127.0.0.1:4174/indexWIP.html. Owner visual/edited-note review and promotion remain pending; no integration authorized.

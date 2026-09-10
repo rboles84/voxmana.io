@@ -177,3 +177,24 @@ Implementation: intro and author note occupy the left copy area; a separate Guid
 RobDev transfer: QA-1, SAME-AGENT DISTINCT PHASE after new material commit. Check selected intro/source-author paragraph, removed scaffold, unchanged note text and real links, DOM relationships, Guide-before-directory placement, desktop/narrow containment and original/shared/data isolation. Existing unchanged menu, Guide walkthrough and dossier behavior evidence remain applicable; no full journey or aesthetic screenshot loop. CPU-heavy validation is NOT REQUIRED. Owner review of wording/layout and broader player/Guide review remain open.
 
 Revision 3 development evidence: existing HTML lint and diff hygiene passed. Browser DOM showed the exact selected introduction, edited Owner note without the draft scaffold, original deckbuilder sentence, unchanged sample/mana and all destinations. At the normal 1365px desktop viewport, author content is in the left copy area, dossier at right, the clarification begins below the dossier outside its panel, and Guide ends above the directory divider. At 390px, author precedes dossier, clarification follows dossier, and Guide falls between clarification and directory; no main descendant exceeds the viewport and no horizontal overflow occurs. Temporary viewport reset. Guide's existing deep-link target is unchanged. No new regression test, screenshot suite or downstream journey was needed for this copy/layout correction.
+
+## Revision 3 QA
+
+Task: VM-642
+Candidate: e23312622240c2ffd3bc3c327d066ffc2121162f
+RobQA: PASS
+Execution: SAME-AGENT DISTINCT PHASE
+Reviewer: Codex main agent
+Implementer: Codex main agent
+Independence required: no
+Execution reason: Bounded WIP copy and layout correction with no shared behavior, governance authority, security, migration or protected semantic change. Actual committed diff and updated criteria reviewed in a distinct post-commit phase, not independent review.
+Owner: PENDING
+Integration: PENDING
+
+QA-1 under the unchanged RobQA authority. Clean exact-candidate admission continue PASS; local/live main and merge base remain cd94d3052836cd9b69889bca478166fc8a2d00f6. Reread the committed HTML/CSS and card correction diff against e99eb22b4672cf6b5a9e221c652847f21ac3f751, with whole-task baseline scope inspected by admission. The selected option 3 matches the Owner reply verbatim. The author paragraph preserves the supplied meaning/blunt opening with documented grammar edits; the scaffold/draft label is gone. Existing dossier source paragraph, artwork/credit, mana markup and all destination hrefs/hooks are unchanged. The original deckbuilder sentence moved unchanged beneath the dossier outside its panel.
+
+Post-commit HTML lint, diff hygiene and generated-view freshness PASS. Git comparison verifies original Home, existing shared styles/scripts, vendor files and data unchanged from the admitted baseline. Reviewed browser evidence against unchanged committed bytes: normal 1365px desktop has author under intro at left, dossier/clarification at right and Guide below author before the directory; at 390px the order is author, dossier, clarification, Guide, directory, with no horizontal overflow or main descendant outside the viewport. Guide target remains the existing guided-introduction URL. Temporary viewport reset. No screenshots, new tests or downstream journey reruns; earlier unchanged control behavior evidence remains applicable. CPU-heavy validation: NOT REQUIRED.
+
+Current README purpose, public Guide/reading/Maze content, live entry-page controls and Strategium lifecycle prompts support the chosen framing. The proposed Phase 2 contract was distinguished from shipped features; no future prior/reconciliation capability or search/gameplay guarantee was promised.
+
+Review http://127.0.0.1:4174/indexWIP.html. Owner visual and edited-note review remain pending. No promotion, push, merge or public deployment. Earlier QA sections are historical and do not replace this candidate binding. Full Git accounting for this revision is in C:/Users/obake/AppData/Local/Temp/vm642-r3-change-report.md.
