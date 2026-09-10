@@ -12,9 +12,12 @@ Created: 2026-09-09
 
 Carry the accepted Home visual language across the public destinations before resuming the page prose passes. The Owner observed that navigation from the newly published Home returns to the old appearance. Preserve the accepted Home composition and wording while giving Archscry, the Maze, Apocrypha, Strategium, the Guide and the remaining public routes a consistent, slimmer presentation.
 
+Implement and review the continuation one page at a time, beginning with an Archscry local draft. Keep accepted Home and other destinations at the admission baseline until their individual turn. The full continuity scope remains one task and branch, with coordinated integration after the completed set receives exact-candidate QA and Owner acceptance.
+
 ## Source
 
 - Owner correction, 2026-09-09: “If Im on the new main and click anything else it goes back to the old view, cnat have that if we just pushed to main.”
+- Owner review steering, 2026-09-09: “I think we should do them one by one so I can qa them better perhaps unless we are too far along”.
 - [VM-642 accepted Home](../done/VM-642-home-owner-prose-pass.md) supplies the approved visual reference; its completed delivery remains unchanged.
 - [VM-643 Archscry prose pass](../backlog/VM-643-archscry-owner-prose-pass.md) remains separate, to resume after this visual follow-up.
 
@@ -38,7 +41,9 @@ The exact admitted paths below cover the shared stylesheet, its public HTML cons
 
 ## Implementation Prompt
 
-Reuse the accepted Home visual rules in `assets/css/site-skin.css`, loaded after existing page styles by the admitted public HTML routes. Extract shared Home navigation and Guide styling from `assets/css/home-wip.css` without changing its computed appearance. Apply contextual opaque surfaces, rules and controls to the existing destination markup. Preserve route structure, functional DOM, scripts, assets, copy and all semantic/data behavior. Complete the shared visual continuation, then transfer the changed/protected behavior and consumer risks to RobQA for proportionate validation and Owner review.
+Reuse the accepted Home visual rules in `assets/css/site-skin.css`, adopting the shared stylesheet progressively after each page's existing styles. Begin with Archscry only; retain accepted Home and the other destinations at the admission baseline until their individual turn. Review and refine each page with the Owner before enabling the next, in this order: Archscry → Maze → Apocrypha → Strategium family → Guide family → legal/library. Within each family, present pages individually for review.
+
+Defer extracting Home navigation and Guide styling from `assets/css/home-wip.css` until the shared treatment has been refined through the destination reviews; the eventual extraction must preserve Home's computed appearance. Apply contextual opaque surfaces, rules and controls to existing destination markup while preserving route structure, functional DOM, scripts, assets, copy and all semantic/data behavior. Keep this work on the admitted branch and card. Interim page review is visual feedback, not an engineering PASS or integration decision. After completing the set, transfer changed/protected behavior and consumer risks to RobQA for proportionate exact-candidate validation and final Owner acceptance before coordinated integration.
 
 ## Notes
 
@@ -57,7 +62,7 @@ RobQA: PENDING
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
-Decisions: Owner explicitly requests visual continuity from the accepted Home across its public destinations before VM-643 prose work. Preserve accepted Home composition and copy, all functional/semantic behavior and index_old.html; use one opt-in shared skin with contextual route treatment. Fresh exact-candidate QA and Owner visual review precede integration.
+Decisions: Owner explicitly requests visual continuity from the accepted Home across its public destinations before VM-643 prose work, then directs one-page-at-a-time review beginning with Archscry. Adopt the shared skin progressively; retain baseline Home and other destinations until their turn, review/refine each page before enabling the next, and defer Home extraction. Preserve accepted Home composition and copy, all functional/semantic behavior and index_old.html. Full continuity remains one task/branch; final coordinated integration follows completion of the set, exact-candidate QA and Owner acceptance.
 Evidence: [Task handoff](../../handoffs/2026-09-09-0000-codex-vm650-site-visual-continuity.md)
 
 ## Admission Scope
