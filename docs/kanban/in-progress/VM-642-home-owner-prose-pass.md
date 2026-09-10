@@ -2,7 +2,7 @@
 
 ID: VM-642
 Title: Home Public Content and Owner Prose Pass
-Status: In Progress
+Status: Owner Review
 Type: Page content review and bounded implementation
 Area: Main / Home
 Priority: Medium
@@ -36,7 +36,7 @@ The earlier “No redesign ... is implied” boundary prevents unsolicited expan
 - [x] Existing Owner-valued text, Foundations symbol, typography and black background remain; the sample dossier and stronger Guide entry implement the selected visual direction.
 - [x] The static dossier excerpt is traced to existing approved material and labeled as an example; it does not imply a personal reading or add unsupported claims.
 - [x] The Owner-requested author-note scaffold is visibly labeled as a draft in the local WIP; final wording remains pending and is required before promotion.
-- [ ] Proportional objective evidence and an exact-candidate Owner review path are recorded. Visual acceptance, any filename promotion and integration remain separate pending decisions.
+- [x] Proportional objective evidence and an exact-candidate Owner review path are recorded. Visual acceptance, any filename promotion and integration remain separate pending decisions.
 
 ## Overall goal — preserve voice, improve trust and usefulness
 
@@ -179,10 +179,10 @@ The backlog intake was integrated through VM-649 before this admission. The Owne
 Record version: 1
 Branch: codex/vm-642-home-wip
 Admission baseline: cd94d3052836cd9b69889bca478166fc8a2d00f6
-Candidate: PENDING
-RobQA: PENDING
+Candidate: c243d1c3f923d8adfe0ce9388455a2f35be61730
+RobQA: PASS at c243d1c3f923d8adfe0ce9388455a2f35be61730 — SAME-AGENT DISTINCT PHASE; docs/handoffs/2026-09-09-0000-codex-vm642-home-preview.md#revision-2-qa
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Decisions: Intake authorized 2026-09-08; preserve-voice direction retained; Owner authorized the bounded functional sibling Home preview and start after VM-649 integration on 2026-09-09. Existing Home prose retained for preview; author’s note, broader player feedback, visual acceptance and promotion remain pending. Related-page coordination is not a dependency-isolation authorization.
-Evidence: Owner requested corrections on 2026-09-09: remove the duplicate hero Archscry CTA, use existing mana pips, clarify the sample excerpt, match Guide hover to navigation, and insert the supplied author scaffold for direct editing. Existing candidate efece2091512243de8a05c574778dac4def30ca6 is superseded for current review; its historical QA remains in the implementation handoff. Admission continue passed at 3dc95a46fae2d89c29615bfbcab611b27b2aeb2b. Revision 2 implementation and new candidate QA are recorded in docs/handoffs/2026-09-09-0000-codex-vm642-home-preview.md. No promotion or integration authorized.
+Evidence: Revision 2 corrects the duplicate hero CTA, mana pips, sample excerpt and Guide surface, and includes the explicitly requested draft author scaffold. Exact-candidate admission, RobQA and candidate delivery gate passed at c243d1c3f923d8adfe0ce9388455a2f35be61730. Current evidence: docs/handoffs/2026-09-09-0000-codex-vm642-home-preview.md#revision-2-qa. Review http://127.0.0.1:4174/indexWIP.html; final author wording and visual acceptance remain pending. No promotion or integration authorized.

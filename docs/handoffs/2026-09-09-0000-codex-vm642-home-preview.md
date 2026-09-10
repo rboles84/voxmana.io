@@ -138,3 +138,24 @@ RobDev transfer: QA-1 presentation corrections, SAME-AGENT DISTINCT PHASE remain
 Revision 2 development evidence: canonical HTML lint and focused source assertions passed. Browser confirms the requested draft and one remaining Start with Archscry, three Mana-font glyphs with expected cost colors, loaded Mana font, and keyboard Guide focus with a visible 2px outline and no background image/shadow/translation. Hover and focus-visible share the same scoped clearing rule; direct pointer-hover automation is unavailable in the documented browser API, so hover was assessed through the loaded CSS rule and focused-state computed styles. Desktop 1280 and narrow 390 have no horizontal overflow; no main element exceeded the narrow viewport. Temporary viewport reset. The previous local server had stopped; restarted loopback port 4174 and recovered the browser's stale connection-error tab with a fresh tab. No product/runtime change was needed for that environment issue. No new screenshot or downstream journey suite was run.
 
 The initial font-file assertion also inspected the vendor stylesheet's unused MPlantin face, whose files are not shipped in the existing vendor bundle. Restricted that assertion to the actual Mana face requested by this change; all Mana files exist and the browser confirmed that face loaded. No font dependency or unrelated vendor repair was added. The scoped check passed.
+
+## Revision 2 QA
+
+Task: VM-642
+Candidate: c243d1c3f923d8adfe0ce9388455a2f35be61730
+RobQA: PASS
+Execution: SAME-AGENT DISTINCT PHASE
+Reviewer: Codex main agent
+Implementer: Codex main agent
+Independence required: no
+Execution reason: Bounded isolated Home HTML/CSS corrections with existing icon assets and verbatim approved copy; no shared behavioral, governance, security, migration or protected semantic producer change. QA executed as a distinct post-commit phase; not independent review.
+Owner: PENDING
+Integration: PENDING
+
+Reread the committed correction diff and updated preview criteria after commit, including the explicit Owner authorization to insert the scaffold. QA-1. Exact-candidate admission continue passed on a clean worktree; baseline/local/live main remain cd94d3052836cd9b69889bca478166fc8a2d00f6. Post-commit focused Node checks passed: retained Home copy/destinations, one Archscry CTA, exact draft wording and label, accessible R/W/B mana markup, actual Mana font files, exact approved test-the-fit paragraph, local assets, IDs, Foundations and noindex. Canonical HTML lint, diff hygiene and generated-view freshness passed. Git confirms original Home, all existing scripts/styles, vendor assets and data unchanged.
+
+Inspected current browser evidence against the committed runtime bytes: Mana loaded with three distinct cost glyphs/colors; correct accessible identity label; requested draft visible; one Start with Archscry. At 1280 and 390 wide there is no horizontal overflow; at 390 no main element extends beyond the viewport. Guide keyboard focus produces no gradient/shadow/translation and retains a visible 2px outline. Hover and focus-visible share the same scoped clearing rule; direct pointer hover was not automated because this browser API does not expose it. The CSS cascade and focused-state result support the correction; Owner can confirm the pointer appearance. Previous unchanged destination/menu evidence remains applicable; no broader journey rerun or screenshot suite. CPU-heavy validation: NOT REQUIRED.
+
+The earlier development note records the recovered local server/browser issue and the correction of an overbroad vendor-font assertion. Neither required product changes. The actual used Mana face loads; unused MPlantin files are outside this correction. Subjective visual acceptance remains Owner work. The author scaffold is intentionally draft by explicit request; final Owner wording remains required before promotion. Existing absent-chart Home script overhead remains unchanged.
+
+Review http://127.0.0.1:4174/indexWIP.html. Edit the author paragraph at indexWIP.html under home-author-title. Original Home remains available at /index.html. No promotion, public deployment, push or merge. This QA supersedes earlier candidate bindings for the current preview; historical sections above remain event-time records.
