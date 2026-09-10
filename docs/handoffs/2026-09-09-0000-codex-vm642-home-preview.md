@@ -225,3 +225,11 @@ QA-1 under the unchanged full RobQA authority. Re-read the committed diff and pr
 Post-commit browser reload confirms vm642-r4 CSS. At 1365px, the Guide link occupies x524.453 to 701.969, matching the left column's right edge 701.969. Its bottom 694.234 sits above the directory divider 736.234; the author's note ends 567.953. Thus the Guide occupies the lower-right blank space. At 390px, the Guide and container both start x20; computed alignment is flex-start, and its bottom 1258.641 precedes the directory 1288.641. Both widths have no horizontal overflow. Existing Guide href remains ./guide/?guided=vox-mana-intro. Viewport restored and preview tab retained.
 
 No new tests, screenshot suite or unrelated journeys were needed for these two scoped declarations. CPU-heavy validation: NOT REQUIRED. Subjective positioning remains OWNER-VISUAL. Review http://127.0.0.1:4174/indexWIP.html. No promotion, push, merge or deployment. Earlier QA sections remain historical; this candidate binding supersedes them for the current runtime.
+
+## Revision 5 — Surgical spacing reduction
+
+Owner request: reduce the marked blank space through padding/spacing only. Admission continue PASS at clean 1f52545c7b7b1479d7137786c583288d64d7b4c2 on the existing branch and baseline. Scope and unchanged governing RobDev/RobQA authorities remain applicable.
+
+The taller dossier establishes the hero grid height, and align-self:end pushed the Guide farther below the author. Changed only the preview spacing owner: row-gap 24px to16px, Guide align-self:start, and hero bottom padding42px to18px. Existing horizontal right alignment, narrow overrides, DOM, copy and destinations remain. Updated only the preview CSS cache query in HTML. The dossier still sets a minimum hero height; removing all left whitespace would require changing that composition, outside this surgical request.
+
+RobDev transfer: verify actual author-to-Guide gap shrinks, directory moves up, and Guide remains right-aligned with no overlap or overflow. Reuse unchanged mobile gap/padding and behavior evidence; no data, shared CSS/JS or original Home changes. Geometry is the changed objective risk, so one focused browser check is justified; Owner judges the density.
