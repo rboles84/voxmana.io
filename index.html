@@ -1,838 +1,160 @@
-<!-- DOCTYPE: Tells the browser to render this as modern HTML5 instead of older quirks mode. Keep this as the first real document declaration. -->
 <!DOCTYPE html>
-<!-- HTML ROOT: Starts the page document. lang="en" tells browsers and assistive technology that the page content is English. -->
 <html lang="en">
-<!-- HEAD: Browser-only setup area for metadata, title, fonts, external libraries, and page-level CSS. Nothing inside <head> is visible as normal page content. -->
 <head>
-<!-- META CHARSET: Allows the page to correctly display modern characters like arrows, em dashes, curly quotes, and mana-style symbols. -->
-<meta charset="UTF-8" />
-<!-- VIEWPORT: Makes the layout scale correctly on phones/tablets instead of rendering as a zoomed-out desktop page. -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<!-- TITLE: Text shown in the browser tab and used by bookmarks/search previews. -->
-<title>Vox Mana - Commander Identity Compass</title>
-<meta name="description" content="Vox Mana is a Commander identity and taste compass for understanding color signals, placement, play patterns, and what to look for before browsing elsewhere." />
-<link rel="canonical" href="https://voxmana.io/" />
-<meta property="og:site_name" content="Vox Mana" />
-<meta property="og:type" content="website" />
-<meta property="og:title" content="Vox Mana - Commander Identity Compass" />
-<meta property="og:description" content="Understand your Commander color identity, placement, play patterns, and browsing direction before you build or compare decks elsewhere." />
-<meta property="og:url" content="https://voxmana.io/" />
-<meta property="og:image" content="https://voxmana.io/assets/img/social/vox-mana-share-v1.png" />
-<meta property="og:image:alt" content="Vox Mana gold sigil and Commander Identity Compass lettering on black." />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Vox Mana - Commander Identity Compass" />
-<meta name="twitter:description" content="A Commander identity and taste compass for color signals, placement, play patterns, and browsing direction." />
-<meta name="twitter:image" content="https://voxmana.io/assets/img/social/vox-mana-share-v1.png" />
-<link rel="icon" type="image/svg+xml" href="./assets/img/vox-mana-header-logo.svg">
-<!-- Archscry assets inserted here (background, canvas, web component).
-  See docs/handoffs/2026-05-19-1505-copilot-archscry-extract.md for details. -->
-
-<link rel="preload" href="./assets/fonts/almendra-700-latin.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="stylesheet" href="./assets/css/tokens.css?v=vm635" />
-<link rel="stylesheet" href="./assets/css/fonts.css?v=vm612" />
-<script src="assets/js/shared/vm-radar.js" defer></script>
-<link rel="stylesheet" href="./assets/css/layout.css?v=vm635" />
-<link rel="stylesheet" href="./assets/css/topbar.css?v=vm618" />
-<link rel="stylesheet" href="./assets/vendor/keyrune/css/keyrune.min.css?v=3.19.0" />
-<link rel="stylesheet" href="./assets/css/guide-beacon.css?v=vm620" />
-<link rel="stylesheet" href="./assets/css/home.css?v=vm635" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vox Mana - Commander Identity Compass</title>
+  <meta name="description" content="Find your Commander direction, search for cards without memorizing Scryfall syntax, and learn from the games you play." />
+  <link rel="canonical" href="https://voxmana.io/" />
+  <meta property="og:site_name" content="Vox Mana" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Vox Mana - Commander Identity Compass" />
+  <meta property="og:description" content="Find your Commander direction, search for cards without memorizing Scryfall syntax, and learn from the games you play." />
+  <meta property="og:url" content="https://voxmana.io/" />
+  <meta property="og:image" content="https://voxmana.io/assets/img/social/vox-mana-share-v1.png" />
+  <meta property="og:image:alt" content="Vox Mana gold sigil and Commander Identity Compass lettering on black." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Vox Mana - Commander Identity Compass" />
+  <meta name="twitter:description" content="Find your Commander direction, search for cards without memorizing Scryfall syntax, and learn from the games you play." />
+  <meta name="twitter:image" content="https://voxmana.io/assets/img/social/vox-mana-share-v1.png" />
+  <link rel="icon" type="image/svg+xml" href="./assets/img/vox-mana-header-logo.svg" />
+  <link rel="preload" href="./assets/fonts/almendra-700-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="./assets/css/tokens.css?v=vm635" />
+  <link rel="stylesheet" href="./assets/css/fonts.css?v=vm612" />
+  <script src="./assets/js/shared/vm-radar.js" defer></script>
+  <link rel="stylesheet" href="./assets/css/layout.css?v=vm635" />
+  <link rel="stylesheet" href="./assets/css/topbar.css?v=vm618" />
+  <link rel="stylesheet" href="./assets/vendor/keyrune/css/keyrune.min.css?v=3.19.0" />
+  <link rel="stylesheet" href="./assets/vendor/mana/css/mana.min.css" />
+  <link rel="stylesheet" href="./assets/css/guide-beacon.css?v=vm620" />
+  <link rel="stylesheet" href="./assets/css/home.css?v=vm635" />
+  <link rel="stylesheet" href="./assets/css/home-wip.css?v=vm642-r5" />
 </head>
-
-<!-- BODY: Visible page starts here. This contains the background layers, navigation, main content, footer, and JavaScript. -->
-<body data-page="home" data-vm-current="home" data-bg="light">
-  <!-- Background with image and sparkling stars -->
-  <!-- DECORATIVE BACKGROUND: aria-hidden="true" means screen readers ignore this because it is visual decoration only. -->
+<body class="vm-home-preview" data-page="home" data-vm-current="home" data-bg="light">
   <div class="vm-bg" aria-hidden="true">
-    <!-- VM-635: black backdrop; painted image assets preserved for rollback. -->
-    <!-- NEBULA LAYER: Empty div used only for CSS radial-gradient atmosphere. -->
     <div class="vm-bg__nebula"></div>
-    <!-- STAR CANVAS: Empty drawing surface. JavaScript later animates tiny gold particles on it. -->
     <canvas class="vm-bg__stars" aria-hidden="true"></canvas>
   </div>
 
-<!-- NAVIGATION: Shared topbar contract for the canonical home. -->
-<header class="vm-topbar" role="banner">
-  <a class="vm-brand" href="./index.html" aria-label="Vox Mana - home">
-    <span class="vm-brand-mark" aria-hidden="true">
-      <img src="./assets/img/vox-mana-header-logo.svg" alt="" width="44" height="44" decoding="async" fetchpriority="high">
-    </span>
-    <span class="vm-brand-text">Vox Mana</span>
-  </a>
-
-  <nav class="vm-nav" aria-label="Main Navigation">
-    <a class="vm-nav-link" href="./index.html" data-vm-nav="home" data-nav-hint="Identity signal hub">Home<span class="vm-nav-hint" aria-hidden="true">Identity signal hub</span></a>
-    <a class="vm-nav-link" href="./archscry/index.html" data-vm-nav="archscry" data-nav-hint="Color identity reading">Archscry<span class="vm-nav-hint" aria-hidden="true">Color identity reading</span></a>
-    <a class="vm-nav-link" href="./maze/index.html" data-vm-nav="maze" data-nav-hint="Guided card search">The Implicit Maze<span class="vm-nav-hint" aria-hidden="true">Guided card search</span></a>
-    <a class="vm-nav-link" href="./strategium/index.html" data-vm-nav="strategium" data-nav-hint="Commander table literacy">Strategium<span class="vm-nav-hint" aria-hidden="true">Commander table literacy</span></a>
-    <a class="vm-nav-link" href="./apocrypha/index.html" data-vm-nav="apocrypha" data-nav-hint="Lore and source library">Apocrypha<span class="vm-nav-hint" aria-hidden="true">Lore and source library</span></a>
-  </nav>
-
-  <div class="vm-utility">
-    <a class="vm-utility-link" href="./guide/index.html" data-vm-nav="guide">Guide</a>
-    <button
-      type="button"
-      class="vm-menu-button"
-      aria-label="Open menu"
-      aria-expanded="false"
-      aria-haspopup="true"
-      aria-controls="vm-menu-panel"
-      data-vm-menu-trigger
-    >
-      <span class="vm-menu-dots" aria-hidden="true">
-        <span></span><span></span><span></span>
+  <!-- Existing shared navigation/feedback/menu contracts; styles are preview-local. -->
+  <header class="vm-topbar" role="banner">
+    <a class="vm-brand" href="./index.html" aria-label="Vox Mana - home">
+      <span class="vm-brand-mark" aria-hidden="true">
+        <img src="./assets/img/vox-mana-header-logo.svg" alt="" width="44" height="44" decoding="async" fetchpriority="high" />
       </span>
-    </button>
-
-    <div
-      id="vm-menu-panel"
-      class="vm-menu-panel"
-      data-open="false"
-      data-vm-menu-panel
-    >
-      <nav class="vm-menu-nav" aria-label="Mobile Navigation" data-vm-menu-nav></nav>
-      <button
-        type="button"
-        class="vm-menu-item"
-        data-vm-toggle="reduce-motion"
-        data-vm-tooltip-on="Stillness - on"
-        data-vm-tooltip-off="Quiet the motion"
-      >
-        <span>Reduce motion</span>
-        <span class="vm-menu-item-status" data-vm-status>Off</span>
+      <span class="vm-brand-text">Vox Mana</span>
+    </a>
+    <nav class="vm-nav" aria-label="Main Navigation">
+      <a class="vm-nav-link" href="./index.html" data-vm-nav="home" data-nav-hint="Identity signal hub">Home<span class="vm-nav-hint" aria-hidden="true">Identity signal hub</span></a>
+      <a class="vm-nav-link" href="./archscry/index.html" data-vm-nav="archscry" data-nav-hint="Color identity reading">Archscry<span class="vm-nav-hint" aria-hidden="true">Color identity reading</span></a>
+      <a class="vm-nav-link" href="./maze/index.html" data-vm-nav="maze" data-nav-hint="Guided card search">The Implicit Maze<span class="vm-nav-hint" aria-hidden="true">Guided card search</span></a>
+      <a class="vm-nav-link" href="./strategium/index.html" data-vm-nav="strategium" data-nav-hint="Commander table literacy">Strategium<span class="vm-nav-hint" aria-hidden="true">Commander table literacy</span></a>
+      <a class="vm-nav-link" href="./apocrypha/index.html" data-vm-nav="apocrypha" data-nav-hint="Lore and source library">Apocrypha<span class="vm-nav-hint" aria-hidden="true">Lore and source library</span></a>
+    </nav>
+    <div class="vm-utility">
+      <a class="vm-utility-link" href="./guide/index.html" data-vm-nav="guide">Guide</a>
+      <button type="button" class="vm-menu-button" aria-label="Open menu" aria-expanded="false" aria-haspopup="true" aria-controls="vm-menu-panel" data-vm-menu-trigger>
+        <span class="vm-menu-dots" aria-hidden="true"><span></span><span></span><span></span></span>
       </button>
+      <div id="vm-menu-panel" class="vm-menu-panel" data-open="false" data-vm-menu-panel>
+        <nav class="vm-menu-nav" aria-label="Mobile Navigation" data-vm-menu-nav></nav>
+        <button type="button" class="vm-menu-item" data-vm-toggle="reduce-motion" data-vm-tooltip-on="Stillness - on" data-vm-tooltip-off="Quiet the motion">
+          <span>Reduce motion</span><span class="vm-menu-item-status" data-vm-status>Off</span>
+        </button>
+      </div>
     </div>
-  </div>
-</header>
+  </header>
 
-<!-- MAIN CONTENT SHELL: id="top" is the anchor target for Back to top. vm-shell keeps content centered and width-limited. -->
-<main id="top" class="vm-shell">
-  <!-- HERO -->
-  <section class="vm-hero vm-home-hero reveal" aria-labelledby="home-preview-title">
-    <div class="vm-hero-stack">
+  <main id="top" class="vm-shell">
+    <section class="vm-hero vm-home-hero" aria-labelledby="home-preview-title">
       <div class="vm-hero-grid">
         <div class="vm-hero-copy">
           <div class="vm-eyebrow">VOX MANA</div>
-          <h1 class="vm-hero-title" id="home-preview-title">
-            <span>Find your place</span>
-            <span>Shape your play</span>
-          </h1>
+          <h1 class="vm-hero-title" id="home-preview-title"><span>Find your place</span><span>Shape your play</span></h1>
           <div class="vm-hero-signature" aria-hidden="true"><i class="ss ss-fdn ss-mythic" aria-hidden="true"></i></div>
-          <p class="vm-hero-lede">Vox Mana is a Commander identity and taste compass. It helps you understand your colors, placement, play patterns, and what to look for when exploring commanders or decks elsewhere.</p>
-          <p class="vm-hero-note">Not a deckbuilder: Vox Mana helps you choose a direction before you build or browse decklists somewhere else.</p>
-
-          <!-- Temporarily disabled: remove hidden to restore the preserved color philosophy strip. -->
-          <div class="vm-color-axis" role="img" aria-label="Vox Mana color philosophy axis" hidden>
-            <svg class="vm-color-axis__svg" viewBox="0 0 520 110" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-              <defs>
-
-                <!-- ── LETTER GLOW: sharp blur merge for the letter itself ── -->
-                <filter id="cag-glow" x="-60%" y="-60%" width="220%" height="220%">
-                  <feGaussianBlur stdDeviation="3" result="blur"/>
-                  <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-                </filter>
-
-                <!-- ══ SPIRAL DEFS — lifted verbatim from good_V_withSprals.html ══ -->
-
-                <!-- Elemental fire displacement filter -->
-                <filter id="cag-elementalFire" x="-150%" y="-150%" width="400%" height="400%">
-                  <feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="4" result="flameNoise">
-                    <animate attributeName="baseFrequency" values="0.041;0.052;0.041" dur="2.5s" repeatCount="indefinite"/>
-                  </feTurbulence>
-                  <feDisplacementMap in="SourceGraphic" in2="flameNoise" scale="24" xChannelSelector="R" yChannelSelector="G" result="blazingOutlines"/>
-                  <feGaussianBlur in="blazingOutlines" stdDeviation="6" result="coreHeatGlow"/>
-                  <feGaussianBlur in="blazingOutlines" stdDeviation="16" result="ambientThermalBleed"/>
-                  <feMerge>
-                    <feMergeNode in="ambientThermalBleed"/>
-                    <feMergeNode in="coreHeatGlow"/>
-                    <feMergeNode in="blazingOutlines"/>
-                  </feMerge>
-                </filter>
-
-                <!-- Plasma core glow -->
-                <filter id="cag-plasmaCore" x="-100%" y="-100%" width="300%" height="300%">
-                  <feGaussianBlur stdDeviation="3" result="b1"/>
-                  <feGaussianBlur stdDeviation="9" result="b2"/>
-                  <feMerge>
-                    <feMergeNode in="b2"/>
-                    <feMergeNode in="b1"/>
-                    <feMergeNode in="SourceGraphic"/>
-                  </feMerge>
-                </filter>
-
-                <!-- Per-color stroke gradients -->
-                <linearGradient id="cag-strokeW" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0"   stop-color="#ffffff"/>
-                  <stop offset=".4"  stop-color="#fff5cc"/>
-                  <stop offset="1"   stop-color="#ffb300"/>
-                </linearGradient>
-                <linearGradient id="cag-strokeU" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0"   stop-color="#a3f7ff"/>
-                  <stop offset=".4"  stop-color="#00a2ff"/>
-                  <stop offset="1"   stop-color="#001a4d"/>
-                </linearGradient>
-                <linearGradient id="cag-strokeB" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0"   stop-color="#e0b3ff"/>
-                  <stop offset=".3"  stop-color="#591da9"/>
-                  <stop offset=".7"  stop-color="#120224"/>
-                  <stop offset="1"   stop-color="#000000"/>
-                </linearGradient>
-                <linearGradient id="cag-strokeR" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0"   stop-color="#ffebd4"/>
-                  <stop offset=".3"  stop-color="#ff3c00"/>
-                  <stop offset=".7"  stop-color="#990000"/>
-                  <stop offset="1"   stop-color="#2a0000"/>
-                </linearGradient>
-                <linearGradient id="cag-strokeG" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0"   stop-color="#ebffdf"/>
-                  <stop offset=".3"  stop-color="#26e653"/>
-                  <stop offset=".7"  stop-color="#00661a"/>
-                  <stop offset="1"   stop-color="#001a05"/>
-                </linearGradient>
-
-                <!-- Spiral symbol groups — path d set by inline script below SVG -->
-                <g id="cag-spiralW">
-                  <path class="cag-spiral cag-spiral-w" d=""/>
-                  <path class="cag-spiral-accent" d=""/>
-                  <circle class="cag-spiral-core" cx="0" cy="0" r="1.8"/>
-                </g>
-                <g id="cag-spiralU">
-                  <path class="cag-spiral cag-spiral-u" d=""/>
-                  <path class="cag-spiral-accent" d=""/>
-                  <circle class="cag-spiral-core" cx="0" cy="0" r="1.8"/>
-                </g>
-                <g id="cag-spiralB">
-                  <path class="cag-spiral cag-spiral-b" d=""/>
-                  <path class="cag-spiral-accent" d=""/>
-                  <circle class="cag-spiral-core" cx="0" cy="0" r="1.8"/>
-                </g>
-                <g id="cag-spiralR">
-                  <path class="cag-spiral cag-spiral-r" d=""/>
-                  <path class="cag-spiral-accent" d=""/>
-                  <circle class="cag-spiral-core" cx="0" cy="0" r="1.8"/>
-                </g>
-                <g id="cag-spiralG">
-                  <path class="cag-spiral cag-spiral-g" d=""/>
-                  <path class="cag-spiral-accent" d=""/>
-                  <circle class="cag-spiral-core" cx="0" cy="0" r="1.8"/>
-                </g>
-
-
-
-                <!-- ── WAVEFORM CLIP: clips wave lines to the W medallion circle ── -->
-                <clipPath id="cag-wave-clip">
-                  <circle r="27"/>
-                </clipPath>
-                <!-- Waveform line gradient — ivory fade to transparent at edges -->
-                <linearGradient id="cag-wave-fade" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%"   stop-color="rgba(245,234,208,0)"/>
-                  <stop offset="15%"  stop-color="rgba(245,234,208,0.9)"/>
-                  <stop offset="85%"  stop-color="rgba(245,234,208,0.9)"/>
-                  <stop offset="100%" stop-color="rgba(245,234,208,0)"/>
-                </linearGradient>
-
-                <!-- ── B: vertical waveform clip + gradient ── -->
-                <clipPath id="cag-wave-clip-b">
-                  <circle r="27"/>
-                </clipPath>
-                <linearGradient id="cag-wave-fade-b" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%"   stop-color="rgba(200,160,255,0)"/>
-                  <stop offset="15%"  stop-color="rgba(200,160,255,0.85)"/>
-                  <stop offset="85%"  stop-color="rgba(200,160,255,0.85)"/>
-                  <stop offset="100%" stop-color="rgba(200,160,255,0)"/>
-                </linearGradient>
-
-                <!-- ── U: lightning arc clip ── -->
-                <clipPath id="cag-arc-clip-u">
-                  <circle r="36"/>
-                </clipPath>
-
-                <!-- ── G: mycelium clip ── -->
-                <clipPath id="cag-myc-clip">
-                  <circle r="27"/>
-                </clipPath>
-
-                <!-- ── R: magma crack glow filter + clip ── -->
-                <filter id="cag-crack-glow" x="-80%" y="-80%" width="260%" height="260%">
-                  <feGaussianBlur stdDeviation="2" result="b1"/>
-                  <feGaussianBlur stdDeviation="6" result="b2"/>
-                  <feMerge><feMergeNode in="b2"/><feMergeNode in="b1"/><feMergeNode in="SourceGraphic"/></feMerge>
-                </filter>
-                <clipPath id="cag-crack-clip">
-                  <circle r="27"/>
-                </clipPath>
-                <radialGradient id="cag-crack-pool" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stop-color="rgba(255,240,160,0.95)"/>
-                  <stop offset="100%" stop-color="rgba(255,60,10,0)"/>
-                </radialGradient>
-                <!-- R: richer inner background so cracks read against it -->
-                <radialGradient id="cag-bg-r-magma" cx="50%" cy="35%" r="65%">
-                  <stop offset="0%"   stop-color="#ff4a20" stop-opacity="0.35"/>
-                  <stop offset="50%"  stop-color="#8a1a00" stop-opacity="0.70"/>
-                  <stop offset="100%" stop-color="#0f0402" stop-opacity="0.95"/>
-                </radialGradient>
-
-                <!-- ── U: lightning glow filter ── -->
-                <filter id="cag-arc-glow" x="-80%" y="-80%" width="260%" height="260%">
-                  <feGaussianBlur stdDeviation="1.8" result="b1"/>
-                  <feGaussianBlur stdDeviation="4" result="b2"/>
-                  <feMerge><feMergeNode in="b2"/><feMergeNode in="b1"/><feMergeNode in="SourceGraphic"/></feMerge>
-                </filter>
-                <filter id="cag-shimmer" x="-40%" y="-40%" width="180%" height="180%" color-interpolation-filters="sRGB">
-                  <feTurbulence type="fractalNoise" baseFrequency="0.055" numOctaves="3" result="noise">
-                    <animate attributeName="baseFrequency" values="0.045;0.075;0.045" dur="4s" repeatCount="indefinite"/>
-                  </feTurbulence>
-                  <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" xChannelSelector="R" yChannelSelector="G" result="warped"/>
-                  <feGaussianBlur in="warped" stdDeviation="1.2" result="soft"/>
-                  <feMerge><feMergeNode in="soft"/><feMergeNode in="warped"/></feMerge>
-                </filter>
-
-                <!-- ── OUTER BLOOM: wide soft glow blur for the bloom layer ── -->
-                <filter id="cag-bloom" x="-100%" y="-100%" width="300%" height="300%">
-                  <feGaussianBlur stdDeviation="7" result="bloom"/>
-                  <feMerge><feMergeNode in="bloom"/><feMergeNode in="SourceGraphic"/></feMerge>
-                </filter>
-
-                <!-- ── CONNECTOR LINE GRADIENT ── -->
-                <linearGradient id="cag-line" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%"   stop-color="rgba(245,234,208,0)"/>
-                  <stop offset="12%"  stop-color="rgba(245,234,208,0.6)"/>
-                  <stop offset="28%"  stop-color="rgba(159,216,255,0.45)"/>
-                  <stop offset="50%"  stop-color="rgba(215,183,255,0.38)"/>
-                  <stop offset="72%"  stop-color="rgba(255,155,120,0.45)"/>
-                  <stop offset="88%"  stop-color="rgba(167,231,164,0.55)"/>
-                  <stop offset="100%" stop-color="rgba(167,231,164,0)"/>
-                </linearGradient>
-
-                <!-- Traveling spark gradient on the connector -->
-                <linearGradient id="cag-spark" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%"   stop-color="white" stop-opacity="0"/>
-                  <stop offset="46%"  stop-color="white" stop-opacity="0"/>
-                  <stop offset="50%"  stop-color="white" stop-opacity="0.7"/>
-                  <stop offset="54%"  stop-color="white" stop-opacity="0"/>
-                  <stop offset="100%" stop-color="white" stop-opacity="0"/>
-                  <animateTransform attributeName="gradientTransform" type="translate" values="-1 0;1 0;-1 0" dur="3.5s" repeatCount="indefinite"/>
-                </linearGradient>
-
-                <!-- ── PER-COLOR RADIAL BACKGROUNDS ── -->
-                <radialGradient id="cag-bg-w" cx="50%" cy="35%" r="65%">
-                  <stop offset="0%"   stop-color="#fffbe8" stop-opacity="0.22"/>
-                  <stop offset="100%" stop-color="#060810" stop-opacity="0.88"/>
-                </radialGradient>
-                <radialGradient id="cag-bg-u" cx="50%" cy="35%" r="65%">
-                  <stop offset="0%"   stop-color="#3a9eff" stop-opacity="0.26"/>
-                  <stop offset="100%" stop-color="#040812" stop-opacity="0.88"/>
-                </radialGradient>
-                <radialGradient id="cag-bg-b" cx="50%" cy="35%" r="65%">
-                  <stop offset="0%"   stop-color="#8f50ff" stop-opacity="0.24"/>
-                  <stop offset="100%" stop-color="#06020f" stop-opacity="0.90"/>
-                </radialGradient>
-                <radialGradient id="cag-bg-r" cx="50%" cy="35%" r="65%">
-                  <stop offset="0%"   stop-color="#ff4a20" stop-opacity="0.28"/>
-                  <stop offset="100%" stop-color="#0f0402" stop-opacity="0.90"/>
-                </radialGradient>
-                <radialGradient id="cag-bg-g" cx="50%" cy="35%" r="65%">
-                  <stop offset="0%"   stop-color="#38c458" stop-opacity="0.24"/>
-                  <stop offset="100%" stop-color="#020a04" stop-opacity="0.88"/>
-                </radialGradient>
-
-                <!-- ── CONIC ORBIT GRADIENTS (from eclipse/leyline brand marks) ── -->
-                <!-- Each one has a slightly different arc position so they look unique -->
-                <radialGradient id="cag-orbit-w" cx="50%" cy="50%" r="50%">
-                  <stop offset="72%"  stop-color="transparent"/>
-                  <stop offset="78%"  stop-color="rgba(245,234,208,0.55)"/>
-                  <stop offset="85%"  stop-color="rgba(245,234,208,0.18)"/>
-                  <stop offset="100%" stop-color="transparent"/>
-                </radialGradient>
-                <radialGradient id="cag-orbit-u" cx="50%" cy="50%" r="50%">
-                  <stop offset="72%"  stop-color="transparent"/>
-                  <stop offset="78%"  stop-color="rgba(100,190,255,0.55)"/>
-                  <stop offset="85%"  stop-color="rgba(100,190,255,0.18)"/>
-                  <stop offset="100%" stop-color="transparent"/>
-                </radialGradient>
-                <radialGradient id="cag-orbit-b" cx="50%" cy="50%" r="50%">
-                  <stop offset="72%"  stop-color="transparent"/>
-                  <stop offset="78%"  stop-color="rgba(180,130,255,0.5)"/>
-                  <stop offset="85%"  stop-color="rgba(180,130,255,0.16)"/>
-                  <stop offset="100%" stop-color="transparent"/>
-                </radialGradient>
-                <radialGradient id="cag-orbit-r" cx="50%" cy="50%" r="50%">
-                  <stop offset="72%"  stop-color="transparent"/>
-                  <stop offset="78%"  stop-color="rgba(255,90,50,0.6)"/>
-                  <stop offset="85%"  stop-color="rgba(255,90,50,0.2)"/>
-                  <stop offset="100%" stop-color="transparent"/>
-                </radialGradient>
-                <radialGradient id="cag-orbit-g" cx="50%" cy="50%" r="50%">
-                  <stop offset="72%"  stop-color="transparent"/>
-                  <stop offset="78%"  stop-color="rgba(100,210,120,0.5)"/>
-                  <stop offset="85%"  stop-color="rgba(100,210,120,0.16)"/>
-                  <stop offset="100%" stop-color="transparent"/>
-                </radialGradient>
-
-              </defs>
-
-              <!-- ══ CONNECTOR BASE LINE ══ -->
-              <line x1="34" y1="46" x2="486" y2="46" stroke="url(#cag-line)" stroke-width="1" opacity="0.85"/>
-              <!-- Traveling spark on top -->
-              <line x1="34" y1="46" x2="486" y2="46" stroke="url(#cag-spark)" stroke-width="2" opacity="0.6"/>
-
-              <!-- ══════════════════════════════════════════
-                   W — WHITE · Order · Waveform Ball
-              ══════════════════════════════════════════ -->
-              <g class="cag-node cag-node--w" transform="translate(34,46)">
-                <!-- Bloom -->
-                <circle r="32" fill="rgba(245,234,208,0.07)" filter="url(#cag-bloom)"/>
-                <!-- Orbit halo -->
-                <circle r="36" fill="url(#cag-orbit-w)" class="cag-orbit" stroke="none"/>
-                <!-- Medallion fill -->
-                <circle r="28" fill="url(#cag-bg-w)"/>
-                <!-- Inner light dome -->
-                <ellipse rx="18" ry="10" cy="-10" fill="rgba(255,252,235,0.08)"/>
-
-                <!-- ── RADIAL SPIKE BALL clipped to medallion ── -->
-                <g clip-path="url(#cag-wave-clip)">
-
-                  <!-- 3 rows of radial spikes at different radii, all animating outward -->
-                  <!-- Each spike: from inner radius to outer, angle fixed, length pulses -->
-
-                  <!-- Ring A — 8 spikes, inner ring, thin -->
-                  <g stroke="url(#cag-wave-fade)" stroke-width="0.7" stroke-linecap="round" opacity="0.50">
-                    <line x1="0" y1="-8"><animate attributeName="y2" values="-18;-23;-16;-18" dur="1.3s" repeatCount="indefinite"/><animate attributeName="x2" values="0;0;0;0" dur="1.3s" repeatCount="indefinite"/></line>
-                    <line x1="5.7" y1="-5.7"><animate attributeName="x2" values="13;17;11;13" dur="1.5s" repeatCount="indefinite"/><animate attributeName="y2" values="-13;-17;-11;-13" dur="1.5s" repeatCount="indefinite"/></line>
-                    <line x1="8" y1="0"><animate attributeName="x2" values="18;22;15;18" dur="1.2s" repeatCount="indefinite"/><animate attributeName="y2" values="0;0;0;0" dur="1.2s" repeatCount="indefinite"/></line>
-                    <line x1="5.7" y1="5.7"><animate attributeName="x2" values="13;16;20;13" dur="1.6s" repeatCount="indefinite"/><animate attributeName="y2" values="13;16;20;13" dur="1.6s" repeatCount="indefinite"/></line>
-                    <line x1="0" y1="8"><animate attributeName="y2" values="18;22;16;18" dur="1.4s" repeatCount="indefinite"/><animate attributeName="x2" values="0;0;0;0" dur="1.4s" repeatCount="indefinite"/></line>
-                    <line x1="-5.7" y1="5.7"><animate attributeName="x2" values="-13;-17;-11;-13" dur="1.1s" repeatCount="indefinite"/><animate attributeName="y2" values="13;17;11;13" dur="1.1s" repeatCount="indefinite"/></line>
-                    <line x1="-8" y1="0"><animate attributeName="x2" values="-18;-14;-22;-18" dur="1.7s" repeatCount="indefinite"/><animate attributeName="y2" values="0;0;0;0" dur="1.7s" repeatCount="indefinite"/></line>
-                    <line x1="-5.7" y1="-5.7"><animate attributeName="x2" values="-13;-10;-18;-13" dur="1.3s" repeatCount="indefinite"/><animate attributeName="y2" values="-13;-10;-18;-13" dur="1.3s" repeatCount="indefinite"/></line>
-                  </g>
-
-                  <!-- Ring B — 6 spikes, outer ring, medium, offset angles -->
-                  <g stroke="url(#cag-wave-fade)" stroke-width="1.1" stroke-linecap="round" opacity="0.75">
-                    <line x1="0" y1="-12"><animate attributeName="y2" values="-22;-27;-19;-22" dur="2.1s" repeatCount="indefinite"/><animate attributeName="x2" values="0;0;0;0" dur="2.1s" repeatCount="indefinite"/></line>
-                    <line x1="10.4" y1="-6"><animate attributeName="x2" values="19;24;16;19" dur="1.8s" repeatCount="indefinite"/><animate attributeName="y2" values="-11;-14;-9;-11" dur="1.8s" repeatCount="indefinite"/></line>
-                    <line x1="10.4" y1="6"><animate attributeName="x2" values="19;23;15;19" dur="2.3s" repeatCount="indefinite"/><animate attributeName="y2" values="11;14;8;11" dur="2.3s" repeatCount="indefinite"/></line>
-                    <line x1="0" y1="12"><animate attributeName="y2" values="22;26;18;22" dur="1.9s" repeatCount="indefinite"/><animate attributeName="x2" values="0;0;0;0" dur="1.9s" repeatCount="indefinite"/></line>
-                    <line x1="-10.4" y1="6"><animate attributeName="x2" values="-19;-24;-15;-19" dur="2.0s" repeatCount="indefinite"/><animate attributeName="y2" values="11;15;8;11" dur="2.0s" repeatCount="indefinite"/></line>
-                    <line x1="-10.4" y1="-6"><animate attributeName="x2" values="-19;-23;-16;-19" dur="1.6s" repeatCount="indefinite"/><animate attributeName="y2" values="-11;-14;-9;-11" dur="1.6s" repeatCount="indefinite"/></line>
-                  </g>
-
-                </g>
-
-                <!-- Shimmer border + sharp border on top of waves -->
-                <circle r="27" fill="none" stroke="#f5ead0" stroke-width="3" opacity="0.15" filter="url(#cag-shimmer)"/>
-                <circle r="28" fill="none" stroke="#f5ead0" stroke-width="1" opacity="0.6"/>
-
-                <!-- Spiral on top -->
-                <g class="cag-spiral-spin-w"><use href="#cag-spiralW" transform="translate(3,0) scale(0.30)"/></g>
-              </g>
-
-              <!-- ══════════════════════════════════════════
-                   U — BLUE · Knowledge · Spell Lightning
-              ══════════════════════════════════════════ -->
-              <g class="cag-node cag-node--u" transform="translate(147,46)">
-                <circle r="32" fill="rgba(100,190,255,0.08)" filter="url(#cag-bloom)"/>
-                <circle r="36" fill="url(#cag-orbit-u)" class="cag-orbit" stroke="none"/>
-                <circle r="28" fill="url(#cag-bg-u)"/>
-                <ellipse rx="16" ry="9" cy="-11" fill="rgba(180,230,255,0.07)"/>
-
-                <!-- ── LIGHTNING ARCS — jagged paths around the border ring, flickering ── -->
-                <!-- Each arc lives just outside the medallion (r≈28–34), clips to arc-clip -->
-                <g clip-path="url(#cag-arc-clip-u)" filter="url(#cag-arc-glow)">
-
-                  <!-- Arc 1 — top-right quadrant, fast flicker -->
-                  <path fill="none" stroke="rgba(160,220,255,0.90)" stroke-width="0.9" stroke-linecap="round">
-                    <animate attributeName="d"
-                      values="M14,-25 L18,-29 L22,-26 L25,-22 L29,-18;
-                              M14,-25 L17,-31 L21,-28 L24,-23 L28,-19;
-                              M15,-24 L19,-28 L23,-25 L26,-21 L29,-17;
-                              M14,-25 L18,-29 L22,-26 L25,-22 L29,-18"
-                      dur="0.18s" repeatCount="indefinite"/>
-                    <animate attributeName="opacity" values="0.9;0;0.8;0;0.9" dur="0.35s" repeatCount="indefinite"/>
-                  </path>
-
-                  <!-- Arc 2 — right side, offset timing -->
-                  <path fill="none" stroke="rgba(120,200,255,0.85)" stroke-width="1.1" stroke-linecap="round">
-                    <animate attributeName="d"
-                      values="M28,-8 L32,-5 L34,0 L32,5 L29,9;
-                              M29,-7 L33,-3 L35,1 L33,6 L30,10;
-                              M28,-9 L31,-4 L34,2 L31,7 L28,10;
-                              M28,-8 L32,-5 L34,0 L32,5 L29,9"
-                      dur="0.22s" repeatCount="indefinite"/>
-                    <animate attributeName="opacity" values="0;0.85;0;0.7;0" dur="0.4s" repeatCount="indefinite"/>
-                  </path>
-
-                  <!-- Arc 3 — bottom-left quadrant -->
-                  <path fill="none" stroke="rgba(180,235,255,0.80)" stroke-width="0.8" stroke-linecap="round">
-                    <animate attributeName="d"
-                      values="M-14,25 L-18,29 L-23,26 L-26,22 L-29,17;
-                              M-15,24 L-20,28 L-24,25 L-27,20 L-30,16;
-                              M-13,26 L-17,30 L-22,27 L-25,23 L-28,18;
-                              M-14,25 L-18,29 L-23,26 L-26,22 L-29,17"
-                      dur="0.20s" repeatCount="indefinite"/>
-                    <animate attributeName="opacity" values="0.8;0;0.9;0;0.7;0" dur="0.45s" repeatCount="indefinite"/>
-                  </path>
-
-                  <!-- Arc 4 — top-left, thinner, fastest -->
-                  <path fill="none" stroke="rgba(200,240,255,0.75)" stroke-width="0.7" stroke-linecap="round">
-                    <animate attributeName="d"
-                      values="M-24,-16 L-29,-13 L-32,-8 L-30,-3 L-27,2;
-                              M-25,-15 L-30,-11 L-33,-6 L-31,-1 L-28,3;
-                              M-23,-17 L-28,-14 L-31,-9 L-29,-4 L-26,1;
-                              M-24,-16 L-29,-13 L-32,-8 L-30,-3 L-27,2"
-                      dur="0.16s" repeatCount="indefinite"/>
-                    <animate attributeName="opacity" values="0;0.75;0;0.85;0" dur="0.38s" repeatCount="indefinite"/>
-                  </path>
-
-                  <!-- Arc 5 — bottom-right, medium -->
-                  <path fill="none" stroke="rgba(140,215,255,0.85)" stroke-width="1.0" stroke-linecap="round">
-                    <animate attributeName="d"
-                      values="M22,18 L26,22 L29,20 L31,16 L28,12;
-                              M23,17 L27,21 L30,19 L32,15 L29,11;
-                              M21,19 L25,23 L28,21 L30,17 L27,13;
-                              M22,18 L26,22 L29,20 L31,16 L28,12"
-                      dur="0.24s" repeatCount="indefinite"/>
-                    <animate attributeName="opacity" values="0.85;0;0;0.9;0" dur="0.42s" repeatCount="indefinite"/>
-                  </path>
-
-                </g>
-
-                <!-- Border on top of arcs -->
-                <circle r="27" fill="none" stroke="#9fd8ff" stroke-width="3" opacity="0.14" filter="url(#cag-shimmer)"/>
-                <circle r="28" fill="none" stroke="#9fd8ff" stroke-width="1" opacity="0.55"/>
-                <g class="cag-spiral-spin-u"><use href="#cag-spiralU" transform="translate(3,0) scale(0.30)"/></g>
-              </g>
-
-              <!-- ══════════════════════════════════════════
-                   B — BLACK · Ambition · Vertical Frequency Sweep
-              ══════════════════════════════════════════ -->
-              <g class="cag-node cag-node--b" transform="translate(260,46)">
-                <circle r="32" fill="rgba(160,110,255,0.09)" filter="url(#cag-bloom)"/>
-                <circle r="36" fill="url(#cag-orbit-b)" class="cag-orbit" stroke="none"/>
-                <circle r="28" fill="url(#cag-bg-b)"/>
-                <ellipse rx="15" ry="8" cy="-11" fill="rgba(200,160,255,0.06)"/>
-
-                <!-- ── VERTICAL WAVEFORM — 3 waves, chaotic oscillation ── -->
-                <g clip-path="url(#cag-wave-clip-b)">
-
-                  <!-- Wave L — left, medium weight, erratic phase -->
-                  <path fill="none" stroke="url(#cag-wave-fade-b)" stroke-width="1.0" opacity="0.55">
-                    <animate attributeName="d"
-                      values="M-9,-27 C-9,-16 -19,-6 -9,0 C1,6 -9,16 -9,27;
-                              M-9,-27 C-22,-14 -4,-4 -16,0 C-28,4 -6,18 -9,27;
-                              M-9,-27 C2,-18 -14,-8 -9,0 C-4,8 -18,14 -9,27;
-                              M-9,-27 C-9,-16 -19,-6 -9,0 C1,6 -9,16 -9,27"
-                      dur="2.3s" repeatCount="indefinite"/>
-                  </path>
-
-                  <!-- Wave CENTER — thickest, most chaotic, biggest amplitude -->
-                  <path fill="none" stroke="url(#cag-wave-fade-b)" stroke-width="1.6" opacity="0.88">
-                    <animate attributeName="d"
-                      values="M0,-27 C0,-15 -14,-6 0,0 C14,6 0,15 0,27;
-                              M0,-27 C18,-12 -8,-2 12,0 C28,2 -6,16 0,27;
-                              M0,-27 C-16,-10 10,-8 -8,0 C-24,8 8,12 0,27;
-                              M0,-27 C6,-18 -12,-4 0,0 C12,4 -4,20 0,27;
-                              M0,-27 C0,-15 -14,-6 0,0 C14,6 0,15 0,27"
-                      dur="3.1s" repeatCount="indefinite"/>
-                  </path>
-
-                  <!-- Wave R — right, medium weight, different chaos offset -->
-                  <path fill="none" stroke="url(#cag-wave-fade-b)" stroke-width="1.0" opacity="0.55">
-                    <animate attributeName="d"
-                      values="M9,-27 C22,-14 4,-4 16,0 C28,4 6,18 9,27;
-                              M9,-27 C9,-16 19,-6 9,0 C-1,6 9,16 9,27;
-                              M9,-27 C-4,-20 14,-6 9,0 C4,6 18,12 9,27;
-                              M9,-27 C22,-14 4,-4 16,0 C28,4 6,18 9,27"
-                      dur="2.7s" repeatCount="indefinite"/>
-                  </path>
-
-                  <!-- Vertical meridian — steady anchor -->
-                  <line x1="0" y1="-27" x2="0" y2="27" stroke="rgba(200,160,255,0.18)" stroke-width="0.5"/>
-
-                </g>
-
-                <circle r="27" fill="none" stroke="#c4a0ff" stroke-width="3" opacity="0.14" filter="url(#cag-shimmer)"/>
-                <circle r="28" fill="none" stroke="#c4a0ff" stroke-width="1" opacity="0.5"/>
-                <g class="cag-spiral-spin-b"><use href="#cag-spiralB" transform="translate(3,0) scale(0.30)"/></g>
-              </g>
-
-              <!-- ══════════════════════════════════════════
-                   R — RED · Freedom · Magma Cracks
-              ══════════════════════════════════════════ -->
-              <g class="cag-node cag-node--r" transform="translate(373,46)">
-                <circle r="32" fill="rgba(255,90,50,0.11)" filter="url(#cag-bloom)"/>
-                <circle r="36" fill="url(#cag-orbit-r)" class="cag-orbit" stroke="none"/>
-                <!-- Richer inner bg so cracks read against it -->
-                <circle r="28" fill="url(#cag-bg-r-magma)"/>
-                <ellipse rx="16" ry="9" cy="-10" fill="rgba(255,160,100,0.09)"/>
-
-                <!-- ── MAGMA CRACK NETWORK — fissures from center, glowing orange-gold ── -->
-                <g clip-path="url(#cag-crack-clip)" filter="url(#cag-crack-glow)">
-
-                  <!-- Crack 1 — upper-right branch -->
-                  <path fill="none" stroke="rgba(255,200,60,0.90)" stroke-linecap="round"
-                    style="animation: cag-crack-pulse 2.1s ease-in-out infinite">
-                    <animate attributeName="d"
-                      values="M0,0 L8,-12 L14,-8 L18,-18;
-                              M0,0 L9,-11 L15,-7 L19,-17;
-                              M0,0 L8,-12 L14,-8 L18,-18"
-                      dur="3.2s" repeatCount="indefinite"/>
-                  </path>
-
-                  <!-- Crack 2 — upper-left branch -->
-                  <path fill="none" stroke="rgba(255,160,40,0.80)" stroke-linecap="round"
-                    style="animation: cag-crack-pulse-b 2.6s ease-in-out infinite 0.4s">
-                    <animate attributeName="d"
-                      values="M0,0 L-10,-6 L-16,-14 L-12,-22;
-                              M0,0 L-11,-5 L-17,-13 L-13,-21;
-                              M0,0 L-10,-6 L-16,-14 L-12,-22"
-                      dur="2.8s" repeatCount="indefinite"/>
-                  </path>
-
-                  <!-- Crack 3 — lower-right branch -->
-                  <path fill="none" stroke="rgba(255,120,20,0.75)" stroke-linecap="round"
-                    style="animation: cag-crack-pulse 3.1s ease-in-out infinite 0.8s">
-                    <animate attributeName="d"
-                      values="M0,0 L6,14 L14,18 L10,24;
-                              M0,0 L7,13 L15,17 L11,23;
-                              M0,0 L6,14 L14,18 L10,24"
-                      dur="3.4s" repeatCount="indefinite"/>
-                  </path>
-
-                  <!-- Crack 4 — lower-left branch -->
-                  <path fill="none" stroke="rgba(255,180,50,0.70)" stroke-linecap="round"
-                    style="animation: cag-crack-pulse-b 2.4s ease-in-out infinite 1.2s">
-                    <animate attributeName="d"
-                      values="M0,0 L-8,10 L-18,14 L-22,8;
-                              M0,0 L-9,11 L-19,15 L-23,9;
-                              M0,0 L-8,10 L-18,14 L-22,8"
-                      dur="2.9s" repeatCount="indefinite"/>
-                  </path>
-
-                  <!-- Crack 5 — small secondary offshoot -->
-                  <path fill="none" stroke="rgba(255,220,80,0.65)" stroke-linecap="round"
-                    style="animation: cag-crack-pulse 1.9s ease-in-out infinite 0.6s">
-                    <animate attributeName="d"
-                      values="M8,-12 L16,-6 L22,-10;
-                              M8,-12 L17,-5 L23,-9;
-                              M8,-12 L16,-6 L22,-10"
-                      dur="2.5s" repeatCount="indefinite"/>
-                  </path>
-
-                  <!-- Magma pool — outer glow -->
-                  <circle r="5" fill="url(#cag-crack-pool)"
-                    style="animation: cag-magma-flicker 1.6s ease-in-out infinite"/>
-                  <!-- Magma pool — hot white core -->
-                  <circle r="2.5" fill="rgba(255,240,160,0.95)"
-                    style="animation: cag-magma-flicker 1.1s ease-in-out infinite"/>
-
-                </g>
-
-                <circle r="27" fill="none" stroke="#ff7055" stroke-width="5" opacity="0.12" filter="url(#cag-shimmer)"/>
-                <circle r="28" fill="none" stroke="#ff7055" stroke-width="1" opacity="0.55"/>
-                <g class="cag-spiral-spin-r"><use href="#cag-spiralR" transform="translate(3,0) scale(0.30)"/></g>
-              </g>
-
-              <!-- ══════════════════════════════════════════
-                   G — GREEN · Growth · Mycelium Network
-              ══════════════════════════════════════════ -->
-              <g class="cag-node cag-node--g" transform="translate(486,46)">
-                <circle r="32" fill="rgba(100,210,120,0.08)" filter="url(#cag-bloom)"/>
-                <circle r="36" fill="url(#cag-orbit-g)" class="cag-orbit" stroke="none"/>
-                <circle r="28" fill="url(#cag-bg-g)"/>
-                <ellipse rx="16" ry="9" cy="-10" fill="rgba(160,240,160,0.07)"/>
-
-                <!-- ── MYCELIUM NETWORK — branching paths that pulse opacity, clipped to sphere ── -->
-                <g clip-path="url(#cag-myc-clip)">
-
-                  <!-- Main trunk lines — 4 primary branches from center -->
-                  <g stroke="rgba(120,210,130,0.55)" stroke-width="0.9" stroke-linecap="round" fill="none">
-                    <path d="M0,0 L-8,-14 L-14,-20">
-                      <animate attributeName="opacity" values="0.55;0.85;0.40;0.70;0.55" dur="3.2s" repeatCount="indefinite"/>
-                    </path>
-                    <path d="M0,0 L12,-10 L20,-16 L22,-22">
-                      <animate attributeName="opacity" values="0.40;0.70;0.55;0.85;0.40" dur="2.8s" repeatCount="indefinite"/>
-                    </path>
-                    <path d="M0,0 L14,8 L20,18 L16,24">
-                      <animate attributeName="opacity" values="0.70;0.45;0.85;0.55;0.70" dur="3.5s" repeatCount="indefinite"/>
-                    </path>
-                    <path d="M0,0 L-10,12 L-18,20">
-                      <animate attributeName="opacity" values="0.55;0.80;0.40;0.65;0.55" dur="2.6s" repeatCount="indefinite"/>
-                    </path>
-                  </g>
-
-                  <!-- Secondary branch offshoots — thinner, faster pulse -->
-                  <g stroke="rgba(80,190,100,0.40)" stroke-width="0.55" stroke-linecap="round" fill="none">
-                    <path d="M-8,-14 L-16,-12 L-22,-10">
-                      <animate attributeName="opacity" values="0.40;0.70;0.25;0.55;0.40" dur="2.1s" repeatCount="indefinite"/>
-                    </path>
-                    <path d="M-8,-14 L-10,-20 L-8,-26">
-                      <animate attributeName="opacity" values="0.25;0.55;0.40;0.70;0.25" dur="1.9s" repeatCount="indefinite"/>
-                    </path>
-                    <path d="M12,-10 L16,-4 L24,-2">
-                      <animate attributeName="opacity" values="0.55;0.30;0.65;0.40;0.55" dur="2.4s" repeatCount="indefinite"/>
-                    </path>
-                    <path d="M14,8 L22,6 L26,10">
-                      <animate attributeName="opacity" values="0.30;0.60;0.45;0.70;0.30" dur="2.2s" repeatCount="indefinite"/>
-                    </path>
-                    <path d="M-10,12 L-6,20 L-10,26">
-                      <animate attributeName="opacity" values="0.60;0.35;0.70;0.45;0.60" dur="2.7s" repeatCount="indefinite"/>
-                    </path>
-                    <path d="M-10,12 L-20,14 L-24,8">
-                      <animate attributeName="opacity" values="0.40;0.65;0.30;0.55;0.40" dur="1.8s" repeatCount="indefinite"/>
-                    </path>
-                  </g>
-
-                  <!-- Spore nodes — tiny circles at branch tips that pulse -->
-                  <g fill="rgba(140,230,150,0.65)" stroke="none">
-                    <circle cx="-14" cy="-20" r="1.4"><animate attributeName="opacity" values="0.65;1;0.3;0.8;0.65" dur="2.4s" repeatCount="indefinite"/><animate attributeName="r" values="1.4;2.0;1.0;1.6;1.4" dur="2.4s" repeatCount="indefinite"/></circle>
-                    <circle cx="22" cy="-22" r="1.2"><animate attributeName="opacity" values="0.3;0.8;0.65;1;0.3" dur="2.0s" repeatCount="indefinite"/><animate attributeName="r" values="1.2;1.8;0.9;1.5;1.2" dur="2.0s" repeatCount="indefinite"/></circle>
-                    <circle cx="16" cy="24" r="1.3"><animate attributeName="opacity" values="0.8;0.4;1;0.6;0.8" dur="2.8s" repeatCount="indefinite"/><animate attributeName="r" values="1.3;0.8;1.9;1.2;1.3" dur="2.8s" repeatCount="indefinite"/></circle>
-                    <circle cx="-18" cy="20" r="1.2"><animate attributeName="opacity" values="0.5;0.9;0.35;0.75;0.5" dur="2.2s" repeatCount="indefinite"/><animate attributeName="r" values="1.2;1.7;0.8;1.4;1.2" dur="2.2s" repeatCount="indefinite"/></circle>
-                    <circle cx="-22" cy="-10" r="1.0"><animate attributeName="opacity" values="0.7;0.3;0.9;0.5;0.7" dur="1.9s" repeatCount="indefinite"/></circle>
-                    <circle cx="26" cy="10" r="1.0"><animate attributeName="opacity" values="0.35;0.75;0.5;0.9;0.35" dur="2.1s" repeatCount="indefinite"/></circle>
-                  </g>
-
-                </g>
-
-                <circle r="27" fill="none" stroke="#74d67a" stroke-width="3" opacity="0.14" filter="url(#cag-shimmer)"/>
-                <circle r="28" fill="none" stroke="#74d67a" stroke-width="1" opacity="0.52"/>
-                <g class="cag-spiral-spin-g"><use href="#cag-spiralG" transform="translate(3,0) scale(0.30)"/></g>
-              </g>
-
-              <!-- ══ LABEL ROW ══ -->
-              <g font-family="Outfit,system-ui,sans-serif" font-size="9.5" fill="#c89a38" letter-spacing="0.02em">
-                <text x="34"  y="96" text-anchor="middle" opacity="0.88">Order</text>
-                <text x="147" y="96" text-anchor="middle" opacity="0.88">Knowledge</text>
-                <text x="260" y="96" text-anchor="middle" opacity="0.88">Ambition</text>
-                <text x="373" y="96" text-anchor="middle" opacity="0.88">Freedom</text>
-                <text x="486" y="96" text-anchor="middle" opacity="0.88">Growth</text>
-              </g>
-            </svg>
-          <!-- Spiral path initializer: sets the d attribute on all cag-spiral groups -->
-
-          </div>
-
+          <p class="vm-hero-lede">Commander is easier to explore when you can name what you enjoy. Vox Mana gives you a place to work that out, search for cards without memorizing Scryfall syntax, and learn from the games you play.</p>
+          <aside class="vm-preview-author" aria-labelledby="home-author-title">
+            <h2 id="home-author-title">Author’s note</h2>
+            <p>I built Vox Mana because I suck at Commander. I also wanted to help my son and other players by putting useful information at their fingertips. I’m still learning from and refining this project, and I’d love feedback on the flow and visuals.</p>
+          </aside>
         </div>
 
-        <div class="vm-panel vm-hero-mana" tabindex="0" aria-label="Passive Vox Mana identity signal">
-          <div class="vm-hero-mana-head">
-            <span class="vm-eyebrow">Identity Signal</span>
-            <h2>Preview the color system</h2>
-            <p>Explore the live identity field, from single colors and pairs through three-color, four-color, Colorless, and Five-Color expressions.</p>
-            <div class="vm-hero-mana-datasets" id="heroManaDatasetPills" aria-label="Current identity signal overlay">
-              <span class="vm-hero-mana-dataset-label">Profile:</span>
-              <span class="vm-hero-mana-dataset-pill" style="--dataset-color:#f7f0d0;">White</span>
+        <!-- Home summary, not a personal placement or a second data producer.
+             Meaning: identity-dossier-content.source.json, packet2_identity_mardu,
+             approved early pressure/removal direction, summarized for this preview.
+             Official support: docs/research/canon/mark_rosewater_official_three_color/
+             Mardu_Finishing First _ MAGIC_ THE GATHERING.md, lines 43-92.
+             Art/credit: existing dossier-view.js MARDU hero configuration.
+             Keep this summary consistent with the MARDU record when updating it. -->
+        <div class="vm-preview-dossier-column">
+          <article class="vm-preview-dossier" aria-labelledby="preview-dossier-title">
+            <div class="vm-preview-dossier-label"><span>Inside a dossier</span><span>Example</span></div>
+            <figure class="vm-preview-art">
+              <a href="./archscry/index.html?explore=mardu" aria-label="Explore the Mardu Horde dossier">
+                <img src="./assets/img/identity-hero/official/mardu-neriv-heart-storm.jpg" alt="Neriv, Heart of the Storm artwork" width="972" height="677" decoding="async" />
+              </a>
+              <figcaption>Art: Victor Adame Minguez · Neriv, Heart of the Storm</figcaption>
+            </figure>
+            <div class="vm-preview-dossier-heading">
+              <h2 id="preview-dossier-title">Mardu Horde</h2>
+              <span class="mana-pips guild-mana-symbols" role="img" aria-label="Red and White and Black mana identity">
+                <i class="ms ms-r ms-cost" aria-hidden="true"></i><i class="ms ms-w ms-cost" aria-hidden="true"></i><i class="ms ms-b ms-cost" aria-hidden="true"></i>
+              </span>
             </div>
-            <div class="vm-hero-signal-tools">
-              <button class="vm-signal-latch" id="heroManaSignalLatch" type="button" aria-pressed="false" aria-expanded="false" aria-controls="heroManaSignalDetails">
-                <span class="vm-signal-latch__status" aria-hidden="true"></span>
-                <span id="heroManaSignalLatchText">Hold signal</span>
-              </button>
-              <span class="vm-signal-latch-note" id="heroManaSignalState">Cycling</span>
+            <div class="vm-preview-excerpt">
+              <h3>Test the fit</h3>
+              <p>This may fit if you enjoy attacking early, keeping pressure on the table, and using removal to clear the way for your creatures.</p>
             </div>
-          </div>
-          <div class="vm-radar-card vm-hero-radar-card">
-            <div class="vm-chart-wrap vm-hero-chart-wrap">
-              <div class="vm-radar-glow" id="heroManaGlow" aria-hidden="true"></div>
-              <div class="vm-radar-wrap vm-hero-radar-wrap">
-                <canvas id="vmHeroManaChart" aria-label="Passive Vox Mana identity signal radar chart"></canvas>
-                <div class="vm-radar-fallback vm-hero-radar-fallback" data-hero-radar-fallback hidden></div>
-              </div>
-            </div>
-          </div>
-          <div class="vm-hero-mana-caption">
-            <strong id="heroManaTitle">White - Peace through Order</strong>
-            <span id="heroManaText">White values structure, protection, community, duty, and shared stability. It asks how life can be made safer through order.</span>
-          </div>
-          <div class="vm-hero-signal-details" id="heroManaSignalDetails" role="region" aria-label="Held identity signal details" hidden>
-            <div class="vm-signal-detail-head">
-              <span class="vm-signal-detail-kicker" id="heroManaSignalKind">Color note</span>
-              <strong id="heroManaSignalName">White</strong>
-            </div>
-            <p class="vm-signal-detail-note" id="heroManaSignalLore">White does not seek order for its own sake. It builds order because order lets vulnerable people survive chaos, selfishness, and the failures of impulse.</p>
-            <p class="vm-signal-detail-tension" id="heroManaSignalTension" hidden></p>
-          </div>
+            <a class="vm-preview-dossier-link" href="./archscry/index.html?explore=mardu">Explore this dossier <span aria-hidden="true">→</span></a>
+          </article>
+          <p class="vm-hero-note">Not a deckbuilder: Vox Mana helps you choose a direction before you build or browse decklists somewhere else.</p>
+        </div>
+        <div class="vm-preview-start">
+          <a class="vm-guide-beacon vm-guide-beacon--entry" href="./guide/?guided=vox-mana-intro" data-guide-beacon-id="home-guide-entry">
+            <span class="vm-guide-beacon__mark" aria-hidden="true">✦</span>
+            <span class="vm-guide-beacon__copy">
+              <span class="vm-guide-beacon__eyebrow">Field Guide</span>
+              <span class="vm-guide-beacon__context">New to Vox Mana?</span>
+              <span class="vm-guide-beacon__action">Start with the Guide <span aria-hidden="true">→</span></span>
+            </span>
+          </a>
         </div>
       </div>
+    </section>
 
-    </div>
-  </section>
+    <section id="what" class="vm-section vm-home-index" aria-labelledby="home-preview-index-title">
+      <div class="vm-preview-directory-heading">
+        <h2 id="home-preview-index-title">What can you do here?</h2>
+        <p class="vm-section-intro">Four focused paths for finding your Commander direction, searching cards, reading the sources, and learning the table.</p>
+      </div>
+      <div class="vm-preview-directory">
+        <a class="vm-preview-destination" href="./archscry/index.html">
+          <h3>Archscry</h3><p>Find your Commander color identity and placement.</p><span class="vm-cta">Start with Archscry <span aria-hidden="true">→</span></span>
+        </a>
+        <a class="vm-preview-destination" href="./maze/index.html">
+          <h3>The Implicit Maze</h3><p>Search Magic cards in plain English.</p><span class="vm-cta">Search the Maze <span aria-hidden="true">→</span></span>
+        </a>
+        <a class="vm-preview-destination" href="./strategium/index.html">
+          <h3>Strategium</h3><p>Learn Commander concepts, archetypes, and table patterns.</p><span class="vm-cta">Learn Commander <span aria-hidden="true">→</span></span>
+        </a>
+        <a class="vm-preview-destination" href="./apocrypha/index.html">
+          <h3>Apocrypha</h3><p>Read the sources, lore, and design logic behind the model.</p><span class="vm-cta">Open Apocrypha <span aria-hidden="true">→</span></span>
+        </a>
+      </div>
+    </section>
+  </main>
 
-  <!-- ORIENTATION -->
-  <section id="what" class="vm-section vm-home-index section-lazy-render" aria-labelledby="home-preview-index-title">
-    <h2 id="home-preview-index-title">What can you do here?</h2>
-    <p class="vm-section-intro">
-      Four focused paths for finding your Commander direction, searching cards, reading the sources, and learning the table.
-    </p>
+  <footer class="vm-shell vm-footer">
+    <span>Vox Mana — color philosophy, Commander identity, symbolic search, and lore research.</span>
+    <span><a href="#top">Back to top</a> · <a href="./strategium/index.html">Strategium</a> · <a href="./archscry/index.html">Archscry</a> · <a href="./maze/index.html">Maze</a> · <a href="./apocrypha/index.html">Apocrypha</a> · <a href="./privacy/index.html">Privacy</a> · <a href="./terms/index.html">Terms</a></span>
+  </footer>
+  <a class="vm-button vm-backtop" id="backTop" href="#top" aria-label="Back to top">↑</a>
 
-    <p class="vm-guide-discovery">
-      <a class="vm-guide-beacon vm-guide-beacon--entry" href="./guide/?guided=vox-mana-intro" data-guide-beacon-id="home-guide-entry">
-        <span class="vm-guide-beacon__mark" aria-hidden="true">✦</span>
-        <span class="vm-guide-beacon__copy">
-          <span class="vm-guide-beacon__eyebrow">Field Guide</span>
-          <span class="vm-guide-beacon__context">New to Vox Mana?</span>
-          <span class="vm-guide-beacon__action">Start with the Guide <span aria-hidden="true">-&gt;</span></span>
-        </span>
-      </a>
-    </p>
-
-    <div class="vm-card-grid">
-      <a class="vm-card reveal" href="./archscry/index.html">
-
-        <h3>Archscry</h3>
-        <p>Find your Commander color identity and placement.</p>
-        <!-- <span class="vm-mini-badge">Identity</span> -->
-        <span class="vm-cta">Start with Archscry -></span>
-      </a>
-
-      <a class="vm-card reveal" href="./maze/index.html">
-
-        <h3>The Implicit Maze</h3>
-        <p>Search Magic cards in plain English.</p>
-        <!-- <span class="vm-mini-badge">Search</span> -->
-        <span class="vm-cta">Search the Maze -></span>
-      </a>
-
-      <a class="vm-card reveal" href="./strategium/index.html">
-        <!-- <span class="vm-mini-badge">Primer</span> -->
-        <h3>Strategium</h3>
-        <p>Learn Commander concepts, archetypes, and table patterns.</p>
-        <!-- <span class="vm-mini-badge">Commander Corner</span> -->
-        <span class="vm-cta">Learn Commander -></span>
-      </a>
-
-      <a class="vm-card reveal" href="./apocrypha/index.html">
-        <!-- <span class="vm-mini-badge">Archive</span> -->
-        <h3>Apocrypha</h3>
-        <p>Read the sources, lore, and design logic behind the model.</p>
-        <span class="vm-cta">Open Apocrypha -></span>
-      </a>
-    </div>
-  </section>
-
-</main>
-
-<!-- FOOTER: Final navigation and short site summary. -->
-<footer class="vm-shell vm-footer section-lazy-render">
-  <span>Vox Mana — color philosophy, Commander identity, symbolic search, and lore research.</span>
-  <span>
-    <a href="#top">Back to top</a> ·
-    <a href="./strategium/index.html">Strategium</a> ·
-    <a href="./archscry/index.html">Archscry</a> ·
-    <a href="./maze/index.html">Maze</a> ·
-    <a href="./apocrypha/index.html">Apocrypha</a> ·
-    <a href="./privacy/index.html">Privacy</a> ·
-    <a href="./terms/index.html">Terms</a>
-  </span>
-</footer>
-
-<!-- BACK TO TOP BUTTON: Fixed-position anchor. JS shows it after the user scrolls down. -->
-<a class="vm-button vm-backtop" id="backTop" href="#top">↑</a>
-
-<script src="./assets/js/home/home.js" defer></script>
-<script src="./assets/js/shared/reduce-motion.js" defer></script>
-<script src="./assets/js/shared/guide-beacon.js?v=vm620" defer></script>
-<script src="./assets/js/shared/vm-feedback.js" defer></script>
-<script src="./assets/js/shared/vm-topbar.js?v=vm618" defer></script>
+  <!-- Unchanged runtime; absent chart markup is handled by its existing null guard. -->
+  <script src="./assets/js/home/home.js" defer></script>
+  <script src="./assets/js/shared/reduce-motion.js" defer></script>
+  <script src="./assets/js/shared/guide-beacon.js?v=vm620" defer></script>
+  <script src="./assets/js/shared/vm-feedback.js" defer></script>
+  <script src="./assets/js/shared/vm-topbar.js?v=vm618" defer></script>
 </body>
 </html>

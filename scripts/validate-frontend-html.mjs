@@ -395,16 +395,21 @@ expect(
   !getScriptTags(sources.home).some(inlineScriptIsExecutable),
   "index.html should not ship executable inline <script> blocks"
 );
+const homeDirectoryPaths = [...sources.home.matchAll(/<a\b[^>]*class="vm-preview-destination"[^>]*href="([^"]+)"/g)]
+  .map(match => match[1]);
 expect(
-  countMatches(sources.home, /class="vm-card reveal"/g) === 4,
-  "index.html should preserve exactly four functional Home path cards"
+  JSON.stringify(homeDirectoryPaths) === JSON.stringify([
+    "./archscry/index.html", "./maze/index.html", "./strategium/index.html", "./apocrypha/index.html",
+  ]),
+  "index.html should preserve the four ordered Home tool destinations"
 );
 expect(
-  sources.home.includes('class="vm-guide-discovery"') &&
-    sources.home.includes('data-guide-beacon-id="home-guide-entry"') &&
+  countMatches(sources.home, /data-guide-beacon-id="home-guide-entry"/g) === 1 &&
     sources.home.includes('href="./guide/?guided=vox-mana-intro"'),
-  "index.html should expose the bounded Guide discovery treatment outside the path cards"
+  "index.html should expose one bounded Guide entry with its guided-reading destination"
 );
+expectAbsent(sources.home, /<meta\b[^>]*name="robots"[^>]*content="[^"]*noindex/i,
+  "index.html should not retain the temporary preview noindex directive");
 
 expect(
   sources.guide.includes('<link rel="stylesheet" href="../assets/css/maze.css?v=vm635">') &&
@@ -565,8 +570,9 @@ expect(
   "index.html should load topbar.css, then Keyrune, then home.css"
 );
 expect(
-  homeStylesheetHrefs[homeStylesheetHrefs.length - 1] === './assets/css/home.css?v=vm635',
-  "index.html should keep home.css as the last stylesheet in the head"
+  homeRouteCssIndex < homeStylesheetHrefs.length - 1 &&
+    homeStylesheetHrefs[homeStylesheetHrefs.length - 1] === './assets/css/home-wip.css?v=vm642-r5',
+  "index.html should load the accepted Home skin last, after home.css"
 );
 
 const archscryLastStylesheetTagIndex = sources.archscry.lastIndexOf('<link rel="stylesheet"');

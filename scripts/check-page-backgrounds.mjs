@@ -20,7 +20,9 @@ for (const file of routes) {
     assert.equal(match[2], "?v=vm635", `Refresh changed CSS: ${file} ${match[1]}`);
   }
 }
-assert.match(read("index.html"), /class="vm-color-axis"[^>]*\bhidden\b/, "VM-634 remains hidden");
+for (const tag of read("index.html").matchAll(/<[^>]+\bclass="[^"]*\bvm-color-axis\b[^"]*"[^>]*>/g)) {
+  assert.match(tag[0], /\bhidden\b/, "VM-634 must not become visible");
+}
 assert.match(read("assets/css/home.css"), /\.vm-color-axis\[hidden\]\s*\{\s*display:\s*none\s*!important;/, "VM-634 CSS remains effective");
 const png = readFileSync("assets/img/social/vox-mana-share-v1.png");
 assert.equal(png.subarray(0, 8).toString("hex"), "89504e470d0a1a0a");

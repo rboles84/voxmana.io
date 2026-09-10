@@ -1,4 +1,4 @@
-/* VM-642: only indexWIP.html loads this skin. All overrides stay under its body class.
+/* VM-642: the promoted Home loads this skin. All overrides stay under its body class.
    Keep the existing type, symbols, black backdrop and runtime contracts. */
 .vm-home-preview {
   --preview-ink: #ede5d4;

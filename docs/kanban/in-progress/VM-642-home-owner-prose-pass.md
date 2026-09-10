@@ -2,7 +2,7 @@
 
 ID: VM-642
 Title: Home Public Content and Owner Prose Pass
-Status: Owner Review
+Status: In Progress
 Type: Page content review and bounded implementation
 Area: Main / Home
 Priority: Medium
@@ -14,20 +14,20 @@ Sequence: 1 of 7
 
 Review Home and the general Field Guide for accuracy, Owner intent and player usefulness. Start with wording and functionality the Owner already values. Retain them where they work; make only specifically justified changes to the introduction, descriptions or destinations.
 
-The current admitted slice is an Owner-requested, functional Home visual preview in a sibling `indexWIP.html`, with an isolated `assets/css/home-wip.css`. The original Home remains the live baseline. The current Home and general Guide inventory is now reviewed below: retain the functioning destinations and Guide, use the selected introduction and supplied author note, and finish the supported Home dossier summary. Broad all-identity prose work is not a dependency of this story.
+The current admitted slice is an Owner-requested, functional Home visual preview in a sibling `indexWIP.html`, with an isolated `assets/css/home-wip.css`. The Owner accepted the final copy on 2026-09-09 after locking the layout; the admitted delivery now promotes the accepted preview and preserves the original as `index_old.html`. The current Home and general Guide inventory is now reviewed below: retain the functioning destinations and Guide, use the selected introduction and supplied author note, and finish the supported Home dossier summary. Broad all-identity prose work is not a dependency of this story.
 
-## Current Owner-authorized preview scope
+## Current Owner-authorized Home scope
 
 Owner direction, 2026-09-09: start VM-642 after the VM-649 intake integration. The Owner explicitly requested a slimmer, more bespoke Home presentation, preserving the existing text, Foundations symbol, typography, black background, tools, routes and functional skeleton. The requested review artifact is a working `indexWIP.html` beside `index.html`, so the Owner can use real navigation and compare the proposed appearance before deciding whether to promote it.
 
-- Create only the sibling HTML and its isolated stylesheet for runtime presentation. Reuse existing assets, links and applicable scripts; do not edit the original `index.html`, shared CSS/JavaScript, source data, generated catalogs, backend, model or storage contracts.
+- Develop the sibling HTML and isolated stylesheet for review, then perform the Owner-authorized promotion: preserve the original `index.html` byte-for-byte as `index_old.html`, rename the accepted `indexWIP.html` to `index.html`, restore the production title and remove preview noindex. Keep the approved body and CSS rules unchanged. Reuse existing assets, links and scripts; no shared CSS/JavaScript, source data, generated catalogs, backend, model or storage changes. Update only the admitted existing Home assertions that require the retired presentation.
 - Replace the preview's homepage Identity Signal with a clearly labeled static example excerpt from an existing approved dossier. This is a presentation sample, not a reading result or new identity/card assertion. Record its existing source in the implementation handoff; do not author new semantic material or modify the source/producer. Latest Owner direction allows a concise Home-only summary grounded in the curated official research and consistent with the approved Archscry record; it need not be a verbatim copy of the longer self-check.
 - Make the existing Guide more visible in the opening area and present existing tool destinations more compactly. Preserve current route availability and destination behavior; Home links from other pages still return to the original Home during preview review.
 - Retain the existing headline, Foundations treatment and feature prose. On 2026-09-09 the Owner requested three project-grounded introductions and explicitly selected option 3, beginning “Commander is easier to explore when you can name what you enjoy.” Use that exact selected paragraph in the WIP. An aesthetic response from one critic is not evidence for replacing the remaining voice.
-- The Owner supplied the author’s note on 2026-09-09, retaining the opening “I suck at Commander.” Replace the earlier scaffold with this note, lightly smoothing the unfinished wording. Move it directly below the introduction; place the Guide below it before the tool-directory divider and the unchanged deckbuilder note below the dossier. The Owner has locked the current layout; preserve its CSS, spacing, typography and composition. The supplied author note remains in place. Final summary/candidate review remains pending.
-- Keep the preview independent of its temporary filename, retain the normal canonical Home URL, and mark the preview `noindex`. A later accepted promotion may archive the original and swap filenames through the delivery process; this slice does not rename or replace the original Home.
+- The Owner supplied the author’s note on 2026-09-09, retaining the opening “I suck at Commander.” Replace the earlier scaffold with this note, lightly smoothing the unfinished wording. Move it directly below the introduction; place the Guide below it before the tool-directory divider and the unchanged deckbuilder note below the dossier. The Owner has locked the current layout; preserve its CSS, spacing, typography and composition. The supplied author note remains in place. Final copy is now accepted; mechanical promotion requires fresh exact-candidate engineering checks.
+- Keep the page independent of its temporary filename and retain the normal canonical Home URL. The preview used `noindex`; remove it during the now-authorized promotion. Preserve the original page as the requested rollback copy.
 
-The earlier “No redesign ... is implied” boundary prevents unsolicited expansion from a prose pass. The Owner's explicit, bounded sibling-preview request now authorizes this presentation experiment. It does not authorize a site-wide redesign, a broad release decision, semantic changes or conclusions about player usability. Several-player feedback remains unclaimed; the Owner has inspected and locked this bounded layout.
+The earlier “No redesign ... is implied” boundary prevents unsolicited expansion from a prose pass. The Owner's explicit, bounded sibling-preview request now authorizes this presentation experiment. It does not authorize a site-wide redesign, semantic changes or conclusions about player usability. Final-copy acceptance and the earlier explicit filename-swap instruction now authorize delivery of this bounded Home change. Several-player feedback remains unclaimed; the Owner has inspected and locked this bounded layout.
 
 ### Preview acceptance criteria
 
@@ -36,7 +36,7 @@ The earlier “No redesign ... is implied” boundary prevents unsolicited expan
 - [x] Owner-selected introduction and author’s note accompany the retained headline, feature prose, Foundations symbol, typography and black background; the sample dossier and Guide entry implement the selected visual direction.
 - [x] The static dossier summary is traced to existing approved meaning and curated official material and labeled as an example; it does not imply a personal reading or add unsupported claims.
 - [x] The Owner-supplied author’s note replaces the scaffold; the note, Guide and deckbuilder clarification follow the requested placement without changing their destination behavior.
-- [x] Proportional objective evidence and an exact-candidate Owner review path are recorded. Visual acceptance, any filename promotion and integration remain separate pending decisions.
+- [x] Proportional objective evidence and exact-candidate Owner review are recorded. Layout and copy are accepted; promotion is authorized by the earlier filename-swap instruction. Engineering verification and integration remain separately recorded.
 
 ## Overall goal — preserve voice, improve trust and usefulness
 
@@ -102,7 +102,7 @@ Finish with an accurate introduction in the Owner's intended voice and clear rou
 - [x] Home introduction and feature descriptions match the approved public scope, without unreviewed personal-fit claims.
 - [x] Every advertised destination is available and meaningful; any withheld journey has an approved disposition.
 - [x] The general Guide overview, helper text, page description, and social-preview descriptions agree with Home.
-- [x] VM-634's hidden philosophy strip, VM-635's black backgrounds, and protected artwork remain unchanged.
+- [x] VM-634's philosophy strip remains absent from the public presentation (preserved hidden in the original backup); VM-635's black backgrounds and protected artwork remain unchanged.
 - [x] Retained existing text and any selected changes have recorded dispositions. New Owner prose is required only for an explicitly selected rewrite; unfinished selected writing is not disguised by a placeholder.
 - [x] Current governing source/semantic and storage boundaries are preserved. No generated projection is manually edited where its source/producer owns the value.
 - [x] Applicable RobQA evidence covers the actual changed contract, and the shortest Owner review is supplied. Engineering PASS, Owner acceptance and integration are recorded as separate states.
@@ -117,16 +117,16 @@ Owner direction: lock the existing homepage layout and finish VM-642 using curat
 - Home dossier: use a shorter official-source-supported Mardu summary, preserving early pressure and removal as tools for attacks. It omits optional detail without contradicting Archscry or changing placement meaning.
 - Current available destinations: Archscry reading/Atlas, Maze, Strategium, Apocrypha and Guide remain linked through their existing URLs. No destination is being newly withheld, so omitted-route recovery and public/download erasure decisions are not applicable.
 - General Guide: reviewed its overview, four experience descriptions, relationship explanation and existing examples; retain unchanged. The prose agrees with the selected Home direction/search/learning introduction. Detailed subsystem audits are not part of this Home pass.
-- Metadata: align the Home preview's description, Open Graph and Twitter descriptions with the selected introduction; retain canonical URL, branding and preview noindex.
+- Metadata: align the Home preview's description, Open Graph and Twitter descriptions with the selected introduction; retain canonical URL and branding, restoring the production title and removing temporary noindex on promotion.
 - Research reuse: the canonical 37-record dossier content source is already the lookup index; the 37-identity relationship guide and source-hardening register provide research navigation. No all-37 rewrite or semantic recertification is claimed.
 - Voice/usability: Owner preferences and the bounded source correction justify this selected pass. Several-player feedback was not collected and no broad usability conclusion is claimed. Existing wording retained where it works.
-- Integration: layout approval does not authorize silently replacing the original before the final copy candidate is reviewed. Complete engineering review for the WIP; promotion/merge remain separate delivery actions.
+- Integration: the Owner accepted the final copy at preview candidate `062e4c19902a4cc5a27bb65cfe5e5daaeabe375c` and previously explicitly authorized the filename swap once accepted. Promote that exact body and stylesheet rules with production-head cleanup, verify the resulting candidate, and carry it through guarded delivery. This records the actual approval provenance, not a claim the Owner viewed a later commit.
 
 ## Files Likely Impacted
 
 These are starting points, not a pre-approved Admission Scope. Read-only evidence owners are not permission to edit model, storage, service configuration or source semantics. Reconcile exact paths and producers during pickup.
 
-For the current sibling preview, the existing files below are read-only context. Only the exact paths in Admission Scope are editable; the runtime changes are limited to `indexWIP.html` and `assets/css/home-wip.css`.
+Only the exact paths in Admission Scope are editable. The final runtime change promotes the reviewed Home HTML and isolated stylesheet and preserves the original page. Shared script, Guide and source owners below remain read-only; three existing deterministic Home checks receive bounded assertion updates.
 
 - [index.html](../../../index.html)
 - [assets/js/home/home.js](../../../assets/js/home/home.js)
@@ -193,17 +193,17 @@ Pick up VM-642, Home Public Content and Owner Prose Pass, as one child of VM-637
 
 ## Notes
 
-The backlog intake was integrated through VM-649 before this admission. The Owner has now requested the bounded sibling Home preview above. Admission and the preview do not certify source support, approve broad product hides, complete the broader prose/Guide review or supply missing Owner prose. The parent remains the cross-page coordination record. VM-629 remains a separate repetition-reduction scope.
+The backlog intake was integrated through VM-649 before this admission. The Owner requested and reviewed the bounded sibling Home preview above, then accepted its final copy and authorized promotion through the earlier filename-swap request. Admission and the preview do not certify source support, approve broad product hides, complete the broader prose/Guide review or supply missing Owner prose. The parent remains the cross-page coordination record. VM-629 remains a separate repetition-reduction scope.
 
 ## Delivery
 
 Record version: 1
 Branch: codex/vm-642-home-wip
 Admission baseline: cd94d3052836cd9b69889bca478166fc8a2d00f6
-Candidate: 062e4c19902a4cc5a27bb65cfe5e5daaeabe375c
-RobQA: PASS at 062e4c19902a4cc5a27bb65cfe5e5daaeabe375c — SAME-AGENT DISTINCT PHASE; docs/handoffs/2026-09-09-0000-codex-vm642-home-preview.md#revision-6-qa
+Candidate: PENDING
+RobQA: PENDING
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Decisions: Scope amendment: add the existing Home background guard found by Test Strategist; preserve its hidden-strip invariant while allowing the accepted Home to omit the strip. Owner final-copy acceptance and earlier filename-swap authorization cover the bounded Home promotion. Exact promotion and lifecycle paths remain admitted; no broader test contract or product change.
-Evidence: Home summary and metadata complete; layout locked; Home/general Guide review dispositions recorded. Exact-candidate admission, RobQA and candidate gate PASS at 062e4c19902a4cc5a27bb65cfe5e5daaeabe375c. See docs/handoffs/2026-09-09-0000-codex-vm642-home-preview.md#revision-6-qa. Final copy review: http://127.0.0.1:4174/indexWIP.html. Owner final candidate acceptance and promotion/integration remain pending.
+Evidence: Final copy accepted and layout locked at preview 062e4c19902a4cc5a27bb65cfe5e5daaeabe375c. Promoting the accepted body and CSS under the explicit filename-swap authorization; new candidate engineering evidence pending. Historical preview QA remains in the implementation handoff.
