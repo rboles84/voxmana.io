@@ -5,6 +5,9 @@ import { readArchscryRuntimeSource } from "./lib/read-archscry-runtime-source.mj
 
 const root = process.cwd();
 const routeChecks = [
+  { label: "home -> Archscry", from: "index.html", href: "./archscry/index.html" },
+  { label: "home -> Strategium", from: "index.html", href: "./strategium/index.html" },
+  { label: "home -> Mardu dossier", from: "index.html", href: "./archscry/index.html?explore=mardu" },
   { label: "home -> Guide", from: "index.html", href: "./guide/index.html" },
   { label: "home -> Maze", from: "index.html", href: "./maze/index.html" },
   { label: "home -> Apocrypha", from: "index.html", href: "./apocrypha/index.html" },
@@ -36,7 +39,7 @@ const routeChecks = [
 const failures = [];
 
 function routeTarget(fromFile, href) {
-  const target = path.resolve(root, path.dirname(fromFile), href);
+  const target = path.resolve(root, path.dirname(fromFile), href.split(/[?#]/, 1)[0]);
   return path.extname(target) ? target : path.join(target, "index.html");
 }
 
@@ -56,6 +59,7 @@ for (const check of routeChecks) {
 
 const mazeSource = await readFile(path.resolve(root, "maze/index.html"), "utf8");
 const homeSource = await readFile(path.resolve(root, "index.html"), "utf8");
+const legacyHomeSource = await readFile(path.resolve(root, "index_old.html"), "utf8");
 const guideSource = await readFile(path.resolve(root, "guide/index.html"), "utf8");
 const guideRuntimeSource = await readFile(path.resolve(root, "assets/js/guide/guide.js"), "utf8");
 const homeRuntimeSource = await readFile(path.resolve(root, "assets/js/home/home.js"), "utf8");
@@ -124,11 +128,25 @@ if (!mazeSource.includes('data-maze-modal-background')) {
 if (!mazeSource.includes('data-action="load-more"')) {
   failures.push("Maze modal smoke check failed: load-more action hook is missing");
 }
-if (!homeSource.includes('id="vmHeroManaChart"')) {
-  failures.push("Home Mana Lens smoke check failed: hero radar canvas is missing");
+if (!legacyHomeSource.includes('id="vmHeroManaChart"')) {
+  failures.push("Archived Home Mana Lens smoke check failed: hero radar canvas is missing");
 }
-if (!homeSource.includes('id="heroManaSignalLatch"')) {
-  failures.push("Home Mana Lens smoke check failed: hold/release latch is missing");
+if (!legacyHomeSource.includes('id="heroManaSignalLatch"')) {
+  failures.push("Archived Home Mana Lens smoke check failed: hold/release latch is missing");
+}
+if (homeSource.includes('id="vmHeroManaChart"') || homeSource.includes('id="heroManaSignalLatch"')) {
+  failures.push("Home dossier smoke check failed: retired Identity Signal markup returned");
+}
+if (
+  (homeSource.match(/<article class="vm-preview-dossier"/g) ?? []).length !== 1 ||
+  !homeSource.includes('<span>Example</span>') ||
+  !homeSource.includes('>Mardu Horde</h2>') ||
+  !homeSource.includes('>Test the fit</h3>') ||
+  (homeSource.match(/href="\.\/archscry\/index\.html\?explore=mardu"/g) ?? []).length !== 2 ||
+  !homeSource.includes('role="img" aria-label="Red and White and Black mana identity"') ||
+  !["r", "w", "b"].every(color => homeSource.includes(`class="ms ms-${color} ms-cost"`))
+) {
+  failures.push("Home dossier smoke check failed: labeled Mardu example, mana identity, or dossier destinations drifted");
 }
 for (const forbiddenHeroPickerHook of ["heroManaIdentitySelect", "heroManaPicker", "identityPicker", "identityGrid"]) {
   if (homeSource.includes(forbiddenHeroPickerHook) || homeRuntimeSource.includes(forbiddenHeroPickerHook)) {
@@ -191,10 +209,14 @@ if (!archscrySource.includes('<footer class="app-footer"')) {
 if (/["'`]\/data\//.test(archscryRuntimeSource)) {
   failures.push("Archscry smoke check failed: runtime still contains root-relative /data/ references");
 }
-if ((homeSource.match(/class="vm-card reveal"/g) ?? []).length !== 4) {
-  failures.push("Home Guide discovery smoke check failed: the four functional path cards changed");
+const homeDirectoryPaths = [...homeSource.matchAll(/<a\b[^>]*class="vm-preview-destination"[^>]*href="([^"]+)"/g)]
+  .map(match => match[1]);
+if (JSON.stringify(homeDirectoryPaths) !== JSON.stringify([
+  "./archscry/index.html", "./maze/index.html", "./strategium/index.html", "./apocrypha/index.html",
+])) {
+  failures.push("Home directory smoke check failed: the four ordered tool destinations changed");
 }
-if (!homeSource.includes('class="vm-guide-discovery"') || !homeSource.includes('href="./guide/?guided=vox-mana-intro"')) {
+if ((homeSource.match(/data-guide-beacon-id="home-guide-entry"/g) ?? []).length !== 1 || !homeSource.includes('href="./guide/?guided=vox-mana-intro"')) {
   failures.push("Home Guide discovery smoke check failed: bounded Guide entry is missing");
 }
 if (!guideSource.includes('id="how-vox-connects"') || !guideSource.includes('data-vm-current="guide"')) {

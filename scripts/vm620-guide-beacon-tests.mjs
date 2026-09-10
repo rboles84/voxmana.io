@@ -33,6 +33,7 @@ const [
 
 const expectedBeaconOwners = new Map([
   ["index.html", "home-guide-entry"],
+  ["index_old.html", "home-guide-entry"], // Owner-requested original Home backup.
   ["assets/js/archscry/runtime/dossier-view.js", "dossier-reading-help"],
   ["assets/js/maze/research-ui.js", "maze-search-help"],
 ]);
@@ -61,7 +62,7 @@ await scanRuntime();
 assert.deepEqual(
   beaconOwners.sort((a, b) => a.path.localeCompare(b.path)),
   [...expectedBeaconOwners].map(([ownerPath, id]) => ({ path: ownerPath, id })).sort((a, b) => a.path.localeCompare(b.path)),
-  "exactly the three approved contextual surfaces should own Guide Beacons",
+  "only the three approved contextual surfaces and preserved Home backup should own Guide Beacons",
 );
 
 assert.match(homeHtml, /class="vm-guide-beacon vm-guide-beacon--entry"[^>]*href="\.\/guide\/\?guided=vox-mana-intro"[^>]*data-guide-beacon-id="home-guide-entry"/);
