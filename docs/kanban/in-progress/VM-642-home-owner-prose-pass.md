@@ -147,6 +147,12 @@ For the current sibling preview, the existing files below are read-only context.
 - `docs/handoffs/2026-09-09-0000-codex-vm642-home-preview.md`
 - `docs/qa/2026-09-09-vm642-home-preview.md`
 
+- `index.html`
+- `index_old.html`
+- `scripts/validate-frontend-html.mjs`
+- `scripts/frontend-smoke.mjs`
+- `docs/kanban/done/VM-642-home-owner-prose-pass.md`
+
 ## Dependencies and coordination
 
 Coordinate with VM-643, VM-644, VM-645 and VM-646 on actual availability. Home can be written first, but recheck its promises after those passes. Do not require all later cards to finish before shipping an honest description of the current release.
@@ -198,5 +204,5 @@ RobQA: PASS at 062e4c19902a4cc5a27bb65cfe5e5daaeabe375c — SAME-AGENT DISTINCT 
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
-Decisions: Owner locked the revision 5 Home layout and directed completion of VM-642 using existing curated research. Retain current destinations, Guide overview, selected introduction and supplied author note. Home-only supported summary is authorized if consistent with Archscry. No all-37 rewrite, new catalog or source/placement change. Final copy acceptance and promotion remain pending.
+Decisions: Scope amendment: Owner accepted final copy ("final copy looks fine to me") after locking the layout, fulfilling the earlier instruction to preserve index.html as index_old.html and promote indexWIP.html to index.html. Add exact promotion, existing Home-specific check and Done lifecycle paths. Preserve accepted visual/content bytes except release metadata; perform proportional promotion QA and normal integration. No source/model/backend change.
 Evidence: Home summary and metadata complete; layout locked; Home/general Guide review dispositions recorded. Exact-candidate admission, RobQA and candidate gate PASS at 062e4c19902a4cc5a27bb65cfe5e5daaeabe375c. See docs/handoffs/2026-09-09-0000-codex-vm642-home-preview.md#revision-6-qa. Final copy review: http://127.0.0.1:4174/indexWIP.html. Owner final candidate acceptance and promotion/integration remain pending.
