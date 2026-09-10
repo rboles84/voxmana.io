@@ -54,13 +54,13 @@ The Owner-requested continuation goes beyond surface colors and corners: use a r
 
 The latest local draft retains the 1280px dossier width, removes nested section/subsection and informational `arch-card` borders, and leaves What to Look For as open informational rows. All land tiers share a 128px desktop image size and 105px at widths up to 760px. The dossier renderer requests six precons using the existing first/remainder toggle; shared recommendation order is unchanged. Card Signals prefer cards unused by other teaching sections, restoring only the necessary approved authored cards if filtering would leave fewer than the available three. The all-37 runtime audit reports three cards in each of three categories, or 333 displayed signals; UR and WR each recover two authored creatures that editorial-use filtering previously removed. Source JSON is unchanged.
 
-The VM-574 validator now uses the runtime's versioned state singleton and the real `buildArchscryAuthoredCardLookup` adapter for media-record names. It distinguishes necessary floor-restoring reuse from other collisions without rewriting the historical ledger. Development checks are recorded in the main-agent handoff; a new exact-SHA phase review is still required.
+The VM-574 validator now uses the runtime's versioned state singleton and the real `buildArchscryAuthoredCardLookup` adapter for media-record names. It distinguishes necessary floor-restoring reuse from other collisions without rewriting the historical ledger. Development checks and the separate phase PASS at `daf7c940e06f22e1d5cbcd8a653d78a3a94dc8fc` are recorded in the handoff; reviewer `promotion_checks` passed the selected tests and protected-path checks with no correctness findings.
 
 Historical phase QA: `promotion_checks` passed `64df468d11caf7617edf3854449394ef988baa97` before these Owner corrections. That verdict is superseded for the current draft and does not cover the new runtime behavior.
 
 - [x] Archscry hierarchy implementation is in the local draft; the main-agent handoff records its changes and evidence.
 - [x] Latest Owner corrections and focused development checks are complete in the local draft, including the all-37 Card Signals audit and desktop/mobile precon and land-sizing checks.
-- [ ] Complete a fresh exact-SHA engineering review of the corrected Archscry phase. This phase check does not declare whole-task RobQA PASS.
+- [x] Fresh exact-SHA engineering review of the corrected Archscry phase passed at `daf7c940e06f22e1d5cbcd8a653d78a3a94dc8fc`; separate reviewer `promotion_checks` passed the selected tests and protected-path checks with no correctness findings. This phase check does not declare whole-task RobQA PASS.
 - [ ] Obtain the Owner's feedback on the corrected Archscry draft and address it before enabling the next page.
 - [ ] Complete coordinated runtime cache versioning and its validation before integration; current fresh-origin local review is not production readiness.
 

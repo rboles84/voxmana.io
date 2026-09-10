@@ -144,3 +144,42 @@ All five land tiers have 128px computed card widths at desktop; Premium renders 
 Port 8000 retained the old JavaScript after normal reload (four precons/one Boros creature) while the revised CSS loaded. The fresh port-8001 origin retrieves the corrected coherent `vm636` module graph and supplies this iteration's runtime evidence. The local helper is Python's HTTP server bound to 127.0.0.1:8001, serving this workspace; the existing server and saved reading were not cleared. This is a local review strategy. Coordinated module cache versioning and validation remain required before integrating runtime changes; no partial singleton revision is introduced here.
 
 Next: bind separate engineering review to the new committed phase candidate, then return the corrected Boros dossier for Owner visual feedback on informational hierarchy, six-card preview and land proportions. Keep VM-650 In Progress, full-task delivery fields PENDING, and the next page inactive. No push, PR, merge or deployment is authorized by this phase. The external Git report records material/evidence/total-branch accounting.
+
+## Separate phase QA — Archscry Owner corrections, 2026-09-10
+
+Task: VM-650, local Archscry phase only.
+Candidate: `daf7c940e06f22e1d5cbcd8a653d78a3a94dc8fc`.
+Admission baseline: `2b83f15b1ec24efde3d56f27ea7e06a014206199`.
+Scope amendment: `10f461befe0f6b6b40c38ce03662266e5037c3fe`.
+Archscry local phase verdict: **PASS**.
+Execution: **SEPARATE**; reviewer `/root/promotion_checks`, implementer `/root`.
+Classification: QA-2 presentation/selection behavior with focused CSS containment and focus risks. This phase verdict does not set whole-task RobQA PASS, Owner ACCEPT or integration readiness.
+
+### Independent source and test review
+
+The reviewer inspected the actual baseline-to-candidate scope, the correction delta from the earlier `64df468d11caf7617edf3854449394ef988baa97` phase, the amended card, current implementation packet, stylesheet/cascade rules, functional HTML, both changed runtime modules, the real state/media lookup seams, and the changed VM-574 and dossier-presenter tests. Previously reviewed unchanged hierarchy/Atlas/reading code and evidence remain applicable. HEAD matched the candidate and the worktree was clean throughout the read-only checks.
+
+- `npm.cmd run test:vm574-card-signals` — PASS: all 37 identities, 111 creatures/111 spells/111 permanents visible, and exactly four necessary cross-section reuses. The populated versioned singleton and real runtime media adapter exercise the WR/UR collisions. The test retains resolution, type, color, media, non-land/non-ramp and identity-wide Card Signals uniqueness checks, plus sparse/larger-input and authored-input immutability cases. No historical ledger write flag was used.
+- `node tests/archscry/archscry-dossier-followup-tests.js` — PASS, including actual presenter output for 0/3/6/8 precons, preserved entries, correct overflow labels and both directions of the first/remainder toggle. The shared selector/default/order implementation is unchanged; the six-entry limit belongs to this presenter.
+- `npm.cmd run lint:js` — PASS for 38 files.
+- `npm.cmd run lint:html` — PASS, including one final `vm650-arch4` stylesheet and the coherent `vm636` module graph.
+- `npm.cmd run test:frontend-smoke` — PASS.
+- `npm.cmd run validate:source-generated` — PASS with the two unchanged JESKAI/MARDU model-owned inhibitor-trap warnings; no failures.
+- `git diff --check 2b83f15b1ec24efde3d56f27ea7e06a014206199 daf7c940e06f22e1d5cbcd8a653d78a3a94dc8fc` — PASS.
+- Independent normalized-HTML/protected-path assertions — PASS. Removing only the added body token and final skin link reproduces baseline Archscry HTML. All 11 changed paths are admitted; only `runtime/content.js` and `runtime/dossier-view.js` changed under runtime JavaScript. Home, every other destination, `index_old.html`, source/generated data, existing images, backend/config, the shared precon selector and the historical VM-574 ledger remain unchanged. The explicit role-based trait focus rule and responsive 128px/105px land sizing remain present.
+
+The filter preserves authored order, never obtains replacement cards outside its input, and retains only the required already-authored overlaps when an exclusion would underfill the available three. The restored four cards are cross-section examples, not duplicates within Card Signals. The generic precon fallback label no longer states the obsolete four-entry limit. Source review found no unresolved correctness defect in this local phase.
+
+### Browser evidence attribution and finding coverage
+
+Browser evidence was executed by `/root`, not by this reviewer. The reviewer assessed the preceding root packet and final reported delivery state: fresh-origin port 8001 Boros exposes three real creature images; six primary precons swap to two and back with keyboard focus retained; informational cards/sections are unboxed; all land tiers measure 128px desktop and 105px at 390px; precons form one contained mobile column; actual Tab retains the matrix trait's gold 2px focus indicator. Final native View All activation exposes all 12 section headings without page overflow. An accessibility locator initially described View All as a checkbox; inspecting its actual button/ARIA contract and using the button resolved that selector assumption without changing product code.
+
+The Owner's minimum-three and first-six findings now have deterministic selector/presenter regressions. The land-size and informational-frame requests have focused root-computed evidence. Prior valid tab/hidden-state, mobile menu, reading-transition and Atlas evidence is retained for unchanged behavior. No new browser execution, screenshots, whole-site journeys or placement-engine certification were performed by the reviewer. CPU-heavy validation: **NOT REQUIRED**; the deterministic all-37 check directly covers the changed shared selector without replaying all 37 UIs.
+
+### Scope, limitations and next handoff
+
+This PASS permits corrected Archscry local visual feedback at `http://127.0.0.1:8001/archscry/index.html?explore=boros`. The Owner still judges divider density, open informational presentation, precon layout and land proportions. Other destinations remain inactive until their individual turn; VM-650 stays In Progress with whole-task delivery fields PENDING.
+
+Port 8000 retained stale runtime after reload. Only the fresh-origin port-8001 observations support the changed-runtime browser evidence. Coordinated module cache versioning and validation remain an explicit pre-integration requirement; this local phase PASS is not production readiness. No saved reading was cleared or synthesized and no new semantic/source authority is claimed.
+
+Files changed by reviewer: this appended handoff entry only, after completion of read-only candidate checks. No runtime/card edits, index generation or commit. Next suggested agent: `/root` records phase lifecycle evidence, refreshes generated views, commits evidence and returns the bounded Archscry review to the Owner. Related records: VM-650, its scope amendment and the current RobDev transfer above; accepted VM-642 remains unchanged.
