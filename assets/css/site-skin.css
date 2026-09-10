@@ -517,7 +517,13 @@ body.vm-site-skin.vm-archscry-route .dossier-rail .dossier-tab:hover { color: va
 body.vm-site-skin.vm-archscry-route :is(.dossier-view-toggle, .dossier-utility-btn, .dossier-tabs-scroll) { border-radius: 2px; box-shadow: none; }
 body.vm-site-skin.vm-archscry-route .dossier-segment-controls { padding-bottom: 12px; border-bottom: 1px solid var(--site-rule); }
 
-/* Headings and spacing carry informational sections; reserve rules for navigation. */
+/* Override the older body[data-bg] atmosphere rule so content cannot show through navigation. */
+body.vm-site-skin.vm-archscry-route .vm-topbar {
+  background: #0c0c0b;
+  border-bottom: 1px solid var(--site-rule);
+}
+
+/* One opaque heading band marks each section; the information beneath stays open. */
 body.vm-site-skin.vm-archscry-route :is(.precons-section, .scores-section, .archetypes-section, .starter-section, .adjacent-section, .staples-section, .lands-section, .decks-section, .deck-link-section, .footer-actions) {
   padding: 0;
   margin-bottom: 40px;
@@ -528,14 +534,15 @@ body.vm-site-skin.vm-archscry-route :is(.precons-section, .scores-section, .arch
 body.vm-site-skin.vm-archscry-route .section-label {
   color: var(--site-ink);
   font-family: var(--font-display);
-  font-size: 1.6rem;
+  font-size: clamp(1.35rem, 2.2vw, 1.6rem);
   font-weight: 700;
   line-height: 1.25;
   text-transform: none;
   letter-spacing: 0;
   border: 0;
-  padding: 0;
-  margin-bottom: 18px;
+  background: #201e19;
+  padding: 10px 16px;
+  margin-bottom: 20px;
 }
 body.vm-site-skin.vm-archscry-route :is(.starter-card, .starter-note, .tag-explainer-card, .tag-interpretation, .land-tier, .lands-guide, .staples-category, .how-this-plays-block, .arch-card) {
   border: 0;
