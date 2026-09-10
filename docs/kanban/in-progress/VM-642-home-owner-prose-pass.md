@@ -152,6 +152,7 @@ Only the exact paths in Admission Scope are editable. The final runtime change p
 - `scripts/validate-frontend-html.mjs`
 - `scripts/frontend-smoke.mjs`
 - `scripts/check-page-backgrounds.mjs`
+- `scripts/vm620-guide-beacon-tests.mjs`
 - `docs/kanban/done/VM-642-home-owner-prose-pass.md`
 
 ## Dependencies and coordination
@@ -205,5 +206,5 @@ RobQA: PENDING
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
-Decisions: Scope amendment: add the existing Home background guard found by Test Strategist; preserve its hidden-strip invariant while allowing the accepted Home to omit the strip. Owner final-copy acceptance and earlier filename-swap authorization cover the bounded Home promotion. Exact promotion and lifecycle paths remain admitted; no broader test contract or product change.
+Decisions: Scope amendment: admit the existing Guide Beacon inventory check after the promotion QA found the requested index_old.html backup as a fourth owner. Explicitly register that preserved backup; retain all current surface assertions. Final-copy and earlier filename-swap authorization remain the release authority.
 Evidence: Final copy accepted and layout locked at preview 062e4c19902a4cc5a27bb65cfe5e5daaeabe375c. Promoting the accepted body and CSS under the explicit filename-swap authorization; new candidate engineering evidence pending. Historical preview QA remains in the implementation handoff.
