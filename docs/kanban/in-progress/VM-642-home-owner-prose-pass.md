@@ -2,7 +2,7 @@
 
 ID: VM-642
 Title: Home Public Content and Owner Prose Pass
-Status: In Progress
+Status: Owner Review
 Type: Page content review and bounded implementation
 Area: Main / Home
 Priority: Medium
@@ -36,7 +36,7 @@ The earlier “No redesign ... is implied” boundary prevents unsolicited expan
 - [x] Owner-selected introduction and author’s note accompany the retained headline, feature prose, Foundations symbol, typography and black background; the sample dossier and Guide entry implement the selected visual direction.
 - [x] The static dossier excerpt is traced to existing approved material and labeled as an example; it does not imply a personal reading or add unsupported claims.
 - [x] The Owner-supplied author’s note replaces the scaffold; the note, Guide and deckbuilder clarification follow the requested placement without changing their destination behavior.
-- [ ] Proportional objective evidence and an exact-candidate Owner review path are recorded. Visual acceptance, any filename promotion and integration remain separate pending decisions.
+- [x] Proportional objective evidence and an exact-candidate Owner review path are recorded. Visual acceptance, any filename promotion and integration remain separate pending decisions.
 
 ## Overall goal — preserve voice, improve trust and usefulness
 
@@ -179,10 +179,10 @@ The backlog intake was integrated through VM-649 before this admission. The Owne
 Record version: 1
 Branch: codex/vm-642-home-wip
 Admission baseline: cd94d3052836cd9b69889bca478166fc8a2d00f6
-Candidate: PENDING
-RobQA: PENDING
+Candidate: 29dd7e78d0a43d5224e82ed7083d006d981f1641
+RobQA: PASS at 29dd7e78d0a43d5224e82ed7083d006d981f1641 — SAME-AGENT DISTINCT PHASE; docs/handoffs/2026-09-09-0000-codex-vm642-home-preview.md#revision-5-qa
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Decisions: Intake authorized 2026-09-08; preserve-voice direction retained; Owner authorized the bounded functional sibling Home preview and start after VM-649 integration on 2026-09-09. Existing Home prose retained for preview; author’s note, broader player feedback, visual acceptance and promotion remain pending. Related-page coordination is not a dependency-isolation authorization.
-Evidence: Revision 5 responds to the Owner request for a surgical spacing reduction. Move Guide to the start of its existing row with a 16px copy gap and reduce hero bottom padding from 42px to 18px. Right alignment and narrow-layout spacing are retained. Exact-candidate QA pending; no promotion or integration authorized.
+Evidence: Revision 5 reduces author-to-Guide spacing to 16px and hero bottom padding to 18px while retaining right alignment. Exact-candidate admission, RobQA and candidate delivery gate PASS at 29dd7e78d0a43d5224e82ed7083d006d981f1641. See docs/handoffs/2026-09-09-0000-codex-vm642-home-preview.md#revision-5-qa. Review http://127.0.0.1:4174/indexWIP.html. Owner review and integration pending; no promotion authorized.

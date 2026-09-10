@@ -233,3 +233,22 @@ Owner request: reduce the marked blank space through padding/spacing only. Admis
 The taller dossier establishes the hero grid height, and align-self:end pushed the Guide farther below the author. Changed only the preview spacing owner: row-gap 24px to16px, Guide align-self:start, and hero bottom padding42px to18px. Existing horizontal right alignment, narrow overrides, DOM, copy and destinations remain. Updated only the preview CSS cache query in HTML. The dossier still sets a minimum hero height; removing all left whitespace would require changing that composition, outside this surgical request.
 
 RobDev transfer: verify actual author-to-Guide gap shrinks, directory moves up, and Guide remains right-aligned with no overlap or overflow. Reuse unchanged mobile gap/padding and behavior evidence; no data, shared CSS/JS or original Home changes. Geometry is the changed objective risk, so one focused browser check is justified; Owner judges the density.
+
+## Revision 5 QA
+
+Task: VM-642
+Candidate: 29dd7e78d0a43d5224e82ed7083d006d981f1641
+RobQA: PASS
+Execution: SAME-AGENT DISTINCT PHASE
+Reviewer: Codex main agent
+Implementer: Codex main agent
+Independence required: no
+Execution reason: Three isolated preview spacing declarations and CSS cache query only; no shared behavior, governance, protected semantics, security or integration risk. Distinct post-commit review of actual diff and current preview criteria, not independent review.
+Owner: PENDING
+Integration: PENDING
+
+QA-1. Exact-candidate admission, diff hygiene and generated-view freshness PASS. Committed runtime diff contains only hero bottom padding 42px to 18px, grid row-gap 24px to 16px, Guide align-self:end to start, and WIP cache query r5. Existing desktop right alignment and narrow breakpoint's 28px gap/30px hero padding/left alignment remain. No DOM, copy, links, scripts, original Home or shared/data changes. Prior unchanged navigation/mobile evidence is reusable; no new tests or broad journeys justified.
+
+Focused post-commit rendered geometry at the same 1365px viewport: author bottom 567.953; Guide top 583.953, a 16px gap (previously 66.484px). Guide right edge 701.969 still matches the copy column. Directory divider moves from 736.234 to 712.234, exactly 24px higher; computed hero bottom padding 18px. No horizontal overflow or overlap. Browser loaded vm642-r5 and the preview tab is retained. The unchanged dossier column bottom 694.234 establishes the remaining hero height; removing all left-side whitespace would exceed this spacing-only request. CPU-heavy validation: NOT REQUIRED. Subjective density remains OWNER-VISUAL.
+
+Review http://127.0.0.1:4174/indexWIP.html. No push, merge, promotion or deployment. Earlier candidate sections remain historical.
