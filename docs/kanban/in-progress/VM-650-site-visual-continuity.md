@@ -84,7 +84,7 @@ RobQA: PENDING
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
-Decisions: Scope amendment: admit the exact Archscry presenter/content and focused regression paths needed for the Owner's next corrections: fewer nested divider rules, unboxed informational What to Look For rows, the first six precons, equal-sized Basics and other lands, and at least three Card Signals with all 37 placements checked. Bounded exception to visual-only behavior: the dossier presenter may request six existing precon recommendations without changing shared ranking; Card Signals should prefer unused approved cards but restore available authored three when editorial-use filtering would underfill a category, allowing the same approved card across teaching sections without replacing source cards or semantics. Correct the VM-574 validator to share the runtime's versioned state module and distinguish permitted floor-restoring reuse from other collisions. No other JavaScript/cache paths are admitted by this amendment. Owner explicitly requests visual continuity from the accepted Home across its public destinations before VM-643 prose work, with one-page-at-a-time review beginning with Archscry. Adopt the shared skin progressively; retain baseline Home and other destinations until their turn, review/refine each page before enabling the next, and defer Home extraction. Preserve accepted Home composition and copy, placement/model, source/generated data, all other functional/semantic behavior and index_old.html. Full continuity remains one task/branch; final coordinated integration follows completion of the set, exact-candidate QA and Owner acceptance.
+Decisions: Scope amendment: the Owner rejects repeated card examples anywhere within a dossier and requests all-37 uniqueness verification plus reliable hover dismissal when moving away. This supersedes the earlier policy allowing authored repeats to restore the Card Signals floor: require unique card examples across each dossier's teaching sections, preserving at least three signals per category only through source-backed approved replacements where available. JSON Cartographer is mapping WR/UR replacement candidates and owning fields; this amendment does not admit or authorize source-data edits. Existing admitted content/presenter/VM-574 regression paths cover restoring strict uniqueness. Admit only card-media.js and its transform regression path to prevent continuous pointer movement from resetting the hover dismissal deadline, preserving the existing 200ms crossing grace, keyboard access and transform behavior. Retain the current accepted styling, open informational rows, equal land sizing and first-six precon presentation without changing shared recommendation ranking. The VM-574 validator continues to use the runtime's versioned state singleton and real authored-card lookup, with collision assertions aligned to strict uniqueness. Owner-directed visual continuity remains progressive, beginning with Archscry and proceeding one page at a time before VM-643 prose work; preserve baseline Home and other destinations until their turn and defer Home extraction. Preserve accepted Home composition/copy, placement/model, source/generated data pending separately admitted source work, all other functional/semantic behavior and index_old.html. Full continuity remains one task/branch; final coordinated integration follows completion of the set, exact-candidate QA and Owner acceptance.
 Evidence: [Task handoff](../../handoffs/2026-09-09-0000-codex-vm650-site-visual-continuity.md)
 
 ## Admission Scope
@@ -93,6 +93,7 @@ Evidence: [Task handoff](../../handoffs/2026-09-09-0000-codex-vm650-site-visual-
 - `assets/css/home-wip.css`
 - `assets/js/archscry/runtime/dossier-view.js`
 - `assets/js/archscry/runtime/content.js`
+- `assets/js/archscry/runtime/card-media.js`
 - `index.html`
 - `archscry/index.html`
 - `maze/index.html`
@@ -114,6 +115,7 @@ Evidence: [Task handoff](../../handoffs/2026-09-09-0000-codex-vm650-site-visual-
 - `scripts/vm620-guide-beacon-tests.mjs`
 - `scripts/vm574-card-signals-validation.mjs`
 - `tests/archscry/archscry-dossier-followup-tests.js`
+- `tests/archscry/archscry-transform-tests.js`
 - `docs/kanban/in-progress/VM-650-site-visual-continuity.md`
 - `docs/kanban/done/VM-650-site-visual-continuity.md`
 - `docs/kanban/board.md`
