@@ -198,3 +198,11 @@ Post-commit HTML lint, diff hygiene and generated-view freshness PASS. Git compa
 Current README purpose, public Guide/reading/Maze content, live entry-page controls and Strategium lifecycle prompts support the chosen framing. The proposed Phase 2 contract was distinguished from shipped features; no future prior/reconciliation capability or search/gameplay guarantee was promised.
 
 Review http://127.0.0.1:4174/indexWIP.html. Owner visual and edited-note review remain pending. No promotion, push, merge or public deployment. Earlier QA sections are historical and do not replace this candidate binding. Full Git accounting for this revision is in C:/Users/obake/AppData/Local/Temp/vm642-r3-change-report.md.
+
+## Revision 4 — Guide alignment correction
+
+Owner clarification, 2026-09-09: the Field Guide should tuck into the blank space shown by the screenshot arrows, not sit directly under the author's note at the left edge. Interpreted as the lower-right of the left hero column, above the directory divider. Explained this placement before editing. Fresh admission continue passed at clean 08ce42500e8472aa0039760f8be652431c6671e6 on the same admitted branch; baseline/live main remain cd94d3052836cd9b69889bca478166fc8a2d00f6. Reused unchanged RobDev/RobQA authorities and current scope.
+
+Implementation: right-align the existing Guide flex contents on the two-column layout; explicitly retain left alignment at the existing 760px narrow breakpoint. Existing grid row and bottom alignment already supply the requested vertical space. Bump only the preview CSS cache query. No copy, DOM structure, route, script, shared style, original Home or data changes.
+
+RobDev transfer: QA-1, SAME-AGENT DISTINCT PHASE on the committed candidate. Inspect the two CSS declarations and query bump; verify the actual Guide link's right edge matches the left column at desktop, the link returns to left alignment at 390px, and it remains above the directory without horizontal overflow. Reuse unchanged navigation and copy evidence. No new tests, screenshot suite or CPU-heavy validation required. Owner judges the visual placement.
