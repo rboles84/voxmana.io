@@ -1,4 +1,4 @@
-<!-- task-view-sha256:d7d73073937b692d49a5d696e92ccb6f3ee8fcf7af920780c8e6787797034c83 -->
+<!-- task-view-sha256:3e1ae457fbb661e4ab0d96ce5bf415433e9761856d25680b854dcb42d27e6117 -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -9,7 +9,7 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 | Authored / filename date | Agent | Handoff | Related task references | Diagnostics |
 |---|---|---|---|---|
 | 2026-09-09T00:00:00Z (authored) | Codex, main implementation agent; RobDev | [VM-642 — Functional Home skin preview](2026-09-09-0000-codex-vm642-home-preview.md) | VM-642, VM-637, VM-649 | Identity displayed from heading; not admission metadata. |
-| 2026-09-09T00:00:00Z (authored) | Codex / root | [VM-650 — Site Visual Continuity: progressive implementation](2026-09-09-0000-codex-vm650-site-visual-continuity.md) | VM-650, VM-642, VM-643 | Identity displayed from heading; not admission metadata. Legacy status retained verbatim: In Progress — Archscry hierarchy phase implemented; separate phase QA pending |
+| 2026-09-09T00:00:00Z (authored) | Codex / root | [VM-650 — Site Visual Continuity: progressive implementation](2026-09-09-0000-codex-vm650-site-visual-continuity.md) | VM-650, VM-642, VM-643 | Identity displayed from heading; not admission metadata. Legacy status retained verbatim: In Progress — Archscry phase QA passed; Owner visual feedback pending |
 | 2026-09-09T00:00:00Z (authored) | kanban_scope (Kanban Steward subagent) | [VM-642 — Kanban Steward preview scope](2026-09-09-0000-kanban-steward-vm642-scope.md) | VM-642, VM-637 | Identity displayed from heading; not admission metadata. |
 | 2026-09-08T15:30:00Z (authored) | Codex / RobDev | [VM-641 — Phase 6 deterministic delivery checks](2026-09-08-1100-codex-vm641-delivery-checks.md) | VM-641 | Identity displayed from heading; not admission metadata. |
 | 2026-09-08T00:00:00Z (authored) | Codex (delivery coordinator) | [VM-640 — Integration and Lifecycle Closeout](2026-09-08-0835-codex-vm640-integration-closeout.md) | VM-640 | Identity displayed from heading; not admission metadata. |

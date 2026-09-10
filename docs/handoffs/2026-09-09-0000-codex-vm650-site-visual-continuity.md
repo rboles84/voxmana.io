@@ -3,7 +3,7 @@
 Agent: Codex / root
 Date: 2026-09-09
 Related: VM-650; completed VM-642; separate VM-643 prose work
-Status: In Progress — Archscry hierarchy phase implemented; separate phase QA pending
+Status: In Progress — Archscry phase QA passed; Owner visual feedback pending
 
 ## Request and decisions
 
@@ -81,3 +81,16 @@ Separate reviewer `promotion_checks` blocked phase candidate `e8462e02a8b925df10
 The parent reproduced the actual defect on White: focus Knowledge then Shift+Tab to Order. Order matched `:focus-visible` but had `outline-style: none` and a transparent background. The correction gives this control class an explicit 2px gold inset focus outline and restores active/hover/focus background cues. Stylesheet revision `vm650-arch3` forces retrieval of the corrected CSS after the local browser retained the earlier asset.
 
 Narrow regression case retained here: open White Start Here; press Shift+Tab from the Knowledge trait to Order; assert Order has keyboard-visible solid 2px gold outline with -2px offset; press Enter; assert `aria-expanded=true` and the detail is visible. On `vm650-arch3`, the measured outline is `rgb(210,179,112) solid 2px`, offset -2px, and Enter opens the detail with the active background `rgb(37,33,22)`. Preserve this case when later shared-skin changes touch role-based controls. Correction source/test review is pending on the new exact phase commit.
+
+### Exact Archscry phase result
+
+Phase material candidate: `64df468d11caf7617edf3854449394ef988baa97`.
+Phase verdict: PASS, 2026-09-10.
+Mode: SEPARATE; reviewer Test Strategist `/root/promotion_checks`, implementer `/root`.
+Classification: QA-1 presentation with focused interaction/containment exposure. CPU-heavy validation: NOT REQUIRED.
+
+The reviewer inspected the committed correction and independently reran HTML validation, whitespace, normalized HTML, protected-path and focused CSS assertions: all PASS. Exact HEAD/worktree were clean. The reviewer's earlier independent frontend-smoke and Beacon PASS evidence remains applicable because those protected contracts did not change. The reviewer confirmed that role-based trait controls now receive their focus outline and active/hover/focus surfaces. No unresolved correctness finding remains within the Archscry phase.
+
+Browser evidence is the main agent's attributed execution above; the reviewer did not operate the browser. Final refreshed Atlas evidence also confirms Guild rows at 335px retain two pips/sigils without clipping, hidden groups stay hidden, and native Previous returns Mono Colors and becomes disabled. The viewport override was reset. The final entry tab is reloaded with `vm650-arch3`, has distinct title/copy columns and no overflow, and is retained for Owner review.
+
+Owner review is limited to this phase: opening composition, one reading question's choice rows, and the dossier's hierarchy/directory. Start at `http://127.0.0.1:8000/archscry/index.html`; the Atlas supplies browse-mode dossiers without completing a reading. Owner visual feedback is PENDING. This is not whole-site readiness or authorization to integrate. Keep VM-650 In Progress and other pages unchanged until the next Owner-directed page review. The following lifecycle-only record changes do not alter this exact phase material candidate.

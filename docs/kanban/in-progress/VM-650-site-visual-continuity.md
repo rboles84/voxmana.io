@@ -51,7 +51,7 @@ Defer extracting Home navigation and Guide styling from `assets/css/home-wip.css
 The Owner-requested continuation goes beyond surface colors and corners: use a route-local editorial opening with two columns, full-width reading choice rows, a compact Atlas directory, wider dossier content, a tighter art header, and a left-aligned dossier directory. Replace nested visual frames with section headings and rules. Preserve all prose, art and attribution, DOM actions, identifiers, scripts, data and state; keep Home and other routes at baseline during this phase.
 
 - [x] Archscry hierarchy implementation is in the local draft; the main-agent handoff records its changes and evidence.
-- [ ] Complete the focused engineering review of this draft, including the affected responsive layout and interaction states. This phase check does not declare whole-task RobQA PASS.
+- [x] Focused Archscry engineering review passed at `64df468d11caf7617edf3854449394ef988baa97`, including the affected responsive layout and interaction states. Separate reviewer: `promotion_checks`; exact phase evidence is in the handoff. This phase check does not declare whole-task RobQA PASS.
 - [ ] Obtain the Owner's Archscry visual feedback and address it before enabling the next page.
 
 ## Notes
