@@ -27,9 +27,10 @@
   <link rel="stylesheet" href="./assets/css/layout.css?v=vm635" />
   <link rel="stylesheet" href="./assets/css/topbar.css?v=vm618" />
   <link rel="stylesheet" href="./assets/vendor/keyrune/css/keyrune.min.css?v=3.19.0" />
+  <link rel="stylesheet" href="./assets/vendor/mana/css/mana.min.css" />
   <link rel="stylesheet" href="./assets/css/guide-beacon.css?v=vm620" />
   <link rel="stylesheet" href="./assets/css/home.css?v=vm635" />
-  <link rel="stylesheet" href="./assets/css/home-wip.css?v=vm642" />
+  <link rel="stylesheet" href="./assets/css/home-wip.css?v=vm642-r2" />
 </head>
 <body class="vm-home-preview" data-page="home" data-vm-current="home" data-bg="light">
   <div class="vm-bg" aria-hidden="true">
@@ -76,7 +77,6 @@
           <p class="vm-hero-lede">Vox Mana is a Commander identity and taste compass. It helps you understand your colors, placement, play patterns, and what to look for when exploring commanders or decks elsewhere.</p>
           <p class="vm-hero-note">Not a deckbuilder: Vox Mana helps you choose a direction before you build or browse decklists somewhere else.</p>
           <div class="vm-preview-start">
-            <a class="vm-preview-primary" href="./archscry/index.html">Start with Archscry <span aria-hidden="true">→</span></a>
             <a class="vm-guide-beacon vm-guide-beacon--entry" href="./guide/?guided=vox-mana-intro" data-guide-beacon-id="home-guide-entry">
               <span class="vm-guide-beacon__mark" aria-hidden="true">✦</span>
               <span class="vm-guide-beacon__copy">
@@ -86,12 +86,16 @@
               </span>
             </a>
           </div>
-          <!-- Author's note intentionally awaits the Owner's words. No public placeholder. -->
+          <!-- Owner-requested writing scaffold for direct HTML editing; replace before promotion. -->
+          <aside class="vm-preview-author" aria-labelledby="home-author-title">
+            <h2 id="home-author-title">Author’s note · draft</h2>
+            <p>I built Vox Mana because [the problem I ran into as a Commander player]. I wanted to help my son and other players [what you hope becomes easier]. This is a project I’m still [learning from / refining], and I’d love feedback on [what would be useful].</p>
+          </aside>
         </div>
 
         <!-- Static presentation excerpt, not a personal placement or a second data producer.
              Copy: identity-dossier-content.source.json, packet2_identity_mardu,
-             APPROVED_PUBLIC, what_to_look_for items 1 and 2, preserved verbatim.
+             APPROVED_PUBLIC, test_the_fit.positive_self_check, preserved verbatim.
              Art/credit: existing dossier-view.js MARDU hero configuration.
              Before promotion, recheck this excerpt against that same approved source. -->
         <article class="vm-preview-dossier" aria-labelledby="preview-dossier-title">
@@ -104,14 +108,13 @@
           </figure>
           <div class="vm-preview-dossier-heading">
             <h2 id="preview-dossier-title">Mardu Horde</h2>
-            <span class="vm-preview-colors">Red · White · Black</span>
+            <span class="mana-pips guild-mana-symbols" role="img" aria-label="Red and White and Black mana identity">
+              <i class="ms ms-r ms-cost" aria-hidden="true"></i><i class="ms ms-w ms-cost" aria-hidden="true"></i><i class="ms ms-b ms-cost" aria-hidden="true"></i>
+            </span>
           </div>
           <div class="vm-preview-excerpt">
-            <h3>What to look for</h3>
-            <dl>
-              <div><dt>Raid Momentum</dt><dd>Commit early, keep pressure coordinated, and make the table answer the charge before it stabilizes.</dd></div>
-              <div><dt>War-Name Oath</dt><dd>Let formation, code, and named commitment give speed its shape.</dd></div>
-            </dl>
+            <h3>Test the fit</h3>
+            <p>This may fit if you want a Commander deck that attacks early, keeps formation under pressure, and turns sacrifice, removal, or recursion into the feeling of a war band taking the opening now.</p>
           </div>
           <a class="vm-preview-dossier-link" href="./archscry/index.html?explore=mardu">Explore this dossier <span aria-hidden="true">→</span></a>
         </article>

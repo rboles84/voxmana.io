@@ -2,7 +2,7 @@
 
 ID: VM-642
 Title: Home Public Content and Owner Prose Pass
-Status: Owner Review
+Status: In Progress
 Type: Page content review and bounded implementation
 Area: Main / Home
 Priority: Medium
@@ -24,7 +24,7 @@ Owner direction, 2026-09-09: start VM-642 after the VM-649 intake integration. T
 - Replace the preview's homepage Identity Signal with a clearly labeled static example excerpt from an existing approved dossier. This is a presentation sample, not a reading result or new identity/card assertion. Record its existing source in the implementation handoff; do not author new semantic material or modify the source/producer.
 - Make the existing Guide more visible in the opening area and present existing tool destinations more compactly. Preserve current route availability and destination behavior; Home links from other pages still return to the original Home during preview review.
 - Retain existing headline, introduction and feature prose. The Owner likes the current text and Foundations treatment; an aesthetic response from one critic is not evidence for replacing that voice.
-- The author’s note is pending the Owner's own wording. A writing scaffold has been supplied in conversation; do not publish the scaffold, assistant-authored prose or a placeholder as an Owner note.
+- The final author’s note is pending the Owner's own wording. On 2026-09-09 the Owner explicitly requested the supplied scaffold in the local WIP for direct HTML editing. Include it visibly labeled as a draft in this preview only; replace it with Owner wording before promotion.
 - Keep the preview independent of its temporary filename, retain the normal canonical Home URL, and mark the preview `noindex`. A later accepted promotion may archive the original and swap filenames through the delivery process; this slice does not rename or replace the original Home.
 
 The earlier “No redesign ... is implied” boundary prevents unsolicited expansion from a prose pass. The Owner's explicit, bounded sibling-preview request now authorizes this presentation experiment. It does not authorize a site-wide redesign, a broad release decision, semantic changes or conclusions about player usability. Several-player task feedback remains pending under the preserve-voice guidance below; the Owner will first inspect this separate preview.
@@ -35,8 +35,8 @@ The earlier “No redesign ... is implied” boundary prevents unsolicited expan
 - [x] Preview styling is isolated; the original Home, other pages, existing source data and scripts remain unchanged.
 - [x] Existing Owner-valued text, Foundations symbol, typography and black background remain; the sample dossier and stronger Guide entry implement the selected visual direction.
 - [x] The static dossier excerpt is traced to existing approved material and labeled as an example; it does not imply a personal reading or add unsupported claims.
-- [x] The author’s note remains absent until the Owner supplies wording; no unfinished writing is disguised as final copy.
-- [x] Proportional objective evidence and an exact-candidate Owner review path are recorded. Visual acceptance, any filename promotion and integration remain separate pending decisions.
+- [x] The Owner-requested author-note scaffold is visibly labeled as a draft in the local WIP; final wording remains pending and is required before promotion.
+- [ ] Proportional objective evidence and an exact-candidate Owner review path are recorded. Visual acceptance, any filename promotion and integration remain separate pending decisions.
 
 ## Overall goal — preserve voice, improve trust and usefulness
 
@@ -179,10 +179,10 @@ The backlog intake was integrated through VM-649 before this admission. The Owne
 Record version: 1
 Branch: codex/vm-642-home-wip
 Admission baseline: cd94d3052836cd9b69889bca478166fc8a2d00f6
-Candidate: efece2091512243de8a05c574778dac4def30ca6
-RobQA: PASS at efece2091512243de8a05c574778dac4def30ca6 — SAME-AGENT DISTINCT PHASE; docs/handoffs/2026-09-09-0000-codex-vm642-home-preview.md#final-qa-evidence
+Candidate: PENDING
+RobQA: PENDING
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Decisions: Intake authorized 2026-09-08; preserve-voice direction retained; Owner authorized the bounded functional sibling Home preview and start after VM-649 integration on 2026-09-09. Existing Home prose retained for preview; author’s note, broader player feedback, visual acceptance and promotion remain pending. Related-page coordination is not a dependency-isolation authorization.
-Evidence: Admission start ELIGIBLE and exact-candidate continue PASS; candidate delivery check PASS with durable QA. Implementation and Final QA evidence: docs/handoffs/2026-09-09-0000-codex-vm642-home-preview.md. Preview skin is in Owner Review at http://127.0.0.1:4174/indexWIP.html; broader prose/Guide work, author wording, player feedback, visual acceptance and promotion remain pending.
+Evidence: Owner requested corrections on 2026-09-09: remove the duplicate hero Archscry CTA, use existing mana pips, clarify the sample excerpt, match Guide hover to navigation, and insert the supplied author scaffold for direct editing. Existing candidate efece2091512243de8a05c574778dac4def30ca6 is superseded for current review; its historical QA remains in the implementation handoff. Admission continue passed at 3dc95a46fae2d89c29615bfbcab611b27b2aeb2b. Revision 2 implementation and new candidate QA are recorded in docs/handoffs/2026-09-09-0000-codex-vm642-home-preview.md. No promotion or integration authorized.
