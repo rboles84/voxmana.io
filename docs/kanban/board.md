@@ -1,4 +1,4 @@
-<!-- task-view-sha256:fc9aa9ab3b8edc7abaf2322f36082c7410b2b0bf21b3c348a80cd8c59fc78877 -->
+<!-- task-view-sha256:b373ec2355438657b7ed580ba8986137a033779a14d2a031e319c8d3f29f3af6 -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -64,7 +64,6 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 
 | ID | Card | Declared status | Diagnostics |
 |---|---|---|---|
-| VM-642 | [Home Public Content and Owner Prose Pass](in-progress/VM-642-home-owner-prose-pass.md) | Integrated |  |
 
 ## Blocked
 
@@ -668,6 +667,7 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | VM-639 | [Generated Views and Progressive Task Rehydration](done/VM-639-task-context.md) | Done |  |
 | VM-640 | [Workflow Instruction Consolidation and Context Reduction](done/VM-640-instruction-consolidation.md) | Done |  |
 | VM-641 | [Deterministic Candidate, Integration and Closeout Checks](done/VM-641-delivery-checks.md) | Done |  |
+| VM-642 | [Home Public Content and Owner Prose Pass](done/VM-642-home-owner-prose-pass.md) | Done |  |
 | VM-649 | [Integrate public-content backlog intake](done/VM-649-backlog-integration.md) | Done |  |
 
 ## Unresolved

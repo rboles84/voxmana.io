@@ -382,3 +382,10 @@ Required Deterministic Validation succeeded at PR head d67888336696f965863d0b044
 Git fetch verified the squash parent is admission baseline cd94d3052836cd9b69889bca478166fc8a2d00f6 and its tree exactly matches the verified PR input. Switched the clean canonical worktree to main and fast-forwarded. The local feature branch was deleted only after verifying its tip and integrated tree; GitHub had already removed the remote branch, confirmed by fresh remote inventory. No extra worktree was created or removed, and no unrelated dirty work existed.
 
 Material candidate and accepted layout/copy remain intact. Closeout edits are confined to this handoff, allowed task lifecycle fields/relocation and generated views; no later-phase or other task work. Existing optional browser-harness debt remains disclosed above. The original Home is preserved in index_old.html; the approved Home is now index.html. This integration record precedes the final pushed-main closeout checkpoint; it does not claim that pending checkpoint already passed.
+
+## Done checkpoint
+
+Task: VM-642
+Candidate: cfbfddf763152b0f73191872d0d3edbc7a30a678
+
+Closeout checker PASS at synchronized main 7633c784f45a5cb4688d520e9ca569481251c2c1 after validating actual PR37 integration, identical squash tree/parent, exact QA/Owner bindings, reviewed evidence deltas, fresh generated views, complete Git report, empty working tree, absent task branches and preserved boundaries. The initial report-format mismatch was corrected in the external report only; no runtime or committed material changed. This commit records Done and moves the same admitted card to its canonical Done folder. Final pushed-state closeout recheck remains the last delivery action; no extra product changes or all-37 work are added.

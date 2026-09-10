@@ -2,7 +2,7 @@
 
 ID: VM-642
 Title: Home Public Content and Owner Prose Pass
-Status: Integrated
+Status: Done
 Type: Page content review and bounded implementation
 Area: Main / Home
 Priority: Medium
@@ -207,4 +207,4 @@ Owner: ACCEPTED at cfbfddf763152b0f73191872d0d3edbc7a30a678 — implementation h
 Integration: INTEGRATED PR #37 — ba00f3fc87c3970fcb52481e6cff1170b3d53767
 Dependencies: None
 Decisions: Scope amendment: admit the existing Guide Beacon inventory check after the promotion QA found the requested index_old.html backup as a fourth owner. Explicitly register that preserved backup; retain all current surface assertions. Final-copy and earlier filename-swap authorization remain the release authority.
-Evidence: PR #37 required deterministic CI and exact integration gate passed; guarded squash ba00f3fc87c3970fcb52481e6cff1170b3d53767 verified against PR input. Local main synchronized; implementation handoff Promotion integration records delivery and cleanup. Final closeout checkpoint pending.
+Evidence: Candidate, integration and closeout gates PASS. Closeout verified at synchronized main 7633c784f45a5cb4688d520e9ca569481251c2c1; this lifecycle-only Done record is followed by the required final-state recheck. PR #37 squash ba00f3fc87c3970fcb52481e6cff1170b3d53767; implementation handoff Promotion integration and Done checkpoint preserve QA, acceptance, cleanup and limits.
