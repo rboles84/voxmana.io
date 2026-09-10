@@ -71,13 +71,15 @@ RobQA: PENDING
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
-Decisions: Owner explicitly requests visual continuity from the accepted Home across its public destinations before VM-643 prose work, then directs one-page-at-a-time review beginning with Archscry. The current Archscry phase includes opening, reading-choice, Atlas and dossier hierarchy changes after the Owner found the first pass too limited to backgrounds and corners. Adopt the shared skin progressively; retain baseline Home and other destinations until their turn, review/refine each page before enabling the next, and defer Home extraction. Preserve accepted Home composition and copy, all functional/semantic behavior and index_old.html. Full continuity remains one task/branch; final coordinated integration follows completion of the set, exact-candidate QA and Owner acceptance.
+Decisions: Scope amendment: admit the exact Archscry presenter/content and focused regression paths needed for the Owner's next corrections: fewer nested divider rules, unboxed informational What to Look For rows, the first six precons, equal-sized Basics and other lands, and at least three Card Signals with all 37 placements checked. Bounded exception to visual-only behavior: the dossier presenter may request six existing precon recommendations without changing shared ranking; Card Signals should prefer unused approved cards but restore available authored three when editorial-use filtering would underfill a category, allowing the same approved card across teaching sections without replacing source cards or semantics. Correct the VM-574 validator to share the runtime's versioned state module and distinguish permitted floor-restoring reuse from other collisions. No other JavaScript/cache paths are admitted by this amendment. Owner explicitly requests visual continuity from the accepted Home across its public destinations before VM-643 prose work, with one-page-at-a-time review beginning with Archscry. Adopt the shared skin progressively; retain baseline Home and other destinations until their turn, review/refine each page before enabling the next, and defer Home extraction. Preserve accepted Home composition and copy, placement/model, source/generated data, all other functional/semantic behavior and index_old.html. Full continuity remains one task/branch; final coordinated integration follows completion of the set, exact-candidate QA and Owner acceptance.
 Evidence: [Task handoff](../../handoffs/2026-09-09-0000-codex-vm650-site-visual-continuity.md)
 
 ## Admission Scope
 
 - `assets/css/site-skin.css`
 - `assets/css/home-wip.css`
+- `assets/js/archscry/runtime/dossier-view.js`
+- `assets/js/archscry/runtime/content.js`
 - `index.html`
 - `archscry/index.html`
 - `maze/index.html`
@@ -97,6 +99,8 @@ Evidence: [Task handoff](../../handoffs/2026-09-09-0000-codex-vm650-site-visual-
 - `scripts/validate-frontend-html.mjs`
 - `scripts/frontend-smoke.mjs`
 - `scripts/vm620-guide-beacon-tests.mjs`
+- `scripts/vm574-card-signals-validation.mjs`
+- `tests/archscry/archscry-dossier-followup-tests.js`
 - `docs/kanban/in-progress/VM-650-site-visual-continuity.md`
 - `docs/kanban/done/VM-650-site-visual-continuity.md`
 - `docs/kanban/board.md`
