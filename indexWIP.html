@@ -30,7 +30,7 @@
   <link rel="stylesheet" href="./assets/vendor/mana/css/mana.min.css" />
   <link rel="stylesheet" href="./assets/css/guide-beacon.css?v=vm620" />
   <link rel="stylesheet" href="./assets/css/home.css?v=vm635" />
-  <link rel="stylesheet" href="./assets/css/home-wip.css?v=vm642-r2" />
+  <link rel="stylesheet" href="./assets/css/home-wip.css?v=vm642-r3" />
 </head>
 <body class="vm-home-preview" data-page="home" data-vm-current="home" data-bg="light">
   <div class="vm-bg" aria-hidden="true">
@@ -74,22 +74,10 @@
           <div class="vm-eyebrow">VOX MANA</div>
           <h1 class="vm-hero-title" id="home-preview-title"><span>Find your place</span><span>Shape your play</span></h1>
           <div class="vm-hero-signature" aria-hidden="true"><i class="ss ss-fdn ss-mythic" aria-hidden="true"></i></div>
-          <p class="vm-hero-lede">Vox Mana is a Commander identity and taste compass. It helps you understand your colors, placement, play patterns, and what to look for when exploring commanders or decks elsewhere.</p>
-          <p class="vm-hero-note">Not a deckbuilder: Vox Mana helps you choose a direction before you build or browse decklists somewhere else.</p>
-          <div class="vm-preview-start">
-            <a class="vm-guide-beacon vm-guide-beacon--entry" href="./guide/?guided=vox-mana-intro" data-guide-beacon-id="home-guide-entry">
-              <span class="vm-guide-beacon__mark" aria-hidden="true">✦</span>
-              <span class="vm-guide-beacon__copy">
-                <span class="vm-guide-beacon__eyebrow">Field Guide</span>
-                <span class="vm-guide-beacon__context">New to Vox Mana?</span>
-                <span class="vm-guide-beacon__action">Start with the Guide <span aria-hidden="true">→</span></span>
-              </span>
-            </a>
-          </div>
-          <!-- Owner-requested writing scaffold for direct HTML editing; replace before promotion. -->
+          <p class="vm-hero-lede">Commander is easier to explore when you can name what you enjoy. Vox Mana gives you a place to work that out, search for cards without memorizing Scryfall syntax, and learn from the games you play.</p>
           <aside class="vm-preview-author" aria-labelledby="home-author-title">
-            <h2 id="home-author-title">Author’s note · draft</h2>
-            <p>I built Vox Mana because [the problem I ran into as a Commander player]. I wanted to help my son and other players [what you hope becomes easier]. This is a project I’m still [learning from / refining], and I’d love feedback on [what would be useful].</p>
+            <h2 id="home-author-title">Author’s note</h2>
+            <p>I built Vox Mana because I suck at Commander. I also wanted to help my son and other players by putting useful information at their fingertips. I’m still learning from and refining this project, and I’d love feedback on the flow and visuals.</p>
           </aside>
         </div>
 
@@ -98,26 +86,39 @@
              APPROVED_PUBLIC, test_the_fit.positive_self_check, preserved verbatim.
              Art/credit: existing dossier-view.js MARDU hero configuration.
              Before promotion, recheck this excerpt against that same approved source. -->
-        <article class="vm-preview-dossier" aria-labelledby="preview-dossier-title">
-          <div class="vm-preview-dossier-label"><span>Inside a dossier</span><span>Example</span></div>
-          <figure class="vm-preview-art">
-            <a href="./archscry/index.html?explore=mardu" aria-label="Explore the Mardu Horde dossier">
-              <img src="./assets/img/identity-hero/official/mardu-neriv-heart-storm.jpg" alt="Neriv, Heart of the Storm artwork" width="972" height="677" decoding="async" />
-            </a>
-            <figcaption>Art: Victor Adame Minguez · Neriv, Heart of the Storm</figcaption>
-          </figure>
-          <div class="vm-preview-dossier-heading">
-            <h2 id="preview-dossier-title">Mardu Horde</h2>
-            <span class="mana-pips guild-mana-symbols" role="img" aria-label="Red and White and Black mana identity">
-              <i class="ms ms-r ms-cost" aria-hidden="true"></i><i class="ms ms-w ms-cost" aria-hidden="true"></i><i class="ms ms-b ms-cost" aria-hidden="true"></i>
+        <div class="vm-preview-dossier-column">
+          <article class="vm-preview-dossier" aria-labelledby="preview-dossier-title">
+            <div class="vm-preview-dossier-label"><span>Inside a dossier</span><span>Example</span></div>
+            <figure class="vm-preview-art">
+              <a href="./archscry/index.html?explore=mardu" aria-label="Explore the Mardu Horde dossier">
+                <img src="./assets/img/identity-hero/official/mardu-neriv-heart-storm.jpg" alt="Neriv, Heart of the Storm artwork" width="972" height="677" decoding="async" />
+              </a>
+              <figcaption>Art: Victor Adame Minguez · Neriv, Heart of the Storm</figcaption>
+            </figure>
+            <div class="vm-preview-dossier-heading">
+              <h2 id="preview-dossier-title">Mardu Horde</h2>
+              <span class="mana-pips guild-mana-symbols" role="img" aria-label="Red and White and Black mana identity">
+                <i class="ms ms-r ms-cost" aria-hidden="true"></i><i class="ms ms-w ms-cost" aria-hidden="true"></i><i class="ms ms-b ms-cost" aria-hidden="true"></i>
+              </span>
+            </div>
+            <div class="vm-preview-excerpt">
+              <h3>Test the fit</h3>
+              <p>This may fit if you want a Commander deck that attacks early, keeps formation under pressure, and turns sacrifice, removal, or recursion into the feeling of a war band taking the opening now.</p>
+            </div>
+            <a class="vm-preview-dossier-link" href="./archscry/index.html?explore=mardu">Explore this dossier <span aria-hidden="true">→</span></a>
+          </article>
+          <p class="vm-hero-note">Not a deckbuilder: Vox Mana helps you choose a direction before you build or browse decklists somewhere else.</p>
+        </div>
+        <div class="vm-preview-start">
+          <a class="vm-guide-beacon vm-guide-beacon--entry" href="./guide/?guided=vox-mana-intro" data-guide-beacon-id="home-guide-entry">
+            <span class="vm-guide-beacon__mark" aria-hidden="true">✦</span>
+            <span class="vm-guide-beacon__copy">
+              <span class="vm-guide-beacon__eyebrow">Field Guide</span>
+              <span class="vm-guide-beacon__context">New to Vox Mana?</span>
+              <span class="vm-guide-beacon__action">Start with the Guide <span aria-hidden="true">→</span></span>
             </span>
-          </div>
-          <div class="vm-preview-excerpt">
-            <h3>Test the fit</h3>
-            <p>This may fit if you want a Commander deck that attacks early, keeps formation under pressure, and turns sacrifice, removal, or recursion into the feeling of a war band taking the opening now.</p>
-          </div>
-          <a class="vm-preview-dossier-link" href="./archscry/index.html?explore=mardu">Explore this dossier <span aria-hidden="true">→</span></a>
-        </article>
+          </a>
+        </div>
       </div>
     </section>
 

@@ -2,7 +2,7 @@
 
 ID: VM-642
 Title: Home Public Content and Owner Prose Pass
-Status: Owner Review
+Status: In Progress
 Type: Page content review and bounded implementation
 Area: Main / Home
 Priority: Medium
@@ -23,8 +23,8 @@ Owner direction, 2026-09-09: start VM-642 after the VM-649 intake integration. T
 - Create only the sibling HTML and its isolated stylesheet for runtime presentation. Reuse existing assets, links and applicable scripts; do not edit the original `index.html`, shared CSS/JavaScript, source data, generated catalogs, backend, model or storage contracts.
 - Replace the preview's homepage Identity Signal with a clearly labeled static example excerpt from an existing approved dossier. This is a presentation sample, not a reading result or new identity/card assertion. Record its existing source in the implementation handoff; do not author new semantic material or modify the source/producer.
 - Make the existing Guide more visible in the opening area and present existing tool destinations more compactly. Preserve current route availability and destination behavior; Home links from other pages still return to the original Home during preview review.
-- Retain existing headline, introduction and feature prose. The Owner likes the current text and Foundations treatment; an aesthetic response from one critic is not evidence for replacing that voice.
-- The final author’s note is pending the Owner's own wording. On 2026-09-09 the Owner explicitly requested the supplied scaffold in the local WIP for direct HTML editing. Include it visibly labeled as a draft in this preview only; replace it with Owner wording before promotion.
+- Retain the existing headline, Foundations treatment and feature prose. On 2026-09-09 the Owner requested three project-grounded introductions and explicitly selected option 3, beginning “Commander is easier to explore when you can name what you enjoy.” Use that exact selected paragraph in the WIP. An aesthetic response from one critic is not evidence for replacing the remaining voice.
+- The Owner supplied the author’s note on 2026-09-09, retaining the opening “I suck at Commander.” Replace the earlier scaffold with this note, lightly smoothing the unfinished wording. Move it directly below the introduction; place the Guide below it before the tool-directory divider and the unchanged deckbuilder note below the dossier. Owner review of the edited note and layout remains pending.
 - Keep the preview independent of its temporary filename, retain the normal canonical Home URL, and mark the preview `noindex`. A later accepted promotion may archive the original and swap filenames through the delivery process; this slice does not rename or replace the original Home.
 
 The earlier “No redesign ... is implied” boundary prevents unsolicited expansion from a prose pass. The Owner's explicit, bounded sibling-preview request now authorizes this presentation experiment. It does not authorize a site-wide redesign, a broad release decision, semantic changes or conclusions about player usability. Several-player task feedback remains pending under the preserve-voice guidance below; the Owner will first inspect this separate preview.
@@ -33,10 +33,10 @@ The earlier “No redesign ... is implied” boundary prevents unsolicited expan
 
 - [x] `indexWIP.html` works as a separate Home entry point with real existing destinations and applicable existing interactions.
 - [x] Preview styling is isolated; the original Home, other pages, existing source data and scripts remain unchanged.
-- [x] Existing Owner-valued text, Foundations symbol, typography and black background remain; the sample dossier and stronger Guide entry implement the selected visual direction.
+- [x] Owner-selected introduction and author’s note accompany the retained headline, feature prose, Foundations symbol, typography and black background; the sample dossier and Guide entry implement the selected visual direction.
 - [x] The static dossier excerpt is traced to existing approved material and labeled as an example; it does not imply a personal reading or add unsupported claims.
-- [x] The Owner-requested author-note scaffold is visibly labeled as a draft in the local WIP; final wording remains pending and is required before promotion.
-- [x] Proportional objective evidence and an exact-candidate Owner review path are recorded. Visual acceptance, any filename promotion and integration remain separate pending decisions.
+- [x] The Owner-supplied author’s note replaces the scaffold; the note, Guide and deckbuilder clarification follow the requested placement without changing their destination behavior.
+- [ ] Proportional objective evidence and an exact-candidate Owner review path are recorded. Visual acceptance, any filename promotion and integration remain separate pending decisions.
 
 ## Overall goal — preserve voice, improve trust and usefulness
 
@@ -179,10 +179,10 @@ The backlog intake was integrated through VM-649 before this admission. The Owne
 Record version: 1
 Branch: codex/vm-642-home-wip
 Admission baseline: cd94d3052836cd9b69889bca478166fc8a2d00f6
-Candidate: c243d1c3f923d8adfe0ce9388455a2f35be61730
-RobQA: PASS at c243d1c3f923d8adfe0ce9388455a2f35be61730 — SAME-AGENT DISTINCT PHASE; docs/handoffs/2026-09-09-0000-codex-vm642-home-preview.md#revision-2-qa
+Candidate: PENDING
+RobQA: PENDING
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Decisions: Intake authorized 2026-09-08; preserve-voice direction retained; Owner authorized the bounded functional sibling Home preview and start after VM-649 integration on 2026-09-09. Existing Home prose retained for preview; author’s note, broader player feedback, visual acceptance and promotion remain pending. Related-page coordination is not a dependency-isolation authorization.
-Evidence: Revision 2 corrects the duplicate hero CTA, mana pips, sample excerpt and Guide surface, and includes the explicitly requested draft author scaffold. Exact-candidate admission, RobQA and candidate delivery gate passed at c243d1c3f923d8adfe0ce9388455a2f35be61730. Current evidence: docs/handoffs/2026-09-09-0000-codex-vm642-home-preview.md#revision-2-qa. Review http://127.0.0.1:4174/indexWIP.html; final author wording and visual acceptance remain pending. No promotion or integration authorized.
+Evidence: Revision 3 implements the Owner-selected introduction option 3, supplied author note and screenshot-directed placement of the note, Guide and deckbuilder clarification. Prior candidate c243d1c3f923d8adfe0ce9388455a2f35be61730 remains historical only. Admission continue passed at e99eb22b4672cf6b5a9e221c652847f21ac3f751. Current implementation/QA follow-up: docs/handoffs/2026-09-09-0000-codex-vm642-home-preview.md. Visual approval and promotion remain pending; no integration authorized.
