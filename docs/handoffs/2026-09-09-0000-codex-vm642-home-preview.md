@@ -206,3 +206,22 @@ Owner clarification, 2026-09-09: the Field Guide should tuck into the blank spac
 Implementation: right-align the existing Guide flex contents on the two-column layout; explicitly retain left alignment at the existing 760px narrow breakpoint. Existing grid row and bottom alignment already supply the requested vertical space. Bump only the preview CSS cache query. No copy, DOM structure, route, script, shared style, original Home or data changes.
 
 RobDev transfer: QA-1, SAME-AGENT DISTINCT PHASE on the committed candidate. Inspect the two CSS declarations and query bump; verify the actual Guide link's right edge matches the left column at desktop, the link returns to left alignment at 390px, and it remains above the directory without horizontal overflow. Reuse unchanged navigation and copy evidence. No new tests, screenshot suite or CPU-heavy validation required. Owner judges the visual placement.
+
+## Revision 4 QA
+
+Task: VM-642
+Candidate: 37f9af88730504aa10729425e4423f6113173793
+RobQA: PASS
+Execution: SAME-AGENT DISTINCT PHASE
+Reviewer: Codex main agent
+Implementer: Codex main agent
+Independence required: no
+Execution reason: Bounded preview-only CSS alignment and cache query change, with no shared behavior, governance authority, security, migration or semantic change. Review executed as a distinct post-commit phase, not independent review.
+Owner: PENDING
+Integration: PENDING
+
+QA-1 under the unchanged full RobQA authority. Re-read the committed diff and preview criteria after commit. Clean exact-candidate admission continue passed; live/local main and baseline remain cd94d3052836cd9b69889bca478166fc8a2d00f6. The entire runtime correction is desktop flex-end alignment, the explicit existing-breakpoint flex-start override, and the WIP stylesheet cache query. Diff hygiene and generated-view freshness passed. Admission's whole-task scope contains no original Home, shared style/script, vendor or data change. Copy, DOM order, real hrefs and hooks are unchanged; previous unchanged navigation evidence remains applicable.
+
+Post-commit browser reload confirms vm642-r4 CSS. At 1365px, the Guide link occupies x524.453 to 701.969, matching the left column's right edge 701.969. Its bottom 694.234 sits above the directory divider 736.234; the author's note ends 567.953. Thus the Guide occupies the lower-right blank space. At 390px, the Guide and container both start x20; computed alignment is flex-start, and its bottom 1258.641 precedes the directory 1288.641. Both widths have no horizontal overflow. Existing Guide href remains ./guide/?guided=vox-mana-intro. Viewport restored and preview tab retained.
+
+No new tests, screenshot suite or unrelated journeys were needed for these two scoped declarations. CPU-heavy validation: NOT REQUIRED. Subjective positioning remains OWNER-VISUAL. Review http://127.0.0.1:4174/indexWIP.html. No promotion, push, merge or deployment. Earlier QA sections remain historical; this candidate binding supersedes them for the current runtime.
