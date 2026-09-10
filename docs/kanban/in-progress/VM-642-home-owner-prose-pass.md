@@ -2,7 +2,7 @@
 
 ID: VM-642
 Title: Home Public Content and Owner Prose Pass
-Status: In Progress
+Status: Owner Review
 Type: Page content review and bounded implementation
 Area: Main / Home
 Priority: Medium
@@ -36,7 +36,7 @@ The earlier “No redesign ... is implied” boundary prevents unsolicited expan
 - [x] Owner-selected introduction and author’s note accompany the retained headline, feature prose, Foundations symbol, typography and black background; the sample dossier and Guide entry implement the selected visual direction.
 - [x] The static dossier summary is traced to existing approved meaning and curated official material and labeled as an example; it does not imply a personal reading or add unsupported claims.
 - [x] The Owner-supplied author’s note replaces the scaffold; the note, Guide and deckbuilder clarification follow the requested placement without changing their destination behavior.
-- [ ] Proportional objective evidence and an exact-candidate Owner review path are recorded. Visual acceptance, any filename promotion and integration remain separate pending decisions.
+- [x] Proportional objective evidence and an exact-candidate Owner review path are recorded. Visual acceptance, any filename promotion and integration remain separate pending decisions.
 
 ## Overall goal — preserve voice, improve trust and usefulness
 
@@ -105,8 +105,8 @@ Finish with an accurate introduction in the Owner's intended voice and clear rou
 - [x] VM-634's hidden philosophy strip, VM-635's black backgrounds, and protected artwork remain unchanged.
 - [x] Retained existing text and any selected changes have recorded dispositions. New Owner prose is required only for an explicitly selected rewrite; unfinished selected writing is not disguised by a placeholder.
 - [x] Current governing source/semantic and storage boundaries are preserved. No generated projection is manually edited where its source/producer owns the value.
-- [ ] Applicable RobQA evidence covers the actual changed contract, and the shortest Owner review is supplied. Engineering PASS, Owner acceptance and integration are recorded as separate states.
-- [ ] Card/handoff and generated views are current; delivery uses the canonical SHIP/ACCEPT/REJECT lifecycle when implementation is requested.
+- [x] Applicable RobQA evidence covers the actual changed contract, and the shortest Owner review is supplied. Engineering PASS, Owner acceptance and integration are recorded as separate states.
+- [x] Card/handoff and generated views are current; delivery uses the canonical SHIP/ACCEPT/REJECT lifecycle when implementation is requested.
 
 ## Final Home review dispositions
 
@@ -193,10 +193,10 @@ The backlog intake was integrated through VM-649 before this admission. The Owne
 Record version: 1
 Branch: codex/vm-642-home-wip
 Admission baseline: cd94d3052836cd9b69889bca478166fc8a2d00f6
-Candidate: PENDING
-RobQA: PENDING
+Candidate: 062e4c19902a4cc5a27bb65cfe5e5daaeabe375c
+RobQA: PASS at 062e4c19902a4cc5a27bb65cfe5e5daaeabe375c — SAME-AGENT DISTINCT PHASE; docs/handoffs/2026-09-09-0000-codex-vm642-home-preview.md#revision-6-qa
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Decisions: Owner locked the revision 5 Home layout and directed completion of VM-642 using existing curated research. Retain current destinations, Guide overview, selected introduction and supplied author note. Home-only supported summary is authorized if consistent with Archscry. No all-37 rewrite, new catalog or source/placement change. Final copy acceptance and promotion remain pending.
-Evidence: Revision 6 finishes the Home summary and metadata, records the locked layout and the completed retain/change dispositions for the Home/general Guide review. Exact-candidate QA pending. Review http://127.0.0.1:4174/indexWIP.html.
+Evidence: Home summary and metadata complete; layout locked; Home/general Guide review dispositions recorded. Exact-candidate admission, RobQA and candidate gate PASS at 062e4c19902a4cc5a27bb65cfe5e5daaeabe375c. See docs/handoffs/2026-09-09-0000-codex-vm642-home-preview.md#revision-6-qa. Final copy review: http://127.0.0.1:4174/indexWIP.html. Owner final candidate acceptance and promotion/integration remain pending.

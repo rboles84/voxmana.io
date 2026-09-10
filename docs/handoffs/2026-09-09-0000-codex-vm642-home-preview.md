@@ -298,3 +298,24 @@ Existing reuse index: data/dossier/identity-dossier-content.source.json holds al
 Home/general Guide dispositions are now recorded in the card. Retain selected headline/intro, supplied author note, four destinations, existing Guide overview and interactions. The general Guide's direction/search/table-literacy/source descriptions match the Home promise; no destination is newly withheld. No saved-state, hidden-route or data-erasure work is needed. Existing section review choices are marked assessed, not blanket rewrites. Owner locked the layout; final copy/candidate acceptance and filename promotion remain distinct. No empirical player-usability claim.
 
 RobDev transfer: QA-1 presentation/restatement. Check the exact summary against the bounded official passage and current dossier direction, metadata against the selected intro, unchanged CSS and non-Home owners, same links/hooks/example/credit/mana, HTML hygiene and current card/generated views. Earlier unchanged interaction evidence remains applicable. No new tests, full journey suite or semantic certification; if meaning beyond this restatement were proposed it would need the existing specialist process. This revision is meant to finish the bounded Home/Guide content review for Owner Review, not open VM-643.
+
+## Revision 6 QA
+
+Task: VM-642
+Candidate: 062e4c19902a4cc5a27bb65cfe5e5daaeabe375c
+RobQA: PASS
+Execution: SAME-AGENT DISTINCT PHASE
+Reviewer: Codex main agent
+Implementer: Codex main agent
+Independence required: no
+Execution reason: Bounded Home summary restating existing approved direction and curated official design commentary, plus descriptive metadata. No new identity assertion, shared behavior, authority, placement, security or integration change. Distinct post-commit actual-diff and criteria review; not independent review.
+Owner: PENDING
+Integration: PENDING
+
+QA-1. Exact-candidate admission continue, HTML lint, diff hygiene and generated-view freshness passed. Post-commit inspection confirms only the Home summary/comment and three metadata descriptions changed in runtime. Focused Node checks confirmed unchanged href/src/ID/Guide-hook values, byte-identical preview CSS, all 37 existing dossier records, and the MARDU approved paragraph's early-attack/removal direction. Description tags match the selected introduction's direction, card search and learning scope.
+
+Manually assessed the exact new sentence against the curated official Mardu: Finishing First capture lines 43–92 and existing approved MARDU source. The official passage directly supports fast aggressive creature attacks and removing or neutralizing creatures to clear their path. The new sentence is a concise invitation, not a declaration that all Mardu decks or players follow it. Omitting formation/sacrifice/recursion detail does not contradict or replace Archscry. No new lore/era or color-identity claim is added; no source semantic certification is claimed or needed for this bounded restatement. Original Home, shared styles/scripts, Guide, source/catalog data, placement and backend remain unchanged.
+
+Browser reload for Owner delivery showed the exact new paragraph, Example label, same Mardu dossier URL and matching metadata. Existing unchanged navigation/menu/Guide and narrow-layout evidence is reused; no viewport matrix, screenshots, new regression tests or full-engine suites. CPU-heavy validation: NOT REQUIRED. Owner's layout lock is recorded; current CSS is preserved. Source-only review covers the updated static text; browser was used to refresh the review artifact, not to infer player experience.
+
+Home/general Guide dispositions are complete for this selected pass: current destinations and overview retained, selected intro/author retained, supported summary and metadata updated. Several-player usability feedback remains uncollected and unclaimed, with no broader rewrite undertaken. The all 37 proposal is not blocking VM-642. Current candidate awaits final copy/product acceptance; no filename promotion, push, merge or deployment. Review http://127.0.0.1:4174/indexWIP.html.
