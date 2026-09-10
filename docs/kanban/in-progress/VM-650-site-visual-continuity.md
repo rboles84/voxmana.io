@@ -18,6 +18,7 @@ Implement and review the continuation one page at a time, beginning with an Arch
 
 - Owner correction, 2026-09-09: “If Im on the new main and click anything else it goes back to the old view, cnat have that if we just pushed to main.”
 - Owner review steering, 2026-09-09: “I think we should do them one by one so I can qa them better perhaps unless we are too far along”.
+- Owner Archscry steering, 2026-09-10: finish the page's visual hierarchy after the first pass changed mostly backgrounds and corners. Extend the accepted Home direction to the existing opening, reading choices, Atlas directory and dossier sections while preserving their content and behavior.
 - [VM-642 accepted Home](../done/VM-642-home-owner-prose-pass.md) supplies the approved visual reference; its completed delivery remains unchanged.
 - [VM-643 Archscry prose pass](../backlog/VM-643-archscry-owner-prose-pass.md) remains separate, to resume after this visual follow-up.
 
@@ -45,6 +46,14 @@ Reuse the accepted Home visual rules in `assets/css/site-skin.css`, adopting the
 
 Defer extracting Home navigation and Guide styling from `assets/css/home-wip.css` until the shared treatment has been refined through the destination reviews; the eventual extraction must preserve Home's computed appearance. Apply contextual opaque surfaces, rules and controls to existing destination markup while preserving route structure, functional DOM, scripts, assets, copy and all semantic/data behavior. Keep this work on the admitted branch and card. Interim page review is visual feedback, not an engineering PASS or integration decision. After completing the set, transfer changed/protected behavior and consumer risks to RobQA for proportionate exact-candidate validation and final Owner acceptance before coordinated integration.
 
+### Current phase — Archscry hierarchy
+
+The Owner-requested continuation goes beyond surface colors and corners: use a route-local editorial opening with two columns, full-width reading choice rows, a compact Atlas directory, wider dossier content, a tighter art header, and a left-aligned dossier directory. Replace nested visual frames with section headings and rules. Preserve all prose, art and attribution, DOM actions, identifiers, scripts, data and state; keep Home and other routes at baseline during this phase.
+
+- [x] Archscry hierarchy implementation is in the local draft; the main-agent handoff records its changes and evidence.
+- [ ] Complete the focused engineering review of this draft, including the affected responsive layout and interaction states. This phase check does not declare whole-task RobQA PASS.
+- [ ] Obtain the Owner's Archscry visual feedback and address it before enabling the next page.
+
 ## Notes
 
 - This is the Owner-authorized visual follow-up to VM-642, not a reopening of its Done record or an all-37 dossier rewrite.
@@ -62,7 +71,7 @@ RobQA: PENDING
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
-Decisions: Owner explicitly requests visual continuity from the accepted Home across its public destinations before VM-643 prose work, then directs one-page-at-a-time review beginning with Archscry. Adopt the shared skin progressively; retain baseline Home and other destinations until their turn, review/refine each page before enabling the next, and defer Home extraction. Preserve accepted Home composition and copy, all functional/semantic behavior and index_old.html. Full continuity remains one task/branch; final coordinated integration follows completion of the set, exact-candidate QA and Owner acceptance.
+Decisions: Owner explicitly requests visual continuity from the accepted Home across its public destinations before VM-643 prose work, then directs one-page-at-a-time review beginning with Archscry. The current Archscry phase includes opening, reading-choice, Atlas and dossier hierarchy changes after the Owner found the first pass too limited to backgrounds and corners. Adopt the shared skin progressively; retain baseline Home and other destinations until their turn, review/refine each page before enabling the next, and defer Home extraction. Preserve accepted Home composition and copy, all functional/semantic behavior and index_old.html. Full continuity remains one task/branch; final coordinated integration follows completion of the set, exact-candidate QA and Owner acceptance.
 Evidence: [Task handoff](../../handoffs/2026-09-09-0000-codex-vm650-site-visual-continuity.md)
 
 ## Admission Scope
