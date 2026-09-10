@@ -579,6 +579,11 @@ body.vm-site-skin.vm-archscry-route .vm-identity-rail { gap: 20px; }
 body.vm-site-skin.vm-archscry-route .vm-identity-reading-panel { border-top: 1px solid var(--site-rule); padding-top: 16px; }
 body.vm-site-skin.vm-archscry-route .vm-matrix-summary-card { border-top: 1px solid var(--site-rule); padding-top: 16px; }
 body.vm-site-skin.vm-archscry-route .vm-trait-row { background: transparent; border-radius: 0; }
+body.vm-site-skin.vm-archscry-route .vm-trait-row:is(.is-active, :hover, :focus-visible) { background: #252116; }
+body.vm-site-skin.vm-archscry-route .vm-trait-row:focus-visible {
+  outline: 2px solid var(--site-gold);
+  outline-offset: -2px;
+}
 body.vm-site-skin.vm-archscry-route .dossier-snapshot-card {
   border: 0;
   border-left: 2px solid var(--site-rule);
