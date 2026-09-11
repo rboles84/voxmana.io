@@ -188,3 +188,12 @@ Boundaries: PASS
 PR #38 (`https://github.com/rboles84/voxmana.io/pull/38`) head `479c581808c3968b0e971b2153e0f6fff749454f` was guarded-connector squash-merged as `cd0c0ddffc9876830e92d7fa6ea55ca19f54b08c`. Existing CI passed, and the integration-stage check passed. No additional model-routing verification was performed during integration.
 
 Host protection could not be read through REST-GCM (404 connector admin-read gap), and no rulesets were present. Process-enforced required checks were used; no host-settings change occurred. VM-650 remains unchanged at `9f8d8d8549050aa6e899dc6d66f3287f371206d1`. Cleanup and final closeout remain pending; this record does not claim Done.
+
+## Final closeout
+
+Task: VM-651
+Candidate: c49ba0a697c7d4aec6aa7647e393c038b679234a
+
+Closeout-stage PASS at `a3cae357e17594e38714ad88c726858e0b37e39e`. Cleanup is complete: the remote feature branch was already absent after merge, then the local feature branch was deleted after tree parity; no extra worktree remains. Change report: `C:/Users/obake/AppData/Local/Temp/vm651-closeout-change-report.md`.
+
+Clarification of the prior host wording: the connector returned 403; the successful REST-GCM protection read returned 404, meaning no protection was configured; no rulesets were present. No host settings changed and no additional model-routing verification was performed during closeout.

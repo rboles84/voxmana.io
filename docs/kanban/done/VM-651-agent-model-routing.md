@@ -2,7 +2,7 @@
 
 ID: VM-651
 Title: Agent Model Routing
-Status: Integrated
+Status: Done
 Type: Documentation / workflow governance
 Area: Agent coordination and delivery workflow
 Priority: High
@@ -70,7 +70,7 @@ Owner: ACCEPTED at c49ba0a697c7d4aec6aa7647e393c038b679234a ; explicit Owner ACC
 Integration: INTEGRATED PR #38 at cd0c0ddffc9876830e92d7fa6ea55ca19f54b08c
 Dependencies: None
 Decisions: Owner authorized this current request; no product changes; no push or merge authorization. Scope amendment: Owner REJECT correction authorizes native project agent configuration, focused runtime proof, and matching instruction/test changes while preserving VM-635–641 and VM-650.
-Evidence: Admission continuation: PASS on codex/vm-651-agent-model-routing from the recorded baseline. Corrected candidate c49ba0a697c7d4aec6aa7647e393c038b679234a has independent SEPARATE RobQA PASS and candidate-stage PASS; Owner ACCEPTED this exact candidate. PR #38 head 479c581808c3968b0e971b2153e0f6fff749454f squash-merged as cd0c0ddffc9876830e92d7fa6ea55ca19f54b08c after existing CI PASS and integration-stage PASS; cleanup and final closeout remain PENDING. The Correction lifecycle section below is a historical snapshot at material-candidate creation, when RobQA and Owner were pending.
+Evidence: Admission continuation: PASS on codex/vm-651-agent-model-routing from the recorded baseline. Corrected candidate c49ba0a697c7d4aec6aa7647e393c038b679234a has independent SEPARATE RobQA PASS and candidate-stage PASS; Owner ACCEPTED this exact candidate. PR #38 head 479c581808c3968b0e971b2153e0f6fff749454f squash-merged as cd0c0ddffc9876830e92d7fa6ea55ca19f54b08c after existing CI PASS and integration-stage PASS. Closeout-stage PASS at a3cae357e17594e38714ad88c726858e0b37e39e confirms VM-651 local and remote branches are absent and no extra worktree remains. The Correction lifecycle section below is a historical snapshot at material-candidate creation, when RobQA and Owner were pending.
 
 ## Notes
 
