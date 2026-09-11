@@ -70,7 +70,7 @@ Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Decisions: Owner authorized this current request; no product changes; no push or merge authorization. Scope amendment: Owner REJECT correction authorizes native project agent configuration, focused runtime proof, and matching instruction/test changes while preserving VM-635–641 and VM-650.
-Evidence: Admission continuation: PASS on codex/vm-651-agent-model-routing from the recorded baseline. The correction records native project configuration, trusted parser evidence, and bounded runtime observations; a new material candidate and independent RobQA PASS are required before Owner Review.
+Evidence: Admission continuation: PASS on codex/vm-651-agent-model-routing from the recorded baseline. Corrected candidate c49ba0a697c7d4aec6aa7647e393c038b679234a has independent SEPARATE RobQA PASS and candidate-stage PASS; Owner remains PENDING. The Correction lifecycle section below is a historical snapshot at material-candidate creation, when RobQA and Owner were pending.
 
 ## Notes
 
