@@ -99,3 +99,13 @@ Coordinator authenticated the original QA and observed the exact candidate again
 Bootstrap parser corrections were local delivery gates that caught clerical formatting, not a bypass; valid anchor: `c1f4b6e84512b016cbd1f960cc0b20dc983cef48`.
 
 Clerical record attribution: Kanban Steward, requested `gpt-5.6-terra` at `low`; no model escalation.
+
+## Owner rejection of initial candidate
+
+Owner REJECTED initial material candidate `4970bea92c6df7b6118b7176dff98e5afa6908cf`. The reason is narrow: advisory requested spawn arguments did not sufficiently prevent RobDev and RobQA from silently inheriting the coordinator's model and reasoning configuration. The Owner-authorized correction request is `C:/Users/obake/.codex/attachments/16728128-4a1f-4811-964f-635267446966/pasted-text.txt`.
+
+The prior candidate and its RobQA PASS remain historical evidence only. VM-651 returns to RobDev correction on the same branch. RobQA is PENDING for the corrected candidate, and Owner Review must wait for a new exact candidate and independent Sol Medium QA. No push, PR, merge, or integration is authorized before a new Owner ACCEPT.
+
+The correction must inspect and use project-scoped runtime role configuration where the current Codex runtime supports it, with an explicit precedence and non-silent-fallback policy. Requested or configured model arguments must remain distinct from observed effective runtime configuration. This clerical record was requested as Terra Low; requested spawn settings are not independent backend telemetry, and no effective route is claimed here.
+
+VM-650 remains preserved at `9f8d8d8549050aa6e899dc6d66f3287f371206d1`. No implementation criteria, design, policy, tests, or runtime configuration were changed by this lifecycle record update.
