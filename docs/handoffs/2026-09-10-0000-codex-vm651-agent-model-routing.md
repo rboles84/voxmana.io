@@ -78,3 +78,24 @@ The historical workflow-recon documents are explanatory source context, not curr
 One working-copy risk was identified and resolved before candidate creation. The initial reporting sentence required host-confirmed settings before delegation, although requested spawn arguments are available before spawn and host acceptance or telemetry can only be described afterward. The corrected policy now announces requested role/model/effort and escalation before spawn, records accepted/requested configuration and any available host confirmation afterward, and explicitly distinguishes requested arguments, host confirmation and backend telemetry.
 
 QA classification: QA-0 documentation/instruction governance with **SEPARATE** execution because shared authority and delivery behavior are described. Selected exact-candidate evidence is `npm.cmd run test:workflow-instructions`, `git diff --check`, full changed-copy review and baseline-to-candidate equality for the frozen full RobDev/RobQA passes, package/CLI/parsers, runtime/data and unchanged admission/context/delivery fixtures. The current pre-candidate workflow-instruction run passed 14/14. Task-context, admission and delivery suites are intentionally skipped unless their owning bytes change or the focused instruction test exposes a related seam; browser, product, placement and broad deterministic suites do not protect this documentation-only risk. CPU-heavy validation is **NOT REQUIRED**.
+
+## Exact-candidate RobQA
+
+Task: VM-651
+Candidate: 4970bea92c6df7b6118b7176dff98e5afa6908cf
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: /root/vm651_robqa
+Implementer: /root/vm651_robdev
+
+Independent Sol Medium review classified the candidate as QA-0 documentation/instruction governance with separate execution. It found no blocker, major correctness finding, scope drift, or unresolved compatibility gap. The original evidence is `C:/Users/obake/AppData/Local/Temp/vm651-qa.md`, SHA256 `bd4d65e7fb7efe7fe467d8ec1aedb5b44838bfde725d36424072fbe03589a9fe`.
+
+Selected evidence passed: `npm.cmd run test:workflow-instructions` (14/14), `npm.cmd run task -- indexes --check` (693 cards and 1080 handoffs), `git diff --check` from baseline to candidate, frozen-authority/path equality checks, and full changed-copy/pointer review. Task-context, admission, and delivery suites were skipped because their owners, contracts, and fixtures are unchanged; browser, product, Placement, semantic, CRIT/SIRF, broad deterministic, and CPU-heavy validation do not protect this documentation-only risk. Repository checks cannot measure backend model selection, availability, token savings, authentic consent, or runtime identity. Owner inspection is limited to confirming the four routes, stop-and-escalate behavior for unavailable or unknown routes, and the reporting distinction among requested configuration, host confirmation, and backend telemetry.
+
+## Delivery observation
+
+Coordinator authenticated the original QA and observed the exact candidate against baseline `2b83f15b1ec24efde3d56f27ea7e06a014206199`: VM-641 task check PASS, durable-QA binding, admission PASS, local and live main at the baseline, no dirty files, fresh generated views, and no remote VM-651 branch. This permits Owner Review only; it is not Owner acceptance, integration, push, merge, or completion.
+
+Bootstrap parser corrections were local delivery gates that caught clerical formatting, not a bypass; valid anchor: `c1f4b6e84512b016cbd1f960cc0b20dc983cef48`.
+
+Clerical record attribution: Kanban Steward, requested `gpt-5.6-terra` at `low`; no model escalation.
