@@ -59,7 +59,7 @@ Record version: 1
 Branch: codex/vm-651-agent-model-routing
 Admission baseline: 2b83f15b1ec24efde3d56f27ea7e06a014206199
 Candidate: 4970bea92c6df7b6118b7176dff98e5afa6908cf
-RobQA: PASS at 4970bea92c6df7b6118b7176dff98e5afa6908cf; docs/handoffs/2026-09-10-0000-codex-vm651-agent-model-routing.md#exact-candidate-robqa
+RobQA: PASS at 4970bea92c6df7b6118b7176dff98e5afa6908cf SEPARATE; docs/handoffs/2026-09-10-0000-codex-vm651-agent-model-routing.md#exact-candidate-robqa
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
