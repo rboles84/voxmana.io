@@ -58,6 +58,14 @@ This is Owner-authorized delegation guidance. It assigns an available model and 
 
 Documentation, governance, and substantive implementation use the Terra medium route. Method skills and role prompts route work to their governing authority; they do not select a model automatically. Where RobQA requires separate execution, independence concerns a non-implementing reviewer, not a different model family; a low-risk same-agent distinct QA phase remains allowed only where RobQA already allows it. Model selection never creates readiness or permission.
 
+### Native Codex defaults and role configuration
+
+For supported native Codex subagent spawns, `.codex/config.toml` sets the project fallback to `gpt-5.6-terra` at `medium`. This prevents an omitted generic subagent route from inheriting the coordinator's Astra Extra High setting. It is a generic fallback, not a substitute for role selection: `.codex/agents/robdev.toml`, `.codex/agents/robqa.toml`, and `.codex/agents/clerical.toml` set the three role routes above explicitly.
+
+Native Codex resolves an explicit spawn setting, then `[agents]` defaults, then the parent setting before applying a selected custom-agent file; a custom-agent file that sets model or effort takes precedence over that resolved value. Select the configured role where the runtime exposes role selection. An exception needs an explicitly named/configured escalation route or a supported explicit-spawn surface; it must still be announced, justified, bounded, and recorded. Return to the role's default lower route when the bounded escalation ends.
+
+The current collaboration bridge may expose only `model`, `reasoning_effort`, and `fork_turns`, with no custom-agent selector. On that bridge, explicitly supply the assigned route. In a fresh trusted session that loads the project defaults, the native Terra Medium fallback guards against omitted generic-native settings; it does not prove that this already-running bridge applied the fallback or that a role file governed a child reporting no selected agent role. Changing a configuration file does not alter an already-running child's model or reasoning setting.
+
 ### Delegation and reuse
 
 Before delegation, announce the role, requested model and effort, and the concrete escalation path. Send a compact packet containing only the task scope, target files, governing authority, protected behavior, and evidence needed for that role. At spawn, set the exact `model` and `reasoning_effort` with `fork_turns: none`; a full-history `all` spawn inherits its parent and cannot provide lower-model routing. Use bounded history only for a concrete need when the host supports the explicit override. Do not silently inherit model or effort.
@@ -70,4 +78,4 @@ If the required route is unknown or unavailable, report the capability gap and s
 
 Escalate only for a bounded concrete need, such as failed reasoning or contradictory protected evidence. Announce the old and requested new model and effort, plus the reason, before escalation. Preserve required independence, and never retry missing-authority permission on another model.
 
-After spawn and in the compact handoff, record the accepted/requested configuration and any host-confirmed settings available. Distinguish requested arguments, host confirmation, and backend telemetry; do not label requested arguments as an actual model or claim an unmeasured token saving. These are agent-enforced instructions: repository tests can check durable policy text and pointers, but cannot enforce runtime/backend routing.
+After spawn and in the compact handoff, record the configured route, accepted/requested arguments, and any host-confirmed effective settings available. Distinguish configured/requested route, observed effective local-runtime route, and unverified backend route; do not label requested arguments as an actual model or claim an unmeasured token saving. Repository tests can check durable configuration and policy, while native runtime observations can prove only the metadata it exposes; neither proves remote backend identity, billing, or token savings.

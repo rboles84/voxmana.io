@@ -1,0 +1,5 @@
+[agents]
+# A generic native child defaults to Terra Medium instead of inheriting coordinator Astra.
+# Governed roles still require their explicit configured route and matching spawn settings.
+default_subagent_model = "gpt-5.6-terra"
+default_subagent_reasoning_effort = "medium"

@@ -109,3 +109,44 @@ The prior candidate and its RobQA PASS remain historical evidence only. VM-651 r
 The correction must inspect and use project-scoped runtime role configuration where the current Codex runtime supports it, with an explicit precedence and non-silent-fallback policy. Requested or configured model arguments must remain distinct from observed effective runtime configuration. This clerical record was requested as Terra Low; requested spawn settings are not independent backend telemetry, and no effective route is claimed here.
 
 VM-650 remains preserved at `9f8d8d8549050aa6e899dc6d66f3287f371206d1`. No implementation criteria, design, policy, tests, or runtime configuration were changed by this lifecycle record update.
+
+## Corrected runtime configuration — RobDev packet
+
+### Why and configured paths
+
+The Owner rejection found that advisory spawn arguments alone did not prevent the Astra/xhigh coordinator route from becoming a generic child fallback. The corrected material adds native project configuration:
+
+- `.codex/config.toml` sets `[agents]` `default_subagent_model = "gpt-5.6-terra"` and `default_subagent_reasoning_effort = "medium"`.
+- `.codex/agents/robdev.toml` defines Terra/medium; `.codex/agents/robqa.toml` defines Sol/medium; `.codex/agents/clerical.toml` defines Terra/low.
+
+Native Codex precedence is explicit spawn setting, then `[agents]` default, then parent setting, before a selected custom-agent file applies its own model/effort. A selected role file takes precedence over that resolved route. Source: [OpenAI Codex subagents configuration](https://learn.chatgpt.com/docs/agent-configuration/subagents). The generic default therefore prevents fresh trusted native generic children from inheriting Astra/xhigh; it does not validate the selected role or replace explicit governed routing.
+
+### Actual native/configuration evidence and limits
+
+- Installed CLI: `C:/Users/obake/AppData/Local/OpenAI/Codex/bin/fd4c151a749f3ab4/codex.exe`, version `0.153.4`.
+- Trusted actual-user `app-server config/read` for `C:/dev/voxmana.io` recorded the `.codex` project layer/origins for both Terra/medium `[agents]` defaults while the effective root model/effort remained user-configured Astra/xhigh. Filtered observation: `C:/Users/obake/AppData/Local/Temp/vm651-native-config-proof.json`.
+- Bundled Python `tomllib` parsed all four TOML files and returned the exact documented fields and values. This is standard TOML syntax/value validation, not runtime selection evidence.
+- New sessions read project defaults. Model and effort are session-static; changing the files does not alter an already-running child.
+
+Current collaboration spawning exposes `model`, `reasoning_effort`, and `fork_turns`, but no `agent_type`/custom-role selector. Current role delegation therefore uses explicit bridge arguments. Native custom-role selection is unavailable through that bridge, so the role TOMLs must not be credited for the current bridge probes. This is a host-surface limitation, not evidence that a selected native role would fail to load. No remote backend identity, billing, or token saving is observed.
+
+### Routing observations
+
+`C:/Users/obake/AppData/Local/Temp/vm651-runtime-observations.json` records runtime-emitted local metadata:
+
+- Coordinator: Astra/xhigh, source line 4702.
+- RobDev: requested Terra/medium with `fork_turns: none`; `agent_role: null` at metadata line 1; observed Terra/medium at line 8.
+- RobQA: requested Sol/medium with `fork_turns: none`; `agent_role: null` at metadata line 1; observed Sol/medium at line 8.
+- Clerical: requested Terra/low with `fork_turns: none`; `agent_role: null` at metadata line 1; observed Terra/low at line 8.
+
+Those observations establish the effective local route for these explicit bridge calls and that none inherited the coordinator model. They do not show native role-file selection or remote execution/billing.
+
+### Preservation and validation
+
+VM-635 through VM-641 remain preserved: no product/runtime/data mutation (VM-635/636), no planning completion (VM-637), no admission or baseline bypass (VM-638), no broad context preload (VM-639), no role-authority replacement (VM-640), and no delivery/Owner/QA authenticity bypass (VM-641). VM-650 remains unchanged.
+
+Passed after the correction: `npm.cmd run test:workflow-instructions` (15/15) and `git diff --check`. No commit, generator, global configuration change, product test, push, merge, or model escalation occurred.
+
+### Next independent review
+
+Independent Sol Medium RobQA must inspect the exact corrected candidate, including the four TOML files, trusted default-layer proof, static TOML parse result, policy limits, and the distinction between configured/requested routes and observed local runtime metadata. It must decide whether the disclosed unavailable bridge role-selection surface satisfies the Owner's strongest-available exception; it must not treat the current `agent_role: null` probes as native role-file selection.
