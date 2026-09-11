@@ -2,7 +2,7 @@
 
 ID: VM-651
 Title: Agent Model Routing
-Status: Accepted
+Status: Integrated
 Type: Documentation / workflow governance
 Area: Agent coordination and delivery workflow
 Priority: High
@@ -67,10 +67,10 @@ Admission baseline: 2b83f15b1ec24efde3d56f27ea7e06a014206199
 Candidate: c49ba0a697c7d4aec6aa7647e393c038b679234a
 RobQA: PASS at c49ba0a697c7d4aec6aa7647e393c038b679234a SEPARATE; docs/handoffs/2026-09-10-0000-codex-vm651-agent-model-routing.md#corrected-candidate-robqa
 Owner: ACCEPTED at c49ba0a697c7d4aec6aa7647e393c038b679234a ; explicit Owner ACCEPT in current task 01a08412-c5ca-7f12-8519-c5842622e8c0 authorizes existing integration and closeout
-Integration: PENDING
+Integration: INTEGRATED PR #38 at cd0c0ddffc9876830e92d7fa6ea55ca19f54b08c
 Dependencies: None
 Decisions: Owner authorized this current request; no product changes; no push or merge authorization. Scope amendment: Owner REJECT correction authorizes native project agent configuration, focused runtime proof, and matching instruction/test changes while preserving VM-635–641 and VM-650.
-Evidence: Admission continuation: PASS on codex/vm-651-agent-model-routing from the recorded baseline. Corrected candidate c49ba0a697c7d4aec6aa7647e393c038b679234a has independent SEPARATE RobQA PASS and candidate-stage PASS; Owner ACCEPTED this exact candidate and integration remains PENDING. The Correction lifecycle section below is a historical snapshot at material-candidate creation, when RobQA and Owner were pending.
+Evidence: Admission continuation: PASS on codex/vm-651-agent-model-routing from the recorded baseline. Corrected candidate c49ba0a697c7d4aec6aa7647e393c038b679234a has independent SEPARATE RobQA PASS and candidate-stage PASS; Owner ACCEPTED this exact candidate. PR #38 head 479c581808c3968b0e971b2153e0f6fff749454f squash-merged as cd0c0ddffc9876830e92d7fa6ea55ca19f54b08c after existing CI PASS and integration-stage PASS; cleanup and final closeout remain PENDING. The Correction lifecycle section below is a historical snapshot at material-candidate creation, when RobQA and Owner were pending.
 
 ## Notes
 

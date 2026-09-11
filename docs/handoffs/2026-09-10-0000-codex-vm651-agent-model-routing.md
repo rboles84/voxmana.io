@@ -178,3 +178,13 @@ Owner: ACCEPT
 Decision reference: current task `01a08412-c5ca-7f12-8519-c5842622e8c0`.
 
 Owner decision: “ACCEPT VM-651 at `c49ba0a697c7d4aec6aa7647e393c038b679234a`. Proceed with the existing integration and closeout path. Do not add further model-routing verification during closeout; prove the configured routing organically on subsequent work.”
+
+## Integration and closeout
+
+Task: VM-651
+Candidate: c49ba0a697c7d4aec6aa7647e393c038b679234a
+Boundaries: PASS
+
+PR #38 (`https://github.com/rboles84/voxmana.io/pull/38`) head `479c581808c3968b0e971b2153e0f6fff749454f` was guarded-connector squash-merged as `cd0c0ddffc9876830e92d7fa6ea55ca19f54b08c`. Existing CI passed, and the integration-stage check passed. No additional model-routing verification was performed during integration.
+
+Host protection could not be read through REST-GCM (404 connector admin-read gap), and no rulesets were present. Process-enforced required checks were used; no host-settings change occurred. VM-650 remains unchanged at `9f8d8d8549050aa6e899dc6d66f3287f371206d1`. Cleanup and final closeout remain pending; this record does not claim Done.
