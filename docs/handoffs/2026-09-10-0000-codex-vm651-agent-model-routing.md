@@ -169,3 +169,12 @@ Runtime limits remain explicit: current bridge probes report `agent_role: null`,
 VM-641 candidate check: PASS with durable QA binding. Owner remains PENDING for this exact candidate. No push, PR, merge, or integration occurred.
 
 Clerical record attribution: requested `gpt-5.6-terra` at `low`; requested settings are not independent backend telemetry.
+
+## Owner acceptance
+
+Task: VM-651
+Candidate: c49ba0a697c7d4aec6aa7647e393c038b679234a
+Owner: ACCEPT
+Decision reference: current task `01a08412-c5ca-7f12-8519-c5842622e8c0`.
+
+Owner decision: “ACCEPT VM-651 at `c49ba0a697c7d4aec6aa7647e393c038b679234a`. Proceed with the existing integration and closeout path. Do not add further model-routing verification during closeout; prove the configured routing organically on subsequent work.”
