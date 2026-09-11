@@ -42,6 +42,7 @@ const vmRadarSource = await readFile(new URL("../../assets/js/shared/vm-radar.js
 const homeSource = await readFile(new URL("../../assets/js/home/home.js", import.meta.url), "utf8");
 const presentationSource = await readFile(new URL("../../assets/js/archscry/archscry-presentation.js", import.meta.url), "utf8");
 const archscryCssSource = await readFile(new URL("../../assets/css/archscry.css", import.meta.url), "utf8");
+const siteSkinSource = await readFile(new URL("../../assets/css/site-skin.css", import.meta.url), "utf8");
 const factionsData = JSON.parse(await readFile(new URL("../../data/factions.json", import.meta.url), "utf8"));
 const placementModel = JSON.parse(await readFile(new URL("../../data/placement-model.json", import.meta.url), "utf8"));
 const identityLayers = JSON.parse(await readFile(new URL("../../data/identity-layers.json", import.meta.url), "utf8"));
@@ -3316,6 +3317,8 @@ officialHeroArtwork.forEach(([key, artwork]) => {
   assert.match(artwork?.attribution || "", /^Art:/, `expected ${key} hero credit to retain its attribution`);
 });
 assert.match(indexSource, /guild-art-credit[\s\S]*?href=.*heroArtworkScryfallUri/, "expected the common hero-credit renderer to emit the resolved Scryfall link");
+assert.match(siteSkinSource, /\.guild-art-credit\s*>\s*a\s*\{[\s\S]*?pointer-events:\s*auto/, "expected exact hero-art anchors to restore their own pointer hit-testing");
+assert.match(siteSkinSource, /\.guild-art-credit\s*>\s*a:hover,[\s\S]*?\.guild-art-credit\s*>\s*a:focus-visible/, "expected the interactive credit to expose hover and keyboard-focus affordances");
 ["INK"].forEach((key) => {
   assert.equal(heroBannerImageSlugForFaction({ key }), "", `expected ${key} to remain outside the current dossier-backed hero rollout`);
   assert.equal(heroBannerArtworkForFaction({ key })?.src, "/assets/img/identity-hero/official/ink-ink-treader-nephilim.jpg", `expected ${key} to use proof artwork without requiring a rollback slug`);

@@ -600,6 +600,21 @@ body.vm-site-skin.vm-archscry-route .dossier-snapshot-card {
   padding: 4px 16px;
 }
 
+/* Credits stay decorative until they contain the dossier's exact-art link. */
+body.vm-site-skin.vm-archscry-route .guild-art-credit > a {
+  pointer-events: auto;
+  color: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, currentColor 72%, transparent);
+  text-underline-offset: 0.2em;
+}
+body.vm-site-skin.vm-archscry-route .guild-art-credit > a:hover,
+body.vm-site-skin.vm-archscry-route .guild-art-credit > a:focus-visible {
+  color: var(--site-ink);
+  text-decoration-thickness: 2px;
+}
+
 /* Atlas entries form a compact directory; the custom identity symbols remain intact. */
 body.vm-site-skin.vm-archscry-route .identity-atlas-shell { gap: 28px; }
 body.vm-site-skin.vm-archscry-route .identity-atlas-hero { border: 0; border-bottom: 1px solid var(--site-rule); padding: 0 0 28px; background: transparent; }
