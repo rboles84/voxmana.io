@@ -18,7 +18,7 @@ Follow the canonical commands: [SHIP](docs/reference/workflow.md#ship-vm-) stops
 
 ## Token And Reasoning Cost Control
 
-Apply [Token And Reasoning Cost Control](docs/reference/token-reasoning-cost-control.md); it cannot waive governing safeguards.
+Apply [Token And Reasoning Cost Control](docs/reference/token-reasoning-cost-control.md#agent-model-routing); it cannot waive governing safeguards. Its model routing assigns delegation settings without replacing governing roles or an explicit Owner choice.
 
 ## Governing Developer Gate
 

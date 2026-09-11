@@ -1,4 +1,4 @@
-<!-- task-view-sha256:b373ec2355438657b7ed580ba8986137a033779a14d2a031e319c8d3f29f3af6 -->
+<!-- task-view-sha256:c59e7253a6e599bbfb3d46f67ee0ed9966a35b92fcce95cc4b6164fd323856df -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -59,6 +59,7 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 
 | ID | Card | Declared status | Diagnostics |
 |---|---|---|---|
+| VM-651 | [Agent Model Routing](in-progress/VM-651-agent-model-routing.md) | Accepted |  |
 
 ## Integrated
 

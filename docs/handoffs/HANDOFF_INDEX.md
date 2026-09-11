@@ -1,4 +1,4 @@
-<!-- task-view-sha256:7a9a06d356eebdce43b794de5d0684700ff3f3d00916c7b4e07754e83376077e -->
+<!-- task-view-sha256:f3bceb598178b0cd3ea6e527302ac4917429a1ec675a8e5c3763c4b480ef96ac -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -8,6 +8,7 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 
 | Authored / filename date | Agent | Handoff | Related task references | Diagnostics |
 |---|---|---|---|---|
+| 2026-09-10T00:00:00Z (filename) | Unknown | [VM-651 — Agent Model Routing: RobDev packet](2026-09-10-0000-codex-vm651-agent-model-routing.md) | VM-651 | Identity displayed from heading; not admission metadata. |
 | 2026-09-09T00:00:00Z (authored) | Codex, main implementation agent; RobDev | [VM-642 — Functional Home skin preview](2026-09-09-0000-codex-vm642-home-preview.md) | VM-642, VM-637, VM-649 | Identity displayed from heading; not admission metadata. |
 | 2026-09-09T00:00:00Z (authored) | kanban_scope (Kanban Steward subagent) | [VM-642 — Kanban Steward preview scope](2026-09-09-0000-kanban-steward-vm642-scope.md) | VM-642, VM-637 | Identity displayed from heading; not admission metadata. |
 | 2026-09-08T15:30:00Z (authored) | Codex / RobDev | [VM-641 — Phase 6 deterministic delivery checks](2026-09-08-1100-codex-vm641-delivery-checks.md) | VM-641 | Identity displayed from heading; not admission metadata. |

@@ -164,3 +164,87 @@ test('delivery routes remain canonical and stage invocation is explicit', () => 
   // Unknown-stage/admission behavior remains covered by task-context; delivery has focused fixtures.
   assert.ok(links('docs/reference/workflow.md').includes('task-context.md#focused-and-deep-rehydration'));
 });
+
+test('agent model routing assigns roles without replacing governing gates', () => {
+  const routing = section('docs/reference/token-reasoning-cost-control.md', 'Agent Model Routing');
+  for (const assignment of [
+    /^\| Conversation, planning, and coordination \| `gpt-6-astra` \| `xhigh` \|/m,
+    /^\| RobDev implementation and routine source reading \| `gpt-5\.6-terra` \| `medium` \|/m,
+    /^\| Independent RobQA and test strategy \| `gpt-5\.6-sol` \| `medium` \|/m,
+    /^\| Clerical records, including routine Kanban updates \| `gpt-5\.6-terra` \| `low` \|/m
+  ]) assert.match(routing, assignment);
+  assert.match(routing, /does not replace[\s\S]*?governing authority[\s\S]*?independence requirements[\s\S]*?delivery gates/i);
+  assert.match(routing, /skills and role prompts[\s\S]*?do not select a model automatically/i);
+  assert.match(routing, /separate-QA rules remain unchanged/i);
+  assert.match(routing, /independence concerns a non-implementing reviewer, not a different model family/i);
+  assert.match(routing, /Model selection never creates readiness or permission/i);
+});
+
+test('agent model routing requires explicit focused delegation and transparent capability gaps', () => {
+  const routing = section('docs/reference/token-reasoning-cost-control.md', 'Agent Model Routing');
+  assert.match(routing, /announce the role, requested model and effort/i);
+  assert.match(routing, /compact packet[\s\S]*?scope[\s\S]*?governing authority[\s\S]*?protected behavior[\s\S]*?evidence/i);
+  assert.match(routing, /exact `model` and `reasoning_effort` with `fork_turns: none`/);
+  assert.match(routing, /full-history `all` spawn inherits its parent/i);
+  assert.match(routing, /tool has accepted a known configured model and effort that match the role/i);
+  assert.match(routing, /Spawn acceptance does not require or establish backend telemetry/i);
+  assert.match(routing, /wrong or unknown configuration cannot be silently reused/i);
+  assert.match(routing, /does not recursively spawn another worker/i);
+  assert.match(routing, /report the capability gap[\s\S]*?Do not fall back to Astra or an unannounced substitute/i);
+  assert.match(routing, /Announce the old and requested new model and effort[\s\S]*?before escalation/i);
+  assert.match(routing, /Return to the role's default lower route when the bounded escalation ends/i);
+  assert.match(routing, /After spawn and in the compact handoff[\s\S]*?configured route[\s\S]*?accepted\/requested arguments[\s\S]*?host-confirmed effective settings/i);
+  assert.match(routing, /Distinguish configured\/requested route[\s\S]*?observed effective local-runtime route[\s\S]*?unverified backend route/i);
+  const routingPointers = new Map([
+    ['AGENTS.md', 'docs/reference/token-reasoning-cost-control.md#agent-model-routing'],
+    ['docs/reference/workflow.md', 'token-reasoning-cost-control.md#agent-model-routing'],
+    ...prompts.map(file => [file, '../../docs/reference/token-reasoning-cost-control.md#agent-model-routing']),
+    ['.agents/skills/robdev/SKILL.md', '../../../docs/reference/token-reasoning-cost-control.md#agent-model-routing'],
+    ['.agents/skills/robqa/SKILL.md', '../../../docs/reference/token-reasoning-cost-control.md#agent-model-routing']
+  ]);
+  for (const [file, pointer] of routingPointers) {
+    assert.ok(links(file).includes(pointer), `${file} points to routing`);
+  }
+});
+
+test('native Codex routing files preserve the three role routes and a non-Astra fallback', () => {
+  const config = read('.codex/config.toml');
+  assert.match(config, /^\[agents\]$/m);
+  assert.match(config, /^default_subagent_model = "gpt-5\.6-terra"$/m);
+  assert.match(config, /^default_subagent_reasoning_effort = "medium"$/m);
+
+  const route = (text, file) => {
+    const field = key => {
+      const match = text.match(new RegExp(`^${key} = "([^"\\n]+)"$`, 'm'));
+      assert.ok(match, `${file} missing or malformed ${key}`);
+      return match[1];
+    };
+    return { name: field('name'), model: field('model'), effort: field('model_reasoning_effort') };
+  };
+  const expected = new Map([
+    ['robdev', ['gpt-5.6-terra', 'medium']],
+    ['robqa', ['gpt-5.6-sol', 'medium']],
+    ['clerical', ['gpt-5.6-terra', 'low']]
+  ]);
+  for (const [role, [model, effort]] of expected) {
+    const file = `.codex/agents/${role}.toml`;
+    const text = read(file);
+    const configured = route(text, file);
+    assert.equal(configured.name, role);
+    assert.equal(configured.model, model);
+    assert.equal(configured.effort, effort);
+    assert.match(text, /^description = ".+"$/m);
+    assert.match(text, /^developer_instructions = """$/m);
+    assert.doesNotMatch(text, /gpt-6-astra|xhigh/);
+  }
+  assert.throws(() => route('name = "robdev"\nmodel_reasoning_effort = "medium"', 'missing-model.toml'), /missing or malformed model/);
+  assert.throws(() => route('name = "robdev"\nmodel = 7\nmodel_reasoning_effort = "medium"', 'malformed-model.toml'), /missing or malformed model/);
+
+  const routing = section('docs/reference/token-reasoning-cost-control.md', 'Agent Model Routing');
+  assert.match(routing, /native Terra Medium fallback/i);
+  assert.match(routing, /fresh trusted session that loads the project defaults/i);
+  assert.match(routing, /does not prove that this already-running bridge applied the fallback/i);
+  assert.match(routing, /no custom-agent selector/i);
+  assert.match(routing, /observed effective local-runtime route/i);
+  assert.match(routing, /unverified backend route/i);
+});

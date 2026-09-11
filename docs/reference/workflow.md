@@ -45,7 +45,7 @@ For ordinary implementation, follow this staged path:
 
 At test selection, candidate QA or Owner Review preparation, load the [RobQA skill](../../.agents/skills/robqa/SKILL.md) and full governing pass. Do not preload RobQA for ordinary implementation. A QA task may enter here directly; a plan selecting tests invokes both roles at the relevant stage. Reuse already-read unchanged authority in the current task; compatibility usage guides add no mandatory hop.
 
-At shipping/Owner acceptance/integration, read the applicable [delivery contract](#standard-branch-to-owner-to-pr-to-merge-delivery), evidence rules and [capability routing](#github-operation-routing) before host operations. Use [handoff/reporting](#required-agent-handoff) at transfer. The [cost policy](token-reasoning-cost-control.md) applies throughout and cannot waive a safeguard. Context authority lists and atlases are conditional navigation, not instructions to preload all roles or specialists.
+At shipping/Owner acceptance/integration, read the applicable [delivery contract](#standard-branch-to-owner-to-pr-to-merge-delivery), evidence rules and [capability routing](#github-operation-routing) before host operations. Use [handoff/reporting](#required-agent-handoff) at transfer. The [cost policy and Agent Model Routing](token-reasoning-cost-control.md#agent-model-routing) apply throughout and cannot waive a safeguard or replace a governing role. Context authority lists and atlases are conditional navigation, not instructions to preload all roles or specialists.
 
 Before a new card exists, use relevant predecessor context/raw sources, then admission start. Historical records preserve event-time rationale; old procedures do not override current authority. Less mandatory reading, same accessible knowledge: targeted retrieval is an optimization layer, not an information boundary. Use the [read-only delivery checks](task-delivery.md#commands-and-verdicts) at candidate, integration and closeout boundaries; the acting agent retains authentic decisions and host discovery.
 
@@ -97,7 +97,7 @@ Every handoff must include:
 - Next suggested agent
 - Related Kanban card, docs, or plans
 
-Implementation handoffs must use the repo-local `robdev` skill and transfer the compact packet from [RobDevPass](../dev/RobDevPass.md#18-handoff-to-robqapass). Handoffs that claim owner-QA readiness must also use the repo-local `robqa` skill and the readiness fields in [RobQAPass](../qa/RobQAPass.md#24-robqapass-exit-criteria); reference the skills and frozen gates rather than restating their policies.
+Implementation handoffs must use the repo-local `robdev` skill and transfer the compact packet from [RobDevPass](../dev/RobDevPass.md#18-handoff-to-robqapass). Handoffs that claim owner-QA readiness must also use the repo-local `robqa` skill and the readiness fields in [RobQAPass](../qa/RobQAPass.md#24-robqapass-exit-criteria); reference the skills and frozen gates rather than restating their policies. For delegated work, report the requested role/model/effort and host-confirmed settings under [Agent Model Routing](token-reasoning-cost-control.md#agent-model-routing); do not invent runtime measurement.
 
 After updating source cards/handoffs, follow the [generated-view maintenance and freshness contract](task-context.md#generated-views-and-safe-replacement); both views must be current. Do not hand-maintain derived summaries.
 

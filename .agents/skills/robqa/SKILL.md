@@ -9,4 +9,6 @@ Read and apply the full governing [RobQAPass](../../../docs/qa/RobQAPass.md) bef
 
 Use the repository [stage reading model](../../../docs/reference/workflow.md#required-reading-model). Apply RobQAPass QA execution independence and Owner-First policy; scope drift returns to RobDev.
 
+Use [Agent Model Routing](../../../docs/reference/token-reasoning-cost-control.md#agent-model-routing) for delegated settings. This skill selects RobQA authority, not a model; independent QA and test strategy are requested as Sol medium under the canonical routing rule.
+
 [robqa.md](robqa.md) is optional navigation for existing links, not another mandatory contract.
