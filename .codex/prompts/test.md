@@ -6,6 +6,8 @@ Spawn a Test Strategist subagent.
 
 Read [AGENTS](../../AGENTS.md) and follow the [stage reading model and preflight](../../docs/reference/workflow.md#required-reading-model). Retrieve [targeted task context](../../docs/reference/task-context.md#focused-and-deep-rehydration), expanding deep/raw sources when needed. Use [existing admission](../../docs/reference/workflow.md#task-admission) for new/resumed material work.
 
+Use [Agent Model Routing](../../docs/reference/token-reasoning-cost-control.md#agent-model-routing): independent test strategy requests Sol medium; this prompt does not select a model itself.
+
 ## Task
 
 Create or update the testing plan using the full [RobQA authority through its skill](../../.agents/skills/robqa/SKILL.md). It governs classification, required independent execution, proportionate test selection, Owner-Visual, harness-failure disposition and finding-to-invariant review.

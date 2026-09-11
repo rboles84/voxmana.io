@@ -38,7 +38,7 @@ Owner-authorized current request. No product changes.
 
 ## Acceptance Criteria
 
-- [ ] The routing is explicit and enforceable: coordinator work uses `gpt-6-astra` at `xhigh`; RobDev implementation uses `gpt-5.6-terra` at `medium`; independent RobQA/test strategy uses `gpt-5.6-sol` at `medium`; clerical records use `gpt-5.6-terra` at `low`.
+- [ ] The routing is an explicit, agent-enforced instruction policy: coordinator work uses `gpt-6-astra` at `xhigh`; RobDev implementation uses `gpt-5.6-terra` at `medium`; independent RobQA/test strategy uses `gpt-5.6-sol` at `medium`; clerical records use `gpt-5.6-terra` at `low`. Repository tests protect durable instructions and pointers; they do not enforce backend model selection.
 - [ ] Each delegated packet explicitly supplies model and effort, uses a focused packet with `fork_turns: none`, and announces its role, model, effort, and concrete escalation path.
 - [ ] The workflow prohibits silent expensive fallback and reuse of a role with the wrong model or effort; an unavailable required route escalates concretely before work continues.
 - [ ] The change points to the applicable existing workflow and governing-role authorities and does not weaken RobDev, RobQA, Owner, protected-work, QA-independence, or delivery requirements.
