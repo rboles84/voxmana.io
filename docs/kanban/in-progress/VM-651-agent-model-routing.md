@@ -29,6 +29,10 @@ Owner-authorized current request. No product changes.
 - `.codex/prompts/plan.md`
 - `.codex/prompts/preflight.md`
 - `.codex/prompts/test.md`
+- `.codex/config.toml`
+- `.codex/agents/robdev.toml`
+- `.codex/agents/robqa.toml`
+- `.codex/agents/clerical.toml`
 - `tests/governance/workflow-instructions.test.mjs`
 - `docs/kanban/in-progress/VM-651-agent-model-routing.md`
 - `docs/kanban/done/VM-651-agent-model-routing.md`
@@ -63,7 +67,7 @@ RobQA: PENDING for correction; prior PASS at 4970bea92c6df7b6118b7176dff98e5afa6
 Owner: REJECTED at 4970bea92c6df7b6118b7176dff98e5afa6908cf; advisory requested spawn arguments did not sufficiently prevent coordinator-model inheritance
 Integration: PENDING
 Dependencies: None
-Decisions: Owner authorized this current request; no product changes; no push or merge authorization.
+Decisions: Owner authorized this current request; no product changes; no push or merge authorization. Scope amendment: Owner REJECT correction authorizes native project agent configuration, focused runtime proof, and matching instruction/test changes while preserving VM-635–641 and VM-650.
 Evidence: Admission continuation: PASS on codex/vm-651-agent-model-routing from the recorded baseline. Owner REJECTED the recorded candidate; a correction requires a new candidate and independent RobQA PASS before Owner Review.
 
 ## Notes
