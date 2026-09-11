@@ -2,7 +2,7 @@
 
 ID: VM-651
 Title: Agent Model Routing
-Status: In Progress
+Status: Owner Review
 Type: Documentation / workflow governance
 Area: Agent coordination and delivery workflow
 Priority: High
@@ -42,13 +42,13 @@ Owner-authorized current request. No product changes.
 
 ## Acceptance Criteria
 
-- [ ] Native project configuration persists the generic native-subagent fallback at `gpt-5.6-terra` / `medium` and the role definitions RobDev `gpt-5.6-terra` / `medium`, independent RobQA `gpt-5.6-sol` / `medium`, and clerical `gpt-5.6-terra` / `low`; the coordinator remains `gpt-6-astra` / `xhigh`.
-- [ ] The routing is an explicit, agent-enforced instruction policy. Repository tests protect durable instructions and config syntax; trusted native parsing and runtime observations are recorded separately, without claiming backend model selection, billing, or token savings.
-- [ ] Each delegated packet explicitly supplies model and effort, uses a focused packet with `fork_turns: none`, and announces its role, model, effort, and concrete escalation path.
-- [ ] The workflow prohibits silent expensive fallback and reuse of a role with the wrong model or effort; an unavailable required route escalates concretely before work continues, a bounded escalation returns to its lower role route, and generic native children do not inherit the coordinator's Astra route in a fresh trusted session that loads the project defaults.
-- [ ] Native precedence, new-session/static-configuration limits, and the current bridge limitation are documented: the bridge exposes explicit model/effort arguments but no custom-agent selector, so current bridge observations cannot be credited as native role-file selection.
-- [ ] The change points to the applicable existing workflow and governing-role authorities and does not weaken RobDev, RobQA, Owner, protected-work, QA-independence, or delivery requirements.
-- [ ] Focused regression coverage proves the routing language and its operational pointers remain reachable and consistent.
+- [x] Native project configuration persists the generic native-subagent fallback at `gpt-5.6-terra` / `medium` and the role definitions RobDev `gpt-5.6-terra` / `medium`, independent RobQA `gpt-5.6-sol` / `medium`, and clerical `gpt-5.6-terra` / `low`; the coordinator remains `gpt-6-astra` / `xhigh`.
+- [x] The routing is an explicit, agent-enforced instruction policy. Repository tests protect durable instructions and config syntax; trusted native parsing and runtime observations are recorded separately, without claiming backend model selection, billing, or token savings.
+- [x] Each delegated packet explicitly supplies model and effort, uses a focused packet with `fork_turns: none`, and announces its role, model, effort, and concrete escalation path.
+- [x] The workflow prohibits silent expensive fallback and reuse of a role with the wrong model or effort; an unavailable required route escalates concretely before work continues, a bounded escalation returns to its lower role route, and generic native children do not inherit the coordinator's Astra route in a fresh trusted session that loads the project defaults.
+- [x] Native precedence, new-session/static-configuration limits, and the current bridge limitation are documented: the bridge exposes explicit model/effort arguments but no custom-agent selector, so current bridge observations cannot be credited as native role-file selection.
+- [x] The change points to the applicable existing workflow and governing-role authorities and does not weaken RobDev, RobQA, Owner, protected-work, QA-independence, or delivery requirements.
+- [x] Focused regression coverage proves the routing language and its operational pointers remain reachable and consistent.
 
 ## Risks
 
@@ -64,8 +64,8 @@ Add scoped, cross-referenced agent-routing guidance that records the authorized 
 Record version: 1
 Branch: codex/vm-651-agent-model-routing
 Admission baseline: 2b83f15b1ec24efde3d56f27ea7e06a014206199
-Candidate: PENDING
-RobQA: PENDING
+Candidate: c49ba0a697c7d4aec6aa7647e393c038b679234a
+RobQA: PASS at c49ba0a697c7d4aec6aa7647e393c038b679234a SEPARATE; docs/handoffs/2026-09-10-0000-codex-vm651-agent-model-routing.md#corrected-candidate-robqa
 Owner: PENDING
 Integration: PENDING
 Dependencies: None

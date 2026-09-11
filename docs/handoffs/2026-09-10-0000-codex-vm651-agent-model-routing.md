@@ -150,3 +150,22 @@ Passed after the correction: `npm.cmd run test:workflow-instructions` (15/15) an
 ### Next independent review
 
 Independent Sol Medium RobQA must inspect the exact corrected candidate, including the four TOML files, trusted default-layer proof, static TOML parse result, policy limits, and the distinction between configured/requested routes and observed local runtime metadata. It must decide whether the disclosed unavailable bridge role-selection surface satisfies the Owner's strongest-available exception; it must not treat the current `agent_role: null` probes as native role-file selection.
+
+## Corrected candidate RobQA
+
+Task: VM-651
+Candidate: c49ba0a697c7d4aec6aa7647e393c038b679234a
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: /root/vm651_runtime_robqa
+Implementer: /root/vm651_runtime_robdev
+
+Original source: `C:/Users/obake/AppData/Local/Temp/vm651-runtime-qa.md`; SHA256 `5cecb5ef723abd3240f7dfaaaa210651a39a0d356630bb49abd9d55e51060424`.
+
+Independent QA classified the corrected candidate as QA-0 documentation/instruction governance plus project-scoped Codex runtime configuration metadata. Selected evidence passed: focused workflow tests 15/15; standard TOML syntax/schema/value validation 4/4; trusted native project-default proof; three runtime observations for RobDev, RobQA, and clerical; and VM-635–VM-641 compatibility/preserved-owner review. VM-650 remains preserved at `9f8d8d8549050aa6e899dc6d66f3287f371206d1`.
+
+Runtime limits remain explicit: current bridge probes report `agent_role: null`, so native custom-TOML role selection is not proved; project configuration is session-static; and remote backend identity, billing, and token telemetry are unavailable. The observed local routes are not credited as native role-file selection.
+
+VM-641 candidate check: PASS with durable QA binding. Owner remains PENDING for this exact candidate. No push, PR, merge, or integration occurred.
+
+Clerical record attribution: requested `gpt-5.6-terra` at `low`; requested settings are not independent backend telemetry.
