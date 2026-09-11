@@ -539,21 +539,21 @@ export const OFFICIAL_HERO_PROOF_BY_FACTION_KEY = Object.freeze({
     src: "/assets/img/identity-hero/official/rakdos-rix-maadi-dungeon-palace.jpg",
     position: "50% 50%",
     attribution: "Art: Rix Maadi, Dungeon Palace",
-    scryfallUri: "https://scryfall.com/card/c19/269/rix-maadi-dungeon-palace",
+    scryfallUri: "https://scryfall.com/card/dis/179",
 
   }),
   BANT: Object.freeze({
     src: "/assets/img/identity-hero/official/bant-plane-alara.jpg",
     position: "52% 48%",
     attribution: "Art: Michael Komarck - Bant",
-    scryfallUri: "https://scryfall.com/card/opca/15/bant",
+    scryfallUri: "https://scryfall.com/card/ohop/4",
 
   }),
   B: Object.freeze({
     src: "/assets/img/identity-hero/official/black-altars-reap.jpg",
     position: "50% 45%",
     attribution: "Art: Donato Giancola - Altar's Reap",
-    scryfallUri: "https://scryfall.com/card/cma/45/altars-reap",
+    scryfallUri: "https://scryfall.com/card/isd/86",
 
   }),
   BG: Object.freeze({
@@ -567,7 +567,7 @@ export const OFFICIAL_HERO_PROOF_BY_FACTION_KEY = Object.freeze({
     src: "/assets/img/identity-hero/official/colorless-emrakul-promised-end.jpg",
     position: "50% 43%",
     attribution: "Art: Emrakul, the Promised End",
-    scryfallUri: "https://scryfall.com/card/inr/5/emrakul-the-promised-end",
+    scryfallUri: "https://scryfall.com/card/sld/1160",
 
   }),
   DUNE: Object.freeze({
@@ -588,7 +588,7 @@ export const OFFICIAL_HERO_PROOF_BY_FACTION_KEY = Object.freeze({
     src: "/assets/img/identity-hero/official/grixis-plane-alara.jpg",
     position: "50% 48%",
     attribution: "Art: Nils Hamm - Grixis",
-    scryfallUri: "https://scryfall.com/card/opca/33/grixis",
+    scryfallUri: "https://scryfall.com/card/ohop/15",
 
   }),
   RG: Object.freeze({
@@ -602,56 +602,56 @@ export const OFFICIAL_HERO_PROOF_BY_FACTION_KEY = Object.freeze({
     src: "/assets/img/identity-hero/official/jeskai-shiko-paragon-way.jpg",
     position: "50% 42%",
     attribution: "Art: Victor Adame Minguez - Shiko, Paragon of the Way",
-    scryfallUri: "https://scryfall.com/card/tdm/223/shiko-paragon-of-the-way",
+    scryfallUri: "https://scryfall.com/card/atdm/37",
 
   }),
   JUND: Object.freeze({
     src: "/assets/img/identity-hero/official/jund-plane-alara.jpg",
     position: "50% 48%",
     attribution: "Art: Aleksi Briclot - Jund",
-    scryfallUri: "https://scryfall.com/card/moc/148/jund",
+    scryfallUri: "https://scryfall.com/card/opc2/20",
 
   }),
   LOREHOLD: Object.freeze({
     src: "/assets/img/identity-hero/official/lorehold-velomachus-lorehold.jpg",
     position: "50% 42%",
     attribution: "Art: Raymond Swanland - Velomachus Lorehold",
-    scryfallUri: "https://scryfall.com/card/tdc/309/velomachus-lorehold",
+    scryfallUri: "https://scryfall.com/card/astx/61",
 
   }),
   MARDU: Object.freeze({
     src: "/assets/img/identity-hero/official/mardu-neriv-heart-storm.jpg",
     position: "50% 42%",
     attribution: "Art: Victor Adame Minguez - Neriv, Heart of the Storm",
-    scryfallUri: "https://scryfall.com/card/tdm/210/neriv-heart-of-the-storm",
+    scryfallUri: "https://scryfall.com/card/atdm/25",
 
   }),
   NAYA: Object.freeze({
     src: "/assets/img/identity-hero/official/naya-plane-alara.jpg",
     position: "50% 48%",
     attribution: "Art: Zoltan Boros & Gabor Szikszai - Naya",
-    scryfallUri: "https://scryfall.com/card/opca/55/naya",
+    scryfallUri: "https://scryfall.com/card/ohop/27",
 
   }),
   PRISMARI: Object.freeze({
     src: "/assets/img/identity-hero/official/prismari-galazeth-prismari.jpg",
     position: "50% 43%",
     attribution: "Art: Raymond Swanland - Galazeth Prismari",
-    scryfallUri: "https://scryfall.com/card/soc/311/galazeth-prismari",
+    scryfallUri: "https://scryfall.com/card/astx/58",
 
   }),
   QUANDRIX: Object.freeze({
     src: "/assets/img/identity-hero/official/quandrix-tanazir-quandrix.jpg",
     position: "50% 44%",
     attribution: "Art: Raymond Swanland - Tanazir Quandrix",
-    scryfallUri: "https://scryfall.com/card/soc/332/tanazir-quandrix",
+    scryfallUri: "https://scryfall.com/card/astx/60",
 
   }),
   SILVERQUILL: Object.freeze({
     src: "/assets/img/identity-hero/official/silverquill-shadrix-silverquill.jpg",
     position: "50% 43%",
     attribution: "Art: Raymond Swanland - Shadrix Silverquill",
-    scryfallUri: "https://scryfall.com/card/soc/330/shadrix-silverquill",
+    scryfallUri: "https://scryfall.com/card/astx/59",
 
   }),
   SULTAI: Object.freeze({
@@ -665,14 +665,14 @@ export const OFFICIAL_HERO_PROOF_BY_FACTION_KEY = Object.freeze({
     src: "/assets/img/identity-hero/official/green-primordial-hydra.jpg",
     position: "50% 45%",
     attribution: "Art: Aleksi Briclot - Primordial Hydra",
-    scryfallUri: "https://scryfall.com/card/soc/284/primordial-hydra",
+    scryfallUri: "https://scryfall.com/card/m12/189",
 
   }),
   GLINT: Object.freeze({
     src: "/assets/img/identity-hero/official/glint-glint-eye-nephilim.jpg",
     position: "50% 45%",
     attribution: "Art: Mark Zug - Glint-Eye Nephilim",
-    scryfallUri: "https://scryfall.com/card/dmc/152/glint-eye-nephilim",
+    scryfallUri: "https://scryfall.com/card/gpt/115",
 
   }),
   INK: Object.freeze({
@@ -686,21 +686,21 @@ export const OFFICIAL_HERO_PROOF_BY_FACTION_KEY = Object.freeze({
     src: "/assets/img/identity-hero/official/red-chain-lightning.jpg",
     position: "50% 45%",
     attribution: "Art: Christopher Moeller - Chain Lightning",
-    scryfallUri: "https://scryfall.com/card/dmr/113/chain-lightning",
+    scryfallUri: "https://scryfall.com/card/pd2/16",
 
   }),
   TEMUR: Object.freeze({
     src: "/assets/img/identity-hero/official/temur-dragonback-assault.png",
     position: "50% 48%",
     attribution: "Art: Ryan Pancoast - Dragonback Assault",
-    scryfallUri: "https://scryfall.com/card/tdm/179/dragonback-assault",
+    scryfallUri: "https://scryfall.com/card/atdm/22",
 
   }),
   U: Object.freeze({
     src: "/assets/img/identity-hero/official/blue-academy-ruins.jpg",
     position: "50% 48%",
     attribution: "Art: Zoltan Boros & Gabor Szikszai - Academy Ruins",
-    scryfallUri: "https://scryfall.com/card/2xm/309/academy-ruins",
+    scryfallUri: "https://scryfall.com/card/2xm/369",
 
   }),
   UB: Object.freeze({
@@ -714,28 +714,28 @@ export const OFFICIAL_HERO_PROOF_BY_FACTION_KEY = Object.freeze({
     src: "/assets/img/identity-hero/official/simic-guildgate.jpg",
     position: "50% 50%",
     attribution: "Art: Simic Guildgate",
-    scryfallUri: "https://scryfall.com/card/fdn/695/simic-guildgate",
+    scryfallUri: "https://scryfall.com/card/gtc/246",
 
   }),
   UR: Object.freeze({
     src: "/assets/img/identity-hero/official/izzet-steam-vents.jpg",
     position: "50% 50%",
     attribution: "Art: Steam Vents",
-    scryfallUri: "https://scryfall.com/card/trk/298/steam-vents",
+    scryfallUri: "https://scryfall.com/card/grn/257",
 
   }),
   WB: Object.freeze({
     src: "/assets/img/identity-hero/official/orzhov-ghost-council-orzhova.jpg",
     position: "50% 44%",
     attribution: "Art: Greg Staples - Ghost Council of Orzhova",
-    scryfallUri: "https://scryfall.com/card/mm2/176/ghost-council-of-orzhova",
+    scryfallUri: "https://scryfall.com/card/gpt/114",
 
   }),
   WG: Object.freeze({
     src: "/assets/img/identity-hero/official/selesnya-temple-garden.jpg",
     position: "50% 50%",
     attribution: "Art: Temple Garden",
-    scryfallUri: "https://scryfall.com/card/trk/301/temple-garden",
+    scryfallUri: "https://scryfall.com/card/rvr/300",
 
   }),
   WR: Object.freeze({
@@ -749,7 +749,7 @@ export const OFFICIAL_HERO_PROOF_BY_FACTION_KEY = Object.freeze({
     src: "/assets/img/identity-hero/official/azorius-hallowed-fountain.jpg",
     position: "50% 50%",
     attribution: "Art: Hallowed Fountain",
-    scryfallUri: "https://scryfall.com/card/trk/286/hallowed-fountain",
+    scryfallUri: "https://scryfall.com/card/rtr/241",
 
   }),
   W: Object.freeze({
@@ -777,7 +777,7 @@ export const OFFICIAL_HERO_PROOF_BY_FACTION_KEY = Object.freeze({
     src: "/assets/img/identity-hero/official/witherbloom-beledros-witherbloom.jpg",
     position: "50% 43%",
     attribution: "Art: Raymond Swanland - Beledros Witherbloom",
-    scryfallUri: "https://scryfall.com/card/soc/296/beledros-witherbloom",
+    scryfallUri: "https://scryfall.com/card/astx/57",
 
   }),
   YORE: Object.freeze({

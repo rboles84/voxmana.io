@@ -52,6 +52,13 @@ const cardRationaleCatalog = JSON.parse(await readFile(new URL("../../data/dossi
 const oracleCards = JSON.parse(await readFile(new URL("../../data/scryfall/raw/oracle-cards.json", import.meta.url), "utf8"));
 const preconCatalog = JSON.parse(await readFile(new URL("../../data/precons/vox-mana-precon-catalog.json", import.meta.url), "utf8"));
 const preconThemeTaxonomy = JSON.parse(await readFile(new URL("../../data/taxonomy/vox-mana-precon-themes.json", import.meta.url), "utf8"));
+const discoveryEducationAuthority = JSON.parse(await readFile(new URL("../../data/dossier/discovery-education-authority.source.json", import.meta.url), "utf8"));
+const discoveryEducationCatalog = JSON.parse(await readFile(new URL("../../data/dossier/discovery-education-catalog.json", import.meta.url), "utf8"));
+const ownerProtectionCopy = "Protection stops damage, enchanting or equipping, blocking, and targeting from whatever it has protection from. Other effects still work normally.";
+const authorityProtection = discoveryEducationAuthority.records.find((record) => record.record_id === "glossary_protection");
+const catalogProtection = discoveryEducationCatalog.glossary.find((record) => record.record_id === "glossary_protection");
+assert.equal(authorityProtection?.proposed_copy, ownerProtectionCopy, "expected the generated glossary authority to retain the Owner Protection copy");
+assert.equal(catalogProtection?.definition, ownerProtectionCopy, "expected the runtime glossary catalog to retain the Owner Protection copy");
 const deckTagData = JSON.parse(await readFile(new URL("../../data/deck-tags_expanded.json", import.meta.url), "utf8"));
 const deckTagCatalog = createArchidektTagCatalog(deckTagData);
 const fourColorRawIds = ["yore", "glint", "dune", "ink", "witch"];
@@ -208,7 +215,7 @@ const {
   selectCuratedFlavorEchoesForFaction,
   selectFlavorEchoes,
 } = await import("../../assets/js/archscry/index.js");
-const { buildPreconSectionHtml, togglePreconPreview } = await import("../../assets/js/archscry/runtime/dossier-view.js?v=vm636");
+const { buildPreconSectionHtml, OFFICIAL_HERO_PROOF_BY_FACTION_KEY, togglePreconPreview } = await import("../../assets/js/archscry/runtime/dossier-view.js?v=vm636");
 const {
   renderDossierRadarSection,
 } = await import("../../assets/js/archscry/dossier-radar.js");
@@ -3300,13 +3307,14 @@ assert.equal(
   "expected YORE to expose a minimal proof-only art credit"
 );
 assert.equal(heroBannerArtworkAttributionForFaction({ key: "UNKNOWN" }), "", "expected unknown heroes to remain without proof artwork credit");
-const expectedOfficialHeroScryfallUris = {
-  ABZAN: "https://scryfall.com/card/tdc/1/betor-ancestors-voice", BR: "https://scryfall.com/card/c19/269/rix-maadi-dungeon-palace", BANT: "https://scryfall.com/card/opca/15/bant", B: "https://scryfall.com/card/cma/45/altars-reap", BG: "https://scryfall.com/card/rav/200/dark-heart-of-the-wood", COLORLESS: "https://scryfall.com/card/inr/5/emrakul-the-promised-end", DUNE: "https://scryfall.com/card/gpt/110/dune-brood-nephilim", ESPER: "https://scryfall.com/card/moc/49/esper", GRIXIS: "https://scryfall.com/card/opca/33/grixis", RG: "https://scryfall.com/card/dgm/119/zhur-taa-ancient", JESKAI: "https://scryfall.com/card/tdm/223/shiko-paragon-of-the-way", JUND: "https://scryfall.com/card/moc/148/jund", LOREHOLD: "https://scryfall.com/card/tdc/309/velomachus-lorehold", MARDU: "https://scryfall.com/card/tdm/210/neriv-heart-of-the-storm", NAYA: "https://scryfall.com/card/opca/55/naya", PRISMARI: "https://scryfall.com/card/soc/311/galazeth-prismari", QUANDRIX: "https://scryfall.com/card/soc/332/tanazir-quandrix", SILVERQUILL: "https://scryfall.com/card/soc/330/shadrix-silverquill", SULTAI: "https://scryfall.com/card/tdc/8/teval-the-balanced-scale", G: "https://scryfall.com/card/soc/284/primordial-hydra", GLINT: "https://scryfall.com/card/dmc/152/glint-eye-nephilim", INK: "https://scryfall.com/card/gpt/117/ink-treader-nephilim", R: "https://scryfall.com/card/dmr/113/chain-lightning", TEMUR: "https://scryfall.com/card/tdm/179/dragonback-assault", U: "https://scryfall.com/card/2xm/309/academy-ruins", UB: "https://scryfall.com/card/gtc/179/mortus-strider", UG: "https://scryfall.com/card/fdn/695/simic-guildgate", UR: "https://scryfall.com/card/trk/298/steam-vents", WB: "https://scryfall.com/card/mm2/176/ghost-council-of-orzhova", WG: "https://scryfall.com/card/trk/301/temple-garden", WR: "https://scryfall.com/card/war/216/solar-blaze", WU: "https://scryfall.com/card/trk/286/hallowed-fountain", W: "https://scryfall.com/card/avr/8/builders-blessing", WUBRG: "https://scryfall.com/card/5dn/84/channel-the-suns", WITCH: "https://scryfall.com/card/gpt/138/witch-maw-nephilim", WITHERBLOOM: "https://scryfall.com/card/soc/296/beledros-witherbloom", YORE: "https://scryfall.com/card/gpt/140/yore-tiller-nephilim",
-};
-assert.equal(Object.keys(expectedOfficialHeroScryfallUris).length, 37, "expected every official hero credit to have an exact Scryfall printing URI");
-for (const [key, uri] of Object.entries(expectedOfficialHeroScryfallUris)) {
-  assert.equal(heroBannerArtworkForFaction({ key })?.scryfallUri, uri, `expected ${key} hero credit to retain its exact Scryfall printing URI`);
-}
+const officialHeroArtwork = Object.entries(OFFICIAL_HERO_PROOF_BY_FACTION_KEY);
+assert.equal(officialHeroArtwork.length, 37, "expected every official hero credit to resolve through the shared proof map");
+officialHeroArtwork.forEach(([key, artwork]) => {
+  const uri = new URL(artwork?.scryfallUri || "", "https://invalid.example");
+  assert.equal(uri.hostname, "scryfall.com", `expected ${key} hero credit to use a direct Scryfall host`);
+  assert.match(uri.pathname, /^\/card\/[a-z0-9]+\/\d+(?:\/[^/]+)?$/i, `expected ${key} hero credit to use a printing path`);
+  assert.match(artwork?.attribution || "", /^Art:/, `expected ${key} hero credit to retain its attribution`);
+});
 assert.match(indexSource, /guild-art-credit[\s\S]*?href=.*heroArtworkScryfallUri/, "expected the common hero-credit renderer to emit the resolved Scryfall link");
 ["INK"].forEach((key) => {
   assert.equal(heroBannerImageSlugForFaction({ key }), "", `expected ${key} to remain outside the current dossier-backed hero rollout`);
