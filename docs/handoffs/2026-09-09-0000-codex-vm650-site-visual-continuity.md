@@ -348,3 +348,13 @@ Verification performed: continuation admission; exact card/Oracle and claim/sour
 Protected/not touched: wider layout, open sections, charcoal headings, opaque navigation, equal land sizing, first-six precons, three distinct Signals per category, no within-dossier displayed duplicates, Protection text, exact art links, hover behavior, Maze and VM-643/VM-651. The earlier continuous native-hover evidence gap remains pending. The Owner has not accepted Archscry or VM-650.
 
 Next suggested agent: coordination/RobDev to scope the new relationship proposals and separately authorized upstream factual correction through the owning source process, with independent RobQA on actual changes. Resolve Sound/Signal replacement choices before publication, retain pending evidence gaps, and remain on Archscry until the Owner completes its review. No implicit transition to Maze or integration.
+
+## 2026-09-11 bounded current Plays factual correction
+
+Owner-authorized scope: only the 13 confirmed current Plays factual findings, retained historical quotations/adjudications/digests, and explicit correction provenance. Research is accepted input only. No new candidates, collisions, eligibility or architectural expansion; no push, merge or deployment.
+
+RobDev implementer: Terra Medium `/root/plays_correction_dev`; coordinator: Astra. QA-1 factual copy plus narrow producer provenance validation. Full Oracle is captured in the source correction ledger with SHA-256 and canonical locator; ordinary generation does not require raw-bulk ingestion. New correction wording remains OWNER_REVIEW_PENDING. Exact before/after fields and relationship IDs: [correction packet](../research/vm650-plays-factual-correction.md).
+
+Implementation checks: owning build and deterministic `test:card-rationales` PASS; dossier integrity PASS; diff whitespace PASS. VM563 full-corpus run stops at an existing unrelated Ink Sound catalog gap (`cardvoice_ink_0895c9b7_ae7d_4bb3_af17_3b75deb50a25`); do not claim that suite passed or repair unrelated Sound here. Historical fixtures remain unchanged. Generated changes are the rationale catalog, owner-review packet and per-card adjudication projection. Other owning outputs remain unchanged.
+
+Owner requests manual testing and minimal compute. No browser automation or expanded research. Prior whole-VM650 hover-path checkpoint remains outside this bounded correction verdict. Independent exact-candidate result and Git accounting follow after the material commit.

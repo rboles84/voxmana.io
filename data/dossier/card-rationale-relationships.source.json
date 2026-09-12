@@ -3,6 +3,467 @@
   "authority": "Vox Mana source-first dossier card relationship adjudication",
   "generated_from_baseline": false,
   "review_policy": "APPROVED_PUBLIC requires prior owner approval or a passing evidence-validated automatic decision. Runtime receives no unresolved, rejected, or fallback relationship.",
+  "current_copy_correction_review_status": "OWNER_REVIEW_PENDING",
+  "current_copy_corrections": {
+    "cardrel_auto_silverquill_d11e627b_8a48_411d_a261_2c9a02a758ba": {
+      "schema_version": "factual-copy-correction-v1",
+      "correction_id": "vm650-breena-factual-copy",
+      "task": "VM-650",
+      "change_class": "FACTUAL_COPY_CORRECTION",
+      "reason": "The counters go on a creature you control, not necessarily Breena.",
+      "corrected_current_fields": [
+        "proposed_public_rationale",
+        "relationship_evidence.relationship_bridge"
+      ],
+      "current_field_values": {
+        "proposed_public_rationale": "Breena makes social influence change combat: an eligible attack against one of your opponents can draw the attacking player a card while you put two +1/+1 counters on a creature you control.",
+        "relationship_evidence.relationship_bridge": "Breena makes social influence change combat: an eligible attack against one of your opponents can draw the attacking player a card while you put two +1/+1 counters on a creature you control. The relationship is limited to the verified card action and certified claims silverquill_claim_001, silverquill_claim_006, silverquill_claim_0019."
+      },
+      "retained_historical_evidence": {
+        "status": "IMMUTABLE_HISTORICAL_EVIDENCE_RETAINED",
+        "fields": [
+          "relationship_evidence.exact_text"
+        ]
+      },
+      "canonical_card_fact": {
+        "oracle_id": "d11e627b-8a48-411d-a261-2c9a02a758ba",
+        "locator": "data/scryfall/raw/oracle-cards.json#oracle_id=d11e627b-8a48-411d-a261-2c9a02a758ba",
+        "oracle_text": "Flying\nWhenever a player attacks one of your opponents, if that opponent has more life than another of your opponents, that attacking player draws a card and you put two +1/+1 counters on a creature you control.",
+        "oracle_text_sha256": "e68c81863eacfd9bc03381d17936f5245bd6377b72d049885693e4116a7678be"
+      },
+      "prior_field_values": {
+        "proposed_public_rationale": "Breena makes social influence change combat: attacks against a leading opponent can reward the attacker with a card while making Breena larger.",
+        "relationship_evidence.relationship_bridge": "Breena makes social influence change combat: attacks against a leading opponent can reward the attacker with a card while making Breena larger. The relationship is limited to the verified card action and certified claims silverquill_claim_001, silverquill_claim_006, silverquill_claim_0019."
+      },
+      "prior_source": {
+        "git_revision": "dbc4a898",
+        "path": "data/dossier/card-rationale-relationships.source.json"
+      }
+    },
+    "cardrel_auto_witherbloom_f61c1dc4_2f09_4b50_957f_ee656c659072": {
+      "schema_version": "factual-copy-correction-v1",
+      "correction_id": "vm650-dina-factual-copy",
+      "task": "VM-650",
+      "change_class": "FACTUAL_COPY_CORRECTION",
+      "reason": "The draw trigger is once each turn and the activated ability is separate and targeted.",
+      "corrected_current_fields": [
+        "proposed_public_rationale",
+        "relationship_evidence.relationship_bridge"
+      ],
+      "current_field_values": {
+        "proposed_public_rationale": "Dina makes Witherbloom's practical life-and-death exchange visible: once each turn, sacrificing a creature draws you a card; her separate activated ability sacrifices another creature to gain you life and put that creature's power in +1/+1 counters on a target creature you control.",
+        "relationship_evidence.relationship_bridge": "Dina makes Witherbloom's practical life-and-death exchange visible: once each turn, sacrificing a creature draws you a card; her separate activated ability sacrifices another creature to gain you life and put that creature's power in +1/+1 counters on a target creature you control. The relationship is limited to the verified card action and certified claims witherbloom_claim_0019, witherbloom_claim_0022."
+      },
+      "retained_historical_evidence": {
+        "status": "IMMUTABLE_HISTORICAL_EVIDENCE_RETAINED",
+        "fields": [
+          "relationship_evidence.exact_text"
+        ]
+      },
+      "canonical_card_fact": {
+        "oracle_id": "f61c1dc4-2f09-4b50-957f-ee656c659072",
+        "locator": "data/scryfall/raw/oracle-cards.json#oracle_id=f61c1dc4-2f09-4b50-957f-ee656c659072",
+        "oracle_text": "Whenever you sacrifice a creature, draw a card. This ability triggers only once each turn.\n{2}, {T}, Sacrifice another creature: You gain X life and put X +1/+1 counters on target creature you control, where X is the sacrificed creature's power.",
+        "oracle_text_sha256": "d3bfce1a6ee830b3353a6e7788ae6e2978c11eda5b2e2671276f8937357fd335"
+      },
+      "prior_field_values": {
+        "proposed_public_rationale": "Dina makes Witherbloom's practical life-and-death exchange visible by turning a sacrificed creature into a card, life, and +1/+1 counters.",
+        "relationship_evidence.relationship_bridge": "Dina makes Witherbloom's practical life-and-death exchange visible by turning a sacrificed creature into a card, life, and +1/+1 counters. The relationship is limited to the verified card action and certified claims witherbloom_claim_0019, witherbloom_claim_0022."
+      },
+      "prior_source": {
+        "git_revision": "dbc4a898",
+        "path": "data/dossier/card-rationale-relationships.source.json"
+      }
+    },
+    "cardrel_bg_87e65e36": {
+      "schema_version": "factual-copy-correction-v1",
+      "correction_id": "vm650-jarad-factual-copy",
+      "task": "VM-650",
+      "change_class": "FACTUAL_COPY_CORRECTION",
+      "reason": "Jarad causes life loss, not damage or a drain.",
+      "corrected_current_fields": [
+        "proposed_public_rationale",
+        "modal_explanation"
+      ],
+      "current_field_values": {
+        "proposed_public_rationale": "Jarad grows for each creature card in your graveyard and can sacrifice another creature to make each opponent lose life equal to its power.",
+        "modal_explanation": "Jarad grows with every creature card already in your graveyard, then can sacrifice another creature to make each opponent lose life equal to its power. Even Jarad's own return asks for a Swamp and Forest, so recovery keeps consuming living resources."
+      },
+      "retained_historical_evidence": {
+        "status": "IMMUTABLE_HISTORICAL_EVIDENCE_RETAINED",
+        "fields": [
+          "relationship_evidence.exact_text"
+        ]
+      },
+      "canonical_card_fact": {
+        "oracle_id": "87e65e36-9483-49fe-b644-2caca092107f",
+        "locator": "data/scryfall/raw/oracle-cards.json#oracle_id=87e65e36-9483-49fe-b644-2caca092107f",
+        "oracle_text": "Jarad gets +1/+1 for each creature card in your graveyard.\n{1}{B}{G}, Sacrifice another creature: Each opponent loses life equal to the sacrificed creature's power.\nSacrifice a Swamp and a Forest: Return this card from your graveyard to your hand.",
+        "oracle_text_sha256": "7d2268265d499676b1c44362a8654338e9e2bfba50b943af891cd7b9ad60d389"
+      },
+      "prior_field_values": {
+        "proposed_public_rationale": "A classic Golgari leader who scales with the size of your graveyard and allows you to 'recycle' creatures into direct damage.",
+        "modal_explanation": "Jarad grows with every creature card already in your graveyard, then can sacrifice another creature to drain each opponent by its power. Even Jarad's own return asks for a Swamp and Forest, so recovery keeps consuming living resources."
+      },
+      "prior_source": {
+        "git_revision": "dbc4a898",
+        "path": "data/dossier/card-rationale-relationships.source.json"
+      }
+    },
+    "cardrel_auto_ink_53ee4254_fef7_49ec_aafc_0320987764e6": {
+      "schema_version": "factual-copy-correction-v1",
+      "correction_id": "vm650-kynaios-factual-copy",
+      "task": "VM-650",
+      "change_class": "FACTUAL_COPY_CORRECTION",
+      "reason": "Only opponents who do not put a land draw from the final clause.",
+      "corrected_current_fields": [
+        "proposed_public_rationale",
+        "modal_explanation",
+        "relationship_evidence.relationship_bridge"
+      ],
+      "current_field_values": {
+        "proposed_public_rationale": "At your end step, you draw; each player may put a land from hand onto the battlefield, then each opponent who did not do so draws.",
+        "modal_explanation": "At your end step, you draw first, then each player may put a land from hand onto the battlefield; each opponent who does not put one draws. Playing them means opening resources to the table without giving up your own return.",
+        "relationship_evidence.relationship_bridge": "At your end step, you draw; each player may put a land from hand onto the battlefield, then each opponent who did not do so draws. The relationship is limited to the verified card action and certified claims ink_claim_0003, ink_claim_0005."
+      },
+      "retained_historical_evidence": {
+        "status": "IMMUTABLE_HISTORICAL_EVIDENCE_RETAINED",
+        "fields": [
+          "relationship_evidence.exact_text"
+        ]
+      },
+      "canonical_card_fact": {
+        "oracle_id": "53ee4254-fef7-49ec-aafc-0320987764e6",
+        "locator": "data/scryfall/raw/oracle-cards.json#oracle_id=53ee4254-fef7-49ec-aafc-0320987764e6",
+        "oracle_text": "At the beginning of your end step, draw a card. Each player may put a land card from their hand onto the battlefield, then each opponent who didn't draws a card.",
+        "oracle_text_sha256": "a26deb2241137548e423cd0d25b0080dd68c7c531eddf52796adbce9495a89df"
+      },
+      "prior_field_values": {
+        "proposed_public_rationale": "Kynaios and Tiro make Ink's shared-resource frame visible: their end-step ability gives every player a chance to develop mana or draw, while their controller also draws.",
+        "modal_explanation": "Their end step shares the choice but not the reward evenly: every player may develop a land or draw, while you draw regardless. Playing them means opening resources to the table without giving up your own return.",
+        "relationship_evidence.relationship_bridge": "Kynaios and Tiro make Ink's shared-resource frame visible: their end-step ability gives every player a chance to develop mana or draw, while their controller also draws. The relationship is limited to the verified card action and certified claims ink_claim_0003, ink_claim_0005."
+      },
+      "prior_source": {
+        "git_revision": "dbc4a898",
+        "path": "data/dossier/card-rationale-relationships.source.json"
+      }
+    },
+    "cardrel_ur_095d9719": {
+      "schema_version": "factual-copy-correction-v1",
+      "correction_id": "vm650-melek-factual-copy",
+      "task": "VM-650",
+      "change_class": "FACTUAL_COPY_CORRECTION",
+      "reason": "Melek copies the spell rather than casting it a second time.",
+      "corrected_current_fields": [
+        "modal_explanation"
+      ],
+      "current_field_values": {
+        "modal_explanation": "Everyone sees the top card, but only you can cast a revealed instant or sorcery from your library and copy that spell. Melek makes the experiment public, then rewards you for arranging the library so the next result is one worth copying."
+      },
+      "retained_historical_evidence": {
+        "status": "IMMUTABLE_HISTORICAL_EVIDENCE_RETAINED",
+        "fields": [
+          "relationship_evidence.exact_text"
+        ]
+      },
+      "canonical_card_fact": {
+        "oracle_id": "095d9719-0db6-43de-8e4f-a0035a4c65ed",
+        "locator": "data/scryfall/raw/oracle-cards.json#oracle_id=095d9719-0db6-43de-8e4f-a0035a4c65ed",
+        "oracle_text": "Play with the top card of your library revealed.\nYou may cast instant and sorcery spells from the top of your library.\nWhenever you cast an instant or sorcery spell from your library, copy it. You may choose new targets for the copy.",
+        "oracle_text_sha256": "f35d61efaed79bca6f7cd9a5637a06c80332902c07ee1914419357cbeb019844"
+      },
+      "prior_field_values": {
+        "modal_explanation": "Everyone sees the top card, but only you can turn a revealed instant or sorcery into two casts. Melek makes the experiment public, then rewards you for arranging the library so the next result is one worth copying."
+      },
+      "prior_source": {
+        "git_revision": "dbc4a898",
+        "path": "data/dossier/card-rationale-relationships.source.json"
+      }
+    },
+    "cardrel_rg_ebf3fd80": {
+      "schema_version": "factual-copy-correction-v1",
+      "correction_id": "vm650-nikya-factual-copy",
+      "task": "VM-650",
+      "change_class": "FACTUAL_COPY_CORRECTION",
+      "reason": "Nikya adds one mana of a type produced rather than doubling all land output.",
+      "corrected_current_fields": [
+        "modal_explanation"
+      ],
+      "current_field_values": {
+        "modal_explanation": "Nikya adds one mana of a type the land produced whenever you tap it for mana, but only while you accept her ban on noncreature spells. Building around her means choosing creatures to perform jobs that another deck would give to instants, sorceries, or artifacts."
+      },
+      "retained_historical_evidence": {
+        "status": "IMMUTABLE_HISTORICAL_EVIDENCE_RETAINED",
+        "fields": [
+          "relationship_evidence.exact_text"
+        ]
+      },
+      "canonical_card_fact": {
+        "oracle_id": "ebf3fd80-9574-489b-9428-f4251834bdc4",
+        "locator": "data/scryfall/raw/oracle-cards.json#oracle_id=ebf3fd80-9574-489b-9428-f4251834bdc4",
+        "oracle_text": "You can't cast noncreature spells.\nWhenever you tap a land for mana, add one mana of any type that land produced.",
+        "oracle_text_sha256": "0cc1a3594690032e548b1bc00d781de793e99e06d804694a933cecd226075e55"
+      },
+      "prior_field_values": {
+        "modal_explanation": "Nikya doubles the mana your lands produce, but only while you accept her ban on noncreature spells. Building around her means choosing creatures to perform jobs that another deck would give to instants, sorceries, or artifacts."
+      },
+      "prior_source": {
+        "git_revision": "dbc4a898",
+        "path": "data/dossier/card-rationale-relationships.source.json"
+      }
+    },
+    "cardrel_auto_prismari_348c67ef_9ccc_4651_9038_efdf1ad1b36a": {
+      "schema_version": "factual-copy-correction-v1",
+      "correction_id": "vm650-rootha-factual-copy",
+      "task": "VM-650",
+      "change_class": "FACTUAL_COPY_CORRECTION",
+      "reason": "Rootha creates a separate token at combat on your turn using the greatest qualifying mana value.",
+      "corrected_current_fields": [
+        "proposed_public_rationale",
+        "relationship_evidence.relationship_bridge"
+      ],
+      "current_field_values": {
+        "proposed_public_rationale": "Rootha turns a turn's instant-or-sorcery spellcasting into a visible elemental performance: at the beginning of combat on your turn, she creates a separate flying, hasty Elemental token whose size uses the greatest mana value among those spells cast that turn.",
+        "relationship_evidence.relationship_bridge": "Rootha turns a turn's instant-or-sorcery spellcasting into a visible elemental performance: at the beginning of combat on your turn, she creates a separate flying, hasty Elemental token whose size uses the greatest mana value among those spells cast that turn. The relationship is limited to the verified card action and certified claims prismari_claim_002, prismari_claim_003, prismari_claim_006, prismari_claim_0017."
+      },
+      "retained_historical_evidence": {
+        "status": "IMMUTABLE_HISTORICAL_EVIDENCE_RETAINED",
+        "fields": [
+          "relationship_evidence.exact_text"
+        ]
+      },
+      "canonical_card_fact": {
+        "oracle_id": "348c67ef-9ccc-4651-9038-efdf1ad1b36a",
+        "locator": "data/scryfall/raw/oracle-cards.json#oracle_id=348c67ef-9ccc-4651-9038-efdf1ad1b36a",
+        "oracle_text": "At the beginning of combat on your turn, if you've cast an instant or sorcery spell this turn, create an X/X blue and red Elemental creature token with flying and haste, where X is the greatest mana value among instant and sorcery spells you've cast this turn.",
+        "oracle_text_sha256": "6a066099b726b64ce0b50485d404c45666d50756645a6db2b83d41d4714bdaf9"
+      },
+      "prior_field_values": {
+        "proposed_public_rationale": "Rootha turns an instant or sorcery into a visible elemental performance by creating a flying, hasty Elemental whose size follows that spell's mana value.",
+        "relationship_evidence.relationship_bridge": "Rootha turns an instant or sorcery into a visible elemental performance by creating a flying, hasty Elemental whose size follows that spell's mana value. The relationship is limited to the verified card action and certified claims prismari_claim_002, prismari_claim_003, prismari_claim_006, prismari_claim_0017."
+      },
+      "prior_source": {
+        "git_revision": "dbc4a898",
+        "path": "data/dossier/card-rationale-relationships.source.json"
+      }
+    },
+    "cardrel_auto_dune_e54d207c_51b8_458e_86a1_2633ac064c8e": {
+      "schema_version": "factual-copy-correction-v1",
+      "correction_id": "vm650-saskia-factual-copy",
+      "task": "VM-650",
+      "change_class": "FACTUAL_COPY_CORRECTION",
+      "reason": "Only combat damage dealt by a creature you control to a player is repeated to the chosen player.",
+      "corrected_current_fields": [
+        "proposed_public_rationale",
+        "modal_explanation",
+        "relationship_evidence.relationship_bridge"
+      ],
+      "current_field_values": {
+        "proposed_public_rationale": "As Saskia enters, you choose a player; whenever a creature you control deals combat damage to a player, it deals that much damage to the chosen player.",
+        "modal_explanation": "Choosing one player fixes the objective before combat begins. When a creature you control deals combat damage to a player, that damage is also dealt to the chosen player, so successful creature attacks can contribute to the same concentrated campaign.",
+        "relationship_evidence.relationship_bridge": "As Saskia enters, you choose a player; whenever a creature you control deals combat damage to a player, it deals that much damage to the chosen player. The relationship is limited to the verified card action and certified claims dune_claim_0003, dune_claim_0005."
+      },
+      "retained_historical_evidence": {
+        "status": "IMMUTABLE_HISTORICAL_EVIDENCE_RETAINED",
+        "fields": [
+          "relationship_evidence.exact_text"
+        ]
+      },
+      "canonical_card_fact": {
+        "oracle_id": "e54d207c-51b8-458e-86a1-2633ac064c8e",
+        "locator": "data/scryfall/raw/oracle-cards.json#oracle_id=e54d207c-51b8-458e-86a1-2633ac064c8e",
+        "oracle_text": "Vigilance, haste\nAs Saskia enters, choose a player.\nWhenever a creature you control deals combat damage to a player, it deals that much damage to the chosen player.",
+        "oracle_text_sha256": "58498c68489f6607256690a810105d8325e92c7ce0a2ee53af29185dd3a77b35"
+      },
+      "prior_field_values": {
+        "proposed_public_rationale": "Saskia turns visible combat into concentrated pressure: you choose a player, and combat damage dealt elsewhere is repeated against that player.",
+        "modal_explanation": "Choosing one player fixes the objective before combat begins. Damage dealt to anyone else still reaches that target, so every successful attack contributes to the same concentrated campaign.",
+        "relationship_evidence.relationship_bridge": "Saskia turns visible combat into concentrated pressure: you choose a player, and combat damage dealt elsewhere is repeated against that player. The relationship is limited to the verified card action and certified claims dune_claim_0003, dune_claim_0005."
+      },
+      "prior_source": {
+        "git_revision": "dbc4a898",
+        "path": "data/dossier/card-rationale-relationships.source.json"
+      }
+    },
+    "cardrel_wr_ae6f21a2": {
+      "schema_version": "factual-copy-correction-v1",
+      "correction_id": "vm650-tajic-factual-copy",
+      "task": "VM-650",
+      "change_class": "FACTUAL_COPY_CORRECTION",
+      "reason": "Tajic prevents only noncombat damage to other creatures you control.",
+      "corrected_current_fields": [
+        "proposed_public_rationale"
+      ],
+      "current_field_values": {
+        "proposed_public_rationale": "A low-cost commander whose mentor rewards attacking and who prevents noncombat damage to your other creatures."
+      },
+      "retained_historical_evidence": {
+        "status": "IMMUTABLE_HISTORICAL_EVIDENCE_RETAINED",
+        "fields": [
+          "relationship_evidence.exact_text"
+        ]
+      },
+      "canonical_card_fact": {
+        "oracle_id": "ae6f21a2-e6b6-4793-8343-e27310c0bea1",
+        "locator": "data/scryfall/raw/oracle-cards.json#oracle_id=ae6f21a2-e6b6-4793-8343-e27310c0bea1",
+        "oracle_text": "Haste\nMentor (Whenever this creature attacks, put a +1/+1 counter on target attacking creature with lesser power.)\nPrevent all noncombat damage that would be dealt to other creatures you control.\n{R}{W}: Tajic gains first strike until end of turn.",
+        "oracle_text_sha256": "5c84d8cb53608234255fc7adc1e641ee07ff55a3669016dcffb1deb7f4cef6af"
+      },
+      "prior_field_values": {
+        "proposed_public_rationale": "A low-cost commander that protects your team from damage and encourages offensive growth."
+      },
+      "prior_source": {
+        "git_revision": "dbc4a898",
+        "path": "data/dossier/card-rationale-relationships.source.json"
+      }
+    },
+    "cardrel_auto_r_8c3495bf_02e7_4ad9_949d_92eb3d2b662a": {
+      "schema_version": "factual-copy-correction-v1",
+      "correction_id": "vm650-torbran-factual-copy",
+      "task": "VM-650",
+      "change_class": "FACTUAL_COPY_CORRECTION",
+      "reason": "Torbran applies to red sources you control damaging opponents or permanents they control.",
+      "corrected_current_fields": [
+        "modal_explanation",
+        "relationship_evidence.relationship_bridge"
+      ],
+      "current_field_values": {
+        "modal_explanation": "Torbran changes the arithmetic before damage is dealt. Your small red sources become meaningful threats when they damage opponents or permanents those opponents control, rewarding a turn where several modest hits arrive together instead of waiting for one oversized play.",
+        "relationship_evidence.relationship_bridge": "Torbran gives Red's direct-action pressure a clear example by increasing damage from red sources you control to opponents and permanents those opponents control. The relationship is limited to the verified card action and certified claims red_claim_0003, red_claim_0007."
+      },
+      "retained_historical_evidence": {
+        "status": "IMMUTABLE_HISTORICAL_EVIDENCE_RETAINED",
+        "fields": [
+          "relationship_evidence.exact_text"
+        ]
+      },
+      "canonical_card_fact": {
+        "oracle_id": "8c3495bf-02e7-4ad9-949d-92eb3d2b662a",
+        "locator": "data/scryfall/raw/oracle-cards.json#oracle_id=8c3495bf-02e7-4ad9-949d-92eb3d2b662a",
+        "oracle_text": "If a red source you control would deal damage to an opponent or a permanent an opponent controls, it deals that much damage plus 2 instead.",
+        "oracle_text_sha256": "4d6401a865424a645660cbd195c70c33b9cfde37d9966c0b4eba80a9c597e4a9"
+      },
+      "prior_field_values": {
+        "modal_explanation": "Torbran changes the arithmetic before damage is dealt. Small red sources become meaningful threats, rewarding a turn where several modest hits arrive together instead of waiting for one oversized play.",
+        "relationship_evidence.relationship_bridge": "Torbran gives Red's direct-action pressure a clear example by increasing damage from red sources to opponents and their permanents. The relationship is limited to the verified card action and certified claims red_claim_0003, red_claim_0007."
+      },
+      "prior_source": {
+        "git_revision": "dbc4a898",
+        "path": "data/dossier/card-rationale-relationships.source.json"
+      }
+    },
+    "cardrel_wg_e94ef397": {
+      "schema_version": "factual-copy-correction-v1",
+      "correction_id": "vm650-trostani-factual-copy",
+      "task": "VM-650",
+      "change_class": "FACTUAL_COPY_CORRECTION",
+      "reason": "The controller gains life when another creature they control enters.",
+      "corrected_current_fields": [
+        "proposed_public_rationale",
+        "modal_explanation"
+      ],
+      "current_field_values": {
+        "proposed_public_rationale": "Whenever another creature you control enters, you gain life equal to its toughness; Trostani can also populate a creature token you control.",
+        "modal_explanation": "The first token establishes what the community can become; populate lets Trostani repeat that body instead of starting over. When another creature you control enters, you gain life equal to its toughness."
+      },
+      "retained_historical_evidence": {
+        "status": "IMMUTABLE_HISTORICAL_EVIDENCE_RETAINED",
+        "fields": [
+          "relationship_evidence.exact_text"
+        ]
+      },
+      "canonical_card_fact": {
+        "oracle_id": "e94ef397-f5c5-4b8d-ae27-528352fa1d1e",
+        "locator": "data/scryfall/raw/oracle-cards.json#oracle_id=e94ef397-f5c5-4b8d-ae27-528352fa1d1e",
+        "oracle_text": "Whenever another creature you control enters, you gain life equal to that creature's toughness.\n{1}{G}{W}, {T}: Populate. (Create a token that's a copy of a creature token you control.)",
+        "oracle_text_sha256": "279d4fe3c7f07e6dbffbf08381447e0e075554534498371d708ab58f143c5f1e"
+      },
+      "prior_field_values": {
+        "proposed_public_rationale": "Trostani gains life from each other creature that enters under your control, then populate copies a creature token you already have.",
+        "modal_explanation": "The first token establishes what the community can become; populate lets Trostani repeat that body instead of starting over. Wider creature development also restores life according to each new creature's toughness."
+      },
+      "prior_source": {
+        "git_revision": "dbc4a898",
+        "path": "data/dossier/card-rationale-relationships.source.json"
+      }
+    },
+    "cardrel_auto_wubrg_9f6828e3_39d9_45d9_9bf1_0e3737a0321e": {
+      "schema_version": "factual-copy-correction-v1",
+      "correction_id": "vm650-ulalek-factual-copy",
+      "task": "VM-650",
+      "change_class": "FACTUAL_COPY_CORRECTION",
+      "reason": "The Eldrazi cast trigger copies all spells you control and all other nonmana activated and triggered abilities you control if paid as it resolves.",
+      "corrected_current_fields": [
+        "proposed_public_rationale",
+        "modal_explanation",
+        "relationship_evidence.relationship_bridge"
+      ],
+      "current_field_values": {
+        "proposed_public_rationale": "Ulalek's five-color identity opens the deck's breadth; when you cast an Eldrazi spell, its trigger can turn {C}{C} into copies of every spell you control and every other activated or triggered ability you control, except mana abilities.",
+        "modal_explanation": "Ulalek's trigger begins when you cast an Eldrazi and, as it resolves, offers the choice to pay two colorless mana. Paying it copies every spell you control and every other activated or triggered ability you control except mana abilities, turning the stack into a coordinated wave of copies.",
+        "relationship_evidence.relationship_bridge": "Ulalek's five-color identity opens the deck's breadth; when you cast an Eldrazi spell, its trigger can turn {C}{C} into copies of every spell you control and every other activated or triggered ability you control, except mana abilities. The relationship is limited to the verified card action and certified claims wubrg_claim_0002, wubrg_claim_0006, wubrg_claim_0008."
+      },
+      "retained_historical_evidence": {
+        "status": "IMMUTABLE_HISTORICAL_EVIDENCE_RETAINED",
+        "fields": [
+          "relationship_evidence.exact_text"
+        ]
+      },
+      "canonical_card_fact": {
+        "oracle_id": "9f6828e3-39d9-45d9-9bf1-0e3737a0321e",
+        "locator": "data/scryfall/raw/oracle-cards.json#oracle_id=9f6828e3-39d9-45d9-9bf1-0e3737a0321e",
+        "oracle_text": "Devoid (This card has no color.)\nWhenever you cast an Eldrazi spell, you may pay {C}{C}. If you do, copy all spells you control, then copy all other activated and triggered abilities you control. You may choose new targets for the copies. (Mana abilities can't be copied.)",
+        "oracle_text_sha256": "8bfbf1e56659b5b26bed75ab456ef7189821045c1aa357dcb5c86706f527b2fc"
+      },
+      "prior_field_values": {
+        "proposed_public_rationale": "Ulalek demonstrates access to all five colors through its verified color identity, while its ability uses colorless mana to copy Eldrazi spells and abilities.",
+        "modal_explanation": "Ulalek's five-color identity opens the deck's breadth, but the trigger still asks for two colorless mana at the precise moment an Eldrazi is cast. Keeping that payment available turns one spell and the abilities around it into a coordinated wave of copies.",
+        "relationship_evidence.relationship_bridge": "Ulalek demonstrates access to all five colors through its verified color identity, while its ability uses colorless mana to copy Eldrazi spells and abilities. The relationship is limited to the verified card action and certified claims wubrg_claim_0002, wubrg_claim_0006, wubrg_claim_0008."
+      },
+      "prior_source": {
+        "git_revision": "dbc4a898",
+        "path": "data/dossier/card-rationale-relationships.source.json"
+      }
+    },
+    "cardrel_auto_quandrix_977f9390_e01d_4e9d_8e9c_e543b1266972": {
+      "schema_version": "factual-copy-correction-v1",
+      "correction_id": "vm650-zimone-factual-copy",
+      "task": "VM-650",
+      "change_class": "FACTUAL_COPY_CORRECTION",
+      "reason": "Zimone creates no token; only the first X spell each turn receives the counter-based reduction and then adds two counters.",
+      "corrected_current_fields": [
+        "proposed_public_rationale",
+        "modal_explanation",
+        "relationship_evidence.relationship_bridge"
+      ],
+      "current_field_values": {
+        "proposed_public_rationale": "Zimone makes mathematical scaling visible: +1/+1 counters reduce the cost of your first X spell each turn, and casting that spell puts two +1/+1 counters on her.",
+        "modal_explanation": "Each turn's first X spell uses Zimone's existing counters to reduce its cost, then adds two counters for a future turn. Zimone turns one solved equation into better terms for solving the next.",
+        "relationship_evidence.relationship_bridge": "Zimone makes mathematical scaling visible: +1/+1 counters reduce the cost of your first X spell each turn, and casting that spell puts two +1/+1 counters on her. The relationship is limited to the verified card action and certified claims quandrix_claim_002, quandrix_claim_006, quandrix_claim_0017, quandrix_claim_0019."
+      },
+      "retained_historical_evidence": {
+        "status": "IMMUTABLE_HISTORICAL_EVIDENCE_RETAINED",
+        "fields": [
+          "relationship_evidence.exact_text"
+        ]
+      },
+      "canonical_card_fact": {
+        "oracle_id": "977f9390-e01d-4e9d-8e9c-e543b1266972",
+        "locator": "data/scryfall/raw/oracle-cards.json#oracle_id=977f9390-e01d-4e9d-8e9c-e543b1266972",
+        "oracle_text": "The first spell you cast with {X} in its mana cost each turn costs {1} less to cast for each +1/+1 counter on Zimone.\nWhenever you cast your first spell with {X} in its mana cost each turn, put two +1/+1 counters on Zimone.",
+        "oracle_text_sha256": "48ca590f66c5a5187f643e528e0800f81d3ddc8d52f10c641186f1d3216b1297"
+      },
+      "prior_field_values": {
+        "proposed_public_rationale": "Zimone makes mathematical scaling visible: +1/+1 counters reduce an X spell's cost, and casting that spell adds more counters and creates a flying Fractal token.",
+        "modal_explanation": "The first X spell each turn adds two counters, and those counters reduce the cost of the next turn's first X spell. Zimone turns one solved equation into better terms for solving the next.",
+        "relationship_evidence.relationship_bridge": "Zimone makes mathematical scaling visible: +1/+1 counters reduce an X spell's cost, and casting that spell adds more counters and creates a flying Fractal token. The relationship is limited to the verified card action and certified claims quandrix_claim_002, quandrix_claim_006, quandrix_claim_0017, quandrix_claim_0019."
+      },
+      "prior_source": {
+        "git_revision": "dbc4a898",
+        "path": "data/dossier/card-rationale-relationships.source.json"
+      }
+    }
+  },
   "records": [
     {
       "relationship_id": "cardrel_wu_c46718dc",
@@ -485,7 +946,7 @@
         "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
         "applied_on": "2026-08-12"
       },
-      "modal_explanation": "Nikya doubles the mana your lands produce, but only while you accept her ban on noncreature spells. Building around her means choosing creatures to perform jobs that another deck would give to instants, sorceries, or artifacts.",
+      "modal_explanation": "Nikya adds one mana of a type the land produced whenever you tap it for mana, but only while you accept her ban on noncreature spells. Building around her means choosing creatures to perform jobs that another deck would give to instants, sorceries, or artifacts.",
       "copy_revision": {
         "task": "VM-563",
         "ledger_id": "PLAY-RG-3-cardrel_rg_ebf3fd80",
@@ -602,7 +1063,7 @@
       "limitation": "Skip if you dislike token bookkeeping, longer board-development games, or populate needing good token targets.",
       "review_status": "APPROVED_PUBLIC",
       "display_priority": 1,
-      "proposed_public_rationale": "Trostani gains life from each other creature that enters under your control, then populate copies a creature token you already have.",
+      "proposed_public_rationale": "Whenever another creature you control enters, you gain life equal to its toughness; Trostani can also populate a creature token you control.",
       "proposal_origin": "NEW_SOURCE_BOUNDED_DRAFT",
       "proposed_tags": [
         "Tokens",
@@ -616,7 +1077,7 @@
         "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
         "applied_on": "2026-08-12"
       },
-      "modal_explanation": "The first token establishes what the community can become; populate lets Trostani repeat that body instead of starting over. Wider creature development also restores life according to each new creature's toughness.",
+      "modal_explanation": "The first token establishes what the community can become; populate lets Trostani repeat that body instead of starting over. When another creature you control enters, you gain life equal to its toughness.",
       "copy_revision": {
         "task": "VM-563",
         "ledger_id": "PLAY-WG-1-cardrel_wg_e94ef397",
@@ -995,7 +1456,7 @@
         "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
         "applied_on": "2026-08-12"
       },
-      "modal_explanation": "Everyone sees the top card, but only you can turn a revealed instant or sorcery into two casts. Melek makes the experiment public, then rewards you for arranging the library so the next result is one worth copying.",
+      "modal_explanation": "Everyone sees the top card, but only you can cast a revealed instant or sorcery from your library and copy that spell. Melek makes the experiment public, then rewards you for arranging the library so the next result is one worth copying.",
       "copy_revision": {
         "task": "VM-563",
         "ledger_id": "PLAY-UR-2-cardrel_ur_095d9719",
@@ -1167,7 +1628,7 @@
       "limitation": "Discovery-only story-corpus claim IDs removed from this auxiliary support chain. Commander/card/product material remains auxiliary and is not authoritative Golgari semantic proof. You don't like 'glass cannon' combos or graveyard hate.",
       "review_status": "APPROVED_PUBLIC",
       "display_priority": 1,
-      "proposed_public_rationale": "A classic Golgari leader who scales with the size of your graveyard and allows you to 'recycle' creatures into direct damage.",
+      "proposed_public_rationale": "Jarad grows for each creature card in your graveyard and can sacrifice another creature to make each opponent lose life equal to its power.",
       "proposal_origin": "EXISTING_REPOSITORY_COPY",
       "proposed_tags": [
         "Sacrifice",
@@ -1180,7 +1641,7 @@
         "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
         "applied_on": "2026-08-12"
       },
-      "modal_explanation": "Jarad grows with every creature card already in your graveyard, then can sacrifice another creature to drain each opponent by its power. Even Jarad's own return asks for a Swamp and Forest, so recovery keeps consuming living resources.",
+      "modal_explanation": "Jarad grows with every creature card already in your graveyard, then can sacrifice another creature to make each opponent lose life equal to its power. Even Jarad's own return asks for a Swamp and Forest, so recovery keeps consuming living resources.",
       "copy_revision": {
         "task": "VM-563",
         "ledger_id": "PLAY-BG-1-cardrel_bg_87e65e36",
@@ -1342,7 +1803,7 @@
       "limitation": "Tajic is retained only as auxiliary Commander/card support, not as authoritative key-figure proof. Commander/card/product material remains auxiliary and is not authoritative Boros semantic proof. You are playing against decks with lots of targeted 'destroy' effects rather than 'damage' effects.",
       "review_status": "APPROVED_PUBLIC",
       "display_priority": 3,
-      "proposed_public_rationale": "A low-cost commander that protects your team from damage and encourages offensive growth.",
+      "proposed_public_rationale": "A low-cost commander whose mentor rewards attacking and who prevents noncombat damage to your other creatures.",
       "proposal_origin": "EXISTING_REPOSITORY_COPY",
       "proposed_tags": [
         "Aggro",
@@ -1685,7 +2146,7 @@
         "locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_prismari_348c67ef_9ccc_4651_9038_efdf1ad1b36a",
         "exact_text": "Rootha turns an instant or sorcery into a visible elemental performance by creating a flying, hasty Elemental whose size follows that spell's mana value.",
         "verified_card_observation": "At the beginning of combat on your turn, if you've cast an instant or sorcery spell this turn, create an X/X blue and red Elemental creature token with flying and haste, where X...",
-        "relationship_bridge": "Rootha turns an instant or sorcery into a visible elemental performance by creating a flying, hasty Elemental whose size follows that spell's mana value. The relationship is limited to the verified card action and certified claims prismari_claim_002, prismari_claim_003, prismari_claim_006, prismari_claim_0017.",
+        "relationship_bridge": "Rootha turns a turn's instant-or-sorcery spellcasting into a visible elemental performance: at the beginning of combat on your turn, she creates a separate flying, hasty Elemental token whose size uses the greatest mana value among those spells cast that turn. The relationship is limited to the verified card action and certified claims prismari_claim_002, prismari_claim_003, prismari_claim_006, prismari_claim_0017.",
         "false_positive_analysis": "Color, mechanic, tag, product, and popularity are excluded as independent proof.",
         "adjacent_identity_analysis": "Adjacent identities may share a mechanic; the cited certified claim remains the required boundary."
       },
@@ -1716,7 +2177,7 @@
         }
       },
       "display_priority": 1,
-      "proposed_public_rationale": "Rootha turns an instant or sorcery into a visible elemental performance by creating a flying, hasty Elemental whose size follows that spell's mana value.",
+      "proposed_public_rationale": "Rootha turns a turn's instant-or-sorcery spellcasting into a visible elemental performance: at the beginning of combat on your turn, she creates a separate flying, hasty Elemental token whose size uses the greatest mana value among those spells cast that turn.",
       "proposal_origin": "packet1_rationale_prismari_348c67ef_9ccc_4651_9038_efdf1ad1b36a",
       "proposed_tags": [],
       "rationale_support_note": "Automatically approved only because the certified identity claims, canonical card observation, bounded bridge, false-positive analysis, and neighbor analysis all pass the shared validator.",
@@ -1783,7 +2244,7 @@
         "locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_witherbloom_f61c1dc4_2f09_4b50_957f_ee656c659072",
         "exact_text": "Dina makes Witherbloom's practical life-and-death exchange visible by turning a sacrificed creature into a card, life, and +1/+1 counters.",
         "verified_card_observation": "Whenever you sacrifice a creature, draw a card. This ability triggers only once each turn. {2}, {T}, Sacrifice another creature: You gain X life and put X +1/+1 counters on targ...",
-        "relationship_bridge": "Dina makes Witherbloom's practical life-and-death exchange visible by turning a sacrificed creature into a card, life, and +1/+1 counters. The relationship is limited to the verified card action and certified claims witherbloom_claim_0019, witherbloom_claim_0022.",
+        "relationship_bridge": "Dina makes Witherbloom's practical life-and-death exchange visible: once each turn, sacrificing a creature draws you a card; her separate activated ability sacrifices another creature to gain you life and put that creature's power in +1/+1 counters on a target creature you control. The relationship is limited to the verified card action and certified claims witherbloom_claim_0019, witherbloom_claim_0022.",
         "false_positive_analysis": "Color, mechanic, tag, product, and popularity are excluded as independent proof.",
         "adjacent_identity_analysis": "Adjacent identities may share a mechanic; the cited certified claim remains the required boundary."
       },
@@ -1810,7 +2271,7 @@
         }
       },
       "display_priority": 1,
-      "proposed_public_rationale": "Dina makes Witherbloom's practical life-and-death exchange visible by turning a sacrificed creature into a card, life, and +1/+1 counters.",
+      "proposed_public_rationale": "Dina makes Witherbloom's practical life-and-death exchange visible: once each turn, sacrificing a creature draws you a card; her separate activated ability sacrifices another creature to gain you life and put that creature's power in +1/+1 counters on a target creature you control.",
       "modal_explanation": "Dina's sacrifice ability asks which creature's power should become life and counters, while her separate draw trigger rewards the first sacrifice each turn. One body can nourish several parts of the board, but timing decides when every benefit is available.",
       "proposal_origin": "packet1_rationale_witherbloom_f61c1dc4_2f09_4b50_957f_ee656c659072",
       "proposed_tags": [],
@@ -1878,7 +2339,7 @@
         "locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_quandrix_977f9390_e01d_4e9d_8e9c_e543b1266972",
         "exact_text": "Zimone makes mathematical scaling visible: +1/+1 counters reduce an X spell's cost, and casting that spell adds more counters and creates a flying Fractal token.",
         "verified_card_observation": "The first spell you cast with {X} in its mana cost each turn costs {1} less to cast for each +1/+1 counter on Zimone. Whenever you cast your first spell with {X} in its mana cos...",
-        "relationship_bridge": "Zimone makes mathematical scaling visible: +1/+1 counters reduce an X spell's cost, and casting that spell adds more counters and creates a flying Fractal token. The relationship is limited to the verified card action and certified claims quandrix_claim_002, quandrix_claim_006, quandrix_claim_0017, quandrix_claim_0019.",
+        "relationship_bridge": "Zimone makes mathematical scaling visible: +1/+1 counters reduce the cost of your first X spell each turn, and casting that spell puts two +1/+1 counters on her. The relationship is limited to the verified card action and certified claims quandrix_claim_002, quandrix_claim_006, quandrix_claim_0017, quandrix_claim_0019.",
         "false_positive_analysis": "Color, mechanic, tag, product, and popularity are excluded as independent proof.",
         "adjacent_identity_analysis": "Adjacent identities may share a mechanic; the cited certified claim remains the required boundary."
       },
@@ -1909,7 +2370,7 @@
         }
       },
       "display_priority": 1,
-      "proposed_public_rationale": "Zimone makes mathematical scaling visible: +1/+1 counters reduce an X spell's cost, and casting that spell adds more counters and creates a flying Fractal token.",
+      "proposed_public_rationale": "Zimone makes mathematical scaling visible: +1/+1 counters reduce the cost of your first X spell each turn, and casting that spell puts two +1/+1 counters on her.",
       "proposal_origin": "packet1_rationale_quandrix_977f9390_e01d_4e9d_8e9c_e543b1266972",
       "proposed_tags": [],
       "rationale_support_note": "Automatically approved only because the certified identity claims, canonical card observation, bounded bridge, false-positive analysis, and neighbor analysis all pass the shared validator.",
@@ -1933,7 +2394,7 @@
           "proposal_id": "packet1_rationale_quandrix_977f9390_e01d_4e9d_8e9c_e543b1266972"
         }
       },
-      "modal_explanation": "The first X spell each turn adds two counters, and those counters reduce the cost of the next turn's first X spell. Zimone turns one solved equation into better terms for solving the next.",
+      "modal_explanation": "Each turn's first X spell uses Zimone's existing counters to reduce its cost, then adds two counters for a future turn. Zimone turns one solved equation into better terms for solving the next.",
       "copy_revision": {
         "task": "VM-563",
         "ledger_id": "PLAY-QUANDRIX-1-cardrel_auto_quandrix_977f9390_e01d_4e9d_8e9c_e543b1266972",
@@ -1982,7 +2443,7 @@
         "locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_silverquill_d11e627b_8a48_411d_a261_2c9a02a758ba",
         "exact_text": "Breena makes social influence change combat: attacks against a leading opponent can reward the attacker with a card while making Breena larger.",
         "verified_card_observation": "Flying Whenever a player attacks one of your opponents, if that opponent has more life than another of your opponents, that attacking player draws a card and you put two +1/+1 c...",
-        "relationship_bridge": "Breena makes social influence change combat: attacks against a leading opponent can reward the attacker with a card while making Breena larger. The relationship is limited to the verified card action and certified claims silverquill_claim_001, silverquill_claim_006, silverquill_claim_0019.",
+        "relationship_bridge": "Breena makes social influence change combat: an eligible attack against one of your opponents can draw the attacking player a card while you put two +1/+1 counters on a creature you control. The relationship is limited to the verified card action and certified claims silverquill_claim_001, silverquill_claim_006, silverquill_claim_0019.",
         "false_positive_analysis": "Color, mechanic, tag, product, and popularity are excluded as independent proof.",
         "adjacent_identity_analysis": "Adjacent identities may share a mechanic; the cited certified claim remains the required boundary."
       },
@@ -2011,7 +2472,7 @@
         }
       },
       "display_priority": 1,
-      "proposed_public_rationale": "Breena makes social influence change combat: attacks against a leading opponent can reward the attacker with a card while making Breena larger.",
+      "proposed_public_rationale": "Breena makes social influence change combat: an eligible attack against one of your opponents can draw the attacking player a card while you put two +1/+1 counters on a creature you control.",
       "proposal_origin": "packet1_rationale_silverquill_d11e627b_8a48_411d_a261_2c9a02a758ba",
       "proposed_tags": [],
       "rationale_support_note": "Automatically approved only because the certified identity claims, canonical card observation, bounded bridge, false-positive analysis, and neighbor analysis all pass the shared validator.",
@@ -2393,7 +2854,7 @@
         "locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_r_8c3495bf_02e7_4ad9_949d_92eb3d2b662a",
         "exact_text": "Torbran gives Red's direct-action pressure a clear example by increasing damage from red sources to opponents and their permanents.",
         "verified_card_observation": "If a red source you control would deal damage to an opponent or a permanent an opponent controls, it deals that much damage plus 2 instead.",
-        "relationship_bridge": "Torbran gives Red's direct-action pressure a clear example by increasing damage from red sources to opponents and their permanents. The relationship is limited to the verified card action and certified claims red_claim_0003, red_claim_0007.",
+        "relationship_bridge": "Torbran gives Red's direct-action pressure a clear example by increasing damage from red sources you control to opponents and permanents those opponents control. The relationship is limited to the verified card action and certified claims red_claim_0003, red_claim_0007.",
         "false_positive_analysis": "Color, mechanic, tag, product, and popularity are excluded as independent proof.",
         "adjacent_identity_analysis": "Adjacent identities may share a mechanic; the cited certified claim remains the required boundary."
       },
@@ -2442,7 +2903,7 @@
           "proposal_id": "packet1_rationale_r_8c3495bf_02e7_4ad9_949d_92eb3d2b662a"
         }
       },
-      "modal_explanation": "Torbran changes the arithmetic before damage is dealt. Small red sources become meaningful threats, rewarding a turn where several modest hits arrive together instead of waiting for one oversized play.",
+      "modal_explanation": "Torbran changes the arithmetic before damage is dealt. Your small red sources become meaningful threats when they damage opponents or permanents those opponents control, rewarding a turn where several modest hits arrive together instead of waiting for one oversized play.",
       "copy_revision": {
         "task": "VM-563",
         "ledger_id": "PLAY-R-1-cardrel_auto_r_8c3495bf_02e7_4ad9_949d_92eb3d2b662a",
@@ -3787,7 +4248,7 @@
         "locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_dune_e54d207c_51b8_458e_86a1_2633ac064c8e",
         "exact_text": "Saskia turns visible combat into concentrated pressure: you choose a player, and combat damage dealt elsewhere is repeated against that player.",
         "verified_card_observation": "Vigilance, haste As Saskia enters, choose a player. Whenever a creature you control deals combat damage to a player, it deals that much damage to the chosen player.",
-        "relationship_bridge": "Saskia turns visible combat into concentrated pressure: you choose a player, and combat damage dealt elsewhere is repeated against that player. The relationship is limited to the verified card action and certified claims dune_claim_0003, dune_claim_0005.",
+        "relationship_bridge": "As Saskia enters, you choose a player; whenever a creature you control deals combat damage to a player, it deals that much damage to the chosen player. The relationship is limited to the verified card action and certified claims dune_claim_0003, dune_claim_0005.",
         "false_positive_analysis": "Color, mechanic, tag, product, and popularity are excluded as independent proof.",
         "adjacent_identity_analysis": "Adjacent identities may share a mechanic; the cited certified claim remains the required boundary."
       },
@@ -3814,7 +4275,7 @@
         }
       },
       "display_priority": 1,
-      "proposed_public_rationale": "Saskia turns visible combat into concentrated pressure: you choose a player, and combat damage dealt elsewhere is repeated against that player.",
+      "proposed_public_rationale": "As Saskia enters, you choose a player; whenever a creature you control deals combat damage to a player, it deals that much damage to the chosen player.",
       "proposal_origin": "packet1_rationale_dune_e54d207c_51b8_458e_86a1_2633ac064c8e",
       "proposed_tags": [],
       "rationale_support_note": "Automatically approved only because the certified identity claims, canonical card observation, bounded bridge, false-positive analysis, and neighbor analysis all pass the shared validator.",
@@ -3836,7 +4297,7 @@
           "proposal_id": "packet1_rationale_dune_e54d207c_51b8_458e_86a1_2633ac064c8e"
         }
       },
-      "modal_explanation": "Choosing one player fixes the objective before combat begins. Damage dealt to anyone else still reaches that target, so every successful attack contributes to the same concentrated campaign.",
+      "modal_explanation": "Choosing one player fixes the objective before combat begins. When a creature you control deals combat damage to a player, that damage is also dealt to the chosen player, so successful creature attacks can contribute to the same concentrated campaign.",
       "copy_revision": {
         "task": "VM-563",
         "ledger_id": "PLAY-DUNE-1-cardrel_auto_dune_e54d207c_51b8_458e_86a1_2633ac064c8e",
@@ -3883,7 +4344,7 @@
         "locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_ink_53ee4254_fef7_49ec_aafc_0320987764e6",
         "exact_text": "Kynaios and Tiro make Ink's shared-resource frame visible: their end-step ability gives every player a chance to develop mana or draw, while their controller also draws.",
         "verified_card_observation": "At the beginning of your end step, draw a card. Each player may put a land card from their hand onto the battlefield, then each opponent who didn't draws a card.",
-        "relationship_bridge": "Kynaios and Tiro make Ink's shared-resource frame visible: their end-step ability gives every player a chance to develop mana or draw, while their controller also draws. The relationship is limited to the verified card action and certified claims ink_claim_0003, ink_claim_0005.",
+        "relationship_bridge": "At your end step, you draw; each player may put a land from hand onto the battlefield, then each opponent who did not do so draws. The relationship is limited to the verified card action and certified claims ink_claim_0003, ink_claim_0005.",
         "false_positive_analysis": "Color, mechanic, tag, product, and popularity are excluded as independent proof.",
         "adjacent_identity_analysis": "Adjacent identities may share a mechanic; the cited certified claim remains the required boundary."
       },
@@ -3910,7 +4371,7 @@
         }
       },
       "display_priority": 1,
-      "proposed_public_rationale": "Kynaios and Tiro make Ink's shared-resource frame visible: their end-step ability gives every player a chance to develop mana or draw, while their controller also draws.",
+      "proposed_public_rationale": "At your end step, you draw; each player may put a land from hand onto the battlefield, then each opponent who did not do so draws.",
       "proposal_origin": "packet1_rationale_ink_53ee4254_fef7_49ec_aafc_0320987764e6",
       "proposed_tags": [],
       "rationale_support_note": "Automatically approved only because the certified identity claims, canonical card observation, bounded bridge, false-positive analysis, and neighbor analysis all pass the shared validator.",
@@ -3932,7 +4393,7 @@
           "proposal_id": "packet1_rationale_ink_53ee4254_fef7_49ec_aafc_0320987764e6"
         }
       },
-      "modal_explanation": "Their end step shares the choice but not the reward evenly: every player may develop a land or draw, while you draw regardless. Playing them means opening resources to the table without giving up your own return.",
+      "modal_explanation": "At your end step, you draw first, then each player may put a land from hand onto the battlefield; each opponent who does not put one draws. Playing them means opening resources to the table without giving up your own return.",
       "copy_revision": {
         "task": "VM-563",
         "ledger_id": "PLAY-INK-1-cardrel_auto_ink_53ee4254_fef7_49ec_aafc_0320987764e6",
@@ -4301,7 +4762,7 @@
         "locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_wubrg_9f6828e3_39d9_45d9_9bf1_0e3737a0321e",
         "exact_text": "Ulalek demonstrates access to all five colors through its verified color identity, while its ability uses colorless mana to copy Eldrazi spells and abilities.",
         "verified_card_observation": "Devoid (This card has no color.) Whenever you cast an Eldrazi spell, you may pay {C}{C}. If you do, copy all spells you control, then copy all other activated and triggered abil...",
-        "relationship_bridge": "Ulalek demonstrates access to all five colors through its verified color identity, while its ability uses colorless mana to copy Eldrazi spells and abilities. The relationship is limited to the verified card action and certified claims wubrg_claim_0002, wubrg_claim_0006, wubrg_claim_0008.",
+        "relationship_bridge": "Ulalek's five-color identity opens the deck's breadth; when you cast an Eldrazi spell, its trigger can turn {C}{C} into copies of every spell you control and every other activated or triggered ability you control, except mana abilities. The relationship is limited to the verified card action and certified claims wubrg_claim_0002, wubrg_claim_0006, wubrg_claim_0008.",
         "false_positive_analysis": "Color, mechanic, tag, product, and popularity are excluded as independent proof.",
         "adjacent_identity_analysis": "Adjacent identities may share a mechanic; the cited certified claim remains the required boundary."
       },
@@ -4330,7 +4791,7 @@
         }
       },
       "display_priority": 1,
-      "proposed_public_rationale": "Ulalek demonstrates access to all five colors through its verified color identity, while its ability uses colorless mana to copy Eldrazi spells and abilities.",
+      "proposed_public_rationale": "Ulalek's five-color identity opens the deck's breadth; when you cast an Eldrazi spell, its trigger can turn {C}{C} into copies of every spell you control and every other activated or triggered ability you control, except mana abilities.",
       "proposal_origin": "packet1_rationale_wubrg_9f6828e3_39d9_45d9_9bf1_0e3737a0321e",
       "proposed_tags": [],
       "rationale_support_note": "Automatically approved only because the certified identity claims, canonical card observation, bounded bridge, false-positive analysis, and neighbor analysis all pass the shared validator.",
@@ -4353,7 +4814,7 @@
           "proposal_id": "packet1_rationale_wubrg_9f6828e3_39d9_45d9_9bf1_0e3737a0321e"
         }
       },
-      "modal_explanation": "Ulalek's five-color identity opens the deck's breadth, but the trigger still asks for two colorless mana at the precise moment an Eldrazi is cast. Keeping that payment available turns one spell and the abilities around it into a coordinated wave of copies.",
+      "modal_explanation": "Ulalek's trigger begins when you cast an Eldrazi and, as it resolves, offers the choice to pay two colorless mana. Paying it copies every spell you control and every other activated or triggered ability you control except mana abilities, turning the stack into a coordinated wave of copies.",
       "copy_revision": {
         "task": "VM-563",
         "ledger_id": "PLAY-WUBRG-1-cardrel_auto_wubrg_9f6828e3_39d9_45d9_9bf1_0e3737a0321e",

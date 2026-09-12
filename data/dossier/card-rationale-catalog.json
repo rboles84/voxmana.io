@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "source_path": "data/dossier/card-rationale-relationships.source.json",
-  "source_sha256": "d8f4909a6da710501a8458160e2a4eef107e4655b4726d5f4af79d052dac8f9c",
+  "source_sha256": "786c4d02cd67309a47f2368b38642636b2718f9f94085df9f127ccf03adfd4ba",
   "generated_policy": "APPROVED_PUBLIC only; card-specific relationship plus approved identity table experience; no profile-only fallback",
   "records": [
     {
@@ -98,7 +98,7 @@
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=8c3495bf-02e7-4ad9-949d-92eb3d2b662a"
       },
       "rationale": "Torbran adds 2 damage whenever a red source you control would damage an opponent or one of their permanents.",
-      "modal_explanation": "Torbran changes the arithmetic before damage is dealt. Small red sources become meaningful threats, rewarding a turn where several modest hits arrive together instead of waiting for one oversized play.",
+      "modal_explanation": "Torbran changes the arithmetic before damage is dealt. Your small red sources become meaningful threats when they damage opponents or permanents those opponents control, rewarding a turn where several modest hits arrive together instead of waiting for one oversized play.",
       "tags": [],
       "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
       "display_priority": 1,
@@ -113,7 +113,11 @@
           "MECH-CP-2021",
           "GOV-COC-2024"
         ],
-        "relationship_evidence_locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_r_8c3495bf_02e7_4ad9_949d_92eb3d2b662a"
+        "relationship_evidence_locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_r_8c3495bf_02e7_4ad9_949d_92eb3d2b662a",
+        "current_copy_correction": {
+          "correction_id": "vm650-torbran-factual-copy",
+          "canonical_oracle_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=8c3495bf-02e7-4ad9-949d-92eb3d2b662a"
+        }
       }
     },
     {
@@ -353,7 +357,7 @@
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=ebf3fd80-9574-489b-9428-f4251834bdc4"
       },
       "rationale": "She forces you to abandon 'civilized' noncreature spells in exchange for massive mana for monsters.",
-      "modal_explanation": "Nikya doubles the mana your lands produce, but only while you accept her ban on noncreature spells. Building around her means choosing creatures to perform jobs that another deck would give to instants, sorceries, or artifacts.",
+      "modal_explanation": "Nikya adds one mana of a type the land produced whenever you tap it for mana, but only while you accept her ban on noncreature spells. Building around her means choosing creatures to perform jobs that another deck would give to instants, sorceries, or artifacts.",
       "tags": [
         "Creatures Only",
         "Big Mana"
@@ -369,7 +373,11 @@
         "source_ids": [
           "src_gruul_clans_0002"
         ],
-        "relationship_evidence_locator": "data/raw-factions/gruul_clans/gruul_clans.profile.json#/commander_compass/budget_friendly_commanders/0"
+        "relationship_evidence_locator": "data/raw-factions/gruul_clans/gruul_clans.profile.json#/commander_compass/budget_friendly_commanders/0",
+        "current_copy_correction": {
+          "correction_id": "vm650-nikya-factual-copy",
+          "canonical_oracle_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=ebf3fd80-9574-489b-9428-f4251834bdc4"
+        }
       }
     },
     {
@@ -410,8 +418,8 @@
         "scryfall_id": "34ea44f2-cb2f-4b86-83fc-fe507f05bb9d",
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=e94ef397-f5c5-4b8d-ae27-528352fa1d1e"
       },
-      "rationale": "Trostani gains life from each other creature that enters under your control, then populate copies a creature token you already have.",
-      "modal_explanation": "The first token establishes what the community can become; populate lets Trostani repeat that body instead of starting over. Wider creature development also restores life according to each new creature's toughness.",
+      "rationale": "Whenever another creature you control enters, you gain life equal to its toughness; Trostani can also populate a creature token you control.",
+      "modal_explanation": "The first token establishes what the community can become; populate lets Trostani repeat that body instead of starting over. When another creature you control enters, you gain life equal to its toughness.",
       "tags": [
         "Tokens",
         "Populate",
@@ -432,7 +440,11 @@
           "src_wotc_guilds_ravnica_mechanics_2018",
           "src_wotc_guilds_ravnica_prerelease_primer_2018"
         ],
-        "relationship_evidence_locator": "data/raw-factions/selesnya_conclave/selesnya_conclave.profile.json#/commander_compass/native_fit_commanders/0"
+        "relationship_evidence_locator": "data/raw-factions/selesnya_conclave/selesnya_conclave.profile.json#/commander_compass/native_fit_commanders/0",
+        "current_copy_correction": {
+          "correction_id": "vm650-trostani-factual-copy",
+          "canonical_oracle_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=e94ef397-f5c5-4b8d-ae27-528352fa1d1e"
+        }
       }
     },
     {
@@ -583,7 +595,7 @@
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=095d9719-0db6-43de-8e4f-a0035a4c65ed"
       },
       "rationale": "Melek preserves the lab-experiment feel without defaulting to the dragon. Revealing the top card and copying spells feels like an unstable experiment becoming repeatable technique.",
-      "modal_explanation": "Everyone sees the top card, but only you can turn a revealed instant or sorcery into two casts. Melek makes the experiment public, then rewards you for arranging the library so the next result is one worth copying.",
+      "modal_explanation": "Everyone sees the top card, but only you can cast a revealed instant or sorcery from your library and copy that spell. Melek makes the experiment public, then rewards you for arranging the library so the next result is one worth copying.",
       "tags": [
         "Spellslinger",
         "Spell Copy",
@@ -598,7 +610,11 @@
         "source_ids": [
           "src_izzet_league_0014"
         ],
-        "relationship_evidence_locator": "data/raw-factions/izzet_league/izzet_league.profile.json#/commander_compass/native_fit_commanders/1"
+        "relationship_evidence_locator": "data/raw-factions/izzet_league/izzet_league.profile.json#/commander_compass/native_fit_commanders/1",
+        "current_copy_correction": {
+          "correction_id": "vm650-melek-factual-copy",
+          "canonical_oracle_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=095d9719-0db6-43de-8e4f-a0035a4c65ed"
+        }
       }
     },
     {
@@ -638,8 +654,8 @@
         "scryfall_id": "6870b355-e53d-4fa2-887b-0f0445bcd9c5",
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=87e65e36-9483-49fe-b644-2caca092107f"
       },
-      "rationale": "A classic Golgari leader who scales with the size of your graveyard and allows you to 'recycle' creatures into direct damage.",
-      "modal_explanation": "Jarad grows with every creature card already in your graveyard, then can sacrifice another creature to drain each opponent by its power. Even Jarad's own return asks for a Swamp and Forest, so recovery keeps consuming living resources.",
+      "rationale": "Jarad grows for each creature card in your graveyard and can sacrifice another creature to make each opponent lose life equal to its power.",
+      "modal_explanation": "Jarad grows with every creature card already in your graveyard, then can sacrifice another creature to make each opponent lose life equal to its power. Even Jarad's own return asks for a Swamp and Forest, so recovery keeps consuming living resources.",
       "tags": [
         "Sacrifice",
         "Graveyard Matters"
@@ -659,7 +675,11 @@
           "src_wotc_guilds_ravnica_mechanics_2018",
           "src_wotc_guilds_ravnica_prerelease_primer_2018"
         ],
-        "relationship_evidence_locator": "data/raw-factions/golgari_swarm/golgari_swarm.profile.json#/commander_compass/native_fit_commanders/0"
+        "relationship_evidence_locator": "data/raw-factions/golgari_swarm/golgari_swarm.profile.json#/commander_compass/native_fit_commanders/0",
+        "current_copy_correction": {
+          "correction_id": "vm650-jarad-factual-copy",
+          "canonical_oracle_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=87e65e36-9483-49fe-b644-2caca092107f"
+        }
       }
     },
     {
@@ -732,7 +752,7 @@
         "scryfall_id": "45c4c3b3-be18-4d74-99d8-f137498673d7",
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=ae6f21a2-e6b6-4793-8343-e27310c0bea1"
       },
-      "rationale": "A low-cost commander that protects your team from damage and encourages offensive growth.",
+      "rationale": "A low-cost commander whose mentor rewards attacking and who prevents noncombat damage to your other creatures.",
       "modal_explanation": "Tajic wants to join the attack: mentor strengthens a smaller attacker, while his prevention shield keeps the rest of your creatures safe from noncombat damage. Advancing the team and protecting it happen in the same formation.",
       "tags": [
         "Aggro",
@@ -749,7 +769,11 @@
         "source_ids": [
           "src_wotc_guilds_ravnica_mechanics_2018"
         ],
-        "relationship_evidence_locator": "data/raw-factions/boros_legion/boros_legion.profile.json#/commander_compass/budget_friendly_commanders/0"
+        "relationship_evidence_locator": "data/raw-factions/boros_legion/boros_legion.profile.json#/commander_compass/budget_friendly_commanders/0",
+        "current_copy_correction": {
+          "correction_id": "vm650-tajic-factual-copy",
+          "canonical_oracle_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=ae6f21a2-e6b6-4793-8343-e27310c0bea1"
+        }
       }
     },
     {
@@ -896,7 +920,7 @@
         "scryfall_id": "a5b3dbb2-c090-4118-9e47-56c16202572c",
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=348c67ef-9ccc-4651-9038-efdf1ad1b36a"
       },
-      "rationale": "Rootha turns an instant or sorcery into a visible elemental performance by creating a flying, hasty Elemental whose size follows that spell's mana value.",
+      "rationale": "Rootha turns a turn's instant-or-sorcery spellcasting into a visible elemental performance: at the beginning of combat on your turn, she creates a separate flying, hasty Elemental token whose size uses the greatest mana value among those spells cast that turn.",
       "modal_explanation": "The largest instant or sorcery you cast before combat sets the Elemental's size. Choosing when to spend the showpiece spell also chooses how large, fast, and visible Rootha's performance will be.",
       "tags": [],
       "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
@@ -913,7 +937,11 @@
           "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
           "src_wotc_secrets_strixhaven_commander_decklists_20260401"
         ],
-        "relationship_evidence_locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_prismari_348c67ef_9ccc_4651_9038_efdf1ad1b36a"
+        "relationship_evidence_locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_prismari_348c67ef_9ccc_4651_9038_efdf1ad1b36a",
+        "current_copy_correction": {
+          "correction_id": "vm650-rootha-factual-copy",
+          "canonical_oracle_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=348c67ef-9ccc-4651-9038-efdf1ad1b36a"
+        }
       }
     },
     {
@@ -925,8 +953,8 @@
         "scryfall_id": "605afac4-d2e5-4e68-97d2-3ac2ead5f3a9",
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=977f9390-e01d-4e9d-8e9c-e543b1266972"
       },
-      "rationale": "Zimone makes mathematical scaling visible: +1/+1 counters reduce an X spell's cost, and casting that spell adds more counters and creates a flying Fractal token.",
-      "modal_explanation": "The first X spell each turn adds two counters, and those counters reduce the cost of the next turn's first X spell. Zimone turns one solved equation into better terms for solving the next.",
+      "rationale": "Zimone makes mathematical scaling visible: +1/+1 counters reduce the cost of your first X spell each turn, and casting that spell puts two +1/+1 counters on her.",
+      "modal_explanation": "Each turn's first X spell uses Zimone's existing counters to reduce its cost, then adds two counters for a future turn. Zimone turns one solved equation into better terms for solving the next.",
       "tags": [],
       "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
       "display_priority": 1,
@@ -942,7 +970,11 @@
           "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
           "src_wotc_secrets_strixhaven_commander_decklists_20260401"
         ],
-        "relationship_evidence_locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_quandrix_977f9390_e01d_4e9d_8e9c_e543b1266972"
+        "relationship_evidence_locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_quandrix_977f9390_e01d_4e9d_8e9c_e543b1266972",
+        "current_copy_correction": {
+          "correction_id": "vm650-zimone-factual-copy",
+          "canonical_oracle_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=977f9390-e01d-4e9d-8e9c-e543b1266972"
+        }
       }
     },
     {
@@ -954,7 +986,7 @@
         "scryfall_id": "599f87c8-643e-4224-93a5-853c0bd4e497",
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=d11e627b-8a48-411d-a261-2c9a02a758ba"
       },
-      "rationale": "Breena makes social influence change combat: attacks against a leading opponent can reward the attacker with a card while making Breena larger.",
+      "rationale": "Breena makes social influence change combat: an eligible attack against one of your opponents can draw the attacking player a card while you put two +1/+1 counters on a creature you control.",
       "modal_explanation": "Breena changes whom the table is willing to attack. Swinging at a player with the highest life can pay the attacker a card, while you decide which creature receives the counters and turns that public argument into your advantage.",
       "tags": [],
       "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
@@ -970,7 +1002,11 @@
           "src_wotc_strixhaven_product_page_2021",
           "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
         ],
-        "relationship_evidence_locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_silverquill_d11e627b_8a48_411d_a261_2c9a02a758ba"
+        "relationship_evidence_locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_silverquill_d11e627b_8a48_411d_a261_2c9a02a758ba",
+        "current_copy_correction": {
+          "correction_id": "vm650-breena-factual-copy",
+          "canonical_oracle_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=d11e627b-8a48-411d-a261-2c9a02a758ba"
+        }
       }
     },
     {
@@ -982,7 +1018,7 @@
         "scryfall_id": "9fe237b8-c02c-41ea-9fc4-b771b91d2157",
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=f61c1dc4-2f09-4b50-957f-ee656c659072"
       },
-      "rationale": "Dina makes Witherbloom's practical life-and-death exchange visible by turning a sacrificed creature into a card, life, and +1/+1 counters.",
+      "rationale": "Dina makes Witherbloom's practical life-and-death exchange visible: once each turn, sacrificing a creature draws you a card; her separate activated ability sacrifices another creature to gain you life and put that creature's power in +1/+1 counters on a target creature you control.",
       "modal_explanation": "Dina's sacrifice ability asks which creature's power should become life and counters, while her separate draw trigger rewards the first sacrifice each turn. One body can nourish several parts of the board, but timing decides when every benefit is available.",
       "tags": [],
       "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
@@ -996,7 +1032,11 @@
           "src_wotc_planeswalkers_guide_strixhaven_2021",
           "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
         ],
-        "relationship_evidence_locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_witherbloom_f61c1dc4_2f09_4b50_957f_ee656c659072"
+        "relationship_evidence_locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_witherbloom_f61c1dc4_2f09_4b50_957f_ee656c659072",
+        "current_copy_correction": {
+          "correction_id": "vm650-dina-factual-copy",
+          "canonical_oracle_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=f61c1dc4-2f09-4b50-957f-ee656c659072"
+        }
       }
     },
     {
@@ -1335,8 +1375,8 @@
         "scryfall_id": "5b483db6-b614-4af1-820a-42a4ee0c8707",
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=e54d207c-51b8-458e-86a1-2633ac064c8e"
       },
-      "rationale": "Saskia turns visible combat into concentrated pressure: you choose a player, and combat damage dealt elsewhere is repeated against that player.",
-      "modal_explanation": "Choosing one player fixes the objective before combat begins. Damage dealt to anyone else still reaches that target, so every successful attack contributes to the same concentrated campaign.",
+      "rationale": "As Saskia enters, you choose a player; whenever a creature you control deals combat damage to a player, it deals that much damage to the chosen player.",
+      "modal_explanation": "Choosing one player fixes the objective before combat begins. When a creature you control deals combat damage to a player, that damage is also dealt to the chosen player, so successful creature attacks can contribute to the same concentrated campaign.",
       "tags": [],
       "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
       "display_priority": 1,
@@ -1349,7 +1389,11 @@
           "src_vm_dune_evidence_ledger_20260603",
           "src_vm_four_color_reference_audit_20260603"
         ],
-        "relationship_evidence_locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_dune_e54d207c_51b8_458e_86a1_2633ac064c8e"
+        "relationship_evidence_locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_dune_e54d207c_51b8_458e_86a1_2633ac064c8e",
+        "current_copy_correction": {
+          "correction_id": "vm650-saskia-factual-copy",
+          "canonical_oracle_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=e54d207c-51b8-458e-86a1-2633ac064c8e"
+        }
       }
     },
     {
@@ -1361,8 +1405,8 @@
         "scryfall_id": "97fa8615-2b6c-445a-bcaf-44a7e847bf65",
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=53ee4254-fef7-49ec-aafc-0320987764e6"
       },
-      "rationale": "Kynaios and Tiro make Ink's shared-resource frame visible: their end-step ability gives every player a chance to develop mana or draw, while their controller also draws.",
-      "modal_explanation": "Their end step shares the choice but not the reward evenly: every player may develop a land or draw, while you draw regardless. Playing them means opening resources to the table without giving up your own return.",
+      "rationale": "At your end step, you draw; each player may put a land from hand onto the battlefield, then each opponent who did not do so draws.",
+      "modal_explanation": "At your end step, you draw first, then each player may put a land from hand onto the battlefield; each opponent who does not put one draws. Playing them means opening resources to the table without giving up your own return.",
       "tags": [],
       "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
       "display_priority": 1,
@@ -1375,7 +1419,11 @@
           "src_vm_ink_evidence_ledger_20260604",
           "src_vm_four_color_reference_audit_20260604"
         ],
-        "relationship_evidence_locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_ink_53ee4254_fef7_49ec_aafc_0320987764e6"
+        "relationship_evidence_locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_ink_53ee4254_fef7_49ec_aafc_0320987764e6",
+        "current_copy_correction": {
+          "correction_id": "vm650-kynaios-factual-copy",
+          "canonical_oracle_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=53ee4254-fef7-49ec-aafc-0320987764e6"
+        }
       }
     },
     {
@@ -1467,8 +1515,8 @@
         "scryfall_id": "fdad1b0e-d3cc-4d76-ae7e-fee12558cf2c",
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=9f6828e3-39d9-45d9-9bf1-0e3737a0321e"
       },
-      "rationale": "Ulalek demonstrates access to all five colors through its verified color identity, while its ability uses colorless mana to copy Eldrazi spells and abilities.",
-      "modal_explanation": "Ulalek's five-color identity opens the deck's breadth, but the trigger still asks for two colorless mana at the precise moment an Eldrazi is cast. Keeping that payment available turns one spell and the abilities around it into a coordinated wave of copies.",
+      "rationale": "Ulalek's five-color identity opens the deck's breadth; when you cast an Eldrazi spell, its trigger can turn {C}{C} into copies of every spell you control and every other activated or triggered ability you control, except mana abilities.",
+      "modal_explanation": "Ulalek's trigger begins when you cast an Eldrazi and, as it resolves, offers the choice to pay two colorless mana. Paying it copies every spell you control and every other activated or triggered ability you control except mana abilities, turning the stack into a coordinated wave of copies.",
       "tags": [],
       "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
       "display_priority": 1,
@@ -1485,7 +1533,11 @@
           "WUBRG-SCOPE-002",
           "WUBRG-CANON-001"
         ],
-        "relationship_evidence_locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_wubrg_9f6828e3_39d9_45d9_9bf1_0e3737a0321e"
+        "relationship_evidence_locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_wubrg_9f6828e3_39d9_45d9_9bf1_0e3737a0321e",
+        "current_copy_correction": {
+          "correction_id": "vm650-ulalek-factual-copy",
+          "canonical_oracle_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=9f6828e3-39d9-45d9-9bf1-0e3737a0321e"
+        }
       }
     }
   ]
