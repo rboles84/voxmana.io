@@ -193,7 +193,7 @@ export function landLaneCopyForFaction(faction = {}) {
   return {
     premium: "Best when you want speed, consistency, and fewer tapped lands.",
     midrange: "Good first upgrade lane: stronger fixing without chasing every premium land.",
-    budget: "Playable entry point. Expect more tapped lands, but the deck will still function.",
+    budget: "Lower-cost fixing may enter tapped. Check your early colored-mana needs before trading untapped sources or basics for utility lands.",
     utility: "Adds Commander flexibility beyond color fixing.",
   };
 }

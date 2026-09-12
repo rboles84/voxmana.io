@@ -1,4 +1,4 @@
-<!-- task-view-sha256:80aca3d82304cd56e5a8f2c817443604220d5d578a6645298c58c27532df27d8 -->
+<!-- task-view-sha256:a6444de079abb1ecded4cb9a6348167f744d54383507e0d2724163bf37f7b1a5 -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -33,7 +33,6 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | VM-629 | [Placement Language Repetition Reduction](backlog/VM-629-placement-language-repetition-reduction.md) | Backlog |  |
 | VM-630 | [CRIT-001 Live Provenance Pointer Normalization](backlog/VM-630-crit001-live-provenance-pointer-normalization.md) | Backlog |  |
 | VM-637 | [Public Content Retention and Owner Prose Plan](backlog/VM-637-public-content-retention.md) | Backlog |  |
-| VM-643 | [Archscry Atlas and Dossier Owner Prose Pass](backlog/VM-643-archscry-owner-prose-pass.md) | Backlog |  |
 | VM-644 | [Maze Search Guidance and Owner Prose Pass](backlog/VM-644-maze-owner-prose-pass.md) | Backlog |  |
 | VM-645 | [Apocrypha Source Annotations and Owner Prose Pass](backlog/VM-645-apocrypha-owner-prose-pass.md) | Backlog |  |
 | VM-646 | [Strategium Table Guidance and Owner Prose Pass](backlog/VM-646-strategium-owner-prose-pass.md) | Backlog |  |
@@ -59,6 +58,7 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 
 | ID | Card | Declared status | Diagnostics |
 |---|---|---|---|
+| VM-643 | [Archscry Atlas and Dossier Owner Prose Pass](in-progress/VM-643-archscry-owner-prose-pass.md) | Accepted |  |
 
 ## Integrated
 

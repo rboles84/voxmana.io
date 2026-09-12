@@ -417,7 +417,7 @@
       },
       "how_this_plays": {
         "role": "The responder",
-        "how_opponents_read_it": "Opponents see the deck coming. That is part of the point: the line is public, and crossing it has consequences.",
+        "how_opponents_read_it": "In these combat-forward Boros lanes, opponents can usually see which attacker or protected piece matters most. That makes protection timing—and keeping a second threat ready—part of the plan.",
         "emotional_pressure": "Pressure through action, retaliation, combat, and visible protection.",
         "lore_role": "security force, constabulary, and army",
         "mechanical_expression": "Battalion, mentor, tactical combat, equipment, burn, and protection",
@@ -427,7 +427,7 @@
         {
           "item_id": "lookfor_wr_1_battalion_formation",
           "title": "Battalion Formation",
-          "copy": "Attack as a coordinated unit so the formation, not generic speed, turns combat into accountable public pressure.",
+          "copy": "Look for Battalion, attack-with-three-or-more triggers, and effects that create or improve attackers. These reward committing a formation instead of relying on one fast threat.",
           "source_locator": "data/raw-factions/boros_legion/boros_legion.claims.json#boros_legion_claim_012",
           "source_role": "certified_claim_translation"
         },
