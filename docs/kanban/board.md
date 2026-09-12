@@ -1,4 +1,4 @@
-<!-- task-view-sha256:a6444de079abb1ecded4cb9a6348167f744d54383507e0d2724163bf37f7b1a5 -->
+<!-- task-view-sha256:53cd0eb268bdce029d70e062e5908741a4ac9fe89e4f1f469b361a53f05c7222 -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -58,7 +58,6 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 
 | ID | Card | Declared status | Diagnostics |
 |---|---|---|---|
-| VM-643 | [Archscry Atlas and Dossier Owner Prose Pass](in-progress/VM-643-archscry-owner-prose-pass.md) | Accepted |  |
 
 ## Integrated
 
@@ -668,6 +667,7 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | VM-640 | [Workflow Instruction Consolidation and Context Reduction](done/VM-640-instruction-consolidation.md) | Done |  |
 | VM-641 | [Deterministic Candidate, Integration and Closeout Checks](done/VM-641-delivery-checks.md) | Done |  |
 | VM-642 | [Home Public Content and Owner Prose Pass](done/VM-642-home-owner-prose-pass.md) | Done |  |
+| VM-643 | [Archscry Atlas and Dossier Owner Prose Pass](done/VM-643-archscry-owner-prose-pass.md) | Done |  |
 | VM-649 | [Integrate public-content backlog intake](done/VM-649-backlog-integration.md) | Done |  |
 | VM-650 | [Site Visual Continuity](done/VM-650-site-visual-continuity.md) | Done |  |
 | VM-651 | [Agent Model Routing](done/VM-651-agent-model-routing.md) | Done |  |

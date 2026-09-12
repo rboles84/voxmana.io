@@ -162,3 +162,15 @@ Owner: ACCEPT
 Decision reference: Current Codex task Owner message, 2026-09-12: “ACCEPT VM-643”.
 
 The acceptance binds the exact RobQA-passed material candidate above and authorizes the normal PR, guarded integration and closeout workflow. It does not add wording, broaden the all-37 scope, reopen rankings or model values, change interactions, or authorize VM-644 work.
+
+## Integration and closeout — 2026-09-12
+
+Task: VM-643
+Candidate: b055c76fdf24c7a79d4f49ccac43cf15f5222531
+Boundaries: PASS
+Integration: PR40 guarded-squash merged exact evidence head `9665a83697548c044ba37d2983a080c8cf2e3c03` as `9ebbd1c43d108a360c961fc28a0d7f147c40932e`.
+Squash parent: `f1abe27f48a6b13448d7c52220001947ec371191`
+Merged tree: `e16c6d5ba392bf26157bfc03aad1de693797b5cb`
+CI: Deterministic Validation passed at the exact PR head: https://github.com/rboles84/voxmana.io/actions/runs/34717821222/job/103618109225
+Scope: The merged tree matches the accepted PR input. Closeout changes are lifecycle evidence only; no wording, product behavior, ranking, model value, interaction, all-37 audit, or VM-644 work was added.
+Cleanup: The VM-643 feature branch is the only cleanup target; final verification requires its local and remote refs to be absent.
