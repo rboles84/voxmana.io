@@ -2,7 +2,7 @@
 
 ID: VM-643
 Title: Archscry Atlas and Dossier Owner Prose Pass
-Status: Backlog
+Status: In Progress
 Type: Page content review and bounded implementation
 Area: Archscry / Atlas / dossiers
 Priority: Medium
@@ -134,6 +134,15 @@ Coordinate VM-642 entry promises and VM-644 imported reading context. VM-625 and
 
 The sequence is an Owner work order, not an authorization for dependent branches or a requirement to create seven simultaneous worktrees. Work one card at a time. Follow actual availability on other pages rather than assuming all proposed changes have shipped.
 
+## Admission Scope
+
+- `docs/kanban/backlog/VM-643-archscry-owner-prose-pass.md`
+- `docs/kanban/in-progress/VM-643-archscry-owner-prose-pass.md`
+- `docs/kanban/done/VM-643-archscry-owner-prose-pass.md`
+- `docs/kanban/board.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/handoffs/2026-09-12-1212-codex-vm643-boros-prose-review.md`
+
 ## Protected behavior and non-goals
 
 - No redesign, new engine, new analytics dashboard, mass all-identity rewrite, ranking/scoring change or schema/storage migration is implied by this page pass.
@@ -176,11 +185,11 @@ VM-650 has no future page-work scope. Preserve the accepted Home and Archscry fa
 ## Delivery
 
 Record version: 1
-Branch: PENDING
-Admission baseline: PENDING
+Branch: codex/vm-643-archscry-prose
+Admission baseline: f1abe27f48a6b13448d7c52220001947ec371191
 Candidate: PENDING
 RobQA: PENDING
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
-Decisions: Intake authorized 2026-09-08; Preserve-voice direction added 2026-09-08: retain unchanged is valid; page-specific decisions and any selected Owner wording remain to be recorded before dependent implementation. Related-page coordination above is not a dependency-isolation authorization.
+Decisions: Intake authorized 2026-09-08; Preserve-voice direction added 2026-09-08: retain unchanged is valid; admission start authorized 2026-09-12 for a representative Boros review only. Preserve the questionnaire, Matrix, saved readings, existing sections and accepted VM-650 Archscry baseline. No product path is admitted and no implementation begins before Owner wording/scope review; any accepted product scope requires a dedicated admission-scope amendment. Related-page coordination above is not a dependency-isolation authorization.
