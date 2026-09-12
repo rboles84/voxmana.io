@@ -203,9 +203,9 @@ staleComparisonCatalog.records = staleComparisonCatalog.records.filter((record) 
   requiredPair.includes(record.identity_a) && requiredPair.includes(record.identity_b)
 ));
 assert.equal(validateDossierContentCatalogs({ ...dossierCatalogFixture, publicComparisonCatalog: staleComparisonCatalog }), false, "a missing mandatory confusion-pair comparison must still fail closed");
-assert.equal(cardRationaleSource.records.length, 52, "expected 26 retained, 25 original gap proposals, and the approved Colorless collision-repair rationale");
+assert.equal(cardRationaleSource.records.length, 113, "expected 26 retained approvals plus 87 automatic source-complete relationships");
 assert.ok(cardRationaleSource.records.every((record) => record.review_status === "APPROVED_PUBLIC"));
-assert.equal(cardRationaleCatalog.records.length, 50, "approved catalog must cover all identities while retaining the deterministic three-card display maximum");
+assert.equal(cardRationaleCatalog.records.length, 111, "approved catalog must provide three cards for every identity");
 for (const record of cardRationaleCatalog.records) {
   const identityContent = identityDossierCatalog.records.find((entry) => entry.identity_key === record.identity_key);
   const identityContext = identityContent?.how_this_plays?.mechanical_expression || "";
@@ -313,7 +313,8 @@ const arbiterRelationship = cardRationaleSource.records.find((record) => record.
 const arbiterCatalogRecord = cardRationaleCatalog.records.find((record) => record.card?.name === "Grand Arbiter Augustin IV");
 const ulalekCatalogRecord = cardRationaleCatalog.records.find((record) => record.card?.name === "Ulalek, Fused Atrocity");
 assert.ok(dinaCatalogRecord?.modal_explanation.startsWith(dinaRelationship?.modal_explanation || "__missing__"), "Dina modal context must preserve her approved relationship explanation");
-assert.match(dinaCatalogRecord?.rationale || "", /turning a sacrificed creature into a card, life, and \+1\/\+1 counters/);
+assert.match(dinaCatalogRecord?.rationale || "", /once each turn, sacrificing a creature draws you a card/i);
+assert.match(dinaCatalogRecord?.rationale || "", /target creature you control/i);
 assert.match(dinaCatalogRecord?.modal_explanation || "", /which creature's power should become life and counters/i);
 assert.match(dinaCatalogRecord?.modal_explanation || "", /separate draw trigger rewards the first sacrifice each turn/i);
 assert.notEqual(dinaCatalogRecord?.modal_explanation, identityDossierByKey.WITHERBLOOM.how_this_plays.mechanical_expression, "Dina cannot fall back to a generic Witherbloom mechanics list");
@@ -321,8 +322,8 @@ assert.ok(arbiterCatalogRecord?.modal_explanation.startsWith(arbiterRelationship
 assert.match(arbiterCatalogRecord?.rationale || "", /white and blue spells cost less.+opponent.+spell cost more/i);
 assert.match(arbiterCatalogRecord?.modal_explanation || "", /each opposing action asks for one more mana/i);
 assert.notEqual(arbiterCatalogRecord?.modal_explanation, identityDossierByKey.WU.how_this_plays.mechanical_expression, "Grand Arbiter cannot fall back to a generic Azorius mechanics list");
-assert.match(ulalekCatalogRecord?.rationale || "", /access to all five colors/);
-assert.doesNotMatch(ulalekCatalogRecord?.rationale || "", /Five-Color access/);
+assert.match(ulalekCatalogRecord?.rationale || "", /five-color identity opens the deck's breadth/i);
+assert.match(ulalekCatalogRecord?.rationale || "", /every spell you control.+every other activated or triggered ability/i);
 assert.match(indexSource, /renderManaCost\(manaCost\)/, "card details must use Archscry mana glyphs instead of raw brace notation");
 const renderedBogbeastCost = renderManaCost("{4}{G}");
 assert.match(renderedBogbeastCost, /\bms-4\b/);

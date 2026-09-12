@@ -123,7 +123,7 @@ const rulesReview = [
   },
   {
     id: "protection", term: "Protection", aliases: [],
-    copy: "Protection from a quality prevents damage, enchanting or equipping, blocking, and targeting from sources with that quality; it does not stop effects that do none of those things.",
+    copy: "Protection stops damage, enchanting or equipping, blocking, and targeting from whatever it has protection from. Other effects still work normally.",
     locator: "https://magic.wizards.com/en/news/feature/modern-horizons-mechanics-2019-05-31#protection",
     rule: "Wizards Modern Horizons mechanics explanation of protection",
   },

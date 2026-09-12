@@ -48,6 +48,8 @@ assert.equal(rows.filter((row) => row.modal_content_model_review).length, 0);
 const baselineByLedger = new Map(ledger.rendered_rows.map((row) => [row.ledger_id, row]));
 const voiceByRelationship = new Map(voiceCatalog.records.map((record) => [record.relationship_id, record]));
 const playByRelationship = new Map(playCatalog.records.map((record) => [record.relationship_id, record]));
+const playCorrectionByRelationship = playSource.current_copy_corrections || {};
+assert.equal(playSource.current_copy_correction_review_status, "OWNER_REVIEW_PENDING");
 const duneLedgerId = "SOUND-DUNE-2-cardvoice_vm558_dune_241a50c5_f65f_4847_89c7_5c0ef6025dc1";
 const duneRelationshipId = "cardvoice_vm563_dune_634bd800_8caa_47ae_8b70_2c66baf9a355";
 const dunePrintingId = "15b4ee44-28c4-4a39-9c06-aca43787954f";
@@ -71,8 +73,26 @@ for (const row of rows) {
   }
   const catalog = row.surface === "SOUND" ? voiceByRelationship.get(row.relationship_id) : playByRelationship.get(row.relationship_id);
   assert(catalog, `${row.relationship_id} missing from final catalog`);
-  assert.equal(row.final_tile_text, row.surface === "SOUND" ? catalog.excerpt : catalog.rationale);
-  assert.equal(row.final_modal_text, catalog.modal_explanation);
+  const correction = row.surface === "PLAY" ? playCorrectionByRelationship[row.relationship_id] : null;
+  if (correction) {
+    assert.equal(correction.retained_historical_evidence?.status, "IMMUTABLE_HISTORICAL_EVIDENCE_RETAINED");
+    assert.ok(correction.retained_historical_evidence?.fields?.includes("relationship_evidence.exact_text"));
+    assert.ok(correction.corrected_current_fields?.length);
+    assert.equal(correction.canonical_card_fact?.oracle_id, row.oracle_id);
+    if (correction.corrected_current_fields.includes("proposed_public_rationale")) {
+      assert.equal(correction.current_field_values.proposed_public_rationale, catalog.rationale);
+      assert.equal(correction.prior_field_values.proposed_public_rationale, row.final_tile_text, `${row.ledger_id} must retain its historical tile record`);
+      assert.notEqual(catalog.rationale, correction.prior_field_values.proposed_public_rationale, `${row.ledger_id} current factual correction must not masquerade as historical copy`);
+    } else assert.equal(row.final_tile_text, catalog.rationale, `${row.ledger_id} unchanged tile must remain exact`);
+    if (correction.corrected_current_fields.includes("modal_explanation")) {
+      assert.equal(correction.current_field_values.modal_explanation, catalog.modal_explanation);
+      assert.equal(correction.prior_field_values.modal_explanation, row.final_modal_text, `${row.ledger_id} must retain its historical modal record`);
+      assert.notEqual(catalog.modal_explanation, correction.prior_field_values.modal_explanation, `${row.ledger_id} current factual correction must not masquerade as historical copy`);
+    } else assert.equal(row.final_modal_text, catalog.modal_explanation, `${row.ledger_id} unchanged modal must remain exact`);
+  } else {
+    assert.equal(row.final_tile_text, row.surface === "SOUND" ? catalog.excerpt : catalog.rationale);
+    assert.equal(row.final_modal_text, catalog.modal_explanation);
+  }
   if (row.surface === "SOUND" && row.ledger_id !== duneLedgerId) assert.equal(row.final_tile_text, baseline.current_tile_text, `${row.ledger_id} changed exact flavor`);
 }
 assert.equal(voiceSource.records.length, 73);

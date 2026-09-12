@@ -952,7 +952,7 @@
       "record_id": "glossary_protection",
       "term": "Protection",
       "aliases": [],
-      "definition": "Protection from a quality prevents damage, enchanting or equipping, blocking, and targeting from sources with that quality; it does not stop effects that do none of those things.",
+      "definition": "Protection stops damage, enchanting or equipping, blocking, and targeting from whatever it has protection from. Other effects still work normally.",
       "provenance": {
         "role": "official_game_rule",
         "locator": "https://magic.wizards.com/en/news/feature/modern-horizons-mechanics-2019-05-31#protection",

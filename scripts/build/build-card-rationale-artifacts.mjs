@@ -288,6 +288,9 @@ export function validateRelationshipSource(source, audit) {
   if (source.coverage_policy?.display_maximum !== 3 || source.coverage_policy?.display_minimum !== 0) fail("Invalid card-rationale display-count policy.");
   const ids = new Set();
   const pairs = new Set();
+  const corrections = source.current_copy_corrections || {};
+  if (!corrections || Array.isArray(corrections) || typeof corrections !== "object") fail("Invalid factual-copy correction ledger.");
+  if (Object.keys(corrections).length && source.current_copy_correction_review_status !== "OWNER_REVIEW_PENDING") fail("Factual-copy corrections require an explicit pending Owner-review status.");
   const auditByLocator = new Map(audit.rows.map((row) => [row.currentSourcePool, row]));
   for (const record of source.records) {
     if (!record.relationship_id || ids.has(record.relationship_id)) fail(`Duplicate or missing relationship ID: ${record.relationship_id || "<missing>"}`);
@@ -307,6 +310,18 @@ export function validateRelationshipSource(source, audit) {
     if (!record.canonical_card_data_locator || !record.relationship_evidence?.exact_text || !record.limitation || !record.review_status) fail(`Incomplete provenance fields: ${record.relationship_id}`);
     if (UNSUPPORTED_RELATIONSHIP_CLASSES.has(record.relationship_evidence.evidence_class)) fail(`Unsupported relationship bridge: ${record.relationship_id}`);
     if (!automatic && record.relationship_evidence.exact_text !== row.candidate.why_this_fits) fail(`Stale relationship evidence: ${record.relationship_id}`);
+    const correction = corrections[record.relationship_id];
+    if (correction) {
+      const fields = correction.corrected_current_fields || [];
+      const currentFields = correction.current_field_values || {};
+      const priorFields = correction.prior_field_values || {};
+      const currentValue = (field) => field.split(".").reduce((value, key) => value?.[key], record);
+      if (correction.schema_version !== "factual-copy-correction-v1" || !correction.task || correction.change_class !== "FACTUAL_COPY_CORRECTION") fail(`Invalid factual-copy correction provenance: ${record.relationship_id}`);
+      if (!correction.correction_id || !correction.reason || !Array.isArray(fields) || !fields.length || fields.includes("relationship_evidence.exact_text") || Object.keys(currentFields).length !== fields.length || Object.keys(priorFields).length !== fields.length || !correction.prior_source?.git_revision || !correction.prior_source?.path || fields.some((field) => !field || currentValue(field) !== currentFields[field] || typeof priorFields[field] !== "string" || priorFields[field] === currentFields[field])) fail(`Incomplete factual-copy correction provenance: ${record.relationship_id}`);
+      if (correction.retained_historical_evidence?.status !== "IMMUTABLE_HISTORICAL_EVIDENCE_RETAINED" || !Array.isArray(correction.retained_historical_evidence.fields) || !correction.retained_historical_evidence.fields.includes("relationship_evidence.exact_text")) fail(`Historical evidence retention is missing: ${record.relationship_id}`);
+      const oracle = correction.canonical_card_fact || {};
+      if (oracle.oracle_id !== record.canonical_card_id || !oracle.locator || !oracle.oracle_text || oracle.oracle_text_sha256 !== sha256(oracle.oracle_text)) fail(`Factual-copy correction lacks a self-consistent full canonical Oracle record: ${record.relationship_id}`);
+    }
     if (!["APPROVED_PUBLIC", "REVIEW_REQUIRED", "EVIDENCE_NEEDED", "REJECTED", "NOT_APPLICABLE"].includes(record.review_status)) fail(`Invalid review status: ${record.relationship_id}`);
     if (record.review_status === "APPROVED_PUBLIC") {
       if (!record.proposed_public_rationale) fail(`Approved record lacks public rationale: ${record.relationship_id}`);
@@ -320,6 +335,7 @@ export function validateRelationshipSource(source, audit) {
       }
     }
   }
+  if (Object.keys(corrections).some((relationshipId) => !ids.has(relationshipId))) fail("Factual-copy correction references an unknown relationship.");
   const isperia = source.records.find((record) => record.canonical_card_name === "Isperia, Supreme Judge");
   const approvedIsperia = "Isperia represents Azorius leadership, and her card rewards you with additional information when opponents attack you or your planeswalkers.";
   if (isperia?.review_status === "APPROVED_PUBLIC" && (isperia.proposed_public_rationale !== approvedIsperia || !isperia.provenance_roles?.identity_relationship || isperia.provenance_roles?.card_behavior?.verified_field !== "oracle_excerpt")) fail("Isperia owner-approved narrowing or provenance-role separation is stale.");
@@ -357,6 +373,10 @@ export function buildRuntimeCatalog(source) {
         claim_ids: record.certified_identity_claim_ids,
         source_ids: record.source_ids,
         relationship_evidence_locator: record.relationship_evidence.locator,
+        ...(source.current_copy_corrections?.[record.relationship_id] ? { current_copy_correction: {
+          correction_id: source.current_copy_corrections[record.relationship_id].correction_id,
+          canonical_oracle_locator: source.current_copy_corrections[record.relationship_id].canonical_card_fact.locator,
+        } } : {}),
       },
     }));
   return {

@@ -1269,7 +1269,7 @@
       "record_type": "GLOSSARY_TERM",
       "term": "Protection",
       "aliases": [],
-      "proposed_copy": "Protection from a quality prevents damage, enchanting or equipping, blocking, and targeting from sources with that quality; it does not stop effects that do none of those things.",
+      "proposed_copy": "Protection stops damage, enchanting or equipping, blocking, and targeting from whatever it has protection from. Other effects still work normally.",
       "example": null,
       "provenance": {
         "role": "official_game_rule",
@@ -1283,7 +1283,7 @@
       "disposition": "PENDING_AUTOMATIC_VALIDATION",
       "owner_decision": null,
       "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_protection",
-      "copy_sha256": "36b18a3d5a1135e4278b558f113cfd8bb9885ff3c2e14efb00f4fe44c19020be"
+      "copy_sha256": "9779be7c28213b3489d276194fbb1d7c8e4bfe85fa85d3fb24d3d5219b30e76a"
     },
     {
       "record_id": "glossary_ramp",

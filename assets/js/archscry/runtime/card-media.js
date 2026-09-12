@@ -368,7 +368,8 @@ export function isCardPreviewInteractionActive() {
 }
 
 export function scheduleCardPreviewDismissal(delay = CARD_PREVIEW_DISMISS_DELAY_MS) {
-  cancelCardPreviewDismissal();
+  // Outside movement must not extend the grace period after the first exit.
+  if (cardPreviewDismissTimer !== null) return;
   cardPreviewDismissTimer = window.setTimeout(() => {
     cardPreviewDismissTimer = null;
     if (!isCardPreviewInteractionActive()) hideCardPreviewOverlay();
@@ -647,7 +648,7 @@ export function handleCardPreviewPointerMove(event) {
     return;
   }
   if (trigger && cardPreviewOverlay.dataset.previewResolvedTarget !== requestedTarget) void showCardPreviewOverlay(trigger, event);
-  else if (!trigger) scheduleCardPreviewDismissal();
+  else if (!trigger && !cardPreviewOverlay.contains(event.target)) scheduleCardPreviewDismissal();
 }
 
 export function handleCardPreviewPointerOut(event) {

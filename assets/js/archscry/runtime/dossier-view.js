@@ -59,6 +59,7 @@ import {
   canonicalUsageCardId,
   cardVoiceAvailabilityForFaction,
   dedupePreconRecommendationsByProduct,
+  filterLandCardsForUsage,
   filterStarterCardsForUsage,
   selectApprovedCardRationales,
   selectApprovedCardVoices,
@@ -531,189 +532,263 @@ export const OFFICIAL_HERO_PROOF_BY_FACTION_KEY = Object.freeze({
   ABZAN: Object.freeze({
     src: "/assets/img/identity-hero/official/abzan-betor-ancestor-s-voice.jpg",
     position: "50% 42%",
-    attribution: "Art: Lius Lasahido - Betor, Ancestor's Voice",
+    attribution: "Art: Lius Lasahido - Betor, Ancestor's Voice",    scryfallUri: "https://scryfall.com/card/tdc/1/betor-ancestors-voice",
+
   }),
   BR: Object.freeze({
     src: "/assets/img/identity-hero/official/rakdos-rix-maadi-dungeon-palace.jpg",
     position: "50% 50%",
     attribution: "Art: Rix Maadi, Dungeon Palace",
+    scryfallUri: "https://scryfall.com/card/dis/179",
+
   }),
   BANT: Object.freeze({
     src: "/assets/img/identity-hero/official/bant-plane-alara.jpg",
     position: "52% 48%",
     attribution: "Art: Michael Komarck - Bant",
+    scryfallUri: "https://scryfall.com/card/ohop/4",
+
   }),
   B: Object.freeze({
     src: "/assets/img/identity-hero/official/black-altars-reap.jpg",
     position: "50% 45%",
     attribution: "Art: Donato Giancola - Altar's Reap",
+    scryfallUri: "https://scryfall.com/card/isd/86",
+
   }),
   BG: Object.freeze({
     src: "/assets/img/identity-hero/official/golgari-dark-heart-wood.jpg",
     position: "50% 48%",
     attribution: "Art: Mark Tedin - Dark Heart of the Wood",
+    scryfallUri: "https://scryfall.com/card/rav/200/dark-heart-of-the-wood",
+
   }),
   COLORLESS: Object.freeze({
     src: "/assets/img/identity-hero/official/colorless-emrakul-promised-end.jpg",
     position: "50% 43%",
     attribution: "Art: Emrakul, the Promised End",
+    scryfallUri: "https://scryfall.com/card/sld/1160",
+
   }),
   DUNE: Object.freeze({
     src: "/assets/img/identity-hero/official/dune-dune-brood-nephilim.jpg",
     position: "50% 45%",
     attribution: "Art: Jim Murray - Dune-Brood Nephilim",
+    scryfallUri: "https://scryfall.com/card/gpt/110/dune-brood-nephilim",
+
   }),
   ESPER: Object.freeze({
     src: "/assets/img/identity-hero/official/esper-plane-alara.jpg",
     position: "50% 50%",
     attribution: "Art: Bruce Brenneise - Esper",
+    scryfallUri: "https://scryfall.com/card/moc/49/esper",
+
   }),
   GRIXIS: Object.freeze({
     src: "/assets/img/identity-hero/official/grixis-plane-alara.jpg",
     position: "50% 48%",
     attribution: "Art: Nils Hamm - Grixis",
+    scryfallUri: "https://scryfall.com/card/ohop/15",
+
   }),
   RG: Object.freeze({
     src: "/assets/img/identity-hero/official/gruul-zhur-taa-ancient.jpg",
     position: "50% 46%",
     attribution: "Art: Adam Paquette - Zhur-Taa Ancient",
+    scryfallUri: "https://scryfall.com/card/dgm/119/zhur-taa-ancient",
+
   }),
   JESKAI: Object.freeze({
     src: "/assets/img/identity-hero/official/jeskai-shiko-paragon-way.jpg",
     position: "50% 42%",
     attribution: "Art: Victor Adame Minguez - Shiko, Paragon of the Way",
+    scryfallUri: "https://scryfall.com/card/atdm/37",
+
   }),
   JUND: Object.freeze({
     src: "/assets/img/identity-hero/official/jund-plane-alara.jpg",
     position: "50% 48%",
     attribution: "Art: Aleksi Briclot - Jund",
+    scryfallUri: "https://scryfall.com/card/opc2/20",
+
   }),
   LOREHOLD: Object.freeze({
     src: "/assets/img/identity-hero/official/lorehold-velomachus-lorehold.jpg",
     position: "50% 42%",
     attribution: "Art: Raymond Swanland - Velomachus Lorehold",
+    scryfallUri: "https://scryfall.com/card/astx/61",
+
   }),
   MARDU: Object.freeze({
     src: "/assets/img/identity-hero/official/mardu-neriv-heart-storm.jpg",
     position: "50% 42%",
     attribution: "Art: Victor Adame Minguez - Neriv, Heart of the Storm",
+    scryfallUri: "https://scryfall.com/card/atdm/25",
+
   }),
   NAYA: Object.freeze({
     src: "/assets/img/identity-hero/official/naya-plane-alara.jpg",
     position: "50% 48%",
     attribution: "Art: Zoltan Boros & Gabor Szikszai - Naya",
+    scryfallUri: "https://scryfall.com/card/ohop/27",
+
   }),
   PRISMARI: Object.freeze({
     src: "/assets/img/identity-hero/official/prismari-galazeth-prismari.jpg",
     position: "50% 43%",
     attribution: "Art: Raymond Swanland - Galazeth Prismari",
+    scryfallUri: "https://scryfall.com/card/astx/58",
+
   }),
   QUANDRIX: Object.freeze({
     src: "/assets/img/identity-hero/official/quandrix-tanazir-quandrix.jpg",
     position: "50% 44%",
     attribution: "Art: Raymond Swanland - Tanazir Quandrix",
+    scryfallUri: "https://scryfall.com/card/astx/60",
+
   }),
   SILVERQUILL: Object.freeze({
     src: "/assets/img/identity-hero/official/silverquill-shadrix-silverquill.jpg",
     position: "50% 43%",
     attribution: "Art: Raymond Swanland - Shadrix Silverquill",
+    scryfallUri: "https://scryfall.com/card/astx/59",
+
   }),
   SULTAI: Object.freeze({
     src: "/assets/img/identity-hero/official/sultai-teval-balanced-scale.jpg",
     position: "50% 42%",
     attribution: "Art: Chris Rahn - Teval, the Balanced Scale",
+    scryfallUri: "https://scryfall.com/card/tdc/8/teval-the-balanced-scale",
+
   }),
   G: Object.freeze({
     src: "/assets/img/identity-hero/official/green-primordial-hydra.jpg",
     position: "50% 45%",
     attribution: "Art: Aleksi Briclot - Primordial Hydra",
+    scryfallUri: "https://scryfall.com/card/m12/189",
+
   }),
   GLINT: Object.freeze({
     src: "/assets/img/identity-hero/official/glint-glint-eye-nephilim.jpg",
     position: "50% 45%",
     attribution: "Art: Mark Zug - Glint-Eye Nephilim",
+    scryfallUri: "https://scryfall.com/card/gpt/115",
+
   }),
   INK: Object.freeze({
     src: "/assets/img/identity-hero/official/ink-ink-treader-nephilim.jpg",
     position: "50% 45%",
     attribution: "Art: Christopher Moeller - Ink-Treader Nephilim",
+    scryfallUri: "https://scryfall.com/card/gpt/117/ink-treader-nephilim",
+
   }),
   R: Object.freeze({
     src: "/assets/img/identity-hero/official/red-chain-lightning.jpg",
     position: "50% 45%",
     attribution: "Art: Christopher Moeller - Chain Lightning",
+    scryfallUri: "https://scryfall.com/card/pd2/16",
+
   }),
   TEMUR: Object.freeze({
     src: "/assets/img/identity-hero/official/temur-dragonback-assault.png",
     position: "50% 48%",
     attribution: "Art: Ryan Pancoast - Dragonback Assault",
+    scryfallUri: "https://scryfall.com/card/atdm/22",
+
   }),
   U: Object.freeze({
     src: "/assets/img/identity-hero/official/blue-academy-ruins.jpg",
     position: "50% 48%",
     attribution: "Art: Zoltan Boros & Gabor Szikszai - Academy Ruins",
+    scryfallUri: "https://scryfall.com/card/2xm/369",
+
   }),
   UB: Object.freeze({
     src: "/assets/img/identity-hero/official/dimir-mortus-strider.jpg",
     position: "54% 45%",
     attribution: "Art: Tomasz Jedruszek - Mortus Strider",
+    scryfallUri: "https://scryfall.com/card/gtc/179/mortus-strider",
+
   }),
   UG: Object.freeze({
     src: "/assets/img/identity-hero/official/simic-guildgate.jpg",
     position: "50% 50%",
     attribution: "Art: Simic Guildgate",
+    scryfallUri: "https://scryfall.com/card/gtc/246",
+
   }),
   UR: Object.freeze({
     src: "/assets/img/identity-hero/official/izzet-steam-vents.jpg",
     position: "50% 50%",
     attribution: "Art: Steam Vents",
+    scryfallUri: "https://scryfall.com/card/grn/257",
+
   }),
   WB: Object.freeze({
     src: "/assets/img/identity-hero/official/orzhov-ghost-council-orzhova.jpg",
     position: "50% 44%",
     attribution: "Art: Greg Staples - Ghost Council of Orzhova",
+    scryfallUri: "https://scryfall.com/card/gpt/114",
+
   }),
   WG: Object.freeze({
     src: "/assets/img/identity-hero/official/selesnya-temple-garden.jpg",
     position: "50% 50%",
     attribution: "Art: Temple Garden",
+    scryfallUri: "https://scryfall.com/card/rvr/300",
+
   }),
   WR: Object.freeze({
     src: "/assets/img/identity-hero/official/boros-solar-blaze.jpg",
     position: "50% 48%",
     attribution: "Art: Adam Paquette - Solar Blaze",
+    scryfallUri: "https://scryfall.com/card/war/216/solar-blaze",
+
   }),
   WU: Object.freeze({
     src: "/assets/img/identity-hero/official/azorius-hallowed-fountain.jpg",
     position: "50% 50%",
     attribution: "Art: Hallowed Fountain",
+    scryfallUri: "https://scryfall.com/card/rtr/241",
+
   }),
   W: Object.freeze({
     src: "/assets/img/identity-hero/official/white-builder-s-blessing.jpg",
     position: "50% 45%",
     attribution: "Art: John Stanko - Builder's Blessing",
+    scryfallUri: "https://scryfall.com/card/avr/8/builders-blessing",
+
   }),
   WUBRG: Object.freeze({
     src: "/assets/img/identity-hero/official/wubrg-channel-the-suns.jpg",
     position: "50% 50%",
     attribution: "Art: Rob Alexander - Channel the Suns",
+    scryfallUri: "https://scryfall.com/card/5dn/84/channel-the-suns",
+
   }),
   WITCH: Object.freeze({
     src: "/assets/img/identity-hero/official/witch-witch-maw-nephilim.jpg",
     position: "50% 45%",
     attribution: "Art: Greg Staples - Witch-Maw Nephilim",
+    scryfallUri: "https://scryfall.com/card/gpt/138/witch-maw-nephilim",
+
   }),
   WITHERBLOOM: Object.freeze({
     src: "/assets/img/identity-hero/official/witherbloom-beledros-witherbloom.jpg",
     position: "50% 43%",
     attribution: "Art: Raymond Swanland - Beledros Witherbloom",
+    scryfallUri: "https://scryfall.com/card/astx/57",
+
   }),
   YORE: Object.freeze({
     src: "/assets/img/identity-hero/official/yore-yore-tiller-nephilim.jpg",
     position: "50% 44%",
     attribution: "Art: Jeremy Jarvis - Yore-Tiller Nephilim",
+    scryfallUri: "https://scryfall.com/card/gpt/140/yore-tiller-nephilim",
+
   }),
 });
+
 
 export function heroBannerImageSlugForFaction(faction = {}) {
   const key = String(faction?.key || "").toUpperCase();
@@ -923,7 +998,7 @@ export function preconRationaleForDisplay(precon, previewGroup) {
   return previewGroup !== "stretch" && repeatsFitBadge ? strategy : text;
 }
 
-export function buildPreconCardHtml(precon) {
+export function buildPreconCardHtml(precon, usedCardIds = new Set()) {
   const previewGroup = precon?.previewGroup || precon?.group || (precon?.lane === "stretch" ? "stretch" : "otherExact");
   const badge = PRECON_BADGE_META[previewGroup] || PRECON_BADGE_META.otherExact;
   const publicRationale = preconRationaleForDisplay(precon, previewGroup);
@@ -938,6 +1013,11 @@ export function buildPreconCardHtml(precon) {
     cardTags: chips.join("|"),
   });
   const researchLinks = buildPreconResearchLinks(precon);
+  const commanderId = canonicalUsageCardId(precon.mainCommander);
+  const commanderHtml = usedCardIds.has(commanderId)
+    ? escapeHtml(precon.mainCommander)
+    : `<button class="precon-commander-trigger" type="button" data-card-preview-name="${escapeAttributeValue(precon.mainCommander)}" ${commanderButtonAttrs}>${escapeHtml(precon.mainCommander)}</button>`;
+  usedCardIds.add(commanderId);
 
   return `
     <div class="precon-card is-compact" data-precon-card data-precon-group="${escapeHtml(previewGroup)}"${rationaleProvenance ? ` data-rationale-provenance="${escapeAttributeValue(JSON.stringify(rationaleProvenance))}"` : ""}>
@@ -946,7 +1026,7 @@ export function buildPreconCardHtml(precon) {
         <span class="precon-product">${escapeHtml(precon.productSection)}</span>
       </div>
       <div class="precon-title">${escapeHtml(precon.deckName)}</div>
-      <div class="precon-commander">Main commander: <button class="precon-commander-trigger" type="button" data-card-preview-name="${escapeAttributeValue(precon.mainCommander)}" ${commanderButtonAttrs}>${escapeHtml(precon.mainCommander)}</button></div>
+      <div class="precon-commander">Main commander: ${commanderHtml}</div>
       ${chips.length ? `<div class="precon-chip-row">${chips.map((chip) => `<span class="precon-chip">${escapeHtml(chip)}</span>`).join("")}</div>` : ""}
       ${publicRationale ? `<div class="precon-copy">${escapeHtml(publicRationale)}</div>` : ""}
       ${researchLinks.length ? `<div class="precon-links">${buildLinkButtons(researchLinks)}</div>` : ""}
@@ -954,8 +1034,9 @@ export function buildPreconCardHtml(precon) {
     </div>`;
 }
 
-export function buildPreconSectionHtml(preconRecommendations) {
-  const preview = selectPreconPreviewRecommendations(preconRecommendations);
+export function buildPreconSectionHtml(preconRecommendations, excludedCardIds = new Set()) {
+  const usedCardIds = new Set(excludedCardIds);
+  const preview = selectPreconPreviewRecommendations(preconRecommendations, 6);
   if (!preconRecommendations?.hasAny || !preview.visible.length) {
     return `
       <div class="precons-section">
@@ -981,8 +1062,8 @@ export function buildPreconSectionHtml(preconRecommendations) {
       <div class="section-label">Precon Starting Points</div>
       <div class="precon-intro">Ready-made Commander decks compared through verified color identity and cataloged deck facts.</div>
       <div class="precon-meta">Use the recorded themes and mechanics to decide whether each deck is worth a closer look.</div>
-      <div class="precon-grid is-compact" data-precon-preview-grid="primary">${preview.visible.map((precon) => buildPreconCardHtml(precon)).join("")}</div>
-      ${canExpand ? `<div class="precon-grid is-compact" data-precon-preview-grid="remaining" hidden>${remaining.map((precon) => buildPreconCardHtml(precon)).join("")}</div>` : ""}
+      <div class="precon-grid is-compact" data-precon-preview-grid="primary">${preview.visible.map((precon) => buildPreconCardHtml(precon, usedCardIds)).join("")}</div>
+      ${canExpand ? `<div class="precon-grid is-compact" data-precon-preview-grid="remaining" hidden>${remaining.map((precon) => buildPreconCardHtml(precon, usedCardIds)).join("")}</div>` : ""}
       ${canExpand ? `
         <div class="precon-reveal-row" data-precon-preview-overflow>
           <button class="precon-reveal-btn" type="button" aria-expanded="false" ${toggleAttrs}>
@@ -1006,7 +1087,7 @@ export function togglePreconPreview(actionNode) {
   remainingGrid.hidden = !nextExpanded;
   actionNode.setAttribute("aria-expanded", nextExpanded ? "true" : "false");
   actionNode.textContent = nextExpanded
-    ? actionNode.dataset.expandedLabel || "Show first 4 precons"
+    ? actionNode.dataset.expandedLabel || "Show initial precons"
     : actionNode.dataset.collapsedLabel || "Display other precons";
 }
 
@@ -1745,7 +1826,6 @@ export function renderResult(viewKey, { mode = "placement", exploreSlug = "", ha
   const commanderLane = dossier.commanderLane;
   const commanderDirectoryLinks = dossier.links.commanderStart || [];
   const commanderPreviewCandidates = dossier.commanderRecommendations || [];
-  const landRecommendations = dossier.landRecommendations || {};
   const modelMechanics = APP_STATE.placementModel?.factions?.[dossier.targetFactionKey]?.identity?.mechanics || "";
   const readingTagRefs = selectReadingTagRefs({
     dossier,
@@ -1770,6 +1850,10 @@ export function renderResult(viewKey, { mode = "placement", exploreSlug = "", ha
   const cardVoiceAvailability = cardVoiceAvailabilityForFaction({ faction });
   addUsageCards(editorialCardUsage, cardVoices.map((entry) => entry.card));
   const starterCardsForUsage = filterStarterCardsForUsage(dossier.starterCards, editorialCardUsage);
+  addUsageCards(editorialCardUsage, Object.values(starterCardsForUsage).flat());
+  const landRecommendations = filterLandCardsForUsage(
+    dossier.landRecommendations, buildBasicLandCards(faction.colors || []), editorialCardUsage
+  );
   const canonicalDiscoveryProfile = APP_STATE.mazeDiscoveryProfileCatalog?.profiles
     ?.find((profile) => profile.identity_key === activeKey);
   if (!APP_STATE.mazeDiscoveryProfileProvenance || !canonicalDiscoveryProfile) {
@@ -1916,6 +2000,10 @@ export function renderResult(viewKey, { mode = "placement", exploreSlug = "", ha
   const hasStarterCardReferences = renderState.hasStarterCardReferences;
   const basicLandCopy = renderState.basicLandCopy;
   const basicLandCards = renderState.basicLandCards;
+  addUsageCards(editorialCardUsage, basicLandCards);
+  for (const tier of ["premium", "midrange", "budget", "utility"]) {
+    addUsageCards(editorialCardUsage, landRecommendations[tier]);
+  }
   const commanderPreviewHtml = commanderPreviewCandidates.length ? `
     <div class="commander-preview-block" data-commander-preview-block hidden>
       <div class="commander-preview-grid" id="commander-preview-grid">${commanderPreviewSlots(commanderPreviewCandidates)}</div>
@@ -1974,7 +2062,7 @@ export function renderResult(viewKey, { mode = "placement", exploreSlug = "", ha
     tagRefs: readingTagRefs,
   }));
   const preconSectionHtml = Array.isArray(APP_STATE.preconCatalog?.precons)
-    ? buildPreconSectionHtml(usablePreconRecommendations)
+    ? buildPreconSectionHtml(usablePreconRecommendations, editorialCardUsage)
     : "";
   const landLaneCopy = landLaneCopyForFaction(faction);
   const isColorlessFaction = String(faction?.key || "").toUpperCase() === "COLORLESS";
@@ -2248,7 +2336,9 @@ export function renderResult(viewKey, { mode = "placement", exploreSlug = "", ha
     : isPrimary
       ? activeKey === "WUBRG" ? "Placement dossier" : resultState === "tied" ? "Original reading" : `Placement dossier - ${institutionLabel}`
       : resultState === "tied" ? `Other co-leader - ${institutionLabel}` : `Comparing close alternative - ${institutionLabel}`;
-  const heroArtworkAttribution = heroBannerArtworkAttributionForFaction(faction);
+  const heroArtwork = heroBannerArtworkForFaction(faction);
+  const heroArtworkAttribution = heroArtwork?.attribution || "";
+  const heroArtworkScryfallUri = heroArtwork?.scryfallUri || "";
   const identityModeAttributes = `${reviewMode ? " data-direct-review=\"true\"" : ""}${explorationMode ? " data-identity-explore=\"true\"" : ""}`;
   const identityExploreNavHtml = explorationMode ? `
     <nav class="identity-explore-nav" aria-label="Identity exploration">
@@ -2265,7 +2355,7 @@ export function renderResult(viewKey, { mode = "placement", exploreSlug = "", ha
       ${pipsHtml}
       <div class="guild-philosophy">${renderPlayerCopy(heroNarrative)}</div>
       ${heroLoreSummary ? `<div class="guild-lore-summary">${renderPlayerCopy(heroLoreSummary)}</div>` : ""}
-      ${heroArtworkAttribution ? `<div class="guild-art-credit">${escapeHtml(heroArtworkAttribution)}</div>` : ""}
+      ${heroArtworkAttribution ? `<div class="guild-art-credit">${heroArtworkScryfallUri ? `<a href="${escapeAttributeValue(heroArtworkScryfallUri)}" target="_blank" rel="noreferrer" style="color:inherit">${escapeHtml(heroArtworkAttribution)}</a>` : escapeHtml(heroArtworkAttribution)}</div>` : ""}
     </div>
 
     ${identityExploreNavHtml}

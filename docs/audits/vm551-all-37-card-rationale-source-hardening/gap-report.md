@@ -6,43 +6,43 @@ Full means approved examples provide genuinely useful coverage and no meaningful
 
 ## Full
 
-- **W:** 1 approved public; 0 review-required; 3 evidence-needed; 0 rejected.
-- **U:** 1 approved public; 0 review-required; 3 evidence-needed; 0 rejected.
-- **B:** 1 approved public; 0 review-required; 3 evidence-needed; 0 rejected.
-- **R:** 1 approved public; 0 review-required; 3 evidence-needed; 0 rejected.
-- **G:** 1 approved public; 0 review-required; 3 evidence-needed; 0 rejected.
-- **WU:** 2 approved public; 0 review-required; 2 evidence-needed; 0 rejected.
-- **UB:** 1 approved public; 0 review-required; 1 evidence-needed; 0 rejected.
-- **BR:** 2 approved public; 0 review-required; 4 evidence-needed; 0 rejected.
+- **W:** 3 approved public; 0 review-required; 3 evidence-needed; 0 rejected.
+- **U:** 3 approved public; 0 review-required; 3 evidence-needed; 0 rejected.
+- **B:** 3 approved public; 0 review-required; 3 evidence-needed; 0 rejected.
+- **R:** 3 approved public; 0 review-required; 3 evidence-needed; 0 rejected.
+- **G:** 3 approved public; 0 review-required; 3 evidence-needed; 0 rejected.
+- **WU:** 3 approved public; 0 review-required; 2 evidence-needed; 0 rejected.
+- **UB:** 3 approved public; 0 review-required; 1 evidence-needed; 0 rejected.
+- **BR:** 3 approved public; 0 review-required; 4 evidence-needed; 0 rejected.
 - **RG:** 3 approved public; 0 review-required; 1 evidence-needed; 0 rejected.
-- **WG:** 1 approved public; 0 review-required; 5 evidence-needed; 0 rejected.
+- **WG:** 3 approved public; 0 review-required; 5 evidence-needed; 0 rejected.
 - **WB:** 4 approved public; 0 review-required; 2 evidence-needed; 0 rejected.
 - **UR:** 4 approved public; 0 review-required; 2 evidence-needed; 0 rejected.
-- **BG:** 1 approved public; 0 review-required; 2 evidence-needed; 0 rejected.
-- **UG:** 1 approved public; 0 review-required; 5 evidence-needed; 0 rejected.
+- **BG:** 3 approved public; 0 review-required; 2 evidence-needed; 0 rejected.
+- **UG:** 3 approved public; 0 review-required; 5 evidence-needed; 0 rejected.
 - **WR:** 3 approved public; 0 review-required; 1 evidence-needed; 0 rejected.
 - **LOREHOLD:** 3 approved public; 0 review-required; 0 evidence-needed; 0 rejected.
-- **PRISMARI:** 1 approved public; 0 review-required; 2 evidence-needed; 0 rejected.
-- **QUANDRIX:** 1 approved public; 0 review-required; 2 evidence-needed; 0 rejected.
-- **SILVERQUILL:** 1 approved public; 0 review-required; 2 evidence-needed; 0 rejected.
-- **WITHERBLOOM:** 1 approved public; 0 review-required; 2 evidence-needed; 0 rejected.
-- **BANT:** 1 approved public; 0 review-required; 6 evidence-needed; 0 rejected.
-- **ESPER:** 1 approved public; 0 review-required; 6 evidence-needed; 0 rejected.
-- **GRIXIS:** 1 approved public; 0 review-required; 5 evidence-needed; 0 rejected.
-- **JUND:** 1 approved public; 0 review-required; 6 evidence-needed; 0 rejected.
-- **NAYA:** 1 approved public; 0 review-required; 0 evidence-needed; 3 rejected.
-- **ABZAN:** 1 approved public; 0 review-required; 2 evidence-needed; 0 rejected.
-- **TEMUR:** 1 approved public; 0 review-required; 2 evidence-needed; 0 rejected.
-- **SULTAI:** 1 approved public; 0 review-required; 2 evidence-needed; 0 rejected.
-- **MARDU:** 1 approved public; 0 review-required; 3 evidence-needed; 0 rejected.
-- **JESKAI:** 1 approved public; 0 review-required; 3 evidence-needed; 0 rejected.
-- **YORE:** 1 approved public; 0 review-required; 1 evidence-needed; 0 rejected.
-- **GLINT:** 1 approved public; 0 review-required; 1 evidence-needed; 0 rejected.
-- **DUNE:** 1 approved public; 0 review-required; 1 evidence-needed; 0 rejected.
-- **INK:** 1 approved public; 0 review-required; 1 evidence-needed; 0 rejected.
-- **WITCH:** 1 approved public; 0 review-required; 1 evidence-needed; 0 rejected.
-- **COLORLESS:** 2 approved public; 0 review-required; 2 evidence-needed; 0 rejected.
-- **WUBRG:** 1 approved public; 0 review-required; 6 evidence-needed; 0 rejected.
+- **PRISMARI:** 3 approved public; 0 review-required; 2 evidence-needed; 0 rejected.
+- **QUANDRIX:** 3 approved public; 0 review-required; 2 evidence-needed; 0 rejected.
+- **SILVERQUILL:** 3 approved public; 0 review-required; 2 evidence-needed; 0 rejected.
+- **WITHERBLOOM:** 3 approved public; 0 review-required; 2 evidence-needed; 0 rejected.
+- **BANT:** 3 approved public; 0 review-required; 6 evidence-needed; 0 rejected.
+- **ESPER:** 3 approved public; 0 review-required; 6 evidence-needed; 0 rejected.
+- **GRIXIS:** 3 approved public; 0 review-required; 5 evidence-needed; 0 rejected.
+- **JUND:** 3 approved public; 0 review-required; 6 evidence-needed; 0 rejected.
+- **NAYA:** 3 approved public; 0 review-required; 0 evidence-needed; 3 rejected.
+- **ABZAN:** 3 approved public; 0 review-required; 2 evidence-needed; 0 rejected.
+- **TEMUR:** 3 approved public; 0 review-required; 2 evidence-needed; 0 rejected.
+- **SULTAI:** 3 approved public; 0 review-required; 2 evidence-needed; 0 rejected.
+- **MARDU:** 3 approved public; 0 review-required; 3 evidence-needed; 0 rejected.
+- **JESKAI:** 3 approved public; 0 review-required; 3 evidence-needed; 0 rejected.
+- **YORE:** 3 approved public; 0 review-required; 1 evidence-needed; 0 rejected.
+- **GLINT:** 3 approved public; 0 review-required; 1 evidence-needed; 0 rejected.
+- **DUNE:** 3 approved public; 0 review-required; 1 evidence-needed; 0 rejected.
+- **INK:** 3 approved public; 0 review-required; 1 evidence-needed; 0 rejected.
+- **WITCH:** 3 approved public; 0 review-required; 1 evidence-needed; 0 rejected.
+- **COLORLESS:** 3 approved public; 0 review-required; 2 evidence-needed; 0 rejected.
+- **WUBRG:** 3 approved public; 0 review-required; 6 evidence-needed; 0 rejected.
 
 ## Partial
 

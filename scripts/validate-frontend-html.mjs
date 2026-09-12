@@ -575,13 +575,15 @@ expect(
   "index.html should load the accepted Home skin last, after home.css"
 );
 
-const archscryLastStylesheetTagIndex = sources.archscry.lastIndexOf('<link rel="stylesheet"');
-const archscryRouteCssIndex = sources.archscry.lastIndexOf('../assets/css/archscry.css?v=vm635');
+const archscryStylesheetHrefs = getStylesheetHrefs(sources.archscry);
+const archscryBodyClasses = sources.archscry.match(/<body\b[^>]*\bclass="([^"]*)"/i)?.[1].split(/\s+/) ?? [];
 expect(
-  archscryLastStylesheetTagIndex !== -1 &&
-    archscryRouteCssIndex !== -1 &&
-    archscryRouteCssIndex > archscryLastStylesheetTagIndex,
-  "archscry/index.html should keep archscry.css as the last stylesheet in the head"
+  archscryStylesheetHrefs.at(-2) === '../assets/css/archscry.css?v=vm635' &&
+    archscryStylesheetHrefs.at(-1) === '../assets/css/site-skin.css?v=vm650-arch6' &&
+    archscryStylesheetHrefs.filter(href => /\/site-skin\.css(?:\?|$)/.test(href)).length === 1 &&
+    archscryBodyClasses.includes('vm-site-skin') &&
+    archscryBodyClasses.includes('vm-archscry-route'),
+  "archscry/index.html should retain its route stylesheet and classes, followed by one opted-in visual skin"
 );
 
 const strategiumStylesheetHrefs = getStylesheetHrefs(sources.strategium);

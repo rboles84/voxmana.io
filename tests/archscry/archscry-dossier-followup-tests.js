@@ -42,6 +42,7 @@ const vmRadarSource = await readFile(new URL("../../assets/js/shared/vm-radar.js
 const homeSource = await readFile(new URL("../../assets/js/home/home.js", import.meta.url), "utf8");
 const presentationSource = await readFile(new URL("../../assets/js/archscry/archscry-presentation.js", import.meta.url), "utf8");
 const archscryCssSource = await readFile(new URL("../../assets/css/archscry.css", import.meta.url), "utf8");
+const siteSkinSource = await readFile(new URL("../../assets/css/site-skin.css", import.meta.url), "utf8");
 const factionsData = JSON.parse(await readFile(new URL("../../data/factions.json", import.meta.url), "utf8"));
 const placementModel = JSON.parse(await readFile(new URL("../../data/placement-model.json", import.meta.url), "utf8"));
 const identityLayers = JSON.parse(await readFile(new URL("../../data/identity-layers.json", import.meta.url), "utf8"));
@@ -52,6 +53,13 @@ const cardRationaleCatalog = JSON.parse(await readFile(new URL("../../data/dossi
 const oracleCards = JSON.parse(await readFile(new URL("../../data/scryfall/raw/oracle-cards.json", import.meta.url), "utf8"));
 const preconCatalog = JSON.parse(await readFile(new URL("../../data/precons/vox-mana-precon-catalog.json", import.meta.url), "utf8"));
 const preconThemeTaxonomy = JSON.parse(await readFile(new URL("../../data/taxonomy/vox-mana-precon-themes.json", import.meta.url), "utf8"));
+const discoveryEducationAuthority = JSON.parse(await readFile(new URL("../../data/dossier/discovery-education-authority.source.json", import.meta.url), "utf8"));
+const discoveryEducationCatalog = JSON.parse(await readFile(new URL("../../data/dossier/discovery-education-catalog.json", import.meta.url), "utf8"));
+const ownerProtectionCopy = "Protection stops damage, enchanting or equipping, blocking, and targeting from whatever it has protection from. Other effects still work normally.";
+const authorityProtection = discoveryEducationAuthority.records.find((record) => record.record_id === "glossary_protection");
+const catalogProtection = discoveryEducationCatalog.glossary.find((record) => record.record_id === "glossary_protection");
+assert.equal(authorityProtection?.proposed_copy, ownerProtectionCopy, "expected the generated glossary authority to retain the Owner Protection copy");
+assert.equal(catalogProtection?.definition, ownerProtectionCopy, "expected the runtime glossary catalog to retain the Owner Protection copy");
 const deckTagData = JSON.parse(await readFile(new URL("../../data/deck-tags_expanded.json", import.meta.url), "utf8"));
 const deckTagCatalog = createArchidektTagCatalog(deckTagData);
 const fourColorRawIds = ["yore", "glint", "dune", "ink", "witch"];
@@ -208,6 +216,7 @@ const {
   selectCuratedFlavorEchoesForFaction,
   selectFlavorEchoes,
 } = await import("../../assets/js/archscry/index.js");
+const { buildPreconSectionHtml, OFFICIAL_HERO_PROOF_BY_FACTION_KEY, togglePreconPreview } = await import("../../assets/js/archscry/runtime/dossier-view.js?v=vm636");
 const {
   renderDossierRadarSection,
 } = await import("../../assets/js/archscry/dossier-radar.js");
@@ -255,6 +264,32 @@ assert.match(indexSource, /taxonomy\/vox-mana-precon-themes\.json/, "expected Ar
 assert.match(indexSource, /Precon Starting Points/, "expected Archscry to render a support-navigation precon starting-points subsection");
 assert.doesNotMatch(indexSource, /Recommended Precon Decks|Showing the strongest starting points from this recommendation pool|Best for:|Find decklists/, "expected Archscry precon labels to avoid ranking-coded wording");
 assert.match(indexSource, /selectPreconPreviewRecommendations/, "expected Archscry to cap precon presentation through the preview selector");
+assert.match(preconRendererSource, /selectPreconPreviewRecommendations\(preconRecommendations, 6\)/, "the wider dossier starts with six precons without changing the shared selector default");
+for (const count of [0, 3, 6, 8]) {
+  const recommendations = { hasAny: count > 0, otherExact: preconCatalog.precons.slice(0, count) };
+  const html = buildPreconSectionHtml(recommendations);
+  const primary = (html.split('data-precon-preview-grid="primary">')[1] || "").split('data-precon-preview-grid="remaining"')[0];
+  assert.equal((primary.match(/data-precon-card/g) || []).length, Math.min(6, count), `${count} recommendations: only available first-six entries`);
+  assert.equal((html.match(/data-precon-card/g) || []).length, count, `${count} recommendations: no cards lost or duplicated`);
+  assert.equal(html.includes('data-precon-preview-overflow'), count > 6, `${count} recommendations: overflow only when needed`);
+  if (count > 6) {
+    assert.match(html, /Display other 2/);
+    assert.match(html, /Show first 6 precons/);
+  }
+}
+const primaryPreconGrid = { hidden: false };
+const remainingPreconGrid = { hidden: true };
+const preconToggle = {
+  expanded: "false",
+  dataset: { expandedLabel: "Show first 6 precons", collapsedLabel: "Display other 2" },
+  closest: () => ({ querySelector: (selector) => selector.includes('"primary"') ? primaryPreconGrid : remainingPreconGrid }),
+  getAttribute() { return this.expanded; },
+  setAttribute(_name, value) { this.expanded = value; },
+};
+togglePreconPreview(preconToggle);
+assert.deepEqual([primaryPreconGrid.hidden, remainingPreconGrid.hidden, preconToggle.expanded, preconToggle.textContent], [true, false, "true", "Show first 6 precons"]);
+togglePreconPreview(preconToggle);
+assert.deepEqual([primaryPreconGrid.hidden, remainingPreconGrid.hidden, preconToggle.expanded, preconToggle.textContent], [false, true, "false", "Display other 2"]);
 assert.match(preconRendererSource, /data-precon-card/, "expected compact precon cards to expose a stable test hook");
 assert.match(preconRendererSource, /Native fit/, "expected native exact precons to render as Native fit cards");
 assert.match(preconRendererSource, /Exact-color fit/, "expected sibling exact precons to render as Exact-color fit cards");
@@ -3273,6 +3308,17 @@ assert.equal(
   "expected YORE to expose a minimal proof-only art credit"
 );
 assert.equal(heroBannerArtworkAttributionForFaction({ key: "UNKNOWN" }), "", "expected unknown heroes to remain without proof artwork credit");
+const officialHeroArtwork = Object.entries(OFFICIAL_HERO_PROOF_BY_FACTION_KEY);
+assert.equal(officialHeroArtwork.length, 37, "expected every official hero credit to resolve through the shared proof map");
+officialHeroArtwork.forEach(([key, artwork]) => {
+  const uri = new URL(artwork?.scryfallUri || "", "https://invalid.example");
+  assert.equal(uri.hostname, "scryfall.com", `expected ${key} hero credit to use a direct Scryfall host`);
+  assert.match(uri.pathname, /^\/card\/[a-z0-9]+\/\d+(?:\/[^/]+)?$/i, `expected ${key} hero credit to use a printing path`);
+  assert.match(artwork?.attribution || "", /^Art:/, `expected ${key} hero credit to retain its attribution`);
+});
+assert.match(indexSource, /guild-art-credit[\s\S]*?href=.*heroArtworkScryfallUri/, "expected the common hero-credit renderer to emit the resolved Scryfall link");
+assert.match(siteSkinSource, /\.guild-art-credit\s*>\s*a\s*\{[\s\S]*?pointer-events:\s*auto/, "expected exact hero-art anchors to restore their own pointer hit-testing");
+assert.match(siteSkinSource, /\.guild-art-credit\s*>\s*a:hover,[\s\S]*?\.guild-art-credit\s*>\s*a:focus-visible/, "expected the interactive credit to expose hover and keyboard-focus affordances");
 ["INK"].forEach((key) => {
   assert.equal(heroBannerImageSlugForFaction({ key }), "", `expected ${key} to remain outside the current dossier-backed hero rollout`);
   assert.equal(heroBannerArtworkForFaction({ key })?.src, "/assets/img/identity-hero/official/ink-ink-treader-nephilim.jpg", `expected ${key} to use proof artwork without requiring a rollback slug`);

@@ -1,0 +1,656 @@
+/* VM-650: visual language from the accepted Home, adopted one page at a time.
+   Archscry is the first draft consumer. Other routes remain opted out until their review.
+   Load after route CSS. Existing layout, visibility, data and action owners remain intact. */
+.vm-site-skin {
+  --site-ink: #ede5d4;
+  --site-copy: #cdc6b8;
+  --site-muted: #aaa394;
+  --site-gold: #d2b370;
+  --site-rule: #363229;
+  --site-surface: #10100e;
+}
+
+/* Reuse the accepted Home declarations and breakpoints; Home keeps its original owner for now. */
+.vm-site-skin .vm-topbar {
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 24px;
+  min-height: 66px;
+  padding: 0 max(24px, calc((100vw - 1280px) / 2));
+  border-bottom: 1px solid var(--site-rule);
+  background: #0c0c0b;
+}
+
+.vm-site-skin .vm-topbar::before,
+.vm-site-skin .vm-topbar::after,
+.vm-site-skin .vm-brand::before,
+.vm-site-skin .vm-nav::before,
+.vm-site-skin .vm-nav-link::before,
+.vm-site-skin .vm-nav-link::after,
+.vm-site-skin .vm-menu-button::before,
+.vm-site-skin .vm-menu-panel::before,
+.vm-site-skin .vm-feedback-button::before,
+.vm-site-skin .vm-utility-link::before {
+  display: none;
+}
+
+.vm-site-skin :is(.vm-brand, .vm-nav, .vm-menu-button, .vm-feedback-button, .vm-utility-link) {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  transform: none;
+}
+
+.vm-site-skin .vm-brand {
+  gap: 9px;
+  min-height: 44px;
+  padding: 0;
+}
+
+.vm-site-skin .vm-brand-mark {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 0;
+  background: none;
+  box-shadow: none;
+}
+
+.vm-site-skin .vm-brand-mark img { width: 36px; height: 36px; }
+.vm-site-skin .vm-brand-text { font-size: 1.06rem; letter-spacing: 0.055em; }
+
+.vm-site-skin .vm-nav {
+  justify-self: start;
+  min-height: 66px;
+  gap: 20px;
+  padding: 0;
+}
+
+.vm-site-skin .vm-nav > .vm-nav-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 66px;
+  margin: 0;
+  padding: 0;
+  border-bottom: 2px solid transparent;
+  color: var(--site-muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.065em;
+  text-shadow: none;
+  -webkit-text-stroke: 0;
+  box-shadow: none;
+}
+
+.vm-site-skin .vm-nav-link[aria-current="page"] {
+  border-bottom-color: var(--site-gold);
+  color: var(--site-ink);
+}
+
+.vm-site-skin .vm-nav-link:hover { color: var(--site-ink); }
+.vm-site-skin .vm-nav-hint { background: #171613; border-radius: 2px; }
+.vm-site-skin .vm-utility { gap: 8px; }
+
+.vm-site-skin .vm-utility .vm-utility-link,
+.vm-site-skin .vm-feedback-button {
+  min-height: 44px;
+  padding: 8px;
+  color: var(--site-copy);
+  font-size: 0.7rem;
+}
+
+.vm-site-skin .vm-utility .vm-utility-link:hover,
+.vm-site-skin .vm-utility .vm-utility-link:focus-visible {
+  color: var(--site-ink);
+  background: transparent;
+  box-shadow: none;
+  transform: none;
+}
+
+.vm-site-skin .vm-menu-button { width: 38px; min-height: 44px; }
+.vm-site-skin .vm-menu-panel {
+  top: calc(100% + 1px);
+  border: 1px solid var(--site-rule);
+  border-radius: 2px;
+  background: #12120f;
+  box-shadow: 0 10px 24px #0009;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.vm-site-skin .vm-guide-beacon {
+  width: auto;
+  padding: 6px 0;
+  gap: 10px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  transform: none;
+}
+.vm-site-skin .vm-guide-beacon::after { display: none; }
+.vm-site-skin .vm-guide-beacon__mark { border: 0; background: none; color: var(--site-gold); font-size: 1.1rem; }
+.vm-site-skin .vm-guide-beacon__eyebrow { color: var(--site-gold); }
+.vm-site-skin .vm-guide-beacon__context { color: var(--site-muted); }
+.vm-site-skin .vm-guide-beacon__action { color: var(--site-ink); }
+.vm-site-skin .vm-guide-beacon:hover .vm-guide-beacon__action { text-decoration: underline; text-underline-offset: 4px; }
+
+
+@media (max-width: 1100px) {
+  .vm-site-skin .vm-topbar { gap: 18px; }
+  .vm-site-skin .vm-nav { gap: 14px; }
+}
+@media (max-width: 1040px) {
+  .vm-site-skin .vm-topbar { grid-template-columns: minmax(0, 1fr) auto; }
+}
+@media (max-width: 760px) {
+  .vm-site-skin .vm-topbar { min-height: 58px; padding: 0 20px; }
+}
+
+/* Match header typography even where route styles set a different inherited line height. */
+.vm-site-skin:not(.vm-home-preview) .vm-topbar {
+  color: var(--site-ink);
+  font-size: var(--text-base);
+  line-height: 1.7;
+  --gold-l: #d4b461;
+}
+
+/* Destination palette: retain semantic mana/status colors and the existing font roles. */
+body.vm-site-skin:not(.vm-home-preview) {
+  --bg: #000;
+  --bg-2: #10100e;
+  --bg-3: #171612;
+  --text: var(--site-copy);
+  --text-dim: var(--site-muted);
+  --text-muted: var(--site-muted);
+  --gold: var(--site-gold);
+  --gold-l: #e2c789;
+  --gold-quiet: var(--site-gold);
+  --border: var(--site-rule);
+  --border-s: #75623e;
+  --panel: var(--site-surface);
+  --panel-strong: #171612;
+  --line: var(--site-rule);
+  --muted: var(--site-muted);
+  --ink: var(--site-ink);
+  --accent: var(--site-gold);
+  --gold-2: var(--site-gold);
+  --maze-panel: var(--site-surface);
+  --maze-panel-strong: #171612;
+  --maze-panel-deep: #0b0b09;
+  --maze-line: var(--site-rule);
+  --maze-line-soft: var(--site-rule);
+  --maze-line-strong: #75623e;
+  --maze-text: var(--site-copy);
+  --maze-ink: var(--site-ink);
+  --maze-muted: var(--site-copy);
+  --maze-faint: var(--site-muted);
+  --maze-gold: var(--site-gold);
+  --maze-gold-2: var(--site-gold);
+  --maze-radius-lg: 2px;
+  --maze-radius-md: 2px;
+  --maze-radius-sm: 2px;
+  --apoc-ink: var(--site-ink);
+  --apoc-line: var(--site-rule);
+  --apoc-line-strong: #75623e;
+  --apoc-glass: var(--site-surface);
+  --apoc-glass-strong: #171612;
+  --apoc-nested-glass: #0b0b09;
+  --apoc-nested-line: var(--site-rule);
+  --apoc-shadow: none;
+  --apoc-nested-shadow: none;
+  --apoc-gold-shadow: none;
+  --apoc-radius-major: 2px;
+  --apoc-radius-nested: 2px;
+  --apoc-radius-nested-mobile: 2px;
+  --r-2: 2px;
+  --r-3: 2px;
+  --vm-topbar-h: 67px;
+  --vm-topbar-h-mobile: 59px;
+  background: #000;
+  color: var(--site-copy);
+}
+
+/* Remove decorative page fog; retain the existing stars and their motion controls. */
+body.vm-site-skin:not(.vm-home-preview)::before,
+body.vm-site-skin:not(.vm-home-preview)::after,
+body.vm-site-skin:not(.vm-home-preview) .vm-bg::before,
+body.vm-site-skin:not(.vm-home-preview) .vm-bg::after {
+  content: none;
+}
+
+/* Primary containers: visual properties only, never visibility or grid behavior. */
+body.vm-site-skin:not(.vm-home-preview) :is(
+  .hero-band, .question-card, .interview-shell, .result-status,
+  .precons-section, .scores-section, .archetypes-section, .starter-section,
+  .adjacent-section, .staples-section, .lands-section, .decks-section,
+  .deck-link-section, .footer-actions, .dossier-rail, .dossier-mobile-nav,
+  .dossier-orientation, .identity-atlas-hero, .identity-atlas-card,
+  .maze-command-deck, .r-sidebar, .r-main, .stash-panel, .modal-wrap,
+  .vm-hero-panel, .vm-panel, .vm-card, .vm-next-card, .vm-hub-choice-panel,
+  .vm-review-panel, .vm-result-card, .legal-hero, .legal-section, .summary-card,
+  .apoc-hero__copy, .apoc-hero__signal, .apoc-ledger, .apoc-deck-panel,
+  .apoc-rail, .apoc-guide-card, .apoc-library-group, .apoc-use-card,
+  .apoc-use-note, .community-deck-ledger-boundary, .community-deck-card,
+  .apoc-tray-card, .apoc-deck-trigger, .apoc-source-tome, .apoc-dossier-card
+) {
+  border-color: var(--site-rule);
+  border-radius: 2px;
+  background: var(--site-surface);
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+body.vm-site-skin #decree-container {
+  border-color: var(--site-rule);
+  border-radius: 2px;
+  background: var(--site-surface);
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+/* Nested content is separated by rules and quieter surfaces, without glass stacking. */
+body.vm-site-skin:not(.vm-home-preview) :is(
+  .dossier-snapshot-card, .dossier-panel, .vm-lab-panel, .vm-selected-card,
+  .vm-identity-copy-card, .vm-identity-reading-panel, .vm-matrix-summary-card,
+  .vm-radar-card, .vm-chart-wrap, .vm-placeholder-note, .vm-card-voice-panel,
+  .builder-panel, .sb-section, .state-panel, .query-inspector,
+  .dossier-discovery-panel, .dossier-discovery-reading, .dossier-discovery-lane,
+  .dossier-thread-card, .vm-console-note, .vm-console-subpanel,
+  .vm-console-script-card, .vm-archetype-card, .vm-cognitive-item,
+  .vm-readiness-status-card, .vm-console-preview, .guide-specimen,
+  .guide-reading-stage, .guide-query, .guide-lane, .maze-recovery-card,
+  .apoc-signal-item, .apoc-ledger-stat, .apoc-section__head, .stash-item
+) {
+  border-color: var(--site-rule);
+  border-radius: 2px;
+  background: #0c0c0a;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+body.vm-site-skin:not(.vm-home-preview) .dossier-panel { background: transparent; }
+body.vm-site-skin:not(.vm-home-preview) .modal { background: var(--site-surface); }
+
+/* Keep actual identity artwork/legibility overlays, only change its outer frame. */
+body.vm-site-skin .guild-banner {
+  border-radius: 2px;
+  border-color: var(--site-rule);
+  box-shadow: none;
+}
+body.vm-site-skin .vm-radar-glow { opacity: 0; }
+
+/* Decorative shine on known containers, never artwork overlays or state indicators. */
+body.vm-site-skin:not(.vm-home-preview) :is(
+  .hero-band, .question-card, .interview-shell, .legal-hero, .summary-card,
+  .legal-section, .vm-hero-panel, .vm-panel, .apoc-hero__copy, .apoc-hero__signal
+)::after {
+  content: none;
+}
+
+/* A page introduction is an opening paragraph, not another oversized panel. */
+body.vm-site-skin:not(.vm-home-preview) :is(.hero-band, .vm-hub-hero, .legal-hero) {
+  min-height: 0;
+  padding: clamp(24px, 3vw, 40px) 0;
+  border-width: 0 0 1px;
+  border-radius: 0;
+  background: transparent;
+}
+body.vm-site-skin.vm-archscry-route :is(#landing, #quick, #interview) {
+  padding-top: clamp(28px, 4vw, 48px);
+}
+body.vm-site-skin:not(.vm-home-preview) :is(.landing-title, .vm-hero h1, .legal-page h1, .apoc-hero h1, .guide-hero h1, .maze-command-copy h1) {
+  color: var(--site-ink);
+  text-shadow: none;
+}
+
+/* Controls retain their states and hit areas; replace bevels and pill framing. */
+body.vm-site-skin:not(.vm-home-preview) :is(
+  .btn-primary, .btn-secondary, .adjacent-btn, .vm-button, .vm-btn,
+  .vm-tab, .vm-entry-row, .vm-checklist-button, .vm-hub-path,
+  .mode-card, .answer-card, .dossier-tab, .dossier-segment-tab,
+  .btn-search, .btn-clear, .qi-btn, .query-action-btn, .btn-more, .m-btn,
+  .stash-copy, .stash-drawer-toggle, .guide-cta, .apoc-button
+) {
+  border-radius: 2px;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  text-shadow: none;
+}
+body.vm-site-skin:not(.vm-home-preview) :is(.btn-primary, .btn-search, .vm-button-primary, .apoc-button--primary) {
+  background: var(--site-gold);
+  color: #10100e;
+  border-color: var(--site-gold);
+}
+body.vm-site-skin:not(.vm-home-preview) :is(.btn-secondary, .btn-clear, .qi-btn, .mode-card, .answer-card, .guide-cta) {
+  background: #14130f;
+  border-color: var(--site-rule);
+  color: var(--site-copy);
+}
+body.vm-site-skin:not(.vm-home-preview) :is(.dossier-orientation-actions button, .guide-mode-strip > button) {
+  border-radius: 2px;
+  box-shadow: none;
+}
+body.vm-site-skin:not(.vm-home-preview) :is(.identity-atlas-card, .vm-card, .vm-next-card, .vm-tab, .vm-entry-row, .mode-card, .answer-card):hover {
+  transform: none;
+  border-color: var(--site-gold);
+  box-shadow: none;
+}
+body.vm-site-skin:not(.vm-home-preview) :is(.mode-card.on, .vm-tab.is-active, .dossier-tab[aria-selected="true"], .dossier-segment-tab[aria-pressed="true"], .guide-mode-strip > button.is-active) {
+  background: #252116;
+  color: var(--site-ink);
+  border-color: var(--site-gold);
+  box-shadow: inset 0 -2px 0 var(--site-gold);
+}
+body.vm-site-skin:not(.vm-home-preview) :is(.s-input, .stash-title-input, .stash-move-select) {
+  background: #0b0b09;
+  color: var(--site-ink);
+  border-radius: 2px;
+  border-color: #75623e;
+}
+body.vm-site-skin:not(.vm-home-preview) :is(button, a, input, select, textarea):focus-visible {
+  outline: 2px solid var(--site-gold);
+  outline-offset: 3px;
+}
+
+/* Modal depth remains functional; opaque dialog content stays legible above the page. */
+body.vm-site-skin .driver-popover.vm-guide-walkthrough-popover {
+  border-radius: 2px;
+  background: #10100e;
+  border: 1px solid var(--site-rule);
+  color: var(--site-copy);
+}
+body.vm-site-skin:not(.vm-home-preview) :is(.stash-panel, .modal-wrap) {
+  box-shadow: 0 12px 32px #0009;
+}
+
+@media (max-width: 760px) {
+  body.vm-site-skin:not(.vm-home-preview) { --vm-topbar-h: 59px; }
+}
+
+/* Archscry: open sections, a readable directory, and one frame per interactive item.
+   These adapters are route-local. Runtime visibility and document order stay with Archscry. */
+body.vm-site-skin.vm-archscry-route :is(.landing-wrap, .quick-shell, .interview-shell, .result-inner) {
+  width: min(1280px, 100%);
+  max-width: 1280px;
+}
+body.vm-site-skin.vm-archscry-route #identity-atlas-inner { width: min(1280px, 100%); }
+body.vm-site-skin.vm-archscry-route .section {
+  padding-inline: max(24px, calc((100vw - 1280px) / 2));
+}
+body.vm-site-skin.vm-archscry-route #result {
+  padding-top: 28px;
+  padding-inline: max(24px, calc((100vw - 1280px) / 2));
+}
+body.vm-site-skin.vm-archscry-route .result-inner { padding: 0 0 40px; }
+body.vm-site-skin.vm-archscry-route :is(#landing, #quick, #interview, #atlas) { padding-top: 40px; }
+body.vm-site-skin.vm-archscry-route #atlas { padding-inline: max(24px, calc((100vw - 1280px) / 2)); }
+body.vm-site-skin.vm-archscry-route :is(.btn-primary, .btn-secondary, .adjacent-btn, .precon-reveal-btn) {
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  min-height: 44px;
+}
+
+/* Opening spread: title beside the explanation and choices, using the existing copy. */
+body.vm-site-skin.vm-archscry-route .hero-band {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  column-gap: clamp(32px, 5vw, 72px);
+  row-gap: 18px;
+  max-width: none;
+  padding: 12px 0 36px;
+  overflow: visible;
+}
+body.vm-site-skin.vm-archscry-route .hero-band > .eyebrow { grid-column: 1 / -1; margin: 0; }
+body.vm-site-skin.vm-archscry-route .landing-title {
+  grid-column: 1;
+  grid-row: 2 / 5;
+  margin: 0;
+  max-width: 19ch;
+  font-size: clamp(2.8rem, 4.6vw, 4.5rem);
+  line-height: 1.06;
+  text-wrap: balance;
+}
+body.vm-site-skin.vm-archscry-route :is(.landing-sub, .landing-note, .landing-actions) { grid-column: 2; margin: 0; }
+body.vm-site-skin.vm-archscry-route .landing-sub { color: var(--site-copy); font-size: 1.08rem; line-height: 1.7; }
+body.vm-site-skin.vm-archscry-route .landing-note { color: var(--site-muted); font-size: 0.88rem; line-height: 1.6; }
+body.vm-site-skin.vm-archscry-route .landing-actions { align-items: start; align-content: start; gap: 12px; }
+body.vm-site-skin.vm-archscry-route .landing-actions a.btn-secondary {
+  border-color: transparent;
+  background: transparent;
+  padding-inline: 0;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+/* Reading: the question owns the page; answers read as full-width choices. */
+body.vm-site-skin.vm-archscry-route .quick-shell { max-width: 1080px; }
+body.vm-site-skin.vm-archscry-route .quick-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 12px 48px;
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--site-rule);
+}
+body.vm-site-skin.vm-archscry-route .quick-header .eyebrow { grid-column: 1 / -1; margin: 0; }
+body.vm-site-skin.vm-archscry-route .quick-title { font-family: var(--font-display); font-size: 2.3rem; color: var(--site-ink); margin: 0; }
+body.vm-site-skin.vm-archscry-route .quick-sub { font-size: 0.94rem; line-height: 1.65; }
+body.vm-site-skin.vm-archscry-route .question-card { border: 0; padding: 12px 0 0; background: transparent; overflow: visible; }
+body.vm-site-skin.vm-archscry-route .question-title { font-size: clamp(1.55rem, 2.7vw, 2rem); margin-bottom: 24px; }
+body.vm-site-skin.vm-archscry-route .answer-grid[data-answer-count] { grid-template-columns: minmax(0, 1fr); gap: 0; }
+body.vm-site-skin.vm-archscry-route .answer-grid .answer-card {
+  grid-column: auto;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  border-top: 1px solid var(--site-rule);
+  background: transparent;
+}
+body.vm-site-skin.vm-archscry-route .answer-grid .answer-card:last-child { border-bottom: 1px solid var(--site-rule); }
+body.vm-site-skin.vm-archscry-route .answer-card button {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.7fr) minmax(0, 1.7fr);
+  gap: 12px 32px;
+  align-items: baseline;
+  min-height: 64px;
+  height: auto;
+  padding: 18px 12px;
+  text-transform: none;
+  letter-spacing: 0;
+}
+body.vm-site-skin.vm-archscry-route .answer-title { margin: 0; color: var(--site-ink); font-size: 1.25rem; line-height: 1.3; }
+body.vm-site-skin.vm-archscry-route .answer-copy { color: var(--site-copy); font-size: 0.93rem; line-height: 1.55; }
+body.vm-site-skin.vm-archscry-route .answer-card:hover { background: #171510; }
+body.vm-site-skin.vm-archscry-route .answer-card:focus-within { background: #171510; }
+body.vm-site-skin.vm-archscry-route .quick-footer { margin-top: 20px; padding-top: 0; border: 0; }
+
+/* Artwork stays the dossier's visual anchor; the surrounding directory stays quiet. */
+body.vm-site-skin.vm-archscry-route .guild-banner { padding: 32px; min-height: 0; margin-bottom: 0; }
+body.vm-site-skin.vm-archscry-route .guild-name { font-size: clamp(2.6rem, 4.7vw, 4.2rem); line-height: 1.05; }
+body.vm-site-skin.vm-archscry-route .guild-philosophy { max-width: 68ch; }
+body.vm-site-skin.vm-archscry-route :is(.identity-explore-nav, .dossier-orientation, .result-context-bar) {
+  border: 0;
+  border-bottom: 1px solid var(--site-rule);
+  border-radius: 0;
+  padding: 16px 0;
+  margin: 0 0 28px;
+  background: #000;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+body.vm-site-skin.vm-archscry-route .dossier-console-grid { grid-template-columns: 200px minmax(0, 1fr); gap: 36px; }
+body.vm-site-skin.vm-archscry-route .dossier-rail {
+  border: 0;
+  border-right: 1px solid var(--site-rule);
+  padding: 0 20px 0 0;
+  background: transparent;
+  gap: 16px;
+}
+body.vm-site-skin.vm-archscry-route .dossier-rail-label { text-align: left; padding: 0; }
+body.vm-site-skin.vm-archscry-route .dossier-rail-tabs { gap: 0; }
+body.vm-site-skin.vm-archscry-route .dossier-rail .dossier-tab {
+  justify-content: flex-start;
+  text-align: left;
+  min-height: 46px;
+  padding: 12px 8px;
+  border: 0;
+  border-bottom: 1px solid var(--site-rule);
+  border-radius: 0;
+  background: transparent;
+  line-height: 1.4;
+  font-size: 0.8rem;
+  letter-spacing: 0;
+  text-transform: none;
+}
+body.vm-site-skin.vm-archscry-route .dossier-rail .dossier-tab[aria-selected="true"] {
+  background: #1b1811;
+  color: var(--site-ink);
+  box-shadow: inset 2px 0 var(--site-gold);
+}
+body.vm-site-skin.vm-archscry-route .dossier-rail .dossier-tab:hover { color: var(--site-gold); background: #12110e; }
+body.vm-site-skin.vm-archscry-route :is(.dossier-view-toggle, .dossier-utility-btn, .dossier-tabs-scroll) { border-radius: 2px; box-shadow: none; }
+body.vm-site-skin.vm-archscry-route .dossier-segment-controls { padding-bottom: 12px; border-bottom: 1px solid var(--site-rule); }
+
+/* Override the older body[data-bg] atmosphere rule so content cannot show through navigation. */
+body.vm-site-skin.vm-archscry-route .vm-topbar {
+  background: #0c0c0b;
+  border-bottom: 1px solid var(--site-rule);
+}
+
+/* One opaque heading band marks each section; the information beneath stays open. */
+body.vm-site-skin.vm-archscry-route :is(.precons-section, .scores-section, .archetypes-section, .starter-section, .adjacent-section, .staples-section, .lands-section, .decks-section, .deck-link-section, .footer-actions) {
+  padding: 0;
+  margin-bottom: 40px;
+  border: 0;
+  background: transparent;
+  overflow: visible;
+}
+body.vm-site-skin.vm-archscry-route .section-label {
+  color: var(--site-ink);
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.2vw, 1.6rem);
+  font-weight: 700;
+  line-height: 1.25;
+  text-transform: none;
+  letter-spacing: 0;
+  border: 0;
+  background: #201e19;
+  padding: 10px 16px;
+  margin-bottom: 20px;
+}
+body.vm-site-skin.vm-archscry-route :is(.starter-card, .starter-note, .tag-explainer-card, .tag-interpretation, .land-tier, .lands-guide, .staples-category, .how-this-plays-block, .arch-card) {
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+}
+body.vm-site-skin.vm-archscry-route :is(.starter-notes, .identity-story-grid, .how-this-plays-grid, .lands-tiers) { gap: 24px; }
+body.vm-site-skin.vm-archscry-route :is(.starter-note, .identity-story-card, .how-this-plays-block, .land-tier, .staples-category) {
+  padding-top: 14px;
+  border-top: 0;
+}
+body.vm-site-skin.vm-archscry-route .archetypes-grid { gap: 24px; background: transparent; }
+body.vm-site-skin.vm-archscry-route .starter-title { font-size: 1.25rem; color: var(--site-ink); }
+body.vm-site-skin.vm-archscry-route :is(.starter-copy, .signals-intro) { line-height: 1.65; color: var(--site-copy); }
+body.vm-site-skin.vm-archscry-route .starter-note-label { color: var(--site-gold); text-shadow: none; }
+body.vm-site-skin.vm-archscry-route :is(.precon-card, .deck-card, .adjacent-card, .commander-preview-card, .flavor-echo-card) {
+  border: 1px solid var(--site-rule);
+  border-radius: 2px;
+  background: var(--site-surface);
+  padding: 16px;
+  box-shadow: none;
+}
+body.vm-site-skin.vm-archscry-route .adjacent-card.active { border-color: var(--site-gold); box-shadow: inset 0 -2px var(--site-gold); }
+body.vm-site-skin.vm-archscry-route :is(.service-chip, .precon-reveal-btn) { border-radius: 2px; background: #15130f; }
+body.vm-site-skin.vm-archscry-route .land-wrap { width: 128px; }
+
+/* The alignment matrix is a chart and its notes, with no enclosing stack of cards. */
+body.vm-site-skin.vm-archscry-route :is(.vm-dossier-radar-panel, .vm-radar-card, .vm-chart-wrap, .vm-matrix-summary-card, .vm-identity-copy-card, .vm-identity-reading-panel, .vm-placeholder-note) {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+body.vm-site-skin.vm-archscry-route :is(.vm-matrix-summary-card, .vm-identity-copy-card, .vm-identity-reading-panel)::before { content: none; }
+body.vm-site-skin.vm-archscry-route .vm-matrix-v2-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; }
+body.vm-site-skin.vm-archscry-route .vm-radar-card { min-height: 0; }
+body.vm-site-skin.vm-archscry-route .vm-radar-wrap { height: 300px; }
+body.vm-site-skin.vm-archscry-route .vm-identity-rail { gap: 20px; }
+body.vm-site-skin.vm-archscry-route .vm-identity-reading-panel { padding-top: 16px; }
+body.vm-site-skin.vm-archscry-route .vm-matrix-summary-card { padding-top: 16px; }
+body.vm-site-skin.vm-archscry-route .vm-trait-row { background: transparent; border-radius: 0; }
+body.vm-site-skin.vm-archscry-route .vm-trait-row:is(.is-active, :hover, :focus-visible) { background: #252116; }
+body.vm-site-skin.vm-archscry-route .vm-trait-row:focus-visible {
+  outline: 2px solid var(--site-gold);
+  outline-offset: -2px;
+}
+body.vm-site-skin.vm-archscry-route .dossier-snapshot-card {
+  border: 0;
+  border-left: 2px solid var(--site-rule);
+  border-radius: 0;
+  background: transparent;
+  padding: 4px 16px;
+}
+
+/* Credits stay decorative until they contain the dossier's exact-art link. */
+body.vm-site-skin.vm-archscry-route .guild-art-credit > a {
+  pointer-events: auto;
+  color: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, currentColor 72%, transparent);
+  text-underline-offset: 0.2em;
+}
+body.vm-site-skin.vm-archscry-route .guild-art-credit > a:hover,
+body.vm-site-skin.vm-archscry-route .guild-art-credit > a:focus-visible {
+  color: var(--site-ink);
+  text-decoration-thickness: 2px;
+}
+
+/* Atlas entries form a compact directory; the custom identity symbols remain intact. */
+body.vm-site-skin.vm-archscry-route .identity-atlas-shell { gap: 28px; }
+body.vm-site-skin.vm-archscry-route .identity-atlas-hero { border: 0; border-bottom: 1px solid var(--site-rule); padding: 0 0 28px; background: transparent; }
+body.vm-site-skin.vm-archscry-route .identity-atlas-hero h1 { max-width: none; font-size: clamp(2.4rem, 4.5vw, 3.8rem); color: var(--site-ink); }
+body.vm-site-skin.vm-archscry-route .identity-atlas-hero p { font-size: 1rem; max-width: 68ch; }
+body.vm-site-skin.vm-archscry-route .identity-atlas-group-heading h2 { font-family: var(--font-display); font-size: 1.5rem; letter-spacing: 0; text-transform: none; }
+body.vm-site-skin.vm-archscry-route .identity-atlas-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 24px; }
+body.vm-site-skin.vm-archscry-route .identity-atlas-card {
+  border: 0;
+  border-bottom: 1px solid var(--site-rule);
+  border-radius: 0;
+  background: transparent;
+  min-height: 96px;
+  padding: 12px 4px;
+}
+body.vm-site-skin.vm-archscry-route .identity-atlas-card:hover { background: #12110e; box-shadow: none; }
+body.vm-site-skin.vm-archscry-route .identity-atlas-stage { min-height: 0; }
+
+@media (max-width: 1040px) {
+  body.vm-site-skin.vm-archscry-route .identity-atlas-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 940px) {
+  body.vm-site-skin.vm-archscry-route .dossier-console-grid { grid-template-columns: minmax(0, 1fr); }
+  body.vm-site-skin.vm-archscry-route .dossier-mobile-nav { padding: 8px; border-width: 0 0 1px; border-radius: 0; background: #10100e; }
+}
+@media (max-width: 760px) {
+  body.vm-site-skin.vm-archscry-route :is(.section, #result, #atlas) { padding-inline: 20px; }
+  body.vm-site-skin.vm-archscry-route :is(#landing, #quick, #interview, #atlas) { padding-top: 28px; }
+  body.vm-site-skin.vm-archscry-route .hero-band { grid-template-columns: minmax(0, 1fr); gap: 20px; padding-bottom: 28px; }
+  body.vm-site-skin.vm-archscry-route .hero-band > :is(.eyebrow, .landing-title, .landing-sub, .landing-note, .landing-actions) { grid-column: 1; grid-row: auto; }
+  body.vm-site-skin.vm-archscry-route .landing-title { font-size: clamp(2.5rem, 7vw, 3.3rem); }
+  body.vm-site-skin.vm-archscry-route .quick-header { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  body.vm-site-skin.vm-archscry-route .answer-card button { grid-template-columns: minmax(0, 1fr); gap: 6px; padding: 16px 8px; }
+  body.vm-site-skin.vm-archscry-route .guild-banner { padding: 24px 20px; }
+  body.vm-site-skin.vm-archscry-route .guild-name { font-size: 2.8rem; }
+  body.vm-site-skin.vm-archscry-route .vm-matrix-v2-grid { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  body.vm-site-skin.vm-archscry-route .identity-atlas-grid { grid-template-columns: minmax(0, 1fr); }
+  body.vm-site-skin.vm-archscry-route .land-wrap { width: 105px; }
+}

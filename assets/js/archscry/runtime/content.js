@@ -84,7 +84,7 @@ export function selectApprovedCardVoices({
       const card = cardByName?.get?.(normalizeCardName(record.card?.name || "")) || null;
       if (!card || (record.card?.oracle_id && card.oracle_id !== record.card.oracle_id)) return null;
       const cardId = card.oracle_id || normalizeCardName(card.name);
-      if (excludedCardIds.has(cardId) && record.critical_repeat?.allowed !== true) return null;
+      if (excludedCardIds.has(cardId)) return null;
       return { card, record };
     })
     .filter(Boolean);
@@ -154,10 +154,29 @@ export function dedupePreconRecommendationsByProduct(preconRecommendations = {})
 }
 
 export function filterStarterCardsForUsage(starterCards = {}, excludedCardIds = new Set()) {
-  return Object.fromEntries(["creatures", "spells", "permanents"].map((group) => [
-    group,
-    (starterCards[group] || []).filter((name) => !excludedCardIds.has(canonicalUsageCardId(name))),
-  ]));
+  const usedCardIds = new Set(excludedCardIds);
+  return Object.fromEntries(["creatures", "spells", "permanents"].map((group) => {
+    return [group, (starterCards[group] || []).filter((name) => {
+      const id = canonicalUsageCardId(name);
+      if (!id || usedCardIds.has(id)) return false;
+      usedCardIds.add(id);
+      return true;
+    })];
+  }));
+}
+
+export function filterLandCardsForUsage(landRecommendations = {}, basicLandCards = [], excludedCardIds = new Set()) {
+  const usedCardIds = addUsageCards(new Set(excludedCardIds), basicLandCards);
+  const filtered = { ...landRecommendations };
+  for (const tier of ["premium", "midrange", "budget", "utility"]) {
+    filtered[tier] = (landRecommendations[tier] || []).filter((card) => {
+      const id = canonicalUsageCardId(card);
+      if (!id || usedCardIds.has(id)) return false;
+      usedCardIds.add(id);
+      return true;
+    });
+  }
+  return filtered;
 }
 
 export function buildCardVoicesHtml(voices = [], faction = {}, { availability = "available" } = {}) {

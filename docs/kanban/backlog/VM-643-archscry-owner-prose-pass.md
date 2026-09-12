@@ -169,6 +169,10 @@ Pick up VM-643, Archscry Atlas and Dossier Owner Prose Pass, as one child of VM-
 
 Backlog intake only. Creation allocates the story number and makes the pass independently retrievable; it does not start runtime work, certify source support, approve product hides, or supply missing Owner prose. The parent remains the cross-page coordination record. VM-629 remains a separate repetition-reduction scope.
 
+## Current pickup boundary
+
+VM-650 has no future page-work scope. Preserve the accepted Home and Archscry facts, including 13 accepted factual corrections and three Plays in each of 37 dossiers (111 total). The remaining public-content sequence is VM-643 → VM-644 → VM-645 → VM-646 → VM-647 → VM-648; complete the preceding card before starting an independent branch for the next one. VM-643 retains the accepted Archscry visual and card inventory while its prose remains reviewable only for concrete issues or recorded Owner decisions. Do not add cancelled VM-650 scope.
+
 ## Delivery
 
 Record version: 1

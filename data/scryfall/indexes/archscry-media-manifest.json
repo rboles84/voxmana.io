@@ -8,21 +8,21 @@
     "sha256": "09b827a3d202c6b5695ab64300f93f1b03c3d1fb4746b02c33a2eaeb9dee9155"
   },
   "inventory": {
-    "sha256": "04fb21d3b6a358ce70b2709c12da25e11b7dcf6f8ae99fce232296a13a2bf8b3",
+    "sha256": "757e64300a820e660dbbaecd03511697816f768e863a8f07e3fe6dde0c281e36",
     "identity_count": 37,
-    "occurrence_count": 1230,
-    "unique_resolver_key_count": 655,
+    "occurrence_count": 1291,
+    "unique_resolver_key_count": 704,
     "surface_counts": {
       "matrix": 111,
       "sound": 73,
-      "play": 50,
+      "play": 111,
       "commander": 98,
       "card-signals": 333,
       "mana-notes": 565
     }
   },
-  "media_index_sha256": "00cd2ec349d72461cff2a79a126a969220354cc92e1ac4eaa44ade5ab205a70e",
-  "resolved_count": 655,
+  "media_index_sha256": "5d09e519163cc26b5deca33addab61fd3c458c8573d7dcc02fd20bf5dc4b7796",
+  "resolved_count": 704,
   "unresolved_count": 0,
   "selection_drift_count": 0,
   "selection_drift_authorization": ""
