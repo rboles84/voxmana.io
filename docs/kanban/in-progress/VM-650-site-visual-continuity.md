@@ -71,6 +71,12 @@ Historical phase QA: `promotion_checks` passed `64df468d11caf7617edf3854449394ef
 - [ ] Obtain the Owner's feedback on the corrected Archscry draft and address it before enabling the next page.
 - [ ] Complete coordinated runtime cache versioning and its validation before integration; current fresh-origin local review is not production readiness.
 
+### Accepted factual-correction checkpoint
+
+Owner ACCEPT, 2026-09-11: `915ce1e368b106f0c7f3ae2bf4a36f21dc4d8f0e`, all 13 corrected current Plays relationships and their provenance. Independent bounded RobQA PASS is recorded in the handoff. Preserve this exact accepted material; no further factual-copy research or wording review is required for these records. Candidate-stage pending annotations are historical and superseded by this Owner decision.
+
+Archscry remains the current page. The 23 new Plays remain proposal-only; BANT, GRIXIS, INK, JUND, NAYA and YORE remain NEEDS_MORE_EVIDENCE. Collision reallocations and producer/source-model expansion are unapproved. Full-task Delivery fields below remain pending because this is a bounded checkpoint within the progressive page review, with coordinated integration after the completed set.
+
 ## Notes
 
 - This is the Owner-authorized visual follow-up to VM-642, not a reopening of its Done record or an all-37 dossier rewrite.

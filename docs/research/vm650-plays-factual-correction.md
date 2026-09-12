@@ -243,3 +243,9 @@ After: Each turn's first X spell uses Zimone's existing counters to reduce its c
 Before: Zimone makes mathematical scaling visible: +1/+1 counters reduce an X spell's cost, and casting that spell adds more counters and creates a flying Fractal token. The relationship is limited to the verified card action and certified claims quandrix_claim_002, quandrix_claim_006, quandrix_claim_0017, quandrix_claim_0019.
 
 After: Zimone makes mathematical scaling visible: +1/+1 counters reduce the cost of your first X spell each turn, and casting that spell puts two +1/+1 counters on her. The relationship is limited to the verified card action and certified claims quandrix_claim_002, quandrix_claim_006, quandrix_claim_0017, quandrix_claim_0019.
+
+## Owner acceptance — 2026-09-11
+
+Owner explicitly accepted factual-correction candidate `915ce1e368b106f0c7f3ae2bf4a36f21dc4d8f0e`: “The 13 corrected Plays relationships are accepted as presented.” Acceptance applies to all 13 corrections and their provenance. No further factual-copy research or Owner wording review is required for these records. The earlier OWNER_REVIEW_PENDING annotations describe candidate preparation and are superseded by this decision; the exact accepted source and generated artifacts are preserved.
+
+This is a bounded VM-650 checkpoint. It does not approve the 23 proposed new Plays, resolve the six evidence gaps, authorize collision reallocations or producer architecture, or accept the whole Archscry page. VM-650 continues on its existing branch with coordinated integration after the page-by-page scope is complete.

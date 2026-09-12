@@ -366,3 +366,11 @@ Material candidate: `915ce1e368b106f0c7f3ae2bf4a36f21dc4d8f0e`. Independent RobQ
 Owner Review only. User handles manual testing; preview HTTP 200 at http://127.0.0.1:8003/archscry/index.html?explore=quandrix&panel=starter-cards&layout=focus . No acceptance inferred. No new Plays, allocation/collision changes, producer eligibility expansion, push, merge or deployment. Whole VM-650 remains in progress.
 
 Git accounting: branch `codex/vm-650-site-visual-continuity`; task baseline `2b83f15b1ec24efde3d56f27ea7e06a014206199`; 32 total branch paths to material candidate, 10 paths in this bounded pass versus `dbc4a898`. Material commit changes 9 paths; two preceding card-only scope amendments are included in pass count. Change-report validator PASS. This appended QA/Git evidence is a handoff-only delta after the material candidate, not the full task diff.
+
+## Owner acceptance of the factual-correction checkpoint — 2026-09-11
+
+Owner ACCEPT: exact material candidate `915ce1e368b106f0c7f3ae2bf4a36f21dc4d8f0e`, all 13 corrected Plays relationships and provenance accepted as presented. Independent RobQA PASS remains valid for this bounded accepted material. Owner specifically says no additional factual-copy research or wording review for those 13. Historical pending annotations remain candidate-stage evidence; this explicit acceptance supersedes them without changing accepted source bytes.
+
+Continuation admission PASS at `bcf74e1fbfbee6bce7674c33d259ac8cec3efae3`; existing branch/worktree clean, main/live main `26432a688b1100c4713b1339b30b3f1616aace8b`. No routing verification reopened. Per the card's progressive delivery decision, retain the accepted correction on the sole VM-650 branch; do not integrate the unfinished full visual-continuity scope. Archscry stays active before Maze.
+
+Next bounded work remains preparation of the 23 review-required proposals from accepted research, the six unresolved identities held, and collision/producer-boundary decisions documented without publication or allocation changes. Existing research is input only. No new candidate has been approved by this acceptance. Whole-page Archscry review and the existing manual hover-path checkpoint remain outstanding. No repeated product tests were justified: this update records the genuine Owner decision only.
