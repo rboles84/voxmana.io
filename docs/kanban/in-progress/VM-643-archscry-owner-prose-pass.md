@@ -2,7 +2,7 @@
 
 ID: VM-643
 Title: Archscry Atlas and Dossier Owner Prose Pass
-Status: In Progress
+Status: Owner Review
 Type: Page content review and bounded implementation
 Area: Archscry / Atlas / dossiers
 Priority: Medium
@@ -193,8 +193,8 @@ VM-650 has no future page-work scope. Preserve the accepted Home and Archscry fa
 Record version: 1
 Branch: codex/vm-643-archscry-prose
 Admission baseline: f1abe27f48a6b13448d7c52220001947ec371191
-Candidate: PENDING
-RobQA: PENDING
+Candidate: b055c76fdf24c7a79d4f49ccac43cf15f5222531
+RobQA: PASS at b055c76fdf24c7a79d4f49ccac43cf15f5222531 — SEPARATE reviewer `/root/vm643_qa`
 Owner: PENDING
 Integration: PENDING
 Dependencies: None

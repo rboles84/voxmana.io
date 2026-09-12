@@ -106,3 +106,50 @@ The Owner selected all five corrections on 2026-09-12, supplying final wording f
 Not touched: VM-644 or any sibling story; questionnaire; Matrix; saved readings; layout; section bands; navigation; interactions; Plays; Card Signals; land sizing; precons; Protection; art credits; model/ranking values; card/source authority.
 
 Next: commit the exact implementation candidate, apply proportional RobQA against that immutable SHA, and use SHIP to stop at Owner Review. ACCEPT may integrate only that accepted candidate; corrections remain on VM-643.
+
+## RobQAPass evidence
+
+Task: VM-643
+Candidate: b055c76fdf24c7a79d4f49ccac43cf15f5222531
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: /root/vm643_qa
+Implementer: /root
+
+- **QA tier:** QA-1 — copy/presentation.
+- **Changed behavior:** four Boros-local public-copy corrections and one shared non-Colorless Budget mana-note correction, plus required deterministic projections.
+- **Protected behavior intentionally untouched:** model values, rankings, questionnaire, Matrix behavior, saved readings, navigation, interactions, sections, card/precon inventory, semantic relationships and sibling stories.
+- **Execution reason:** the shared presenter and source/generated public-copy contract warranted independent review. Evidence is bound to the material candidate above.
+
+### Tests selected
+
+- Exact VM-643 wording, WR copy-hash, source/catalog projection, generated faction-preview and shared Budget assertions — PASS; directly protects the five selected corrections and their emitted consumers.
+- `npm.cmd run test:identity-dossier-content` — PASS; protects approved-source schema, hashes and catalog parity.
+- `node tests/archscry/sirf-guild-batch-03-tests.js` — PASS; protects Boros source/provenance and cross-section usefulness without broad identity testing. Boros similarity remained below the `0.38` limit at `0.1628`.
+- `node scripts/vm650-three-plays-html-tests.mjs` — PASS; confirms all 37 dossiers still render exactly three distinct Plays, 111 total.
+- `node --check assets/js/archscry/archscry-presentation.js` and `node --check assets/js/archscry/runtime/dossier-view.js` — PASS.
+- Candidate/path and JSON structural-delta assertions, material/full-branch `git diff --check`, and final exact-candidate cleanliness — PASS. Only approved copy fields and required projections changed; no protected model/ranking/navigation/interaction drift was found.
+
+An initial ad-hoc assertion expected a source-only `_meta` block in the generated factions projection. The reviewer corrected that assertion to the documented projection shape; this was a test-authoring error, not a product or repository defect.
+
+### Tests intentionally skipped
+
+- Browser/screenshots and viewport work: not required to verify the objective QA-1 copy/source contract; the Owner explicitly retains visual testing.
+- Exhaustive journeys, scoring, synthetic, mutation and recovery suites: placement, scoring and state behavior did not change and retain the accepted baseline certification.
+- Research and player outreach: not authorized or needed for the five Owner-selected corrections.
+- **CPU-heavy validation:** NOT REQUIRED.
+
+### Objective self-QA and remaining Owner judgment
+
+- Exact Owner wording is present in the Atlas source/projection, both Boros opponent-read presentation consumers, the dossier source/catalog, and the shared non-Colorless Budget presenter. Rejected runtime wording is absent; remaining copies occur only in historical automatic-review inputs that do not enter runtime.
+- Source/catalog hash and generated projection parity are green. All 37 dossiers retain three Plays each.
+- No manual defect finding required a new regression invariant. The existing source/parity and three-Plays checks cover the objective defect classes.
+- Remaining Owner judgment is limited to rendered tone, naturalness, usefulness and visual fit for the Boros Matrix/Atlas copy, Boros reading/dossier guidance and shared Budget note.
+
+### Short Owner review
+
+1. Open `/archscry/?explore=boros`. Read the Boros Matrix/Atlas description, How Opponents Read It, Battalion Formation and Budget mana note in sequence. PASS if each selected sentence appears naturally in its existing section and all retained sections/controls remain present.
+2. On a local build, open `/archscry/?vm-dev-review=1&reviewIdentity=WR`, choose **Render identity directly**, and read the personal result thesis. PASS if the accepted “pull toward intervention” wording appears with “a shield with fire behind it” and no old “righteous retaliation” thesis remains.
+3. Spot-check one other non-Colorless dossier's Budget lane. PASS if it uses the approved shared tradeoff sentence without changing its identity-specific content. No all-37 manual review is requested.
+
+Owner-review next step: issue ACCEPT or REJECT for exact candidate `b055c76fdf24c7a79d4f49ccac43cf15f5222531`. ACCEPT may integrate only that candidate plus evidence-only lifecycle records; corrections remain on VM-643.
