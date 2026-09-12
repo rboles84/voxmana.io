@@ -142,6 +142,12 @@ The sequence is an Owner work order, not an authorization for dependent branches
 - `docs/kanban/board.md`
 - `docs/handoffs/HANDOFF_INDEX.md`
 - `docs/handoffs/2026-09-12-1212-codex-vm643-boros-prose-review.md`
+- `data/identity-layers.json`
+- `data/factions.json`
+- `assets/js/archscry/archscry-presentation.js`
+- `data/dossier/identity-dossier-content.source.json`
+- `data/dossier/identity-dossier-content.catalog.json`
+- `assets/js/archscry/runtime/dossier-view.js`
 
 ## Protected behavior and non-goals
 
@@ -192,4 +198,4 @@ RobQA: PENDING
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
-Decisions: Intake authorized 2026-09-08; Preserve-voice direction added 2026-09-08: retain unchanged is valid; admission start authorized 2026-09-12 for a representative Boros review only. Preserve the questionnaire, Matrix, saved readings, existing sections and accepted VM-650 Archscry baseline. No product path is admitted and no implementation begins before Owner wording/scope review; any accepted product scope requires a dedicated admission-scope amendment. Related-page coordination above is not a dependency-isolation authorization.
+Decisions: Intake authorized 2026-09-08; Preserve-voice direction added 2026-09-08: retain unchanged is valid; admission start authorized 2026-09-12 for a representative Boros review only. Preserve the questionnaire, Matrix, saved readings, existing sections and accepted VM-650 Archscry baseline. Scope amendment: Owner authorized 2026-09-12 implementation of exactly the selected Boros Atlas tile, personal result thesis, How Opponents Read It and Battalion Formation wording, plus the shared Budget mana-note correction. All other reviewed wording remains unchanged. No all-37 prose audit, section reduction, ranking/model change, interaction change or VM-644 work is admitted. Related-page coordination above is not a dependency-isolation authorization.
