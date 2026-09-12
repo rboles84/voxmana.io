@@ -1,4 +1,4 @@
-<!-- task-view-sha256:7513c1dc50ebb9660273ecfc92fa19688da740f0fca006e01cc6c56522c55fa4 -->
+<!-- task-view-sha256:0e4d84bfee7162c912604f97dab3b41845cb25ac9aabca753d45066186f86c15 -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -8,6 +8,7 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 
 | Authored / filename date | Agent | Handoff | Related task references | Diagnostics |
 |---|---|---|---|---|
+| 2026-09-12T00:00:00Z (authored) | Codex (`/root`, planning and coordination) | [VM-643 — Boros representative prose review](2026-09-12-1212-codex-vm643-boros-prose-review.md) | VM-643, VM-637, VM-650 | Identity displayed from heading; not admission metadata. Legacy status retained verbatim: In Progress — wording and product-path scope pending Owner review; no product implementation started. |
 | 2026-09-10T00:00:00Z (filename) | Unknown | [VM-651 — Agent Model Routing: RobDev packet](2026-09-10-0000-codex-vm651-agent-model-routing.md) | VM-651 | Identity displayed from heading; not admission metadata. |
 | 2026-09-09T00:00:00Z (authored) | Codex, main implementation agent; RobDev | [VM-642 — Functional Home skin preview](2026-09-09-0000-codex-vm642-home-preview.md) | VM-642, VM-637, VM-649 | Identity displayed from heading; not admission metadata. |
 | 2026-09-09T00:00:00Z (authored) | Codex / root | [VM-650 — Site Visual Continuity: progressive implementation](2026-09-09-0000-codex-vm650-site-visual-continuity.md) | VM-650, VM-642, VM-643 | Identity displayed from heading; not admission metadata. Legacy status retained verbatim: In Progress — Archscry phase QA passed; Owner visual feedback pending |
