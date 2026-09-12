@@ -1,9 +1,9 @@
 # VM-643 — Boros representative prose review
 
-Agent: Codex (`/root`, planning and coordination)
+Agent: Codex (`/root`, implementation and coordination)
 Date: 2026-09-12
 Task requested: Start VM-643, preserve the accepted VM-650 Archscry baseline, and return a short Boros-first wording/scope review before implementation.
-Status: In Progress — wording and product-path scope pending Owner review; no product implementation started.
+Status: In Progress — Owner-selected wording implemented; exact-candidate RobQA pending.
 Related: VM-643, VM-637, VM-650
 
 ## Files reviewed
@@ -63,17 +63,33 @@ Related: VM-643, VM-637, VM-650
    - Proposed: “Lower-cost fixing may enter tapped. Check your early colored-mana needs before replacing basics or adding utility lands.”
    - Benefit: removes unsupported certainty and gives a concrete deckbuilding check. This is a demonstrated shared presenter issue, so accepting it would intentionally affect non-Colorless dossiers; it should not be smuggled in as Boros-only wording.
 
+## Owner-selected scope and implementation
+
+The Owner selected all five corrections on 2026-09-12, supplying final wording for the Atlas tile, personal result thesis, How Opponents Read It, Battalion Formation and shared Budget mana note. The dedicated admission amendment at `8bfd1c1438b99d6571fcbdb2182b5c19ab6762ac` admitted only their owning and required generated paths.
+
+- Atlas tile: “Boros turns White duty into action through Red conviction. It meets visible threats with disciplined, coordinated force in service of protection—not aggression for its own sake.”
+- Personal result thesis: “Boros read these answers as a pull toward intervention over passive defense. White gives the duty to protect; Red gives the urgency to act. Together, they become visible, coordinated protection—a shield with fire behind it.”
+- How Opponents Read It: “In these combat-forward Boros lanes, opponents can usually see which attacker or protected piece matters most. That makes protection timing—and keeping a second threat ready—part of the plan.” This is synchronized in both the dossier source/catalog and the existing Boros presentation consumer so the old unsupported reaction does not remain on an alternate reading surface.
+- Battalion Formation: “Look for Battalion, attack-with-three-or-more triggers, and effects that create or improve attackers. These reward committing a formation instead of relying on one fast threat.”
+- Shared Budget note: “Lower-cost fixing may enter tapped. Check your early colored-mana needs before trading untapped sources or basics for utility lands.” It remains in the existing non-Colorless presenter; Colorless retains its separate established copy.
+- `data/dossier/identity-dossier-content.catalog.json` was rebuilt from its approved source, including the updated copy hash. `data/factions.json` was rebuilt from the canonical identity-layer preview source.
+- No other generated producer output changed. No ranking, model, semantic relationship, query, inventory, section, navigation, interaction or sibling-story work entered the implementation.
+
 ## Decisions, risks, and stop line
 
 - The review found no reason to hide or remove any section. The older reduction options remain unapproved historical proposals.
 - No ranking, model value, semantic claim, card relationship, query, precon record, card inventory, or interaction change is proposed.
-- Candidate 5 is the only demonstrated shared issue. Candidates 1–4 are Boros-local. No all-37 rewrite or VM-644 interface work is justified by this review.
-- If the Owner selects wording, add only the exact owning product/source/generated/test paths through a dedicated admission-scope amendment before implementation. If none is selected, retain unchanged is a successful outcome.
+- The Budget note is the only demonstrated shared issue. The other four corrections are Boros-local. No all-37 rewrite or VM-644 interface work is justified by this review.
+- The exact selected paths were added through the dedicated admission-scope amendment before implementation; all unselected wording remains retained unchanged.
 
 ## Files changed
 
 - Admission anchor: VM-643 card moved to In Progress and the generated board refreshed.
-- This handoff records the read-only Boros review. No public product, runtime, source data, generated production catalog, test, model, ranking, or interaction file changed.
+- Admission amendment: VM-643 card records the exact Owner-selected product scope.
+- Boros copy owners: `data/identity-layers.json`, `assets/js/archscry/archscry-presentation.js`, and `data/dossier/identity-dossier-content.source.json`.
+- Shared Budget presenter: `assets/js/archscry/runtime/dossier-view.js`.
+- Required generated projections: `data/factions.json` and `data/dossier/identity-dossier-content.catalog.json`.
+- This handoff records the review, Owner decision and implementation boundary.
 
 ## Checks run
 
@@ -82,10 +98,11 @@ Related: VM-643, VM-637, VM-650
 - Generated-view write/check for the admission card move.
 - Git comparison confirmed no `archscry/`, `assets/`, or `data/` changes after the VM-650 squash.
 - Read-only catalog count confirmed 37 dossiers, minimum/maximum three Plays, 111 total.
+- Canonical dossier-content and faction producers completed; only the six admitted product/source/projection files differ.
 - No browser, visual, exhaustive, research, scoring, or player-outreach work was run. The Owner retains visual testing.
 
 ## Not touched and next step
 
 Not touched: VM-644 or any sibling story; questionnaire; Matrix; saved readings; layout; section bands; navigation; interactions; Plays; Card Signals; land sizing; precons; Protection; art credits; model/ranking values; card/source authority.
 
-Next: Owner accepts, rejects, or rewrites the five bounded wording candidates and confirms whether the one shared Mana Notes correction belongs in VM-643. Root then amends Admission Scope on this same branch, implements only the accepted scope, applies proportional RobQA, and follows SHIP/ACCEPT without starting another story.
+Next: commit the exact implementation candidate, apply proportional RobQA against that immutable SHA, and use SHIP to stop at Owner Review. ACCEPT may integrate only that accepted candidate; corrections remain on VM-643.
