@@ -1,4 +1,4 @@
-<!-- task-view-sha256:6994c18d766f1ebd48e5178923222b4746e153f2277c6d689af9ab9cabbe7368 -->
+<!-- task-view-sha256:a6444de079abb1ecded4cb9a6348167f744d54383507e0d2724163bf37f7b1a5 -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -53,12 +53,12 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 
 | ID | Card | Declared status | Diagnostics |
 |---|---|---|---|
-| VM-643 | [Archscry Atlas and Dossier Owner Prose Pass](in-progress/VM-643-archscry-owner-prose-pass.md) | Owner Review |  |
 
 ## Accepted
 
 | ID | Card | Declared status | Diagnostics |
 |---|---|---|---|
+| VM-643 | [Archscry Atlas and Dossier Owner Prose Pass](in-progress/VM-643-archscry-owner-prose-pass.md) | Accepted |  |
 
 ## Integrated
 

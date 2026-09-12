@@ -2,7 +2,7 @@
 
 ID: VM-643
 Title: Archscry Atlas and Dossier Owner Prose Pass
-Status: Owner Review
+Status: Accepted
 Type: Page content review and bounded implementation
 Area: Archscry / Atlas / dossiers
 Priority: Medium
@@ -195,7 +195,7 @@ Branch: codex/vm-643-archscry-prose
 Admission baseline: f1abe27f48a6b13448d7c52220001947ec371191
 Candidate: b055c76fdf24c7a79d4f49ccac43cf15f5222531
 RobQA: PASS at b055c76fdf24c7a79d4f49ccac43cf15f5222531 — SEPARATE reviewer `/root/vm643_qa`
-Owner: PENDING
+Owner: ACCEPTED at b055c76fdf24c7a79d4f49ccac43cf15f5222531 — current Owner instruction “ACCEPT VM-643”; see handoff.
 Integration: PENDING
 Dependencies: None
 Decisions: Intake authorized 2026-09-08; Preserve-voice direction added 2026-09-08: retain unchanged is valid; admission start authorized 2026-09-12 for a representative Boros review only. Preserve the questionnaire, Matrix, saved readings, existing sections and accepted VM-650 Archscry baseline. Scope amendment: Owner authorized 2026-09-12 implementation of exactly the selected Boros Atlas tile, personal result thesis, How Opponents Read It and Battalion Formation wording, plus the shared Budget mana-note correction. All other reviewed wording remains unchanged. No all-37 prose audit, section reduction, ranking/model change, interaction change or VM-644 work is admitted. Related-page coordination above is not a dependency-isolation authorization.

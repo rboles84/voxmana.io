@@ -153,3 +153,12 @@ An initial ad-hoc assertion expected a source-only `_meta` block in the generate
 3. Spot-check one other non-Colorless dossier's Budget lane. PASS if it uses the approved shared tradeoff sentence without changing its identity-specific content. No all-37 manual review is requested.
 
 Owner-review next step: issue ACCEPT or REJECT for exact candidate `b055c76fdf24c7a79d4f49ccac43cf15f5222531`. ACCEPT may integrate only that candidate plus evidence-only lifecycle records; corrections remain on VM-643.
+
+## Owner acceptance — 2026-09-12
+
+Task: VM-643
+Candidate: b055c76fdf24c7a79d4f49ccac43cf15f5222531
+Owner: ACCEPT
+Decision reference: Current Codex task Owner message, 2026-09-12: “ACCEPT VM-643”.
+
+The acceptance binds the exact RobQA-passed material candidate above and authorizes the normal PR, guarded integration and closeout workflow. It does not add wording, broaden the all-37 scope, reopen rankings or model values, change interactions, or authorize VM-644 work.
