@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-<!-- task-view-sha256:3e1ae457fbb661e4ab0d96ce5bf415433e9761856d25680b854dcb42d27e6117 -->
-=======
-<!-- task-view-sha256:f3bceb598178b0cd3ea6e527302ac4917429a1ec675a8e5c3763c4b480ef96ac -->
->>>>>>> origin/main
+<!-- task-view-sha256:7513c1dc50ebb9660273ecfc92fa19688da740f0fca006e01cc6c56522c55fa4 -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.

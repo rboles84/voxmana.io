@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-<!-- task-view-sha256:ee979c39fe8f54b4b2af1e9c82eecbd2f2ca5510cc97272df1e54219e769b276 -->
-=======
-<!-- task-view-sha256:6ae241af6d58507ba9f4749b4034c0ba878ab9b73ba71afca79a0535396d31fe -->
->>>>>>> origin/main
+<!-- task-view-sha256:17752948eca575b2a3978329b8907cb3ad3847b4301d4c884ecfea2ed9117abb -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
