@@ -452,3 +452,17 @@ Owner: ACCEPT
 Decision reference: current Owner instruction, “so no I dont want to modify my workflow for your mistake, just fix your mistake and get this change in so we can get back on track” The Owner did not literally provide the SHA; this acceptance is bound to the preserved current candidate identified above.
 
 The one-time synchronization exception is approved without workflow edits. PR #39 CI PASSed at material candidate `4486ec684ebe73bf15e1837b2b4eb36321767fca`; host/local parity confirms 44 files and 41 commits. This evidence update creates a later evidence-only head, so CI must run again before merge. This authority does not add page work, change the accepted preservation mapping, or permit Integrated/Done before the actual merge and post-merge evidence.
+
+## 2026-09-12 — Actual guarded merge and closeout
+
+Task: VM-650 closeout.
+
+Candidate: `4486ec684ebe73bf15e1837b2b4eb36321767fca`.
+
+Integration: MERGED — PR #39 guarded squash merged as `ff1e75f4c89caf7806b11deffd8087f41a89187b`, with parent `26432a688b1100c4713b1339b30b3f1616aace8b`. The resulting tree exactly equals `acfeff995bae8d8e3978e06e7fad5111ce0fd362`.
+
+CI: PASS at the evidence head: https://github.com/rboles84/voxmana.io/actions/runs/34677817717/job/103510736372.
+
+Ancestry exception: the Owner-approved one-time synchronization exception was used without workflow edits. The raw checker remains BLOCKED at `070686`; this records its unsupported ancestry path, not a workflow change or a reversal of the actual guarded merge.
+
+Manual checks: local `main` was synchronized and clean; the local feature branch was deleted after tree equality verification, and the remote feature branch was already auto-deleted. The historical cache-versioning checkbox remains retained unchanged; narrowed QA found coherent `vm636` versioning and no demonstrated production defect, so it was superseded as an integration blocker without altering its historical text.

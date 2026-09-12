@@ -1,4 +1,4 @@
-<!-- task-view-sha256:138eb6c4b5c3ac9e0db60ba99531fc2e4c8bf892ff271b57b44a27bbf0bcb7d0 -->
+<!-- task-view-sha256:80aca3d82304cd56e5a8f2c817443604220d5d578a6645298c58c27532df27d8 -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -59,7 +59,6 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 
 | ID | Card | Declared status | Diagnostics |
 |---|---|---|---|
-| VM-650 | [Site Visual Continuity](in-progress/VM-650-site-visual-continuity.md) | Accepted |  |
 
 ## Integrated
 
@@ -670,6 +669,7 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | VM-641 | [Deterministic Candidate, Integration and Closeout Checks](done/VM-641-delivery-checks.md) | Done |  |
 | VM-642 | [Home Public Content and Owner Prose Pass](done/VM-642-home-owner-prose-pass.md) | Done |  |
 | VM-649 | [Integrate public-content backlog intake](done/VM-649-backlog-integration.md) | Done |  |
+| VM-650 | [Site Visual Continuity](done/VM-650-site-visual-continuity.md) | Done |  |
 | VM-651 | [Agent Model Routing](done/VM-651-agent-model-routing.md) | Done |  |
 
 ## Unresolved
