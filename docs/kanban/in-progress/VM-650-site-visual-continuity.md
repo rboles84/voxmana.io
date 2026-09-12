@@ -10,9 +10,9 @@ Created: 2026-09-09
 
 ## Summary
 
-Carry the accepted Home visual language across the public destinations before resuming the page prose passes. The Owner observed that navigation from the newly published Home returns to the old appearance. Preserve the accepted Home composition and wording while giving Archscry, the Maze, Apocrypha, Strategium, the Guide and the remaining public routes a consistent, slimmer presentation.
+VM-650 page work stops at the accepted Archscry result. Preserve its presentation, interactions, 13 accepted factual corrections and three Plays in each of 37 dossiers (111 total). The Owner cancelled the former cross-site continuation; the accidental Maze opt-in has been removed.
 
-Implement and review the continuation one page at a time, beginning with an Archscry local draft. Keep accepted Home and other destinations at the admission baseline until their individual turn. The full continuity scope remains one task and branch, with coordinated integration after the completed set receives exact-candidate QA and Owner acceptance.
+Only delivery closeout remains in this task. Resume public-content work through the existing VM-643 → VM-644 → VM-645 → VM-646 → VM-647 → VM-648 sequence, one story at a time. No further page implementation or visual review belongs to VM-650. Integration remains pending and this card is not a claim of deployment.
 
 ## Source
 
@@ -27,11 +27,12 @@ Implement and review the continuation one page at a time, beginning with an Arch
 
 ## Acceptance Criteria
 
-- [ ] Home and every admitted public route load one shared, opt-in presentation layer after their existing page styles, including nested Guide and Strategium routes and the legal/library pages.
-- [ ] Shared navigation and Guide treatments carry the accepted Home appearance: slimmer header, black/cream/gold palette, opaque surfaces and restrained borders and controls. Home retains its accepted composition, copy and computed presentation.
-- [ ] Contextual styling preserves the destination contracts except the admitted Archscry corrections: first-six precon display; three source-backed Card Signals per category with strict card-example uniqueness across each dossier; and reliable hover dismissal preserving the 200ms crossing grace, keyboard access and transform controls. Preserve approved rationale/Voice inventory and factual precon names/products/ranking when repeated previews become plain text.
-- [ ] Focus, active navigation, mobile containment and representative dynamic states remain usable across materially different consumers; proportional objective evidence is recorded under RobQA.
-- [ ] The Owner reviews the visual continuation on the exact engineering-passed candidate before integration; delivery and closeout follow the existing workflow.
+- [x] Preserve the accepted Archscry layout, open bodies, charcoal section bands, opaque navigation, equal land sizing and first-six precons.
+- [x] Preserve the accepted Protection definition, clickable art credits, hover correction, factual corrections and their provenance.
+- [x] All 37 dossiers render three Plays, retaining Sound and three unique Signals per category; focused HTML evidence and Owner spot-check acceptance are recorded.
+- [x] Remove the unaccepted Maze opt-in and cancel further VM-650 page work.
+- [x] Reconcile the six existing public-content stories without creating duplicates or silently adding cancelled visual scope.
+- [ ] Complete governed delivery of the preserved accepted work; record actual integration and closeout before marking Done.
 
 ## Files Likely Impacted
 
@@ -46,17 +47,17 @@ The exact admitted paths below cover the shared stylesheet, its public HTML cons
 
 ## Implementation Prompt
 
-Reuse the accepted Home visual rules in `assets/css/site-skin.css`, adopting the shared stylesheet progressively after each page's existing styles. Begin with Archscry only; retain accepted Home and the other destinations at the admission baseline until their individual turn. Review and refine each page with the Owner before enabling the next, in this order: Archscry → Maze → Apocrypha → Strategium family → Guide family → legal/library. Within each family, present pages individually for review.
+Do not implement another page under VM-650. The Owner explicitly stopped the former progressive visual pass after accepting Archscry. Retain the accepted Archscry work, restore Maze to its pre-opt-in baseline, and keep the six public-content stories separate. Home, Guide, Apocrypha, Strategium and legal/library visual expansion is cancelled here, not silently transferred into prose cards.
 
-Defer extracting Home navigation and Guide styling from `assets/css/home-wip.css` until the shared treatment has been refined through the destination reviews; the eventual extraction must preserve Home's computed appearance. Apply contextual opaque surfaces, rules and controls to existing destination markup while preserving route structure, functional DOM, scripts, assets, copy and all semantic/data behavior. Keep this work on the admitted branch and card. Interim page review is visual feedback, not an engineering PASS or integration decision. After completing the set, transfer changed/protected behavior and consumer risks to RobQA for proportionate exact-candidate validation and final Owner acceptance before coordinated integration.
+### Current phase — page work stopped; delivery closeout only
 
-### Current phase — Maze visual pass
+Owner replied "those look good" to the supplied Archscry spot checks at f524cc269f085d831b5164c51d9688875d113ba2. Preserve that acceptance and the exact factual-correction acceptance at 915ce1e368b106f0c7f3ae2bf4a36f21dc4d8f0e. The subsequent instruction to stop VM-650 supersedes all earlier instructions to continue to Maze. The two-line Maze opt-in from 5a4026ff0371e3263ea1892f5d5c61cbc542b774 is reverted without erasing its historical evidence.
 
-Owner replied "those look good" to the final Archscry spot check at candidate f524cc269f085d831b5164c51d9688875d113ba2: Quandrix, Naya and Ink each show three Plays, card details open, and the supplied check includes leaving a hover preview while continuing to move. Record this as the Owner-reported manual checkpoint pass, not an automated native-pointer claim. The Archscry review checkpoint is accepted; preserve all accepted content, allocation and presentation. Continue to Maze only, then obtain its page review before Apocrypha.
+The existing next story is VM-643, Archscry Atlas and Dossier Owner Prose Pass. Its remaining prose review does not reopen accepted visual decisions or card inventory. VM-644 owns the later Maze prose/guidance review. No successor work starts during this reconciliation.
 
 ### Preserved Archscry hierarchy
 
-The current draft preserves the editorial opening, reading choice rows, compact Atlas, 1280px dossier width, open informational bodies, equal 128px desktop/105px mobile land sizing and first-six precon toggle. The `vm650-arch5` CSS remains unchanged: opaque topbar and distinct charcoal section-heading bands. Home and other routes remain at baseline until their review turn.
+The current draft preserves the editorial opening, reading choice rows, compact Atlas, 1280px dossier width, open informational bodies, equal 128px desktop/105px mobile land sizing and first-six precon toggle. The `vm650-arch5` CSS remains unchanged: opaque topbar and distinct charcoal section-heading bands. Home and other routes remain at baseline; their former VM-650 review turns are cancelled.
 
 The Owner's strict uniqueness request supersedes the earlier floor-restoring reuse behavior. Card Signals now exclude cards already used in Plays/Sound. WR creature signals are Goblin Guide, Hero of Bladehold and Aurelia, Exemplar of Justice; UR creature signals are Third Path Iconoclast, Young Pyromancer and Niv-Mizzet, Dracogenius. The source change replaces four creature names in the WR/UR authored support fields, using local research and canonical facts under the VM-574 illustrative support authority. The existing producer regenerates only the admitted media/index outputs; philosophy, rationale, Voice records and all other authored fields remain unchanged.
 
@@ -64,7 +65,7 @@ The runtime uniqueness ledger also removes Mana tier examples already shown in B
 
 The VM-574 validator uses the runtime's versioned state singleton and `buildArchscryAuthoredCardLookup`, and checks strict uniqueness instead of allowing floor-restoring collisions. The hover correction prevents continuous pointer movement outside the source/preview from repeatedly resetting dismissal, while retaining the existing 200ms crossing grace, keyboard access and transform behavior. Development tests pass as recorded by the main agent; the historical ledger is unchanged.
 
-Current review entry: `http://127.0.0.1:8002/archscry/index.html`, using a fresh origin to avoid stale runtime assets. Separate exact-candidate reviewer /root/fit_review_plan completed the machine review at 2bc358c6ae2b49f2d0065f3b5d2f74e25bd51c0c: all selected checks passed and no code findings remain. The local phase verdict is BLOCKED solely for native pointer-path evidence; it is not engineering PASS. The current CUA capability cannot supply native continuous mouse movement, so the actual leave-and-keep-moving hover path still needs the bounded Owner check. Confirm dismissal after leaving the source and preview while continuing to move, with source-to-preview crossing and keyboard/transform access preserved. This missing real-path evidence prevents a current engineering PASS under RobQA section 25; source tests alone do not close it. Fresh-origin local review also does not replace coordinated cache versioning before integration.
+Historical review evidence (superseded by the later Owner checkpoint below): `http://127.0.0.1:8002/archscry/index.html`, using a fresh origin to avoid stale runtime assets. Separate exact-candidate reviewer /root/fit_review_plan completed the machine review at 2bc358c6ae2b49f2d0065f3b5d2f74e25bd51c0c: all selected checks passed and no code findings remain. The local phase verdict is BLOCKED solely for native pointer-path evidence; it is not engineering PASS. The current CUA capability cannot supply native continuous mouse movement, so the actual leave-and-keep-moving hover path still needs the bounded Owner check. Confirm dismissal after leaving the source and preview while continuing to move, with source-to-preview crossing and keyboard/transform access preserved. This missing real-path evidence prevents a current engineering PASS under RobQA section 25; source tests alone do not close it. Fresh-origin local review also does not replace coordinated cache versioning before integration.
 
 Historical phase QA: `promotion_checks` passed `64df468d11caf7617edf3854449394ef988baa97` for the earlier hierarchy, `daf7c940e06f22e1d5cbcd8a653d78a3a94dc8fc` before strict uniqueness, and `2aeddb4ef00265932ad48f09eb709a96c98348f8` for the unchanged header/topbar CSS. Those records retain their original scope; none covers the new source, uniqueness or hover behavior.
 
@@ -72,7 +73,7 @@ Historical phase QA: `promotion_checks` passed `64df468d11caf7617edf3854449394ef
 - [x] Strict uniqueness, source-backed WR/UR replacements, generated media and hover deadline corrections are implemented; development checks and the all-37 audit pass.
 - [x] Complete separate exact-candidate machine review of the uniqueness/source/hover corrections at 2bc358c6ae2b49f2d0065f3b5d2f74e25bd51c0c; reviewer /root/fit_review_plan reports all selected checks PASS and no code findings. Phase engineering verdict remains BLOCKED for the native evidence item below.
 - [x] Owner reported the final supplied Archscry manual spot check looked good, including its hover-dismissal check; earlier missing native-path evidence is retained as historical evidence, not a current automation claim.
-- [x] Owner accepted the final Archscry checkpoint; continue with the Maze visual draft.
+- [x] Owner accepted the final Archscry checkpoint; no further VM-650 page draft is authorized.
 - [ ] Complete coordinated runtime cache versioning and its validation before integration; current fresh-origin local review is not production readiness.
 
 ### Three Plays per dossier — implemented
@@ -83,13 +84,13 @@ The Owner-directed expansion adds 61 source-backed relationships through the exi
 
 Owner ACCEPT, 2026-09-11: `915ce1e368b106f0c7f3ae2bf4a36f21dc4d8f0e`, all 13 corrected current Plays relationships and their provenance. Independent bounded RobQA PASS is recorded in the handoff. Preserve this exact accepted material; no further factual-copy research or wording review is required for these records. Candidate-stage pending annotations are historical and superseded by this Owner decision.
 
-Archscry remains the current page. The 23 new Plays remain proposal-only; BANT, GRIXIS, INK, JUND, NAYA and YORE remain NEEDS_MORE_EVIDENCE. Collision reallocations and producer/source-model expansion are unapproved. Full-task Delivery fields below remain pending because this is a bounded checkpoint within the progressive page review, with coordinated integration after the completed set.
+The former proposal-only state was superseded by the Owner-directed three-Plays implementation above. Historical candidate research and rejections remain retained. No further candidate expansion, allocation change or producer architecture work belongs in this closeout.
 
 ## Notes
 
 - This is the Owner-authorized visual follow-up to VM-642, not a reopening of its Done record or an all-37 dossier rewrite.
 - Keep `index_old.html` untouched as the accepted rollback copy.
-- No backend, placement/model, storage, philosophy/rationale/Voice, art-attribution or prose changes are authorized. Source/media changes are limited to the admitted WR/UR illustrative creature replacements and their generated outputs; no broader source/generated changes are authorized.
+- No further product changes are authorized by this reconciliation. Preserve the subsequently accepted Plays additions, factual corrections, Protection definition and art-credit links alongside the original visual work. Earlier narrower source limits are historical, superseded only by the explicit scope amendments in Decisions.
 - If the visual work requires a functional or semantic change, surface that boundary before expanding implementation.
 
 ## Delivery

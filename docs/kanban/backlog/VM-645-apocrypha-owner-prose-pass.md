@@ -133,6 +133,10 @@ Pick up VM-645, Apocrypha Source Annotations and Owner Prose Pass, as one child 
 
 Backlog intake only. Creation allocates the story number and makes the pass independently retrievable; it does not start runtime work, certify source support, approve product hides, or supply missing Owner prose. The parent remains the cross-page coordination record. VM-629 remains a separate repetition-reduction scope.
 
+## Current pickup boundary
+
+VM-650 has no future page-work scope. Preserve the accepted Home and Archscry facts, including 13 accepted factual corrections and three Plays in each of 37 dossiers (111 total). The remaining public-content sequence is VM-643 → VM-644 → VM-645 → VM-646 → VM-647 → VM-648; complete the preceding card before starting an independent branch for the next one. VM-645 is limited to Apocrypha source annotations and prose; do not add unspecified library visual expansion or cancelled VM-650 scope.
+
 ## Delivery
 
 Record version: 1
