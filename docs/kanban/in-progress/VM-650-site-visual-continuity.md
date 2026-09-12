@@ -50,7 +50,11 @@ Reuse the accepted Home visual rules in `assets/css/site-skin.css`, adopting the
 
 Defer extracting Home navigation and Guide styling from `assets/css/home-wip.css` until the shared treatment has been refined through the destination reviews; the eventual extraction must preserve Home's computed appearance. Apply contextual opaque surfaces, rules and controls to existing destination markup while preserving route structure, functional DOM, scripts, assets, copy and all semantic/data behavior. Keep this work on the admitted branch and card. Interim page review is visual feedback, not an engineering PASS or integration decision. After completing the set, transfer changed/protected behavior and consumer risks to RobQA for proportionate exact-candidate validation and final Owner acceptance before coordinated integration.
 
-### Current phase — Archscry hierarchy
+### Current phase — Maze visual pass
+
+Owner replied "those look good" to the final Archscry spot check at candidate f524cc269f085d831b5164c51d9688875d113ba2: Quandrix, Naya and Ink each show three Plays, card details open, and the supplied check includes leaving a hover preview while continuing to move. Record this as the Owner-reported manual checkpoint pass, not an automated native-pointer claim. The Archscry review checkpoint is accepted; preserve all accepted content, allocation and presentation. Continue to Maze only, then obtain its page review before Apocrypha.
+
+### Preserved Archscry hierarchy
 
 The current draft preserves the editorial opening, reading choice rows, compact Atlas, 1280px dossier width, open informational bodies, equal 128px desktop/105px mobile land sizing and first-six precon toggle. The `vm650-arch5` CSS remains unchanged: opaque topbar and distinct charcoal section-heading bands. Home and other routes remain at baseline until their review turn.
 
@@ -67,8 +71,8 @@ Historical phase QA: `promotion_checks` passed `64df468d11caf7617edf3854449394ef
 - [x] Archscry hierarchy and `vm650-arch5` CSS are retained; their historical phase evidence is in the handoff.
 - [x] Strict uniqueness, source-backed WR/UR replacements, generated media and hover deadline corrections are implemented; development checks and the all-37 audit pass.
 - [x] Complete separate exact-candidate machine review of the uniqueness/source/hover corrections at 2bc358c6ae2b49f2d0065f3b5d2f74e25bd51c0c; reviewer /root/fit_review_plan reports all selected checks PASS and no code findings. Phase engineering verdict remains BLOCKED for the native evidence item below.
-- [ ] Complete the bounded real pointer-path hover check; native continuous movement was unavailable through the current CUA capability, so no engineering PASS is claimed.
-- [ ] Obtain the Owner's feedback on the corrected Archscry draft and address it before enabling the next page.
+- [x] Owner reported the final supplied Archscry manual spot check looked good, including its hover-dismissal check; earlier missing native-path evidence is retained as historical evidence, not a current automation claim.
+- [x] Owner accepted the final Archscry checkpoint; continue with the Maze visual draft.
 - [ ] Complete coordinated runtime cache versioning and its validation before integration; current fresh-origin local review is not production readiness.
 
 ### Three Plays per dossier — implemented
