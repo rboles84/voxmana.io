@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "source_path": "data/dossier/card-rationale-relationships.source.json",
-  "source_sha256": "786c4d02cd67309a47f2368b38642636b2718f9f94085df9f127ccf03adfd4ba",
+  "source_sha256": "4ebc927ed34a0bf1fb7699082f14ee9a5d150037ae4ea01e0d99ad7d55fbc2f3",
   "generated_policy": "APPROVED_PUBLIC only; card-specific relationship plus approved identity table experience; no profile-only fallback",
   "records": [
     {
@@ -33,6 +33,63 @@
       }
     },
     {
+      "relationship_id": "cardrel_auto_vm650_w_38515f89_348b_4cf3_b7bd_1f6fe4ce2fba",
+      "identity_key": "W",
+      "card": {
+        "name": "Adeline, Resplendent Cathar",
+        "oracle_id": "38515f89-348b-4cf3-b7bd-1f6fe4ce2fba",
+        "scryfall_id": "1de30c12-2011-495a-be25-f7a46b23e142",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=1de30c12-2011-495a-be25-f7a46b23e142"
+      },
+      "rationale": "Adeline turns each attack into a broader formation, creating a tapped-and-attacking Human for every opponent.",
+      "modal_explanation": "Her power counts your whole creature force, then the attack itself adds another Human at each opposing player or planeswalker. The pressure is organized across the table rather than concentrated in one body.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 2,
+      "provenance": {
+        "claim_ids": [
+          "white_claim_0004",
+          "white_claim_0007"
+        ],
+        "source_ids": [
+          "MONO-W-2015",
+          "MONO-W-2025",
+          "MECH-CP-2021",
+          "GOV-COC-2024"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#mono-source-inputs"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_vm650_w_503094aa_6f8f_42c1_ad5a_9305934e5f0c",
+      "identity_key": "W",
+      "card": {
+        "name": "Myrel, Shield of Argive",
+        "oracle_id": "503094aa-6f8f-42c1-ad5a-9305934e5f0c",
+        "scryfall_id": "e632ed57-bb00-4493-adef-7b4805edd7ea",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=e632ed57-bb00-4493-adef-7b4805edd7ea"
+      },
+      "rationale": "Myrel protects your turn from many opposing responses, then has each Soldier attack build a larger Soldier formation.",
+      "modal_explanation": "On your turn, opponents cannot cast spells or use artifact, creature, or enchantment abilities. When Myrel attacks, the number of new Soldiers equals the Soldiers you already control.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 3,
+      "provenance": {
+        "claim_ids": [
+          "white_claim_0003",
+          "white_claim_0004",
+          "white_claim_0007"
+        ],
+        "source_ids": [
+          "MONO-W-2015",
+          "MONO-W-2025",
+          "MECH-CP-2021",
+          "GOV-COC-2024"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#mono-source-inputs"
+      }
+    },
+    {
       "relationship_id": "cardrel_auto_u_ea1eb902_a23c_44ff_9169_19baf71de238",
       "identity_key": "U",
       "card": {
@@ -61,6 +118,63 @@
       }
     },
     {
+      "relationship_id": "cardrel_auto_vm650_u_2b6cbd55_5adc_4a34_ac45_8531705a7ee1",
+      "identity_key": "U",
+      "card": {
+        "name": "Teferi, Mage of Zhalfir",
+        "oracle_id": "2b6cbd55-5adc-4a34-ac45-8531705a7ee1",
+        "scryfall_id": "8fc5e4a8-ea7b-4803-a7ed-3b915708661f",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=8fc5e4a8-ea7b-4803-a7ed-3b915708661f"
+      },
+      "rationale": "Teferi lets your creature cards arrive at instant speed while forcing opponents to act only at sorcery speed.",
+      "modal_explanation": "Flash changes when you can deploy creatures, and the last ability narrows when opponents can cast spells. The card makes control of the turn's timing concrete.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 2,
+      "provenance": {
+        "claim_ids": [
+          "blue_claim_0003",
+          "blue_claim_0006",
+          "blue_claim_0007"
+        ],
+        "source_ids": [
+          "MONO-U-2015",
+          "MONO-U-2025",
+          "MECH-CP-2021",
+          "GOV-COC-2024"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#mono-source-inputs"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_vm650_u_baf80db7_2ca8_4bfc_b5b6_25ed51878dd7",
+      "identity_key": "U",
+      "card": {
+        "name": "Baral, Chief of Compliance",
+        "oracle_id": "baf80db7-2ca8-4bfc-b5b6-25ed51878dd7",
+        "scryfall_id": "60e16d94-1166-4050-8554-686e153a7f80",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=60e16d94-1166-4050-8554-686e153a7f80"
+      },
+      "rationale": "Baral makes your instants and sorceries cheaper, then can turn a successful counter into a fresh card and a deliberate discard.",
+      "modal_explanation": "The reduction applies to your instant and sorcery spells. When a spell or ability you control counters a spell, you may draw one card and then discard one card.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 3,
+      "provenance": {
+        "claim_ids": [
+          "blue_claim_0003",
+          "blue_claim_0007"
+        ],
+        "source_ids": [
+          "MONO-U-2015",
+          "MONO-U-2025",
+          "MECH-CP-2021",
+          "GOV-COC-2024"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#mono-source-inputs"
+      }
+    },
+    {
       "relationship_id": "cardrel_auto_b_cbe3a4e7_5dbe_4f58_8ee6_a1762b65acfd",
       "identity_key": "B",
       "card": {
@@ -86,6 +200,64 @@
           "MECH-CP-2021-CHG"
         ],
         "relationship_evidence_locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_b_cbe3a4e7_5dbe_4f58_8ee6_a1762b65acfd"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_vm650_b_7c209753_121b_4859_944b_4e33f885e777",
+      "identity_key": "B",
+      "card": {
+        "name": "Vilis, Broker of Blood",
+        "oracle_id": "7c209753-121b-4859-944b-4e33f885e777",
+        "scryfall_id": "ecdf2bd9-87b9-470a-ad2e-0ebf98560f87",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=ecdf2bd9-87b9-470a-ad2e-0ebf98560f87"
+      },
+      "rationale": "Vilis turns life loss into cards, and can spend two life to shrink a target creature.",
+      "modal_explanation": "The activated ability costs one black mana and two life. Separately, whenever you lose life—including from damage—you draw that many cards.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 2,
+      "provenance": {
+        "claim_ids": [
+          "black_claim_0003",
+          "black_claim_0004",
+          "black_claim_0007"
+        ],
+        "source_ids": [
+          "MONO-B-2015",
+          "MONO-B-2025",
+          "MECH-CP-2021",
+          "MECH-CP-2021-CHG"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#mono-source-inputs"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_vm650_b_d5be0ff6_39d9_4f9f_a028_e62dc38463f2",
+      "identity_key": "B",
+      "card": {
+        "name": "Gonti, Lord of Luxury",
+        "oracle_id": "d5be0ff6-39d9-4f9f-a028-e62dc38463f2",
+        "scryfall_id": "fbbb3aef-af1f-4b77-b7d6-64cfd706a9d9",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=fbbb3aef-af1f-4b77-b7d6-64cfd706a9d9"
+      },
+      "rationale": "Gonti looks into an opponent's next four cards, takes one face down, and lets you cast it with mana of any type.",
+      "modal_explanation": "Only one card is exiled; the remaining three go to the bottom in a random order. You may cast the exiled card for as long as it stays exiled.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 3,
+      "provenance": {
+        "claim_ids": [
+          "black_claim_0003",
+          "black_claim_0004",
+          "black_claim_0007"
+        ],
+        "source_ids": [
+          "MONO-B-2015",
+          "MONO-B-2025",
+          "MECH-CP-2021",
+          "MECH-CP-2021-CHG"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#mono-source-inputs"
       }
     },
     {
@@ -121,6 +293,64 @@
       }
     },
     {
+      "relationship_id": "cardrel_auto_vm650_r_4fdbbec2_e921_4b63_958d_f9ba1e417197",
+      "identity_key": "R",
+      "card": {
+        "name": "Purphoros, God of the Forge",
+        "oracle_id": "4fdbbec2-e921-4b63-958d-f9ba1e417197",
+        "scryfall_id": "4736a2c4-c89c-48db-a104-6303e7e2eee8",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=4736a2c4-c89c-48db-a104-6303e7e2eee8"
+      },
+      "rationale": "Every other creature you bring in hits each opponent for 2, and Purphoros can turn the whole team more aggressive for a turn.",
+      "modal_explanation": "The damage trigger is for another creature you control entering and reaches each opponent. The activated ability costs {2}{R} and gives your creatures +1/+0 until end of turn.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 2,
+      "provenance": {
+        "claim_ids": [
+          "red_claim_0003",
+          "red_claim_0004",
+          "red_claim_0007"
+        ],
+        "source_ids": [
+          "MONO-R-2015",
+          "MONO-R-2025",
+          "MECH-CP-2021",
+          "GOV-COC-2024"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#mono-source-inputs"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_vm650_r_b0d3fd57_1420_4dd1_8410_9d659655287f",
+      "identity_key": "R",
+      "card": {
+        "name": "Neheb, the Eternal",
+        "oracle_id": "b0d3fd57-1420-4dd1-8410-9d659655287f",
+        "scryfall_id": "767c5831-2195-4efa-802d-2ea2e6dabb5b",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=767c5831-2195-4efa-802d-2ea2e6dabb5b"
+      },
+      "rationale": "Neheb converts the life your opponents have lost this turn into red mana after combat, so pressure can fuel the next burst of action.",
+      "modal_explanation": "The mana amount counts all life your opponents lost that turn, and the trigger occurs at the beginning of each of your postcombat main phases. Afflict 3 is separate: a player whose creature blocks Neheb loses 3 life.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 3,
+      "provenance": {
+        "claim_ids": [
+          "red_claim_0003",
+          "red_claim_0006",
+          "red_claim_0007"
+        ],
+        "source_ids": [
+          "MONO-R-2015",
+          "MONO-R-2025",
+          "MECH-CP-2021",
+          "GOV-COC-2024"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#mono-source-inputs"
+      }
+    },
+    {
       "relationship_id": "cardrel_auto_g_6c2c8bf3_9bf8_4a86_89d3_3bb36260dc51",
       "identity_key": "G",
       "card": {
@@ -146,6 +376,64 @@
           "MECH-CP-2021-CHG"
         ],
         "relationship_evidence_locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_g_6c2c8bf3_9bf8_4a86_89d3_3bb36260dc51"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_vm650_g_1d725121_e50c_42f0_9128_56802f07c89e",
+      "identity_key": "G",
+      "card": {
+        "name": "Selvala, Heart of the Wilds",
+        "oracle_id": "1d725121-e50c-42f0-9128-56802f07c89e",
+        "scryfall_id": "812856be-cf51-42de-96d2-4ac91e71d442",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=812856be-cf51-42de-96d2-4ac91e71d442"
+      },
+      "rationale": "Selvala rewards a new creature that is bigger than every other creature, then turns your greatest power into mana.",
+      "modal_explanation": "The entering creature's controller may draw only if its power is greater than each other creature's power. Selvala's mana ability uses the greatest power among creatures you control and can make that much mana in any color combination.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 2,
+      "provenance": {
+        "claim_ids": [
+          "green_claim_0004",
+          "green_claim_0006",
+          "green_claim_0007"
+        ],
+        "source_ids": [
+          "MONO-G-2015",
+          "MONO-G-2025",
+          "MECH-CP-2021",
+          "MECH-CP-2021-CHG"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#mono-source-inputs"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_vm650_g_761021ce_4559_464e_aa03_85c2fe78e267",
+      "identity_key": "G",
+      "card": {
+        "name": "Rishkar, Peema Renegade",
+        "oracle_id": "761021ce-4559-464e-aa03-85c2fe78e267",
+        "scryfall_id": "88f4aecc-b728-4960-8131-1e5aa6c3c030",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=88f4aecc-b728-4960-8131-1e5aa6c3c030"
+      },
+      "rationale": "Rishkar grows up to two creatures, then lets every creature you have with a counter help produce green mana.",
+      "modal_explanation": "The entry trigger targets up to two creatures. The mana ability applies to each creature you control with any counter on it, including creatures that received a counter from Rishkar.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 3,
+      "provenance": {
+        "claim_ids": [
+          "green_claim_0003",
+          "green_claim_0004",
+          "green_claim_0007"
+        ],
+        "source_ids": [
+          "MONO-G-2015",
+          "MONO-G-2025",
+          "MECH-CP-2021",
+          "MECH-CP-2021-CHG"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#mono-source-inputs"
       }
     },
     {
@@ -214,6 +502,35 @@
       }
     },
     {
+      "relationship_id": "cardrel_auto_vm650_wu_81ba3a33_0e04_4f68_9a42_1dd717733b57",
+      "identity_key": "WU",
+      "card": {
+        "name": "Lavinia, Azorius Renegade",
+        "oracle_id": "81ba3a33-0e04-4f68-9a42-1dd717733b57",
+        "scryfall_id": "197bf3f4-c0df-4082-97a1-902ceabbdd3f",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=81ba3a33-0e04-4f68-9a42-1dd717733b57"
+      },
+      "rationale": "Lavinia sets a public limit on oversized noncreature spells and counters a spell cast without mana.",
+      "modal_explanation": "The table can see which actions cross the line: a player cannot evade the cost system or cast beyond their land development.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 4,
+      "provenance": {
+        "claim_ids": [
+          "azorius_senate_claim_005"
+        ],
+        "source_ids": [
+          "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "src_mtg_stories_the_gathering_storm_chapter_3_c2a81b82",
+          "src_mtg_stories_rallying_the_reluctant_d21b8009",
+          "src_mtg_stories_ashes_6ede4fea",
+          "src_mtg_stories_desperate_operatives_6c6a580b",
+          "src_mtg_stories_fblthp_e26059d7"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#new-plays-source-records"
+      }
+    },
+    {
       "relationship_id": "cardrel_ub_8027a610",
       "identity_key": "UB",
       "card": {
@@ -243,6 +560,56 @@
           "src_wotc_guilds_ravnica_mechanics_2018"
         ],
         "relationship_evidence_locator": "data/raw-factions/house_dimir/house_dimir.profile.json#/commander_compass/native_fit_commanders/0"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_vm650_ub_2ee87667_ec9d_4ced_b7e6_df3fd18b0ed6",
+      "identity_key": "UB",
+      "card": {
+        "name": "Etrata, the Silencer",
+        "oracle_id": "2ee87667-ec9d-4ced-b7e6-df3fd18b0ed6",
+        "scryfall_id": "fa36b142-e67e-49da-9080-c5994e275266",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=2ee87667-ec9d-4ced-b7e6-df3fd18b0ed6"
+      },
+      "rationale": "Etrata cannot be blocked, exiles a target creature the struck player controls with a hit counter, then her owner shuffles her into their library.",
+      "modal_explanation": "The attack is covert and selective. Each hit removes one chosen piece and leaves a record toward Etrata's alternate loss condition before she disappears.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 2,
+      "provenance": {
+        "claim_ids": [
+          "house_dimir_claim_001"
+        ],
+        "source_ids": [
+          "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "src_wotc_guilds_ravnica_mechanics_2018"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#new-plays-source-records"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_vm650_ub_c75e55f2_fd6c_4816_9d96_21eeb8369aff",
+      "identity_key": "UB",
+      "card": {
+        "name": "The Scarab God",
+        "oracle_id": "c75e55f2-fd6c-4816-9d96-21eeb8369aff",
+        "scryfall_id": "f4f414ef-84a2-4694-9e98-51bee4576c84",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=c75e55f2-fd6c-4816-9d96-21eeb8369aff"
+      },
+      "rationale": "The Scarab God turns a target creature card in a graveyard into a 4/4 Zombie token copy.",
+      "modal_explanation": "It selects material from a graveyard and reconstitutes it into an altered working body while its upkeep turns your Zombies into pressure and selection.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 3,
+      "provenance": {
+        "claim_ids": [
+          "house_dimir_claim_001"
+        ],
+        "source_ids": [
+          "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "src_wotc_guilds_ravnica_mechanics_2018"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#new-plays-source-records"
       }
     },
     {
@@ -311,6 +678,31 @@
           "src_wotc_ravnica_allegiance_mechanics_2018"
         ],
         "relationship_evidence_locator": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.profile.json#/commander_compass/iconic_lore_forward_commanders/0"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_vm650_br_1e9b0fd6_5aae_401a_8df5_d94ce6442696",
+      "identity_key": "BR",
+      "card": {
+        "name": "Prosper, Tome-Bound",
+        "oracle_id": "1e9b0fd6-5aae-401a-8df5-d94ce6442696",
+        "scryfall_id": "d743336e-d5c7-4053-a23d-92ec7581f74e",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=1e9b0fd6-5aae-401a-8df5-d94ce6442696"
+      },
+      "rationale": "Prosper exiles the top card of your library for a limited play window and makes a Treasure whenever you play a card from exile.",
+      "modal_explanation": "A temporary opportunity becomes tangible mana if you seize it, keeping the turn moving through risk and reward.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 7,
+      "provenance": {
+        "claim_ids": [
+          "cult_of_rakdos_claim_001"
+        ],
+        "source_ids": [
+          "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "src_wotc_ravnica_allegiance_mechanics_2018"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#new-plays-source-records"
       }
     },
     {
@@ -445,6 +837,58 @@
           "correction_id": "vm650-trostani-factual-copy",
           "canonical_oracle_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=e94ef397-f5c5-4b8d-ae27-528352fa1d1e"
         }
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_vm650_wg_c65ba242_3369_48a9_864f_1b1f85238f67",
+      "identity_key": "WG",
+      "card": {
+        "name": "Emmara, Soul of the Accord",
+        "oracle_id": "c65ba242-3369-48a9-864f-1b1f85238f67",
+        "scryfall_id": "41b930ee-e16b-4612-87de-c03ecc6ff6db",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=c65ba242-3369-48a9-864f-1b1f85238f67"
+      },
+      "rationale": "Whenever Emmara becomes tapped, she creates a 1/1 lifelink Soldier token.",
+      "modal_explanation": "Participation in work or combat creates another sustaining member of the group.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 2,
+      "provenance": {
+        "claim_ids": [
+          "selesnya_conclave_claim_005"
+        ],
+        "source_ids": [
+          "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "src_wotc_guilds_ravnica_mechanics_2018",
+          "src_wotc_guilds_ravnica_prerelease_primer_2018"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#new-plays-source-records"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_vm650_wg_0fc64fd6_f057_4056_9dca_47accb7ff036",
+      "identity_key": "WG",
+      "card": {
+        "name": "Sythis, Harvest's Hand",
+        "oracle_id": "0fc64fd6-f057-4056-9dca-47accb7ff036",
+        "scryfall_id": "89511ab5-8ea6-4f07-a80b-c1ec7e89924e",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=0fc64fd6-f057-4056-9dca-47accb7ff036"
+      },
+      "rationale": "Each enchantment you cast gains you 1 life and draws a card.",
+      "modal_explanation": "The enchantment work develops both resilience and understanding, one committed piece at a time.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 3,
+      "provenance": {
+        "claim_ids": [
+          "selesnya_conclave_claim_005"
+        ],
+        "source_ids": [
+          "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "src_wotc_guilds_ravnica_mechanics_2018",
+          "src_wotc_guilds_ravnica_prerelease_primer_2018"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#new-plays-source-records"
       }
     },
     {
@@ -683,6 +1127,58 @@
       }
     },
     {
+      "relationship_id": "cardrel_auto_vm650_bg_a5e54d2b_aad8_4ddd_af4b_13668913762b",
+      "identity_key": "BG",
+      "card": {
+        "name": "The Gitrog Monster",
+        "oracle_id": "a5e54d2b-aad8-4ddd-af4b-13668913762b",
+        "scryfall_id": "40489e28-878d-44a2-847f-07beef1aa0f8",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=a5e54d2b-aad8-4ddd-af4b-13668913762b"
+      },
+      "rationale": "The Gitrog Monster trades a land to survive, permits an extra land play, and draws a card when one or more land cards reach your graveyard.",
+      "modal_explanation": "Land moves through sacrifice and the graveyard into continued development and knowledge.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 2,
+      "provenance": {
+        "claim_ids": [
+          "golgari_swarm_claim_001"
+        ],
+        "source_ids": [
+          "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "src_wotc_guilds_ravnica_mechanics_2018",
+          "src_wotc_guilds_ravnica_prerelease_primer_2018"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#new-plays-source-records"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_vm650_bg_0310dfdb_0498_488d_9f1a_279f8239e024",
+      "identity_key": "BG",
+      "card": {
+        "name": "Meren of Clan Nel Toth",
+        "oracle_id": "0310dfdb-0498-488d-9f1a-279f8239e024",
+        "scryfall_id": "508b1442-bf2c-4ad6-9bcf-bd894e081ab6",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=0310dfdb-0498-488d-9f1a-279f8239e024"
+      },
+      "rationale": "When another creature you control dies, Meren gives you experience, then returns a creature card from your graveyard at end step when experience permits.",
+      "modal_explanation": "Loss accumulates into a resource that restores a chosen creature over time.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 3,
+      "provenance": {
+        "claim_ids": [
+          "golgari_swarm_claim_001"
+        ],
+        "source_ids": [
+          "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "src_wotc_guilds_ravnica_mechanics_2018",
+          "src_wotc_guilds_ravnica_prerelease_primer_2018"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#new-plays-source-records"
+      }
+    },
+    {
       "relationship_id": "cardrel_ug_311e9368",
       "identity_key": "UG",
       "card": {
@@ -711,6 +1207,56 @@
           "src_wotc_ravnica_allegiance_mechanics_2018"
         ],
         "relationship_evidence_locator": "data/raw-factions/simic_combine/simic_combine.profile.json#/commander_compass/native_fit_commanders/0"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_vm650_ug_0715e860_3b3b_4331_9718_207973e94fee",
+      "identity_key": "UG",
+      "card": {
+        "name": "Tatyova, Benthic Druid",
+        "oracle_id": "0715e860-3b3b-4331-9718-207973e94fee",
+        "scryfall_id": "eabc978a-0666-472d-bdc6-d4b29d29eca4",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=0715e860-3b3b-4331-9718-207973e94fee"
+      },
+      "rationale": "Whenever a land you control enters, Tatyova gains you 1 life and draws a card.",
+      "modal_explanation": "Development of the environment directly sustains you and opens the next option.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 2,
+      "provenance": {
+        "claim_ids": [
+          "simic_combine_claim_005"
+        ],
+        "source_ids": [
+          "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "src_wotc_ravnica_allegiance_mechanics_2018"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#new-plays-source-records"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_vm650_ug_6202d1cf_5359_4783_846d_7f35460e42b4",
+      "identity_key": "UG",
+      "card": {
+        "name": "Momir Vig, Simic Visionary",
+        "oracle_id": "6202d1cf-5359-4783-846d-7f35460e42b4",
+        "scryfall_id": "25a8c801-df0c-402b-a41c-4703a2abfb66",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=6202d1cf-5359-4783-846d-7f35460e42b4"
+      },
+      "rationale": "Green creature spells set up a creature card on top of your library, while blue creature spells can draw that creature.",
+      "modal_explanation": "The two creature actions form a deliberate sequence: one prepares a specimen and the other retrieves it.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 3,
+      "provenance": {
+        "claim_ids": [
+          "simic_combine_claim_005"
+        ],
+        "source_ids": [
+          "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "src_wotc_ravnica_allegiance_mechanics_2018"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#new-plays-source-records"
       }
     },
     {
@@ -945,6 +1491,59 @@
       }
     },
     {
+      "relationship_id": "cardrel_auto_vm650_prismari_02d529df_6299_4e8f_9794_70c8061efdc4",
+      "identity_key": "PRISMARI",
+      "card": {
+        "name": "Zaffai, Thunder Conductor",
+        "oracle_id": "02d529df-6299-4e8f-9794-70c8061efdc4",
+        "scryfall_id": "ea1ab937-8647-4c83-99d5-6a40dffa4c9b",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=02d529df-6299-4e8f-9794-70c8061efdc4"
+      },
+      "rationale": "Zaffai turns increasingly large instant and sorcery performances into foresight, then an Elemental, then a dramatic random blast.",
+      "modal_explanation": "Spellcraft is staged as spectacle with rising scale: each cast is shaped first through selection, and larger works leave a visible elemental or explosive mark.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 2,
+      "provenance": {
+        "claim_ids": [
+          "prismari_claim_0002",
+          "prismari_claim_0003",
+          "prismari_claim_0006"
+        ],
+        "source_ids": [
+          "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#college-and-tarkir-source-inputs"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_vm650_prismari_9a8f6e5e_6cde_49df_861c_a26cb09c9b12",
+      "identity_key": "PRISMARI",
+      "card": {
+        "name": "Muddle, the Ever-Changing",
+        "oracle_id": "9a8f6e5e-6cde-49df-861c-a26cb09c9b12",
+        "scryfall_id": "916d3e31-3243-47b3-b7d2-ce9a6dd47aba",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=9a8f6e5e-6cde-49df-861c-a26cb09c9b12"
+      },
+      "rationale": "Casting an instant or sorcery lets Muddle become a copy of a target nonlegendary creature you control with myriad until end of turn.",
+      "modal_explanation": "Every spell can recast the performer into a different form and turn that form into a multi-opponent display.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 3,
+      "provenance": {
+        "claim_ids": [
+          "prismari_claim_002"
+        ],
+        "source_ids": [
+          "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+          "src_wotc_secrets_strixhaven_commander_decklists_20260401"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#new-plays-source-records"
+      }
+    },
+    {
       "relationship_id": "cardrel_auto_quandrix_977f9390_e01d_4e9d_8e9c_e543b1266972",
       "identity_key": "QUANDRIX",
       "card": {
@@ -975,6 +1574,57 @@
           "correction_id": "vm650-zimone-factual-copy",
           "canonical_oracle_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=977f9390-e01d-4e9d-8e9c-e543b1266972"
         }
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_vm650_quandrix_12a6cad9_eb42_43bd_9e68_aaf862cd83db",
+      "identity_key": "QUANDRIX",
+      "card": {
+        "name": "Adrix and Nev, Twincasters",
+        "oracle_id": "12a6cad9-eb42-43bd-9e68-aaf862cd83db",
+        "scryfall_id": "b9c11061-bb34-4904-b9f1-ea106b517bbe",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=12a6cad9-eb42-43bd-9e68-aaf862cd83db"
+      },
+      "rationale": "Adrix and Nev apply a simple doubling rule whenever your effects would create tokens.",
+      "modal_explanation": "The card makes a mathematical transformation visible on the battlefield: each created set becomes an expanded second set under the same rule.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 2,
+      "provenance": {
+        "claim_ids": [
+          "quandrix_claim_0002",
+          "quandrix_claim_0019"
+        ],
+        "source_ids": [
+          "src_wotc_planeswalkers_guide_strixhaven_2021"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#college-and-tarkir-source-inputs"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_vm650_quandrix_65fb0e20_61f8_4c61_bc08_7f6f718ee9ee",
+      "identity_key": "QUANDRIX",
+      "card": {
+        "name": "Primo, the Unbounded",
+        "oracle_id": "65fb0e20-61f8-4c61-bc08-7f6f718ee9ee",
+        "scryfall_id": "a2d14b99-15e2-4e96-89a2-7e0ee5dc059f",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=65fb0e20-61f8-4c61-bc08-7f6f718ee9ee"
+      },
+      "rationale": "Primo enters with twice X +1/+1 counters, and base-power-0 creatures that deal combat damage create Fractals with counters equal to that damage.",
+      "modal_explanation": "Starting values and combat results become explicit numerical growth on a new Fractal.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 3,
+      "provenance": {
+        "claim_ids": [
+          "quandrix_claim_002"
+        ],
+        "source_ids": [
+          "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+          "src_wotc_secrets_strixhaven_commander_decklists_20260401"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#new-plays-source-records"
       }
     },
     {
@@ -1010,6 +1660,58 @@
       }
     },
     {
+      "relationship_id": "cardrel_auto_vm650_silverquill_2143f413_7baa_4fd6_a7ca_32f52bfa553f",
+      "identity_key": "SILVERQUILL",
+      "card": {
+        "name": "Shadrix Silverquill",
+        "oracle_id": "2143f413-7baa-4fd6-a7ca-32f52bfa553f",
+        "scryfall_id": "214a695b-208e-4fd5-9ceb-23c882eadcf7",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=2143f413-7baa-4fd6-a7ca-32f52bfa553f"
+      },
+      "rationale": "Shadrix assigns two different combat-time benefits or costs to two different players, making the table's power relationships a deliberate choice.",
+      "modal_explanation": "The choices do not land randomly or all in one place. Shadrix directs resources, pressure, and growth among different players, then lets those choices shape the coming combat.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 2,
+      "provenance": {
+        "claim_ids": [
+          "silverquill_claim_0006",
+          "silverquill_claim_0019"
+        ],
+        "source_ids": [
+          "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#college-and-tarkir-source-inputs"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_vm650_silverquill_9c54bd34_667d_415c_ad26_82e0eb0ff409",
+      "identity_key": "SILVERQUILL",
+      "card": {
+        "name": "Killian, Decisive Mentor",
+        "oracle_id": "9c54bd34-667d-415c-ad26-82e0eb0ff409",
+        "scryfall_id": "76b6c35a-bb92-4ad3-8f85-88b9bafc6266",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=9c54bd34-667d-415c-ad26-82e0eb0ff409"
+      },
+      "rationale": "Your enchantments entering can tap and goad a target creature, while Aura-enchanted attackers draw you a card.",
+      "modal_explanation": "Placed influence redirects a creature's behavior and turns that directed action into advantage.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 3,
+      "provenance": {
+        "claim_ids": [
+          "silverquill_claim_001"
+        ],
+        "source_ids": [
+          "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "src_wotc_strixhaven_product_page_2021",
+          "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#new-plays-source-records"
+      }
+    },
+    {
       "relationship_id": "cardrel_auto_witherbloom_f61c1dc4_2f09_4b50_957f_ee656c659072",
       "identity_key": "WITHERBLOOM",
       "card": {
@@ -1037,6 +1739,56 @@
           "correction_id": "vm650-dina-factual-copy",
           "canonical_oracle_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=f61c1dc4-2f09-4b50-957f-ee656c659072"
         }
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_vm650_witherbloom_94723d61_3e29_4180_91bc_df37c4086a66",
+      "identity_key": "WITHERBLOOM",
+      "card": {
+        "name": "Willowdusk, Essence Seer",
+        "oracle_id": "94723d61-3e29-4180-91bc-df37c4086a66",
+        "scryfall_id": "42a97ec1-f613-49a5-9236-7fded1a81f3b",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=94723d61-3e29-4180-91bc-df37c4086a66"
+      },
+      "rationale": "Willowdusk converts whichever was greater this turn—your life gained or life lost—into +1/+1 counters on another creature.",
+      "modal_explanation": "Both healing and harm become measurable living force. The card then puts that stored change into another body as deliberate growth.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 2,
+      "provenance": {
+        "claim_ids": [
+          "witherbloom_claim_0022"
+        ],
+        "source_ids": [
+          "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#college-and-tarkir-source-inputs"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_vm650_witherbloom_ae5f30cc_a22e_4fbb_9510_e9429de3623c",
+      "identity_key": "WITHERBLOOM",
+      "card": {
+        "name": "Gorma, the Gullet",
+        "oracle_id": "ae5f30cc-a22e-4fbb-9510-e9429de3623c",
+        "scryfall_id": "86f97dd8-8647-4938-aee0-690bb715f88b",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=ae5f30cc-a22e-4fbb-9510-e9429de3623c"
+      },
+      "rationale": "Each other creature you control dying grows Gorma and makes later nontoken creatures enter with extra counters for deaths that turn.",
+      "modal_explanation": "Death directly nourishes the remaining body and the next bodies that arrive.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 3,
+      "provenance": {
+        "claim_ids": [
+          "witherbloom_claim_0019"
+        ],
+        "source_ids": [
+          "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#new-plays-source-records"
       }
     },
     {
@@ -1070,6 +1822,56 @@
       }
     },
     {
+      "relationship_id": "cardrel_auto_vm650_bant_ebf7ce9b_9e5e_4557_9e28_76556997f0ee",
+      "identity_key": "BANT",
+      "card": {
+        "name": "Chulane, Teller of Tales",
+        "oracle_id": "ebf7ce9b-9e5e-4557-9e28-76556997f0ee",
+        "scryfall_id": "d1499a4b-1af1-4913-8e26-57d0707264db",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=ebf7ce9b-9e5e-4557-9e28-76556997f0ee"
+      },
+      "rationale": "Casting a creature draws a card and may put a land from your hand onto the battlefield; Chulane can return a creature you control to its owner's hand.",
+      "modal_explanation": "Creature development repeatedly becomes knowledge, land development, and a reusable piece.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 2,
+      "provenance": {
+        "claim_ids": [
+          "bant_claim_0006"
+        ],
+        "source_ids": [
+          "src_vm_bant_evidence_ledger_20260528",
+          "src_vm_bant_manual_fill_20260529"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#new-plays-source-records"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_vm650_bant_afa49a09_146f_4439_850e_dd1938c93cef",
+      "identity_key": "BANT",
+      "card": {
+        "name": "Derevi, Empyrial Tactician",
+        "oracle_id": "afa49a09-146f-4439-850e-dd1938c93cef",
+        "scryfall_id": "3a1d0dad-18a8-489e-ac11-08f64b72fda4",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=afa49a09-146f-4439-850e-dd1938c93cef"
+      },
+      "rationale": "Derevi entering or one of your creatures dealing combat damage lets you tap or untap a target permanent.",
+      "modal_explanation": "Organized creature action continually adjusts the table's working pieces.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 3,
+      "provenance": {
+        "claim_ids": [
+          "bant_claim_0006"
+        ],
+        "source_ids": [
+          "src_vm_bant_evidence_ledger_20260528",
+          "src_vm_bant_manual_fill_20260529"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#new-plays-source-records"
+      }
+    },
+    {
       "relationship_id": "cardrel_auto_esper_3268251a_8292_44f9_9267_c961b182f739",
       "identity_key": "ESPER",
       "card": {
@@ -1093,6 +1895,56 @@
           "src_wotc_rosewater_esper_striving_for_perfection"
         ],
         "relationship_evidence_locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_esper_3268251a_8292_44f9_9267_c961b182f739"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_vm650_esper_bf45f5ee_4d5f_4920_b612_b5492c2f035d",
+      "identity_key": "ESPER",
+      "card": {
+        "name": "Aminatou, Veil Piercer",
+        "oracle_id": "bf45f5ee-4d5f-4920-b612-b5492c2f035d",
+        "scryfall_id": "9f868023-6035-403d-ba91-7a4840c6c392",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=bf45f5ee-4d5f-4920-b612-b5492c2f035d"
+      },
+      "rationale": "Aminatou surveils 2 each upkeep and gives enchantment cards in your hand miracle at four less mana.",
+      "modal_explanation": "Preparation arranges future information, then a first draw can turn that prepared enchantment into an efficient execution.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 2,
+      "provenance": {
+        "claim_ids": [
+          "esper_claim_0003"
+        ],
+        "source_ids": [
+          "src_vm_esper_evidence_ledger_20260529",
+          "src_wotc_rosewater_esper_striving_for_perfection"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#new-plays-source-records"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_vm650_esper_620ff5f2_7d3f_467f_943d_3b62c2135023",
+      "identity_key": "ESPER",
+      "card": {
+        "name": "Oloro, Ageless Ascetic",
+        "oracle_id": "620ff5f2-7d3f-467f-943d-3b62c2135023",
+        "scryfall_id": "abf8df47-405c-42d8-be9e-0f0d0a49589b",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=620ff5f2-7d3f-467f-943d-3b62c2135023"
+      },
+      "rationale": "Oloro gains you life each upkeep, including from the command zone, and your life gain can become a card for a payment while each opponent loses 1 life.",
+      "modal_explanation": "A steady maintained resource becomes selective information and pressure.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 3,
+      "provenance": {
+        "claim_ids": [
+          "esper_claim_0003"
+        ],
+        "source_ids": [
+          "src_vm_esper_evidence_ledger_20260529",
+          "src_wotc_rosewater_esper_striving_for_perfection"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#new-plays-source-records"
       }
     },
     {
@@ -1123,6 +1975,56 @@
       }
     },
     {
+      "relationship_id": "cardrel_auto_vm650_grixis_a014f283_c531_415c_ac00_e6773ea5d64d",
+      "identity_key": "GRIXIS",
+      "card": {
+        "name": "Jeleva, Nephalia's Scourge",
+        "oracle_id": "a014f283-c531-415c-ac00-e6773ea5d64d",
+        "scryfall_id": "83f9aeb8-05ba-49d9-a834-62f42fcd295b",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=a014f283-c531-415c-ac00-e6773ea5d64d"
+      },
+      "rationale": "Jeleva exiles cards from every player's library when she enters and can cast an instant or sorcery exiled with her for free when she attacks.",
+      "modal_explanation": "An attack converts material taken from every library into an opportunistic spell.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 2,
+      "provenance": {
+        "claim_ids": [
+          "grixis_claim_0003"
+        ],
+        "source_ids": [
+          "src_vm_grixis_evidence_ledger_20260530",
+          "src_wotc_rosewater_grixis_looking_out_for_number_one"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#new-plays-source-records"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_vm650_grixis_d3c3f293_6790_4dce_900a_8af0464c2572",
+      "identity_key": "GRIXIS",
+      "card": {
+        "name": "Anhelo, the Painter",
+        "oracle_id": "d3c3f293-6790-4dce-900a-8af0464c2572",
+        "scryfall_id": "462e887d-6b91-4b31-9487-2780ffe8943f",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=d3c3f293-6790-4dce-900a-8af0464c2572"
+      },
+      "rationale": "The first instant or sorcery you cast each turn has casualty 2, letting you sacrifice a creature with power 2 or greater to copy it.",
+      "modal_explanation": "A disposable body turns a chosen spell into a second execution with new targets available.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 3,
+      "provenance": {
+        "claim_ids": [
+          "grixis_claim_0003"
+        ],
+        "source_ids": [
+          "src_vm_grixis_evidence_ledger_20260530",
+          "src_wotc_rosewater_grixis_looking_out_for_number_one"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#new-plays-source-records"
+      }
+    },
+    {
       "relationship_id": "cardrel_auto_jund_868882d2_ed4e_4171_a17c_478a341080fb",
       "identity_key": "JUND",
       "card": {
@@ -1147,6 +2049,58 @@
           "src_vm_jund_reliability_audit_20260530"
         ],
         "relationship_evidence_locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_jund_868882d2_ed4e_4171_a17c_478a341080fb"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_vm650_jund_5320f5a6_8066_47d4_aa0a_4c879f39d413",
+      "identity_key": "JUND",
+      "card": {
+        "name": "Henzie \"Toolbox\" Torre",
+        "oracle_id": "5320f5a6-8066-47d4-aa0a-4c879f39d413",
+        "scryfall_id": "ee228dcc-3170-4c24-80bc-28bcee07cb43",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=5320f5a6-8066-47d4-aa0a-4c879f39d413"
+      },
+      "rationale": "Creature spells with mana value 4 or greater gain blitz, so they can be cast for haste, draw on death, and sacrifice at the next end step.",
+      "modal_explanation": "Large creatures become immediate, expendable action whose ending refills the hand.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 2,
+      "provenance": {
+        "claim_ids": [
+          "jund_claim_0005"
+        ],
+        "source_ids": [
+          "src_wotc_rosewater_jund_following_your_heart",
+          "src_vm_jund_evidence_ledger_20260530",
+          "src_vm_jund_reliability_audit_20260530"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#new-plays-source-records"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_vm650_jund_38a55562_1e2d_4240_9454_219a4a25d38d",
+      "identity_key": "JUND",
+      "card": {
+        "name": "Lord Windgrace",
+        "oracle_id": "38a55562-1e2d-4240-9454-219a4a25d38d",
+        "scryfall_id": "213d6fb8-5624-4804-b263-51f339482754",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=38a55562-1e2d-4240-9454-219a4a25d38d"
+      },
+      "rationale": "Lord Windgrace can discard a land for an additional card, then return up to two target land cards from your graveyard to the battlefield.",
+      "modal_explanation": "Land is spent, recovered, and made active again as a practical resource cycle.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 3,
+      "provenance": {
+        "claim_ids": [
+          "jund_claim_0005"
+        ],
+        "source_ids": [
+          "src_wotc_rosewater_jund_following_your_heart",
+          "src_vm_jund_evidence_ledger_20260530",
+          "src_vm_jund_reliability_audit_20260530"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#new-plays-source-records"
       }
     },
     {
@@ -1177,6 +2131,56 @@
       }
     },
     {
+      "relationship_id": "cardrel_auto_vm650_naya_4252d7f4_c582_4a21_b3af_829c84cb0b09",
+      "identity_key": "NAYA",
+      "card": {
+        "name": "Godsire",
+        "oracle_id": "4252d7f4-c582-4a21-b3af-829c84cb0b09",
+        "scryfall_id": "e2539ff7-2b7d-47e3-bd77-3138a6c42d2b",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=4252d7f4-c582-4a21-b3af-829c84cb0b09"
+      },
+      "rationale": "Godsire pairs an 8/8 body with an activated ability that creates another 8/8 red, green, and white Beast token.",
+      "modal_explanation": "The card begins at the same enormous scale it can produce again. Tapping it commits a massive existing body to leave behind another massive body.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 2,
+      "provenance": {
+        "claim_ids": [
+          "naya_claim_0003"
+        ],
+        "source_ids": [
+          "src_vm_naya_evidence_ledger_20260530",
+          "src_wotc_rosewater_naya_searching_within"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#new-plays-source-records"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_vm650_naya_fae87115_8749_4d25_a594_7139dd01a034",
+      "identity_key": "NAYA",
+      "card": {
+        "name": "Marath, Will of the Wild",
+        "oracle_id": "fae87115-8749-4d25-a594-7139dd01a034",
+        "scryfall_id": "57afa796-db46-45ff-91bd-f02922e5f33d",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=fae87115-8749-4d25-a594-7139dd01a034"
+      },
+      "rationale": "Marath stores the mana spent to cast it as counters, then can turn those counters into creature growth, damage, or an Elemental token.",
+      "modal_explanation": "Accumulated natural strength is redirected into protection, direct force, or another living body.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 3,
+      "provenance": {
+        "claim_ids": [
+          "naya_claim_0003"
+        ],
+        "source_ids": [
+          "src_vm_naya_evidence_ledger_20260530",
+          "src_wotc_rosewater_naya_searching_within"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#new-plays-source-records"
+      }
+    },
+    {
       "relationship_id": "cardrel_auto_abzan_2b3f791a_d672_46fb_a03a_96e19f2c3121",
       "identity_key": "ABZAN",
       "card": {
@@ -1201,6 +2205,57 @@
           "src_wotc_tarkir_dragonstorm_commander_decklists_20250325"
         ],
         "relationship_evidence_locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_abzan_2b3f791a_d672_46fb_a03a_96e19f2c3121"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_vm650_abzan_0cde6a29_d597_4feb_8b2b_528d2d57a1f3",
+      "identity_key": "ABZAN",
+      "card": {
+        "name": "Hamza, Guardian of Arashin",
+        "oracle_id": "0cde6a29-d597-4feb-8b2b-528d2d57a1f3",
+        "scryfall_id": "adc7f8f3-140d-4dd0-aacc-b81b2b93eb67",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=0cde6a29-d597-4feb-8b2b-528d2d57a1f3"
+      },
+      "rationale": "Hamza makes each creature already strengthened with a +1/+1 counter reduce the cost of building the next creatures.",
+      "modal_explanation": "A developed board carries its endurance forward: prior strengthening turns into room to keep deploying the community through a long game.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 2,
+      "provenance": {
+        "claim_ids": [
+          "abzan_claim_0002"
+        ],
+        "source_ids": [
+          "src_vm_abzan_evidence_ledger_20260531",
+          "src_wotc_rosewater_abzan_we_will_survive"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#college-and-tarkir-source-inputs"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_vm650_abzan_990b5e12_6e04_4832_9d64_87278f12cbda",
+      "identity_key": "ABZAN",
+      "card": {
+        "name": "Betor, Ancestor's Voice",
+        "oracle_id": "990b5e12-6e04-4832-9d64-87278f12cbda",
+        "scryfall_id": "2e261489-8dde-4594-8868-69f432f03d03",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=990b5e12-6e04-4832-9d64-87278f12cbda"
+      },
+      "rationale": "At your end step, Betor turns life gained into counters on another creature and life lost into a return of a creature card from your graveyard.",
+      "modal_explanation": "Both sides of the life exchange strengthen the living or reconnect a dead creature to the present.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 3,
+      "provenance": {
+        "claim_ids": [
+          "abzan_claim_0002"
+        ],
+        "source_ids": [
+          "src_vm_abzan_evidence_ledger_20260531",
+          "src_wotc_rosewater_abzan_we_will_survive",
+          "src_wotc_tarkir_dragonstorm_commander_decklists_20250325"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#new-plays-source-records"
       }
     },
     {
@@ -1232,6 +2287,58 @@
       }
     },
     {
+      "relationship_id": "cardrel_auto_vm650_temur_725880b2_1675_414f_b61b_cf6533797dbf",
+      "identity_key": "TEMUR",
+      "card": {
+        "name": "Animar, Soul of Elements",
+        "oracle_id": "725880b2-1675-414f-b61b-cf6533797dbf",
+        "scryfall_id": "a3da57d0-1ae3-4f05-a52d-eb76ad56cae7",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=725880b2-1675-414f-b61b-cf6533797dbf"
+      },
+      "rationale": "Every creature spell makes Animar stronger and lowers the cost of the next creature spell.",
+      "modal_explanation": "The sequence turns embodied action into growing strength and then into faster further action, keeping creature development active under pressure.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 2,
+      "provenance": {
+        "claim_ids": [
+          "temur_claim_0002",
+          "temur_claim_0003"
+        ],
+        "source_ids": [
+          "src_vm_temur_evidence_ledger_20260531",
+          "src_wotc_rosewater_temur_what_doesnt_kill_you"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#college-and-tarkir-source-inputs"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_vm650_temur_99c2d3ef_e5b4_48cd_b3f5_de9b02c7c36a",
+      "identity_key": "TEMUR",
+      "card": {
+        "name": "Ureni of the Unwritten",
+        "oracle_id": "99c2d3ef-e5b4-48cd-b3f5-de9b02c7c36a",
+        "scryfall_id": "f54ecbf1-83df-4486-bd6a-7d1f173b6863",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=99c2d3ef-e5b4-48cd-b3f5-de9b02c7c36a"
+      },
+      "rationale": "When Ureni enters or attacks, it looks eight cards deep and can put a Dragon from among them onto the battlefield.",
+      "modal_explanation": "A large creature's arrival or attack immediately calls another large body into action.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 3,
+      "provenance": {
+        "claim_ids": [
+          "temur_claim_0002"
+        ],
+        "source_ids": [
+          "src_vm_temur_evidence_ledger_20260531",
+          "src_wotc_rosewater_temur_what_doesnt_kill_you",
+          "src_wotc_tarkir_dragonstorm_commander_decklists_20250325"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#new-plays-source-records"
+      }
+    },
+    {
       "relationship_id": "cardrel_auto_sultai_0177b410_b559_491f_b393_ac3ed774653c",
       "identity_key": "SULTAI",
       "card": {
@@ -1260,6 +2367,57 @@
       }
     },
     {
+      "relationship_id": "cardrel_auto_vm650_sultai_55123455_d435_46d4_b0cd_0c1614343be2",
+      "identity_key": "SULTAI",
+      "card": {
+        "name": "The Mimeoplasm",
+        "oracle_id": "55123455-d435-46d4-b0cd-0c1614343be2",
+        "scryfall_id": "998b86f3-e53f-4ebb-b111-6f14577fded1",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=55123455-d435-46d4-b0cd-0c1614343be2"
+      },
+      "rationale": "The Mimeoplasm turns two creature cards from graveyards into one chosen body carrying the other card's power as counters.",
+      "modal_explanation": "Dead material becomes a selected tool rather than passive history: one creature supplies the working form and another contributes its strength.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 2,
+      "provenance": {
+        "claim_ids": [
+          "sultai_claim_0003"
+        ],
+        "source_ids": [
+          "src_vm_sultai_evidence_ledger_20260531",
+          "src_wotc_rosewater_sultai_whatever_it_takes"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#college-and-tarkir-source-inputs"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_vm650_sultai_c8cbf0ec_ec98_4cb3_8068_60e92bbd740d",
+      "identity_key": "SULTAI",
+      "card": {
+        "name": "Teval, the Balanced Scale",
+        "oracle_id": "c8cbf0ec-ec98-4cb3-8068-60e92bbd740d",
+        "scryfall_id": "b5d1955a-9ff0-4f8b-9af8-341371957299",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=c8cbf0ec-ec98-4cb3-8068-60e92bbd740d"
+      },
+      "rationale": "When Teval attacks, it mills three cards and may return a land from your graveyard; cards leaving your graveyard create Zombie Druids.",
+      "modal_explanation": "Material moves through the graveyard into renewed land and bodies.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 3,
+      "provenance": {
+        "claim_ids": [
+          "sultai_claim_0002"
+        ],
+        "source_ids": [
+          "src_vm_sultai_evidence_ledger_20260531",
+          "src_wotc_rosewater_sultai_whatever_it_takes",
+          "src_wotc_tarkir_dragonstorm_commander_decklists_20250325"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#new-plays-source-records"
+      }
+    },
+    {
       "relationship_id": "cardrel_auto_mardu_0f93d88c_9d2e_416d_a10b_99483360b1fb",
       "identity_key": "MARDU",
       "card": {
@@ -1284,6 +2442,58 @@
           "src_wotc_tarkir_dragonstorm_commander_decklists_20250325"
         ],
         "relationship_evidence_locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_mardu_0f93d88c_9d2e_416d_a10b_99483360b1fb"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_vm650_mardu_41e2790d_49f5_4e98_b8d9_04179f47f13a",
+      "identity_key": "MARDU",
+      "card": {
+        "name": "Edgar Markov",
+        "oracle_id": "41e2790d-49f5-4e98-b8d9-04179f47f13a",
+        "scryfall_id": "a577ba08-0aa8-45be-aa83-d5078770127c",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=41e2790d-49f5-4e98-b8d9-04179f47f13a"
+      },
+      "rationale": "Casting another Vampire creates a Vampire token while Edgar is in the command zone or on the battlefield, and attacking grows each Vampire.",
+      "modal_explanation": "The warband expands before and during combat, then carries that growth into the attack.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 2,
+      "provenance": {
+        "claim_ids": [
+          "mardu_claim_0002"
+        ],
+        "source_ids": [
+          "src_vm_mardu_evidence_ledger_20260531",
+          "src_wotc_rosewater_mardu_finishing_first",
+          "src_wotc_tarkir_dragonstorm_commander_decklists_20250325"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#new-plays-source-records"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_vm650_mardu_65114758_9a75_43a7_96e8_0aa68faa6b24",
+      "identity_key": "MARDU",
+      "card": {
+        "name": "Isshin, Two Heavens as One",
+        "oracle_id": "65114758-9a75-43a7-96e8-0aa68faa6b24",
+        "scryfall_id": "a062a004-984e-4b62-960c-af7288f7a3e9",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=65114758-9a75-43a7-96e8-0aa68faa6b24"
+      },
+      "rationale": "Attack-triggered abilities of your permanents trigger an additional time when a creature attacking caused them to trigger.",
+      "modal_explanation": "Committing a creature to combat doubles the force of the attack's coordinated consequences.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 3,
+      "provenance": {
+        "claim_ids": [
+          "mardu_claim_0002"
+        ],
+        "source_ids": [
+          "src_vm_mardu_evidence_ledger_20260531",
+          "src_wotc_rosewater_mardu_finishing_first",
+          "src_wotc_tarkir_dragonstorm_commander_decklists_20250325"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#new-plays-source-records"
       }
     },
     {
@@ -1315,6 +2525,58 @@
       }
     },
     {
+      "relationship_id": "cardrel_auto_vm650_jeskai_b2d4ce3c_00b1_4a72_b652_4c129475080f",
+      "identity_key": "JESKAI",
+      "card": {
+        "name": "Kasla, the Broken Halo",
+        "oracle_id": "b2d4ce3c-00b1-4a72-b652-4c129475080f",
+        "scryfall_id": "a209bda2-f0bf-4417-94f9-b73eff0b4217",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=b2d4ce3c-00b1-4a72-b652-4c129475080f"
+      },
+      "rationale": "Kasla has convoke, and casting another spell with convoke lets you scry 2 then draw a card.",
+      "modal_explanation": "Creatures cooperate to cast a spell, and that practiced cooperation produces selection and knowledge.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 2,
+      "provenance": {
+        "claim_ids": [
+          "jeskai_claim_0002"
+        ],
+        "source_ids": [
+          "src_vm_jeskai_evidence_ledger_20260531",
+          "src_wotc_rosewater_jeskai_smart_thinking",
+          "src_wotc_tarkir_dragonstorm_commander_decklists_20250325"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#new-plays-source-records"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_vm650_jeskai_71a80491_eea2_4661_9446_26a87efbf4a8",
+      "identity_key": "JESKAI",
+      "card": {
+        "name": "Kykar, Wind's Fury",
+        "oracle_id": "71a80491-eea2-4661-9446-26a87efbf4a8",
+        "scryfall_id": "fdb034c8-bae0-4f66-98f1-1b3cdc072f17",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=71a80491-eea2-4661-9446-26a87efbf4a8"
+      },
+      "rationale": "Casting a noncreature spell creates a flying Spirit, and sacrificing a Spirit adds red mana.",
+      "modal_explanation": "Spellcraft creates a visible support force that can be converted into the next burst of action.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 3,
+      "provenance": {
+        "claim_ids": [
+          "jeskai_claim_0002"
+        ],
+        "source_ids": [
+          "src_vm_jeskai_evidence_ledger_20260531",
+          "src_wotc_rosewater_jeskai_smart_thinking",
+          "src_wotc_tarkir_dragonstorm_commander_decklists_20250325"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#new-plays-source-records"
+      }
+    },
+    {
       "relationship_id": "cardrel_auto_yore_d460a9e2_5a7d_4562_880e_45174be19a9d",
       "identity_key": "YORE",
       "card": {
@@ -1341,6 +2603,56 @@
       }
     },
     {
+      "relationship_id": "cardrel_auto_vm650_yore_037e7fc9_3aa6_484c_a2c8_43009e45f1d8",
+      "identity_key": "YORE",
+      "card": {
+        "name": "Sharuum the Hegemon",
+        "oracle_id": "037e7fc9-3aa6-484c-a2c8-43009e45f1d8",
+        "scryfall_id": "af80ef38-ab95-476f-b0dd-b5ef3e9bceab",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=037e7fc9-3aa6-484c-a2c8-43009e45f1d8"
+      },
+      "rationale": "When Sharuum enters, it can restore a target artifact card from your graveyard directly to the battlefield, making a constructed tool available for present use again.",
+      "modal_explanation": "The card’s return is specific to an artifact. What was discarded is not regrown; it is deliberately brought back as a working piece of the machine.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 2,
+      "provenance": {
+        "claim_ids": [
+          "yore_claim_0004"
+        ],
+        "source_ids": [
+          "src_vm_yore_evidence_ledger_20260602",
+          "src_vm_four_color_reference_audit_20260602"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#four-color-source-inputs"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_vm650_yore_d3438037_3efd_4ce0_88ec_6d48ab521992",
+      "identity_key": "YORE",
+      "card": {
+        "name": "Mishra, Eminent One",
+        "oracle_id": "d3438037-3efd-4ce0-88ec-6d48ab521992",
+        "scryfall_id": "7f5b1daa-ec45-48de-9496-6ca5b491a0dc",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=d3438037-3efd-4ce0-88ec-6d48ab521992"
+      },
+      "rationale": "At the beginning of your combat, Mishra copies a target noncreature artifact you control into a hasty Construct, then retires that temporary warform at the next end step.",
+      "modal_explanation": "A standing tool is copied into a working combat form for one turn. The effect treats artifact design as something that can be repurposed into immediate function.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 3,
+      "provenance": {
+        "claim_ids": [
+          "yore_claim_0004"
+        ],
+        "source_ids": [
+          "src_vm_yore_evidence_ledger_20260602",
+          "src_vm_four_color_reference_audit_20260602"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#four-color-source-inputs"
+      }
+    },
+    {
       "relationship_id": "cardrel_auto_glint_9efe8aff_9a7d_4397_b5fd_c1a0fad7c15f",
       "identity_key": "GLINT",
       "card": {
@@ -1364,6 +2676,56 @@
           "src_vm_four_color_reference_audit_20260602"
         ],
         "relationship_evidence_locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_glint_9efe8aff_9a7d_4397_b5fd_c1a0fad7c15f"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_vm650_glint_8dedb9a7_0afa_4dff_b124_2344c170f11a",
+      "identity_key": "GLINT",
+      "card": {
+        "name": "Abaddon the Despoiler",
+        "oracle_id": "8dedb9a7-0afa-4dff-b124-2344c170f11a",
+        "scryfall_id": "c9f1fc97-00c0-492b-a4a3-b179afc2f95d",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=8dedb9a7-0afa-4dff-b124-2344c170f11a"
+      },
+      "rationale": "Abaddon converts opponents’ life already lost this turn into cascade for qualifying spells cast from your hand, so a successful push can feed an unpredictable burst of further action.",
+      "modal_explanation": "The turn accelerates after opponents lose life. That loss enlarges the range of spells cast from your hand during your turn that can break open into another cast, making momentum and volatility reinforce each other.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 2,
+      "provenance": {
+        "claim_ids": [
+          "glint_claim_0005"
+        ],
+        "source_ids": [
+          "src_vm_glint_evidence_ledger_20260602",
+          "src_vm_four_color_reference_audit_20260602"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#four-color-source-inputs"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_vm650_glint_e3444fcf_70ed_4d6e_aea9_030af15cad56",
+      "identity_key": "GLINT",
+      "card": {
+        "name": "Throes of Chaos",
+        "oracle_id": "e3444fcf-70ed-4d6e-aea9-030af15cad56",
+        "scryfall_id": "af0fd1ff-3398-45df-b934-07a6b6497998",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=e3444fcf-70ed-4d6e-aea9-030af15cad56"
+      },
+      "rationale": "Throes of Chaos repeatedly turns a spent land into another cascade, trading stored material for an uncontrolled new route through the deck.",
+      "modal_explanation": "The same spell can return from the graveyard as long as there is land to discard. Each recast asks the deck to improvise another result rather than follow a fixed script.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 3,
+      "provenance": {
+        "claim_ids": [
+          "glint_claim_0005"
+        ],
+        "source_ids": [
+          "src_vm_glint_evidence_ledger_20260602",
+          "src_vm_four_color_reference_audit_20260602"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#four-color-source-inputs"
       }
     },
     {
@@ -1397,6 +2759,56 @@
       }
     },
     {
+      "relationship_id": "cardrel_auto_vm650_dune_a7dff624_1f6b_4e00_b13b_0b0d69a48ec2",
+      "identity_key": "DUNE",
+      "card": {
+        "name": "Tana, the Bloodsower",
+        "oracle_id": "a7dff624-1f6b-4e00-b13b-0b0d69a48ec2",
+        "scryfall_id": "a3d8d64f-a403-42a7-881b-4f70e9fe15a2",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=a7dff624-1f6b-4e00-b13b-0b0d69a48ec2"
+      },
+      "rationale": "Tana turns combat damage dealt to a player into an immediate occupying force: every point becomes another Saproling on the battlefield.",
+      "modal_explanation": "Tana rewards committing to the attack. A larger hit does not only reduce a life total; it leaves behind more bodies to take the ground and press the next combat.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 2,
+      "provenance": {
+        "claim_ids": [
+          "dune_claim_0005"
+        ],
+        "source_ids": [
+          "src_vm_dune_evidence_ledger_20260603",
+          "src_vm_four_color_reference_audit_20260603"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#four-color-source-inputs"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_vm650_dune_17475cf0_661d_4361_827b_1e4d638089f1",
+      "identity_key": "DUNE",
+      "card": {
+        "name": "Marisi, Breaker of the Coil",
+        "oracle_id": "17475cf0-661d-4361-827b-1e4d638089f1",
+        "scryfall_id": "c366e1c0-f62d-41ce-baec-de11dbc1c5f4",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=17475cf0-661d-4361-827b-1e4d638089f1"
+      },
+      "rationale": "Marisi makes combat damage from one of your creatures reshape the next fight: opponents cannot cast spells during combat, and the struck player’s creatures are goaded.",
+      "modal_explanation": "One opening changes the table from a place to prepare into a place that must act. Marisi keeps pressure moving through the next turn cycle instead of allowing a quiet reset.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 3,
+      "provenance": {
+        "claim_ids": [
+          "dune_claim_0005"
+        ],
+        "source_ids": [
+          "src_vm_dune_evidence_ledger_20260603",
+          "src_vm_four_color_reference_audit_20260603"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#four-color-source-inputs"
+      }
+    },
+    {
       "relationship_id": "cardrel_auto_ink_53ee4254_fef7_49ec_aafc_0320987764e6",
       "identity_key": "INK",
       "card": {
@@ -1427,6 +2839,56 @@
       }
     },
     {
+      "relationship_id": "cardrel_auto_vm650_ink_00f82f84_81a5_45e5_9c35_9d627a180950",
+      "identity_key": "INK",
+      "card": {
+        "name": "Collective Voyage",
+        "oracle_id": "00f82f84-81a5-45e5-9c35-9d627a180950",
+        "scryfall_id": "3f2d44f0-c71e-4061-bb7c-1f91fbce8f51",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=00f82f84-81a5-45e5-9c35-9d627a180950"
+      },
+      "rationale": "Collective Voyage lets every player help set the scale of a shared land expansion, then lets each player find up to that many basic lands tapped.",
+      "modal_explanation": "The table can contribute to one common total before anyone searches. The effect makes a public resource decision concrete: the group chooses how large the shared development becomes.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 2,
+      "provenance": {
+        "claim_ids": [
+          "ink_claim_0005"
+        ],
+        "source_ids": [
+          "src_vm_ink_evidence_ledger_20260604",
+          "src_vm_four_color_reference_audit_20260604"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#four-color-source-inputs"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_vm650_ink_0c34e962_99d9_4163_b852_4f61886546aa",
+      "identity_key": "INK",
+      "card": {
+        "name": "Wedding Ring",
+        "oracle_id": "0c34e962-99d9-4163-b852-4f61886546aa",
+        "scryfall_id": "7f0b1400-0608-47fd-9c73-b7730bcf6b7f",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=0c34e962-99d9-4163-b852-4f61886546aa"
+      },
+      "rationale": "When cast, Wedding Ring gives a target opponent a matching engine and makes that opponent's card draw or life gain during their turn echo back to you.",
+      "modal_explanation": "The card creates a paired arrangement rather than a one-way gift. One player’s ordinary progress becomes shared progress for the other, keeping the benefit visible on both sides.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 3,
+      "provenance": {
+        "claim_ids": [
+          "ink_claim_0005"
+        ],
+        "source_ids": [
+          "src_vm_ink_evidence_ledger_20260604",
+          "src_vm_four_color_reference_audit_20260604"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#four-color-source-inputs"
+      }
+    },
+    {
       "relationship_id": "cardrel_auto_witch_7e6b9b59_cd68_4e3c_827b_38833c92d6eb",
       "identity_key": "WITCH",
       "card": {
@@ -1450,6 +2912,56 @@
           "src_vm_four_color_reference_audit_20260604"
         ],
         "relationship_evidence_locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_witch_7e6b9b59_cd68_4e3c_827b_38833c92d6eb"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_vm650_witch_b45fdeab_00cc_4422_af9f_66f30a880a7c",
+      "identity_key": "WITCH",
+      "card": {
+        "name": "Evolution Sage",
+        "oracle_id": "b45fdeab-00cc-4422-af9f-66f30a880a7c",
+        "scryfall_id": "1d58d08d-cd62-416d-8d8e-7d9c56d5c4da",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=b45fdeab-00cc-4422-af9f-66f30a880a7c"
+      },
+      "rationale": "Evolution Sage makes each land entering under your control a careful increment across the counters already in place.",
+      "modal_explanation": "Growth happens in steps. A land entering does not replace the existing work; it advances every chosen counter-bearing project by one more measure.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 2,
+      "provenance": {
+        "claim_ids": [
+          "witch_claim_0005"
+        ],
+        "source_ids": [
+          "src_vm_witch_evidence_ledger_20260604",
+          "src_vm_four_color_reference_audit_20260604"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#four-color-source-inputs"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_vm650_witch_1946ded1_5f53_409f_b0a6_5433bb0357d2",
+      "identity_key": "WITCH",
+      "card": {
+        "name": "The Ozolith",
+        "oracle_id": "1946ded1-5f53-409f-b0a6-5433bb0357d2",
+        "scryfall_id": "9341ed06-53db-4604-b60a-3ea9129afbc2",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=1946ded1-5f53-409f-b0a6-5433bb0357d2"
+      },
+      "rationale": "The Ozolith preserves counters when one of your creatures leaves and can deliberately transfer the accumulated work to a target creature at the beginning of your combat.",
+      "modal_explanation": "A setback does not erase development. The counters wait in one place until a new body can carry their full weight into the next attack.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 3,
+      "provenance": {
+        "claim_ids": [
+          "witch_claim_0005"
+        ],
+        "source_ids": [
+          "src_vm_witch_evidence_ledger_20260604",
+          "src_vm_four_color_reference_audit_20260604"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#four-color-source-inputs"
       }
     },
     {
@@ -1507,6 +3019,32 @@
       }
     },
     {
+      "relationship_id": "cardrel_auto_vm650_colorless_798a4a6f_7443_4e8e_afcb_0a694fdfcbb3",
+      "identity_key": "COLORLESS",
+      "card": {
+        "name": "Liberator, Urza's Battlethopter",
+        "oracle_id": "798a4a6f-7443-4e8e-afcb-0a694fdfcbb3",
+        "scryfall_id": "c31e6768-bcab-43c4-bfc1-76e961689ae9",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=798a4a6f-7443-4e8e-afcb-0a694fdfcbb3"
+      },
+      "rationale": "Liberator lets you cast colorless and artifact spells as though they had flash, and a spell cast with mana greater than its power grows it.",
+      "modal_explanation": "Colorless construction acts at unexpected timing and turns larger investments into more capacity.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 3,
+      "provenance": {
+        "claim_ids": [
+          "colorless_claim_0005"
+        ],
+        "source_ids": [
+          "COLORLESS-SRC-018",
+          "COLORLESS-CANON-001",
+          "COLORLESS-SCOPE-005"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#new-plays-source-records"
+      }
+    },
+    {
       "relationship_id": "cardrel_auto_wubrg_9f6828e3_39d9_45d9_9bf1_0e3737a0321e",
       "identity_key": "WUBRG",
       "card": {
@@ -1538,6 +3076,62 @@
           "correction_id": "vm650-ulalek-factual-copy",
           "canonical_oracle_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=9f6828e3-39d9-45d9-9bf1-0e3737a0321e"
         }
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_vm650_wubrg_87b22b09_4f6d_4bc5_9cfc_663e4c7c6981",
+      "identity_key": "WUBRG",
+      "card": {
+        "name": "The Ur-Dragon",
+        "oracle_id": "87b22b09-4f6d-4bc5-9cfc-663e4c7c6981",
+        "scryfall_id": "10d42b35-844f-4a64-9981-c6118d45e826",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=87b22b09-4f6d-4bc5-9cfc-663e4c7c6981"
+      },
+      "rationale": "The Ur-Dragon reduces other Dragon spells from the command zone or battlefield, and attacking with Dragons draws that many cards then may put a permanent from your hand onto the battlefield.",
+      "modal_explanation": "A developed suite of different Dragons becomes a single engine for cards and permanent deployment.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 2,
+      "provenance": {
+        "claim_ids": [
+          "wubrg_claim_0002"
+        ],
+        "source_ids": [
+          "WUBRG-OFF-001",
+          "WUBRG-LOCAL-001",
+          "WUBRG-SCOPE-001",
+          "WUBRG-SCOPE-002",
+          "WUBRG-CANON-001"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#new-plays-source-records"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_vm650_wubrg_0d59f010_9669_4ad2_9ae9_cd88b85f282c",
+      "identity_key": "WUBRG",
+      "card": {
+        "name": "Sliver Gravemother",
+        "oracle_id": "0d59f010-9669-4ad2-9ae9-cd88b85f282c",
+        "scryfall_id": "9f5d253e-9eb2-423c-90ee-68f27ec6bf88",
+        "data_locator": "data/scryfall/raw/oracle-cards.json#oracle_id=0d59f010-9669-4ad2-9ae9-cd88b85f282c"
+      },
+      "rationale": "Sliver creature cards in your graveyard have encore, creating a hasty token copy for each opponent when activated.",
+      "modal_explanation": "A creature stored in the graveyard can return as several coordinated attacks across the table.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 3,
+      "provenance": {
+        "claim_ids": [
+          "wubrg_claim_0002"
+        ],
+        "source_ids": [
+          "WUBRG-OFF-001",
+          "WUBRG-LOCAL-001",
+          "WUBRG-SCOPE-001",
+          "WUBRG-SCOPE-002",
+          "WUBRG-CANON-001"
+        ],
+        "relationship_evidence_locator": "docs/research/vm650-three-plays-completion.md#new-plays-source-records"
       }
     }
   ]

@@ -3,6 +3,50 @@
   "projection_type": "governed-authored-archscry-media",
   "records": [
     {
+      "resolver_key": "abaddon the despoiler",
+      "raw_authored_names": [
+        "Abaddon the Despoiler"
+      ],
+      "canonical_name": "Abaddon the Despoiler",
+      "oracle_id": "8dedb9a7-0afa-4dff-b124-2344c170f11a",
+      "scryfall_id": "c9f1fc97-00c0-492b-a4a3-b179afc2f95d",
+      "layout": "normal",
+      "selected_face_name": "",
+      "type_line": "Legendary Creature — Astartes Warrior",
+      "mana_cost": "{2}{U}{B}{R}",
+      "oracle_excerpt": "Trample Mark of Chaos Ascendant — During your turn, spells you cast from your hand with mana value X or less have cascade, where X is the total amount of life your opponents have lost this turn.",
+      "color_identity": [
+        "B",
+        "R",
+        "U"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "scryfall_uri": "https://scryfall.com/card/40k/2/abaddon-the-despoiler?utm_source=api",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/c/9/c9f1fc97-00c0-492b-a4a3-b179afc2f95d.jpg?1783920953",
+        "normal": "https://cards.scryfall.io/normal/front/c/9/c9f1fc97-00c0-492b-a4a3-b179afc2f95d.jpg?1783920953",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/c/9/c9f1fc97-00c0-492b-a4a3-b179afc2f95d.jpg?1783920953"
+      },
+      "card_faces": [],
+      "image_candidates": [
+        {
+          "kind": "card-normal",
+          "url": "https://cards.scryfall.io/normal/front/c/9/c9f1fc97-00c0-492b-a4a3-b179afc2f95d.jpg?1783920953"
+        },
+        {
+          "kind": "card-art-crop",
+          "url": "https://cards.scryfall.io/art_crop/front/c/9/c9f1fc97-00c0-492b-a4a3-b179afc2f95d.jpg?1783920953"
+        },
+        {
+          "kind": "card-small",
+          "url": "https://cards.scryfall.io/small/front/c/9/c9f1fc97-00c0-492b-a4a3-b179afc2f95d.jpg?1783920953"
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
       "resolver_key": "abandoned sarcophagus",
       "raw_authored_names": [
         "Abandoned Sarcophagus"
@@ -634,6 +678,49 @@
         {
           "kind": "card-small",
           "url": "https://cards.scryfall.io/small/front/1/d/1de30c12-2011-495a-be25-f7a46b23e142.jpg?1783907131"
+        }
+      ],
+      "occurrence_count": 2
+    },
+    {
+      "resolver_key": "adrix and nev twincasters",
+      "raw_authored_names": [
+        "Adrix and Nev, Twincasters"
+      ],
+      "canonical_name": "Adrix and Nev, Twincasters",
+      "oracle_id": "12a6cad9-eb42-43bd-9e68-aaf862cd83db",
+      "scryfall_id": "b9c11061-bb34-4904-b9f1-ea106b517bbe",
+      "layout": "normal",
+      "selected_face_name": "",
+      "type_line": "Legendary Creature — Merfolk Wizard",
+      "mana_cost": "{2}{G}{U}",
+      "oracle_excerpt": "Ward {2} (Whenever this creature becomes the target of a spell or ability an opponent controls, counter it unless that player pays {2}.) If one or more tokens would be created under your control, twice that many of those tokens are created ",
+      "color_identity": [
+        "G",
+        "U"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "scryfall_uri": "https://scryfall.com/card/mkc/198/adrix-and-nev-twincasters?utm_source=api",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/b/9/b9c11061-bb34-4904-b9f1-ea106b517bbe.jpg?1783912983",
+        "normal": "https://cards.scryfall.io/normal/front/b/9/b9c11061-bb34-4904-b9f1-ea106b517bbe.jpg?1783912983",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/b/9/b9c11061-bb34-4904-b9f1-ea106b517bbe.jpg?1783912983"
+      },
+      "card_faces": [],
+      "image_candidates": [
+        {
+          "kind": "card-normal",
+          "url": "https://cards.scryfall.io/normal/front/b/9/b9c11061-bb34-4904-b9f1-ea106b517bbe.jpg?1783912983"
+        },
+        {
+          "kind": "card-art-crop",
+          "url": "https://cards.scryfall.io/art_crop/front/b/9/b9c11061-bb34-4904-b9f1-ea106b517bbe.jpg?1783912983"
+        },
+        {
+          "kind": "card-small",
+          "url": "https://cards.scryfall.io/small/front/b/9/b9c11061-bb34-4904-b9f1-ea106b517bbe.jpg?1783912983"
         }
       ],
       "occurrence_count": 1
@@ -1273,7 +1360,7 @@
           "url": "https://cards.scryfall.io/small/front/9/f/9f868023-6035-403d-ba91-7a4840c6c392.jpg?1783909663"
         }
       ],
-      "occurrence_count": 1
+      "occurrence_count": 2
     },
     {
       "resolver_key": "amphin cutthroat",
@@ -1530,6 +1617,94 @@
         }
       ],
       "occurrence_count": 5
+    },
+    {
+      "resolver_key": "anhelo the painter",
+      "raw_authored_names": [
+        "Anhelo, the Painter"
+      ],
+      "canonical_name": "Anhelo, the Painter",
+      "oracle_id": "d3c3f293-6790-4dce-900a-8af0464c2572",
+      "scryfall_id": "462e887d-6b91-4b31-9487-2780ffe8943f",
+      "layout": "normal",
+      "selected_face_name": "",
+      "type_line": "Legendary Creature — Vampire Assassin",
+      "mana_cost": "{U}{B}{R}",
+      "oracle_excerpt": "Deathtouch The first instant or sorcery spell you cast each turn has casualty 2. (As you cast that spell, you may sacrifice a creature with power 2 or greater. When you do, copy the spell and you may choose new targets for the copy.)",
+      "color_identity": [
+        "B",
+        "R",
+        "U"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "scryfall_uri": "https://scryfall.com/card/ncc/1/anhelo-the-painter?utm_source=api",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/4/6/462e887d-6b91-4b31-9487-2780ffe8943f.jpg?1783923381",
+        "normal": "https://cards.scryfall.io/normal/front/4/6/462e887d-6b91-4b31-9487-2780ffe8943f.jpg?1783923381",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/4/6/462e887d-6b91-4b31-9487-2780ffe8943f.jpg?1783923381"
+      },
+      "card_faces": [],
+      "image_candidates": [
+        {
+          "kind": "card-normal",
+          "url": "https://cards.scryfall.io/normal/front/4/6/462e887d-6b91-4b31-9487-2780ffe8943f.jpg?1783923381"
+        },
+        {
+          "kind": "card-art-crop",
+          "url": "https://cards.scryfall.io/art_crop/front/4/6/462e887d-6b91-4b31-9487-2780ffe8943f.jpg?1783923381"
+        },
+        {
+          "kind": "card-small",
+          "url": "https://cards.scryfall.io/small/front/4/6/462e887d-6b91-4b31-9487-2780ffe8943f.jpg?1783923381"
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "resolver_key": "animar soul of elements",
+      "raw_authored_names": [
+        "Animar, Soul of Elements"
+      ],
+      "canonical_name": "Animar, Soul of Elements",
+      "oracle_id": "725880b2-1675-414f-b61b-cf6533797dbf",
+      "scryfall_id": "a3da57d0-1ae3-4f05-a52d-eb76ad56cae7",
+      "layout": "normal",
+      "selected_face_name": "",
+      "type_line": "Legendary Creature — Elemental",
+      "mana_cost": "{G}{U}{R}",
+      "oracle_excerpt": "Protection from white and from black Whenever you cast a creature spell, put a +1/+1 counter on Animar. Creature spells you cast cost {1} less to cast for each +1/+1 counter on Animar.",
+      "color_identity": [
+        "G",
+        "R",
+        "U"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "scryfall_uri": "https://scryfall.com/card/2x2/171/animar-soul-of-elements?utm_source=api",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/a/3/a3da57d0-1ae3-4f05-a52d-eb76ad56cae7.jpg?1783921859",
+        "normal": "https://cards.scryfall.io/normal/front/a/3/a3da57d0-1ae3-4f05-a52d-eb76ad56cae7.jpg?1783921859",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/a/3/a3da57d0-1ae3-4f05-a52d-eb76ad56cae7.jpg?1783921859"
+      },
+      "card_faces": [],
+      "image_candidates": [
+        {
+          "kind": "card-normal",
+          "url": "https://cards.scryfall.io/normal/front/a/3/a3da57d0-1ae3-4f05-a52d-eb76ad56cae7.jpg?1783921859"
+        },
+        {
+          "kind": "card-art-crop",
+          "url": "https://cards.scryfall.io/art_crop/front/a/3/a3da57d0-1ae3-4f05-a52d-eb76ad56cae7.jpg?1783921859"
+        },
+        {
+          "kind": "card-small",
+          "url": "https://cards.scryfall.io/small/front/a/3/a3da57d0-1ae3-4f05-a52d-eb76ad56cae7.jpg?1783921859"
+        }
+      ],
+      "occurrence_count": 1
     },
     {
       "resolver_key": "animate dead",
@@ -3495,6 +3670,48 @@
       "occurrence_count": 2
     },
     {
+      "resolver_key": "baral chief of compliance",
+      "raw_authored_names": [
+        "Baral, Chief of Compliance"
+      ],
+      "canonical_name": "Baral, Chief of Compliance",
+      "oracle_id": "baf80db7-2ca8-4bfc-b5b6-25ed51878dd7",
+      "scryfall_id": "60e16d94-1166-4050-8554-686e153a7f80",
+      "layout": "normal",
+      "selected_face_name": "",
+      "type_line": "Legendary Creature — Human Wizard",
+      "mana_cost": "{1}{U}",
+      "oracle_excerpt": "Instant and sorcery spells you cast cost {1} less to cast. Whenever a spell or ability you control counters a spell, you may draw a card. If you do, discard a card.",
+      "color_identity": [
+        "U"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "scryfall_uri": "https://scryfall.com/card/aer/28/baral-chief-of-compliance?utm_source=api",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/6/0/60e16d94-1166-4050-8554-686e153a7f80.jpg?1783936774",
+        "normal": "https://cards.scryfall.io/normal/front/6/0/60e16d94-1166-4050-8554-686e153a7f80.jpg?1783936774",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/6/0/60e16d94-1166-4050-8554-686e153a7f80.jpg?1783936774"
+      },
+      "card_faces": [],
+      "image_candidates": [
+        {
+          "kind": "card-normal",
+          "url": "https://cards.scryfall.io/normal/front/6/0/60e16d94-1166-4050-8554-686e153a7f80.jpg?1783936774"
+        },
+        {
+          "kind": "card-art-crop",
+          "url": "https://cards.scryfall.io/art_crop/front/6/0/60e16d94-1166-4050-8554-686e153a7f80.jpg?1783936774"
+        },
+        {
+          "kind": "card-small",
+          "url": "https://cards.scryfall.io/small/front/6/0/60e16d94-1166-4050-8554-686e153a7f80.jpg?1783936774"
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
       "resolver_key": "barkchannel pathway",
       "raw_authored_names": [
         "Barkchannel Pathway"
@@ -4064,6 +4281,50 @@
         {
           "kind": "card-small",
           "url": "https://cards.scryfall.io/small/front/9/8/985b9779-b8f6-4d7e-9490-5d2b91ee8db2.jpg?1783903227"
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "resolver_key": "betor ancestor s voice",
+      "raw_authored_names": [
+        "Betor, Ancestor's Voice"
+      ],
+      "canonical_name": "Betor, Ancestor's Voice",
+      "oracle_id": "990b5e12-6e04-4832-9d64-87278f12cbda",
+      "scryfall_id": "2e261489-8dde-4594-8868-69f432f03d03",
+      "layout": "normal",
+      "selected_face_name": "",
+      "type_line": "Legendary Creature — Spirit Dragon",
+      "mana_cost": "{2}{W}{B}{G}",
+      "oracle_excerpt": "Flying, lifelink At the beginning of your end step, put a number of +1/+1 counters on up to one other target creature you control equal to the amount of life you gained this turn. Return up to one target creature card with mana value less t",
+      "color_identity": [
+        "B",
+        "G",
+        "W"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "scryfall_uri": "https://scryfall.com/card/tdc/1/betor-ancestors-voice?utm_source=api",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/2/e/2e261489-8dde-4594-8868-69f432f03d03.jpg?1783907191",
+        "normal": "https://cards.scryfall.io/normal/front/2/e/2e261489-8dde-4594-8868-69f432f03d03.jpg?1783907191",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/2/e/2e261489-8dde-4594-8868-69f432f03d03.jpg?1783907191"
+      },
+      "card_faces": [],
+      "image_candidates": [
+        {
+          "kind": "card-normal",
+          "url": "https://cards.scryfall.io/normal/front/2/e/2e261489-8dde-4594-8868-69f432f03d03.jpg?1783907191"
+        },
+        {
+          "kind": "card-art-crop",
+          "url": "https://cards.scryfall.io/art_crop/front/2/e/2e261489-8dde-4594-8868-69f432f03d03.jpg?1783907191"
+        },
+        {
+          "kind": "card-small",
+          "url": "https://cards.scryfall.io/small/front/2/e/2e261489-8dde-4594-8868-69f432f03d03.jpg?1783907191"
         }
       ],
       "occurrence_count": 1
@@ -7038,6 +7299,50 @@
       "occurrence_count": 1
     },
     {
+      "resolver_key": "chulane teller of tales",
+      "raw_authored_names": [
+        "Chulane, Teller of Tales"
+      ],
+      "canonical_name": "Chulane, Teller of Tales",
+      "oracle_id": "ebf7ce9b-9e5e-4557-9e28-76556997f0ee",
+      "scryfall_id": "d1499a4b-1af1-4913-8e26-57d0707264db",
+      "layout": "normal",
+      "selected_face_name": "",
+      "type_line": "Legendary Creature — Human Druid",
+      "mana_cost": "{2}{G}{W}{U}",
+      "oracle_excerpt": "Vigilance Whenever you cast a creature spell, draw a card, then you may put a land card from your hand onto the battlefield. {3}, {T}: Return target creature you control to its owner's hand.",
+      "color_identity": [
+        "G",
+        "U",
+        "W"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "scryfall_uri": "https://scryfall.com/card/mkc/202/chulane-teller-of-tales?utm_source=api",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/d/1/d1499a4b-1af1-4913-8e26-57d0707264db.jpg?1783912982",
+        "normal": "https://cards.scryfall.io/normal/front/d/1/d1499a4b-1af1-4913-8e26-57d0707264db.jpg?1783912982",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/d/1/d1499a4b-1af1-4913-8e26-57d0707264db.jpg?1783912982"
+      },
+      "card_faces": [],
+      "image_candidates": [
+        {
+          "kind": "card-normal",
+          "url": "https://cards.scryfall.io/normal/front/d/1/d1499a4b-1af1-4913-8e26-57d0707264db.jpg?1783912982"
+        },
+        {
+          "kind": "card-art-crop",
+          "url": "https://cards.scryfall.io/art_crop/front/d/1/d1499a4b-1af1-4913-8e26-57d0707264db.jpg?1783912982"
+        },
+        {
+          "kind": "card-small",
+          "url": "https://cards.scryfall.io/small/front/d/1/d1499a4b-1af1-4913-8e26-57d0707264db.jpg?1783912982"
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
       "resolver_key": "circu dimir lobotomist",
       "raw_authored_names": [
         "Circu, Dimir Lobotomist"
@@ -7487,6 +7792,48 @@
         }
       ],
       "occurrence_count": 2
+    },
+    {
+      "resolver_key": "collective voyage",
+      "raw_authored_names": [
+        "Collective Voyage"
+      ],
+      "canonical_name": "Collective Voyage",
+      "oracle_id": "00f82f84-81a5-45e5-9c35-9d627a180950",
+      "scryfall_id": "3f2d44f0-c71e-4061-bb7c-1f91fbce8f51",
+      "layout": "normal",
+      "selected_face_name": "",
+      "type_line": "Sorcery",
+      "mana_cost": "{G}",
+      "oracle_excerpt": "Join forces — Starting with you, each player may pay any amount of mana. Each player searches their library for up to X basic land cards, where X is the total amount of mana paid this way, puts them onto the battlefield tapped, then shuffle",
+      "color_identity": [
+        "G"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "scryfall_uri": "https://scryfall.com/card/c16/145/collective-voyage?utm_source=api",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/3/f/3f2d44f0-c71e-4061-bb7c-1f91fbce8f51.jpg?1783937061",
+        "normal": "https://cards.scryfall.io/normal/front/3/f/3f2d44f0-c71e-4061-bb7c-1f91fbce8f51.jpg?1783937061",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/3/f/3f2d44f0-c71e-4061-bb7c-1f91fbce8f51.jpg?1783937061"
+      },
+      "card_faces": [],
+      "image_candidates": [
+        {
+          "kind": "card-normal",
+          "url": "https://cards.scryfall.io/normal/front/3/f/3f2d44f0-c71e-4061-bb7c-1f91fbce8f51.jpg?1783937061"
+        },
+        {
+          "kind": "card-art-crop",
+          "url": "https://cards.scryfall.io/art_crop/front/3/f/3f2d44f0-c71e-4061-bb7c-1f91fbce8f51.jpg?1783937061"
+        },
+        {
+          "kind": "card-small",
+          "url": "https://cards.scryfall.io/small/front/3/f/3f2d44f0-c71e-4061-bb7c-1f91fbce8f51.jpg?1783937061"
+        }
+      ],
+      "occurrence_count": 1
     },
     {
       "resolver_key": "colorstorm stallion",
@@ -8946,6 +9293,50 @@
       "occurrence_count": 1
     },
     {
+      "resolver_key": "derevi empyrial tactician",
+      "raw_authored_names": [
+        "Derevi, Empyrial Tactician"
+      ],
+      "canonical_name": "Derevi, Empyrial Tactician",
+      "oracle_id": "afa49a09-146f-4439-850e-dd1938c93cef",
+      "scryfall_id": "3a1d0dad-18a8-489e-ac11-08f64b72fda4",
+      "layout": "normal",
+      "selected_face_name": "",
+      "type_line": "Legendary Creature — Bird Wizard",
+      "mana_cost": "{G}{W}{U}",
+      "oracle_excerpt": "Flying When Derevi enters and whenever a creature you control deals combat damage to a player, you may tap or untap target permanent. {1}{G}{W}{U}: Put Derevi onto the battlefield from the command zone.",
+      "color_identity": [
+        "G",
+        "U",
+        "W"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "scryfall_uri": "https://scryfall.com/card/cma/176/derevi-empyrial-tactician?utm_source=api",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/3/a/3a1d0dad-18a8-489e-ac11-08f64b72fda4.jpg?1783936231",
+        "normal": "https://cards.scryfall.io/normal/front/3/a/3a1d0dad-18a8-489e-ac11-08f64b72fda4.jpg?1783936231",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/3/a/3a1d0dad-18a8-489e-ac11-08f64b72fda4.jpg?1783936231"
+      },
+      "card_faces": [],
+      "image_candidates": [
+        {
+          "kind": "card-normal",
+          "url": "https://cards.scryfall.io/normal/front/3/a/3a1d0dad-18a8-489e-ac11-08f64b72fda4.jpg?1783936231"
+        },
+        {
+          "kind": "card-art-crop",
+          "url": "https://cards.scryfall.io/art_crop/front/3/a/3a1d0dad-18a8-489e-ac11-08f64b72fda4.jpg?1783936231"
+        },
+        {
+          "kind": "card-small",
+          "url": "https://cards.scryfall.io/small/front/3/a/3a1d0dad-18a8-489e-ac11-08f64b72fda4.jpg?1783936231"
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
       "resolver_key": "desperate farmer depraved harvester",
       "raw_authored_names": [
         "Desperate Farmer // Depraved Harvester"
@@ -9914,6 +10305,50 @@
       "occurrence_count": 1
     },
     {
+      "resolver_key": "edgar markov",
+      "raw_authored_names": [
+        "Edgar Markov"
+      ],
+      "canonical_name": "Edgar Markov",
+      "oracle_id": "41e2790d-49f5-4e98-b8d9-04179f47f13a",
+      "scryfall_id": "a577ba08-0aa8-45be-aa83-d5078770127c",
+      "layout": "normal",
+      "selected_face_name": "",
+      "type_line": "Legendary Creature — Vampire Knight",
+      "mana_cost": "{3}{R}{W}{B}",
+      "oracle_excerpt": "Eminence — Whenever you cast another Vampire spell, if Edgar is in the command zone or on the battlefield, create a 1/1 black Vampire creature token. First strike, haste Whenever Edgar attacks, put a +1/+1 counter on each Vampire you contro",
+      "color_identity": [
+        "B",
+        "R",
+        "W"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "scryfall_uri": "https://scryfall.com/card/inr/234/edgar-markov?utm_source=api",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/a/5/a577ba08-0aa8-45be-aa83-d5078770127c.jpg?1783908078",
+        "normal": "https://cards.scryfall.io/normal/front/a/5/a577ba08-0aa8-45be-aa83-d5078770127c.jpg?1783908078",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/a/5/a577ba08-0aa8-45be-aa83-d5078770127c.jpg?1783908078"
+      },
+      "card_faces": [],
+      "image_candidates": [
+        {
+          "kind": "card-normal",
+          "url": "https://cards.scryfall.io/normal/front/a/5/a577ba08-0aa8-45be-aa83-d5078770127c.jpg?1783908078"
+        },
+        {
+          "kind": "card-art-crop",
+          "url": "https://cards.scryfall.io/art_crop/front/a/5/a577ba08-0aa8-45be-aa83-d5078770127c.jpg?1783908078"
+        },
+        {
+          "kind": "card-small",
+          "url": "https://cards.scryfall.io/small/front/a/5/a577ba08-0aa8-45be-aa83-d5078770127c.jpg?1783908078"
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
       "resolver_key": "efficient construction",
       "raw_authored_names": [
         "Efficient Construction"
@@ -10292,7 +10727,7 @@
           "url": "https://cards.scryfall.io/small/front/4/1/41b930ee-e16b-4612-87de-c03ecc6ff6db.jpg?1783934136"
         }
       ],
-      "occurrence_count": 1
+      "occurrence_count": 2
     },
     {
       "resolver_key": "epic experiment",
@@ -10629,6 +11064,48 @@
         {
           "kind": "card-small",
           "url": "https://cards.scryfall.io/small/front/f/a/fa36b142-e67e-49da-9080-c5994e275266.jpg?1783934135"
+        }
+      ],
+      "occurrence_count": 2
+    },
+    {
+      "resolver_key": "evolution sage",
+      "raw_authored_names": [
+        "Evolution Sage"
+      ],
+      "canonical_name": "Evolution Sage",
+      "oracle_id": "b45fdeab-00cc-4422-af9f-66f30a880a7c",
+      "scryfall_id": "1d58d08d-cd62-416d-8d8e-7d9c56d5c4da",
+      "layout": "normal",
+      "selected_face_name": "",
+      "type_line": "Creature — Elf Druid",
+      "mana_cost": "{2}{G}",
+      "oracle_excerpt": "Landfall — Whenever a land you control enters, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+      "color_identity": [
+        "G"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "scryfall_uri": "https://scryfall.com/card/ecc/105/evolution-sage?utm_source=api",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/1/d/1d58d08d-cd62-416d-8d8e-7d9c56d5c4da.jpg?1783904546",
+        "normal": "https://cards.scryfall.io/normal/front/1/d/1d58d08d-cd62-416d-8d8e-7d9c56d5c4da.jpg?1783904546",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/1/d/1d58d08d-cd62-416d-8d8e-7d9c56d5c4da.jpg?1783904546"
+      },
+      "card_faces": [],
+      "image_candidates": [
+        {
+          "kind": "card-normal",
+          "url": "https://cards.scryfall.io/normal/front/1/d/1d58d08d-cd62-416d-8d8e-7d9c56d5c4da.jpg?1783904546"
+        },
+        {
+          "kind": "card-art-crop",
+          "url": "https://cards.scryfall.io/art_crop/front/1/d/1d58d08d-cd62-416d-8d8e-7d9c56d5c4da.jpg?1783904546"
+        },
+        {
+          "kind": "card-small",
+          "url": "https://cards.scryfall.io/small/front/1/d/1d58d08d-cd62-416d-8d8e-7d9c56d5c4da.jpg?1783904546"
         }
       ],
       "occurrence_count": 1
@@ -12220,6 +12697,50 @@
       "occurrence_count": 6
     },
     {
+      "resolver_key": "godsire",
+      "raw_authored_names": [
+        "Godsire"
+      ],
+      "canonical_name": "Godsire",
+      "oracle_id": "4252d7f4-c582-4a21-b3af-829c84cb0b09",
+      "scryfall_id": "e2539ff7-2b7d-47e3-bd77-3138a6c42d2b",
+      "layout": "normal",
+      "selected_face_name": "",
+      "type_line": "Creature — Beast",
+      "mana_cost": "{4}{R}{G}{G}{W}",
+      "oracle_excerpt": "Vigilance {T}: Create an 8/8 Beast creature token that's red, green, and white.",
+      "color_identity": [
+        "G",
+        "R",
+        "W"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "scryfall_uri": "https://scryfall.com/card/ala/170/godsire?utm_source=api",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/e/2/e2539ff7-2b7d-47e3-bd77-3138a6c42d2b.jpg?1783942544",
+        "normal": "https://cards.scryfall.io/normal/front/e/2/e2539ff7-2b7d-47e3-bd77-3138a6c42d2b.jpg?1783942544",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/e/2/e2539ff7-2b7d-47e3-bd77-3138a6c42d2b.jpg?1783942544"
+      },
+      "card_faces": [],
+      "image_candidates": [
+        {
+          "kind": "card-normal",
+          "url": "https://cards.scryfall.io/normal/front/e/2/e2539ff7-2b7d-47e3-bd77-3138a6c42d2b.jpg?1783942544"
+        },
+        {
+          "kind": "card-art-crop",
+          "url": "https://cards.scryfall.io/art_crop/front/e/2/e2539ff7-2b7d-47e3-bd77-3138a6c42d2b.jpg?1783942544"
+        },
+        {
+          "kind": "card-small",
+          "url": "https://cards.scryfall.io/small/front/e/2/e2539ff7-2b7d-47e3-bd77-3138a6c42d2b.jpg?1783942544"
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
       "resolver_key": "golden ratio",
       "raw_authored_names": [
         "Golden Ratio"
@@ -12349,6 +12870,48 @@
       "occurrence_count": 1
     },
     {
+      "resolver_key": "gonti lord of luxury",
+      "raw_authored_names": [
+        "Gonti, Lord of Luxury"
+      ],
+      "canonical_name": "Gonti, Lord of Luxury",
+      "oracle_id": "d5be0ff6-39d9-4f9f-a028-e62dc38463f2",
+      "scryfall_id": "fbbb3aef-af1f-4b77-b7d6-64cfd706a9d9",
+      "layout": "normal",
+      "selected_face_name": "",
+      "type_line": "Legendary Creature — Aetherborn Rogue",
+      "mana_cost": "{2}{B}{B}",
+      "oracle_excerpt": "Deathtouch When Gonti enters, look at the top four cards of target opponent's library, exile one of them face down, then put the rest on the bottom of that library in a random order. You may cast that card for as long as it remains exiled, ",
+      "color_identity": [
+        "B"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "scryfall_uri": "https://scryfall.com/card/otc/135/gonti-lord-of-luxury?utm_source=api",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/f/b/fbbb3aef-af1f-4b77-b7d6-64cfd706a9d9.jpg?1783911930",
+        "normal": "https://cards.scryfall.io/normal/front/f/b/fbbb3aef-af1f-4b77-b7d6-64cfd706a9d9.jpg?1783911930",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/f/b/fbbb3aef-af1f-4b77-b7d6-64cfd706a9d9.jpg?1783911930"
+      },
+      "card_faces": [],
+      "image_candidates": [
+        {
+          "kind": "card-normal",
+          "url": "https://cards.scryfall.io/normal/front/f/b/fbbb3aef-af1f-4b77-b7d6-64cfd706a9d9.jpg?1783911930"
+        },
+        {
+          "kind": "card-art-crop",
+          "url": "https://cards.scryfall.io/art_crop/front/f/b/fbbb3aef-af1f-4b77-b7d6-64cfd706a9d9.jpg?1783911930"
+        },
+        {
+          "kind": "card-small",
+          "url": "https://cards.scryfall.io/small/front/f/b/fbbb3aef-af1f-4b77-b7d6-64cfd706a9d9.jpg?1783911930"
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
       "resolver_key": "goreclaw terror of qal sisma",
       "raw_authored_names": [
         "Goreclaw, Terror of Qal Sisma"
@@ -12389,6 +12952,49 @@
         }
       ],
       "occurrence_count": 2
+    },
+    {
+      "resolver_key": "gorma the gullet",
+      "raw_authored_names": [
+        "Gorma, the Gullet"
+      ],
+      "canonical_name": "Gorma, the Gullet",
+      "oracle_id": "ae5f30cc-a22e-4fbb-9510-e9429de3623c",
+      "scryfall_id": "86f97dd8-8647-4938-aee0-690bb715f88b",
+      "layout": "normal",
+      "selected_face_name": "",
+      "type_line": "Legendary Creature — Pest Frog",
+      "mana_cost": "{1}{B}{G}",
+      "oracle_excerpt": "Lifelink Whenever another creature you control dies, put a +1/+1 counter on Gorma. Nontoken creatures you control enter with an additional +1/+1 counter on them for each creature that died under your control this turn.",
+      "color_identity": [
+        "B",
+        "G"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "scryfall_uri": "https://scryfall.com/card/soc/3/gorma-the-gullet?utm_source=api",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/8/6/86f97dd8-8647-4938-aee0-690bb715f88b.jpg?1783903868",
+        "normal": "https://cards.scryfall.io/normal/front/8/6/86f97dd8-8647-4938-aee0-690bb715f88b.jpg?1783903868",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/8/6/86f97dd8-8647-4938-aee0-690bb715f88b.jpg?1783903868"
+      },
+      "card_faces": [],
+      "image_candidates": [
+        {
+          "kind": "card-normal",
+          "url": "https://cards.scryfall.io/normal/front/8/6/86f97dd8-8647-4938-aee0-690bb715f88b.jpg?1783903868"
+        },
+        {
+          "kind": "card-art-crop",
+          "url": "https://cards.scryfall.io/art_crop/front/8/6/86f97dd8-8647-4938-aee0-690bb715f88b.jpg?1783903868"
+        },
+        {
+          "kind": "card-small",
+          "url": "https://cards.scryfall.io/small/front/8/6/86f97dd8-8647-4938-aee0-690bb715f88b.jpg?1783903868"
+        }
+      ],
+      "occurrence_count": 1
     },
     {
       "resolver_key": "grand abolisher",
@@ -12857,6 +13463,49 @@
       "occurrence_count": 7
     },
     {
+      "resolver_key": "hamza guardian of arashin",
+      "raw_authored_names": [
+        "Hamza, Guardian of Arashin"
+      ],
+      "canonical_name": "Hamza, Guardian of Arashin",
+      "oracle_id": "0cde6a29-d597-4feb-8b2b-528d2d57a1f3",
+      "scryfall_id": "adc7f8f3-140d-4dd0-aacc-b81b2b93eb67",
+      "layout": "normal",
+      "selected_face_name": "",
+      "type_line": "Legendary Creature — Elephant Warrior",
+      "mana_cost": "{4}{G}{W}",
+      "oracle_excerpt": "This spell costs {1} less to cast for each creature you control with a +1/+1 counter on it. Creature spells you cast cost {1} less to cast for each creature you control with a +1/+1 counter on it.",
+      "color_identity": [
+        "G",
+        "W"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "scryfall_uri": "https://scryfall.com/card/cmm/339/hamza-guardian-of-arashin?utm_source=api",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/a/d/adc7f8f3-140d-4dd0-aacc-b81b2b93eb67.jpg?1783915614",
+        "normal": "https://cards.scryfall.io/normal/front/a/d/adc7f8f3-140d-4dd0-aacc-b81b2b93eb67.jpg?1783915614",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/a/d/adc7f8f3-140d-4dd0-aacc-b81b2b93eb67.jpg?1783915614"
+      },
+      "card_faces": [],
+      "image_candidates": [
+        {
+          "kind": "card-normal",
+          "url": "https://cards.scryfall.io/normal/front/a/d/adc7f8f3-140d-4dd0-aacc-b81b2b93eb67.jpg?1783915614"
+        },
+        {
+          "kind": "card-art-crop",
+          "url": "https://cards.scryfall.io/art_crop/front/a/d/adc7f8f3-140d-4dd0-aacc-b81b2b93eb67.jpg?1783915614"
+        },
+        {
+          "kind": "card-small",
+          "url": "https://cards.scryfall.io/small/front/a/d/adc7f8f3-140d-4dd0-aacc-b81b2b93eb67.jpg?1783915614"
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
       "resolver_key": "hanweir battlements",
       "raw_authored_names": [
         "Hanweir Battlements"
@@ -13045,6 +13694,50 @@
           "kind": "face-small",
           "url": "https://cards.scryfall.io/small/front/7/e/7ef37cb3-d803-47d7-8a01-9c803aa2eadc.jpg?1783928182",
           "face_name": "Hengegate Pathway"
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "resolver_key": "henzie toolbox torre",
+      "raw_authored_names": [
+        "Henzie \"Toolbox\" Torre"
+      ],
+      "canonical_name": "Henzie \"Toolbox\" Torre",
+      "oracle_id": "5320f5a6-8066-47d4-aa0a-4c879f39d413",
+      "scryfall_id": "ee228dcc-3170-4c24-80bc-28bcee07cb43",
+      "layout": "normal",
+      "selected_face_name": "",
+      "type_line": "Legendary Creature — Devil Rogue",
+      "mana_cost": "{B}{R}{G}",
+      "oracle_excerpt": "Each creature spell you cast with mana value 4 or greater has blitz. The blitz cost is equal to its mana cost. (You may choose to cast that spell for its blitz cost. If you do, it gains haste and \"When this creature dies, draw a card.\" Sacr",
+      "color_identity": [
+        "B",
+        "G",
+        "R"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "scryfall_uri": "https://scryfall.com/card/ncc/2/henzie-toolbox-torre?utm_source=api",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/e/e/ee228dcc-3170-4c24-80bc-28bcee07cb43.jpg?1783923381",
+        "normal": "https://cards.scryfall.io/normal/front/e/e/ee228dcc-3170-4c24-80bc-28bcee07cb43.jpg?1783923381",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/e/e/ee228dcc-3170-4c24-80bc-28bcee07cb43.jpg?1783923381"
+      },
+      "card_faces": [],
+      "image_candidates": [
+        {
+          "kind": "card-normal",
+          "url": "https://cards.scryfall.io/normal/front/e/e/ee228dcc-3170-4c24-80bc-28bcee07cb43.jpg?1783923381"
+        },
+        {
+          "kind": "card-art-crop",
+          "url": "https://cards.scryfall.io/art_crop/front/e/e/ee228dcc-3170-4c24-80bc-28bcee07cb43.jpg?1783923381"
+        },
+        {
+          "kind": "card-small",
+          "url": "https://cards.scryfall.io/small/front/e/e/ee228dcc-3170-4c24-80bc-28bcee07cb43.jpg?1783923381"
         }
       ],
       "occurrence_count": 1
@@ -13865,6 +14558,50 @@
       "occurrence_count": 2
     },
     {
+      "resolver_key": "isshin two heavens as one",
+      "raw_authored_names": [
+        "Isshin, Two Heavens as One"
+      ],
+      "canonical_name": "Isshin, Two Heavens as One",
+      "oracle_id": "65114758-9a75-43a7-96e8-0aa68faa6b24",
+      "scryfall_id": "a062a004-984e-4b62-960c-af7288f7a3e9",
+      "layout": "normal",
+      "selected_face_name": "",
+      "type_line": "Legendary Creature — Human Samurai",
+      "mana_cost": "{R}{W}{B}",
+      "oracle_excerpt": "If a creature attacking causes a triggered ability of a permanent you control to trigger, that ability triggers an additional time.",
+      "color_identity": [
+        "B",
+        "R",
+        "W"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "scryfall_uri": "https://scryfall.com/card/neo/224/isshin-two-heavens-as-one?utm_source=api",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/a/0/a062a004-984e-4b62-960c-af7288f7a3e9.jpg?1783923833",
+        "normal": "https://cards.scryfall.io/normal/front/a/0/a062a004-984e-4b62-960c-af7288f7a3e9.jpg?1783923833",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/a/0/a062a004-984e-4b62-960c-af7288f7a3e9.jpg?1783923833"
+      },
+      "card_faces": [],
+      "image_candidates": [
+        {
+          "kind": "card-normal",
+          "url": "https://cards.scryfall.io/normal/front/a/0/a062a004-984e-4b62-960c-af7288f7a3e9.jpg?1783923833"
+        },
+        {
+          "kind": "card-art-crop",
+          "url": "https://cards.scryfall.io/art_crop/front/a/0/a062a004-984e-4b62-960c-af7288f7a3e9.jpg?1783923833"
+        },
+        {
+          "kind": "card-small",
+          "url": "https://cards.scryfall.io/small/front/a/0/a062a004-984e-4b62-960c-af7288f7a3e9.jpg?1783923833"
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
       "resolver_key": "izoni thousand eyed",
       "raw_authored_names": [
         "Izoni, Thousand-Eyed"
@@ -14121,7 +14858,7 @@
           "url": "https://cards.scryfall.io/small/front/8/3/83f9aeb8-05ba-49d9-a834-62f42fcd295b.jpg?1783939650"
         }
       ],
-      "occurrence_count": 1
+      "occurrence_count": 2
     },
     {
       "resolver_key": "jenara asura of war",
@@ -14622,6 +15359,50 @@
       "occurrence_count": 1
     },
     {
+      "resolver_key": "kasla the broken halo",
+      "raw_authored_names": [
+        "Kasla, the Broken Halo"
+      ],
+      "canonical_name": "Kasla, the Broken Halo",
+      "oracle_id": "b2d4ce3c-00b1-4a72-b652-4c129475080f",
+      "scryfall_id": "a209bda2-f0bf-4417-94f9-b73eff0b4217",
+      "layout": "normal",
+      "selected_face_name": "",
+      "type_line": "Legendary Creature — Angel Ally",
+      "mana_cost": "{3}{U}{R}{W}",
+      "oracle_excerpt": "Convoke (Your creatures can help cast this spell. Each creature you tap while casting this spell pays for {1} or one mana of that creature's color.) Flying, vigilance, haste Whenever you cast another spell that has convoke, scry 2, then dra",
+      "color_identity": [
+        "R",
+        "U",
+        "W"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "scryfall_uri": "https://scryfall.com/card/moc/4/kasla-the-broken-halo?utm_source=api",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/a/2/a209bda2-f0bf-4417-94f9-b73eff0b4217.jpg?1783917296",
+        "normal": "https://cards.scryfall.io/normal/front/a/2/a209bda2-f0bf-4417-94f9-b73eff0b4217.jpg?1783917296",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/a/2/a209bda2-f0bf-4417-94f9-b73eff0b4217.jpg?1783917296"
+      },
+      "card_faces": [],
+      "image_candidates": [
+        {
+          "kind": "card-normal",
+          "url": "https://cards.scryfall.io/normal/front/a/2/a209bda2-f0bf-4417-94f9-b73eff0b4217.jpg?1783917296"
+        },
+        {
+          "kind": "card-art-crop",
+          "url": "https://cards.scryfall.io/art_crop/front/a/2/a209bda2-f0bf-4417-94f9-b73eff0b4217.jpg?1783917296"
+        },
+        {
+          "kind": "card-small",
+          "url": "https://cards.scryfall.io/small/front/a/2/a209bda2-f0bf-4417-94f9-b73eff0b4217.jpg?1783917296"
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
       "resolver_key": "kess dissident mage",
       "raw_authored_names": [
         "Kess, Dissident Mage"
@@ -14793,7 +15574,7 @@
           "url": "https://cards.scryfall.io/small/front/7/6/76b6c35a-bb92-4ad3-8f85-88b9bafc6266.jpg?1783903867"
         }
       ],
-      "occurrence_count": 1
+      "occurrence_count": 2
     },
     {
       "resolver_key": "korvold fae cursed king",
@@ -15013,6 +15794,50 @@
       "occurrence_count": 1
     },
     {
+      "resolver_key": "kykar wind s fury",
+      "raw_authored_names": [
+        "Kykar, Wind's Fury"
+      ],
+      "canonical_name": "Kykar, Wind's Fury",
+      "oracle_id": "71a80491-eea2-4661-9446-26a87efbf4a8",
+      "scryfall_id": "fdb034c8-bae0-4f66-98f1-1b3cdc072f17",
+      "layout": "normal",
+      "selected_face_name": "",
+      "type_line": "Legendary Creature — Bird Wizard",
+      "mana_cost": "{1}{U}{R}{W}",
+      "oracle_excerpt": "Flying Whenever you cast a noncreature spell, create a 1/1 white Spirit creature token with flying. Sacrifice a Spirit: Add {R}.",
+      "color_identity": [
+        "R",
+        "U",
+        "W"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "scryfall_uri": "https://scryfall.com/card/cmm/343/kykar-winds-fury?utm_source=api",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/f/d/fdb034c8-bae0-4f66-98f1-1b3cdc072f17.jpg?1783915615",
+        "normal": "https://cards.scryfall.io/normal/front/f/d/fdb034c8-bae0-4f66-98f1-1b3cdc072f17.jpg?1783915615",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/f/d/fdb034c8-bae0-4f66-98f1-1b3cdc072f17.jpg?1783915615"
+      },
+      "card_faces": [],
+      "image_candidates": [
+        {
+          "kind": "card-normal",
+          "url": "https://cards.scryfall.io/normal/front/f/d/fdb034c8-bae0-4f66-98f1-1b3cdc072f17.jpg?1783915615"
+        },
+        {
+          "kind": "card-art-crop",
+          "url": "https://cards.scryfall.io/art_crop/front/f/d/fdb034c8-bae0-4f66-98f1-1b3cdc072f17.jpg?1783915615"
+        },
+        {
+          "kind": "card-small",
+          "url": "https://cards.scryfall.io/small/front/f/d/fdb034c8-bae0-4f66-98f1-1b3cdc072f17.jpg?1783915615"
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
       "resolver_key": "kynaios and tiro of meletis",
       "raw_authored_names": [
         "Kynaios and Tiro of Meletis"
@@ -15144,7 +15969,7 @@
           "url": "https://cards.scryfall.io/small/front/1/9/197bf3f4-c0df-4082-97a1-902ceabbdd3f.jpg?1783913285"
         }
       ],
-      "occurrence_count": 1
+      "occurrence_count": 2
     },
     {
       "resolver_key": "lavinia of the tenth",
@@ -15322,6 +16147,46 @@
       "occurrence_count": 1
     },
     {
+      "resolver_key": "liberator urza s battlethopter",
+      "raw_authored_names": [
+        "Liberator, Urza's Battlethopter"
+      ],
+      "canonical_name": "Liberator, Urza's Battlethopter",
+      "oracle_id": "798a4a6f-7443-4e8e-afcb-0a694fdfcbb3",
+      "scryfall_id": "c31e6768-bcab-43c4-bfc1-76e961689ae9",
+      "layout": "normal",
+      "selected_face_name": "",
+      "type_line": "Legendary Artifact Creature — Thopter",
+      "mana_cost": "{3}",
+      "oracle_excerpt": "Flash Flying You may cast colorless spells and artifact spells as though they had flash. Whenever you cast a spell, if the amount of mana spent to cast that spell is greater than Liberator's power, put a +1/+1 counter on Liberator.",
+      "color_identity": [],
+      "legalities": {
+        "commander": "legal"
+      },
+      "scryfall_uri": "https://scryfall.com/card/bro/237/liberator-urzas-battlethopter?utm_source=api",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/c/3/c31e6768-bcab-43c4-bfc1-76e961689ae9.jpg?1783920018",
+        "normal": "https://cards.scryfall.io/normal/front/c/3/c31e6768-bcab-43c4-bfc1-76e961689ae9.jpg?1783920018",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/c/3/c31e6768-bcab-43c4-bfc1-76e961689ae9.jpg?1783920018"
+      },
+      "card_faces": [],
+      "image_candidates": [
+        {
+          "kind": "card-normal",
+          "url": "https://cards.scryfall.io/normal/front/c/3/c31e6768-bcab-43c4-bfc1-76e961689ae9.jpg?1783920018"
+        },
+        {
+          "kind": "card-art-crop",
+          "url": "https://cards.scryfall.io/art_crop/front/c/3/c31e6768-bcab-43c4-bfc1-76e961689ae9.jpg?1783920018"
+        },
+        {
+          "kind": "card-small",
+          "url": "https://cards.scryfall.io/small/front/c/3/c31e6768-bcab-43c4-bfc1-76e961689ae9.jpg?1783920018"
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
       "resolver_key": "life from the loam",
       "raw_authored_names": [
         "Life from the Loam"
@@ -15486,6 +16351,50 @@
         {
           "kind": "card-small",
           "url": "https://cards.scryfall.io/small/front/4/2/42f8591e-df30-49ec-962c-a75d32e6d9f5.jpg?1783906010"
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "resolver_key": "lord windgrace",
+      "raw_authored_names": [
+        "Lord Windgrace"
+      ],
+      "canonical_name": "Lord Windgrace",
+      "oracle_id": "38a55562-1e2d-4240-9454-219a4a25d38d",
+      "scryfall_id": "213d6fb8-5624-4804-b263-51f339482754",
+      "layout": "normal",
+      "selected_face_name": "",
+      "type_line": "Legendary Planeswalker — Windgrace",
+      "mana_cost": "{2}{B}{R}{G}",
+      "oracle_excerpt": "+2: Discard a card, then draw a card. If a land card is discarded this way, draw an additional card. −3: Return up to two target land cards from your graveyard to the battlefield. −11: Destroy up to six target nonland permanents, then creat",
+      "color_identity": [
+        "B",
+        "G",
+        "R"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "scryfall_uri": "https://scryfall.com/card/c18/43/lord-windgrace?utm_source=api",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/2/1/213d6fb8-5624-4804-b263-51f339482754.jpg?1783934329",
+        "normal": "https://cards.scryfall.io/normal/front/2/1/213d6fb8-5624-4804-b263-51f339482754.jpg?1783934329",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/2/1/213d6fb8-5624-4804-b263-51f339482754.jpg?1783934329"
+      },
+      "card_faces": [],
+      "image_candidates": [
+        {
+          "kind": "card-normal",
+          "url": "https://cards.scryfall.io/normal/front/2/1/213d6fb8-5624-4804-b263-51f339482754.jpg?1783934329"
+        },
+        {
+          "kind": "card-art-crop",
+          "url": "https://cards.scryfall.io/art_crop/front/2/1/213d6fb8-5624-4804-b263-51f339482754.jpg?1783934329"
+        },
+        {
+          "kind": "card-small",
+          "url": "https://cards.scryfall.io/small/front/2/1/213d6fb8-5624-4804-b263-51f339482754.jpg?1783934329"
         }
       ],
       "occurrence_count": 1
@@ -15919,7 +16828,7 @@
           "url": "https://cards.scryfall.io/small/front/5/7/57afa796-db46-45ff-91bd-f02922e5f33d.jpg?1783939649"
         }
       ],
-      "occurrence_count": 1
+      "occurrence_count": 2
     },
     {
       "resolver_key": "march of the multitudes",
@@ -16092,6 +17001,50 @@
         {
           "kind": "card-small",
           "url": "https://cards.scryfall.io/small/front/c/3/c35fb7a3-7c7f-4470-b1ad-5b8709a608e6.jpg?1783939056"
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "resolver_key": "marisi breaker of the coil",
+      "raw_authored_names": [
+        "Marisi, Breaker of the Coil"
+      ],
+      "canonical_name": "Marisi, Breaker of the Coil",
+      "oracle_id": "17475cf0-661d-4361-827b-1e4d638089f1",
+      "scryfall_id": "c366e1c0-f62d-41ce-baec-de11dbc1c5f4",
+      "layout": "normal",
+      "selected_face_name": "",
+      "type_line": "Legendary Creature — Cat Warrior",
+      "mana_cost": "{1}{R}{G}{W}",
+      "oracle_excerpt": "Your opponents can't cast spells during combat. Whenever a creature you control deals combat damage to a player, goad each creature that player controls. (Until your next turn, those creatures attack each combat if able and attack a player ",
+      "color_identity": [
+        "G",
+        "R",
+        "W"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "scryfall_uri": "https://scryfall.com/card/c19/46/marisi-breaker-of-the-coil?utm_source=api",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/c/3/c366e1c0-f62d-41ce-baec-de11dbc1c5f4.jpg?1783932798",
+        "normal": "https://cards.scryfall.io/normal/front/c/3/c366e1c0-f62d-41ce-baec-de11dbc1c5f4.jpg?1783932798",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/c/3/c366e1c0-f62d-41ce-baec-de11dbc1c5f4.jpg?1783932798"
+      },
+      "card_faces": [],
+      "image_candidates": [
+        {
+          "kind": "card-normal",
+          "url": "https://cards.scryfall.io/normal/front/c/3/c366e1c0-f62d-41ce-baec-de11dbc1c5f4.jpg?1783932798"
+        },
+        {
+          "kind": "card-art-crop",
+          "url": "https://cards.scryfall.io/art_crop/front/c/3/c366e1c0-f62d-41ce-baec-de11dbc1c5f4.jpg?1783932798"
+        },
+        {
+          "kind": "card-small",
+          "url": "https://cards.scryfall.io/small/front/c/3/c366e1c0-f62d-41ce-baec-de11dbc1c5f4.jpg?1783932798"
         }
       ],
       "occurrence_count": 1
@@ -16479,7 +17432,7 @@
           "url": "https://cards.scryfall.io/small/front/5/0/508b1442-bf2c-4ad6-9bcf-bd894e081ab6.jpg?1783907026"
         }
       ],
-      "occurrence_count": 1
+      "occurrence_count": 2
     },
     {
       "resolver_key": "metallurgic summonings",
@@ -16646,6 +17599,50 @@
         }
       ],
       "occurrence_count": 2
+    },
+    {
+      "resolver_key": "mishra eminent one",
+      "raw_authored_names": [
+        "Mishra, Eminent One"
+      ],
+      "canonical_name": "Mishra, Eminent One",
+      "oracle_id": "d3438037-3efd-4ce0-88ec-6d48ab521992",
+      "scryfall_id": "7f5b1daa-ec45-48de-9496-6ca5b491a0dc",
+      "layout": "normal",
+      "selected_face_name": "",
+      "type_line": "Legendary Creature — Human Artificer",
+      "mana_cost": "{2}{U}{B}{R}",
+      "oracle_excerpt": "At the beginning of combat on your turn, create a token that's a copy of target noncreature artifact you control, except its name is Mishra's Warform and it's a 4/4 Construct artifact creature in addition to its other types. It gains haste ",
+      "color_identity": [
+        "B",
+        "R",
+        "U"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "scryfall_uri": "https://scryfall.com/card/brc/1/mishra-eminent-one?utm_source=api",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/7/f/7f5b1daa-ec45-48de-9496-6ca5b491a0dc.jpg?1783919726",
+        "normal": "https://cards.scryfall.io/normal/front/7/f/7f5b1daa-ec45-48de-9496-6ca5b491a0dc.jpg?1783919726",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/7/f/7f5b1daa-ec45-48de-9496-6ca5b491a0dc.jpg?1783919726"
+      },
+      "card_faces": [],
+      "image_candidates": [
+        {
+          "kind": "card-normal",
+          "url": "https://cards.scryfall.io/normal/front/7/f/7f5b1daa-ec45-48de-9496-6ca5b491a0dc.jpg?1783919726"
+        },
+        {
+          "kind": "card-art-crop",
+          "url": "https://cards.scryfall.io/art_crop/front/7/f/7f5b1daa-ec45-48de-9496-6ca5b491a0dc.jpg?1783919726"
+        },
+        {
+          "kind": "card-small",
+          "url": "https://cards.scryfall.io/small/front/7/f/7f5b1daa-ec45-48de-9496-6ca5b491a0dc.jpg?1783919726"
+        }
+      ],
+      "occurrence_count": 1
     },
     {
       "resolver_key": "mistveil plains",
@@ -16900,7 +17897,7 @@
           "url": "https://cards.scryfall.io/small/front/2/5/25a8c801-df0c-402b-a41c-4703a2abfb66.jpg?1783943400"
         }
       ],
-      "occurrence_count": 1
+      "occurrence_count": 2
     },
     {
       "resolver_key": "monastery mentor",
@@ -17200,6 +18197,49 @@
       "occurrence_count": 18
     },
     {
+      "resolver_key": "muddle the ever changing",
+      "raw_authored_names": [
+        "Muddle, the Ever-Changing"
+      ],
+      "canonical_name": "Muddle, the Ever-Changing",
+      "oracle_id": "9a8f6e5e-6cde-49df-861c-a26cb09c9b12",
+      "scryfall_id": "916d3e31-3243-47b3-b7d2-ce9a6dd47aba",
+      "layout": "normal",
+      "selected_face_name": "",
+      "type_line": "Legendary Creature — Elemental Otter Shapeshifter",
+      "mana_cost": "{2}{U}{R}",
+      "oracle_excerpt": "Whenever you cast an instant or sorcery spell, Muddle becomes a copy of up to one target nonlegendary creature you control until end of turn, except it has myriad. (Whenever it attacks, for each opponent other than defending player, you may",
+      "color_identity": [
+        "R",
+        "U"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "scryfall_uri": "https://scryfall.com/card/soc/5/muddle-the-ever-changing?utm_source=api",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/9/1/916d3e31-3243-47b3-b7d2-ce9a6dd47aba.jpg?1783903867",
+        "normal": "https://cards.scryfall.io/normal/front/9/1/916d3e31-3243-47b3-b7d2-ce9a6dd47aba.jpg?1783903867",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/9/1/916d3e31-3243-47b3-b7d2-ce9a6dd47aba.jpg?1783903867"
+      },
+      "card_faces": [],
+      "image_candidates": [
+        {
+          "kind": "card-normal",
+          "url": "https://cards.scryfall.io/normal/front/9/1/916d3e31-3243-47b3-b7d2-ce9a6dd47aba.jpg?1783903867"
+        },
+        {
+          "kind": "card-art-crop",
+          "url": "https://cards.scryfall.io/art_crop/front/9/1/916d3e31-3243-47b3-b7d2-ce9a6dd47aba.jpg?1783903867"
+        },
+        {
+          "kind": "card-small",
+          "url": "https://cards.scryfall.io/small/front/9/1/916d3e31-3243-47b3-b7d2-ce9a6dd47aba.jpg?1783903867"
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
       "resolver_key": "muldrotha the gravetide",
       "raw_authored_names": [
         "Muldrotha, the Gravetide"
@@ -17242,6 +18282,48 @@
         }
       ],
       "occurrence_count": 2
+    },
+    {
+      "resolver_key": "myrel shield of argive",
+      "raw_authored_names": [
+        "Myrel, Shield of Argive"
+      ],
+      "canonical_name": "Myrel, Shield of Argive",
+      "oracle_id": "503094aa-6f8f-42c1-ad5a-9305934e5f0c",
+      "scryfall_id": "e632ed57-bb00-4493-adef-7b4805edd7ea",
+      "layout": "normal",
+      "selected_face_name": "",
+      "type_line": "Legendary Creature — Human Soldier",
+      "mana_cost": "{3}{W}",
+      "oracle_excerpt": "During your turn, your opponents can't cast spells or activate abilities of artifacts, creatures, or enchantments. Whenever Myrel attacks, create X 1/1 colorless Soldier artifact creature tokens, where X is the number of Soldiers you contro",
+      "color_identity": [
+        "W"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "scryfall_uri": "https://scryfall.com/card/bro/18/myrel-shield-of-argive?utm_source=api",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/e/6/e632ed57-bb00-4493-adef-7b4805edd7ea.jpg?1783920129",
+        "normal": "https://cards.scryfall.io/normal/front/e/6/e632ed57-bb00-4493-adef-7b4805edd7ea.jpg?1783920129",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/e/6/e632ed57-bb00-4493-adef-7b4805edd7ea.jpg?1783920129"
+      },
+      "card_faces": [],
+      "image_candidates": [
+        {
+          "kind": "card-normal",
+          "url": "https://cards.scryfall.io/normal/front/e/6/e632ed57-bb00-4493-adef-7b4805edd7ea.jpg?1783920129"
+        },
+        {
+          "kind": "card-art-crop",
+          "url": "https://cards.scryfall.io/art_crop/front/e/6/e632ed57-bb00-4493-adef-7b4805edd7ea.jpg?1783920129"
+        },
+        {
+          "kind": "card-small",
+          "url": "https://cards.scryfall.io/small/front/e/6/e632ed57-bb00-4493-adef-7b4805edd7ea.jpg?1783920129"
+        }
+      ],
+      "occurrence_count": 1
     },
     {
       "resolver_key": "myriad landscape",
@@ -17771,6 +18853,48 @@
         }
       ],
       "occurrence_count": 2
+    },
+    {
+      "resolver_key": "neheb the eternal",
+      "raw_authored_names": [
+        "Neheb, the Eternal"
+      ],
+      "canonical_name": "Neheb, the Eternal",
+      "oracle_id": "b0d3fd57-1420-4dd1-8410-9d659655287f",
+      "scryfall_id": "767c5831-2195-4efa-802d-2ea2e6dabb5b",
+      "layout": "normal",
+      "selected_face_name": "",
+      "type_line": "Legendary Creature — Zombie Minotaur Warrior",
+      "mana_cost": "{3}{R}{R}",
+      "oracle_excerpt": "Afflict 3 (Whenever this creature becomes blocked, defending player loses 3 life.) At the beginning of each of your postcombat main phases, add {R} for each 1 life your opponents have lost this turn.",
+      "color_identity": [
+        "R"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "scryfall_uri": "https://scryfall.com/card/mkc/158/neheb-the-eternal?utm_source=api",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/7/6/767c5831-2195-4efa-802d-2ea2e6dabb5b.jpg?1783912998",
+        "normal": "https://cards.scryfall.io/normal/front/7/6/767c5831-2195-4efa-802d-2ea2e6dabb5b.jpg?1783912998",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/7/6/767c5831-2195-4efa-802d-2ea2e6dabb5b.jpg?1783912998"
+      },
+      "card_faces": [],
+      "image_candidates": [
+        {
+          "kind": "card-normal",
+          "url": "https://cards.scryfall.io/normal/front/7/6/767c5831-2195-4efa-802d-2ea2e6dabb5b.jpg?1783912998"
+        },
+        {
+          "kind": "card-art-crop",
+          "url": "https://cards.scryfall.io/art_crop/front/7/6/767c5831-2195-4efa-802d-2ea2e6dabb5b.jpg?1783912998"
+        },
+        {
+          "kind": "card-small",
+          "url": "https://cards.scryfall.io/small/front/7/6/767c5831-2195-4efa-802d-2ea2e6dabb5b.jpg?1783912998"
+        }
+      ],
+      "occurrence_count": 1
     },
     {
       "resolver_key": "nekusar the mindrazer",
@@ -18437,7 +19561,7 @@
           "url": "https://cards.scryfall.io/small/front/a/b/abf8df47-405c-42d8-be9e-0f0d0a49589b.jpg?1783939648"
         }
       ],
-      "occurrence_count": 1
+      "occurrence_count": 2
     },
     {
       "resolver_key": "omarthis ghostfire initiate",
@@ -19413,6 +20537,49 @@
       "occurrence_count": 2
     },
     {
+      "resolver_key": "primo the unbounded",
+      "raw_authored_names": [
+        "Primo, the Unbounded"
+      ],
+      "canonical_name": "Primo, the Unbounded",
+      "oracle_id": "65fb0e20-61f8-4c61-bc08-7f6f718ee9ee",
+      "scryfall_id": "a2d14b99-15e2-4e96-89a2-7e0ee5dc059f",
+      "layout": "normal",
+      "selected_face_name": "",
+      "type_line": "Legendary Creature — Fractal Wolf",
+      "mana_cost": "{X}{G}{G}{U}",
+      "oracle_excerpt": "Trample Primo enters with twice X +1/+1 counters on it. Whenever one or more creatures you control with base power 0 deal combat damage to a player, create a 0/0 green and blue Fractal creature token. Put a number of +1/+1 counters on it eq",
+      "color_identity": [
+        "G",
+        "U"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "scryfall_uri": "https://scryfall.com/card/soc/6/primo-the-unbounded?utm_source=api",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/a/2/a2d14b99-15e2-4e96-89a2-7e0ee5dc059f.jpg?1783903867",
+        "normal": "https://cards.scryfall.io/normal/front/a/2/a2d14b99-15e2-4e96-89a2-7e0ee5dc059f.jpg?1783903867",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/a/2/a2d14b99-15e2-4e96-89a2-7e0ee5dc059f.jpg?1783903867"
+      },
+      "card_faces": [],
+      "image_candidates": [
+        {
+          "kind": "card-normal",
+          "url": "https://cards.scryfall.io/normal/front/a/2/a2d14b99-15e2-4e96-89a2-7e0ee5dc059f.jpg?1783903867"
+        },
+        {
+          "kind": "card-art-crop",
+          "url": "https://cards.scryfall.io/art_crop/front/a/2/a2d14b99-15e2-4e96-89a2-7e0ee5dc059f.jpg?1783903867"
+        },
+        {
+          "kind": "card-small",
+          "url": "https://cards.scryfall.io/small/front/a/2/a2d14b99-15e2-4e96-89a2-7e0ee5dc059f.jpg?1783903867"
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
       "resolver_key": "propaganda",
       "raw_authored_names": [
         "Propaganda"
@@ -19450,6 +20617,49 @@
         {
           "kind": "card-small",
           "url": "https://cards.scryfall.io/small/front/a/c/ac943e31-26bc-4b54-b73f-460e6e402d86.jpg?1783903239"
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "resolver_key": "prosper tome bound",
+      "raw_authored_names": [
+        "Prosper, Tome-Bound"
+      ],
+      "canonical_name": "Prosper, Tome-Bound",
+      "oracle_id": "1e9b0fd6-5aae-401a-8df5-d94ce6442696",
+      "scryfall_id": "d743336e-d5c7-4053-a23d-92ec7581f74e",
+      "layout": "normal",
+      "selected_face_name": "",
+      "type_line": "Legendary Creature — Tiefling Warlock",
+      "mana_cost": "{2}{B}{R}",
+      "oracle_excerpt": "Deathtouch Mystic Arcanum — At the beginning of your end step, exile the top card of your library. Until the end of your next turn, you may play that card. Pact Boon — Whenever you play a card from exile, create a Treasure token.",
+      "color_identity": [
+        "B",
+        "R"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "scryfall_uri": "https://scryfall.com/card/afc/2/prosper-tome-bound?utm_source=api",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/d/7/d743336e-d5c7-4053-a23d-92ec7581f74e.jpg?1783926259",
+        "normal": "https://cards.scryfall.io/normal/front/d/7/d743336e-d5c7-4053-a23d-92ec7581f74e.jpg?1783926259",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/d/7/d743336e-d5c7-4053-a23d-92ec7581f74e.jpg?1783926259"
+      },
+      "card_faces": [],
+      "image_candidates": [
+        {
+          "kind": "card-normal",
+          "url": "https://cards.scryfall.io/normal/front/d/7/d743336e-d5c7-4053-a23d-92ec7581f74e.jpg?1783926259"
+        },
+        {
+          "kind": "card-art-crop",
+          "url": "https://cards.scryfall.io/art_crop/front/d/7/d743336e-d5c7-4053-a23d-92ec7581f74e.jpg?1783926259"
+        },
+        {
+          "kind": "card-small",
+          "url": "https://cards.scryfall.io/small/front/d/7/d743336e-d5c7-4053-a23d-92ec7581f74e.jpg?1783926259"
         }
       ],
       "occurrence_count": 1
@@ -19497,6 +20707,48 @@
         }
       ],
       "occurrence_count": 2
+    },
+    {
+      "resolver_key": "purphoros god of the forge",
+      "raw_authored_names": [
+        "Purphoros, God of the Forge"
+      ],
+      "canonical_name": "Purphoros, God of the Forge",
+      "oracle_id": "4fdbbec2-e921-4b63-958d-f9ba1e417197",
+      "scryfall_id": "4736a2c4-c89c-48db-a104-6303e7e2eee8",
+      "layout": "normal",
+      "selected_face_name": "",
+      "type_line": "Legendary Enchantment Creature — God",
+      "mana_cost": "{3}{R}",
+      "oracle_excerpt": "Indestructible As long as your devotion to red is less than five, Purphoros isn't a creature. Whenever another creature you control enters, Purphoros deals 2 damage to each opponent. {2}{R}: Creatures you control get +1/+0 until end of turn",
+      "color_identity": [
+        "R"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "scryfall_uri": "https://scryfall.com/card/cmm/246/purphoros-god-of-the-forge?utm_source=api",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/4/7/4736a2c4-c89c-48db-a104-6303e7e2eee8.jpg?1783915646",
+        "normal": "https://cards.scryfall.io/normal/front/4/7/4736a2c4-c89c-48db-a104-6303e7e2eee8.jpg?1783915646",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/4/7/4736a2c4-c89c-48db-a104-6303e7e2eee8.jpg?1783915646"
+      },
+      "card_faces": [],
+      "image_candidates": [
+        {
+          "kind": "card-normal",
+          "url": "https://cards.scryfall.io/normal/front/4/7/4736a2c4-c89c-48db-a104-6303e7e2eee8.jpg?1783915646"
+        },
+        {
+          "kind": "card-art-crop",
+          "url": "https://cards.scryfall.io/art_crop/front/4/7/4736a2c4-c89c-48db-a104-6303e7e2eee8.jpg?1783915646"
+        },
+        {
+          "kind": "card-small",
+          "url": "https://cards.scryfall.io/small/front/4/7/4736a2c4-c89c-48db-a104-6303e7e2eee8.jpg?1783915646"
+        }
+      ],
+      "occurrence_count": 1
     },
     {
       "resolver_key": "putrefy",
@@ -20744,6 +21996,48 @@
         {
           "kind": "card-small",
           "url": "https://cards.scryfall.io/small/front/b/4/b4964c78-b9ca-43c2-bcaa-bf75d92b9065.jpg?1783903231"
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "resolver_key": "rishkar peema renegade",
+      "raw_authored_names": [
+        "Rishkar, Peema Renegade"
+      ],
+      "canonical_name": "Rishkar, Peema Renegade",
+      "oracle_id": "761021ce-4559-464e-aa03-85c2fe78e267",
+      "scryfall_id": "88f4aecc-b728-4960-8131-1e5aa6c3c030",
+      "layout": "normal",
+      "selected_face_name": "",
+      "type_line": "Legendary Creature — Elf Druid",
+      "mana_cost": "{2}{G}",
+      "oracle_excerpt": "When Rishkar enters, put a +1/+1 counter on each of up to two target creatures. Each creature you control with a counter on it has \"{T}: Add {G}.\"",
+      "color_identity": [
+        "G"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "scryfall_uri": "https://scryfall.com/card/cmm/317/rishkar-peema-renegade?utm_source=api",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/8/8/88f4aecc-b728-4960-8131-1e5aa6c3c030.jpg?1783915622",
+        "normal": "https://cards.scryfall.io/normal/front/8/8/88f4aecc-b728-4960-8131-1e5aa6c3c030.jpg?1783915622",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/8/8/88f4aecc-b728-4960-8131-1e5aa6c3c030.jpg?1783915622"
+      },
+      "card_faces": [],
+      "image_candidates": [
+        {
+          "kind": "card-normal",
+          "url": "https://cards.scryfall.io/normal/front/8/8/88f4aecc-b728-4960-8131-1e5aa6c3c030.jpg?1783915622"
+        },
+        {
+          "kind": "card-art-crop",
+          "url": "https://cards.scryfall.io/art_crop/front/8/8/88f4aecc-b728-4960-8131-1e5aa6c3c030.jpg?1783915622"
+        },
+        {
+          "kind": "card-small",
+          "url": "https://cards.scryfall.io/small/front/8/8/88f4aecc-b728-4960-8131-1e5aa6c3c030.jpg?1783915622"
         }
       ],
       "occurrence_count": 1
@@ -22012,6 +23306,49 @@
           "url": "https://cards.scryfall.io/small/front/8/1/812856be-cf51-42de-96d2-4ac91e71d442.jpg?1783904541"
         }
       ],
+      "occurrence_count": 2
+    },
+    {
+      "resolver_key": "shadrix silverquill",
+      "raw_authored_names": [
+        "Shadrix Silverquill"
+      ],
+      "canonical_name": "Shadrix Silverquill",
+      "oracle_id": "2143f413-7baa-4fd6-a7ca-32f52bfa553f",
+      "scryfall_id": "214a695b-208e-4fd5-9ceb-23c882eadcf7",
+      "layout": "normal",
+      "selected_face_name": "",
+      "type_line": "Legendary Creature — Elder Dragon",
+      "mana_cost": "{3}{W}{B}",
+      "oracle_excerpt": "Flying, double strike At the beginning of combat on your turn, you may choose two. Each mode must target a different player. • Target player creates a 2/1 white and black Inkling creature token with flying. • Target player draws a card and ",
+      "color_identity": [
+        "B",
+        "W"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "scryfall_uri": "https://scryfall.com/card/soc/330/shadrix-silverquill?utm_source=api",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/2/1/214a695b-208e-4fd5-9ceb-23c882eadcf7.jpg?1783903745",
+        "normal": "https://cards.scryfall.io/normal/front/2/1/214a695b-208e-4fd5-9ceb-23c882eadcf7.jpg?1783903745",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/2/1/214a695b-208e-4fd5-9ceb-23c882eadcf7.jpg?1783903745"
+      },
+      "card_faces": [],
+      "image_candidates": [
+        {
+          "kind": "card-normal",
+          "url": "https://cards.scryfall.io/normal/front/2/1/214a695b-208e-4fd5-9ceb-23c882eadcf7.jpg?1783903745"
+        },
+        {
+          "kind": "card-art-crop",
+          "url": "https://cards.scryfall.io/art_crop/front/2/1/214a695b-208e-4fd5-9ceb-23c882eadcf7.jpg?1783903745"
+        },
+        {
+          "kind": "card-small",
+          "url": "https://cards.scryfall.io/small/front/2/1/214a695b-208e-4fd5-9ceb-23c882eadcf7.jpg?1783903745"
+        }
+      ],
       "occurrence_count": 1
     },
     {
@@ -22122,6 +23459,50 @@
         }
       ],
       "occurrence_count": 3
+    },
+    {
+      "resolver_key": "sharuum the hegemon",
+      "raw_authored_names": [
+        "Sharuum the Hegemon"
+      ],
+      "canonical_name": "Sharuum the Hegemon",
+      "oracle_id": "037e7fc9-3aa6-484c-a2c8-43009e45f1d8",
+      "scryfall_id": "af80ef38-ab95-476f-b0dd-b5ef3e9bceab",
+      "layout": "normal",
+      "selected_face_name": "",
+      "type_line": "Legendary Artifact Creature — Sphinx",
+      "mana_cost": "{3}{W}{U}{B}",
+      "oracle_excerpt": "Flying When Sharuum enters, you may return target artifact card from your graveyard to the battlefield.",
+      "color_identity": [
+        "B",
+        "U",
+        "W"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "scryfall_uri": "https://scryfall.com/card/2xm/219/sharuum-the-hegemon?utm_source=api",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/a/f/af80ef38-ab95-476f-b0dd-b5ef3e9bceab.jpg?1783930126",
+        "normal": "https://cards.scryfall.io/normal/front/a/f/af80ef38-ab95-476f-b0dd-b5ef3e9bceab.jpg?1783930126",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/a/f/af80ef38-ab95-476f-b0dd-b5ef3e9bceab.jpg?1783930126"
+      },
+      "card_faces": [],
+      "image_candidates": [
+        {
+          "kind": "card-normal",
+          "url": "https://cards.scryfall.io/normal/front/a/f/af80ef38-ab95-476f-b0dd-b5ef3e9bceab.jpg?1783930126"
+        },
+        {
+          "kind": "card-art-crop",
+          "url": "https://cards.scryfall.io/art_crop/front/a/f/af80ef38-ab95-476f-b0dd-b5ef3e9bceab.jpg?1783930126"
+        },
+        {
+          "kind": "card-small",
+          "url": "https://cards.scryfall.io/small/front/a/f/af80ef38-ab95-476f-b0dd-b5ef3e9bceab.jpg?1783930126"
+        }
+      ],
+      "occurrence_count": 1
     },
     {
       "resolver_key": "shattered sanctum",
@@ -22726,7 +24107,7 @@
           "url": "https://cards.scryfall.io/small/front/9/f/9f5d253e-9eb2-423c-90ee-68f27ec6bf88.jpg?1783915490"
         }
       ],
-      "occurrence_count": 1
+      "occurrence_count": 2
     },
     {
       "resolver_key": "smoldering marsh",
@@ -23798,6 +25179,49 @@
       "occurrence_count": 2
     },
     {
+      "resolver_key": "sythis harvest s hand",
+      "raw_authored_names": [
+        "Sythis, Harvest's Hand"
+      ],
+      "canonical_name": "Sythis, Harvest's Hand",
+      "oracle_id": "0fc64fd6-f057-4056-9dca-47accb7ff036",
+      "scryfall_id": "89511ab5-8ea6-4f07-a80b-c1ec7e89924e",
+      "layout": "normal",
+      "selected_face_name": "",
+      "type_line": "Legendary Enchantment Creature — Nymph",
+      "mana_cost": "{G}{W}",
+      "oracle_excerpt": "Whenever you cast an enchantment spell, you gain 1 life and draw a card.",
+      "color_identity": [
+        "G",
+        "W"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "scryfall_uri": "https://scryfall.com/card/cmm/938/sythis-harvests-hand?utm_source=api",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/8/9/89511ab5-8ea6-4f07-a80b-c1ec7e89924e.jpg?1783915411",
+        "normal": "https://cards.scryfall.io/normal/front/8/9/89511ab5-8ea6-4f07-a80b-c1ec7e89924e.jpg?1783915411",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/8/9/89511ab5-8ea6-4f07-a80b-c1ec7e89924e.jpg?1783915411"
+      },
+      "card_faces": [],
+      "image_candidates": [
+        {
+          "kind": "card-normal",
+          "url": "https://cards.scryfall.io/normal/front/8/9/89511ab5-8ea6-4f07-a80b-c1ec7e89924e.jpg?1783915411"
+        },
+        {
+          "kind": "card-art-crop",
+          "url": "https://cards.scryfall.io/art_crop/front/8/9/89511ab5-8ea6-4f07-a80b-c1ec7e89924e.jpg?1783915411"
+        },
+        {
+          "kind": "card-small",
+          "url": "https://cards.scryfall.io/small/front/8/9/89511ab5-8ea6-4f07-a80b-c1ec7e89924e.jpg?1783915411"
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
       "resolver_key": "taiga",
       "raw_authored_names": [
         "Taiga"
@@ -23968,6 +25392,49 @@
       "occurrence_count": 3
     },
     {
+      "resolver_key": "tana the bloodsower",
+      "raw_authored_names": [
+        "Tana, the Bloodsower"
+      ],
+      "canonical_name": "Tana, the Bloodsower",
+      "oracle_id": "a7dff624-1f6b-4e00-b13b-0b0d69a48ec2",
+      "scryfall_id": "a3d8d64f-a403-42a7-881b-4f70e9fe15a2",
+      "layout": "normal",
+      "selected_face_name": "",
+      "type_line": "Legendary Creature — Elf Druid",
+      "mana_cost": "{2}{R}{G}",
+      "oracle_excerpt": "Trample Whenever Tana deals combat damage to a player, create that many 1/1 green Saproling creature tokens. Partner (You can have two commanders if both have partner.)",
+      "color_identity": [
+        "G",
+        "R"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "scryfall_uri": "https://scryfall.com/card/c16/45/tana-the-bloodsower?utm_source=api",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/a/3/a3d8d64f-a403-42a7-881b-4f70e9fe15a2.jpg?1783937081",
+        "normal": "https://cards.scryfall.io/normal/front/a/3/a3d8d64f-a403-42a7-881b-4f70e9fe15a2.jpg?1783937081",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/a/3/a3d8d64f-a403-42a7-881b-4f70e9fe15a2.jpg?1783937081"
+      },
+      "card_faces": [],
+      "image_candidates": [
+        {
+          "kind": "card-normal",
+          "url": "https://cards.scryfall.io/normal/front/a/3/a3d8d64f-a403-42a7-881b-4f70e9fe15a2.jpg?1783937081"
+        },
+        {
+          "kind": "card-art-crop",
+          "url": "https://cards.scryfall.io/art_crop/front/a/3/a3d8d64f-a403-42a7-881b-4f70e9fe15a2.jpg?1783937081"
+        },
+        {
+          "kind": "card-small",
+          "url": "https://cards.scryfall.io/small/front/a/3/a3d8d64f-a403-42a7-881b-4f70e9fe15a2.jpg?1783937081"
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
       "resolver_key": "tanazir quandrix",
       "raw_authored_names": [
         "Tanazir Quandrix"
@@ -24050,6 +25517,91 @@
         {
           "kind": "card-small",
           "url": "https://cards.scryfall.io/small/front/1/7/175ad810-3cdd-43c7-99a9-8a2e8ad6dbae.jpg?1783907079"
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "resolver_key": "tatyova benthic druid",
+      "raw_authored_names": [
+        "Tatyova, Benthic Druid"
+      ],
+      "canonical_name": "Tatyova, Benthic Druid",
+      "oracle_id": "0715e860-3b3b-4331-9718-207973e94fee",
+      "scryfall_id": "eabc978a-0666-472d-bdc6-d4b29d29eca4",
+      "layout": "normal",
+      "selected_face_name": "",
+      "type_line": "Legendary Creature — Merfolk Druid",
+      "mana_cost": "{3}{G}{U}",
+      "oracle_excerpt": "Landfall — Whenever a land you control enters, you gain 1 life and draw a card.",
+      "color_identity": [
+        "G",
+        "U"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "scryfall_uri": "https://scryfall.com/card/fdn/247/tatyova-benthic-druid?utm_source=api",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/e/a/eabc978a-0666-472d-bdc6-d4b29d29eca4.jpg?1783909051",
+        "normal": "https://cards.scryfall.io/normal/front/e/a/eabc978a-0666-472d-bdc6-d4b29d29eca4.jpg?1783909051",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/e/a/eabc978a-0666-472d-bdc6-d4b29d29eca4.jpg?1783909051"
+      },
+      "card_faces": [],
+      "image_candidates": [
+        {
+          "kind": "card-normal",
+          "url": "https://cards.scryfall.io/normal/front/e/a/eabc978a-0666-472d-bdc6-d4b29d29eca4.jpg?1783909051"
+        },
+        {
+          "kind": "card-art-crop",
+          "url": "https://cards.scryfall.io/art_crop/front/e/a/eabc978a-0666-472d-bdc6-d4b29d29eca4.jpg?1783909051"
+        },
+        {
+          "kind": "card-small",
+          "url": "https://cards.scryfall.io/small/front/e/a/eabc978a-0666-472d-bdc6-d4b29d29eca4.jpg?1783909051"
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "resolver_key": "teferi mage of zhalfir",
+      "raw_authored_names": [
+        "Teferi, Mage of Zhalfir"
+      ],
+      "canonical_name": "Teferi, Mage of Zhalfir",
+      "oracle_id": "2b6cbd55-5adc-4a34-ac45-8531705a7ee1",
+      "scryfall_id": "8fc5e4a8-ea7b-4803-a7ed-3b915708661f",
+      "layout": "normal",
+      "selected_face_name": "",
+      "type_line": "Legendary Creature — Human Wizard",
+      "mana_cost": "{2}{U}{U}{U}",
+      "oracle_excerpt": "Flash Creature cards you own that aren't on the battlefield have flash. Each opponent can cast spells only any time they could cast a sorcery.",
+      "color_identity": [
+        "U"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "scryfall_uri": "https://scryfall.com/card/tsr/91/teferi-mage-of-zhalfir?utm_source=api",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/8/f/8fc5e4a8-ea7b-4803-a7ed-3b915708661f.jpg?1783927835",
+        "normal": "https://cards.scryfall.io/normal/front/8/f/8fc5e4a8-ea7b-4803-a7ed-3b915708661f.jpg?1783927835",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/8/f/8fc5e4a8-ea7b-4803-a7ed-3b915708661f.jpg?1783927835"
+      },
+      "card_faces": [],
+      "image_candidates": [
+        {
+          "kind": "card-normal",
+          "url": "https://cards.scryfall.io/normal/front/8/f/8fc5e4a8-ea7b-4803-a7ed-3b915708661f.jpg?1783927835"
+        },
+        {
+          "kind": "card-art-crop",
+          "url": "https://cards.scryfall.io/art_crop/front/8/f/8fc5e4a8-ea7b-4803-a7ed-3b915708661f.jpg?1783927835"
+        },
+        {
+          "kind": "card-small",
+          "url": "https://cards.scryfall.io/small/front/8/f/8fc5e4a8-ea7b-4803-a7ed-3b915708661f.jpg?1783927835"
         }
       ],
       "occurrence_count": 1
@@ -24824,6 +26376,50 @@
       "occurrence_count": 7
     },
     {
+      "resolver_key": "teval the balanced scale",
+      "raw_authored_names": [
+        "Teval, the Balanced Scale"
+      ],
+      "canonical_name": "Teval, the Balanced Scale",
+      "oracle_id": "c8cbf0ec-ec98-4cb3-8068-60e92bbd740d",
+      "scryfall_id": "b5d1955a-9ff0-4f8b-9af8-341371957299",
+      "layout": "normal",
+      "selected_face_name": "",
+      "type_line": "Legendary Creature — Spirit Dragon",
+      "mana_cost": "{1}{B}{G}{U}",
+      "oracle_excerpt": "Flying Whenever Teval attacks, mill three cards. Then you may return a land card from your graveyard to the battlefield tapped. Whenever one or more cards leave your graveyard, create a 2/2 black Zombie Druid creature token.",
+      "color_identity": [
+        "B",
+        "G",
+        "U"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "scryfall_uri": "https://scryfall.com/card/tdc/8/teval-the-balanced-scale?utm_source=api",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/b/5/b5d1955a-9ff0-4f8b-9af8-341371957299.jpg?1783907184",
+        "normal": "https://cards.scryfall.io/normal/front/b/5/b5d1955a-9ff0-4f8b-9af8-341371957299.jpg?1783907184",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/b/5/b5d1955a-9ff0-4f8b-9af8-341371957299.jpg?1783907184"
+      },
+      "card_faces": [],
+      "image_candidates": [
+        {
+          "kind": "card-normal",
+          "url": "https://cards.scryfall.io/normal/front/b/5/b5d1955a-9ff0-4f8b-9af8-341371957299.jpg?1783907184"
+        },
+        {
+          "kind": "card-art-crop",
+          "url": "https://cards.scryfall.io/art_crop/front/b/5/b5d1955a-9ff0-4f8b-9af8-341371957299.jpg?1783907184"
+        },
+        {
+          "kind": "card-small",
+          "url": "https://cards.scryfall.io/small/front/b/5/b5d1955a-9ff0-4f8b-9af8-341371957299.jpg?1783907184"
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
       "resolver_key": "teysa karlov",
       "raw_authored_names": [
         "Teysa Karlov"
@@ -25119,6 +26715,133 @@
           "url": "https://cards.scryfall.io/small/front/4/0/40489e28-878d-44a2-847f-07beef1aa0f8.jpg?1783906028"
         }
       ],
+      "occurrence_count": 2
+    },
+    {
+      "resolver_key": "the mimeoplasm",
+      "raw_authored_names": [
+        "The Mimeoplasm"
+      ],
+      "canonical_name": "The Mimeoplasm",
+      "oracle_id": "55123455-d435-46d4-b0cd-0c1614343be2",
+      "scryfall_id": "998b86f3-e53f-4ebb-b111-6f14577fded1",
+      "layout": "normal",
+      "selected_face_name": "",
+      "type_line": "Legendary Creature — Ooze",
+      "mana_cost": "{2}{B}{G}{U}",
+      "oracle_excerpt": "As The Mimeoplasm enters, you may exile two creature cards from graveyards. If you do, it enters as a copy of one of those cards with a number of additional +1/+1 counters on it equal to the power of the other card.",
+      "color_identity": [
+        "B",
+        "G",
+        "U"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "scryfall_uri": "https://scryfall.com/card/otc/234/the-mimeoplasm?utm_source=api",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/9/9/998b86f3-e53f-4ebb-b111-6f14577fded1.jpg?1783911897",
+        "normal": "https://cards.scryfall.io/normal/front/9/9/998b86f3-e53f-4ebb-b111-6f14577fded1.jpg?1783911897",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/9/9/998b86f3-e53f-4ebb-b111-6f14577fded1.jpg?1783911897"
+      },
+      "card_faces": [],
+      "image_candidates": [
+        {
+          "kind": "card-normal",
+          "url": "https://cards.scryfall.io/normal/front/9/9/998b86f3-e53f-4ebb-b111-6f14577fded1.jpg?1783911897"
+        },
+        {
+          "kind": "card-art-crop",
+          "url": "https://cards.scryfall.io/art_crop/front/9/9/998b86f3-e53f-4ebb-b111-6f14577fded1.jpg?1783911897"
+        },
+        {
+          "kind": "card-small",
+          "url": "https://cards.scryfall.io/small/front/9/9/998b86f3-e53f-4ebb-b111-6f14577fded1.jpg?1783911897"
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "resolver_key": "the ozolith",
+      "raw_authored_names": [
+        "The Ozolith"
+      ],
+      "canonical_name": "The Ozolith",
+      "oracle_id": "1946ded1-5f53-409f-b0a6-5433bb0357d2",
+      "scryfall_id": "9341ed06-53db-4604-b60a-3ea9129afbc2",
+      "layout": "normal",
+      "selected_face_name": "",
+      "type_line": "Legendary Artifact",
+      "mana_cost": "{1}",
+      "oracle_excerpt": "Whenever a creature you control leaves the battlefield, if it had counters on it, put those counters on The Ozolith. At the beginning of combat on your turn, if The Ozolith has counters on it, you may move all counters from The Ozolith onto",
+      "color_identity": [],
+      "legalities": {
+        "commander": "legal"
+      },
+      "scryfall_uri": "https://scryfall.com/card/iko/237/the-ozolith?utm_source=api",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/9/3/9341ed06-53db-4604-b60a-3ea9129afbc2.jpg?1783931006",
+        "normal": "https://cards.scryfall.io/normal/front/9/3/9341ed06-53db-4604-b60a-3ea9129afbc2.jpg?1783931006",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/9/3/9341ed06-53db-4604-b60a-3ea9129afbc2.jpg?1783931006"
+      },
+      "card_faces": [],
+      "image_candidates": [
+        {
+          "kind": "card-normal",
+          "url": "https://cards.scryfall.io/normal/front/9/3/9341ed06-53db-4604-b60a-3ea9129afbc2.jpg?1783931006"
+        },
+        {
+          "kind": "card-art-crop",
+          "url": "https://cards.scryfall.io/art_crop/front/9/3/9341ed06-53db-4604-b60a-3ea9129afbc2.jpg?1783931006"
+        },
+        {
+          "kind": "card-small",
+          "url": "https://cards.scryfall.io/small/front/9/3/9341ed06-53db-4604-b60a-3ea9129afbc2.jpg?1783931006"
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "resolver_key": "the scarab god",
+      "raw_authored_names": [
+        "The Scarab God"
+      ],
+      "canonical_name": "The Scarab God",
+      "oracle_id": "c75e55f2-fd6c-4816-9d96-21eeb8369aff",
+      "scryfall_id": "f4f414ef-84a2-4694-9e98-51bee4576c84",
+      "layout": "normal",
+      "selected_face_name": "",
+      "type_line": "Legendary Creature — God",
+      "mana_cost": "{3}{U}{B}",
+      "oracle_excerpt": "At the beginning of your upkeep, each opponent loses X life and you scry X, where X is the number of Zombies you control. {2}{U}{B}: Exile target creature card from a graveyard. Create a token that's a copy of it, except it's a 4/4 black Zo",
+      "color_identity": [
+        "B",
+        "U"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "scryfall_uri": "https://scryfall.com/card/cmm/353/the-scarab-god?utm_source=api",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/f/4/f4f414ef-84a2-4694-9e98-51bee4576c84.jpg?1783915611",
+        "normal": "https://cards.scryfall.io/normal/front/f/4/f4f414ef-84a2-4694-9e98-51bee4576c84.jpg?1783915611",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/f/4/f4f414ef-84a2-4694-9e98-51bee4576c84.jpg?1783915611"
+      },
+      "card_faces": [],
+      "image_candidates": [
+        {
+          "kind": "card-normal",
+          "url": "https://cards.scryfall.io/normal/front/f/4/f4f414ef-84a2-4694-9e98-51bee4576c84.jpg?1783915611"
+        },
+        {
+          "kind": "card-art-crop",
+          "url": "https://cards.scryfall.io/art_crop/front/f/4/f4f414ef-84a2-4694-9e98-51bee4576c84.jpg?1783915611"
+        },
+        {
+          "kind": "card-small",
+          "url": "https://cards.scryfall.io/small/front/f/4/f4f414ef-84a2-4694-9e98-51bee4576c84.jpg?1783915611"
+        }
+      ],
       "occurrence_count": 1
     },
     {
@@ -25165,7 +26888,7 @@
           "url": "https://cards.scryfall.io/small/front/1/0/10d42b35-844f-4a64-9981-c6118d45e826.jpg?1783915607"
         }
       ],
-      "occurrence_count": 1
+      "occurrence_count": 2
     },
     {
       "resolver_key": "the world tree",
@@ -25759,6 +27482,48 @@
         {
           "kind": "card-small",
           "url": "https://cards.scryfall.io/small/front/b/b/bb089097-1eed-4e72-a715-579ddd8307a0.jpg?1783903089"
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "resolver_key": "throes of chaos",
+      "raw_authored_names": [
+        "Throes of Chaos"
+      ],
+      "canonical_name": "Throes of Chaos",
+      "oracle_id": "e3444fcf-70ed-4d6e-aea9-030af15cad56",
+      "scryfall_id": "af0fd1ff-3398-45df-b934-07a6b6497998",
+      "layout": "normal",
+      "selected_face_name": "",
+      "type_line": "Sorcery",
+      "mana_cost": "{3}{R}",
+      "oracle_excerpt": "Cascade (When you cast this spell, exile cards from the top of your library until you exile a nonland card that costs less. You may cast it without paying its mana cost. Put the exiled cards on the bottom in a random order.) Retrace (You ma",
+      "color_identity": [
+        "R"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "scryfall_uri": "https://scryfall.com/card/soc/257/throes-of-chaos?utm_source=api",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/a/f/af0fd1ff-3398-45df-b934-07a6b6497998.jpg?1783903770",
+        "normal": "https://cards.scryfall.io/normal/front/a/f/af0fd1ff-3398-45df-b934-07a6b6497998.jpg?1783903770",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/a/f/af0fd1ff-3398-45df-b934-07a6b6497998.jpg?1783903770"
+      },
+      "card_faces": [],
+      "image_candidates": [
+        {
+          "kind": "card-normal",
+          "url": "https://cards.scryfall.io/normal/front/a/f/af0fd1ff-3398-45df-b934-07a6b6497998.jpg?1783903770"
+        },
+        {
+          "kind": "card-art-crop",
+          "url": "https://cards.scryfall.io/art_crop/front/a/f/af0fd1ff-3398-45df-b934-07a6b6497998.jpg?1783903770"
+        },
+        {
+          "kind": "card-small",
+          "url": "https://cards.scryfall.io/small/front/a/f/af0fd1ff-3398-45df-b934-07a6b6497998.jpg?1783903770"
         }
       ],
       "occurrence_count": 1
@@ -26614,6 +28379,50 @@
       "occurrence_count": 4
     },
     {
+      "resolver_key": "ureni of the unwritten",
+      "raw_authored_names": [
+        "Ureni of the Unwritten"
+      ],
+      "canonical_name": "Ureni of the Unwritten",
+      "oracle_id": "99c2d3ef-e5b4-48cd-b3f5-de9b02c7c36a",
+      "scryfall_id": "f54ecbf1-83df-4486-bd6a-7d1f173b6863",
+      "layout": "normal",
+      "selected_face_name": "",
+      "type_line": "Legendary Creature — Spirit Dragon",
+      "mana_cost": "{4}{G}{U}{R}",
+      "oracle_excerpt": "Flying, trample Whenever Ureni enters or attacks, look at the top eight cards of your library. You may put a Dragon creature card from among them onto the battlefield. Put the rest on the bottom of your library in a random order.",
+      "color_identity": [
+        "G",
+        "R",
+        "U"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "scryfall_uri": "https://scryfall.com/card/tdc/9/ureni-of-the-unwritten?utm_source=api",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/f/5/f54ecbf1-83df-4486-bd6a-7d1f173b6863.jpg?1783907187",
+        "normal": "https://cards.scryfall.io/normal/front/f/5/f54ecbf1-83df-4486-bd6a-7d1f173b6863.jpg?1783907187",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/f/5/f54ecbf1-83df-4486-bd6a-7d1f173b6863.jpg?1783907187"
+      },
+      "card_faces": [],
+      "image_candidates": [
+        {
+          "kind": "card-normal",
+          "url": "https://cards.scryfall.io/normal/front/f/5/f54ecbf1-83df-4486-bd6a-7d1f173b6863.jpg?1783907187"
+        },
+        {
+          "kind": "card-art-crop",
+          "url": "https://cards.scryfall.io/art_crop/front/f/5/f54ecbf1-83df-4486-bd6a-7d1f173b6863.jpg?1783907187"
+        },
+        {
+          "kind": "card-small",
+          "url": "https://cards.scryfall.io/small/front/f/5/f54ecbf1-83df-4486-bd6a-7d1f173b6863.jpg?1783907187"
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
       "resolver_key": "urza s mine",
       "raw_authored_names": [
         "Urza's Mine"
@@ -27097,6 +28906,48 @@
       "occurrence_count": 1
     },
     {
+      "resolver_key": "vilis broker of blood",
+      "raw_authored_names": [
+        "Vilis, Broker of Blood"
+      ],
+      "canonical_name": "Vilis, Broker of Blood",
+      "oracle_id": "7c209753-121b-4859-944b-4e33f885e777",
+      "scryfall_id": "ecdf2bd9-87b9-470a-ad2e-0ebf98560f87",
+      "layout": "normal",
+      "selected_face_name": "",
+      "type_line": "Legendary Creature — Demon",
+      "mana_cost": "{5}{B}{B}{B}",
+      "oracle_excerpt": "Flying {B}, Pay 2 life: Target creature gets -1/-1 until end of turn. Whenever you lose life, draw that many cards. (Damage causes loss of life.)",
+      "color_identity": [
+        "B"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "scryfall_uri": "https://scryfall.com/card/m20/122/vilis-broker-of-blood?utm_source=api",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/e/c/ecdf2bd9-87b9-470a-ad2e-0ebf98560f87.jpg?1783932985",
+        "normal": "https://cards.scryfall.io/normal/front/e/c/ecdf2bd9-87b9-470a-ad2e-0ebf98560f87.jpg?1783932985",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/e/c/ecdf2bd9-87b9-470a-ad2e-0ebf98560f87.jpg?1783932985"
+      },
+      "card_faces": [],
+      "image_candidates": [
+        {
+          "kind": "card-normal",
+          "url": "https://cards.scryfall.io/normal/front/e/c/ecdf2bd9-87b9-470a-ad2e-0ebf98560f87.jpg?1783932985"
+        },
+        {
+          "kind": "card-art-crop",
+          "url": "https://cards.scryfall.io/art_crop/front/e/c/ecdf2bd9-87b9-470a-ad2e-0ebf98560f87.jpg?1783932985"
+        },
+        {
+          "kind": "card-small",
+          "url": "https://cards.scryfall.io/small/front/e/c/ecdf2bd9-87b9-470a-ad2e-0ebf98560f87.jpg?1783932985"
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
       "resolver_key": "villainous wealth",
       "raw_authored_names": [
         "Villainous Wealth"
@@ -27562,6 +29413,48 @@
       "occurrence_count": 7
     },
     {
+      "resolver_key": "wedding ring",
+      "raw_authored_names": [
+        "Wedding Ring"
+      ],
+      "canonical_name": "Wedding Ring",
+      "oracle_id": "0c34e962-99d9-4163-b852-4f61886546aa",
+      "scryfall_id": "7f0b1400-0608-47fd-9c73-b7730bcf6b7f",
+      "layout": "normal",
+      "selected_face_name": "",
+      "type_line": "Artifact",
+      "mana_cost": "{2}{W}{W}",
+      "oracle_excerpt": "When this artifact enters, if it was cast, target opponent creates a token that's a copy of it. Whenever an opponent who controls an artifact named Wedding Ring draws a card during their turn, you draw a card. Whenever an opponent who contr",
+      "color_identity": [
+        "W"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "scryfall_uri": "https://scryfall.com/card/voc/32/wedding-ring?utm_source=api",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/7/f/7f0b1400-0608-47fd-9c73-b7730bcf6b7f.jpg?1783924997",
+        "normal": "https://cards.scryfall.io/normal/front/7/f/7f0b1400-0608-47fd-9c73-b7730bcf6b7f.jpg?1783924997",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/7/f/7f0b1400-0608-47fd-9c73-b7730bcf6b7f.jpg?1783924997"
+      },
+      "card_faces": [],
+      "image_candidates": [
+        {
+          "kind": "card-normal",
+          "url": "https://cards.scryfall.io/normal/front/7/f/7f0b1400-0608-47fd-9c73-b7730bcf6b7f.jpg?1783924997"
+        },
+        {
+          "kind": "card-art-crop",
+          "url": "https://cards.scryfall.io/art_crop/front/7/f/7f0b1400-0608-47fd-9c73-b7730bcf6b7f.jpg?1783924997"
+        },
+        {
+          "kind": "card-small",
+          "url": "https://cards.scryfall.io/small/front/7/f/7f0b1400-0608-47fd-9c73-b7730bcf6b7f.jpg?1783924997"
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
       "resolver_key": "whir of invention",
       "raw_authored_names": [
         "Whir of Invention"
@@ -27599,6 +29492,49 @@
         {
           "kind": "card-small",
           "url": "https://cards.scryfall.io/small/front/0/2/0279fd3c-9252-4958-9d7a-5f33aa25907e.jpg?1783936767"
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "resolver_key": "willowdusk essence seer",
+      "raw_authored_names": [
+        "Willowdusk, Essence Seer"
+      ],
+      "canonical_name": "Willowdusk, Essence Seer",
+      "oracle_id": "94723d61-3e29-4180-91bc-df37c4086a66",
+      "scryfall_id": "42a97ec1-f613-49a5-9236-7fded1a81f3b",
+      "layout": "normal",
+      "selected_face_name": "",
+      "type_line": "Legendary Creature — Dryad Druid",
+      "mana_cost": "{1}{B}{G}",
+      "oracle_excerpt": "{1}, {T}: Choose another target creature. Put a number of +1/+1 counters on it equal to the amount of life you gained this turn or the amount of life you lost this turn, whichever is greater. Activate only as a sorcery.",
+      "color_identity": [
+        "B",
+        "G"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "scryfall_uri": "https://scryfall.com/card/c21/6/willowdusk-essence-seer?utm_source=api",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/4/2/42a97ec1-f613-49a5-9236-7fded1a81f3b.jpg?1783927612",
+        "normal": "https://cards.scryfall.io/normal/front/4/2/42a97ec1-f613-49a5-9236-7fded1a81f3b.jpg?1783927612",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/4/2/42a97ec1-f613-49a5-9236-7fded1a81f3b.jpg?1783927612"
+      },
+      "card_faces": [],
+      "image_candidates": [
+        {
+          "kind": "card-normal",
+          "url": "https://cards.scryfall.io/normal/front/4/2/42a97ec1-f613-49a5-9236-7fded1a81f3b.jpg?1783927612"
+        },
+        {
+          "kind": "card-art-crop",
+          "url": "https://cards.scryfall.io/art_crop/front/4/2/42a97ec1-f613-49a5-9236-7fded1a81f3b.jpg?1783927612"
+        },
+        {
+          "kind": "card-small",
+          "url": "https://cards.scryfall.io/small/front/4/2/42a97ec1-f613-49a5-9236-7fded1a81f3b.jpg?1783927612"
         }
       ],
       "occurrence_count": 1
@@ -28287,6 +30223,49 @@
         {
           "kind": "card-small",
           "url": "https://cards.scryfall.io/small/front/c/0/c0d74ecd-a595-4012-81b4-083264b40c94.jpg?1783907139"
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "resolver_key": "zaffai thunder conductor",
+      "raw_authored_names": [
+        "Zaffai, Thunder Conductor"
+      ],
+      "canonical_name": "Zaffai, Thunder Conductor",
+      "oracle_id": "02d529df-6299-4e8f-9794-70c8061efdc4",
+      "scryfall_id": "ea1ab937-8647-4c83-99d5-6a40dffa4c9b",
+      "layout": "normal",
+      "selected_face_name": "",
+      "type_line": "Legendary Creature — Human Shaman",
+      "mana_cost": "{2}{U}{R}",
+      "oracle_excerpt": "Magecraft — Whenever you cast or copy an instant or sorcery spell, scry 1. If that spell's mana value is 5 or greater, create a 4/4 blue and red Elemental creature token. If that spell's mana value is 10 or greater, Zaffai deals 10 damage t",
+      "color_identity": [
+        "R",
+        "U"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "scryfall_uri": "https://scryfall.com/card/c21/4/zaffai-thunder-conductor?utm_source=api",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/e/a/ea1ab937-8647-4c83-99d5-6a40dffa4c9b.jpg?1783927615",
+        "normal": "https://cards.scryfall.io/normal/front/e/a/ea1ab937-8647-4c83-99d5-6a40dffa4c9b.jpg?1783927615",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/e/a/ea1ab937-8647-4c83-99d5-6a40dffa4c9b.jpg?1783927615"
+      },
+      "card_faces": [],
+      "image_candidates": [
+        {
+          "kind": "card-normal",
+          "url": "https://cards.scryfall.io/normal/front/e/a/ea1ab937-8647-4c83-99d5-6a40dffa4c9b.jpg?1783927615"
+        },
+        {
+          "kind": "card-art-crop",
+          "url": "https://cards.scryfall.io/art_crop/front/e/a/ea1ab937-8647-4c83-99d5-6a40dffa4c9b.jpg?1783927615"
+        },
+        {
+          "kind": "card-small",
+          "url": "https://cards.scryfall.io/small/front/e/a/ea1ab937-8647-4c83-99d5-6a40dffa4c9b.jpg?1783927615"
         }
       ],
       "occurrence_count": 1

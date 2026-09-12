@@ -203,9 +203,9 @@ staleComparisonCatalog.records = staleComparisonCatalog.records.filter((record) 
   requiredPair.includes(record.identity_a) && requiredPair.includes(record.identity_b)
 ));
 assert.equal(validateDossierContentCatalogs({ ...dossierCatalogFixture, publicComparisonCatalog: staleComparisonCatalog }), false, "a missing mandatory confusion-pair comparison must still fail closed");
-assert.equal(cardRationaleSource.records.length, 52, "expected 26 retained, 25 original gap proposals, and the approved Colorless collision-repair rationale");
+assert.equal(cardRationaleSource.records.length, 113, "expected 26 retained approvals plus 87 automatic source-complete relationships");
 assert.ok(cardRationaleSource.records.every((record) => record.review_status === "APPROVED_PUBLIC"));
-assert.equal(cardRationaleCatalog.records.length, 50, "approved catalog must cover all identities while retaining the deterministic three-card display maximum");
+assert.equal(cardRationaleCatalog.records.length, 111, "approved catalog must provide three cards for every identity");
 for (const record of cardRationaleCatalog.records) {
   const identityContent = identityDossierCatalog.records.find((entry) => entry.identity_key === record.identity_key);
   const identityContext = identityContent?.how_this_plays?.mechanical_expression || "";

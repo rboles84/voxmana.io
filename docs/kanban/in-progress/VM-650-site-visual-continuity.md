@@ -71,6 +71,10 @@ Historical phase QA: `promotion_checks` passed `64df468d11caf7617edf3854449394ef
 - [ ] Obtain the Owner's feedback on the corrected Archscry draft and address it before enabling the next page.
 - [ ] Complete coordinated runtime cache versioning and its validation before integration; current fresh-origin local review is not production readiness.
 
+### Three Plays per dossier — implemented
+
+The Owner-directed expansion adds 61 source-backed relationships through the existing automatic-evidence route. All 37 dossiers now render three Plays (111 total). Focused HTML validation passes, including retained Sound inventory and three unique Signals per category. All prior 52 relationship records, accepted factual corrections and historical evidence remain preserved. Owner handles visual testing; no exhaustive visual suite was run. See the completion inventory and main handoff for exact-candidate evidence. This supersedes the earlier proposal-only checkpoint for these additions.
+
 ### Accepted factual-correction checkpoint
 
 Owner ACCEPT, 2026-09-11: `915ce1e368b106f0c7f3ae2bf4a36f21dc4d8f0e`, all 13 corrected current Plays relationships and their provenance. Independent bounded RobQA PASS is recorded in the handoff. Preserve this exact accepted material; no further factual-copy research or wording review is required for these records. Candidate-stage pending annotations are historical and superseded by this Owner decision.
