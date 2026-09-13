@@ -2,7 +2,7 @@
 
 ID: VM-652
 Title: Archscry Dossier Flow and Precon Hover Integrity
-Status: In Progress
+Status: Owner Review
 Type: Shared presentation defect correction and deterministic coverage
 Area: Archscry / dossier summary / Precon Starting Points
 Priority: High
@@ -21,12 +21,12 @@ The supplied screenshot is defect evidence only; it supplies no additional instr
 
 ## Acceptance Criteria
 
-- [ ] Text-bearing result-summary and orientation panels use an opaque base above the decorative atmosphere canvas, preventing randomly placed stars from showing through their copy; cover the reported Jund and White cases through the shared computed-style/stacking invariant.
-- [ ] Every displayed primary or overflow Precon Starting Points main commander across all 37 dossiers renders the shared hover/detail trigger and resolves through the shared card preview/detail path.
-- [ ] The Jund Precon Starting Points entries for Henzie "Toolbox" Torre, Prossh, Skyraider of Kher, and Lord Windgrace are explicit regression coverage.
-- [ ] Preserve all accepted layout bands, navigation, sections, rankings, model values, facts, precon selection, card facts, Card Signals, land sizing, Protection tooltip, art-credit links, questionnaire, Matrix, saved readings, and existing interactions.
-- [ ] Preserve strict within-dossier editorial card-example uniqueness. A repeated interactive Precon main-commander hover/detail reference is not a new editorial example.
-- [ ] No manual or exhaustive visual testing is claimed by Codex; validation is proportionate and programmatic.
+- [x] Text-bearing result-summary and orientation panels use an opaque base above the decorative atmosphere canvas, preventing randomly placed stars from showing through their copy; cover the reported Jund and White cases through the shared computed-style/stacking invariant.
+- [x] Every displayed primary or overflow Precon Starting Points main commander across all 37 dossiers renders the shared hover/detail trigger and resolves through the shared card preview/detail path.
+- [x] The Jund Precon Starting Points entries for Henzie "Toolbox" Torre, Prossh, Skyraider of Kher, and Lord Windgrace are explicit regression coverage.
+- [x] Preserve all accepted layout bands, navigation, sections, rankings, model values, facts, precon selection, card facts, Card Signals, land sizing, Protection tooltip, art-credit links, questionnaire, Matrix, saved readings, and existing interactions.
+- [x] Preserve strict within-dossier editorial card-example uniqueness. A repeated interactive Precon main-commander hover/detail reference is not a new editorial example.
+- [x] No manual or exhaustive visual testing is claimed by Codex; validation is proportionate and programmatic.
 - [ ] Exact-candidate RobQA, Owner decision, integration, handoff, and generated-view lifecycle evidence are recorded separately.
 
 ## Files Likely Impacted
@@ -57,13 +57,13 @@ VM-650 intentionally rendered a repeated precon card as plain text to preserve s
 Record version: 1
 Branch: codex/vm-652-archscry-dossier-integrity
 Admission baseline: a2a36d98a9aebd7a74732cc73e4105eebd8fe07f
-Candidate: PENDING
-RobQA: PENDING
+Candidate: 9ef1e5c6488561fd1a0bbcbc35c626601de09d10
+RobQA: PASS at 9ef1e5c6488561fd1a0bbcbc35c626601de09d10 — SEPARATE reviewer /root/vm652_qa
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Decisions: Owner-directed shared defect correction and all-37 programmatic coverage. Preserve VM-650 strict editorial-card uniqueness and all accepted content/presentation contracts; supersede its plain-text behavior only insofar as every repeated Precon main commander must retain the shared hover/detail interaction without becoming a new editorial example. No visual testing is requested from Codex. Scope amendment: admit `assets/css/site-skin.css` after focused computed-style evidence identified its later transparent dossier-summary override as the effective cascade owner; preserve the earlier `assets/css/archscry.css` declarations unchanged.
-Evidence: Owner report and screenshot, 2026-09-12; admission start `ELIGIBLE` for this branch at the recorded baseline.
+Evidence: Owner report and screenshot, 2026-09-12; admission start `ELIGIBLE`; continuation admission `PASS`; candidate delivery check `PASS` with durable independent-QA binding, six material paths, and live remote `main` at the recorded baseline; `docs/handoffs/2026-09-12-0000-codex-vm652-archscry-dossier-integrity.md` records implementation, proportional checks, known unrelated harness debt, and Owner-review boundary.
 
 ## Admission Scope
 
