@@ -1,4 +1,4 @@
-<!-- task-view-sha256:1f971b17f16a4bd0a46b128ddf936c1c9f29e1adea7551a3683beb9ca74770da -->
+<!-- task-view-sha256:89b2c130f1faf10a331b7c15c7aecec1af2e4e25d7fd87c5f89a88a436f8ec1c -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -53,12 +53,12 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 
 | ID | Card | Declared status | Diagnostics |
 |---|---|---|---|
-| VM-652 | [Archscry Dossier Flow and Precon Hover Integrity](in-progress/VM-652-archscry-dossier-integrity.md) | Owner Review |  |
 
 ## Accepted
 
 | ID | Card | Declared status | Diagnostics |
 |---|---|---|---|
+| VM-652 | [Archscry Dossier Flow and Precon Hover Integrity](in-progress/VM-652-archscry-dossier-integrity.md) | Accepted |  |
 
 ## Integrated
 

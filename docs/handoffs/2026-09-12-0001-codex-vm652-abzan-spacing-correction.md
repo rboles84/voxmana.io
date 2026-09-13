@@ -102,3 +102,12 @@ Owner: PENDING. Integration: PENDING. `ACCEPT VM-652` may integrate only correct
 Next agent: Owner for the focused Abzan visual recheck.
 
 Related card: `docs/kanban/in-progress/VM-652-archscry-dossier-integrity.md`.
+
+## Owner acceptance
+
+Task: VM-652
+Candidate: b238586353007a81068445055f9dde5165a19ba9
+Owner: ACCEPT
+Decision reference: current Codex task, Owner message on 2026-09-12 responding to the corrected candidate: `looks good`.
+
+The Owner completed the focused Abzan visual recheck and accepted the exact corrected candidate. This authorizes normal integration; it does not approve a different material SHA or another story.
