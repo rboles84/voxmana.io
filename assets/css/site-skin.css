@@ -596,7 +596,7 @@ body.vm-site-skin.vm-archscry-route .dossier-snapshot-card {
   border: 0;
   border-left: 2px solid var(--site-rule);
   border-radius: 0;
-  background: transparent;
+  background: #0c0c0a;
   padding: 4px 16px;
 }
 
