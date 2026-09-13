@@ -211,3 +211,20 @@ Owner: ACCEPT
 Decision reference: Current Codex task Owner message, 2026-09-13: “yeah, things worked, I didnt see anything off”.
 
 The Owner completed the supplied Maze/Reading Finds visual and wording review and found no issue. This accepts the exact RobQA-passed material candidate and authorizes its normal PR, guarded integration and closeout. It does not change wording, queries, scope, tests or any sibling story.
+
+## Integration and closeout — 2026-09-13
+
+Task: VM-644
+Candidate: add762fb53db2be781e9ee0bf26ee849966a4498
+Evidence head: 4d3c27c1e028d45716efa8090114f416a45e8ec4
+Integration: PR #43 guarded squash merge `d01673b44276f4951d1e98a79d80c2e9f1fc7733`
+Boundaries: PASS
+
+- GitHub `Deterministic Validation` completed successfully at the exact PR head.
+- The integration checker passed with no blockers before the merge.
+- The squash commit has sole parent `11f4e928003b136fb5e70a9e8c41a1be795d7b7e` and tree `c791bf6532aa20a7f86cff40112de5e042cc7efd`.
+- The accepted evidence head has the same tree `c791bf6532aa20a7f86cff40112de5e042cc7efd`; no product or evidence bytes changed during squash integration.
+- Owner acceptance remains bound to material candidate `add762fb53db2be781e9ee0bf26ee849966a4498`.
+- Repository policy observation: `main` had no configured branch protection and no rulesets; the repository's process-enforced deterministic validation completed successfully. No settings were changed.
+- GitHub removed the remote feature branch after merge; the local feature branch was deleted after its accepted tree was verified in the squash commit. No VM-644 worktree remains.
+- Closeout changes are limited to this appended evidence, the card's lifecycle fields and Done relocation, and regenerated views. No VM-645 or other sibling work entered VM-644.
