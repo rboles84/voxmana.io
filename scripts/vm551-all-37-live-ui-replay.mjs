@@ -527,15 +527,22 @@ async function replay(page, origin, witness) {
       });
       const canvasZ = Number.parseInt(getComputedStyle(document.querySelector(".vm-bg__stars")).zIndex, 10);
       const appZ = Number.parseInt(getComputedStyle(document.querySelector(".app")).zIndex, 10);
+      const heroRect = document.querySelector(".guild-banner")?.getBoundingClientRect();
+      const snapshotRect = document.querySelector(".dossier-snapshot")?.getBoundingClientRect();
       return {
         canvasZ,
         appZ,
+        heroSnapshotGap: heroRect && snapshotRect ? snapshotRect.top - heroRect.bottom : null,
         snapshotBackgrounds: snapshotCards.map(opaqueBackground),
         orientationBackground: opaqueBackground(document.querySelector(".dossier-orientation")),
         preconRows,
       };
     });
     assert.ok(contract.canvasZ < contract.appZ, `${witness.identity_key}: atmosphere canvas must remain behind dossier content`);
+    assert.ok(
+      Number.isFinite(contract.heroSnapshotGap) && contract.heroSnapshotGap >= 8,
+      `${witness.identity_key}: dossier hero and result summary require at least 8px of visible separation; measured ${contract.heroSnapshotGap}px`,
+    );
     assert.ok(contract.snapshotBackgrounds.length, `${witness.identity_key}: result summary cards are missing`);
     contract.snapshotBackgrounds.forEach((background) => {
       assert.equal(background.opaque, true, `${witness.identity_key}: result summary background ${background.color} lets randomly placed stars cross its text`);
@@ -593,6 +600,7 @@ async function replay(page, origin, witness) {
       precon_commander_triggers: triggerNames.length,
       atmosphere_z_index: contract.canvasZ,
       content_z_index: contract.appZ,
+      hero_snapshot_gap_px: contract.heroSnapshotGap,
       hover_verified: hoverVerified,
     };
   }
@@ -1205,6 +1213,7 @@ try {
           precon_commander_triggers: rows[0].precon_commander_triggers,
           atmosphere_z_index: rows[0].atmosphere_z_index,
           content_z_index: rows[0].content_z_index,
+          hero_snapshot_gap_px: rows[0].hero_snapshot_gap_px,
           hover_verified: rows[0].hover_verified,
         }
       : {
