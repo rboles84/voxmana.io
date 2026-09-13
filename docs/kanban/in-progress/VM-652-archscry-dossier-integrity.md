@@ -2,7 +2,7 @@
 
 ID: VM-652
 Title: Archscry Dossier Flow and Precon Hover Integrity
-Status: Owner Review
+Status: In Progress
 Type: Shared presentation defect correction and deterministic coverage
 Area: Archscry / dossier summary / Precon Starting Points
 Priority: High
@@ -27,6 +27,7 @@ The supplied screenshot is defect evidence only; it supplies no additional instr
 - [x] Preserve all accepted layout bands, navigation, sections, rankings, model values, facts, precon selection, card facts, Card Signals, land sizing, Protection tooltip, art-credit links, questionnaire, Matrix, saved readings, and existing interactions.
 - [x] Preserve strict within-dossier editorial card-example uniqueness. A repeated interactive Precon main-commander hover/detail reference is not a new editorial example.
 - [x] No manual or exhaustive visual testing is claimed by Codex; validation is proportionate and programmatic.
+- [ ] The rendered guild banner and result-summary strip retain a positive visible gap at desktop and narrow widths, including the long Abzan hero composition; neither sibling's border box may overlap the other.
 - [ ] Exact-candidate RobQA, Owner decision, integration, handoff, and generated-view lifecycle evidence are recorded separately.
 
 ## Files Likely Impacted
@@ -57,13 +58,13 @@ VM-650 intentionally rendered a repeated precon card as plain text to preserve s
 Record version: 1
 Branch: codex/vm-652-archscry-dossier-integrity
 Admission baseline: a2a36d98a9aebd7a74732cc73e4105eebd8fe07f
-Candidate: 9ef1e5c6488561fd1a0bbcbc35c626601de09d10
-RobQA: PASS at 9ef1e5c6488561fd1a0bbcbc35c626601de09d10 — SEPARATE reviewer /root/vm652_qa
+Candidate: PENDING
+RobQA: PENDING
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
-Decisions: Owner-directed shared defect correction and all-37 programmatic coverage. Preserve VM-650 strict editorial-card uniqueness and all accepted content/presentation contracts; supersede its plain-text behavior only insofar as every repeated Precon main commander must retain the shared hover/detail interaction without becoming a new editorial example. No visual testing is requested from Codex. Scope amendment: admit `assets/css/site-skin.css` after focused computed-style evidence identified its later transparent dossier-summary override as the effective cascade owner; preserve the earlier `assets/css/archscry.css` declarations unchanged.
-Evidence: Owner report and screenshot, 2026-09-12; admission start `ELIGIBLE`; continuation admission `PASS`; candidate delivery check `PASS` with durable independent-QA binding, six material paths, and live remote `main` at the recorded baseline; `docs/handoffs/2026-09-12-0000-codex-vm652-archscry-dossier-integrity.md` records implementation, proportional checks, known unrelated harness debt, and Owner-review boundary.
+Decisions: Owner-directed shared defect correction and all-37 programmatic coverage. Preserve VM-650 strict editorial-card uniqueness and all accepted content/presentation contracts; supersede its plain-text behavior only insofar as every repeated Precon main commander must retain the shared hover/detail interaction without becoming a new editorial example. No visual testing is requested from Codex. Scope amendment: admit `assets/css/site-skin.css` after focused computed-style evidence identified its later transparent dossier-summary override as the effective cascade owner; preserve the earlier `assets/css/archscry.css` declarations unchanged. Owner rejection on 2026-09-12 supersedes candidate `9ef1e5c6488561fd1a0bbcbc35c626601de09d10` and its QA PASS for delivery purposes: retain its working opaque-panel and all-37 precon-hover changes, but correct the shared zero/negative hero-to-summary spacing that still lets the Abzan banner and summary strip collide.
+Evidence: Owner report and first screenshot, 2026-09-12; admission start `ELIGIBLE`; continuation admission `PASS`; superseded candidate `9ef1e5c6488561fd1a0bbcbc35c626601de09d10` and its independent QA remain historical evidence only. Owner rejection and Abzan screenshot, 2026-09-12, demonstrate the remaining sibling-layout defect; a corrected candidate and fresh exact-SHA RobQA are required. `docs/handoffs/2026-09-12-0000-codex-vm652-archscry-dossier-integrity.md` retains the prior Owner-review record and will receive append-only correction evidence.
 
 ## Admission Scope
 
