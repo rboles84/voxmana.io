@@ -202,3 +202,12 @@ Developer-phase corroboration on the same product bytes also passed Scryfall gro
 3. Open `/guide/#guide-maze`. PASS if the Maze summary clearly distinguishes a dossier-started search from a fresh idea. Visual wrapping and tone are the only remaining judgments; no query execution or all-37 review is requested.
 
 Owner: PENDING. Integration: PENDING. `ACCEPT VM-644` may integrate only candidate `add762fb53db2be781e9ee0bf26ee849966a4498` plus evidence-only lifecycle records; `REJECT VM-644 — <reason>` corrects this same branch.
+
+## Owner acceptance — 2026-09-13
+
+Task: VM-644
+Candidate: add762fb53db2be781e9ee0bf26ee849966a4498
+Owner: ACCEPT
+Decision reference: Current Codex task Owner message, 2026-09-13: “yeah, things worked, I didnt see anything off”.
+
+The Owner completed the supplied Maze/Reading Finds visual and wording review and found no issue. This accepts the exact RobQA-passed material candidate and authorizes its normal PR, guarded integration and closeout. It does not change wording, queries, scope, tests or any sibling story.

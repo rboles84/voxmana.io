@@ -2,7 +2,7 @@
 
 ID: VM-644
 Title: Maze Search Guidance and Owner Prose Pass
-Status: Owner Review
+Status: Accepted
 Type: Page content review and bounded implementation
 Area: Maze
 Priority: Medium
@@ -172,7 +172,7 @@ Branch: codex/vm-644-maze-owner-prose-pass
 Admission baseline: 11f4e928003b136fb5e70a9e8c41a1be795d7b7e
 Candidate: add762fb53db2be781e9ee0bf26ee849966a4498
 RobQA: PASS at add762fb53db2be781e9ee0bf26ee849966a4498 — SAME-AGENT DISTINCT PHASE by `/root`; see task handoff.
-Owner: PENDING
+Owner: ACCEPTED at add762fb53db2be781e9ee0bf26ee849966a4498 — current Owner review reports that the changed product worked and nothing looked off; see task handoff.
 Integration: PENDING
 Dependencies: None
 Decisions: Intake authorized 2026-09-08; Preserve-voice direction added 2026-09-08: retain unchanged is valid. Owner authorized implementation on 2026-09-12 after a read-only recon and factual red-team against the current Scryfall contracts. Admit only the demonstrated quick-search/discovery-path label and hint corrections plus standalone-safe Reading Finds copy in Maze metadata, drawer/empty-state guidance and the matching general Guide sentence. Scope amendment: add narrow static regression assertions for exact label/query truth and standalone Finds wording to the existing Maze context/recovery test; do not create another harness. Preserve every executable query, parser/compiler behavior, result ordering, Loom projection, Scryfall grounding, card fact, storage contract, all-37 dossier discovery profile and sibling page pass. Related-page coordination above is not a dependency-isolation authorization.
