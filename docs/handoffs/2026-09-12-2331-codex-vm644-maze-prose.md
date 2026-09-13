@@ -63,7 +63,7 @@ Related: VM-644, VM-637, VM-643, VM-652
 - The accepted calibration workbook is not wholesale production authority. No workbook row, grounded catalog, semantic registry or runtime parser was promoted or changed.
 - An older Plain Reading architecture deep-dive describes a superseded compiler generation. It was treated as historical/out-of-scope documentation, not current runtime authority.
 
-## Files changed
+## Implementation paths changed
 
 - `assets/js/maze/research-init.js` — six label/hint corrections and standalone-safe empty-state copy; queries unchanged.
 - `maze/index.html` — standalone-safe metadata and Reading Finds drawer guidance.
