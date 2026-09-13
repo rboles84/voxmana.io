@@ -119,6 +119,7 @@ The sequence is an Owner work order, not an authorization for dependent branches
 - `maze/index.html`
 - `assets/js/maze/research-init.js`
 - `guide/index.html`
+- `scripts/vm616-maze-context-recovery-tests.mjs`
 
 ## Protected behavior and non-goals
 
@@ -168,4 +169,4 @@ RobQA: PENDING
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
-Decisions: Intake authorized 2026-09-08; Preserve-voice direction added 2026-09-08: retain unchanged is valid. Owner authorized implementation on 2026-09-12 after a read-only recon and factual red-team against the current Scryfall contracts. Admit only the demonstrated quick-search/discovery-path label and hint corrections plus standalone-safe Reading Finds copy in Maze metadata, drawer/empty-state guidance and the matching general Guide sentence. Preserve every executable query, parser/compiler behavior, result ordering, Loom projection, Scryfall grounding, card fact, storage contract, all-37 dossier discovery profile and sibling page pass. Related-page coordination above is not a dependency-isolation authorization.
+Decisions: Intake authorized 2026-09-08; Preserve-voice direction added 2026-09-08: retain unchanged is valid. Owner authorized implementation on 2026-09-12 after a read-only recon and factual red-team against the current Scryfall contracts. Admit only the demonstrated quick-search/discovery-path label and hint corrections plus standalone-safe Reading Finds copy in Maze metadata, drawer/empty-state guidance and the matching general Guide sentence. Scope amendment: add narrow static regression assertions for exact label/query truth and standalone Finds wording to the existing Maze context/recovery test; do not create another harness. Preserve every executable query, parser/compiler behavior, result ordering, Loom projection, Scryfall grounding, card fact, storage contract, all-37 dossier discovery profile and sibling page pass. Related-page coordination above is not a dependency-isolation authorization.
