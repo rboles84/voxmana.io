@@ -2,7 +2,7 @@
 
 ID: VM-645
 Title: Apocrypha Source Annotations and Owner Prose Pass
-Status: Backlog
+Status: In Progress
 Type: Page content review and bounded implementation
 Area: Apocrypha
 Priority: Medium
@@ -99,6 +99,19 @@ Coordinate availability with VM-642/643/646. A general Guide overview belongs to
 
 The sequence is an Owner work order, not an authorization for dependent branches or a requirement to create seven simultaneous worktrees. Work one card at a time. Follow actual availability on other pages rather than assuming all proposed changes have shipped.
 
+## Admission Scope
+
+- `docs/kanban/backlog/VM-645-apocrypha-owner-prose-pass.md`
+- `docs/kanban/in-progress/VM-645-apocrypha-owner-prose-pass.md`
+- `docs/kanban/done/VM-645-apocrypha-owner-prose-pass.md`
+- `docs/kanban/board.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/handoffs/2026-09-13-1653-codex-vm645-apocrypha-prose.md`
+- `apocrypha/index.html`
+- `assets/js/apocrypha/apocrypha.js`
+- `guide/index.html`
+- `scripts/validate-apocrypha-rendering.mjs`
+
 ## Protected behavior and non-goals
 
 - No redesign, new engine, new analytics dashboard, mass all-identity rewrite, ranking/scoring change or schema/storage migration is implied by this page pass.
@@ -140,11 +153,11 @@ VM-650 has no future page-work scope. Preserve the accepted Home and Archscry fa
 ## Delivery
 
 Record version: 1
-Branch: PENDING
-Admission baseline: PENDING
+Branch: codex/vm-645-apocrypha-owner-prose-pass
+Admission baseline: df04f4f2ae1b7f05457c8f222821c60b8209cfea
 Candidate: PENDING
 RobQA: PENDING
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
-Decisions: Intake authorized 2026-09-08; Preserve-voice direction added 2026-09-08: retain unchanged is valid; page-specific decisions and any selected Owner wording remain to be recorded before dependent implementation. Related-page coordination above is not a dependency-isolation authorization.
+Decisions: Intake authorized 2026-09-08; Preserve-voice direction added 2026-09-08: retain unchanged is valid. Owner approved the exact bounded copy sheet on 2026-09-13: shorten the page's evidence-system explanations, remove the redundant Quick Guide, use player-facing source labels and status copy, correct the unsupported public rules promise, retain all source registry annotation values, repair the existing rendering validator path, and provide code-based QA plus a short Owner visual checklist. No visual redesign, CSS change, source reclassification, source-link change, annotation rewrite, Home change, or stale linkedFrom cleanup is admitted. Related-page coordination above is not a dependency-isolation authorization.
