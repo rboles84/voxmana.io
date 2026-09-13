@@ -2,7 +2,7 @@
 
 ID: VM-653
 Title: Kanban Lifecycle Cleanup
-Status: Owner Review
+Status: In Progress
 Type: Documentation-only lifecycle cleanup
 Area: Kanban / workflow metadata
 Priority: Normal
@@ -48,20 +48,20 @@ Complete only the authorized documentation cleanup for VM-541 lifecycle metadata
 
 ## Notes
 
-Exact-candidate engineering QA passed independently; Owner review is pending. Kanban admission requested/configured Terra low; implementation requested/configured Terra medium; RobQA requested/configured Sol medium; backend telemetry unverified.
+The first candidate-report evidence did not satisfy the strict change-report format; the material documentation remains unchanged and a corrected exact candidate is pending. Kanban admission requested/configured Terra low; implementation requested/configured Terra medium; backend telemetry unverified.
 
 ## Delivery
 
 Record version: 1
 Branch: codex/vm-653-kanban-cleanup
 Admission baseline: ee7cd5e3af75b9abc0b926586e10812dd33ca421
-Candidate: 31cb0ee4967fefdefaf5e09ea916f727fa7acda5
-RobQA: PASS — exact candidate 31cb0ee4967fefdefaf5e09ea916f727fa7acda5; SEPARATE review by /root/vm653_qa; evidence: ../../handoffs/2026-09-12-0000-codex-vm653-kanban-lifecycle-cleanup.md
+Candidate: PENDING
+RobQA: PENDING
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Decisions: Docs-only cleanup of VM-541 lifecycle metadata; repair current VM-637 card/plan child links for completed VM-642 and VM-643; VM-406 is metadata only; no Owner disposition is invented.
-Evidence: VM-653 admission packet, 2026-09-12; exact-candidate QA-0 PASS recorded in ../../handoffs/2026-09-12-0000-codex-vm653-kanban-lifecycle-cleanup.md. Kanban admission requested/configured Terra low; implementation requested/configured Terra medium; RobQA requested/configured Sol medium; backend telemetry unverified.
+Evidence: VM-653 admission packet, 2026-09-12. Kanban admission requested/configured Terra low; implementation requested/configured Terra medium; backend telemetry unverified.
 
 ## Admission Scope
 
