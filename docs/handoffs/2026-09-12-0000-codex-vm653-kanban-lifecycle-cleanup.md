@@ -162,3 +162,16 @@ Integration: PENDING
 ### Validator reproduction context
 
 The exact command and PASS result above are reproduced from a detached worktree checked out at immutable evidence commit `7b96472ef9b29e17e0ea78c5a033cf346384b820`. In that historical worktree, the earlier symbolic `HEAD` snapshot resolves to the same explicitly supplied evidence SHA. The appended correction itself uses the immutable SHA and does not treat the current branch tip as the reviewed evidence head.
+
+## Owner acceptance evidence
+
+Task: VM-653
+Candidate: e6dfcb4ebe716ea61e1ba0a321114278fb917920
+Owner: ACCEPT
+Decision reference: Owner message in the current Codex task on 2026-09-12 beginning `ACCEPT VM-653` and explicitly accepting material candidate `e6dfcb4ebe716ea61e1ba0a321114278fb917920`.
+
+The Owner accepted the unchanged material candidate and the append-only evidence correction, authorized the normal integration and closeout flow, and required preservation of the historical evidence record. This acceptance does not itself claim a PR, CI result, merge, or integration.
+
+RobQA: PASS at `e6dfcb4ebe716ea61e1ba0a321114278fb917920`
+Owner: ACCEPT at `e6dfcb4ebe716ea61e1ba0a321114278fb917920`
+Integration: PENDING

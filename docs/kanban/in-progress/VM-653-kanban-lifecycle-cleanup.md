@@ -2,7 +2,7 @@
 
 ID: VM-653
 Title: Kanban Lifecycle Cleanup
-Status: Owner Review
+Status: Accepted
 Type: Documentation-only lifecycle cleanup
 Area: Kanban / workflow metadata
 Priority: Normal
@@ -57,11 +57,11 @@ Branch: codex/vm-653-kanban-cleanup
 Admission baseline: ee7cd5e3af75b9abc0b926586e10812dd33ca421
 Candidate: e6dfcb4ebe716ea61e1ba0a321114278fb917920
 RobQA: PASS at e6dfcb4ebe716ea61e1ba0a321114278fb917920 SEPARATE review by /root/vm653_qa; evidence: ../../handoffs/2026-09-12-0000-codex-vm653-kanban-lifecycle-cleanup.md
-Owner: PENDING
+Owner: ACCEPTED at e6dfcb4ebe716ea61e1ba0a321114278fb917920 via Owner message `ACCEPT VM-653`, 2026-09-12; evidence: ../../handoffs/2026-09-12-0000-codex-vm653-kanban-lifecycle-cleanup.md
 Integration: PENDING
 Dependencies: None
 Decisions: Docs-only cleanup of VM-541 lifecycle metadata; repair current VM-637 card/plan child links for completed VM-642 and VM-643; VM-406 is metadata only; no Owner disposition is invented.
-Evidence: VM-653 admission packet, 2026-09-12; corrected exact-candidate QA-0 PASS recorded in ../../handoffs/2026-09-12-0000-codex-vm653-kanban-lifecycle-cleanup.md. Kanban admission requested/configured Terra low; implementation requested/configured Terra medium; RobQA requested/configured Sol medium; backend telemetry unverified.
+Evidence: VM-653 admission packet, 2026-09-12; corrected exact-candidate QA-0 PASS and authentic Owner ACCEPT recorded in ../../handoffs/2026-09-12-0000-codex-vm653-kanban-lifecycle-cleanup.md. Kanban admission requested/configured Terra low; implementation requested/configured Terra medium; RobQA requested/configured Sol medium; backend telemetry unverified.
 
 ## Admission Scope
 
