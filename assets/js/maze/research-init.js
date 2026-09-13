@@ -349,26 +349,26 @@ const MODE_CONTENT = {
 };
 
 const QUICK_SEARCHES = [
-  { label: "Commander staples", hint: "by EDHREC rank", q: "f:commander" },
+  { label: "Commander-legal cards", hint: "A–Z", q: "f:commander" },
   { label: "Counterspell examples", hint: "instant speed", q: "t:instant o:\"counter target spell\"" },
   { label: "Board wipes", hint: "commander legal", q: "(o:\"destroy all creatures\" OR o:\"exile all creatures\") f:commander" },
   { label: "Efficient removal", hint: "2 mana or less", q: "(t:instant OR t:sorcery) (o:\"destroy target creature\" OR o:\"exile target creature\") mv<=2" },
   { label: "Mana dorks", hint: "1-mana creatures", q: "t:creature o:\"add {\" mv=1 f:commander" },
   { label: "Ramp spells", hint: "land search", q: "t:sorcery o:\"search your library for a basic land\" f:commander mv<=4" },
-  { label: "Card draw spells", hint: "instants <= 3", q: "t:instant o:draw -o:\"target player\" mv<=3 f:modern" },
-  { label: "Hexproof threats", hint: "hard to remove", q: "kw:hexproof t:creature f:modern" },
-  { label: "Free/uncounterable", hint: "without paying", q: "o:\"without paying its mana cost\"" },
+  { label: "Card draw spells", hint: "Modern instants, mana value 3 or less", q: "t:instant o:draw -o:\"target player\" mv<=3 f:modern" },
+  { label: "Hexproof creatures", hint: "Modern-legal", q: "kw:hexproof t:creature f:modern" },
+  { label: "Without paying mana costs", hint: "Oracle text", q: "o:\"without paying its mana cost\"" },
   { label: "ETB draw creatures", hint: "value bodies", q: "t:creature o:enters o:draw f:commander" },
   { label: "Indestructible finishers", hint: "hard to kill", q: "kw:indestructible t:creature mv>=4 f:commander" },
   { label: "Budget tutor", hint: "paper price", q: "o:\"search your library\" f:commander usd<=2" }
 ];
 
 const DISCOVERY_PATHS = [
-  { label: "Commander entry points", hint: "legal legends", q: "f:commander t:legendary t:creature" },
+  { label: "Legendary creatures", hint: "legal in Commander", q: "f:commander t:legendary t:creature" },
   { label: "Flavor-rich cards", hint: "story moments", q: "has:flavor f:commander" },
   { label: "Graveyard engines", hint: "recursion and value", q: "f:commander (o:graveyard OR o:\"return target\" OR o:dies)" },
   { label: "Token pressure", hint: "wide boards", q: "f:commander (o:\"create\" o:\"token\" OR o:\"creatures you control get\")" },
-  { label: "Strange legends", hint: "offbeat commanders", q: "f:commander t:legendary t:creature (o:\"at the beginning\" OR o:\"whenever you\")" }
+  { label: "Legends with triggers", hint: "beginning or whenever", q: "f:commander t:legendary t:creature (o:\"at the beginning\" OR o:\"whenever you\")" }
 ];
 
 const COLOR_LABELS = [
@@ -4014,7 +4014,7 @@ function renderScratchpad() {
     const empty = document.createElement("p");
     empty.className = "stash-empty";
     empty.id = "scratchpad-empty-message";
-    empty.textContent = "Set aside cards from this search, then sort the finds you want to revisit with the reading.";
+    empty.textContent = "Set aside a card from this search to begin.";
     body.appendChild(empty);
   }
 
