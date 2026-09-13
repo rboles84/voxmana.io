@@ -175,3 +175,20 @@ The Owner accepted the unchanged material candidate and the append-only evidence
 RobQA: PASS at `e6dfcb4ebe716ea61e1ba0a321114278fb917920`
 Owner: ACCEPT at `e6dfcb4ebe716ea61e1ba0a321114278fb917920`
 Integration: PENDING
+
+## Integration evidence
+
+Task: VM-653
+Candidate: e6dfcb4ebe716ea61e1ba0a321114278fb917920
+Integration: PR42 guarded squash merge completed as 88b727ecb28b5c4853c7bb04e5207e6b9e5b0b3b.
+Evidence head: ff104fe550f1761055195c9d8a2a97c9e2521a63
+
+The required Deterministic Validation job passed at the exact PR head. GitHub merged PR #42 only after the governed integration gate passed with the expected-head guard. The squash merge tree matches the verified evidence head. The accepted material candidate remains unchanged; this append records integration and lifecycle closeout only.
+
+## Closeout boundary evidence
+
+Task: VM-653
+Candidate: e6dfcb4ebe716ea61e1ba0a321114278fb917920
+Boundaries: PASS
+
+Closeout changes are limited to the VM-653 lifecycle move, its Delivery integration binding, this append-only evidence, and regenerated documentation projections. No product, runtime, source-data, policy, test, plan, or accepted material-candidate bytes changed. The earlier historical lifecycle snapshots remain intact.
