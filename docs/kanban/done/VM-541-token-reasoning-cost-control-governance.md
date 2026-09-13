@@ -1,6 +1,8 @@
-# VM-541 - Token And Reasoning Cost Control Governance
+# VM-541 — Token And Reasoning Cost Control Governance
 
-Status: Backlog
+ID: VM-541
+Title: Token And Reasoning Cost Control Governance
+Status: Done
 Type: Documentation / Governance
 Area: Agent Coordination
 Priority: P2
@@ -48,3 +50,4 @@ Implement the canonical token and reasoning cost control policy as lightweight g
 ## Notes
 
 - Do not touch runtime code, source data, generated artifacts, CRIT semantic files, packages, tests, deployment configuration, branches, remotes, or the Excel tracker.
+- Legacy completion recorded by VM-653: the documented scope was implemented in verified integrated/pushed commit `39eb1f0f982c49fe4b3f4b13e0499bc9019f619e`; see [the existing implementation handoff](../../handoffs/2026-07-25-1020-codex-token-reasoning-governance.md). This historical record does not infer a modern RobQA, Owner, or PR record.

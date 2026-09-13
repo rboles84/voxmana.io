@@ -55,8 +55,8 @@ The Owner authorized creating these backlog stories on 2026-09-08. Work through 
 
 | Order | Card | Page |
 | --- | --- | --- |
-| 1 | [VM-642 — Home Public Content and Owner Prose Pass](VM-642-home-owner-prose-pass.md) | Main / Home |
-| 2 | [VM-643 — Archscry Atlas and Dossier Owner Prose Pass](VM-643-archscry-owner-prose-pass.md) | Archscry / Atlas / dossiers |
+| 1 | [VM-642 — Home Public Content and Owner Prose Pass](../done/VM-642-home-owner-prose-pass.md) | Main / Home |
+| 2 | [VM-643 — Archscry Atlas and Dossier Owner Prose Pass](../done/VM-643-archscry-owner-prose-pass.md) | Archscry / Atlas / dossiers |
 | 3 | [VM-644 — Maze Search Guidance and Owner Prose Pass](VM-644-maze-owner-prose-pass.md) | Maze |
 | 4 | [VM-645 — Apocrypha Source Annotations and Owner Prose Pass](VM-645-apocrypha-owner-prose-pass.md) | Apocrypha |
 | 5 | [VM-646 — Strategium Table Guidance and Owner Prose Pass](VM-646-strategium-owner-prose-pass.md) | Strategium |

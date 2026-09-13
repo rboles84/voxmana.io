@@ -1,4 +1,4 @@
-<!-- task-view-sha256:6a4a0f9c98be655a1e5acfc5361286d5e99a26dbf02809b42d7d27d5810fe2b5 -->
+<!-- task-view-sha256:305f7a0b1bdc2497798d3ddec5c8a57cb4b51dd94a1b97854be76bf827355370 -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -24,10 +24,9 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | VM-236 | [Sultai Live Copy Polish And Identity Display Repair](backlog/VM-236-sultai-live-copy-polish-identity-display-repair.md) | backlog | Legacy status retained verbatim: backlog |
 | VM-356 | [Rakdos And Quandrix Story Source Intake](backlog/VM-356-rakdos-quandrix-story-source-intake.md) | backlog | Legacy status retained verbatim: backlog |
 | VM-398 | [VM-398 - Apocrypha Research Vault Backlog Preservation](backlog/VM-398-apocrypha-research-vault-backlog-preservation.md) | Backlog | Identity displayed from filename; not admission metadata. |
-| VM-406 | [VM-406 - Archscry Placement To Strategium Bridge Concepts](backlog/VM-406-archscry-placement-strategium-bridge-concepts.md) | Backlog / Planning | Identity displayed from filename; not admission metadata. Legacy status retained verbatim: Backlog / Planning |
+| VM-406 | [Archscry Placement To Strategium Bridge Concepts](backlog/VM-406-archscry-placement-strategium-bridge-concepts.md) | Backlog |  |
 | VM-422 | [Account Deck Links And Community Deck Ledger](backlog/VM-422-account-deck-links-community-deck-ledger.md) | Backlog - deferred enhancement | Legacy status retained verbatim: Backlog - deferred enhancement |
 | VM-446 | [VM-422 Live Private Deck-Link RLS Proof](backlog/VM-446-vm422-live-private-deck-link-rls-proof.md) | Backlog - conditional security gate | Legacy status retained verbatim: Backlog - conditional security gate |
-| VM-541 | [VM-541 - Token And Reasoning Cost Control Governance](backlog/VM-541-token-reasoning-cost-control-governance.md) | Backlog | Identity displayed from filename; not admission metadata. |
 | VM-548 | [Commander Seed Discovery Mode](backlog/VM-548-commander-seed-discovery-mode.md) | backlog | Legacy status retained verbatim: backlog |
 | VM-628 | [Archscry Portable Reading Recovery](backlog/VM-628-archscry-portable-reading-recovery.md) | Backlog |  |
 | VM-629 | [Placement Language Repetition Reduction](backlog/VM-629-placement-language-repetition-reduction.md) | Backlog |  |
@@ -570,6 +569,7 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | VM-534 | [VM-534 — Dune Semantic Recovery](done/VM-534-dune-semantic-recovery.md) | Done |  |
 | VM-539 | [VM-539 — Sanitized Critical Incident Review](done/VM-539-sanitized-critical-incident-review.md) | Done |  |
 | VM-540 | [VM-540 — CRIT-001 Operating Playbook And Gate 0 Hardening](done/VM-540-crit001-operating-playbook-gate-zero-hardening.md) | Done |  |
+| VM-541 | [Token And Reasoning Cost Control Governance](done/VM-541-token-reasoning-cost-control-governance.md) | Done |  |
 | VM-543 | [VM-543 - Public README Gateway Repair](done/VM-543-public-readme-gateway-repair.md) | Done | Identity displayed from filename; not admission metadata. |
 | VM-544 | [VM-544 - README GitHub Polish Pass](done/VM-544-readme-github-polish-pass.md) | Done | Identity displayed from filename; not admission metadata. |
 | VM-545 | [Apocrypha Copy Tightening Pass](done/VM-545-apocrypha-copy-tightening-pass.md) | done | Legacy status retained verbatim: done |

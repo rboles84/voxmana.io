@@ -15,15 +15,15 @@ Perform the admitted documentation-only cleanup for the VM-541 lifecycle record.
 
 ## Source
 
-VM-653 admission packet, 2026-09-12; [VM-541 lifecycle record](../backlog/VM-541-token-reasoning-cost-control-governance.md); [VM-637 card](../backlog/VM-637-public-content-retention.md); [VM-637 plan](../../plans/vm637-public-content-retention-map.md); [VM-406 metadata record](../backlog/VM-406-archscry-placement-strategium-bridge-concepts.md).
+VM-653 admission packet, 2026-09-12; [VM-541 lifecycle record](../done/VM-541-token-reasoning-cost-control-governance.md); [VM-637 card](../backlog/VM-637-public-content-retention.md); [VM-637 plan](../../plans/vm637-public-content-retention-map.md); [VM-406 metadata record](../backlog/VM-406-archscry-placement-strategium-bridge-concepts.md).
 
 ## Acceptance Criteria
 
-- [ ] VM-541 moves from Backlog to Done only on the verified commit and handoff evidence recorded during this task.
-- [ ] Current VM-637 card and plan child links for completed VM-642 and VM-643 are repaired without reopening product work.
-- [ ] VM-406 receives canonical metadata while remaining Backlog pending an Owner disposition.
-- [ ] No Owner disposition, QA result, candidate, or integration fact is invented.
-- [ ] The generated Kanban board reflects this In Progress card.
+- [x] VM-541 moves from Backlog to Done only on the verified commit and handoff evidence recorded during this task.
+- [x] Current VM-637 card and plan child links for completed VM-642 and VM-643 are repaired without reopening product work.
+- [x] VM-406 receives canonical metadata while remaining Backlog pending an Owner disposition.
+- [x] No Owner disposition, QA result, candidate, or integration fact is invented.
+- [x] The generated Kanban board reflects this In Progress card.
 
 ## Files Likely Impacted
 
@@ -48,7 +48,7 @@ Complete only the authorized documentation cleanup for VM-541 lifecycle metadata
 
 ## Notes
 
-Status is In Progress because admission begins implementation after the admission commit. Requested/configured delegation: Terra low. Backend telemetry is unverified.
+Status is In Progress because admission begins implementation after the admission commit. Kanban admission requested/configured Terra low; implementation requested/configured Terra medium; backend telemetry unverified.
 
 ## Delivery
 
@@ -61,7 +61,7 @@ Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Decisions: Docs-only cleanup of VM-541 lifecycle metadata; repair current VM-637 card/plan child links for completed VM-642 and VM-643; VM-406 is metadata only; no Owner disposition is invented.
-Evidence: VM-653 admission packet, 2026-09-12. Requested/configured Terra low; backend telemetry unverified.
+Evidence: VM-653 admission packet, 2026-09-12. Kanban admission requested/configured Terra low; implementation requested/configured Terra medium; backend telemetry unverified.
 
 ## Admission Scope
 

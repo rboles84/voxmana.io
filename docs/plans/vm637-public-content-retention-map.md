@@ -25,8 +25,8 @@ Player recruitment/contact is not authorized by this card; the Owner may provide
 
 The seven page passes now have detailed backlog stories under VM-637. The Owner requested card creation on 2026-09-08; runtime actions and unresolved page choices remain pending.
 
-- 1. [VM-642 — Main / Home](../kanban/backlog/VM-642-home-owner-prose-pass.md)
-- 2. [VM-643 — Archscry / Atlas / dossiers](../kanban/backlog/VM-643-archscry-owner-prose-pass.md)
+- 1. [VM-642 — Main / Home](../kanban/done/VM-642-home-owner-prose-pass.md)
+- 2. [VM-643 — Archscry / Atlas / dossiers](../kanban/done/VM-643-archscry-owner-prose-pass.md)
 - 3. [VM-644 — Maze](../kanban/backlog/VM-644-maze-owner-prose-pass.md)
 - 4. [VM-645 — Apocrypha](../kanban/backlog/VM-645-apocrypha-owner-prose-pass.md)
 - 5. [VM-646 — Strategium](../kanban/backlog/VM-646-strategium-owner-prose-pass.md)

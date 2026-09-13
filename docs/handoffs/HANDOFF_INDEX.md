@@ -1,4 +1,4 @@
-<!-- task-view-sha256:fff35c711b8facc65a0f05537ea6f6bb7952d9afda656eea8b160ffc91e0b97f -->
+<!-- task-view-sha256:23f24a69ae012ea7e7271972c29fef9fa1424c9ee59d66562729403b2a0f5ada -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -9,6 +9,7 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 | Authored / filename date | Agent | Handoff | Related task references | Diagnostics |
 |---|---|---|---|---|
 | 2026-09-12T00:00:00Z (authored) | Codex (`/root`, implementation and coordination) | [VM-652 — Archscry dossier integrity](2026-09-12-0000-codex-vm652-archscry-dossier-integrity.md) | VM-652, VM-650, VM-643 | Identity displayed from heading; not admission metadata. Legacy status retained verbatim: Owner Review — exact-candidate engineering PASS; Owner PENDING. |
+| 2026-09-12T00:00:00Z (authored) | Codex / RobDev | [VM-653 — Kanban Lifecycle Cleanup](2026-09-12-0000-codex-vm653-kanban-lifecycle-cleanup.md) | VM-653 | Identity displayed from heading; not admission metadata. |
 | 2026-09-12T00:00:00Z (authored) | Codex (`/root`, implementation and coordination) | [VM-652 — Abzan hero-to-summary spacing correction](2026-09-12-0001-codex-vm652-abzan-spacing-correction.md) | VM-652, VM-650, VM-643 | Identity displayed from heading; not admission metadata. Legacy status retained verbatim: Owner Review — corrected exact-candidate engineering PASS; Owner PENDING. |
 | 2026-09-12T00:00:00Z (authored) | Codex (`/root`, implementation and coordination) | [VM-643 — Boros representative prose review](2026-09-12-1212-codex-vm643-boros-prose-review.md) | VM-643, VM-637, VM-650 | Identity displayed from heading; not admission metadata. Legacy status retained verbatim: In Progress — Owner-selected wording implemented; exact-candidate RobQA pending. |
 | 2026-09-10T00:00:00Z (filename) | Unknown | [VM-651 — Agent Model Routing: RobDev packet](2026-09-10-0000-codex-vm651-agent-model-routing.md) | VM-651 | Identity displayed from heading; not admission metadata. |
