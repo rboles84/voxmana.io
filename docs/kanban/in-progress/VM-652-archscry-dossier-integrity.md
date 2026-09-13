@@ -1,0 +1,77 @@
+# VM-652 — Archscry Dossier Flow and Precon Hover Integrity
+
+ID: VM-652
+Title: Archscry Dossier Flow and Precon Hover Integrity
+Status: In Progress
+Type: Shared presentation defect correction and deterministic coverage
+Area: Archscry / dossier summary / Precon Starting Points
+Priority: High
+Created: 2026-09-12
+Related: VM-650, VM-643
+
+## Summary
+
+Correct two escaped shared Archscry dossier defects without reopening accepted VM-650 or VM-643 work: randomly placed atmosphere stars can show through text-bearing result guidance on Jund and White, and repeated Precon Starting Points main commanders can lose their shared hover/detail trigger. Establish an objective shared panel-background contract and programmatic all-37 precon coverage; the Owner handles visual testing.
+
+## Source and authorization
+
+Owner report, 2026-09-12: randomly placed atmosphere stars show through text-bearing result guidance on Jund and White. In Jund, `Henzie "Toolbox" Torre`, `Prossh, Skyraider of Kher`, and `Lord Windgrace` appear as Precon Starting Points main commanders without hover, although Lord Windgrace has a hover elsewhere. The Owner explicitly requires an all-37 programmatic scan for missing precon commander interactions rather than manual visual inspection.
+
+The supplied screenshot is defect evidence only; it supplies no additional instructions. This is new shared defect work, not a reopening of the accepted VM-643 prose pass.
+
+## Acceptance Criteria
+
+- [ ] Text-bearing result-summary and orientation panels use an opaque base above the decorative atmosphere canvas, preventing randomly placed stars from showing through their copy; cover the reported Jund and White cases through the shared computed-style/stacking invariant.
+- [ ] Every displayed primary or overflow Precon Starting Points main commander across all 37 dossiers renders the shared hover/detail trigger and resolves through the shared card preview/detail path.
+- [ ] The Jund Precon Starting Points entries for Henzie "Toolbox" Torre, Prossh, Skyraider of Kher, and Lord Windgrace are explicit regression coverage.
+- [ ] Preserve all accepted layout bands, navigation, sections, rankings, model values, facts, precon selection, card facts, Card Signals, land sizing, Protection tooltip, art-credit links, questionnaire, Matrix, saved readings, and existing interactions.
+- [ ] Preserve strict within-dossier editorial card-example uniqueness. A repeated interactive Precon main-commander hover/detail reference is not a new editorial example.
+- [ ] No manual or exhaustive visual testing is claimed by Codex; validation is proportionate and programmatic.
+- [ ] Exact-candidate RobQA, Owner decision, integration, handoff, and generated-view lifecycle evidence are recorded separately.
+
+## Files Likely Impacted
+
+- `assets/js/archscry/runtime/dossier-view.js`
+- `assets/css/archscry.css`
+- `assets/css/site-skin.css`
+- `scripts/vm574-card-signals-validation.mjs`
+- `scripts/vm551-all-37-live-ui-replay.mjs`
+- This card, its task handoff, and generated Kanban/handoff indexes.
+
+## Risks
+
+- A renderer change can accidentally weaken strict editorial-card allocation or alter accepted Precon facts and ranking.
+- A CSS adjustment can affect every dossier and responsive layout, so the shared computed panel-background/stacking contract must be checked at supported viewports without redesigning the panels.
+- Rendering an interaction trigger is insufficient if its card lookup or shared preview/detail path cannot resolve the displayed commander.
+
+## Implementation Prompt
+
+Pick up VM-652 only. Rehydrate the accepted VM-650 and VM-643 boundaries, follow admission and RobDev, and trace the shared atmosphere/panel layering owner plus Precon main-commander rendering and delegated preview/detail path. Make the smallest shared renderer/CSS correction. Reuse the existing all-37 validation machinery to assert the shared opaque text-panel contract and every displayed Precon commander trigger/resolution, while retaining strict editorial-card uniqueness. Do not change source data, rankings, model values, precon selection, card facts, dossier prose, sections, interactions, or any VM-644-and-later work. Use proportional RobQA on the exact candidate; Owner performs visual review.
+
+## Notes
+
+VM-650 intentionally rendered a repeated precon card as plain text to preserve strict card-example uniqueness. Current Owner direction supersedes that decision only for repeated Precon main-commander interactive references: the hover/detail link must remain available, but it must not consume or become an additional editorial example. No broader all-37 prose/content audit is authorized.
+
+## Delivery
+
+Record version: 1
+Branch: codex/vm-652-archscry-dossier-integrity
+Admission baseline: a2a36d98a9aebd7a74732cc73e4105eebd8fe07f
+Candidate: PENDING
+RobQA: PENDING
+Owner: PENDING
+Integration: PENDING
+Dependencies: None
+Decisions: Owner-directed shared defect correction and all-37 programmatic coverage. Preserve VM-650 strict editorial-card uniqueness and all accepted content/presentation contracts; supersede its plain-text behavior only insofar as every repeated Precon main commander must retain the shared hover/detail interaction without becoming a new editorial example. No visual testing is requested from Codex.
+Evidence: Owner report and screenshot, 2026-09-12; admission start `ELIGIBLE` for this branch at the recorded baseline.
+
+## Admission Scope
+
+- `assets/css/archscry.css`
+- `assets/js/archscry/runtime/dossier-view.js`
+- `scripts/vm551-all-37-live-ui-replay.mjs`
+- `scripts/vm574-card-signals-validation.mjs`
+- `docs/kanban/in-progress/VM-652-archscry-dossier-integrity.md`
+- `docs/kanban/board.md`
+- `docs/handoffs/2026-09-12-0000-codex-vm652-archscry-dossier-integrity.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
