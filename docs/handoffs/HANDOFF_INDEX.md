@@ -1,4 +1,4 @@
-<!-- task-view-sha256:adf6f4ae9764dc94527952d5890b857e28c6b4a0ee82576d14e99b94178c6008 -->
+<!-- task-view-sha256:fcb6a5317a05aa63290546b674f1e97f1474ca46985757815f30d6c0419d4844 -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -8,6 +8,7 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 
 | Authored / filename date | Agent | Handoff | Related task references | Diagnostics |
 |---|---|---|---|---|
+| 2026-09-13T00:00:00Z (authored) | Codex (`/root`, coordinator); RobDev implementation by `/root/vm645_implementation`; independent RobQA by `/root/vm645_qa` | [VM-645 — Apocrypha source annotations and Owner prose pass](2026-09-13-1653-codex-vm645-apocrypha-prose.md) | VM-645, VM-637, VM-644 | Identity displayed from heading; not admission metadata. Legacy status retained verbatim: Owner Review — exact-candidate engineering PASS; Owner decision pending. |
 | 2026-09-12T00:00:00Z (authored) | Codex (`/root`, implementation and coordination) | [VM-652 — Archscry dossier integrity](2026-09-12-0000-codex-vm652-archscry-dossier-integrity.md) | VM-652, VM-650, VM-643 | Identity displayed from heading; not admission metadata. Legacy status retained verbatim: Owner Review — exact-candidate engineering PASS; Owner PENDING. |
 | 2026-09-12T00:00:00Z (authored) | Codex / RobDev | [VM-653 — Kanban Lifecycle Cleanup](2026-09-12-0000-codex-vm653-kanban-lifecycle-cleanup.md) | VM-653, VM-541, VM-637, VM-406 | Identity displayed from heading; not admission metadata. |
 | 2026-09-12T00:00:00Z (authored) | Codex (`/root`, implementation and coordination) | [VM-652 — Abzan hero-to-summary spacing correction](2026-09-12-0001-codex-vm652-abzan-spacing-correction.md) | VM-652, VM-650, VM-643 | Identity displayed from heading; not admission metadata. Legacy status retained verbatim: Owner Review — corrected exact-candidate engineering PASS; Owner PENDING. |

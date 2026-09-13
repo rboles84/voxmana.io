@@ -2,7 +2,7 @@
 
 ID: VM-645
 Title: Apocrypha Source Annotations and Owner Prose Pass
-Status: In Progress
+Status: Owner Review
 Type: Page content review and bounded implementation
 Area: Apocrypha
 Priority: Medium
@@ -46,44 +46,44 @@ Player recruitment/contact is not authorized by this card; the Owner may provide
 4. Resolve the decisions below before dependent changes. Start with the Owner's keep-as-is choices. Continue independent inventory or agreed work while any specifically selected writing or player feedback remains pending. Do not publish assistant-generated replacement prose as Owner-written text.
 5. Implement the smallest agreed page pass at the owning source/presenter; perform proportional RobQA and the normal exact-candidate Owner/delivery process. A page pass may span several Owner writing sessions on the same task.
 
-- [ ] Decide which introductions, shelf descriptions and annotations to retain unchanged, selectively revise, or temporarily omit for a recorded reason; obtain new Owner prose only where selected.
-- [ ] For each changed annotation, identify the specific source support and its source type; a resolving URL alone is not claim support.
-- [ ] Confirm cross-links only to features actually offered; preserve verified bibliography access even when an annotation is withheld.
+- [x] Decide which introductions, shelf descriptions and annotations to retain unchanged, selectively revise, or temporarily omit for a recorded reason; obtain new Owner prose only where selected.
+- [x] For each changed annotation, identify the specific source support and its source type; a resolving URL alone is not claim support.
+- [x] Confirm cross-links only to features actually offered; preserve verified bibliography access even when an annotation is withheld.
 
 ## Detailed page checklist
 
 For every item, first assess the three questions above. Record retain unchanged when appropriate. Action labels below are options from the earlier plan, not requirements to change the text.
 
-- [ ] **Review option — rewrite/trim:** opening explanation of the library, how to use it, and category/shelf introductions.
-- [ ] **Review/rewrite:** descriptions of what each source teaches or supports; narrow any claim that exceeds the actual source.
-- [ ] **Review:** labels distinguishing official publications, community references, and discovery-only links. Do not upgrade a secondary source to official status.
-- [ ] **Review option — hide pending review:** unverified interpretive annotations; retain the underlying verified bibliography entry where useful.
-- [ ] **Review option — rewrite/trim:** cross-links to unavailable features, glossary/help explanations, and page/social descriptions.
+- [x] **Review option — rewrite/trim:** opening explanation of the library, how to use it, and category/shelf introductions.
+- [x] **Review/rewrite:** descriptions of what each source teaches or supports; narrow any claim that exceeds the actual source.
+- [x] **Review:** labels distinguishing official publications, community references, and discovery-only links. Do not upgrade a secondary source to official status.
+- [x] **Review option — hide pending review:** unverified interpretive annotations; retain the underlying verified bibliography entry where useful.
+- [x] **Review option — rewrite/trim:** cross-links to unavailable features, glossary/help explanations, and page/social descriptions.
 
 Finish with a navigable bibliography whose descriptions make only supportable claims. This is not a request to copy the source articles into Vox Mana.
 
 ## Shared coverage within this page
 
-- [ ] Include page text, helpers, tooltips, modal explanations, relevant guide/walkthrough text, empty/error states, metadata and social descriptions affected by the decisions.
-- [ ] Where an omission is selected, define direct URL, keyboard, refresh/return and saved-state behavior before editing; do not merely hide a navigation label.
-- [ ] Record whether the chosen boundary is public rendering or also downloadable assets/source. Do not claim historical erasure or internet-wide removal.
-- [ ] Preserve canonical facts/printing attribution separately from editorial explanations. Citation support and human authorship are different questions.
+- [x] Include page text, helpers, tooltips, modal explanations, relevant guide/walkthrough text, empty/error states, metadata and social descriptions affected by the decisions.
+- [x] Where an omission is selected, define direct URL, keyboard, refresh/return and saved-state behavior before editing; do not merely hide a navigation label.
+- [x] Record whether the chosen boundary is public rendering or also downloadable assets/source. Do not claim historical erasure or internet-wide removal.
+- [x] Preserve canonical facts/printing attribution separately from editorial explanations. Citation support and human authorship are different questions.
 
 ## Acceptance Criteria
 
-- [ ] Record what already works and should remain unchanged, then distinguish accuracy, Owner intent and task usability findings.
-- [ ] Every proposed voice/content change has concrete evidence or an explicit Owner preference; one dismissive response is not its justification.
-- [ ] Before broad voice/presentation changes, review feedback from several players doing actual tasks; record unresolved feedback needs rather than inventing results. Targeted factual corrections and unchanged retention do not require this broad-change step.
-- [ ] Unchanged retention can satisfy this pass when the review supports it. The criteria below apply to the selected scope and do not mandate edits to every section.
-- [ ] Opening/library navigation and shelf descriptions retain approved existing wording or incorporate Owner prose for selected changes.
-- [ ] Each retained changed annotation is supported at its stated level of generality; unsupported interpretations are omitted or returned for review.
-- [ ] Official, community, mirror/discovery-only and historical sources are not conflated.
-- [ ] Verified bibliography details and useful source access survive omission of surrounding annotations.
-- [ ] Affected cross-links, help text and metadata match the actual offered site, whether unchanged or reduced by a separate decision; no bulk article reproduction is introduced.
-- [ ] Retained existing text and any selected changes have recorded dispositions. New Owner prose is required only for an explicitly selected rewrite; unfinished selected writing is not disguised by a placeholder.
-- [ ] Current governing source/semantic and storage boundaries are preserved. No generated projection is manually edited where its source/producer owns the value.
-- [ ] Applicable RobQA evidence covers the actual changed contract, and the shortest Owner review is supplied. Engineering PASS, Owner acceptance and integration are recorded as separate states.
-- [ ] Card/handoff and generated views are current; delivery uses the canonical SHIP/ACCEPT/REJECT lifecycle when implementation is requested.
+- [x] Record what already works and should remain unchanged, then distinguish accuracy, Owner intent and task usability findings.
+- [x] Every proposed voice/content change has concrete evidence or an explicit Owner preference; one dismissive response is not its justification.
+- [x] Before broad voice/presentation changes, review feedback from several players doing actual tasks; record unresolved feedback needs rather than inventing results. Targeted factual corrections and unchanged retention do not require this broad-change step.
+- [x] Unchanged retention can satisfy this pass when the review supports it. The criteria below apply to the selected scope and do not mandate edits to every section.
+- [x] Opening/library navigation and shelf descriptions retain approved existing wording or incorporate Owner prose for selected changes.
+- [x] Each retained changed annotation is supported at its stated level of generality; unsupported interpretations are omitted or returned for review.
+- [x] Official, community, mirror/discovery-only and historical sources are not conflated.
+- [x] Verified bibliography details and useful source access survive omission of surrounding annotations.
+- [x] Affected cross-links, help text and metadata match the actual offered site, whether unchanged or reduced by a separate decision; no bulk article reproduction is introduced.
+- [x] Retained existing text and any selected changes have recorded dispositions. New Owner prose is required only for an explicitly selected rewrite; unfinished selected writing is not disguised by a placeholder.
+- [x] Current governing source/semantic and storage boundaries are preserved. No generated projection is manually edited where its source/producer owns the value.
+- [x] Applicable RobQA evidence covers the actual changed contract, and the shortest Owner review is supplied. Engineering PASS, Owner acceptance and integration are recorded as separate states.
+- [x] Card/handoff and generated views are current; delivery uses the canonical SHIP/ACCEPT/REJECT lifecycle when implementation is requested.
 
 ## Files Likely Impacted
 
@@ -155,9 +155,10 @@ VM-650 has no future page-work scope. Preserve the accepted Home and Archscry fa
 Record version: 1
 Branch: codex/vm-645-apocrypha-owner-prose-pass
 Admission baseline: df04f4f2ae1b7f05457c8f222821c60b8209cfea
-Candidate: PENDING
-RobQA: PENDING
+Candidate: 6291ed86f7e181cedb2e8635a320e0a8f23420bc
+RobQA: PASS at 6291ed86f7e181cedb2e8635a320e0a8f23420bc — SEPARATE reviewer `/root/vm645_qa`; see task handoff.
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Decisions: Intake authorized 2026-09-08; Preserve-voice direction added 2026-09-08: retain unchanged is valid. Owner approved the exact bounded copy sheet on 2026-09-13: shorten the page's evidence-system explanations, remove the redundant Quick Guide, use player-facing source labels and status copy, correct the unsupported public rules promise, retain all source registry annotation values, repair the existing rendering validator path, and provide code-based QA plus a short Owner visual checklist. No visual redesign, CSS change, source reclassification, source-link change, annotation rewrite, Home change, or stale linkedFrom cleanup is admitted. Related-page coordination above is not a dependency-isolation authorization.
+Evidence: [Task handoff](../../handoffs/2026-09-13-1653-codex-vm645-apocrypha-prose.md)
