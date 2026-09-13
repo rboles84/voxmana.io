@@ -28,6 +28,7 @@ The supplied screenshot is defect evidence only; it supplies no additional instr
 - [x] Preserve strict within-dossier editorial card-example uniqueness. A repeated interactive Precon main-commander hover/detail reference is not a new editorial example.
 - [x] No manual or exhaustive visual testing is claimed by Codex; validation is proportionate and programmatic.
 - [x] The rendered guild banner and result-summary strip retain a positive visible gap at desktop and narrow widths, including the long Abzan hero composition; neither sibling's border box may overlap the other.
+- [x] The Archscry site-skin cache key and its deterministic HTML guard advance together so deployed clients request the corrected shared stylesheet.
 - [ ] Exact-candidate RobQA, Owner decision, integration, handoff, and generated-view lifecycle evidence are recorded separately.
 
 ## Files Likely Impacted
@@ -37,6 +38,8 @@ The supplied screenshot is defect evidence only; it supplies no additional instr
 - `assets/css/site-skin.css`
 - `scripts/vm574-card-signals-validation.mjs`
 - `scripts/vm551-all-37-live-ui-replay.mjs`
+- `archscry/index.html`
+- `scripts/validate-frontend-html.mjs`
 - This card, its task handoff, and generated Kanban/handoff indexes.
 
 ## Risks
