@@ -2,7 +2,7 @@
 
 ID: VM-644
 Title: Maze Search Guidance and Owner Prose Pass
-Status: Backlog
+Status: Accepted
 Type: Page content review and bounded implementation
 Area: Maze
 Priority: Medium
@@ -46,46 +46,52 @@ Player recruitment/contact is not authorized by this card; the Owner may provide
 4. Resolve the decisions below before dependent changes. Start with the Owner's keep-as-is choices. Continue independent inventory or agreed work while any specifically selected writing or player feedback remains pending. Do not publish assistant-generated replacement prose as Owner-written text.
 5. Implement the smallest agreed page pass at the owning source/presenter; perform proportional RobQA and the normal exact-candidate Owner/delivery process. A page pass may span several Owner writing sessions on the same task.
 
-- [ ] Review existing introductions and examples for the three search modes; retain them where appropriate and obtain Owner wording only for selected rewrites. Check examples against current supported syntax instead of extending the parser to fit a new sentence.
-- [ ] Record how dossier discovery and imported reading context behave for each Archscry surface withheld under VM-643. Standalone search must remain useful.
-- [ ] Choose revised labels/instructions for Reading Finds without rewriting user notes or deleting stored associations.
+- [x] Review existing introductions and examples for the three search modes; retain them where appropriate and obtain Owner wording only for selected rewrites. Check examples against current supported syntax instead of extending the parser to fit a new sentence.
+- [x] Record how dossier discovery and imported reading context behave for each Archscry surface withheld under VM-643. Standalone search must remain useful.
+- [x] Choose revised labels/instructions for Reading Finds without rewriting user notes or deleting stored associations.
+
+## Selected review disposition — 2026-09-12
+
+Retain unchanged: the Plain Reading, Operator's Hand and Loom introductions/examples; parser interpretation, unsupported-input, ambiguity, valid-zero-result and lookup-failure distinctions; all 37 dossier discovery profiles and imported-reading behavior; dedicated `/guide/maze/` guidance and walkthrough; card-detail facts/attribution; saved cards, notes, associations and return-link behavior. VM-643 withheld no Archscry sections, so VM-644 removes or backfills none.
+
+Correct only six demonstrated shortcut/discovery labels or hints whose claims exceeded their unchanged queries: Commander legality is not an EDHREC staples ranking; two Modern filters must be visible; the “without paying” query does not imply uncounterability; Commander-format legendary creatures are not exactly the `is:commander` eligibility set; and the triggered-ability search does not prove “strange” or “offbeat” commanders. Correct Reading Finds guidance so both reading-linked and standalone searches are described truthfully. The exact before/after wording, evidence and player benefit are recorded in the task handoff.
 
 ## Detailed page checklist
 
 For every item, first assess the three questions above. Record retain unchanged when appropriate. Action labels below are options from the earlier plan, not requirements to change the text.
 
-- [ ] **Review option — rewrite:** page introduction and short explanations/examples for Plain Reading, Operator's Hand, and The Loom.
-- [ ] **Review/rewrite:** parser interpretation messages, unsupported-input guidance, ambiguity notices, and zero-result instructions. Preserve the distinctions between those outcomes.
-- [ ] **Review option — trim/hide:** imported reading summaries, identity/theme guidance, and Dossier Discovery explanation that depend on an Archscry section chosen for omission.
-- [ ] **Review:** Reading Finds labels, instructional text, and reading-dependent return prompts. Do not change or discard player notes or saved cards.
-- [ ] **Review option — trim/review:** any Vox Mana interpretive explanation in card details; treat it separately from exact card text and attribution.
-- [ ] **Review option — rewrite:** `/guide/maze/`, walkthrough help, tooltips, and page/social descriptions affected by these changes.
+- [x] **Review option — rewrite:** page introduction and short explanations/examples for Plain Reading, Operator's Hand, and The Loom.
+- [x] **Review/rewrite:** parser interpretation messages, unsupported-input guidance, ambiguity notices, and zero-result instructions. Preserve the distinctions between those outcomes.
+- [x] **Review option — trim/hide:** imported reading summaries, identity/theme guidance, and Dossier Discovery explanation that depend on an Archscry section chosen for omission.
+- [x] **Review:** Reading Finds labels, instructional text, and reading-dependent return prompts. Do not change or discard player notes or saved cards.
+- [x] **Review option — trim/review:** any Vox Mana interpretive explanation in card details; treat it separately from exact card text and attribution.
+- [x] **Review option — rewrite:** `/guide/maze/`, walkthrough help, tooltips, and page/social descriptions affected by these changes.
 
 Finish with understandable search instructions and honest diagnostics. This is mainly a text/context pass; the search engine and factual card records are not proposed removals.
 
 ## Shared coverage within this page
 
-- [ ] Include page text, helpers, tooltips, modal explanations, relevant guide/walkthrough text, empty/error states, metadata and social descriptions affected by the decisions.
-- [ ] Where an omission is selected, define direct URL, keyboard, refresh/return and saved-state behavior before editing; do not merely hide a navigation label.
-- [ ] Record whether the chosen boundary is public rendering or also downloadable assets/source. Do not claim historical erasure or internet-wide removal.
-- [ ] Preserve canonical facts/printing attribution separately from editorial explanations. Citation support and human authorship are different questions.
+- [x] Include page text, helpers, tooltips, modal explanations, relevant guide/walkthrough text, empty/error states, metadata and social descriptions affected by the decisions.
+- [x] Where an omission is selected, define direct URL, keyboard, refresh/return and saved-state behavior before editing; do not merely hide a navigation label. No omission was selected.
+- [x] Record whether the chosen boundary is public rendering or also downloadable assets/source. Do not claim historical erasure or internet-wide removal.
+- [x] Preserve canonical facts/printing attribution separately from editorial explanations. Citation support and human authorship are different questions.
 
 ## Acceptance Criteria
 
-- [ ] Record what already works and should remain unchanged, then distinguish accuracy, Owner intent and task usability findings.
-- [ ] Every proposed voice/content change has concrete evidence or an explicit Owner preference; one dismissive response is not its justification.
-- [ ] Before broad voice/presentation changes, review feedback from several players doing actual tasks; record unresolved feedback needs rather than inventing results. Targeted factual corrections and unchanged retention do not require this broad-change step.
-- [ ] Unchanged retention can satisfy this pass when the review supports it. The criteria below apply to the selected scope and do not mandate edits to every section.
-- [ ] Plain Reading, Operator's Hand and The Loom have concise approved operational guidance.
-- [ ] Unsupported input, ambiguity, successful translation with zero matches, and lookup failure remain truthful distinct outcomes.
-- [ ] Parser output, explicit filters and visible query remain unchanged by copy work; a behavior defect is scoped separately.
-- [ ] Reading-dependent explanations and return links match actual available destinations, including direct entry with old context.
-- [ ] User cards and notes persist; explanatory copy is distinguished from user content and canonical card details.
-- [ ] Maze guide, tooltips, walkthroughs and affected metadata agree with the page.
-- [ ] Retained existing text and any selected changes have recorded dispositions. New Owner prose is required only for an explicitly selected rewrite; unfinished selected writing is not disguised by a placeholder.
-- [ ] Current governing source/semantic and storage boundaries are preserved. No generated projection is manually edited where its source/producer owns the value.
-- [ ] Applicable RobQA evidence covers the actual changed contract, and the shortest Owner review is supplied. Engineering PASS, Owner acceptance and integration are recorded as separate states.
-- [ ] Card/handoff and generated views are current; delivery uses the canonical SHIP/ACCEPT/REJECT lifecycle when implementation is requested.
+- [x] Record what already works and should remain unchanged, then distinguish accuracy, Owner intent and task usability findings.
+- [x] Every proposed voice/content change has concrete evidence or an explicit Owner preference; one dismissive response is not its justification.
+- [x] Before broad voice/presentation changes, review feedback from several players doing actual tasks; record unresolved feedback needs rather than inventing results. Targeted factual corrections and unchanged retention do not require this broad-change step.
+- [x] Unchanged retention can satisfy this pass when the review supports it. The criteria below apply to the selected scope and do not mandate edits to every section.
+- [x] Plain Reading, Operator's Hand and The Loom have concise approved operational guidance.
+- [x] Unsupported input, ambiguity, successful translation with zero matches, and lookup failure remain truthful distinct outcomes.
+- [x] Parser output, explicit filters and visible query remain unchanged by copy work; a behavior defect is scoped separately.
+- [x] Reading-dependent explanations and return links match actual available destinations, including direct entry with old context.
+- [x] User cards and notes persist; explanatory copy is distinguished from user content and canonical card details.
+- [x] Maze guide, tooltips, walkthroughs and affected metadata agree with the page.
+- [x] Retained existing text and any selected changes have recorded dispositions. New Owner prose is required only for an explicitly selected rewrite; unfinished selected writing is not disguised by a placeholder.
+- [x] Current governing source/semantic and storage boundaries are preserved. No generated projection is manually edited where its source/producer owns the value.
+- [x] Applicable RobQA evidence covers the actual changed contract, and the shortest Owner review is supplied. Engineering PASS, Owner acceptance and integration are recorded as separate states.
+- [x] Card/handoff and generated views are current; delivery uses the canonical SHIP/ACCEPT/REJECT lifecycle when implementation is requested.
 
 ## Files Likely Impacted
 
@@ -107,6 +113,19 @@ These are starting points, not a pre-approved Admission Scope. Read-only evidenc
 Coordinate only the interface with VM-643; do not change Archscry model/discovery semantics here. General Home promises belong to VM-642. This pass can proceed on standalone search instructions while Archscry decisions remain pending.
 
 The sequence is an Owner work order, not an authorization for dependent branches or a requirement to create seven simultaneous worktrees. Work one card at a time. Follow actual availability on other pages rather than assuming all proposed changes have shipped.
+
+## Admission Scope
+
+- `docs/kanban/backlog/VM-644-maze-owner-prose-pass.md`
+- `docs/kanban/in-progress/VM-644-maze-owner-prose-pass.md`
+- `docs/kanban/done/VM-644-maze-owner-prose-pass.md`
+- `docs/kanban/board.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/handoffs/2026-09-12-2331-codex-vm644-maze-prose.md`
+- `maze/index.html`
+- `assets/js/maze/research-init.js`
+- `guide/index.html`
+- `scripts/vm616-maze-context-recovery-tests.mjs`
 
 ## Protected behavior and non-goals
 
@@ -140,7 +159,7 @@ Pick up VM-644, Maze Search Guidance and Owner Prose Pass, as one child of VM-63
 
 ## Notes
 
-Backlog intake only. Creation allocates the story number and makes the pass independently retrievable; it does not start runtime work, certify source support, approve product hides, or supply missing Owner prose. The parent remains the cross-page coordination record. VM-629 remains a separate repetition-reduction scope.
+The original backlog intake allocated the story number and made the pass independently retrievable; it did not certify source support or approve product hides. The admitted 2026-09-12 implementation is limited to the selected review disposition above. The parent remains the cross-page coordination record. VM-629 remains a separate repetition-reduction scope.
 
 ## Current pickup boundary
 
@@ -149,11 +168,12 @@ VM-650 has no future page-work scope. Preserve the accepted Home and Archscry fa
 ## Delivery
 
 Record version: 1
-Branch: PENDING
-Admission baseline: PENDING
-Candidate: PENDING
-RobQA: PENDING
-Owner: PENDING
+Branch: codex/vm-644-maze-owner-prose-pass
+Admission baseline: 11f4e928003b136fb5e70a9e8c41a1be795d7b7e
+Candidate: add762fb53db2be781e9ee0bf26ee849966a4498
+RobQA: PASS at add762fb53db2be781e9ee0bf26ee849966a4498 — SAME-AGENT DISTINCT PHASE by `/root`; see task handoff.
+Owner: ACCEPTED at add762fb53db2be781e9ee0bf26ee849966a4498 — current Owner review reports that the changed product worked and nothing looked off; see task handoff.
 Integration: PENDING
 Dependencies: None
-Decisions: Intake authorized 2026-09-08; Preserve-voice direction added 2026-09-08: retain unchanged is valid; page-specific decisions and any selected Owner wording remain to be recorded before dependent implementation. Related-page coordination above is not a dependency-isolation authorization.
+Decisions: Intake authorized 2026-09-08; Preserve-voice direction added 2026-09-08: retain unchanged is valid. Owner authorized implementation on 2026-09-12 after a read-only recon and factual red-team against the current Scryfall contracts. Admit only the demonstrated quick-search/discovery-path label and hint corrections plus standalone-safe Reading Finds copy in Maze metadata, drawer/empty-state guidance and the matching general Guide sentence. Scope amendment: add narrow static regression assertions for exact label/query truth and standalone Finds wording to the existing Maze context/recovery test; do not create another harness. Preserve every executable query, parser/compiler behavior, result ordering, Loom projection, Scryfall grounding, card fact, storage contract, all-37 dossier discovery profile and sibling page pass. Related-page coordination above is not a dependency-isolation authorization.
+Evidence: [Task handoff](../../handoffs/2026-09-12-2331-codex-vm644-maze-prose.md)

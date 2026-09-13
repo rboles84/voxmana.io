@@ -4,7 +4,7 @@ import { readFile } from "node:fs/promises";
 import { resolveMazeQueryRequest } from "../assets/js/maze/maze-query-core.js";
 import { setPlainReadingSemanticRegistry, setScryfallGrounding } from "../assets/js/maze/scryfall-grounded-compiler.js";
 
-const [grounding, semantics, mazeHtml, mazeCss, mazeRuntime, mazeUi, guideHtml, guideCss, guideBeaconCss, guideBeaconJs, metadataSource, htmlValidator] = await Promise.all([
+const [grounding, semantics, mazeHtml, mazeCss, mazeRuntime, mazeUi, guideHtml, generalGuideHtml, guideCss, guideBeaconCss, guideBeaconJs, metadataSource, htmlValidator] = await Promise.all([
   readFile(new URL("../data/scryfall/grounding/scryfall-grounding.json", import.meta.url), "utf8").then(JSON.parse),
   readFile(new URL("../data/scryfall/grounding/plain-reading-semantics.json", import.meta.url), "utf8").then(JSON.parse),
   readFile(new URL("../maze/index.html", import.meta.url), "utf8"),
@@ -12,6 +12,7 @@ const [grounding, semantics, mazeHtml, mazeCss, mazeRuntime, mazeUi, guideHtml, 
   readFile(new URL("../assets/js/maze/research-init.js", import.meta.url), "utf8"),
   readFile(new URL("../assets/js/maze/research-ui.js", import.meta.url), "utf8"),
   readFile(new URL("../guide/maze/index.html", import.meta.url), "utf8"),
+  readFile(new URL("../guide/index.html", import.meta.url), "utf8"),
   readFile(new URL("../assets/css/guide-maze.css", import.meta.url), "utf8"),
   readFile(new URL("../assets/css/guide-beacon.css", import.meta.url), "utf8"),
   readFile(new URL("../assets/js/shared/guide-beacon.js", import.meta.url), "utf8"),
@@ -64,7 +65,19 @@ const printedExact = resolveMazeQueryRequest({
 assert.equal(commanderFit.query, "id<=wu f:commander");
 assert.equal(printedExact.query, "c=wu f:commander");
 
+[
+  `{ label: "Commander-legal cards", hint: "A–Z", q: "f:commander" }`,
+  `{ label: "Card draw spells", hint: "Modern instants, mana value 3 or less", q: "t:instant o:draw -o:\\"target player\\" mv<=3 f:modern" }`,
+  `{ label: "Hexproof creatures", hint: "Modern-legal", q: "kw:hexproof t:creature f:modern" }`,
+  `{ label: "Without paying mana costs", hint: "Oracle text", q: "o:\\"without paying its mana cost\\"" }`,
+  `{ label: "Legendary creatures", hint: "legal in Commander", q: "f:commander t:legendary t:creature" }`,
+  `{ label: "Legends with triggers", hint: "beginning or whenever", q: "f:commander t:legendary t:creature (o:\\"at the beginning\\" OR o:\\"whenever you\\")" }`,
+].forEach((expected) => assert.ok(mazeRuntime.includes(expected), `Maze shortcut label must remain truthful for its exact query: ${expected}`));
+assert.doesNotMatch(mazeRuntime, /Commander staples|by EDHREC rank|Free\/uncounterable|Commander entry points|Strange legends|offbeat commanders/);
+
 assert.match(mazeHtml, /id="maze-reading-context"[\s\S]*?Standalone search[\s\S]*?Search independently/);
+assert.match(mazeHtml, /then keep local Reading Finds to revisit later\./);
+assert.match(mazeHtml, /Finds saved with a reading stay linked to it; standalone Finds remain standalone\./);
 assert.match(mazeHtml, /Fits Commander colors includes cards whose color identity stays within the selected colors; a card does not need every selected color\./);
 assert.doesNotMatch(mazeHtml, /id="loom-dossier-context"/);
 assert.equal((mazeUi.match(/href="\.\.\/guide\/maze\/\?guided=maze-search"/g) || []).length, 1, "working Maze should expose one opt-in guided-reading invitation");
@@ -77,6 +90,8 @@ const guideBeaconSignalSeam = guideBeaconJs;
 assert.doesNotMatch(guideBeaconSignalSeam, /localStorage|sessionStorage/, "Guide Beacon signal must remain page-visit state only");
 assert.match(mazeUi, /Maze could not map part of this request\.[\s\S]*?Rephrase or remove one unresolved term, then search again\./);
 assert.match(mazeRuntime, /The query ran, but no cards matched\.[\s\S]*?Broaden or remove one constraint, then search again\./);
+assert.match(mazeRuntime, /Set aside a card from this search to begin\./);
+assert.doesNotMatch(mazeRuntime, /revisit with the reading/);
 assert.match(mazeRuntime, /function classifyRecoveryDiagnostics[\s\S]*?parser_unresolved_term[\s\S]*?level === "warning"[\s\S]*?return "valid"/);
 assert.match(mazeRuntime, /url\.searchParams\.set\("independent", "1"\)/);
 assert.match(mazeRuntime, /history\.pushState[\s\S]*?refreshReadingContextPresentation/);
@@ -103,6 +118,7 @@ assert.match(guideHtml, /new Finds are not attached to that reading[\s\S]*?exist
 assert.match(guideHtml, /White \+ blue includes cards whose color identity stays within WU/);
 assert.match(guideHtml, /Reading Finds keeps useful cards together locally\. Finds saved with reading context can stay attached to that reading; independent Finds remain standalone\. It is not a deckbuilder\./);
 assert.doesNotMatch(guideHtml, /Reading Finds keeps useful cards with the current reading trail/);
+assert.match(generalGuideHtml, /finds saved from a reading can return with it, while fresh-search finds stay standalone\./);
 assert.equal((guideHtml.match(/class="guide-cta"/g) || []).length, 1, "Maze Guide should end with one working-product CTA");
 assert.ok(!guideHtml.includes("VM-616"), "public Guide copy must not expose the work-item ID");
 assert.doesNotMatch(guideHtml, /parser contract|semantic-state|calibration|storage key|handoff JSON/i);

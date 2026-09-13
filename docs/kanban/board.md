@@ -1,4 +1,4 @@
-<!-- task-view-sha256:2efcf37c3078761c012df46ac6f5d1caf8f66f67ae5d7c27efe207055dd6b556 -->
+<!-- task-view-sha256:e24fd959e1fce1c81cd6fef2b5f25bc56b92aea2a087cf7404864908c7ab53c3 -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -32,7 +32,6 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | VM-629 | [Placement Language Repetition Reduction](backlog/VM-629-placement-language-repetition-reduction.md) | Backlog |  |
 | VM-630 | [CRIT-001 Live Provenance Pointer Normalization](backlog/VM-630-crit001-live-provenance-pointer-normalization.md) | Backlog |  |
 | VM-637 | [Public Content Retention and Owner Prose Plan](backlog/VM-637-public-content-retention.md) | Backlog |  |
-| VM-644 | [Maze Search Guidance and Owner Prose Pass](backlog/VM-644-maze-owner-prose-pass.md) | Backlog |  |
 | VM-645 | [Apocrypha Source Annotations and Owner Prose Pass](backlog/VM-645-apocrypha-owner-prose-pass.md) | Backlog |  |
 | VM-646 | [Strategium Table Guidance and Owner Prose Pass](backlog/VM-646-strategium-owner-prose-pass.md) | Backlog |  |
 | VM-647 | [Privacy Service Accuracy and Owner Prose Pass](backlog/VM-647-privacy-service-accuracy-pass.md) | Backlog |  |
@@ -57,6 +56,7 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 
 | ID | Card | Declared status | Diagnostics |
 |---|---|---|---|
+| VM-644 | [Maze Search Guidance and Owner Prose Pass](in-progress/VM-644-maze-owner-prose-pass.md) | Accepted |  |
 
 ## Integrated
 
