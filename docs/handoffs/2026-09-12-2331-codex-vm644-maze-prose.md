@@ -100,4 +100,3 @@ Maze query core, parser/compiler, Scryfall grounding and indexes, API ordering/u
 QA tier: QA-1 copy/presentation. Execution mode: same-agent distinct phase is permitted because the change is bounded copy plus static assertions and touches no shared behavioral, semantic, storage, security or migration contract. Candidate: PENDING.
 
 Next: commit the exact material candidate, re-read its baseline diff in the distinct QA phase, rerun only the focused objective checks, bind PASS or BLOCKED to that SHA, and stop at Owner Review under `SHIP VM-644`.
-
