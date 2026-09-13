@@ -2,7 +2,7 @@
 
 ID: VM-652
 Title: Archscry Dossier Flow and Precon Hover Integrity
-Status: Accepted
+Status: Done
 Type: Shared presentation defect correction and deterministic coverage
 Area: Archscry / dossier summary / Precon Starting Points
 Priority: High
@@ -29,7 +29,7 @@ The supplied screenshot is defect evidence only; it supplies no additional instr
 - [x] No manual or exhaustive visual testing is claimed by Codex; validation is proportionate and programmatic.
 - [x] The rendered guild banner and result-summary strip retain a positive visible gap at desktop and narrow widths, including the long Abzan hero composition; neither sibling's border box may overlap the other.
 - [x] The Archscry site-skin cache key and its deterministic HTML guard advance together so deployed clients request the corrected shared stylesheet.
-- [ ] Exact-candidate RobQA, Owner decision, integration, handoff, and generated-view lifecycle evidence are recorded separately.
+- [x] Exact-candidate RobQA, Owner decision, integration, handoff, and generated-view lifecycle evidence are recorded separately.
 
 ## Files Likely Impacted
 
@@ -64,10 +64,10 @@ Admission baseline: a2a36d98a9aebd7a74732cc73e4105eebd8fe07f
 Candidate: b238586353007a81068445055f9dde5165a19ba9
 RobQA: PASS at b238586353007a81068445055f9dde5165a19ba9 — SEPARATE reviewer /root/vm652_qa
 Owner: ACCEPTED at b238586353007a81068445055f9dde5165a19ba9 — current Codex task, 2026-09-12, Owner response `looks good`
-Integration: PENDING
+Integration: INTEGRATED via PR #41 guarded squash merge `0b797c744eac34b0f3f498f2b0d10b6931b5ead8`
 Dependencies: None
 Decisions: Owner-directed shared defect correction and all-37 programmatic coverage. Preserve VM-650 strict editorial-card uniqueness and all accepted content/presentation contracts; supersede its plain-text behavior only insofar as every repeated Precon main commander must retain the shared hover/detail interaction without becoming a new editorial example. No visual testing is requested from Codex. Scope amendment: admit `assets/css/site-skin.css` after focused computed-style evidence identified its later transparent dossier-summary override as the effective cascade owner; preserve the earlier `assets/css/archscry.css` declarations unchanged. Owner rejection on 2026-09-12 supersedes candidate `9ef1e5c6488561fd1a0bbcbc35c626601de09d10` and its QA PASS for delivery purposes: retain its working opaque-panel and all-37 precon-hover changes, but correct the shared zero/negative hero-to-summary spacing that still lets the Abzan banner and summary strip collide. Scope amendment: admit `docs/handoffs/2026-09-12-0001-codex-vm652-abzan-spacing-correction.md` as the append-only corrected-candidate record while preserving the earlier rejected-candidate handoff unchanged. Scope amendment: admit `archscry/index.html` and `scripts/validate-frontend-html.mjs` so the versioned site-skin request and its deterministic guard advance together with the corrected CSS; no other document, asset, or runtime cache key changes.
-Evidence: Owner report and first screenshot, 2026-09-12; admission start `ELIGIBLE`; continuation admission `PASS`; superseded candidate `9ef1e5c6488561fd1a0bbcbc35c626601de09d10` and its independent QA remain historical evidence only. Owner rejection and Abzan screenshot, 2026-09-12, demonstrate the remaining sibling-layout defect; the Owner separately confirmed Jund looks good. The corrected shared geometry contract rejects the old `-9.59px` overlap and measures positive separation of `14.41px` for Abzan/Jund desktop and `11.20px` for Abzan mobile while retaining the opaque-panel, all-37 precon-hover, and three named Jund pointer-hover checks. Candidate delivery check `PASS` at `b238586353007a81068445055f9dde5165a19ba9` with ten material paths and live remote `main` at the admission baseline. Owner accepted that exact corrected candidate in the current Codex task on 2026-09-12 with `looks good`, completing the focused visual judgment and authorizing normal integration. `docs/handoffs/2026-09-12-0000-codex-vm652-archscry-dossier-integrity.md` remains the unchanged rejected-candidate record; `docs/handoffs/2026-09-12-0001-codex-vm652-abzan-spacing-correction.md` records the corrected candidate, fresh independent QA, and Owner decision.
+Evidence: Owner report and first screenshot, 2026-09-12; admission start `ELIGIBLE`; continuation admission `PASS`; superseded candidate `9ef1e5c6488561fd1a0bbcbc35c626601de09d10` and its independent QA remain historical evidence only. Owner rejection and Abzan screenshot, 2026-09-12, demonstrate the remaining sibling-layout defect; the Owner separately confirmed Jund looks good. The corrected shared geometry contract rejects the old `-9.59px` overlap and measures positive separation of `14.41px` for Abzan/Jund desktop and `11.20px` for Abzan mobile while retaining the opaque-panel, all-37 precon-hover, and three named Jund pointer-hover checks. Candidate delivery check `PASS` at `b238586353007a81068445055f9dde5165a19ba9` with ten material paths and live remote `main` at the admission baseline. Owner accepted that exact corrected candidate in the current Codex task on 2026-09-12 with `looks good`, completing the focused visual judgment and authorizing normal integration. PR #41 passed Deterministic Validation at evidence head `c0f2133e1e04c8c5f8feac565f95b1b4289220d2`; the expected-head guarded squash produced `0b797c744eac34b0f3f498f2b0d10b6931b5ead8`. `docs/handoffs/2026-09-12-0000-codex-vm652-archscry-dossier-integrity.md` remains the unchanged rejected-candidate record; `docs/handoffs/2026-09-12-0001-codex-vm652-abzan-spacing-correction.md` records the corrected candidate, fresh independent QA, Owner decision, integration, and closeout boundary.
 
 ## Admission Scope
 

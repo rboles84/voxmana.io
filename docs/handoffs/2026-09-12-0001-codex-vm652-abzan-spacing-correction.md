@@ -111,3 +111,15 @@ Owner: ACCEPT
 Decision reference: current Codex task, Owner message on 2026-09-12 responding to the corrected candidate: `looks good`.
 
 The Owner completed the focused Abzan visual recheck and accepted the exact corrected candidate. This authorizes normal integration; it does not approve a different material SHA or another story.
+
+## Integration and closeout
+
+Task: VM-652
+Candidate: b238586353007a81068445055f9dde5165a19ba9
+Boundaries: PASS
+Integration: PR41 guarded-squash merged exact evidence head `c0f2133e1e04c8c5f8feac565f95b1b4289220d2` as `0b797c744eac34b0f3f498f2b0d10b6931b5ead8`.
+Squash parent: `a2a36d98a9aebd7a74732cc73e4105eebd8fe07f`
+Merged tree: `b0a21890b7c34e4c9e809ff6dca5d92c1c057ae2`
+CI: Deterministic Validation passed at the exact PR head: https://github.com/rboles84/voxmana.io/actions/runs/34732910586/job/103658923920
+Scope: The merged tree matches the accepted PR input. Closeout changes are lifecycle evidence only; no dossier content, product behavior, ranking, model value, interaction contract, broader visual audit, research, or sibling-story work was added.
+Cleanup: The VM-652 feature branch is the only cleanup target; final verification requires its local and remote refs to be absent.
