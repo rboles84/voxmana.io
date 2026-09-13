@@ -2,7 +2,7 @@
 
 ID: VM-644
 Title: Maze Search Guidance and Owner Prose Pass
-Status: Backlog
+Status: In Progress
 Type: Page content review and bounded implementation
 Area: Maze
 Priority: Medium
@@ -108,6 +108,18 @@ Coordinate only the interface with VM-643; do not change Archscry model/discover
 
 The sequence is an Owner work order, not an authorization for dependent branches or a requirement to create seven simultaneous worktrees. Work one card at a time. Follow actual availability on other pages rather than assuming all proposed changes have shipped.
 
+## Admission Scope
+
+- `docs/kanban/backlog/VM-644-maze-owner-prose-pass.md`
+- `docs/kanban/in-progress/VM-644-maze-owner-prose-pass.md`
+- `docs/kanban/done/VM-644-maze-owner-prose-pass.md`
+- `docs/kanban/board.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/handoffs/2026-09-12-2331-codex-vm644-maze-prose.md`
+- `maze/index.html`
+- `assets/js/maze/research-init.js`
+- `guide/index.html`
+
 ## Protected behavior and non-goals
 
 - No redesign, new engine, new analytics dashboard, mass all-identity rewrite, ranking/scoring change or schema/storage migration is implied by this page pass.
@@ -149,11 +161,11 @@ VM-650 has no future page-work scope. Preserve the accepted Home and Archscry fa
 ## Delivery
 
 Record version: 1
-Branch: PENDING
-Admission baseline: PENDING
+Branch: codex/vm-644-maze-owner-prose-pass
+Admission baseline: 11f4e928003b136fb5e70a9e8c41a1be795d7b7e
 Candidate: PENDING
 RobQA: PENDING
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
-Decisions: Intake authorized 2026-09-08; Preserve-voice direction added 2026-09-08: retain unchanged is valid; page-specific decisions and any selected Owner wording remain to be recorded before dependent implementation. Related-page coordination above is not a dependency-isolation authorization.
+Decisions: Intake authorized 2026-09-08; Preserve-voice direction added 2026-09-08: retain unchanged is valid. Owner authorized implementation on 2026-09-12 after a read-only recon and factual red-team against the current Scryfall contracts. Admit only the demonstrated quick-search/discovery-path label and hint corrections plus standalone-safe Reading Finds copy in Maze metadata, drawer/empty-state guidance and the matching general Guide sentence. Preserve every executable query, parser/compiler behavior, result ordering, Loom projection, Scryfall grounding, card fact, storage contract, all-37 dossier discovery profile and sibling page pass. Related-page coordination above is not a dependency-isolation authorization.
