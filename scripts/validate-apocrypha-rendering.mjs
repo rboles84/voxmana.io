@@ -5,7 +5,7 @@ import process from "node:process";
 const ROOT = process.cwd();
 const REGISTRY_PATH = path.join(ROOT, "data", "apocrypha-source-registry.json");
 const HTML_PATH = path.join(ROOT, "apocrypha", "index.html");
-const JS_PATH = path.join(ROOT, "assets", "js", "apocrypha.js");
+const JS_PATH = path.join(ROOT, "assets", "js", "apocrypha", "apocrypha.js");
 const CSS_PATH = path.join(ROOT, "assets", "css", "apocrypha.css");
 const EXPECTED_SCHEMA_VERSION = 2;
 const EXPECTED_REGISTRY_COUNT = 60;
@@ -33,8 +33,8 @@ const SHELVES = {
     title: "Official Design",
     kicker: "Official Design",
     tone: "canon",
-    shortDescription: "Official Wizards design articles for color philosophy, mechanics, faction design, and design intent.",
-    usefulFor: "Color, guild, shard, wedge, and mechanic design support.",
+    shortDescription: "Official Wizards articles about color philosophy, mechanics, factions, and design intent.",
+    usefulFor: "Understanding how Magic's colors and factions are designed.",
     notProving: "Rules text, Oracle records, story canon, legality, or deckbuilding advice.",
   },
   lore: {
@@ -42,26 +42,26 @@ const SHELVES = {
     title: "Worldbuilding & Lore",
     kicker: "Worldbuilding & Lore",
     tone: "codex",
-    shortDescription: "Official story, plane, setting, and flavor material for lore and identity context.",
-    usefulFor: "Setting details, guild flavor, plane context, and story support.",
-    notProving: "Design intent, rules meaning, card-record truth, or community interpretation.",
+    shortDescription: "Official stories and plane guides about settings, characters, guilds, and events.",
+    usefulFor: "Checking story, setting, guild, and plane context.",
+    notProving: "Design intent, rules meaning, card records, or community interpretation.",
   },
   "official-archives": {
     id: "apoc-library-official-archives",
     title: "Official Archives",
     kicker: "Official Archives",
     tone: "scholarship",
-    shortDescription: "Historical Wizards material kept for source lineage and older official context.",
-    usefulFor: "Older official statements and how ideas were framed at the time.",
-    notProving: "Current guidance unless the registry marks it current and verified.",
+    shortDescription: "Older Wizards material preserved for historical context.",
+    usefulFor: "Finding earlier official statements and how ideas were framed at the time.",
+    notProving: "Current guidance without confirmation from a current official source.",
   },
   supplemental: {
     id: "apoc-library-supplemental-references",
     title: "Supplemental References",
     kicker: "Supplemental References",
     tone: "logic",
-    shortDescription: "Community, wiki, video, social, and archive links kept only for navigation or context.",
-    usefulFor: "Chronology, terminology, community framing, and source trails needing official support.",
+    shortDescription: "Community, wiki, video, and archive links that can help you follow a source trail.",
+    usefulFor: "Finding chronology, terminology, community context, or leads to official material.",
     notProving: "Official canon, rules meaning, card records, design intent, legality, recommendations, or Vox Mana claims.",
   },
 };
@@ -236,10 +236,10 @@ ${sourceBadges(source).map((badge) => `                        <span class="apoc
                       </div>
                     </div>
                     <p class="apoc-source-meta">${formatMetadata(source).map(escapeHtml).join(" · ")}</p>
-                    <p><strong>Supports:</strong> ${escapeHtml(source.usedFor)}</p>
-                    <p><strong>Not for:</strong> ${escapeHtml(source.notFor)}</p>${renderTags(source)}
+                    <p><strong>Used for:</strong> ${escapeHtml(source.usedFor)}</p>
+                    <p><strong>Does not establish:</strong> ${escapeHtml(source.notFor)}</p>${renderTags(source)}
                     <p class="apoc-source-verification">${escapeHtml(VERIFICATION_COPY[source.verification.status](source))}</p>
-                    <a class="apoc-source-link" href="${escapeHtml(source.url)}" target="_blank" rel="noopener" data-source-link="${escapeHtml(source.id)}" aria-label="Open source: ${escapeHtml(source.title)}">Open source</a>
+                    <a class="apoc-source-link" href="${escapeHtml(source.url)}" target="_blank" rel="noopener" data-source-link="${escapeHtml(source.id)}" aria-label="Read source: ${escapeHtml(source.title)}">Read source</a>
                   </article>
                 </li>`;
 }
@@ -269,8 +269,8 @@ function renderShelf(group, records, registry, open = true) {
                   <span class="vm-card-kicker">${escapeHtml(config.kicker)}</span>
                   <span class="apoc-library-title">${escapeHtml(config.title)}</span>
                   <span class="apoc-library-desc">${escapeHtml(config.shortDescription)}</span>
-                  <span class="apoc-library-desc"><strong>Useful for:</strong> ${escapeHtml(config.usefulFor)}</span>
-                  <span class="apoc-library-desc"><strong>Not for:</strong> ${escapeHtml(config.notProving)}</span>
+                  <span class="apoc-library-desc"><strong>Best for:</strong> ${escapeHtml(config.usefulFor)}</span>
+                  <span class="apoc-library-desc"><strong>Does not establish:</strong> ${escapeHtml(config.notProving)}</span>
                 </span>
                 <span class="apoc-shelf__count" data-source-count="${count}" aria-label="${count} ${count === 1 ? "source" : "sources"}">${count} ${count === 1 ? "source" : "sources"}</span>
               </summary>
@@ -332,7 +332,6 @@ function renderMain(registry) {
   const groupCounts = countBy(authorized, "group");
   const verified = authorized.filter((source) => source.verification.status === "verified").length;
   const pending = authorized.length - verified;
-  const suppressed = suppressedRecords(registry).length;
 
   return `<main class="vm-page-shell apoc-shell">
   <div class="vm-page-content apoc-page">
@@ -343,38 +342,38 @@ function renderMain(registry) {
           <div class="apoc-hero__intro">
             <h1 id="apocrypha-title">The Apocrypha</h1>
             <p class="apoc-subtitle">Where Vox Mana shows its work.</p>
-            <p class="apoc-lede">Apocrypha lists the public sources behind Vox Mana's color, lore, rules, and Commander identity work. Each source card should say what the source is, what it can support, and where its authority stops.</p>
-            <p class="apoc-note">Official sources can support design, lore, rules, card-record, or archive claims according to their source type. Supplemental references can help with navigation and context, but they do not carry official claims by themselves.</p>
+            <p class="apoc-lede">Browse the official Magic sources behind Vox Mana's view of color, factions, lore, and Commander identity.</p>
+            <p class="apoc-note">Supplemental references are kept separate and included only to help you follow a source trail.</p>
           </div>
           <div class="apoc-hero__actions">
-            <a class="vm-button vm-button--primary" href="#ledger">Browse source shelves</a>
-            <a class="vm-button" href="#method">Read the trust note</a>
+            <a class="vm-button vm-button--primary" href="#ledger">Browse the sources</a>
+            <a class="vm-button" href="#method">How sources are used</a>
           </div>
           <div class="apoc-hero__status" aria-label="Current registry coverage">
-            <span data-source-total="${authorized.length}">${authorized.length} rendered sources</span>
+            <span data-source-total="${authorized.length}">${authorized.length} public sources</span>
             <span data-source-official="${authorized.filter((source) => source.official).length}">${authorized.filter((source) => source.official).length} official sources</span>
-            <span data-source-pending="${pending}">${pending} links pending check</span>
+            <span data-source-pending="${pending}">${pending} link checks pending</span>
           </div>
         </div>
 
         <aside class="vm-panel apoc-hero__signal" data-reveal aria-label="How to read Apocrypha">
           <div class="apoc-hero__signal-head">
-            <p class="vm-card-kicker">At A Glance</p>
-            <h2>Start with official evidence.</h2>
-            <p>Start with the official shelves when checking a Vox Mana claim. Use supplemental references only as wayfinding aids or context trails.</p>
+            <p class="vm-card-kicker">How to Use This Library</p>
+            <h2>Start with the question you want answered.</h2>
+            <p>Choose the matching shelf, then read the source itself.</p>
           </div>
           <div class="apoc-signal-list">
             <article class="apoc-signal-item">
-              <h3>Source type matters</h3>
-              <p>Official publisher status and link verification are separate facts.</p>
+              <h3>Official first</h3>
+              <p>Use official design, lore, and archive sources when checking a Vox Mana claim.</p>
             </article>
             <article class="apoc-signal-item">
-              <h3>Boundaries stay visible</h3>
-              <p>Every source card says what the source supports and what it does not support.</p>
+              <h3>Read the boundary</h3>
+              <p>Each card says what Vox Mana uses the source for and what it cannot establish.</p>
             </article>
             <article class="apoc-signal-item">
-              <h3>Known gaps remain</h3>
-              <p>Current registry coverage is useful, but it is not a complete Magic source library.</p>
+              <h3>Follow the trail</h3>
+              <p>Supplemental links can help you find context, but they are not official evidence.</p>
             </article>
           </div>
         </aside>
@@ -390,68 +389,32 @@ function renderMain(registry) {
 
         <nav class="apoc-rail__links" aria-label="Apocrypha sections">
           <a href="#top" data-rail-link="top" aria-current="false">Top</a>
-          <a href="#decks" data-rail-link="decks" aria-current="false">Quick Guide</a>
           <a href="#ledger" data-rail-link="ledger" aria-current="false">Source Library</a>
-          <a href="#method" data-rail-link="method" aria-current="false">Trust Note</a>
+          <a href="#method" data-rail-link="method" aria-current="false">How Sources Are Used</a>
         </nav>
       </aside>
 
       <div class="apoc-main">
-        <section class="apoc-section" id="decks" data-rail-section aria-labelledby="apocrypha-decks-title">
-          <div class="apoc-section__head" data-reveal>
-            <p class="apoc-kicker">What Should I Look At?</p>
-            <h2 id="apocrypha-decks-title">Start with the shelf that matches your question.</h2>
-            <p>Official sources support only the claims their source type can carry. Supplemental sources help readers navigate; they do not prove canon, rules, card records, or design intent.</p>
-          </div>
-
-          <div class="apoc-guide-grid">
-            <article class="vm-panel apoc-guide-card" data-reveal>
-              <p class="vm-card-kicker">Official Design</p>
-              <h3>Color, mechanics, and faction design.</h3>
-              <p>Use these sources when checking why Vox Mana treats a color, guild, shard, wedge, or mechanic as design-supported.</p>
-            </article>
-
-            <article class="vm-panel apoc-guide-card" data-reveal>
-              <p class="vm-card-kicker">Worldbuilding & Lore</p>
-              <h3>Story, planes, setting, and flavor.</h3>
-              <p>Use these sources when checking official setting details, guild flavor, plane context, or story support.</p>
-            </article>
-
-            <article class="vm-panel apoc-guide-card" data-reveal>
-              <p class="vm-card-kicker">Official Archives</p>
-              <h3>Historical official context.</h3>
-              <p>Use these sources when checking where an older official statement came from or how an idea was framed at the time.</p>
-            </article>
-
-            <article class="vm-panel apoc-guide-card" data-reveal>
-              <p class="vm-card-kicker">Supplemental References</p>
-              <h3>Navigation only.</h3>
-              <p>Use these links to find chronology, terminology, community framing, or source trails that still need official support.</p>
-            </article>
-          </div>
-        </section>
-
         <section class="apoc-section" id="ledger" data-rail-section aria-labelledby="apocrypha-ledger-title">
           <div class="apoc-section__head" data-reveal>
             <p class="apoc-kicker">Public Source Library</p>
-            <h2 id="apocrypha-ledger-title">Registry-listed sources, grouped by authority.</h2>
-            <p>A source being listed here does not make every claim official, current, complete, or verified. Authority comes from source type, publisher, evidence role, and verification state.</p>
+            <h2 id="apocrypha-ledger-title">Browse sources by what they can tell you.</h2>
+            <p>Official sources are grouped by design, lore, and archive. Supplemental references appear separately when they can help you follow a trail.</p>
           </div>
 
           <div class="apoc-registry-summary" aria-label="Current registry rendering summary">
-            <span data-source-total="${authorized.length}">${authorized.length} rendered sources</span>
+            <span data-source-total="${authorized.length}">${authorized.length} public sources</span>
             <span>${groupCounts.design} design</span>
             <span>${groupCounts.lore} lore</span>
             <span>${groupCounts["official-archives"]} archive</span>
             <span>${groupCounts.supplemental} supplemental</span>
             <span>${verified} checked links</span>
             <span>${pending} pending link checks</span>
-            <span>${suppressed} rules record suppressed</span>
           </div>
 
-          <p class="apoc-source-status" data-apoc-source-status role="status" aria-live="polite">Static source shelves are available below. When served over HTTP, JavaScript checks the registry and refreshes this library from data.</p>
+          <p class="apoc-source-status" data-apoc-source-status role="status" aria-live="polite">Browse the source shelves below.</p>
           <noscript>
-            <p class="apoc-source-status">JavaScript is off. Source shelves remain available below; filtering and navigation enhancements are disabled.</p>
+            <p class="apoc-source-status">JavaScript is off. The complete public source library remains available below.</p>
           </noscript>
 
           <div data-apoc-source-root data-render-mode="fallback">
@@ -462,38 +425,12 @@ ${renderLibrary(registry)}
         <section class="apoc-section" id="method" data-rail-section aria-labelledby="apocrypha-method-title">
           <div class="apoc-section__head" data-reveal>
             <p class="apoc-kicker">How These Sources Are Used</p>
-            <h2 id="apocrypha-method-title">Authority comes from source type.</h2>
-            <p>Vox Mana is not an official Magic source, rules engine, legality checker, deckbuilder, wiki, or purchasing guide. Apocrypha shows the public evidence Vox Mana uses and the limits on that evidence.</p>
+            <h2 id="apocrypha-method-title">Use the source that fits the question.</h2>
+            <p>Official design articles explain design intent. Official stories and plane pages establish lore and setting. Official archives preserve older context. One source type cannot stand in for another.</p>
           </div>
-
-          <div class="apoc-use-grid">
-            <article class="vm-panel apoc-use-card" data-reveal>
-              <p class="vm-card-kicker">Official Sources</p>
-              <h3>Support only matching claims.</h3>
-              <p>Publisher authority does not turn a design article into rules text or a lore article into card-record truth.</p>
-            </article>
-
-            <article class="vm-panel apoc-use-card" data-reveal>
-              <p class="vm-card-kicker">Link Checks</p>
-              <h3>Verification is separate.</h3>
-              <p>Links checked by GET show a checked-link badge. Other links remain pending and should not be described as verified.</p>
-            </article>
-
-            <article class="vm-panel apoc-use-card" data-reveal>
-              <p class="vm-card-kicker">Supplemental References</p>
-              <h3>Useful, but limited.</h3>
-              <p>Supplemental references stay visible because they can help readers follow a trail. They are separated from official evidence because they cannot carry Vox Mana's official claims by themselves.</p>
-            </article>
-
-            <article class="vm-panel apoc-use-card" data-reveal>
-              <p class="vm-card-kicker">Known Gaps</p>
-              <h3>Partial coverage stays honest.</h3>
-              <p>Known source gaps remain. Vox Mana should show partial coverage honestly rather than imply a complete official library.</p>
-            </article>
-          </div>
-
           <article class="vm-panel apoc-use-note" data-reveal>
-            <p>Rules and card-record sources are not ready for public shelf rendering. The registry keeps the official rules record, but the Rules & Card Records shelf stays suppressed until an approved card-record source is added.</p>
+            <p>Supplemental references can help you follow a trail, but they do not establish official claims. A checked link means only that the URL worked on the recorded date.</p>
+            <p>Rules and card-record sources are not included yet. Vox Mana is not a rules engine, legality checker, deckbuilder, wiki, or purchasing guide.</p>
           </article>
         </section>
       </div>
@@ -516,18 +453,18 @@ function updateMetadata(html) {
     .replace("<title>Vox Mana - The Apocrypha</title>", "<title>Vox Mana - The Apocrypha</title>")
     .replace(
       /<meta name="description" content="[^"]*">/,
-      '<meta name="description" content="Read the registry-backed public source library behind Vox Mana\'s color, lore, and Commander identity work.">'
+      '<meta name="description" content="Explore the official Magic design, worldbuilding, lore, and archive sources behind Vox Mana, plus clearly labeled supplemental references.">'
     )
     .replace(
       /<meta property="og:description" content="[^"]*">/,
-      '<meta property="og:description" content="A registry-backed public source library for the evidence and source boundaries behind Vox Mana.">'
+      '<meta property="og:description" content="Explore the official Magic design, worldbuilding, lore, and archive sources behind Vox Mana, plus clearly labeled supplemental references.">'
     )
     .replace(
       /<meta name="twitter:description" content="[^"]*">/,
-      '<meta name="twitter:description" content="Registry-backed public sources and authority boundaries behind Vox Mana.">'
+      '<meta name="twitter:description" content="Explore the official Magic design, worldbuilding, lore, and archive sources behind Vox Mana, plus clearly labeled supplemental references.">'
     )
     .replace("apocrypha.css?v=20260615a", "apocrypha.css?v=20260725g5")
-    .replace(/apocrypha\.js\?v=2026[0-9a-z]+/g, "apocrypha.js?v=20260725g6");
+    .replace(/apocrypha\.js\?v=2026[0-9a-z]+/g, "apocrypha.js?v=20260913vm645");
 }
 
 function buildPage(registry) {
@@ -660,7 +597,7 @@ function validateRuntimeContract(failures) {
   expect(js.includes("var APOC_EXPECTED_SCHEMA_VERSION = 2"), "runtime JS should require schemaVersion 2", failures);
   expect(js.includes("response.json()"), "runtime JS should parse registry JSON through the fetch promise chain", failures);
   expect(js.includes(".catch(function (error)"), "runtime JS should handle fetch, JSON, and validation failures", failures);
-  expect(js.includes("Source registry unavailable. Apocrypha cannot show source cards safely right now."), "runtime JS should expose approved fetch-failure copy", failures);
+  expect(js.includes("The live source list could not be refreshed. The complete public source library remains available below."), "runtime JS should preserve the approved fetch-failure copy", failures);
   expect(js.includes("Source registry version unsupported. Rendering stopped to avoid mislabeling sources."), "runtime JS should reject unsupported schema versions", failures);
   expect(js.includes("Source record incomplete. Rendering stopped for this record."), "runtime JS should reject malformed registry records", failures);
   expect(js.includes("Source classification unavailable. Rendering stopped for this record."), "runtime JS should reject unknown group/source/evidence values", failures);
@@ -678,15 +615,20 @@ function validateCopyContract(html, failures) {
   const requiredCopy = [
     "The Apocrypha",
     "Where Vox Mana shows its work.",
-    "Apocrypha lists the public sources behind Vox Mana's color, lore, rules, and Commander identity work.",
-    "Official sources can support design, lore, rules, card-record, or archive claims according to their source type.",
-    "Supplemental references can help with navigation and context, but they do not carry official claims by themselves.",
-    "Vox Mana is not an official Magic source, rules engine, legality checker, deckbuilder, wiki, or purchasing guide.",
+    "Browse the official Magic sources behind Vox Mana's view of color, factions, lore, and Commander identity.",
+    "Supplemental references are kept separate and included only to help you follow a source trail.",
+    "How to Use This Library",
+    "Browse sources by what they can tell you.",
+    "Use the source that fits the question.",
+    "Rules and card-record sources are not included yet.",
+    "Best for:",
+    "Used for:",
+    "Does not establish:",
+    "Read source",
     "Official Design",
     "Worldbuilding & Lore",
     "Official Archives",
     "Supplemental References",
-    "Navigation only",
     "Pending link check",
   ];
 
@@ -703,6 +645,9 @@ function validateCopyContract(html, failures) {
     "Fully verified",
     "Definitive canon list",
     "Every source Vox Mana uses",
+    "Supports:",
+    "Not for:",
+    "Open source",
   ];
   for (const claim of forbiddenClaims) {
     expect(!text.includes(claim), `unsupported completeness or verification claim is visible: ${claim}`, failures);
@@ -711,6 +656,8 @@ function validateCopyContract(html, failures) {
   for (const rawEnum of USER_FACING_ENUMS) {
     expect(!visibleText(html).includes(rawEnum), `visible copy exposes raw enum value: ${rawEnum}`, failures);
   }
+
+  expect(!/id="decks"|href="#decks"/i.test(html), "fallback should not retain the removed Quick Guide section", failures);
 }
 
 function validateHtmlStructure(html, failures) {
@@ -728,13 +675,13 @@ function validateHtmlStructure(html, failures) {
   }
 
   expect(/data-apoc-source-status[^>]+role="status"[^>]+aria-live="polite"/i.test(html), "source status should be exposed as a polite status region", failures);
-  expect(/<noscript>[\s\S]*Source shelves remain available below/i.test(html), "no-JavaScript fallback note should keep source shelves usable", failures);
+  expect(/<noscript>[\s\S]*complete public source library remains available below/i.test(html), "no-JavaScript fallback note should keep source shelves usable", failures);
   for (const match of html.matchAll(/<img\b([^>]*)>/gi)) {
     expect(/\balt="/i.test(match[1]), "images should retain explicit alt treatment", failures);
   }
   for (const match of html.matchAll(/<a\b([^>]+)data-source-link="[^"]+"([^>]*)>/gi)) {
     const attrs = `${match[1]} ${match[2]}`;
-    expect(/\baria-label="Open source:/i.test(attrs), "source links should have descriptive accessible labels", failures);
+    expect(/\baria-label="Read source:/i.test(attrs), "source links should have descriptive accessible labels", failures);
   }
 }
 
