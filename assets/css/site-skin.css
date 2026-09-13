@@ -471,7 +471,7 @@ body.vm-site-skin.vm-archscry-route .answer-card:focus-within { background: #171
 body.vm-site-skin.vm-archscry-route .quick-footer { margin-top: 20px; padding-top: 0; border: 0; }
 
 /* Artwork stays the dossier's visual anchor; the surrounding directory stays quiet. */
-body.vm-site-skin.vm-archscry-route .guild-banner { padding: 32px; min-height: 0; margin-bottom: 0; }
+body.vm-site-skin.vm-archscry-route .guild-banner { padding: 32px; min-height: 0; margin-bottom: 1.5rem; }
 body.vm-site-skin.vm-archscry-route .guild-name { font-size: clamp(2.6rem, 4.7vw, 4.2rem); line-height: 1.05; }
 body.vm-site-skin.vm-archscry-route .guild-philosophy { max-width: 68ch; }
 body.vm-site-skin.vm-archscry-route :is(.identity-explore-nav, .dossier-orientation, .result-context-bar) {
@@ -596,7 +596,7 @@ body.vm-site-skin.vm-archscry-route .dossier-snapshot-card {
   border: 0;
   border-left: 2px solid var(--site-rule);
   border-radius: 0;
-  background: transparent;
+  background: #0c0c0a;
   padding: 4px 16px;
 }
 

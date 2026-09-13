@@ -32,6 +32,7 @@ const reviewCheckMode = process.argv.includes("--review-check");
 const reviewMode = process.argv.includes("--review") || vm558ReviewMode;
 const collectFailures = process.argv.includes("--collect-failures");
 const engineOnlyMode = process.argv.includes("--engine-only");
+const vm652ContractMode = process.argv.includes("--vm652-contract");
 const witnessPath = path.join(root, "docs", "audits", "vm551-all-37-dossier-closeout", "live-placement-witnesses.json");
 const reportPath = path.join(root, "docs", "audits", "vm551-all-37-dossier-closeout", "live-ui-witness-replay.json");
 const witnessArtifact = JSON.parse(fs.readFileSync(witnessPath, "utf8"));
@@ -492,6 +493,117 @@ async function replay(page, origin, witness) {
       .map((slot) => slot.getAttribute("data-card-art-name"))
       .filter(Boolean),
   }));
+  if (vm652ContractMode) {
+    if (witness.expected_public_contract !== "NAMED_DOSSIER") {
+      return {
+        identity_key: witness.identity_key,
+        mode: "vm652-contract",
+        viewport: viewportName,
+        state: "bounded",
+        precon_products: 0,
+        precon_commander_triggers: 0,
+      };
+    }
+    const contract = await page.evaluate(() => {
+      const opaqueBackground = (node) => {
+        const color = node ? getComputedStyle(node).backgroundColor : "";
+        const alphaMatch = color.match(/^rgba\([^,]+,[^,]+,[^,]+,\s*([\d.]+)\)$/i);
+        return { color, opaque: Boolean(color) && (!alphaMatch || Number(alphaMatch[1]) === 1) };
+      };
+      const snapshotCards = [...document.querySelectorAll(".dossier-snapshot-card")];
+      const preconRows = [...document.querySelectorAll("[data-precon-card]")].map((card) => {
+        const commander = card.querySelector(".precon-commander");
+        const expected = String(commander?.textContent || "")
+          .replace(/^Main commander:\s*/i, "")
+          .split(/\s+\/\s+/)
+          .map((name) => name.trim())
+          .filter(Boolean);
+        const triggers = [...(commander?.querySelectorAll(".precon-commander-trigger") || [])].map((button) => ({
+          name: button.getAttribute("data-card-preview-name") || "",
+          action: button.getAttribute("data-action") || "",
+          cardName: button.getAttribute("data-card-name") || "",
+        }));
+        return { expected, triggers };
+      });
+      const canvasZ = Number.parseInt(getComputedStyle(document.querySelector(".vm-bg__stars")).zIndex, 10);
+      const appZ = Number.parseInt(getComputedStyle(document.querySelector(".app")).zIndex, 10);
+      const heroRect = document.querySelector(".guild-banner")?.getBoundingClientRect();
+      const snapshotRect = document.querySelector(".dossier-snapshot")?.getBoundingClientRect();
+      return {
+        canvasZ,
+        appZ,
+        heroSnapshotGap: heroRect && snapshotRect ? snapshotRect.top - heroRect.bottom : null,
+        snapshotBackgrounds: snapshotCards.map(opaqueBackground),
+        orientationBackground: opaqueBackground(document.querySelector(".dossier-orientation")),
+        preconRows,
+      };
+    });
+    assert.ok(contract.canvasZ < contract.appZ, `${witness.identity_key}: atmosphere canvas must remain behind dossier content`);
+    assert.ok(
+      Number.isFinite(contract.heroSnapshotGap) && contract.heroSnapshotGap >= 8,
+      `${witness.identity_key}: dossier hero and result summary require at least 8px of visible separation; measured ${contract.heroSnapshotGap}px`,
+    );
+    assert.ok(contract.snapshotBackgrounds.length, `${witness.identity_key}: result summary cards are missing`);
+    contract.snapshotBackgrounds.forEach((background) => {
+      assert.equal(background.opaque, true, `${witness.identity_key}: result summary background ${background.color} lets randomly placed stars cross its text`);
+    });
+    assert.equal(contract.orientationBackground.opaque, true, `${witness.identity_key}: dossier orientation background ${contract.orientationBackground.color} lets randomly placed stars cross its text`);
+    contract.preconRows.forEach((row, index) => {
+      assert.deepEqual(row.triggers.map((trigger) => trigger.name), row.expected, `${witness.identity_key}: precon row ${index + 1} has missing or misbound commander hover triggers`);
+      row.triggers.forEach((trigger) => {
+        assert.equal(trigger.action, "open-card-detail", `${witness.identity_key}: ${trigger.name} is not connected to the shared detail action`);
+        assert.equal(trigger.cardName, trigger.name, `${witness.identity_key}: ${trigger.name} detail action targets the wrong card`);
+      });
+    });
+    const triggerNames = contract.preconRows.flatMap((row) => row.triggers.map((trigger) => trigger.name));
+    const hoverVerified = [];
+    if (witness.identity_key === "JUND") {
+      const requiredNames = ['Henzie "Toolbox" Torre', "Prossh, Skyraider of Kher", "Lord Windgrace"];
+      for (const name of requiredNames) {
+        assert.ok(triggerNames.includes(name), `JUND: ${name} is missing its Precon Starting Points hover/detail trigger`);
+      }
+      await page.$eval('[data-dossier-tab="commander-deck-starts"]', (button) => button.click());
+      await page.waitForFunction(() => document.querySelector('[data-dossier-panel="commander-deck-starts"]')?.hidden === false);
+      const overflowToggle = await page.$('[data-action="toggle-precon-preview"]');
+      for (const name of requiredNames) {
+        const buttons = await page.$$(".precon-commander-trigger");
+        let trigger = null;
+        for (const button of buttons) {
+          if (await button.evaluate((node) => node.getAttribute("data-card-preview-name")) === name) {
+            trigger = button;
+            break;
+          }
+        }
+        assert.ok(trigger, `JUND: ${name} hover trigger is not mounted`);
+        if (!(await trigger.evaluate((node) => node.getClientRects().length > 0)) && overflowToggle) {
+          await overflowToggle.evaluate((button) => button.click());
+        }
+        assert.equal(await trigger.evaluate((node) => node.getClientRects().length > 0), true, `JUND: ${name} hover trigger cannot be revealed`);
+        await trigger.evaluate((node) => node.scrollIntoView({ block: "center", inline: "nearest", behavior: "instant" }));
+        await page.mouse.move(1, 1);
+        await trigger.hover();
+        await page.waitForFunction((cardName) => {
+          const overlay = document.querySelector(".card-preview-overlay");
+          return overlay?.classList.contains("is-visible") && overlay.dataset.previewResolvedTarget === cardName;
+        }, { timeout: 5000 }, name);
+        hoverVerified.push(name);
+        await page.mouse.move(1, 1);
+        await delay(250);
+      }
+    }
+    return {
+      identity_key: witness.identity_key,
+      mode: "vm652-contract",
+      viewport: viewportName,
+      state: "named",
+      precon_products: contract.preconRows.length,
+      precon_commander_triggers: triggerNames.length,
+      atmosphere_z_index: contract.canvasZ,
+      content_z_index: contract.appZ,
+      hero_snapshot_gap_px: contract.heroSnapshotGap,
+      hover_verified: hoverVerified,
+    };
+  }
   if (vm558ReviewMode) return reviewVm558CardVoiceSurface(page, witness, cardArtState, consoleErrors);
   if (engineOnlyMode) {
     const engineUi = await page.evaluate(() => {
@@ -767,7 +879,7 @@ async function replay(page, origin, witness) {
       voice: [...document.querySelectorAll("[data-card-voice-section] [data-card-preview-name]")].map(cardName),
       signals: [...document.querySelectorAll(".staples-section .staple-name")].map(cardName),
     };
-    const all = Object.values(groups).flat().filter(Boolean);
+    const all = [groups.rationale, groups.voice, groups.signals].flat().filter(Boolean);
     const guildName = document.querySelector(".guild-name")?.textContent?.trim() || "";
     const startHere = document.querySelector('[data-dossier-panel="start"] [data-education-surface="start-here"]');
     const openingNodes = [
@@ -1088,16 +1200,28 @@ try {
     }
     finally { await page.close().catch(() => { /* owner may close the headed browser before terminal handoff */ }); }
   }
-  if (!reviewMode && !identityFilter && !caseFilter) {
+  if (!reviewMode && !vm652ContractMode && !identityFilter && !caseFilter) {
     const previous = fs.existsSync(reportPath) ? JSON.parse(fs.readFileSync(reportPath, "utf8")) : { schema_version: "1.0.0", viewports: {} };
     previous.viewports[viewportName] = { width: viewport.width, height: viewport.height, status: failures.length ? "FAIL" : "PASS", rows, failures };
     fs.writeFileSync(reportPath, `${JSON.stringify(previous, null, 2)}\n`);
   }
-  const focusedEvidence = rows.length === 1 && (caseFilter || identityFilter) ? {
-    opening: rows[0].wubrgOpeningText || "",
-    rationale_modal: rows[0].rationaleModalAudit,
-    voice_modal: rows[0].voiceModalAudit,
-  } : undefined;
+  const focusedEvidence = rows.length === 1 && (caseFilter || identityFilter)
+    ? vm652ContractMode
+      ? {
+          mode: rows[0].mode,
+          precon_products: rows[0].precon_products,
+          precon_commander_triggers: rows[0].precon_commander_triggers,
+          atmosphere_z_index: rows[0].atmosphere_z_index,
+          content_z_index: rows[0].content_z_index,
+          hero_snapshot_gap_px: rows[0].hero_snapshot_gap_px,
+          hover_verified: rows[0].hover_verified,
+        }
+      : {
+          opening: rows[0].wubrgOpeningText || "",
+          rationale_modal: rows[0].rationaleModalAudit,
+          voice_modal: rows[0].voiceModalAudit,
+        }
+    : undefined;
   console.log(JSON.stringify({
     status: failures.length ? "FAIL" : "PASS",
     viewport: viewportName,

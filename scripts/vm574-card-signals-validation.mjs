@@ -20,7 +20,7 @@ const {
   selectApprovedCardRationales,
   selectApprovedCardVoices,
 } = await import("../assets/js/archscry/runtime/content.js?v=vm636");
-const { buildPreconSectionHtml } = await import("../assets/js/archscry/runtime/dossier-view.js?v=vm636");
+const { buildPreconSectionHtml, preconMainCommanderNames } = await import("../assets/js/archscry/runtime/dossier-view.js?v=vm636");
 const { APP_STATE } = await import("../assets/js/archscry/runtime/state.js?v=vm636");
 const { buildArchscryAuthoredCardLookup } = await import("../assets/js/archscry/runtime/data.js?v=vm636");
 const { normalizeCardName } = await import("../assets/js/archscry/runtime/render-utils.js");
@@ -245,6 +245,8 @@ assert.match(dossierViewSource, /buildPreconSectionHtml\(usablePreconRecommendat
 assert.match(dossierViewSource, /filterLandCardsForUsage\(\s*dossier\.landRecommendations/);
 const decodeHtml = (value) => value.replace(/&quot;/g, '"').replace(/&#(?:0?39|x27);/g, "'").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&");
 let auditedExamples = 0;
+let auditedPreconProducts = 0;
+let auditedPreconCommanderTriggers = 0;
 for (const faction of Object.values(factions)) {
   const seen = new Map();
   const recordExample = (section, card) => {
@@ -279,13 +281,30 @@ for (const faction of Object.values(factions)) {
   const reserved = new Set(seen.keys());
   const html = buildPreconSectionHtml(precons, reserved);
   const allProducts = ["nativeExact", "otherExact", "stretch"].flatMap((group) => precons[group]);
+  auditedPreconProducts += allProducts.length;
   assert.equal((html.match(/data-precon-card(?:\s|>)/g) || []).length, allProducts.length, `${faction.key}: deduplication must retain every precon product`);
-  const expectedPreconIds = new Set(allProducts.map((precon) => canonicalUsageCardId(precon.mainCommander)).filter((id) => !reserved.has(id)));
   const renderedPreconNames = [...html.matchAll(/data-card-preview-name="([^"]+)"/g)].map((match) => decodeHtml(match[1]));
-  assert.equal(renderedPreconNames.length, expectedPreconIds.size, `${faction.key}: one preview per previously unused precon commander`);
-  renderedPreconNames.forEach((name) => recordExample("Precon", name));
-  const plainHtml = decodeHtml(html);
-  allProducts.forEach((precon) => assert.ok(plainHtml.includes(precon.mainCommander), `${faction.key}: preserve factual precon commander names`));
+  const expectedPreconNames = allProducts.flatMap((precon) => preconMainCommanderNames(precon.mainCommander));
+  auditedPreconCommanderTriggers += expectedPreconNames.length;
+  assert.deepEqual(renderedPreconNames, expectedPreconNames, `${faction.key}: every precon product must retain a preview trigger for each main commander`);
+  const countedPreconIds = new Set();
+  renderedPreconNames.forEach((name) => {
+    const id = canonicalUsageCardId(name);
+    const previewCard = resolveRecord(name, { mediaByResolverKey, rawLookup });
+    assert.equal(previewCard.unresolved, undefined, `${faction.key}/Precon: ${name} must resolve through governed media or the shared playable-card fallback`);
+    assert.ok(previewCard.image_candidates?.length || previewCard.image_uris?.normal || previewCard.card_faces?.some((face) => face.image_uris?.normal), `${faction.key}/Precon: ${name} must have hover-preview media`);
+    if (!reserved.has(id) && !countedPreconIds.has(id)) {
+      recordExample("Precon", name);
+      countedPreconIds.add(id);
+    }
+  });
+  const plainText = decodeHtml(html.replace(/<[^>]+>/g, " ")).replace(/\s+/g, " ");
+  expectedPreconNames.forEach((name) => assert.ok(plainText.includes(name), `${faction.key}: preserve factual precon commander names`));
+  if (faction.key === "JUND") {
+    for (const name of ['Henzie "Toolbox" Torre', "Prossh, Skyraider of Kher", "Lord Windgrace"]) {
+      assert.ok(renderedPreconNames.includes(name), `JUND: ${name} must retain its Precon Starting Points hover trigger`);
+    }
+  }
 }
 
 const ledger = [];
@@ -419,5 +438,6 @@ assert.equal(aggregate.media_missing, 0, "Card Signals must have media");
 assert.deepEqual(issues, [], issues.join("\n"));
 
 console.log(`VM-574 Card Signals: PASS (${aggregate.identities} identities, 111/111/111 visible, zero cross-section repeats).`);
+console.log(`Precon hover coverage: PASS (${aggregate.identities} identities, ${auditedPreconProducts} products, ${auditedPreconCommanderTriggers} commander triggers, all preview names resolve).`);
 console.log(`Dossier card allocation: PASS (${aggregate.identities} identities, ${auditedExamples} unique examples across Plays, Sound, Signals, Mana Notes and precon previews).`);
 if (WRITE_LEDGER) console.log(`VM-574 ledger written: ${LEDGER_PATH}`);

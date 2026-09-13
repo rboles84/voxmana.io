@@ -998,26 +998,37 @@ export function preconRationaleForDisplay(precon, previewGroup) {
   return previewGroup !== "stretch" && repeatsFitBadge ? strategy : text;
 }
 
+export function preconMainCommanderNames(mainCommander = "") {
+  return String(mainCommander || "")
+    .split(/\s+\/\s+/)
+    .map((name) => name.trim())
+    .filter(Boolean);
+}
+
 export function buildPreconCardHtml(precon, usedCardIds = new Set()) {
   const previewGroup = precon?.previewGroup || precon?.group || (precon?.lane === "stretch" ? "stretch" : "otherExact");
   const badge = PRECON_BADGE_META[previewGroup] || PRECON_BADGE_META.otherExact;
   const publicRationale = preconRationaleForDisplay(precon, previewGroup);
   const rationaleProvenance = precon?.publicRationale?.provenance || null;
   const chips = preconPreviewChips(precon);
-  const commanderRationale = `This card appears because it is the cataloged main commander of ${precon.deckName}.`;
+  const commanderNames = preconMainCommanderNames(precon.mainCommander);
+  const commanderRationale = commanderNames.length > 1
+    ? `This card appears because it is one of the cataloged main commanders of ${precon.deckName}.`
+    : `This card appears because it is the cataloged main commander of ${precon.deckName}.`;
   const commanderProvenance = `data/precons/vox-mana-precons.source.json#${precon.deckName}.mainCommander`;
-  const commanderButtonAttrs = buildActionAttrs("open-card-detail", {
-    cardName: precon.mainCommander,
-    cardRationale: commanderRationale,
-    cardProvenance: commanderProvenance,
-    cardTags: chips.join("|"),
-  });
   const researchLinks = buildPreconResearchLinks(precon);
-  const commanderId = canonicalUsageCardId(precon.mainCommander);
-  const commanderHtml = usedCardIds.has(commanderId)
-    ? escapeHtml(precon.mainCommander)
-    : `<button class="precon-commander-trigger" type="button" data-card-preview-name="${escapeAttributeValue(precon.mainCommander)}" ${commanderButtonAttrs}>${escapeHtml(precon.mainCommander)}</button>`;
-  usedCardIds.add(commanderId);
+  const commanderHtml = commanderNames.map((commanderName) => {
+    const commanderButtonAttrs = buildActionAttrs("open-card-detail", {
+      cardName: commanderName,
+      cardRationale: commanderRationale,
+      cardProvenance: commanderProvenance,
+      cardTags: chips.join("|"),
+    });
+    // Keep tracking the commander in the local allocation set, but never remove
+    // the factual hover/detail affordance from a repeated precon reference.
+    usedCardIds.add(canonicalUsageCardId(commanderName));
+    return `<button class="precon-commander-trigger" type="button" data-card-preview-name="${escapeAttributeValue(commanderName)}" ${commanderButtonAttrs}>${escapeHtml(commanderName)}</button>`;
+  }).join(" / ") || escapeHtml(precon.mainCommander);
 
   return `
     <div class="precon-card is-compact" data-precon-card data-precon-group="${escapeHtml(previewGroup)}"${rationaleProvenance ? ` data-rationale-provenance="${escapeAttributeValue(JSON.stringify(rationaleProvenance))}"` : ""}>
