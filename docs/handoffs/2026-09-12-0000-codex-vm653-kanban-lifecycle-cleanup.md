@@ -137,3 +137,28 @@ RobQA requested/configured model: Sol medium. Backend telemetry: unverified.
 - VM-541
 - VM-637
 - VM-406
+
+## Owner rejection evidence correction
+
+This section is an append-only correction following the Owner's rejection of stale lifecycle reporting. The earlier `RobQA pending`, symbolic `HEAD`, and validator `DEFERRED` statements are retained as historical snapshots of the state when written. They are superseded for current lifecycle reporting by this appended correction.
+
+- Material candidate remains exactly: `e6dfcb4ebe716ea61e1ba0a321114278fb917920`.
+- Immutable evidence head being corrected and superseded: `7b96472ef9b29e17e0ea78c5a033cf346384b820`.
+- Current lifecycle state: **RobQA PASS / Owner PENDING / Integration PENDING**.
+- No material bytes were changed and no new material candidate was issued.
+
+### Reproduced change-report validation
+
+Command:
+
+`node scripts/validate/validate-change-report.mjs --baseline=ee7cd5e3af75b9abc0b926586e10812dd33ca421 --candidate=e6dfcb4ebe716ea61e1ba0a321114278fb917920 --evidence-head=7b96472ef9b29e17e0ea78c5a033cf346384b820 --report=docs/handoffs/2026-09-12-0000-codex-vm653-kanban-lifecycle-cleanup.md`
+
+Result: **PASS** — material change set: 8 paths; evidence delta: 4 paths to `7b96472ef9b29e17e0ea78c5a033cf346384b820`; final branch delta at that immutable evidence head: 8 paths.
+
+RobQA: PASS at `e6dfcb4ebe716ea61e1ba0a321114278fb917920` via the separate review recorded above.
+Owner: PENDING
+Integration: PENDING
+
+### Validator reproduction context
+
+The exact command and PASS result above are reproduced from a detached worktree checked out at immutable evidence commit `7b96472ef9b29e17e0ea78c5a033cf346384b820`. In that historical worktree, the earlier symbolic `HEAD` snapshot resolves to the same explicitly supplied evidence SHA. The appended correction itself uses the immutable SHA and does not treat the current branch tip as the reviewed evidence head.
