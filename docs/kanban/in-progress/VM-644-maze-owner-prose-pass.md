@@ -2,7 +2,7 @@
 
 ID: VM-644
 Title: Maze Search Guidance and Owner Prose Pass
-Status: In Progress
+Status: Owner Review
 Type: Page content review and bounded implementation
 Area: Maze
 Priority: Medium
@@ -90,8 +90,8 @@ Finish with understandable search instructions and honest diagnostics. This is m
 - [x] Maze guide, tooltips, walkthroughs and affected metadata agree with the page.
 - [x] Retained existing text and any selected changes have recorded dispositions. New Owner prose is required only for an explicitly selected rewrite; unfinished selected writing is not disguised by a placeholder.
 - [x] Current governing source/semantic and storage boundaries are preserved. No generated projection is manually edited where its source/producer owns the value.
-- [ ] Applicable RobQA evidence covers the actual changed contract, and the shortest Owner review is supplied. Engineering PASS, Owner acceptance and integration are recorded as separate states.
-- [ ] Card/handoff and generated views are current; delivery uses the canonical SHIP/ACCEPT/REJECT lifecycle when implementation is requested.
+- [x] Applicable RobQA evidence covers the actual changed contract, and the shortest Owner review is supplied. Engineering PASS, Owner acceptance and integration are recorded as separate states.
+- [x] Card/handoff and generated views are current; delivery uses the canonical SHIP/ACCEPT/REJECT lifecycle when implementation is requested.
 
 ## Files Likely Impacted
 
@@ -170,9 +170,10 @@ VM-650 has no future page-work scope. Preserve the accepted Home and Archscry fa
 Record version: 1
 Branch: codex/vm-644-maze-owner-prose-pass
 Admission baseline: 11f4e928003b136fb5e70a9e8c41a1be795d7b7e
-Candidate: PENDING
-RobQA: PENDING
+Candidate: add762fb53db2be781e9ee0bf26ee849966a4498
+RobQA: PASS at add762fb53db2be781e9ee0bf26ee849966a4498 — SAME-AGENT DISTINCT PHASE by `/root`; see task handoff.
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Decisions: Intake authorized 2026-09-08; Preserve-voice direction added 2026-09-08: retain unchanged is valid. Owner authorized implementation on 2026-09-12 after a read-only recon and factual red-team against the current Scryfall contracts. Admit only the demonstrated quick-search/discovery-path label and hint corrections plus standalone-safe Reading Finds copy in Maze metadata, drawer/empty-state guidance and the matching general Guide sentence. Scope amendment: add narrow static regression assertions for exact label/query truth and standalone Finds wording to the existing Maze context/recovery test; do not create another harness. Preserve every executable query, parser/compiler behavior, result ordering, Loom projection, Scryfall grounding, card fact, storage contract, all-37 dossier discovery profile and sibling page pass. Related-page coordination above is not a dependency-isolation authorization.
+Evidence: [Task handoff](../../handoffs/2026-09-12-2331-codex-vm644-maze-prose.md)

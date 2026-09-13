@@ -100,3 +100,105 @@ Maze query core, parser/compiler, Scryfall grounding and indexes, API ordering/u
 QA tier: QA-1 copy/presentation. Execution mode: same-agent distinct phase is permitted because the change is bounded copy plus static assertions and touches no shared behavioral, semantic, storage, security or migration contract. Candidate: PENDING.
 
 Next: commit the exact material candidate, re-read its baseline diff in the distinct QA phase, rerun only the focused objective checks, bind PASS or BLOCKED to that SHA, and stop at Owner Review under `SHIP VM-644`.
+
+## Material candidate
+
+- Baseline: `11f4e928003b136fb5e70a9e8c41a1be795d7b7e`
+- Candidate: `add762fb53db2be781e9ee0bf26ee849966a4498`
+- Changed paths: `8`
+
+## Files changed
+
+- `assets/js/maze/research-init.js`
+- `docs/handoffs/2026-09-12-2331-codex-vm644-maze-prose.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-644-maze-owner-prose-pass.md`
+- `guide/index.html`
+- `maze/index.html`
+- `scripts/vm616-maze-context-recovery-tests.mjs`
+
+## Evidence delta
+
+- Material candidate: `add762fb53db2be781e9ee0bf26ee849966a4498`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `3`
+
+This evidence delta is not the full task diff.
+
+## Evidence-only paths
+
+- `docs/handoffs/2026-09-12-2331-codex-vm644-maze-prose.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-644-maze-owner-prose-pass.md`
+
+## Final branch delta
+
+Git-derived total: eight paths from admission baseline to evidence head. The three evidence paths overlap the material set; they record candidate QA and lifecycle state without altering the selected wording, queries, tests or scope.
+
+## RobQAPass evidence
+
+Task: VM-644
+Candidate: add762fb53db2be781e9ee0bf26ee849966a4498
+RobQA: PASS
+Execution: SAME-AGENT DISTINCT PHASE
+Reviewer: `/root`
+Implementer: `/root`
+Independence required: no
+Execution reason: This is bounded QA-1 authored copy with a narrow static regression. No shared behavioral, semantic, storage, security, migration or specialist contract changed.
+
+### Change classification
+
+- **QA tier:** QA-1 — copy/presentation.
+- **Changed behavior:** six shortcut/discovery labels or hints and four standalone-safe Reading Finds explanations.
+- **Protected behavior intentionally untouched:** every query, parser/compiler, result order, Loom projection, Scryfall grounding/facts, card details, saved Finds content/schema, return behavior and all-37 dossier profile.
+- **Exact candidate:** `add762fb53db2be781e9ee0bf26ee849966a4498`; evidence is this handoff section.
+
+### Tests selected
+
+- `npm.cmd run test:maze-onboarding` — PASS. The focused static owner binds every corrected label to its exact query and asserts the Maze/general-Guide standalone Finds wording while retaining the accepted examples, diagnostics and dedicated Guide contract.
+- Candidate-to-baseline 17-row query comparison — PASS. Every quick-search/discovery `q:` value is byte-identical and remains in the same order.
+- `node tests/maze/maze-query-contract-tests.js` — PASS. The single executable query contract remains intact.
+- `npm.cmd run test:maze-scratchpad` — PASS. Saved cards, quantities, notes/sections and local store behavior remain intact.
+- `node --check assets/js/maze/research-init.js` — PASS.
+- `npm.cmd run task -- indexes --check` — PASS at candidate; both generated documentation views were current.
+- `git diff --check 11f4e928003b136fb5e70a9e8c41a1be795d7b7e..add762fb53db2be781e9ee0bf26ee849966a4498` — PASS.
+- Full baseline-to-candidate product/test diff and acceptance-criteria reread — PASS. No behavior, source-data, query, layout, interaction or sibling-story drift found.
+
+Developer-phase corroboration on the same product bytes also passed Scryfall grounding, Plain Reading semantics, 14 Loom builder cases, and the all-37 discovery-profile suite: 37 profiles, 367 projections and 501 query/label truth checks.
+
+### Tests intentionally skipped
+
+- Browser, screenshots, visual regression and viewport matrices: the changed facts are fully protected by authored/static assertions; tone, wrapping and visual comfort remain Owner judgment.
+- Exhaustive parser, journey, synthetic, mutation and recovery suites: no engine, routing, scoring or state transition changed.
+- Live Scryfall catalog refresh and new research: accepted committed grounding is unchanged, and VM-644 must not turn into a data/research program.
+
+### CPU-heavy validation
+
+`NOT REQUIRED`
+
+### Self-QA objective evidence
+
+- Deterministic case: each corrected label/hint is paired in source with the exact unchanged query; all 17 relevant queries match baseline; standalone and reading-linked Finds are distinguished in all selected copy owners.
+- Verification layer: source/static assertions, Git diff, query-contract unit checks and Reading Finds store tests.
+- Browser justification: none; no interaction, routing, geometry, focus or accessibility mechanic changed.
+- Objective result: PASS. No blocker, major, minor or unresolved factual defect remains in the admitted scope.
+
+### Manual findings converted to invariants
+
+- Finding: search labels promised EDHREC ranking, uncounterability, or exact commander eligibility that their queries did not establish; standalone Finds copy assumed a reading.
+- Defect class: user-facing guidance stronger or narrower than the executable query/state contract.
+- Regression invariant: the six corrected labels remain paired with their literal query rows, stale claims remain absent, and independent/read-linked Finds wording remains explicit in the affected owners.
+
+### Remaining Owner judgment
+
+- Whether the corrected shortcut labels sound natural and useful to a Commander player.
+- Whether the longer Reading Finds drawer subtitle reads comfortably in the accepted layout.
+
+### Short Owner review
+
+1. Open `/maze/` and scan the quick searches plus discovery paths. PASS if the six corrected labels accurately preview what each search will do and still sound like Vox Mana.
+2. Begin without an Archscry dossier and open **Reading Finds**. PASS if the drawer clearly supports this standalone search without suggesting a nonexistent reading, while still explaining that reading-linked Finds remain linked.
+3. Open `/guide/#guide-maze`. PASS if the Maze summary clearly distinguishes a dossier-started search from a fresh idea. Visual wrapping and tone are the only remaining judgments; no query execution or all-37 review is requested.
+
+Owner: PENDING. Integration: PENDING. `ACCEPT VM-644` may integrate only candidate `add762fb53db2be781e9ee0bf26ee849966a4498` plus evidence-only lifecycle records; `REJECT VM-644 — <reason>` corrects this same branch.
