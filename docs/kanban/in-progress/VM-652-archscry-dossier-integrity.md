@@ -62,12 +62,13 @@ RobQA: PENDING
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
-Decisions: Owner-directed shared defect correction and all-37 programmatic coverage. Preserve VM-650 strict editorial-card uniqueness and all accepted content/presentation contracts; supersede its plain-text behavior only insofar as every repeated Precon main commander must retain the shared hover/detail interaction without becoming a new editorial example. No visual testing is requested from Codex.
+Decisions: Owner-directed shared defect correction and all-37 programmatic coverage. Preserve VM-650 strict editorial-card uniqueness and all accepted content/presentation contracts; supersede its plain-text behavior only insofar as every repeated Precon main commander must retain the shared hover/detail interaction without becoming a new editorial example. No visual testing is requested from Codex. Scope amendment: admit `assets/css/site-skin.css` after focused computed-style evidence identified its later transparent dossier-summary override as the effective cascade owner; preserve the earlier `assets/css/archscry.css` declarations unchanged.
 Evidence: Owner report and screenshot, 2026-09-12; admission start `ELIGIBLE` for this branch at the recorded baseline.
 
 ## Admission Scope
 
 - `assets/css/archscry.css`
+- `assets/css/site-skin.css`
 - `assets/js/archscry/runtime/dossier-view.js`
 - `scripts/vm551-all-37-live-ui-replay.mjs`
 - `scripts/vm574-card-signals-validation.mjs`
