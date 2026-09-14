@@ -2,7 +2,7 @@
 
 ID: VM-648
 Title: Terms Service Accuracy and Owner Prose Pass
-Status: In Progress
+Status: Owner Review
 Type: Page content review and bounded implementation
 Area: Terms
 Priority: Medium
@@ -113,8 +113,8 @@ This pass updates the description of the offered service; it is not a blanket re
 - [x] Substantive legal unknowns have an explicit disposition; no compliance certification is inferred from engineering checks.
 - [x] Retained existing text and any selected changes have recorded dispositions. New Owner prose is required only for an explicitly selected rewrite; unfinished selected writing is not disguised by a placeholder.
 - [x] Current governing source/semantic and storage boundaries are preserved. No generated projection is manually edited where its source/producer owns the value.
-- [ ] Applicable RobQA evidence covers the actual changed contract, and the shortest Owner review is supplied. Engineering PASS, Owner acceptance and integration are recorded as separate states.
-- [ ] Card/handoff and generated views are current; delivery uses the canonical SHIP/ACCEPT/REJECT lifecycle when implementation is requested.
+- [x] Applicable RobQA evidence covers the actual changed contract, and the shortest Owner review is supplied. Engineering PASS, Owner acceptance and integration are recorded as separate states.
+- [x] Card/handoff and generated views are current; delivery uses the canonical SHIP/ACCEPT/REJECT lifecycle when implementation is requested.
 
 ## Files Likely Impacted
 
@@ -185,9 +185,10 @@ VM-650 has no future page-work scope. Preserve the accepted Home and Archscry fa
 Record version: 1
 Branch: codex/vm-648-terms-privacy-boundary
 Admission baseline: 3ac54b666dd7fc2fefc6a6f890ca9876277a4345
-Candidate: PENDING
-RobQA: PENDING
+Candidate: e38b713c0ca2b3901672037a75f767620d721327
+RobQA: PASS at e38b713c0ca2b3901672037a75f767620d721327 — SAME-AGENT DISTINCT PHASE by `/root`; see task handoff.
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Decisions: Intake authorized 2026-09-08; Preserve-voice direction added 2026-09-08: retain unchanged is valid. Owner authorized the sentence-level Privacy/Terms ownership boundary and implementation on 2026-09-13. Terms is the primary page; narrow Privacy removals are authorized only where needed to eliminate duplicated or Terms-owned content. Scope amendment: extend the existing copy-boundary checker with the approved document-ownership and exact-sentence non-duplication invariant; no new framework or runtime behavior. No runtime or legal-compliance expansion. Intellectual-property wording requires an explicit legal-review disposition before completion.
+Evidence: [Task handoff](../../handoffs/2026-09-13-2244-codex-vm648-terms-privacy-boundary.md)

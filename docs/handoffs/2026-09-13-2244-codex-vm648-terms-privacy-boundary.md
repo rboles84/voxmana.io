@@ -88,3 +88,29 @@ The contextual red/green evidence found nine Terms-owned pattern matches in base
 ## Short Owner review target
 
 Open `/privacy/` and `/terms/`. Privacy should discuss only information handling; Terms should discuss only the service agreement and legal/product limits. Terms should contain exactly two contextual Privacy links in its body, no backend inventory, and no repeated saved-reading sections. Legal sufficiency of the retained IP wording remains outside the engineering verdict.
+
+## Exact-candidate RobQA — 2026-09-13
+
+Task: VM-648
+Candidate: e38b713c0ca2b3901672037a75f767620d721327
+RobQA: PASS
+Execution: SAME-AGENT DISTINCT PHASE
+Reviewer: Codex (`/root`)
+Implementer: Codex (`/root`)
+Independence required: no
+Execution reason: QA-1 is proportionate for bounded authored policy copy and a focused static regression; the candidate changes no runtime, protected semantic authority, security configuration, migration, or shared behavior.
+
+- Admission continuation: PASS at the candidate SHA against synchronized local and remote `main` `3ac54b666dd7fc2fefc6a6f890ca9876277a4345`.
+- `npm run test:copy-boundaries`: PASS across 30 live-copy files.
+- `npm run lint:html`: PASS.
+- `npm run test:route-metadata`: PASS for 16 public route heads.
+- `npm run test:frontend-smoke`: PASS.
+- `git diff --check 3ac54b666dd7fc2fefc6a6f890ca9876277a4345..e38b713c0ca2b3901672037a75f767620d721327`: PASS.
+- Working tree: clean during exact-candidate QA.
+- Focused ownership scan: zero Terms-owned matches in Privacy, zero Privacy/backend-owned matches in Terms, and exactly two contextual Privacy links in the Terms body.
+- Exact visible cross-document sentence duplication: zero, enforced by the copy-boundary checker.
+- Browser automation: not required for this QA-1 copy/static change. Tone, usefulness, visual balance, and retained IP wording remain Owner judgment.
+
+## Candidate-stage delivery verification — 2026-09-13
+
+The canonical candidate checker returned PASS for material candidate `e38b713c0ca2b3901672037a75f767620d721327` using the authenticated same-agent distinct-phase QA record. Owner remains PENDING; no integration action has been taken.
