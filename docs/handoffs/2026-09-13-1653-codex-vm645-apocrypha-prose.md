@@ -115,3 +115,12 @@ PASS if sources feel faster to reach, the wording feels natural, official and su
 ## Not touched
 
 Registry records or annotations, source URLs/order/classifications, CSS/layout rules, Home, `/library/`, `linkedFrom`, identity semantics, placement/scoring, card facts, storage, services, sibling page stories, browser baselines or visual snapshots.
+
+## Owner acceptance — 2026-09-13
+
+Task: VM-645
+Candidate: 6291ed86f7e181cedb2e8635a320e0a8f23420bc
+Owner: ACCEPT
+Decision reference: Current Codex task Owner message, 2026-09-13: `ACCEPT VM-645`.
+
+The Owner accepted the unchanged RobQA-passed material candidate and authorized the normal PR, guarded squash integration and lifecycle closeout path. This acceptance adds no product changes and does not claim that integration has already occurred.
