@@ -123,3 +123,21 @@ Owner: ACCEPT
 Decision reference: Current task Owner message on 2026-09-13: `Accept VM-648`.
 
 The Owner accepted the exact RobQA-passed material candidate and authorized the governed integration path. This decision does not convert the engineering review into a legal-compliance certification.
+
+## Integration and closeout — 2026-09-13
+
+Task: VM-648
+Candidate: e38b713c0ca2b3901672037a75f767620d721327
+Evidence head: 98801dd942ee57f942b6d3a6aff70b53aa37df70
+Integration: PR47 / PR #47 guarded squash merge `256d98f23dcecf61590a3fbbe5ecc2bf7fc91d70`
+Boundaries: PASS
+
+- [PR #47](https://github.com/rboles84/voxmana.io/pull/47) targeted `main` from the single admitted VM-648 branch and contained exactly seven material/lifecycle paths.
+- GitHub `Deterministic Validation` completed successfully at the exact evidence head in [run 34808423043](https://github.com/rboles84/voxmana.io/actions/runs/34808423043), job `103864769084`.
+- The governed integration checker passed before merge with the exact PR head, complete file/blob and commit scope, clean merge state, Owner/QA bindings, authenticated connector route, and atomic expected-head merge capability.
+- The squash commit has sole parent `3ac54b666dd7fc2fefc6a6f890ca9876277a4345` and tree `9970419c82e97ba87b55c64da24301a6713f12cc`.
+- The accepted evidence head has the same tree `9970419c82e97ba87b55c64da24301a6713f12cc`; no product or evidence bytes changed during squash integration.
+- Owner acceptance remains bound to material candidate `e38b713c0ca2b3901672037a75f767620d721327`.
+- Repository ruleset inspection returned no rulesets. The GitHub App could not read the classic branch-protection endpoint, while the PR reported a clean merge state and the required process-enforced validation passed. No repository settings were changed.
+- GitHub removed the remote feature branch after merge. The local feature branch is removed during this governed closeout after accepted-tree parity is verified.
+- Closeout changes are limited to this appended evidence, the card's lifecycle fields and Done relocation, and regenerated task views. Other work remains untouched.
