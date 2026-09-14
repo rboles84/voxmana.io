@@ -2,7 +2,7 @@
 
 ID: VM-647
 Title: Privacy Service Accuracy and Owner Prose Pass
-Status: Accepted
+Status: Done
 Type: Page content review and bounded implementation
 Area: Privacy
 Priority: Medium
@@ -178,7 +178,7 @@ Admission baseline: 80535dd7afe8604a38e6ff026bd982de8733b81d
 Candidate: 224e6a1536b3f7017fb38b25748a5ac2a215fa37
 RobQA: PASS at 224e6a1536b3f7017fb38b25748a5ac2a215fa37 — SAME-AGENT DISTINCT PHASE by `/root`; see task handoff.
 Owner: ACCEPTED at 224e6a1536b3f7017fb38b25748a5ac2a215fa37 — current Owner command `ACCEPT VM-647`; see task handoff.
-Integration: PENDING
+Integration: INTEGRATED via PR #46 guarded squash merge `1dc2863bca98e054e253c744b7ff8d0491838f4a`
 Dependencies: None
 Decisions: Intake authorized 2026-09-08; Preserve-voice direction added 2026-09-08: retain unchanged is valid. Owner approved the bounded public-disclosure direction on 2026-09-13: name Scryfall because it is part of the Magic experience; describe hosting/protection, optional feedback delivery and limited product analytics by purpose without publishing backend vendor names or implementation inventory; foreground Vox Mana's local-first reading and Reading Finds experience, no required account, no sale of personal information or advertising profiles, constrained analytics, optional feedback and real browser-data controls; retain accurate reading-method, operator, fan-project, intellectual-property and contact language; keep exact technical reconciliation in internal repository documentation. No runtime/service/configuration change, Terms-page edit, broad legal expansion, compliance certification, redesign, CSS change, storage migration, schema change or historical-erasure claim is admitted. Supabase receives no public mention unless implementation uncovers material active or retained user-data processing, which requires an Owner stop. Related-page coordination above is not a dependency-isolation authorization.
 Evidence: [Task handoff](../../handoffs/2026-09-13-2125-codex-vm647-privacy-service-accuracy.md)

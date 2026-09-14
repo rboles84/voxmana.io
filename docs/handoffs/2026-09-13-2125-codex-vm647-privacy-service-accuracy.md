@@ -150,3 +150,21 @@ Owner: ACCEPT
 Decision reference: Current Codex task Owner message, 2026-09-13: `ACCEPT VM-647`.
 
 The Owner accepted the unchanged RobQA-passed material candidate and authorized the normal PR, guarded squash integration and lifecycle closeout path. This acceptance adds no product changes and does not claim that integration has already occurred.
+
+## Integration and closeout — 2026-09-13
+
+Task: VM-647
+Candidate: 224e6a1536b3f7017fb38b25748a5ac2a215fa37
+Evidence head: 20b7e5f6998782dd1e11f0286d38ea8cd61860f4
+Integration: PR46 / PR #46 guarded squash merge `1dc2863bca98e054e253c744b7ff8d0491838f4a`
+Boundaries: PASS
+
+- [PR #46](https://github.com/rboles84/voxmana.io/pull/46) targeted `main` from the single admitted VM-647 branch and contained exactly seven material/lifecycle paths.
+- GitHub `Deterministic Validation` completed successfully at the exact evidence head in [run 34805844687](https://github.com/rboles84/voxmana.io/actions/runs/34805844687/job/103857452947).
+- The governed integration checker passed before merge with the exact PR head, complete file/blob and commit scope, clean merge state, Owner/QA bindings, authenticated connector route and atomic expected-head merge capability.
+- The squash commit has sole parent `80535dd7afe8604a38e6ff026bd982de8733b81d` and tree `1d04cc736360c82a243246e77eb9d7fe6853c291`.
+- The accepted evidence head has the same tree `1d04cc736360c82a243246e77eb9d7fe6853c291`; no product or evidence bytes changed during squash integration.
+- Owner acceptance remains bound to material candidate `224e6a1536b3f7017fb38b25748a5ac2a215fa37`.
+- Repository ruleset inspection returned no rulesets. The GitHub App could not read the classic branch-protection endpoint, while the PR reported a clean merge state and the required process-enforced validation passed. No repository settings were changed.
+- GitHub removed the remote feature branch after merge. The local feature branch is removed during this governed closeout after accepted-tree parity is verified.
+- Closeout changes are limited to this appended evidence, the card's lifecycle fields and Done relocation, and regenerated task views. VM-648 and other sibling work remain untouched.
