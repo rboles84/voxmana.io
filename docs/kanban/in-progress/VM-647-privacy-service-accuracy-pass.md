@@ -46,29 +46,45 @@ Player recruitment/contact is not authorized by this card; the Owner may provide
 4. Resolve the decisions below before dependent changes. Start with the Owner's keep-as-is choices. Continue independent inventory or agreed work while any specifically selected writing or player feedback remains pending. Do not publish assistant-generated replacement prose as Owner-written text.
 5. Implement the smallest agreed page pass at the owning source/presenter; perform proportional RobQA and the normal exact-candidate Owner/delivery process. A page pass may span several Owner writing sessions on the same task.
 
-- [ ] Establish the release state being described, including reading/finds storage, feedback and analytics. Do not infer service processing solely from whether a navigation link is visible.
-- [ ] Verify active versus optional/disabled third parties and any retention/deletion statements from relevant code, configuration and current provider evidence when needed.
-- [ ] Separate an editorial wording change from a material privacy/service change; the latter needs its own explicit scope and applicable review.
-- [ ] Retain accurate explanatory prose that reflects the Owner's intent; obtain new Owner wording only for selected revisions. Substantive legal sufficiency questions remain distinct from copy quality and are not certified by this card.
+- [x] Establish the release state being described, including reading/finds storage, feedback and analytics. Do not infer service processing solely from whether a navigation link is visible.
+- [x] Verify active versus optional/disabled third parties and any retention/deletion statements from relevant code, configuration and current provider evidence when needed.
+- [x] Separate an editorial wording change from a material privacy/service change; the latter needs its own explicit scope and applicable review.
+- [x] Retain accurate explanatory prose that reflects the Owner's intent; obtain new Owner wording only for selected revisions. Substantive legal sufficiency questions remain distinct from copy quality and are not certified by this card.
 
 ## Detailed page checklist
 
 For every item, first assess the three questions above. Record retain unchanged when appropriate. Action labels below are options from the earlier plan, not requirements to change the text.
 
-- [ ] **Reconcile:** opening summary and descriptions of the features currently offered.
-- [ ] **Reconcile:** claims about collection, use, analytics, feedback, browser storage, saved readings/finds, deletion, and retention against actual runtime and service configuration.
-- [ ] **Reconcile:** third-party service descriptions, distinguishing active processing from disabled/optional features. A feature hidden from navigation may still have active processing.
-- [ ] **Review/rewrite accurately:** How the Archscry Reading Works and statements about sources, interpretations, and the site operator, where the release scope changes their meaning.
-- [ ] **Review:** explanatory tooltips, summary text, and page/social descriptions. Update the effective-date record only when the policy itself is actually revised.
+- [x] **Reconcile:** opening summary and descriptions of the features currently offered.
+- [x] **Reconcile:** claims about collection, use, analytics, feedback, browser storage, saved readings/finds, deletion, and retention against actual runtime and service configuration.
+- [x] **Reconcile:** third-party service descriptions, distinguishing active processing from disabled/optional features. A feature hidden from navigation may still have active processing.
+- [x] **Review/rewrite accurately:** How the Archscry Reading Works and statements about sources, interpretations, and the site operator, where the release scope changes their meaning.
+- [x] **Review:** explanatory tooltips, summary text, and page/social descriptions. Update the effective-date record only when the policy itself is actually revised.
 
 This pass checks accuracy; it does not propose hiding the Privacy page or deleting a disclosure merely because its wording needs attention. No legal sufficiency judgment is made here.
 
+## Selected review disposition — 2026-09-13
+
+The Owner approved a bounded public-disclosure pass after read-only recon. The rendered policy should explain player-visible data behavior, name Scryfall as the Magic card service, and describe infrastructure providers by purpose rather than exposing backend brands or implementation inventory. Exact provider, endpoint, event and storage details remain available in repository documentation. Targeted factual corrections and this explicit Owner preference do not require broad player-feedback evidence. No runtime, service, configuration, legal-certification or Terms-page change is part of this candidate.
+
+| Location | Current source and what works | Accuracy | Owner intent | Task usability | Disposition and evidence | Completion |
+| --- | --- | --- | --- | --- | --- | --- |
+| Metadata, hero and effective date | `privacy/index.html`; canonical route, unofficial-project identity and device-local emphasis already work | Existing metadata omits Reading Finds, Scryfall and bounded analytics; the old date would not identify this policy revision | Lead with Commander identity, lore, discovery and clear browser boundaries | A player should understand the page before reading its detailed sections | Rewrite metadata/hero and set the revision date only because the policy text changes; explicit Owner direction | Implemented; QA pending |
+| Plain-English Summary and At a Glance | `privacy/index.html`; no-sign-in, device-local reading and no-sale statements already work | Analytics is described as Archscry-only; Reading Finds and Scryfall are omitted; deferred account roadmap detail does not describe a player-facing benefit | Foreground local-first readings/Finds, no account, no sale or advertising profiles, useful Scryfall discovery, limited analytics, optional feedback and real controls | Replace backend-oriented explanation with a compact player-centered summary | Selective rewrite; runtime inspection plus explicit Owner direction | Implemented; QA pending |
+| Information used and purposes | `privacy/index.html`; reading, feedback and operational categories are substantially accurate | Existing copy conflates browser-local data with collection, omits Field Guide analytics and Scryfall requests, and includes inactive deck-link roadmap language | Explain what is used without publishing event schemas or storage keys | Separate browser-local use, connected requests, analytics, optional feedback and ordinary service logs | Rewrite; reconciled against saved-reading, Reading Finds, Scryfall, telemetry and feedback owners | Implemented; QA pending |
+| How the Archscry Reading Works | `privacy/index.html`; accurately distinguishes curated published sources, Vox Mana interpretation and unofficial guidance | No demonstrated factual mismatch | Preserve the reading model and Vox Mana voice | The paragraph clearly explains what a result is and is not | Retain unchanged; Owner-approved preservation boundary | Reviewed; retained |
+| Services and sharing | `privacy/index.html`; discloses that outside services process information | Names inactive Supabase plus backend vendors, omits Scryfall, and refers to authentication/server-side reading processing not used by the active public flow | Name Scryfall; describe hosting/protection, feedback and analytics by purpose | Tell players when information leaves the browser without turning the policy into an architecture inventory | Rewrite; active feature flags are off for Terminal and account deck links, while Scryfall, feedback and bounded analytics remain active | Implemented; QA pending |
+| Retention and choices | `privacy/index.html`; saved-reading browser lifetime and forget-reading control are accurate | Plan-specific feedback retention is stale-prone; Reading Finds and its separate clearing control are omitted | State real local controls and avoid vendor-plan marketing detail | Players should know what they can clear and where the remaining retention boundary sits | Rewrite; reconciled against current reading and Maze storage controls | Implemented; QA pending |
+| Fan project, intellectual property, contact, footer and stable section anchors | `privacy/index.html`; accurate attribution, operator/source boundary, contact route and navigation remain useful | No demonstrated mismatch in the admitted slice | Preserve accepted fan-project/legal identity language and route stability | No selected change is needed | Retain unchanged; existing ids remain stable even where visible headings change | Reviewed; retained |
+| Internal technical inventory | `docs/reference/product-telemetry.md`, `docs/architecture/data-flow-map.md` | Telemetry contract incorrectly says every event has Archscry-only fields; data-flow map omits Guide telemetry and feedback delivery | Keep exact implementation facts in GitHub instead of public prose | Maintainers still need a complete, current map | Correct `All events` to `All Archscry events`; add Guide session, feedback service and seven-event analytics flow details | Implemented; QA pending |
+| Publication boundary | Rendered `privacy/index.html` versus repository documentation | Removing public vendor names must not imply historical erasure or hide active processing categories | Public copy stays product-focused; exact backend details remain inspectable in GitHub | Users get meaningful categories while maintainers retain operational specificity | Public rendering only; no asset deletion, source-history rewrite or internet-wide removal claim | Implemented; QA pending |
+
 ## Shared coverage within this page
 
-- [ ] Include page text, helpers, tooltips, modal explanations, relevant guide/walkthrough text, empty/error states, metadata and social descriptions affected by the decisions.
-- [ ] Where an omission is selected, define direct URL, keyboard, refresh/return and saved-state behavior before editing; do not merely hide a navigation label.
-- [ ] Record whether the chosen boundary is public rendering or also downloadable assets/source. Do not claim historical erasure or internet-wide removal.
-- [ ] Preserve canonical facts/printing attribution separately from editorial explanations. Citation support and human authorship are different questions.
+- [x] Include page text, helpers, tooltips, modal explanations, relevant guide/walkthrough text, empty/error states, metadata and social descriptions affected by the decisions.
+- [x] Where an omission is selected, define direct URL, keyboard, refresh/return and saved-state behavior before editing; do not merely hide a navigation label.
+- [x] Record whether the chosen boundary is public rendering or also downloadable assets/source. Do not claim historical erasure or internet-wide removal.
+- [x] Preserve canonical facts/printing attribution separately from editorial explanations. Citation support and human authorship are different questions.
 
 ## Acceptance Criteria
 

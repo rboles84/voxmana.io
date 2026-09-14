@@ -34,6 +34,7 @@ The authoritative edit path is `data/precons/vox-mana-precons.source.json` plus 
 | `VM_SESSION` | `assets/js/shared/shared.js` | In-memory plus session storage | Current interview history/result. The feature-flagged Terminal state stays dormant unless enabled. |
 | Saved placement result | `assets/js/shared/shared.js` | `localStorage` key `vm_archscry_saved_reading_v1` | Latest complete Archscry reading for direct same-browser/device dossier return. A legacy session cache is migrated once when found. |
 | Archscry telemetry reading run | `assets/js/shared/vox-telemetry.js` | In-memory only | Correlates one reading start, its accepted answer IDs, and its first completed result. It is not persisted or used as a person identifier. |
+| Field Guide telemetry session | `assets/js/shared/vox-telemetry.js`, `assets/js/guide/guide-telemetry.js` | In-memory only | Correlates bounded Guide open, active-time threshold, intentional action, and walkthrough lifecycle events for one page load. It is not persisted or placed in a URL. |
 | Interview session bucket | `assets/js/shared/shared.js` | `sessionStorage` key `vm_interview_session_id` | Stable client throttle/session id for edge function calls. |
 | Reduce motion | `assets/js/shared/reduce-motion.js`, `assets/js/shared/vm-topbar.js` | `localStorage` key `vm_reduce_motion` | Shared motion preference. |
 | Home identity signal | `assets/js/home/home.js` plus `data/identity-layers.json` | Route-local runtime state, canonical preview registry fetch, and `data/factions.json` lore fetch | Renders the canonical homepage Identity Signal, hero radar, destination links, and mana lore note from registry-owned preview metadata. |
@@ -71,7 +72,8 @@ Future domain selection should be inferred from placement inputs and results rat
 | Scryfall Search | `assets/js/maze/research-search.js` | `/cards/search` | Query, unique, order, page | Card result pages and pagination URLs. |
 | Scryfall Named | `assets/js/maze/research-search.js`, `assets/js/archscry/runtime/card-media.js` | `/cards/named` | Fuzzy card name | Exact card detail or image/link metadata. |
 | Scryfall Random | `assets/js/maze/research-search.js` | `/cards/random` | Optional query | Random fallback/no-results card. |
-| PostHog Cloud US | `assets/js/shared/vox-telemetry.js`, initialized by `assets/js/archscry/index.js` with event calls only in `runtime/questionnaire.js` | `/static/1/array.js`, US ingestion endpoint | Three allowlisted Archscry funnel events containing structured IDs, bounded states, placement version, and an ephemeral reading-run ID | Product analytics ingestion only; no runtime response changes placement or rendering. |
+| Web3Forms | `assets/js/shared/vm-feedback.js` | `https://api.web3forms.com/submit` | Feedback text, optional reply email, page/path/visible-section context, simplified browser/device label, viewport, timestamp, and an hCaptcha token only when configured | Submission success or error status; no application-state mutation beyond feedback UI state. |
+| PostHog Cloud US | `assets/js/shared/vox-telemetry.js`, initialized by `assets/js/archscry/index.js` and `assets/js/guide/guide-telemetry.js` | `/static/1/array.js`, US ingestion endpoint | Three allowlisted Archscry funnel events and four allowlisted Field Guide events containing bounded structured properties and ephemeral in-memory session IDs | Product analytics ingestion only; no runtime response changes placement, Guide behavior, or rendering. |
 
 ## Device-Local Reading Persistence
 

@@ -4,7 +4,7 @@ Vox Mana Product Telemetry measures the Archscry placement funnel and the bounde
 
 ## V1 Contract
 
-All events include `telemetry_schema_version: 1`, one ephemeral `reading_run_id`, and `placement_version`.
+All Archscry events include `telemetry_schema_version: 1`, one ephemeral `reading_run_id`, and `placement_version`.
 
 | Event | Additional properties | Lifecycle point |
 |---|---|---|
