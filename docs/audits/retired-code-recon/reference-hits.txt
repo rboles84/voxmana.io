@@ -1,0 +1,336 @@
+archscry/index.html:21:<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js" defer></script>
+archscry/index.html:22:<script src="../assets/js/shared/site-flags.js" defer></script>
+archscry/index.html:68:      <div class="tb-identity hidden" id="tb-identity">
+archscry/index.html:69:        <div class="tb-avatar" id="tb-avatar"></div>
+archscry/index.html:71:          <div class="tb-name" id="tb-name"></div>
+archscry/index.html:72:          <div class="tb-placement" id="tb-placement"></div>
+archscry/index.html:76:      <button class="tb-btn hidden" id="tb-signout" type="button" data-action="sign-out">Sign Out</button>
+archscry/index.html:133:          <button class="btn-secondary" type="button" data-vm-terminal-only hidden data-action="start-interview-flow">Use the Scrying Terminal</button>
+archscry/index.html:179:        <button class="btn-secondary" type="button" data-vm-terminal-only hidden data-action="start-interview-flow">Switch to the Scrying Terminal</button>
+archscry/index.html:187:  <section class="section hidden" id="interview" data-vm-terminal-only hidden aria-labelledby="archscry-interview-title">
+archscry/index.html:200:      <div id="terminal-output"></div>
+archscry/index.html:201:      <div id="terminal-input-row">
+archscry/index.html:202:        <input id="terminal-input" type="text" placeholder="Enter your response..." autocomplete="off">
+archscry/index.html:203:        <button id="terminal-submit" type="button" data-action="submit-interview">Transmit</button>
+archscry/index.html:205:      <div id="terminal-status"></div>
+archscry/index.html:206:      <div id="terminal-error"></div>
+archscry/index.html:208:      <div id="decree-container">
+assets/css/apocrypha.css:151:.community-deck-ledger-boundary,
+assets/css/apocrypha.css:168:.community-deck-ledger-boundary,
+assets/css/apocrypha.css:186:.community-deck-ledger-boundary,
+assets/css/apocrypha.css:212:.community-deck-ledger-boundary::after,
+assets/css/apocrypha.css:674:.community-deck-ledger {
+assets/css/apocrypha.css:679:.community-deck-ledger-boundary {
+assets/css/apocrypha.css:684:.community-deck-ledger-boundary p {
+assets/css/apocrypha.css:692:.community-deck-ledger-toolbar {
+assets/css/apocrypha.css:699:.community-deck-ledger-status {
+assets/css/apocrypha.css:705:.community-deck-ledger-status[data-tone="ok"] {
+assets/css/apocrypha.css:709:.community-deck-ledger-status[data-tone="error"] {
+assets/css/apocrypha.css:713:.community-deck-ledger-grid {
+assets/css/archscry.css:136:body.vm-archscry-route #decree-container,
+assets/css/archscry.css:242:body.vm-archscry-route :is(.btn-primary, .btn-secondary, .tb-btn, #terminal-submit, .adjacent-btn) {
+assets/css/archscry.css:264:body.vm-archscry-route :is(.btn-secondary, .tb-btn, .adjacent-btn, #terminal-submit) {
+assets/css/archscry.css:270:body.vm-archscry-route :is(.btn-secondary:hover, .tb-btn:hover, .adjacent-btn:hover, #terminal-submit:hover) {
+assets/css/archscry.css:276:body.vm-archscry-route .tb-identity {
+assets/css/archscry.css:284:body.vm-archscry-route .tb-avatar {
+assets/css/archscry.css:397:body.vm-archscry-route #terminal-output,
+assets/css/archscry.css:398:body.vm-archscry-route #terminal-input,
+assets/css/archscry.css:399:body.vm-archscry-route #terminal-status,
+assets/css/archscry.css:400:body.vm-archscry-route #terminal-error,
+assets/css/archscry.css:401:body.vm-archscry-route #terminal-submit {
+assets/css/archscry.css:406:body.vm-archscry-route #terminal-output {
+assets/css/archscry.css:416:body.vm-archscry-route #terminal-input-row {
+assets/css/archscry.css:421:body.vm-archscry-route #terminal-input {
+assets/css/archscry.css:428:body.vm-archscry-route #terminal-input:focus {
+assets/css/archscry.css:433:body.vm-archscry-route #decree-container {
+assets/css/archscry.css:1593:  body.vm-archscry-route #decree-container,
+assets/css/archscry.css:1721:.btn-primary:focus-visible,.btn-secondary:focus-visible,.tb-btn:focus-visible,.answer-card button:focus-visible,.adjacent-btn:focus-visible,#terminal-submit:focus-visible,#terminal-input:focus-visible{
+assets/css/archscry.css:1737:.tb-identity{display:flex;align-items:center;gap:12px;min-width:0}
+assets/css/archscry.css:1738:.tb-avatar{
+assets/css/archscry.css:1750:.tb-avatar img{width:100%;height:100%;object-fit:cover}
+assets/css/archscry.css:1751:.tb-avatar-fallback{
+assets/css/archscry.css:1757:.tb-name{
+assets/css/archscry.css:1766:.tb-placement{
+assets/css/archscry.css:1931:#terminal-output{
+assets/css/archscry.css:1939:.terminal-message{
+assets/css/archscry.css:1945:.terminal-message.recruiter{color:var(--gold)}
+assets/css/archscry.css:1946:.terminal-message.user{color:#d4c9b8}
+assets/css/archscry.css:1947:.terminal-message.loading::after{content:" |";animation:pulse 0.8s ease-in-out infinite}
+assets/css/archscry.css:1948:#terminal-input-row{display:flex;gap:0.6rem;margin-top:0.8rem}
+assets/css/archscry.css:1949:#terminal-input{
+assets/css/archscry.css:1959:#terminal-submit{
+assets/css/archscry.css:1968:#terminal-submit:disabled,#terminal-input:disabled{opacity:0.45;cursor:not-allowed}
+assets/css/archscry.css:1969:#terminal-status{
+assets/css/archscry.css:1976:#terminal-error{font-size:0.85rem;color:var(--danger);margin-top:0.35rem}
+assets/css/archscry.css:1977:#decree-container{
+assets/css/archscry.css:1986:#decree-container.visible{display:block;opacity:1}
+assets/css/archscry.css:3716:  .tb-placement{display:none}
+assets/css/archscry.css:3717:  #terminal-input-row{flex-direction:column}
+assets/css/archscry.css:3718:  #terminal-submit{width:100%}
+assets/css/archscry.css:4477:body.vm-archscry-route input:not(#terminal-input),
+assets/css/archscry.css:4514:body.vm-archscry-route #terminal-input,
+assets/css/archscry.css:4515:body.vm-archscry-route .terminal-message,
+assets/css/archscry.css:4516:body.vm-archscry-route #terminal-status,
+assets/css/site-skin.css:235:  .apoc-use-note, .community-deck-ledger-boundary, .community-deck-card,
+assets/css/site-skin.css:246:body.vm-site-skin #decree-container {
+assets/css/topbar.css:66:.vm-utility .tb-identity,
+assets/css/topbar.css:106:.vm-utility .tb-identity::before,
+assets/css/topbar.css:402:.vm-utility .tb-identity {
+assets/js/apocrypha/community-deck-ledger.js:5:} from "../archscry/deck-link-service.js";
+assets/js/apocrypha/community-deck-ledger.js:9:} from "../archscry/deck-links.js";
+assets/js/apocrypha/community-deck-ledger.js:30:  const status = document.getElementById("community-deck-ledger-status");
+assets/js/apocrypha/community-deck-ledger.js:72:  const list = document.getElementById("community-deck-ledger-list");
+assets/js/apocrypha/community-deck-ledger.js:147:  if (typeof globalThis.vm_resumeSession !== "function") {
+assets/js/apocrypha/community-deck-ledger.js:152:    await globalThis.vm_resumeSession();
+assets/js/apocrypha/community-deck-ledger.js:240:  const root = document.querySelector("[data-community-deck-ledger]");
+assets/js/archscry/deck-link-service.js:7:} from "./deck-links.js?v=vm636";
+assets/js/archscry/deck-link-service.js:49:  const factory = globalThis.getSupabase;
+assets/js/archscry/index.js:27:  openInterviewDossier,
+assets/js/archscry/index.js:28:  returnToInterviewSource,
+assets/js/archscry/index.js:29:  startInterviewFlow,
+assets/js/archscry/index.js:30:  submitInterview,
+assets/js/archscry/index.js:36:  handleSignOut,
+assets/js/archscry/index.js:40:  updateInterviewControls,
+assets/js/archscry/index.js:51:  SESSION,
+assets/js/archscry/index.js:102:document.addEventListener("vm_placementSaved", (event) => {
+assets/js/archscry/index.js:106:  const result = event.detail || SESSION.profile?.placementResult || vm_getCachedPlacementResult();
+assets/js/archscry/index.js:120:    returnToInterviewSource();
+assets/js/archscry/index.js:132:  handleSignOut,
+assets/js/archscry/index.js:133:  openInterviewDossier,
+assets/js/archscry/index.js:136:  returnToInterviewSource,
+assets/js/archscry/index.js:139:  startInterviewFlow,
+assets/js/archscry/index.js:141:  submitInterview,
+assets/js/archscry/index.js:163:  const input = document.getElementById("terminal-input");
+assets/js/archscry/index.js:165:    updateInterviewControls(APP_STATE.interviewState);
+assets/js/archscry/index.js:170:      submitInterview();
+assets/js/archscry/runtime/actions.js:40:  openInterviewDossier,
+assets/js/archscry/runtime/actions.js:41:  returnToInterviewSource,
+assets/js/archscry/runtime/actions.js:42:  startInterviewFlow,
+assets/js/archscry/runtime/actions.js:43:  submitInterview,
+assets/js/archscry/runtime/actions.js:49:  handleSignOut,
+assets/js/archscry/runtime/actions.js:104:      await handleSignOut();
+assets/js/archscry/runtime/actions.js:110:      await startInterviewFlow();
+assets/js/archscry/runtime/actions.js:134:      await submitInterview();
+assets/js/archscry/runtime/actions.js:137:      openInterviewDossier();
+assets/js/archscry/runtime/actions.js:152:      returnToInterviewSource();
+assets/js/archscry/runtime/boot.js:22:  SESSION,
+assets/js/archscry/runtime/boot.js:43: * @param {boolean} savedFromOAuth True when the current load just completed an OAuth save.
+assets/js/archscry/runtime/boot.js:46:export function restoreInitialView(savedFromOAuth) {
+assets/js/archscry/runtime/boot.js:47:  const profileResult = SESSION.profile?.placementResult || null;
+assets/js/archscry/runtime/boot.js:48:  const cached = vm_getCachedPlacementResult();
+assets/js/archscry/runtime/boot.js:62:  if (savedFromOAuth && result) {
+assets/js/archscry/runtime/boot.js:79:    vm_cachePlacementResult(result);
+assets/js/archscry/runtime/data.js:56: * Applies the feature flag to terminal-only UI already in the DOM.
+assets/js/archscry/runtime/dossier-controls.js:5:} from "../deck-link-service.js?v=vm636";
+assets/js/archscry/runtime/dossier-controls.js:29:  SESSION,
+assets/js/archscry/runtime/dossier-controls.js:39:export const ACCOUNT_DECK_LINKS_ENABLED = false;
+assets/js/archscry/runtime/dossier-controls.js:47:  ...(ACCOUNT_DECK_LINKS_ENABLED ? [{ id: "decks-saved", label: "External Deck Links" }] : []),
+assets/js/archscry/runtime/dossier-controls.js:185:  const signedInCopy = SESSION.username
+assets/js/archscry/runtime/dossier-controls.js:186:    ? `Saved under ${escapeHtml(SESSION.username)} for ${escapeHtml(placementName)}.`
+assets/js/archscry/runtime/dossier-controls.js:264:  return APP_STATE.activeResult || SESSION.profile?.placementResult || vm_getCachedPlacementResult();
+assets/js/archscry/runtime/dossier-controls.js:281:  if (!SESSION.username) {
+assets/js/archscry/runtime/dossier-controls.js:366:  if (!SESSION.username) {
+assets/js/archscry/runtime/dossier-controls.js:392:  if (!SESSION.username) {
+assets/js/archscry/runtime/dossier-view.js:74:  ACCOUNT_DECK_LINKS_ENABLED,
+assets/js/archscry/runtime/dossier-view.js:113:  SESSION,
+assets/js/archscry/runtime/dossier-view.js:1616:    result: APP_STATE.activeResult || SESSION.profile?.placementResult || vm_getCachedPlacementResult(),
+assets/js/archscry/runtime/dossier-view.js:1617:    viewKey: APP_STATE.activeViewKey || APP_STATE.activeResult?.faction || SESSION.profile?.placementResult?.faction || null,
+assets/js/archscry/runtime/dossier-view.js:1806:    vm_cachePlacementResult(result);
+assets/js/archscry/runtime/dossier-view.js:2245:  const accountDeckLinksPanelHtml = !identityOnlyMode && ACCOUNT_DECK_LINKS_ENABLED
+assets/js/archscry/runtime/dossier-view.js:2312:        ${terminalEnabled ? `<button class="btn-secondary" type="button" data-vm-terminal-only ${buildActionAttrs("start-interview-flow")}>Try the deeper reading</button>` : ""}
+assets/js/archscry/runtime/dossier-view.js:2330:    !identityOnlyMode && ACCOUNT_DECK_LINKS_ENABLED ? { id: "decks-saved", content: accountDeckLinksPanelHtml } : null,
+assets/js/archscry/runtime/identity-atlas.js:25:  SESSION,
+assets/js/archscry/runtime/identity-atlas.js:43:  if (SESSION.profile?.placementResult) return true;
+assets/js/archscry/runtime/identity-atlas.js:45:    return typeof globalThis.vm_getCachedPlacementResult === "function" && Boolean(globalThis.vm_getCachedPlacementResult());
+assets/js/archscry/runtime/interview.js:14:  updateInterviewControls,
+assets/js/archscry/runtime/interview.js:24:export async function startInterviewFlow() {
+assets/js/archscry/runtime/interview.js:40:  const output = document.getElementById("terminal-output");
+assets/js/archscry/runtime/interview.js:42:  line.className = `terminal-message ${role}${loading ? " loading" : ""}`;
+assets/js/archscry/runtime/interview.js:54:  document.getElementById("terminal-output").innerHTML = "";
+assets/js/archscry/runtime/interview.js:55:  document.getElementById("decree-container").classList.remove("visible");
+assets/js/archscry/runtime/interview.js:56:  document.getElementById("terminal-error").textContent = "";
+assets/js/archscry/runtime/interview.js:57:  document.getElementById("terminal-status").textContent = "";
+assets/js/archscry/runtime/interview.js:58:  document.getElementById("terminal-input").value = "";
+assets/js/archscry/runtime/interview.js:59:  updateInterviewControls("idle");
+assets/js/archscry/runtime/interview.js:75:  updateInterviewControls("loading", 1);
+assets/js/archscry/runtime/interview.js:79:    const data = await vm_startInterview({
+assets/js/archscry/runtime/interview.js:85:    updateInterviewControls("interviewing", data.turn || 1);
+assets/js/archscry/runtime/interview.js:86:    document.getElementById("terminal-input").focus();
+assets/js/archscry/runtime/interview.js:89:    document.getElementById("terminal-error").textContent =
+assets/js/archscry/runtime/interview.js:91:    updateInterviewControls("idle");
+assets/js/archscry/runtime/interview.js:101:export async function submitInterview() {
+assets/js/archscry/runtime/interview.js:107:  const input = document.getElementById("terminal-input");
+assets/js/archscry/runtime/interview.js:109:  if (text.length < 3 || APP_STATE.interviewState === "loading" || APP_STATE.interviewState === "decided") {
+assets/js/archscry/runtime/interview.js:113:  document.getElementById("terminal-error").textContent = "";
+assets/js/archscry/runtime/interview.js:116:  updateInterviewControls("loading");
+assets/js/archscry/runtime/interview.js:120:    const data = await vm_conductInterview(text);
+assets/js/archscry/runtime/interview.js:126:      updateInterviewControls("decided", data.turn || 5);
+assets/js/archscry/runtime/interview.js:128:      updateInterviewControls("interviewing", data.turn || undefined);
+assets/js/archscry/runtime/interview.js:133:    document.getElementById("terminal-error").textContent =
+assets/js/archscry/runtime/interview.js:135:    updateInterviewControls("interviewing");
+assets/js/archscry/runtime/interview.js:159:    const decree = document.getElementById("decree-container");
+assets/js/archscry/runtime/interview.js:167:    vm_cachePlacementResult(publicResult);
+assets/js/archscry/runtime/interview.js:170:      document.getElementById("terminal-output").style.opacity = "0.4";
+assets/js/archscry/runtime/interview.js:198:export function openInterviewDossier() {
+assets/js/archscry/runtime/interview.js:214:export function returnToInterviewSource() {
+assets/js/archscry/runtime/navigation.js:15:  SESSION,
+assets/js/archscry/runtime/navigation.js:20:  return globalThis.VM_SITE_FLAGS?.SCRYING_TERMINAL_ENABLED === true;
+assets/js/archscry/runtime/navigation.js:26:  document.querySelectorAll("[data-vm-terminal-only]").forEach((node) => {
+assets/js/archscry/runtime/navigation.js:62:  const identity = document.getElementById("tb-identity");
+assets/js/archscry/runtime/navigation.js:63:  const signOut = document.getElementById("tb-signout");
+assets/js/archscry/runtime/navigation.js:65:  const avatar = document.getElementById("tb-avatar");
+assets/js/archscry/runtime/navigation.js:66:  const name = document.getElementById("tb-name");
+assets/js/archscry/runtime/navigation.js:67:  const placement = document.getElementById("tb-placement");
+assets/js/archscry/runtime/navigation.js:68:  const profileResult = SESSION.profile?.placementResult || null;
+assets/js/archscry/runtime/navigation.js:74:  if (!SESSION.username) {
+assets/js/archscry/runtime/navigation.js:84:  name.textContent = SESSION.username;
+assets/js/archscry/runtime/navigation.js:88:  if (SESSION.avatarUrl) {
+assets/js/archscry/runtime/navigation.js:90:    image.src = SESSION.avatarUrl;
+assets/js/archscry/runtime/navigation.js:91:    image.alt = SESSION.username || "Signed-in user";
+assets/js/archscry/runtime/navigation.js:95:    fallback.className = "tb-avatar-fallback";
+assets/js/archscry/runtime/navigation.js:96:    fallback.textContent = (SESSION.username[0] || "?").toUpperCase();
+assets/js/archscry/runtime/navigation.js:135:  APP_STATE.interviewState = "idle";
+assets/js/archscry/runtime/navigation.js:136:  vm_resetInterview();
+assets/js/archscry/runtime/navigation.js:137:  const output = document.getElementById("terminal-output");
+assets/js/archscry/runtime/navigation.js:138:  const decree = document.getElementById("decree-container");
+assets/js/archscry/runtime/navigation.js:146:  document.getElementById("terminal-error").textContent = "";
+assets/js/archscry/runtime/navigation.js:147:  document.getElementById("terminal-status").textContent = "";
+assets/js/archscry/runtime/navigation.js:148:  document.getElementById("terminal-input").value = "";
+assets/js/archscry/runtime/navigation.js:149:  updateInterviewControls("idle");
+assets/js/archscry/runtime/navigation.js:156:  vm_forgetSavedReading();
+assets/js/archscry/runtime/navigation.js:180:export async function handleSignOut() {
+assets/js/archscry/runtime/navigation.js:181:  await vm_signOut();
+assets/js/archscry/runtime/navigation.js:193:export function updateInterviewControls(state, turn) {
+assets/js/archscry/runtime/navigation.js:194:  APP_STATE.interviewState = state;
+assets/js/archscry/runtime/navigation.js:195:  const input = document.getElementById("terminal-input");
+assets/js/archscry/runtime/navigation.js:196:  const submit = document.getElementById("terminal-submit");
+assets/js/archscry/runtime/navigation.js:197:  const status = document.getElementById("terminal-status");
+assets/js/archscry/runtime/questionnaire.js:36:  SESSION,
+assets/js/archscry/runtime/questionnaire.js:97:  SESSION.interviewResult = APP_STATE.activeResult;
+assets/js/archscry/runtime/questionnaire.js:98:  vm_cachePlacementResult(APP_STATE.activeResult);
+assets/js/archscry/runtime/questionnaire.js:356:  SESSION.interviewResult = result;
+assets/js/archscry/runtime/questionnaire.js:357:  vm_cachePlacementResult(result);
+assets/js/archscry/runtime/state.js:10:export const SESSION = VM_SESSION;
+assets/js/archscry/runtime/state.js:27:  interviewState: "idle",
+assets/js/maze/research-init.js:939:  const username = (typeof VM_SESSION !== "undefined") ? VM_SESSION.username : null;
+assets/js/maze/research-init.js:3105:  const sessionResult = (typeof VM_SESSION !== "undefined" && VM_SESSION.profile?.placementResult) ||
+assets/js/maze/research-init.js:3106:    (typeof VM_SESSION !== "undefined" && VM_SESSION.interviewResult) ||
+assets/js/maze/research-init.js:3110:  if (typeof vm_getCachedPlacementResult === "function") {
+assets/js/maze/research-init.js:3111:    const cached = vm_getCachedPlacementResult();
+assets/js/shared/shared.js:23:function getSupabase() {
+assets/js/shared/shared.js:228:function normalizePlacementResult(result, fallbackProfile) {
+assets/js/shared/shared.js:302:  return globalThis.VM_SITE_FLAGS?.SCRYING_TERMINAL_ENABLED === true;
+assets/js/shared/shared.js:316:  return normalizePlacementResult(
+assets/js/shared/shared.js:345:function vm_cachePlacementResult(result) {
+assets/js/shared/shared.js:354:function vm_getCachedPlacementResult() {
+assets/js/shared/shared.js:357:    return normalizePlacementResult(saved, null);
+assets/js/shared/shared.js:361:  const normalizedLegacy = normalizePlacementResult(legacy, null);
+assets/js/shared/shared.js:363:    vm_cachePlacementResult(normalizedLegacy);
+assets/js/shared/shared.js:372:function vm_forgetSavedReading() {
+assets/js/shared/shared.js:375:  VM_SESSION.interviewResult = null;
+assets/js/shared/shared.js:388:    normalizePlacementResult(profileRow?.placement_result, profileRow) ||
+assets/js/shared/shared.js:391:  VM_SESSION.username = displayName;
+assets/js/shared/shared.js:392:  VM_SESSION.avatarUrl = avatarUrl;
+assets/js/shared/shared.js:393:  VM_SESSION.profile = {
+assets/js/shared/shared.js:402:  VM_SESSION.interviewResult = placementResult;
+assets/js/shared/shared.js:403:  vm_cachePlacementResult(placementResult);
+assets/js/shared/shared.js:406:const VM_SESSION = {
+assets/js/shared/shared.js:471:async function vm_startInterview(context = {}) {
+assets/js/shared/shared.js:476:  VM_SESSION.chatHistory = [];
+assets/js/shared/shared.js:477:  VM_SESSION.interviewActive = true;
+assets/js/shared/shared.js:478:  VM_SESSION.interviewResult = null;
+assets/js/shared/shared.js:479:  VM_SESSION.interviewContext = {
+assets/js/shared/shared.js:483:  return vm_conductInterview(context.openingMessage || "I am ready to be assessed.");
+assets/js/shared/shared.js:492:async function vm_conductInterview(userMessage) {
+assets/js/shared/shared.js:497:  const sb = getSupabase();
+assets/js/shared/shared.js:507:  VM_SESSION.chatHistory.push({ role: "user", content: message });
+assets/js/shared/shared.js:510:    VM_SESSION.username ||
+assets/js/shared/shared.js:511:    VM_SESSION.profile?.username ||
+assets/js/shared/shared.js:517:      history: VM_SESSION.chatHistory.slice(0, -1),
+assets/js/shared/shared.js:519:      starter_profile: VM_SESSION.interviewContext?.starter_profile || null,
+assets/js/shared/shared.js:520:      current_result: VM_SESSION.interviewContext?.current_result || null,
+assets/js/shared/shared.js:525:    VM_SESSION.chatHistory.pop();
+assets/js/shared/shared.js:529:  VM_SESSION.chatHistory.push({ role: "assistant", content: data.response || "" });
+assets/js/shared/shared.js:532:    const normalized = normalizePlacementResult(data.result, null);
+assets/js/shared/shared.js:533:    VM_SESSION.interviewResult = normalized;
+assets/js/shared/shared.js:534:    VM_SESSION.interviewActive = false;
+assets/js/shared/shared.js:535:    vm_cachePlacementResult(normalized);
+assets/js/shared/shared.js:545:function vm_resetInterview() {
+assets/js/shared/shared.js:546:  VM_SESSION.chatHistory = [];
+assets/js/shared/shared.js:547:  VM_SESSION.interviewActive = false;
+assets/js/shared/shared.js:548:  VM_SESSION.interviewResult = null;
+assets/js/shared/shared.js:549:  VM_SESSION.interviewContext = null;
+assets/js/shared/shared.js:558:async function vm_savePlacementResult(result) {
+assets/js/shared/shared.js:559:  const sb = getSupabase();
+assets/js/shared/shared.js:564:  const normalized = normalizePlacementResult(result, null);
+assets/js/shared/shared.js:615:    username: VM_SESSION.profile?.username || null,
+assets/js/shared/shared.js:633:async function vm_saveWithGoogle(result) {
+assets/js/shared/shared.js:634:  const sb = getSupabase();
+assets/js/shared/shared.js:639:  const normalized = normalizePlacementResult(result || VM_SESSION.interviewResult, null);
+assets/js/shared/shared.js:644:  VM_SESSION.pendingSave = true;
+assets/js/shared/shared.js:645:  VM_SESSION.interviewResult = normalized;
+assets/js/shared/shared.js:646:  vm_cachePlacementResult(normalized);
+assets/js/shared/shared.js:664:async function vm_checkPendingSave() {
+assets/js/shared/shared.js:670:  const sb = getSupabase();
+assets/js/shared/shared.js:683:  const savedResult = await vm_savePlacementResult(pending);
+assets/js/shared/shared.js:685:  VM_SESSION.pendingSave = false;
+assets/js/shared/shared.js:686:  VM_SESSION.interviewResult = savedResult;
+assets/js/shared/shared.js:687:  vm_cachePlacementResult(savedResult);
+assets/js/shared/shared.js:690:    new CustomEvent("vm_placementSaved", { detail: clonePlacementResult(savedResult) })
+assets/js/shared/shared.js:701:async function vm_signOut() {
+assets/js/shared/shared.js:702:  const sb = getSupabase();
+assets/js/shared/shared.js:708:  VM_SESSION.clear();
+assets/js/shared/shared.js:716:async function vm_resumeSession() {
+assets/js/shared/shared.js:717:  const sb = getSupabase();
+assets/js/shared/shared.js:767:async function vm_clearPlacement() {
+assets/js/shared/shared.js:768:  const sb = getSupabase();
+assets/js/shared/shared.js:778:    VM_SESSION.interviewResult = null;
+assets/js/shared/shared.js:779:    vm_cachePlacementResult(null);
+assets/js/shared/shared.js:780:    if (VM_SESSION.profile) {
+assets/js/shared/shared.js:781:      VM_SESSION.profile = {
+assets/js/shared/shared.js:782:        ...VM_SESSION.profile,
+assets/js/shared/shared.js:811:  VM_SESSION.interviewResult = null;
+assets/js/shared/shared.js:812:  vm_cachePlacementResult(null);
+assets/js/shared/shared.js:813:  if (VM_SESSION.profile) {
+assets/js/shared/shared.js:814:    VM_SESSION.profile = {
+assets/js/shared/shared.js:815:      ...VM_SESSION.profile,
+assets/js/shared/site-flags.js:11:    SCRYING_TERMINAL_ENABLED: false,
+scripts/browser-smoke.mjs:317:      if (url.startsWith("https://cdn.jsdelivr.net/npm/@supabase/supabase-js")) {
+scripts/browser-smoke.mjs:1057:      normalization: typeof normalizePlacementResult === "function"
+scripts/browser-smoke.mjs:1059:            missing: normalizePlacementResult({ source_mode: "legacy", faction: cachedResult?.faction }, null),
+scripts/browser-smoke.mjs:1060:            supplied: normalizePlacementResult({
+scripts/visual-regression-archscry.mjs:203:    url.startsWith("https://cdn.jsdelivr.net/npm/@supabase/supabase-js") ||
+scripts/visual-regression-archscry.mjs:206:    text.includes("@supabase/supabase-js") ||
+scripts/visual-regression-archscry.mjs:207:    text.includes("cdn.jsdelivr.net/npm/@supabase/supabase-js")
+scripts/vm551-card-rationale-authority-tests.mjs:127:globalThis.VM_SESSION = { profile: null, username: "" };
+scripts/vm551-dossier-content-integrity-tests.mjs:149:globalThis.VM_SESSION = { profile: null, username: "" };
+scripts/vm551-gate-a-owner-qa-tests.mjs:83:assert.match(indexSource, /case "start-interview-flow":\s*await startInterviewFlow\(\);\s*return;\s*case "resume-quick-flow":\s*resumeIncompleteQuickReading\(\);/);
+scripts/vm574-card-signals-validation.mjs:13:globalThis.VM_SESSION = globalThis.VM_SESSION || {};
+scripts/vm650-three-plays-html-tests.mjs:5:globalThis.VM_SESSION ||= {};
+tests/archscry/archscry-dossier-followup-tests.js:176:globalThis.VM_SESSION = { profile: null, username: "" };
+tests/archscry/archscry-transform-tests.js:157:const previewGlobals = ["VM_SESSION", "window", "document", "Node", "Element", "HTMLElement", "HTMLImageElement", "HTMLButtonElement", "HTMLAnchorElement", "Image"];
+tests/archscry/archscry-transform-tests.js:161:  VM_SESSION: { profile: null, username: "" },
+tests/archscry/identity-atlas-matrix-tests.js:6:globalThis.VM_SESSION = { profile: {} };
+tests/archscry/identity-atlas-tests.js:9:globalThis.VM_SESSION = { profile: {} };
+tests/archscry/precon-rationale-presentation-tests.js:4:globalThis.VM_SESSION = {};
+tests/archscry/sirf-college-wave-05-tests.js:9:globalThis.VM_SESSION = {};
+tests/archscry/sirf-colorless-wave-09-tests.js:9:globalThis.VM_SESSION = {};
+tests/archscry/sirf-diversity-batch-01-tests.js:8:globalThis.VM_SESSION = {};
+tests/archscry/sirf-four-color-wave-08-tests.js:9:globalThis.VM_SESSION = {};
+tests/archscry/sirf-guild-batch-03-tests.js:8:globalThis.VM_SESSION = {};
+tests/archscry/sirf-guild-batch-04-tests.js:9:globalThis.VM_SESSION = {};
+tests/archscry/sirf-mono-batch-02-tests.js:8:globalThis.VM_SESSION = {};
+tests/archscry/sirf-precon-composer-tests.js:6:globalThis.VM_SESSION = {};
+tests/archscry/sirf-shard-wave-06-tests.js:9:globalThis.VM_SESSION = {};
+tests/archscry/sirf-wedge-wave-07-tests.js:9:globalThis.VM_SESSION = {};
+tests/archscry/temur-semantic-repair-tests.js:10:globalThis.VM_SESSION = {};
+tests/deck-links/deck-links-tests.js:13:} from "../../assets/js/archscry/deck-links.js";
+tests/deck-links/deck-links-tests.js:25:} from "../../assets/js/archscry/deck-link-service.js";
+tests/deck-links/deck-links-tests.js:564:assert.match(archscrySource, /const ACCOUNT_DECK_LINKS_ENABLED = false;/);
+tests/deck-links/deck-links-tests.js:583:assert.doesNotMatch(apocryphaHtml, /id="community-deck-ledger"/);
+tests/deck-links/deck-links-tests.js:585:assert.doesNotMatch(apocryphaHtml, /data-community-deck-ledger/);
+tests/deck-links/deck-links-tests.js:586:assert.doesNotMatch(apocryphaHtml, /assets\/js\/community-deck-ledger\.js/);
+tests/deck-links/deck-links-tests.js:588:const communityLedgerSource = await readFile(new URL("../../assets/js/apocrypha/community-deck-ledger.js", import.meta.url), "utf8");
+tests/maze/scryfall-request-dedupe-tests.js:9:const originalVmSession = globalThis.VM_SESSION;
+tests/maze/scryfall-request-dedupe-tests.js:49:setGlobal("VM_SESSION", { profile: null, username: "" });
+tests/maze/scryfall-request-dedupe-tests.js:133:  setGlobal("VM_SESSION", originalVmSession);
