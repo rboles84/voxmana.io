@@ -150,6 +150,13 @@ async function run() {
   const duringText = JSON.stringify(duringRules);
   expect(/official rules lookup|does not decide the ruling/i.test(duringText), "rules-dispute output should route to an official or agreed resource");
   expect(!/attack|target|optimal|best line|threat score|percentage|%/i.test(duringText), "During the Game output should not recommend targets or tactical play");
+  const uncertainDeck = evaluateBeforeGame({ bracket: "approximate-3", deck: "unsure", win: "combat", speed: "middle", surprises: ["none"], agreements: ["none"] });
+  expect(uncertainDeck.category === "ask-one-more", "An uncertain deck plan should route to the existing clarification outcome");
+  expect(uncertainDeck.headline === "You have a useful start; one more answer may help.", "An uncertain deck plan should not claim a clear disclosure");
+  expect(
+    uncertainDeck.cards.find(card => card.title === "What is worth disclosing")?.body === "You did not select an additional category to disclose beyond the short deck description you just made.",
+    "No-additional-category output should report the supplied selection without declaring disclosure unnecessary"
+  );
   const allOutputText = JSON.stringify({ stableFind, fullStatement, duringRules, before: evaluateBeforeGame({ bracket: "unsure", deck: "unsure", win: "unsure", speed: "variable", surprises: ["none"], agreements: ["none"] }) });
   expect(!/%|compatibility score|rating/i.test(allOutputText), "lifecycle logic should not present scores, percentages, or ratings as truth");
 
@@ -273,10 +280,13 @@ async function run() {
   for (const moment of duringMomentValues) {
     for (const response of duringResponseValues) {
       const result = evaluateDuringGame({ moment, response });
-      const availablePaths = result.cards.find(card => card.title === "Available paths")?.body || "";
+      const availablePathsCard = result.cards.find(card => card.title === "Available paths");
+      const availablePaths = availablePathsCard?.body || "";
       duringPairCount += 1;
       expect(availablePaths.includes(duringResponseCatalog[response].label), `During the Game response ${moment}/${response} should show its selected label`);
       expect(availablePaths.includes(duringResponseCatalog[response].guidance), `During the Game response ${moment}/${response} should show response-specific guidance`);
+      expect(availablePathsCard?.items.includes(duringResponseCatalog[response].label), `During the Game response ${moment}/${response} should include its selected response in the path list`);
+      expect(new Set(availablePathsCard?.items || []).size === (availablePathsCard?.items || []).length, `During the Game response ${moment}/${response} should not duplicate available paths`);
       expect(!/Choose the smallest useful response|undefined|null/i.test(availablePaths), `During the Game response ${moment}/${response} must not use fallback copy`);
       expect(!/recommend(?:s|ed)?\s+(?:a\s+)?(?:target|attack|removal)|scores?\s+(?:a\s+)?threat|rates?\s+(?:a\s+)?player|tactical\s+(?:advice|sequencing)|invent(?:s|ing)?\s+(?:a\s+)?rules? ruling|declares?\s+.*objectively correct|manipulat(?:ive|es)\s+table/i.test(JSON.stringify(result)), `During the Game response ${moment}/${response} must remain neutral and non-tactical`);
     }

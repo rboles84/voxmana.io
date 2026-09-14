@@ -575,7 +575,7 @@ export function evaluateBeforeGame(answers) {
   const statement = generatePregameStatement({ bracket, deck, win, speed, surprises, agreements });
   const category = surpriseIds.some(value => beforeDisclosureCatalog[value].requiresNaming)
     ? "name-the-surprise"
-    : bracket === "unsure" || bracket === "not-using" || win === "unsure"
+    : bracket === "unsure" || bracket === "not-using" || deck === "unsure" || win === "unsure"
       ? "ask-one-more"
       : "clear-disclosure";
   const deckExpectation = deck === "unsure"
@@ -593,7 +593,7 @@ export function evaluateBeforeGame(answers) {
   ].join(" ");
   const disclosure = surpriseText.length
     ? `Worth disclosing for this table: ${naturalList(surpriseText)}.`
-    : "No advanced category needs to be disclosed beyond the short deck description you just made.";
+    : "You did not select an additional category to disclose beyond the short deck description you just made.";
   const question = surpriseIds.includes("combo")
     ? "How does the pod feel about an intentional combo that may end the game suddenly?"
     : agreementText.length
@@ -620,6 +620,7 @@ export function evaluateDuringGame(answers) {
   const response = findValue(answers, "response") || "clarify";
   const detail = duringMoments[moment] || duringMoments.fun;
   const responseDetail = duringResponseCatalog[response] || duringResponseCatalog.clarify;
+  const availablePaths = [...new Set([...detail.paths, responseDetail.label])];
   const ruleNote = moment === "rules"
     ? "If the question is about a card interaction, use an official rules lookup, store judge, event judge, or mutually accepted knowledgeable person. This tool does not decide the ruling."
     : "Keep the next sentence about the shared table experience, not about who is right or who should be targeted.";
@@ -629,7 +630,7 @@ export function evaluateDuringGame(answers) {
     cards: [
       { title: "What may be happening", body: detail.happening },
       { title: "What to clarify with the table", body: `${detail.clarify} ${ruleNote}` },
-      { title: "Available paths", body: `You selected: ${responseDetail.label}. ${responseDetail.guidance} The table can still choose among these paths.`, items: detail.paths },
+      { title: "Available paths", body: `You selected: ${responseDetail.label}. ${responseDetail.guidance} The table can still choose among these paths.`, items: availablePaths },
       { title: "A neutral sentence someone can say", body: detail.say, copyText: detail.say },
     ],
   };

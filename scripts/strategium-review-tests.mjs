@@ -108,6 +108,7 @@ async function runStaticChecks() {
   expect(review.includes("Stage ${value} of 4"), "Named four-stage progress model is missing");
   expect(review.includes("showModal()"), "In-page lesson dialog is missing");
   expect(review.includes('event.key !== "Tab"'), "Lesson dialog focus containment is missing");
+  expect(review.includes("What deals, warnings, or repeated claims keep drawing attention toward you."), "Table-talk review guidance should be a complete sentence");
   expect(review.includes('lessonDialog.addEventListener("cancel"'), "Lesson dialog Escape handling is missing");
   expect(review.includes("lessonOpener.focus()"), "Lesson dialog focus restoration is missing");
   expect(review.includes("strategiumLessonDialogOwned"), "Lesson dialog browser-history ownership is missing");
@@ -124,6 +125,9 @@ async function runStaticChecks() {
   expect(reviewHtml.includes('href="../" data-vm-nav="strategium"'), "Review Strategium navigation should target the canonical hub");
   expect(consoleHtml.includes('href="../" data-vm-nav="strategium"'), "Console Strategium navigation should target the canonical hub");
   expect(!consoleHtml.includes('href="#strategium"'), "Global Console links must not use the route-local Strategium section hash");
+  expect(consoleHtml.includes("how deck choices shape table expectations"), "Console metadata should frame table expectations around deck choices");
+  expect(consoleHtml.includes("Treat these as possible table reads, not predictions about a player."), "Console color guidance should distinguish possible reads from player predictions");
+  expect(consoleHtml.includes("Table preparation status") && consoleHtml.includes("0% prepared"), "Readiness gauge should describe preparation rather than absolute readiness");
   expect(reviewHtml.includes('<a href="../">Strategium</a>'), "Review footer Strategium link should target the canonical hub");
   expect(consoleHtml.includes('<a href="../">Strategium</a>'), "Console footer Strategium link should target the canonical hub");
   expect(
@@ -161,6 +165,12 @@ expect((hubHtml.match(/class="vm-card vm-path-card(?:\s|\")/g) || []).length ===
   expect(!consoleHtml.includes("vm-console-return"), "Console hero must not contain the redundant Return to Strategium action");
   expect(consoleRuntime.includes('title: "Know your deck", itemIndexes: [0, 1, 2, 3, 4, 5]'), "Readiness deck group must retain items 1 through 6");
   expect(consoleRuntime.includes('title: "Prepare for the table", itemIndexes: [6, 7, 8, 9]'), "Readiness table group must retain items 7 through 10");
+  expect(consoleRuntime.includes("Exhibition is theme-first") && consoleRuntime.includes("One countable signal:"), "Bracket guidance should retain the approved optional conversation framing");
+  expect(consoleRuntime.includes("an agreed high-impact-card") && !consoleRuntime.includes("Game Changers list"), "Bracket guidance should use evergreen pod-agreement language rather than a time-sensitive policy name");
+  expect(consoleRuntime.includes("the deck's intent and actual play pattern matter"), "Bracket guidance should not treat a list count as a complete deck reading");
+  expect(consoleRuntime.includes("Color identity does not tell the whole story of how a Commander deck plays."), "Beyond WUBRG should distinguish color identity from deck behavior");
+  expect(consoleRuntime.includes("I have the tokens, counters, dice, and life tracking this deck needs."), "Readiness kit guidance should be deck-specific");
+  expect(consoleRuntime.includes("I know what I will say or do if this deck does not fit the pod."), "Readiness mismatch guidance should not require a second deck");
   expect(!consoleRuntime.includes("<strong>Checkpoint"), "Readiness rows should not render competing Checkpoint headings");
   expect(!review.includes('id: "start-unsure"'), "Review must not show a duplicate start-unsure route");
   expect(!styles.includes("circle at var(--mx"), "Strategium viewport lighting should no longer track the pointer");
@@ -497,7 +507,7 @@ async function runBrowserChecks(baseUrl) {
       readinessProgress.every((state, index) =>
         state.count === index
         && state.summary === `${index} of 10 checked`
-        && state.percent === `${Math.round((index / 10) * 100)}% ready`
+        && state.percent === `${Math.round((index / 10) * 100)}% prepared`
         && state.meter === String(index)
       ),
       "Readiness progress, percentage, and meter should remain correct from 0 through 10"

@@ -60,15 +60,16 @@ const basics = {
             use brackets, translate the same information into speed, combos, and table texture.
           </p>
           <p>
-            <strong>Bracket rough fit:</strong> Exhibition / Core for slower social games,
-            Upgraded for tuned casual decks, Optimized for high-power decks, and cEDH for
-            competitive, metagame-aware pods. Treat the bracket as a conversation starter,
-            then explain speed, combos, high-impact cards, mass land denial, and table texture.
+            <strong>Bracket rough fit:</strong> Exhibition is theme-first, Core is lower-pressure
+            social play, Upgraded is powered-up social play, Optimized is high-power play, and cEDH
+            is competitive, metagame-aware Commander. The bracket is a conversation starter;
+            follow it with speed, combos, high-impact cards, mass land denial, and table texture.
           </p>
           <p>
-            <strong>The one countable line:</strong> If your pod uses a watch list, bracket list,
-            or house-rule list, say how many cards from it your deck plays and what they do.
-            Counting those cards is a fast honest read on where a deck sits.
+            <strong>One countable signal:</strong> If your pod uses an agreed high-impact-card
+            list or another house list, say how many listed cards your deck plays and what they do.
+            That count is useful context, but the deck's intent and actual play pattern matter
+            more than any single number.
           </p>
           <div class="vm-console-script-grid">
             <article class="vm-console-script-card">
@@ -286,9 +287,9 @@ const basics = {
     <div class="vm-console-body">
       <h3>Beyond WUBRG</h3>
       <p>
-        Not every Commander identity fits neatly into simple color philosophy. Colorless decks,
-        artifact shells, Eldrazi, Phyrexian pressure, and Universes Beyond imports often create
-        strange identity drift that the pod still has to read correctly.
+        Color identity does not tell the whole story of how a Commander deck plays. Colorless
+        decks, artifact shells, Eldrazi, Phyrexian themes, and Universes Beyond cards can create
+        table expectations that the commander and deck construction may confirm or overturn.
       </p>
       <ul class="vm-console-list">
         <li>Colorless can trade flexibility for giant mana spikes, utility-land lines, and huge top-end threats.</li>
@@ -1018,9 +1019,9 @@ const readinessItems = [
   { copy: "I know how my commander wins or creates pressure.", tag: "deck" },
   { copy: "I know what kind of opening hand my deck wants.", tag: "deck" },
   { copy: "I can track commander damage.", tag: "kit" },
-  { copy: "I have tokens, dice, sleeves, and a life tracker.", tag: "kit" },
+  { copy: "I have the tokens, counters, dice, and life tracking this deck needs.", tag: "kit" },
   { copy: "I can tell the table what kind of game I am hoping to play.", tag: "conversation" },
-  { copy: "I can adjust if the pod wants a slower or stronger game.", tag: "conversation" }
+  { copy: "I know what I will say or do if this deck does not fit the pod.", tag: "conversation" }
 ];
 
 const readinessGroups = [
@@ -1459,7 +1460,7 @@ function initReadinessChecklist() {
     summary.innerHTML = `<strong>${completeCount} of ${readinessItems.length} checked</strong><span>${message}</span>`;
     meter.style.width = `${readinessPercent}%`;
     meterTrack.setAttribute("aria-valuenow", String(completeCount));
-    percent.textContent = `${readinessPercent}% ready`;
+    percent.textContent = `${readinessPercent}% prepared`;
     conversationStatus.textContent = conversationMessage;
     kitStatus.textContent = kitMessage;
   }

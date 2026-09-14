@@ -69,7 +69,7 @@
         ["Visible pressure", "What opponents can see without knowing your hand."],
         ["Expected next turn", "What players think your commander or engine will become."],
         ["Table memory", "What this commander, deck, or pilot did in an earlier game."],
-        ["Table talk", "What deals, warnings, or repeated claims keep drawing attention toward."]
+        ["Table talk", "What deals, warnings, or repeated claims keep drawing attention toward you."]
       ]
     },
     "power-mismatch": {
