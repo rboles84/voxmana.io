@@ -117,6 +117,7 @@ These are starting points, not a pre-approved Admission Scope. Read-only evidenc
 - `docs/handoffs/HANDOFF_INDEX.md`
 - `docs/handoffs/2026-09-13-2244-codex-vm648-terms-privacy-boundary.md`
 - `privacy/index.html`
+- `scripts/check-copy-boundaries.mjs`
 - `terms/index.html`
 
 ## Dependencies and coordination
@@ -173,4 +174,4 @@ RobQA: PENDING
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
-Decisions: Intake authorized 2026-09-08; Preserve-voice direction added 2026-09-08: retain unchanged is valid. Owner authorized the sentence-level Privacy/Terms ownership boundary and implementation on 2026-09-13. Terms is the primary page; narrow Privacy removals are authorized only where needed to eliminate duplicated or Terms-owned content. No runtime or legal-compliance expansion. Intellectual-property wording requires an explicit legal-review disposition before completion.
+Decisions: Intake authorized 2026-09-08; Preserve-voice direction added 2026-09-08: retain unchanged is valid. Owner authorized the sentence-level Privacy/Terms ownership boundary and implementation on 2026-09-13. Terms is the primary page; narrow Privacy removals are authorized only where needed to eliminate duplicated or Terms-owned content. Scope amendment: extend the existing copy-boundary checker with the approved document-ownership and exact-sentence non-duplication invariant; no new framework or runtime behavior. No runtime or legal-compliance expansion. Intellectual-property wording requires an explicit legal-review disposition before completion.
