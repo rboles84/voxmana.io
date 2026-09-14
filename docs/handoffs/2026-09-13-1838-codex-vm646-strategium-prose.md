@@ -138,3 +138,15 @@ Owner: ACCEPT
 Decision reference: Current Codex task Owner message, 2026-09-13: `ACCEPT VM-646`.
 
 The Owner accepted the unchanged RobQA-passed material candidate and authorized the normal PR, guarded squash integration and lifecycle closeout path. This acceptance adds no product changes and does not claim that integration has already occurred.
+
+## Integration preparation — 2026-09-13
+
+Task: VM-646
+Candidate: 966e317947a1f97078620c977214eb8d909a2b7b
+PR: PR #45 — https://github.com/rboles84/voxmana.io/pull/45
+Integration: PENDING
+
+- Native Git remains the branch transport; authenticated GitHub connector route established for repository/PR reads, PR creation and expected-head guarded squash merge.
+- Connector identity `rboles84` has administrative repository permission; the repository permits squash merge.
+- PR #45 targets `main` from `codex/vm-646-strategium-prose-pass` and records exact candidate QA, Owner acceptance and the bounded evidence delta.
+- No matching earlier VM-646 PR existed. Deterministic Validation and current host policy remain to be observed at the exact final PR head before merge.
