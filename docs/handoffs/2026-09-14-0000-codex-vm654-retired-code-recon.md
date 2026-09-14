@@ -92,3 +92,18 @@ Next agent: independent RobQA for this exact recon candidate, then Owner review 
 ## Exact-candidate review outcome
 
 Independent RobQA PASS is bound to candidate dacca18131ccbb7b8c807a0fb388df1d68598426 in 2026-09-14-0004-robqa-vm654-recon.md. All 22 material paths are recon evidence or required workflow records. Exact baseline-to-candidate diff checking, generated indexes, source probes, provenance comparison and the material change-report validator passed. The recon proceeds to Owner Review with Owner PENDING; the proposed purge remains unimplemented. This appended verdict/accounting, the QA handoff, card delivery binding and generated views form a separately reviewed evidence-only delta; they are not the full task diff. Final evidence-head and total-branch accounting are reported from Git at delivery.
+
+## Owner acceptance
+
+Task: VM-654
+Candidate: dacca18131ccbb7b8c807a0fb388df1d68598426
+Owner: ACCEPT
+Decision reference: Codex task 01a09e5b-ef09-7042-8730-bfb3a1d1ea05, Owner message dated 2026-09-14 beginning "OWNER ACCEPT — VM-654".
+
+The Owner states: "The candidate is zero-change production recon, independent QA passed, the worktree is clean, and the evidence establishes a sufficiently complete dependency/storage/removal model to govern the implementation. Acceptance approves the recon evidence and recommended dependency constraints; it does not authorize deletion by itself. Then merge/close VM-654 normally."
+
+This is acceptance of the exact unchanged RobQA-passed material candidate above, with explicit authorization for normal repository integration and closeout. It does not authorize the proposed purge, data migration, remote teardown or UI work. The lifecycle observations below supersede earlier PENDING/stop-at-review observations without rewriting the historical recon record.
+
+GitHub operation routing: the exposed/deferred GitHub connector supports PR creation/read and squash merge with expected_head_sha. Authenticated connector identity is rboles84; repository metadata confirms repository access, push/admin permission and squash capability. No matching PR existed at the first exact head/base lookup. The connector cannot read administrative branch protection (403 Resource not accessible by integration); the fallback is limited to that missing read capability. No authentication, repository protection or credential configuration change is authorized or performed.
+
+Interrupted-run recovery: Windows Defender rejected the attempted PowerShell credential-access process before process creation. The command did not execute; no credential was retrieved or displayed, no Authorization header or direct authenticated REST request was made, and no authentication-secret or returned policy material was written to disk. Recovery uses only ordinary Git inspection and the approved GitHub connector. The unavailable classic branch-protection observation remains unavailable; repository ruleset inspection through the connector returned no rulesets, matching the already-established VM-648 integration precedent.
