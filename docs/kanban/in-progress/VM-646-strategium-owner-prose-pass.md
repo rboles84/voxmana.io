@@ -2,7 +2,7 @@
 
 ID: VM-646
 Title: Strategium Table Guidance and Owner Prose Pass
-Status: Backlog
+Status: In Progress
 Type: Page content review and bounded implementation
 Area: Strategium
 Priority: Medium
@@ -113,6 +113,21 @@ Coordinate VM-642 entry promises and VM-643 identity handoffs. General Guide tex
 
 The sequence is an Owner work order, not an authorization for dependent branches or a requirement to create seven simultaneous worktrees. Work one card at a time. Follow actual availability on other pages rather than assuming all proposed changes have shipped.
 
+## Admission Scope
+
+- `docs/kanban/backlog/VM-646-strategium-owner-prose-pass.md`
+- `docs/kanban/in-progress/VM-646-strategium-owner-prose-pass.md`
+- `docs/kanban/done/VM-646-strategium-owner-prose-pass.md`
+- `docs/kanban/board.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/handoffs/2026-09-13-1838-codex-vm646-strategium-prose.md`
+- `assets/js/strategium/strategium-lifecycle.js`
+- `assets/js/strategium/strategium-review.js`
+- `assets/js/strategium/strategium.js`
+- `strategium/console/index.html`
+- `scripts/strategium-lifecycle-tests.mjs`
+- `scripts/strategium-review-tests.mjs`
+
 ## Protected behavior and non-goals
 
 - No redesign, new engine, new analytics dashboard, mass all-identity rewrite, ranking/scoring change or schema/storage migration is implied by this page pass.
@@ -155,11 +170,12 @@ VM-650 has no future page-work scope. Preserve the accepted Home and Archscry fa
 ## Delivery
 
 Record version: 1
-Branch: PENDING
-Admission baseline: PENDING
+Branch: codex/vm-646-strategium-prose-pass
+Admission baseline: 7f3414c9691d1984224ffebd9a9e9612ffa4d992
 Candidate: PENDING
 RobQA: PENDING
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
-Decisions: Intake authorized 2026-09-08; Preserve-voice direction added 2026-09-08: retain unchanged is valid; page-specific decisions and any selected Owner wording remain to be recorded before dependent implementation. Related-page coordination above is not a dependency-isolation authorization.
+Decisions: Intake authorized 2026-09-08; Preserve-voice direction added 2026-09-08: retain unchanged is valid. Owner approved the exact bounded change contract on 2026-09-13: preserve every Strategium route, flow, choice catalog, result catalog, state/history contract, archetype, layout and visual treatment; correct the During selected-response contradiction, route an uncertain deck plan to the existing clarification outcome, make the no-additional-category result report the supplied selection without declaring disclosure unnecessary, repair one incomplete Review sentence, update current optional-bracket framing, make the readiness checklist measure preparation without requiring accessories or a second deck, separate color identity from predicted behavior, and replace inaccurate Beyond WUBRG identity-drift framing. No Finding-a-Table change, broad voice cleanup, CSS change, new flow, response filtering, schema/storage change, generated-data edit, identity-semantic change, bracket calculator, embedded Game Changers list or external-service dependency is admitted. Related-page coordination above is not a dependency-isolation authorization.
+Evidence: [Task handoff](../../handoffs/2026-09-13-1838-codex-vm646-strategium-prose.md)
