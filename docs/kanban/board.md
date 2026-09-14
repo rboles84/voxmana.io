@@ -1,4 +1,4 @@
-<!-- task-view-sha256:1d868550b54653653f6154d98c78346d72ff3e7861642abc21ef68cc3002bf44 -->
+<!-- task-view-sha256:7da77824006ee0bd92a35bde9b88e87ce6c7ff6bbd854fae8c04aa3b9790e5ca -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -48,12 +48,12 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 
 | ID | Card | Declared status | Diagnostics |
 |---|---|---|---|
-| VM-647 | [Privacy Service Accuracy and Owner Prose Pass](in-progress/VM-647-privacy-service-accuracy-pass.md) | Owner Review |  |
 
 ## Accepted
 
 | ID | Card | Declared status | Diagnostics |
 |---|---|---|---|
+| VM-647 | [Privacy Service Accuracy and Owner Prose Pass](in-progress/VM-647-privacy-service-accuracy-pass.md) | Accepted |  |
 
 ## Integrated
 

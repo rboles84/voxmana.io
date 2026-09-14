@@ -141,3 +141,12 @@ PASS if the page focuses on player-visible value and choices, remains candid abo
 ## Not touched
 
 Terms, service/runtime configuration, Supabase/PostHog/Web3Forms/Scryfall behavior, analytics schemas, feedback payloads, storage keys, feature flags, Archscry placement and dossier logic, Reading Finds logic, routes, CSS/layout, source data, generated artifacts and historical Git content.
+
+## Owner acceptance — 2026-09-13
+
+Task: VM-647
+Candidate: 224e6a1536b3f7017fb38b25748a5ac2a215fa37
+Owner: ACCEPT
+Decision reference: Current Codex task Owner message, 2026-09-13: `ACCEPT VM-647`.
+
+The Owner accepted the unchanged RobQA-passed material candidate and authorized the normal PR, guarded squash integration and lifecycle closeout path. This acceptance adds no product changes and does not claim that integration has already occurred.
