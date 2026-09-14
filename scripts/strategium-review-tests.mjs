@@ -82,6 +82,7 @@ async function runStaticChecks() {
   const hubHtml = await readFile(path.join(root, "strategium/index.html"), "utf8");
   const reviewHtml = await readFile(path.join(root, "strategium/review/index.html"), "utf8");
   const consoleHtml = await readFile(path.join(root, "strategium/console/index.html"), "utf8");
+  const normalizedConsoleHtml = consoleHtml.replace(/\s+/g, " ");
 
   expect(pathCases.length === 24, `Expected 24 workbook path cases, found ${pathCases.length}`);
   expect(new Set(pathCases.map(([, resultId]) => resultId)).size === 15, "Expected 15 result patterns after the wrong-piece repair");
@@ -126,7 +127,7 @@ async function runStaticChecks() {
   expect(consoleHtml.includes('href="../" data-vm-nav="strategium"'), "Console Strategium navigation should target the canonical hub");
   expect(!consoleHtml.includes('href="#strategium"'), "Global Console links must not use the route-local Strategium section hash");
   expect(consoleHtml.includes("how deck choices shape table expectations"), "Console metadata should frame table expectations around deck choices");
-  expect(consoleHtml.includes("Treat these as possible table reads, not predictions about a player."), "Console color guidance should distinguish possible reads from player predictions");
+  expect(normalizedConsoleHtml.includes("Treat these as possible table reads, not predictions about a player."), "Console color guidance should distinguish possible reads from player predictions");
   expect(consoleHtml.includes("Table preparation status") && consoleHtml.includes("0% prepared"), "Readiness gauge should describe preparation rather than absolute readiness");
   expect(reviewHtml.includes('<a href="../">Strategium</a>'), "Review footer Strategium link should target the canonical hub");
   expect(consoleHtml.includes('<a href="../">Strategium</a>'), "Console footer Strategium link should target the canonical hub");
