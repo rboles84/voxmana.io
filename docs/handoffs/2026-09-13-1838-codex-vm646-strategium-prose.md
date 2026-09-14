@@ -150,3 +150,20 @@ Integration: PENDING
 - Connector identity `rboles84` has administrative repository permission; the repository permits squash merge.
 - PR #45 targets `main` from `codex/vm-646-strategium-prose-pass` and records exact candidate QA, Owner acceptance and the bounded evidence delta.
 - No matching earlier VM-646 PR existed. Deterministic Validation and current host policy remain to be observed at the exact final PR head before merge.
+
+## Integration and closeout — 2026-09-13
+
+Task: VM-646
+Candidate: 966e317947a1f97078620c977214eb8d909a2b7b
+Evidence head: 36ff00c5651a42aada03a30f34df58d0164559a4
+Integration: PR45 / PR #45 guarded squash merge `3348a2d52d896a2d37b36541c85bb6a38fcd746d`
+Boundaries: PASS
+
+- GitHub `Deterministic Validation` completed successfully at the exact PR head.
+- The integration checker passed with no blockers before merge.
+- The squash commit has sole parent `7f3414c9691d1984224ffebd9a9e9612ffa4d992` and tree `afc7607782dfb4229ee977a44312a3f627be046d`.
+- The accepted evidence head has the same tree `afc7607782dfb4229ee977a44312a3f627be046d`; no product or evidence bytes changed during squash integration.
+- Owner acceptance remains bound to material candidate `966e317947a1f97078620c977214eb8d909a2b7b`.
+- Repository policy observation: `main` had no configured branch protection or required status-check list; the repository's process-enforced deterministic validation completed successfully. No settings were changed.
+- GitHub removed the remote feature branch after merge. The local feature branch will be deleted only after the lifecycle closeout commit is recorded and accepted-tree parity remains verified.
+- Closeout changes are limited to this appended evidence, the card's lifecycle fields and Done relocation, and regenerated task views. No VM-647 or other sibling work entered VM-646.
