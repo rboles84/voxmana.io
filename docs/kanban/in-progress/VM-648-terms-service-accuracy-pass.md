@@ -2,7 +2,7 @@
 
 ID: VM-648
 Title: Terms Service Accuracy and Owner Prose Pass
-Status: Backlog
+Status: In Progress
 Type: Page content review and bounded implementation
 Area: Terms
 Priority: Medium
@@ -50,6 +50,20 @@ Player recruitment/contact is not authorized by this card; the Owner may provide
 - [ ] Record evidence for source-compilation, interpretation, attribution and reproduction statements; source citations alone do not establish reuse permission.
 - [ ] Separate descriptive prose corrections from changes to substantive rights, obligations or legal protections. Resolve needed specialist review before claiming those changes complete.
 
+## Selected review disposition — 2026-09-13
+
+The Owner approved a sentence-level Privacy/Terms ownership boundary after read-only recon. Each public concept receives one owning document; the other document may use at most one concise cross-reference when omission would make the agreement unclear. Privacy owns information categories, purposes, recipients, retention and controls. Terms owns service scope, guest access, interpretive-model limits, acceptable use, third-party contractual effects, availability, fan-project/IP language, guarantees, termination, warranties and assent.
+
+The approved candidate removes duplicated explanations rather than erasing disclosures. It may make narrow coordinated edits to the integrated Privacy page where VM-647 retained Terms-owned material or repeated the same disclosure in summary and body. Terms is the primary owning page. No runtime, storage, analytics, feedback, provider, service, feature-flag, source/model, CSS or route behavior changes. The intellectual-property section remains subject to explicit legal-review disposition; copy cleanup does not certify compliance.
+
+The sentence audit found these required ownership corrections:
+
+- Privacy removes Terms-owned fan-project/IP, Archscry model, service-access and assent language; it keeps information handling and real user controls.
+- Privacy removes the duplicative At a Glance section, reduces its summary to orientation, and separates information categories, purposes, recipients, sharing, retention and choices without copy-pasted explanations.
+- Terms removes Privacy implementation detail, consolidates three saved-reading sections into one guest-access statement plus one Privacy cross-reference, and removes dormant authentication/interview internals.
+- Terms owns third-party contractual/availability effects and uses one Privacy cross-reference for provider data practices; Privacy owns the recipient and data-flow facts.
+- Each page displays its own effective date once, retains document-specific contact wording, and preserves required metadata/footer navigation.
+
 ## Detailed page checklist
 
 For every item, first assess the three questions above. Record retain unchanged when appropriate. Action labels below are options from the earlier plan, not requirements to change the text.
@@ -93,6 +107,17 @@ These are starting points, not a pre-approved Admission Scope. Read-only evidenc
 - [terms/index.html](../../../terms/index.html)
 - [privacy/index.html](../../../privacy/index.html)
 - This card and the task's implementation/QA handoffs; regenerate the board and handoff index through the existing writer.
+
+## Admission Scope
+
+- `docs/kanban/backlog/VM-648-terms-service-accuracy-pass.md`
+- `docs/kanban/in-progress/VM-648-terms-service-accuracy-pass.md`
+- `docs/kanban/done/VM-648-terms-service-accuracy-pass.md`
+- `docs/kanban/board.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/handoffs/2026-09-13-2244-codex-vm648-terms-privacy-boundary.md`
+- `privacy/index.html`
+- `terms/index.html`
 
 ## Dependencies and coordination
 
@@ -141,11 +166,11 @@ VM-650 has no future page-work scope. Preserve the accepted Home and Archscry fa
 ## Delivery
 
 Record version: 1
-Branch: PENDING
-Admission baseline: PENDING
+Branch: codex/vm-648-terms-privacy-boundary
+Admission baseline: 3ac54b666dd7fc2fefc6a6f890ca9876277a4345
 Candidate: PENDING
 RobQA: PENDING
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
-Decisions: Intake authorized 2026-09-08; Preserve-voice direction added 2026-09-08: retain unchanged is valid; page-specific decisions and any selected Owner wording remain to be recorded before dependent implementation. Related-page coordination above is not a dependency-isolation authorization.
+Decisions: Intake authorized 2026-09-08; Preserve-voice direction added 2026-09-08: retain unchanged is valid. Owner authorized the sentence-level Privacy/Terms ownership boundary and implementation on 2026-09-13. Terms is the primary page; narrow Privacy removals are authorized only where needed to eliminate duplicated or Terms-owned content. No runtime or legal-compliance expansion. Intellectual-property wording requires an explicit legal-review disposition before completion.

@@ -1,4 +1,4 @@
-<!-- task-view-sha256:ba39dcfce42850e65eba0fc7dd7c6cadee18d1d09af0acec46f1ed482fdcdb50 -->
+<!-- task-view-sha256:6e446e6903d96c9793163c22db17ac44253c44525ad0d8b4c7976995f4963324 -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -32,7 +32,6 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | VM-629 | [Placement Language Repetition Reduction](backlog/VM-629-placement-language-repetition-reduction.md) | Backlog |  |
 | VM-630 | [CRIT-001 Live Provenance Pointer Normalization](backlog/VM-630-crit001-live-provenance-pointer-normalization.md) | Backlog |  |
 | VM-637 | [Public Content Retention and Owner Prose Plan](backlog/VM-637-public-content-retention.md) | Backlog |  |
-| VM-648 | [Terms Service Accuracy and Owner Prose Pass](backlog/VM-648-terms-service-accuracy-pass.md) | Backlog |  |
 
 ## Ready
 
@@ -43,6 +42,7 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 
 | ID | Card | Declared status | Diagnostics |
 |---|---|---|---|
+| VM-648 | [Terms Service Accuracy and Owner Prose Pass](in-progress/VM-648-terms-service-accuracy-pass.md) | In Progress |  |
 
 ## Owner Review
 
