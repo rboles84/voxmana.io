@@ -45,7 +45,7 @@ Record version: 1
 Branch: codex/vm-654-retired-code-recon
 Admission baseline: 01e11dc3e6cdae683e9f8120a0034f26d33806f1
 Candidate: dacca18131ccbb7b8c807a0fb388df1d68598426
-RobQA: PASS at dacca18131ccbb7b8c807a0fb388df1d68598426; SEPARATE; docs/handoffs/2026-09-14-0004-robqa-vm654-recon.md
+RobQA: PASS at dacca18131ccbb7b8c807a0fb388df1d68598426 ; SEPARATE; docs/handoffs/2026-09-14-0004-robqa-vm654-recon.md
 Owner: PENDING
 Integration: PENDING; no purge or integration requested
 Dependencies: None
