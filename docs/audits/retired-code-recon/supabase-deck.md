@@ -65,7 +65,7 @@ external links and their generic renderer.
 
 | Path | Runtime/deploy role and provenance | Current consumers / relation | Recommendation | Prerequisites, risk, validation |
 |---|---|---|---|---|
-| `supabase/functions/guild-recruiter/index.ts` | Authored Deno Edge Function. It imports the generated context ([index.ts:1-2](../../../supabase/functions/guild-recruiter/index.ts#L1-L2)), accepts request turns, calls Anthropic, and serves results ([index.ts:425-484](../../../supabase/functions/guild-recruiter/index.ts#L425-L484)). | `assets/js/shared/shared.js` retains the invoke seam; the current Atlas records the endpoint as an archived Terminal/future-replacement backend ([project-atlas.md:42,49-51](../../architecture/project-atlas.md#L42-L51)). No current public Terminal journey is admitted. | **REMOVE** after the shared interview/auth removal packet confirms no route, flag, or test reaches it. | Do not infer deployed removal from source. Inventory and remove deployment separately under explicit authority. Validate zero source imports/invocations, no route SDK load, and protected deterministic Reading/Maze paths unchanged. |
+| `supabase/functions/guild-recruiter/index.ts` | Authored Deno Edge Function. It imports the generated context ([index.ts:1-2](../../../supabase/functions/guild-recruiter/index.ts#L1-L2)), accepts request turns, calls Anthropic, and serves results ([index.ts:425-484](../../../supabase/functions/guild-recruiter/index.ts#L425-L484)). | `assets/js/shared/shared.js` retains the invoke seam; the current Atlas records the endpoint as an archived Terminal/future-replacement backend ([project-atlas.md:42,49-51](../../architecture/project-atlas.md#L42-L51)). No current public Terminal journey is admitted. | **ARCHIVE** exact authored runtime outside the deployable path after the shared interview/auth packet removes current callers; remove original deployable path. | Do not infer deployed removal from source. Inventory and remove deployment separately under explicit authority. Validate zero current source imports/invocations, no route SDK load, preserved archive bytes, and protected deterministic Reading/Maze paths unchanged. |
 | `supabase/functions/guild-recruiter/faction-context.ts` | Generated 8,766-line TypeScript projection, not authored authority. The direct current-model/display comparison has 37 matching keys, preserved order, and zero differing entries; its metadata exactly equals `placement-model._meta` after the producer's intentional `gate_compression` omission. See [faction-context-provenance.md](faction-context-provenance.md). | Retired Edge Function; *also* exact current producer/audit/scope/test readers named in the provenance manifest. | **MIGRATE/EXTRACT** the generated artifact to a neutral path before removing the Supabase path. | This is the principal contradiction: the file is under retired Supabase but is current tool/test input. A deletion-only patch breaks `scripts/audit/audit-semantic-readiness.mjs`, `scripts/lib/semantic-readiness-lib.mjs`, `scripts/validate/validate-semantic-candidate-scope.mjs`, and the listed tests. Require the listed producer/reader move, structural and parity comparison, then remove the old path. |
 
 ## Retired deck/account manifest
@@ -121,10 +121,12 @@ justified by this recon.
 1. Obtain explicit Owner lifecycle direction to supersede VM-422/446 and decide remote Supabase/deployment handling.
 2. Separate `FACTION_CONTEXT` from the Edge Function: move the generated output to a neutral path,
    update the builder, audit/provenance/scope/test readers, and prove structure/parity.
-3. Remove the retired Edge Function and all shared interview/auth callers in the dedicated broader
-   persistence packet; then remove terminal SDK/config/deploy references.
-4. Remove account deck-link modules, gated dossier fragments/actions, orphan ledger, scoped CSS,
-   tests, commands, and CI invocation in one feature-retirement change.
+3. Archive the retired Edge Function outside the deployable tree, removing its original path and
+   all shared interview/auth callers in the dedicated broader persistence packet; then remove
+   terminal SDK/config/deploy references.
+4. Remove account deck-link modules, gated dossier fragments/actions, orphan ledger,
+   tests, commands, and CI invocation in one feature-retirement change. KEEP CSS; deletion-only
+   selector work would require a separate exact-selector/consumer proof and admitted scope.
 5. Archive SQL artifacts and superseded reactivation material; update current references and preserve
    historic records.
 6. Run only the focused post-change checks selected by independent RobQA; verify the unchanged

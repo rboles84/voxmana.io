@@ -1,6 +1,6 @@
 # VM-654 Home and route reconnaissance
 
-Date: 2026-09-14  
+Date: 2026-09-14
 Scope: repository-local source inspection only. This record proposes no deletion or runtime change.
 
 ## Grounded boundary

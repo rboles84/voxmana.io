@@ -4,20 +4,20 @@
 
 ## Locked preservation boundary
 
-The Owner may retire Supabase, OAuth, terminal/interview, recruiter, account links, and account topbar. The purge must preserve the deterministic quick reading; device-local completed-reading restoration; Forget and Begin Again; Atlas and dossier; Maze reading context and return; placement/model; cards and radar. Do not infer live Supabase data or browser storage contents from source.
+The Owner has retired Supabase, OAuth, terminal/interview, recruiter, account links, and account topbar. The purge must preserve the deterministic quick reading; device-local completed-reading restoration; Forget and Begin Again; Atlas and dossier; Maze reading context and return; placement/model; cards and radar. Do not infer live Supabase data or browser storage contents from source.
 
 ## Runtime ownership and classifications
 
 | Path / symbol | Classification | Current evidence and disposition |
 | --- | --- | --- |
-| `assets/js/archscry/runtime/state.js:10` `SESSION = VM_SESSION` | ACTIVE ONLY BECAUSE OF RETIRED COUPLING | Re-exports the shared auth/session singleton. It is consumed by boot, navigation, questionnaire, dossier, identity atlas, and Maze. Replace these reads with the retained local-reading owner before removing shared session code. |
-| `state.js:12-58` `APP_STATE` | ACTIVE CURRENT REQUIREMENT | Route-local owner for loaded source catalogs, quick-flow state, result/view state, Maze-return state, and dossier UI state. Retain intact. `interviewState` at line 27 is retired-only. |
-| `state.js:60-66` `getFaction`, `placementQuestionById`, `getStarterProfile` | ACTIVE CURRENT REQUIREMENT | Placement and dossier helpers; retain. |
-| `state.js:74-84` `getResumableQuickQuestion` | ACTIVE CURRENT REQUIREMENT | Guards incomplete deterministic quick-reading resumption using the placement model. Retain. |
+| `assets/js/archscry/runtime/state.js:10` `SESSION = VM_SESSION` | ACTIVE CURRENT REQUIREMENT with retired account coupling | Alias consumed by Archscry boot, navigation, questionnaire, dossier and Atlas. Maze reads VM_SESSION directly, not this export. Preserve/repoint the current reading carrier before removing shared session code. |
+| `state.js:12-67` `APP_STATE` | ACTIVE CURRENT REQUIREMENT container; mixed fields | Route-local owner for loaded catalogs, quick/result state and dossier UI. The complete per-field table below separates current, retired and no-consumer fields; do not delete the container wholesale. |
+| `state.js:69-96` `getFaction`, `placementQuestionById`, `getStarterProfile` | ACTIVE CURRENT REQUIREMENT | Definitions start at 69, 83 and 90 respectively; placement/dossier helpers remain. |
+| `state.js:104-116` `getResumableQuickQuestion` | ACTIVE CURRENT REQUIREMENT | Guards incomplete deterministic quick-reading resumption using the placement model. Retain. |
 | `assets/js/archscry/runtime/interview.js:24-218` | RETIRED EXECUTABLE | Terminal entry, transcript, remote recruiter invocation, decree, and terminal-origin dossier return. Remove only after callers, DOM, reset logic, global exports, and feature-flag surface are removed together. |
 | `assets/js/archscry/runtime/navigation.js:21-43` terminal flag/visibility | ACTIVE ONLY BECAUSE OF RETIRED COUPLING | The flag makes the terminal unreachable by default, then hides `[data-vm-terminal-only]` and `#interview`. It should disappear with the terminal DOM, rather than become a permanent dead feature flag. |
-| `navigation.js:62-101` `updateTopbar` | RETIRED EXECUTABLE | Reads username/avatar/profile and renders `#tb-*`; only needed for account identity, sign-out, account-aware retake display. The non-account navigation links remain current. |
-| `navigation.js:119-150` `resetLocalFlow` | ACTIVE ONLY BECAUSE OF RETIRED COUPLING | Begin Again, Forget, and sign-out call it; its adaptive-state/result reset and radar teardown are required for the first two, while `vm_resetInterview` and terminal DOM clearing are retired coupling. `startQuickFlow` has its own reset in `questionnaire.js:53-64` and does not call this helper. |
+| `navigation.js:60-99` `updateTopbar` | ACTIVE ONLY BECAUSE OF RETIRED COUPLING | Called by current dossier/Atlas/reset paths; reads username/avatar/profile and renders `#tb-*`. Detach callers before account-node removal. Non-account navigation remains current. |
+| `navigation.js:121-150` `resetLocalFlow` | ACTIVE CURRENT REQUIREMENT with retired coupling | Begin Again, Forget, and sign-out call it; adaptive-state/result reset and radar teardown are required for the first two, while `vm_resetInterview` and terminal DOM clearing are retired coupling. `startQuickFlow` has its own reset in `questionnaire.js:53-64` and does not call this helper. |
 | `navigation.js:155-159` `forgetSavedReading` | ACTIVE CURRENT REQUIREMENT | The visible Forget action must remain. It calls shared storage removal, then neutral reset/topbar/landing. Re-home the storage operation locally. |
 | `navigation.js:169-176` `handleRetake` | ACTIVE CURRENT REQUIREMENT | Begin Again confirms, resets, updates, and lands. Retain order and confirm semantics. |
 | `navigation.js:181-187` `handleSignOut` | RETIRED EXECUTABLE | Account-only path; remove with sign-out control. |
@@ -31,7 +31,7 @@ The Owner may retire Supabase, OAuth, terminal/interview, recruiter, account lin
 | `index.js:117-122` popstate terminal return | RETIRED EXECUTABLE | Only acts when `returnSection === "interview"`. |
 | `index.js:128-143` window compatibility surface | MIXED | Retain current quick/result/navigation exports only if live markup or consumers require them; delete interview/sign-out exports. Verify with a global-name search before shrinking further. |
 | `index.js:161-171` terminal input listeners | RETIRED EXECUTABLE | Remove with input DOM and `updateInterviewControls`. |
-| `assets/js/archscry/runtime/questionnaire.js:97-98,356-362` | ACTIVE ONLY BECAUSE OF RETIRED COUPLING | Quick results assign `SESSION.interviewResult` and cache locally. Maze currently reads that session carrier (`research-init.js:3105-3108`), so extract/repoint the Maze read to the retained local-reading/handoff owner before deletion. |
+| `assets/js/archscry/runtime/questionnaire.js:97-98,356-362` | ACTIVE CURRENT REQUIREMENT with a mixed session carrier | Quick results assign `SESSION.interviewResult` and cache locally. Maze currently reads that carrier (`research-init.js:3105-3108`), so preserve or extract/repoint it before deleting account/session code. |
 | `assets/js/archscry/runtime/dossier-view.js:1616-1617,1806,2313` | MIXED | Retain local cached fallback, active result, dossier rendering, and Forget UI. Remove shared profile fallback after local reading owner replaces it. |
 | `assets/js/archscry/runtime/identity-atlas.js:25,43-45` | ACTIVE ONLY BECAUSE OF RETIRED COUPLING | Atlasâ€™s access check uses profile then local cached reading; preserve the latter. |
 | `assets/js/maze/research-init.js:939-944` | ACTIVE ONLY BECAUSE OF RETIRED COUPLING | Optional user badge reads `VM_SESSION.username`; remove account badge behavior. |
@@ -97,7 +97,8 @@ The shared-layer definitions are owned by the companion shared audit. Archscryâ€
 | --- | --- | --- | --- |
 | local `vm_archscry_saved_reading_v1` | quick finalization (`questionnaire.js:356-357`), terminal decree (`interview.js:167`), boot re-cache (`boot.js:79`) | `vm_getCachedPlacementResult`, Archscry boot, dossier, Atlas, Maze | **KEEP**; establish route-local owner before deleting shared helper. |
 | session `vm_profile` | shared `VM_SESSION.profile` setter | `boot.js:47-50`, dossier, Atlas, Maze | Retired account persistence. Must not outrank a forgotten local reading after migration. |
-| `VM_SESSION.interviewResult`, transcript/context | interview and quick pathways | terminal, Maze `getStoredPlacementResult`, shared helpers | Retire with terminal; quick result must no longer use it. |
+| `VM_SESSION.interviewResult` | Current quick completion/refinement and retired interview | Current Maze `getStoredPlacementResult`, shared reset/Forget, retired account/interview | MIGRATE/EXTRACT current result-carrier purpose before retiring mixed account state; do not delete with Terminal based on its name. |
+| `VM_SESSION.chatHistory`, `interviewActive`, `interviewContext` | Retired interview | Retired transcript/service plus current reset's obsolete cleanup | REMOVE retired members after reset no longer needs them. |
 | legacy `vm_last_result` / `vm_placement_result` | historical implementations | Maze late fallback (`research-init.js:3120-3123`) | **LEGACY MIGRATION COMPATIBILITY** until removal contract explicitly decides migration/Forget behavior. |
 | Maze handoff storage/query data | dossier-to-Maze adapters | `readArchscryMazeHandoff`, `captureMazeReturnUrl`, Maze return | **KEEP**; independent from account and terminal. |
 
@@ -109,7 +110,7 @@ Forget promises device-local removal. Its current call order is `vm_forgetSavedR
 
 1. Specify a route-local completed-reading storage owner and prove its restore/Forget behavior, including conservative legacy migration.
 2. Remove profile/session reads from quick, boot, dossier, Atlas, and Maze while retaining local cache and Archscry-to-Maze handoff precedence.
-3. Remove terminal actions, HTML, CSS, input listeners, popstate branch, flag visibility, reset coupling, `APP_STATE.interviewState`, and global compatibility exports as one vertical change.
+3. Remove terminal actions, Terminal HTML blocks, input listeners, popstate branch, flag visibility, reset coupling, `APP_STATE.interviewState`, and retired global compatibility exports as one vertical change. KEEP current shell and CSS; no selector deletion is proposed without separate exact proof.
 4. Remove OAuth/profile/sign-out and dormant account deck-link module/service/Supabase artifacts only after all imports, globals, topbar elements, and Apocrypha account consumers are separately traced.
 5. Remove the Supabase UMD script from `archscry/index.html:21` only after no retained route depends on shared Supabase initialization.
 

@@ -85,7 +85,7 @@ the parse/render and non-target isolation contract at the new path.
 | Role | Path and evidence | Required migration action |
 |---|---|---|
 | Producer / full and targeted writer | `scripts/build/build-faction-artifacts.mjs:15,4987-5000,5179-5219` | **MIGRATE/EXTRACT** `factionContextPath`, targeted read/merge/write, full write, and log label. |
-| Retired runtime consumer | `supabase/functions/guild-recruiter/index.ts:1-2` | **REMOVE** with the retired Edge Function after the neutral projection path exists. |
+| Retired runtime consumer | `supabase/functions/guild-recruiter/index.ts:1-2` | **ARCHIVE** exact authored runtime outside the deployable path after the neutral projection path exists; remove original deployable path. |
 | Semantic audit reader | `scripts/audit/audit-semantic-readiness.mjs:50,141-150` | **UPDATE REFERENCE** to the neutral projection path. |
 | Provenance-label reader | `scripts/lib/semantic-readiness-lib.mjs:211` | **UPDATE REFERENCE** to the neutral projection path. |
 | Candidate scope / frozen-path exception | `scripts/validate/validate-semantic-candidate-scope.mjs:28-29,48,530-561` | **UPDATE REFERENCE**; preserve the exact generated-consumer coverage behavior. |

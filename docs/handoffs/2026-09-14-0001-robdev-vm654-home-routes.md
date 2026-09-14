@@ -1,6 +1,6 @@
 # RobDev handoff — VM-654 Home and routes reconnaissance
 
-Date: 2026-09-14  
+Date: 2026-09-14
 Role: RobDev evidence handoff only; no RobQA verdict, Owner acceptance, integration, or purge.
 
 ## Agent and configuration

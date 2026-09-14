@@ -1,6 +1,6 @@
 # VM-654 documentation inventory and material-path manifest
 
-Date: 2026-09-14  
+Date: 2026-09-14
 Scope: repository-local documentation classification only. No lifecycle edit, source deletion, or deployment action is authorized by this record.
 
 ## Inventory method and coverage
@@ -83,10 +83,11 @@ The TSV explicitly assigns each of the 840 paths once; these summary counts sum 
 | `index.html` | Current production Home markup/scripts | KEEP Home markup; remove only `vm-radar.js` when the dormant lens JS is removed. | First confirm no production lens markup; then remove dormant JS/test hook; keep stars/back-top. |
 | `assets/js/home/home.js` | Mixed dormant lens and current atmosphere/back-top owner | MIGRATE/EXTRACT lens/SVG/reveal/per-card loop; KEEP body pointer writes, atmosphere, back-top. | Keep `initArchscryAtmosphere`; remove lens code before or atomically with Home's radar include. |
 | `assets/js/shared/shared.js` | Mixed Supabase/auth/Terminal and protected local-reading owner | MIGRATE/EXTRACT. | Extract/retain local reading first; only then REMOVE service calls. |
-| `archscry/index.html` | Current Supabase UMD loader | REMOVE only after shared bridge replacement. | Confirm loading and protected journeys without the UMD. |
+| `archscry/index.html` | Current shell containing Supabase UMD loader | MIGRATE/EXTRACT file; REMOVE only retired include/DOM blocks after shared local behavior is preserved. | Keep the current shell; confirm loading and protected journeys without the UMD. |
 | `maze/index.html` | Current loader of `shared.js`, not the Supabase UMD | MIGRATE/EXTRACT or REMOVE shared bridge dependency after proving Maze globals. | The literal route script list contains `shared.js` at line 21 and no Supabase UMD; preserve Maze local state/cards/context. |
-| `assets/js/shared/site-flags.js`, `archscry/index.html`, `assets/js/archscry/index.js` | Dormant Terminal flag/markup/runtime calls | REMOVE as a Terminal unit. | `render-utils.js` has only a stale terminal comment at lines 28-35 immediately before current `buildManaPipsHtml`; KEEP that function and correct the comment separately. Retain Begin Again, which is independent UI behavior. |
-| `supabase/functions/guild-recruiter/index.ts` | Owner-retired edge function | REMOVE after generated-context consumers are migrated. | Remote deployment state is unknown; repository archive proposal does not require a remote operation. |
+| `assets/js/shared/site-flags.js` | Dormant Terminal flag file | REMOVE with its readers. | Keep current local-reading behavior independently. |
+| `archscry/index.html`, `assets/js/archscry/index.js` | Current shell/entry containing Terminal markup/runtime calls | MIGRATE/EXTRACT files; REMOVE only Terminal blocks. | `render-utils.js` has only a stale terminal comment at lines 28-35 immediately before current `buildManaPipsHtml`; KEEP that function and correct the comment separately. Retain Begin Again and the current shell/entry. |
+| `supabase/functions/guild-recruiter/index.ts` | Owner-retired edge function | ARCHIVE exact runtime outside the deployable path after generated-context consumers are preserved/migrated; remove original path. | Remote deployment state is unknown; repository archive proposal does not require a remote operation. |
 | `supabase/functions/guild-recruiter/faction-context.ts` | Generated context with active build/audit/validation consumers | MIGRATE/EXTRACT before removal. | Do not hand-edit dependent generated provenance. |
 | `assets/js/vendor/chart.umd.js`, `assets/js/shared/vm-radar.js`, Archscry runtime | Current dossier/radar infrastructure | KEEP. | Home zero-consumer result does not authorize global removal; remove only the Home include after its eager top-level dereference is gone. |
 | `assets/css/home.css`, other route CSS | Existing CSS; outside recon scope | KEEP. | Home per-card JS zero-consumer is not CSS deletion authority. |
