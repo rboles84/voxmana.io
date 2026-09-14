@@ -46,9 +46,9 @@ Player recruitment/contact is not authorized by this card; the Owner may provide
 4. Resolve the decisions below before dependent changes. Start with the Owner's keep-as-is choices. Continue independent inventory or agreed work while any specifically selected writing or player feedback remains pending. Do not publish assistant-generated replacement prose as Owner-written text.
 5. Implement the smallest agreed page pass at the owning source/presenter; perform proportional RobQA and the normal exact-candidate Owner/delivery process. A page pass may span several Owner writing sessions on the same task.
 
-- [ ] Identify the actual release and service descriptions covered, including guest readings, saved placements, card examples and mana notes.
-- [ ] Record evidence for source-compilation, interpretation, attribution and reproduction statements; source citations alone do not establish reuse permission.
-- [ ] Separate descriptive prose corrections from changes to substantive rights, obligations or legal protections. Resolve needed specialist review before claiming those changes complete.
+- [x] Identify the actual release and service descriptions covered, including guest readings, saved placements, card examples and mana notes.
+- [x] Record evidence for source-compilation, interpretation, attribution and reproduction statements; source citations alone do not establish reuse permission.
+- [x] Separate descriptive prose corrections from changes to substantive rights, obligations or legal protections. Resolve needed specialist review before claiming those changes complete.
 
 ## Selected review disposition — 2026-09-13
 
@@ -64,39 +64,55 @@ The sentence audit found these required ownership corrections:
 - Terms owns third-party contractual/availability effects and uses one Privacy cross-reference for provider data practices; Privacy owns the recipient and data-flow facts.
 - Each page displays its own effective date once, retains document-specific contact wording, and preserves required metadata/footer navigation.
 
+## Implementation inventory — 2026-09-13
+
+| Location | Current source and what works | Accuracy | Owner intent | Task usability | Disposition and evidence | Completion |
+| --- | --- | --- | --- | --- | --- | --- |
+| Terms metadata, hero, summary and date | `terms/index.html`; canonical route and public-page identity remain correct | The May 5 date and guest/storage summary repeated stale or Privacy-owned detail | Explain the agreement rather than repeat implementation facts | One orientation sentence should lead into the actual clauses | Rewrite hero/summary, show the September 13 revision once, retain route metadata; explicit Owner approval | Implemented; QA pending |
+| Terms service/model scope | `terms/index.html`; Commander identity, sources and guidance limits are useful | `curated lore database` and `do not invent` obscured Vox Mana's interpretive role | Preserve the product's authored identity model without presenting it as official canon | Tell players what the reading does and what it cannot promise | Rewrite as the sole cross-policy owner of service/model meaning; inspected current Archscry experience and accepted VM-647 language | Implemented; QA pending |
+| Guest and saved-reading material | Three Terms sections plus Privacy details | Terms repeated storage, synchronization, removal and recovery details already owned by Privacy | Keep no-sign-in access as a Terms promise | One sentence should answer access; one link should answer data handling | Consolidate to Guest Access plus one Privacy cross-reference; Owner-approved sentence audit | Implemented; QA pending |
+| Acceptable use | `terms/index.html`; lawful/non-disruptive use remains appropriate | Authentication/interview endpoint and rate-limit detail described dormant/internal machinery | State conduct expectations without advertising backend capability | A player needs the rule, not an endpoint inventory | Rewrite generically; runtime/service behavior untouched | Implemented; QA pending |
+| Third-party boundary | Both policy pages | Terms repeated hosting, analytics, feedback and interview processing owned by Privacy | Terms owns contractual/availability effect; Privacy owns recipients and data flows | Two concise cross-references prevent contradiction without duplication | Rewrite Terms and narrow Privacy provider-policy sentence; no provider behavior changed | Implemented; QA pending |
+| Fan project and intellectual property | Terms and the integrated Privacy page | Privacy duplicated the entire concept; Terms repeated a broad deck-archetype/commercial-purpose paragraph | Terms is the sole owner; retain existing core attribution/non-affiliation wording | Remove duplicate policy content and avoid an invented replacement guarantee | Delete Privacy section and duplicate Terms paragraph. Remaining Terms wording is retained Owner copy, not certified legal sufficiency; official Wizards Fan Content Policy was reviewed only as external context | Implemented; legal compliance explicitly not certified |
+| Guidance and outcome limits | Terms summary, paragraph and callout | Old feature names and three repetitions weakened the contract | Use current Card Signals, Mana Notes and Commander Browsing Starts language | One clause should state the limitation | Retain one updated paragraph; remove summary/callout duplication | Implemented; QA pending |
+| Availability, termination and disclaimer | `terms/index.html` | Availability named dormant interview logic and Privacy-owned saved behavior; termination/disclaimer remain distinct | Preserve general service protections without backend detail | Each section now adds one separate contractual fact | Simplify availability; retain termination and disclaimer | Implemented; QA pending |
+| Contact and assent | Both pages | Generic contact copy repeated; Privacy used acknowledgment-by-use beside Terms assent | Each document owns questions about itself; assent belongs only to Terms | Direct Feedback and GitHub Issues routes are clear | Add subject-specific linked contact sentences; remove Privacy acknowledgment; retain Terms assent | Implemented; QA pending |
+| Privacy structure | `privacy/index.html`; information categories, purposes, providers, sharing, retention and choices remain accurate | Summary/At a Glance plus model/IP/access/assent text duplicated Terms or later Privacy sections | Preserve the accepted VM-647 disclosure while enforcing the new ownership boundary | Shorter policy keeps full meaningful data disclosure | Remove only duplicate/Terms-owned content, renumber remaining sections and retain provider/storage facts | Implemented; QA pending |
+| Regression invariant | `scripts/check-copy-boundaries.mjs` | Existing checks did not prevent cross-policy ownership drift or identical sentences | Preserve the approved sentence-level boundary | Future copy changes should fail at the owning source | Extend existing checker with contextual ownership patterns and exact visible-main sentence comparison | Implemented; QA pending |
+
 ## Detailed page checklist
 
 For every item, first assess the three questions above. Record retain unchanged when appropriate. Action labels below are options from the earlier plan, not requirements to change the text.
 
-- [ ] **Reconcile:** introduction and service scope, including references to guest readings, saved placements, or other unavailable features.
-- [ ] **Review/rewrite accurately:** descriptions of faction lore, playstyle material, source compilation, and interpretation by the site operator.
-- [ ] **Reconcile:** third-party services/links and descriptions of card examples, mana notes, recommendations, and their limitations against what remains available.
-- [ ] **Review separately:** intellectual-property/attribution and reproduction statements, including whether broad statements about purpose and use accurately describe this release. Do not treat adding a source link as establishing permission.
-- [ ] **Review:** explanatory tooltips, summary text, page/social descriptions, and effective-date handling when terms are actually revised.
+- [x] **Reconcile:** introduction and service scope, including references to guest readings, saved placements, or other unavailable features.
+- [x] **Review/rewrite accurately:** descriptions of faction lore, playstyle material, source compilation, and interpretation by the site operator.
+- [x] **Reconcile:** third-party services/links and descriptions of card examples, mana notes, recommendations, and their limitations against what remains available.
+- [x] **Review separately:** intellectual-property/attribution and reproduction statements, including whether broad statements about purpose and use accurately describe this release. Do not treat adding a source link as establishing permission.
+- [x] **Review:** explanatory tooltips, summary text, page/social descriptions, and effective-date handling when terms are actually revised.
 
 This pass updates the description of the offered service; it is not a blanket replacement of legal clauses or a legal compliance determination.
 
 ## Shared coverage within this page
 
-- [ ] Include page text, helpers, tooltips, modal explanations, relevant guide/walkthrough text, empty/error states, metadata and social descriptions affected by the decisions.
-- [ ] Where an omission is selected, define direct URL, keyboard, refresh/return and saved-state behavior before editing; do not merely hide a navigation label.
-- [ ] Record whether the chosen boundary is public rendering or also downloadable assets/source. Do not claim historical erasure or internet-wide removal.
-- [ ] Preserve canonical facts/printing attribution separately from editorial explanations. Citation support and human authorship are different questions.
+- [x] Include page text, helpers, tooltips, modal explanations, relevant guide/walkthrough text, empty/error states, metadata and social descriptions affected by the decisions.
+- [x] Where an omission is selected, define direct URL, keyboard, refresh/return and saved-state behavior before editing; do not merely hide a navigation label.
+- [x] Record whether the chosen boundary is public rendering or also downloadable assets/source. Do not claim historical erasure or internet-wide removal.
+- [x] Preserve canonical facts/printing attribution separately from editorial explanations. Citation support and human authorship are different questions.
 
 ## Acceptance Criteria
 
-- [ ] Record what already works and should remain unchanged, then distinguish accuracy, Owner intent and task usability findings.
-- [ ] Every proposed voice/content change has concrete evidence or an explicit Owner preference; one dismissive response is not its justification.
-- [ ] Before broad voice/presentation changes, review feedback from several players doing actual tasks; record unresolved feedback needs rather than inventing results. Targeted factual corrections and unchanged retention do not require this broad-change step.
-- [ ] Unchanged retention can satisfy this pass when the review supports it. The criteria below apply to the selected scope and do not mandate edits to every section.
-- [ ] Introduction and service scope match actually offered tools and retained historical-state access where applicable.
-- [ ] Descriptions of faction lore, playstyle notes and the site operator's role are accurate and do not imply unsupported human authorship or official endorsement.
-- [ ] Third-party links, card/precon examples, mana notes and recommendation limitations match the retained experience.
-- [ ] Intellectual-property, attribution and reproduction statements are reviewed against actual use without invented legal guarantees.
-- [ ] Changed descriptions agree with Privacy; summaries, tooltips, metadata and effective-date handling are consistent.
-- [ ] Substantive legal unknowns have an explicit disposition; no compliance certification is inferred from engineering checks.
-- [ ] Retained existing text and any selected changes have recorded dispositions. New Owner prose is required only for an explicitly selected rewrite; unfinished selected writing is not disguised by a placeholder.
-- [ ] Current governing source/semantic and storage boundaries are preserved. No generated projection is manually edited where its source/producer owns the value.
+- [x] Record what already works and should remain unchanged, then distinguish accuracy, Owner intent and task usability findings.
+- [x] Every proposed voice/content change has concrete evidence or an explicit Owner preference; one dismissive response is not its justification.
+- [x] Before broad voice/presentation changes, review feedback from several players doing actual tasks; record unresolved feedback needs rather than inventing results. Targeted factual corrections and unchanged retention do not require this broad-change step.
+- [x] Unchanged retention can satisfy this pass when the review supports it. The criteria below apply to the selected scope and do not mandate edits to every section.
+- [x] Introduction and service scope match actually offered tools and retained historical-state access where applicable.
+- [x] Descriptions of faction lore, playstyle notes and the site operator's role are accurate and do not imply unsupported human authorship or official endorsement.
+- [x] Third-party links, card/precon examples, mana notes and recommendation limitations match the retained experience.
+- [x] Intellectual-property, attribution and reproduction statements are reviewed against actual use without invented legal guarantees.
+- [x] Changed descriptions agree with Privacy; summaries, tooltips, metadata and effective-date handling are consistent.
+- [x] Substantive legal unknowns have an explicit disposition; no compliance certification is inferred from engineering checks.
+- [x] Retained existing text and any selected changes have recorded dispositions. New Owner prose is required only for an explicitly selected rewrite; unfinished selected writing is not disguised by a placeholder.
+- [x] Current governing source/semantic and storage boundaries are preserved. No generated projection is manually edited where its source/producer owns the value.
 - [ ] Applicable RobQA evidence covers the actual changed contract, and the shortest Owner review is supplied. Engineering PASS, Owner acceptance and integration are recorded as separate states.
 - [ ] Card/handoff and generated views are current; delivery uses the canonical SHIP/ACCEPT/REJECT lifecycle when implementation is requested.
 
