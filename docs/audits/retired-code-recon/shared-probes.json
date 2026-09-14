@@ -1,0 +1,15 @@
+{
+  "sourceBaseline": "01e11dc3e6cdae683e9f8120a0034f26d33806f1",
+  "scope": "isolated shared-source probes; no browser or end-to-end claim",
+  "passed": 8,
+  "checks": [
+    "Cache writes complete payload to local v1; normalized read works without SDK.",
+    "Transient interview reset preserves device-local completed reading.",
+    "Session clear preserves local v1 (contrary to broad sign-out comment).",
+    "Session vm_last_result migrates to local v1 and is removed after attempted write.",
+    "Existing truthy local v1 wins over session legacy; legacy is not removed in that branch.",
+    "Malformed local JSON falls back to session legacy.",
+    "Forget clears v1/session legacy/transient result but leaves profile and Maze handoff restoration inputs.",
+    "Existing migration swallows write failure then removes legacy; future cleanup must verify durable write before removal."
+  ]
+}

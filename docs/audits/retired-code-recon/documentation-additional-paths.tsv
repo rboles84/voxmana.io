@@ -1,0 +1,128 @@
+path	category	disposition	basis
+.codex/prompts/webdev.md	current instruction scope fence	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+CLAUDE.md	current instruction scope fence	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/analysis/color-audits/red-source-mapping-report.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/analysis/color-audits/white-intra-color-audit.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/analysis/vm-420-consolidation-manifest.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/analysis/vm-420-docs-bloat-retention-audit.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/architecture/colors/colorless/identity.md	current semantic/product plan or reference	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/audits/archscry-current-state-2026-08-22/reconciliation/owner-review-queue.md	historical audit/context/evidence	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/audits/archscry-current-state-2026-08-22/reconciliation/red-team-reconciliation.md	historical audit/context/evidence	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/context/2026-06-05-faction-quality-audit-session-briefing.md	historical audit/context/evidence	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/design/placementLogic_deep-research-report.md	historical audit/context/evidence	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/handoffs/2026-05-20-2000-codex-archscry-shell-modernization.md	historical handoff	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/handoffs/2026-06-05-1130-codex-vm295-witch-placement-data-quality-authoring-pass.md	historical handoff	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/handoffs/2026-06-05-1200-codex-vm294-jeskai-placement-data-quality-authoring-pass.md	historical handoff	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/handoffs/2026-06-05-1500-codex-vm296-mardu-placement-data-quality-authoring-pass.md	historical handoff	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/handoffs/2026-06-15-1558-codex-vm403-pages-deploy-repair.md	historical handoff	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/handoffs/2026-06-24-2025-codex-vm420-docs-bloat-consolidation.md	historical handoff	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/handoffs/2026-07-27-0120-codex-vm550-strategium-after-game-mvp.md	historical handoff	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/handoffs/2026-08-20-1427-codex-vm573-archscry-runtime-decomposition.md	historical handoff	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/handoffs/2026-08-22-1710-codex-vm580-vm583-owner-qa-remediation-robdev.md	historical handoff	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/handoffs/2026-08-30-2204-codex-vm612-archscry-intro-copy-revision.md	historical handoff	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/handoffs/2026-08-30-2236-codex-vm612-homepage-signature-remediation.md	historical handoff	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/handoffs/2026-08-31-2359-codex-vm615-reading-dossier-owner-review.md	historical handoff	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/handoffs/2026-09-01-2226-codex-vm620-shared-guide-beacon-owner-review.md	historical handoff	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/handoffs/2026-09-02-1033-codex-vm620-vm621-owner-accepted-closeout.md	historical handoff	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/handoffs/2026-09-03-1747-codex-vm625-public-identity-atlas-owner-review.md	historical handoff	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/handoffs/2026-09-04-2152-codex-vm547-canonical-browser-runtime-revision.md	historical handoff	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/handoffs/2026-09-05-2129-codex-vm633-owner-approved-integration.md	historical handoff	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/handoffs/2026-09-06-1215-codex-vm636-atlas-mana-matrix.md	historical handoff	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/handoffs/2026-09-06-1232-codex-vm636-owner-accepted-closeout.md	historical handoff	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/handoffs/2026-09-07-0000-codex-vm632-github-routing.md	historical handoff	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/handoffs/2026-09-07-0000-independent-robqa-vm632-github-routing.md	historical handoff	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/handoffs/2026-09-07-1156-codex-vm632-owner-accepted-closeout.md	historical handoff	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/handoffs/2026-09-08-1100-codex-vm641-delivery-checks.md	historical handoff	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/handoffs/2026-09-08-1700-independent-robqa-vm641-final.md	historical handoff	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/handoffs/2026-09-13-2244-codex-vm648-terms-privacy-boundary.md	historical handoff	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/incidents/recoveries/VM-517-white-semantic-recovery.md	historical audit/context/evidence	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/incidents/recoveries/VM-521-green-semantic-recovery.md	historical audit/context/evidence	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/kanban/backlog/VM-628-archscry-portable-reading-recovery.md	active backlog	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/kanban/done/VM-087-archscry-shell-modernization.md	historical Done card	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/kanban/done/VM-116-css-architecture-phase-2-layout-layer-animation-consolidation.md	historical Done card	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/kanban/done/VM-127-phase-4-archscry-index-extraction.md	historical Done card	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/kanban/done/VM-294-jeskai-placement-data-quality-authoring-pass.md	historical Done card	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/kanban/done/VM-295-witch-placement-data-quality-authoring-pass.md	historical Done card	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/kanban/done/VM-296-mardu-placement-data-quality-authoring-pass.md	historical Done card	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/kanban/done/VM-550-strategium-after-game-mvp.md	historical Done card	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/kanban/done/VM-552-strategium-game-lifecycle-completion-mvp.md	historical Done card	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/kanban/done/VM-573-archscry-runtime-decomposition-pass-2.md	historical Done card	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/kanban/done/VM-612-semantic-typography-system-upgrade.md	historical Done card	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/kanban/done/VM-619-opt-in-field-guide-guided-reading-mode.md	historical Done card	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/kanban/done/VM-632-github-connector-discovery-before-browser-fallback.md	historical Done card	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/kanban/done/VM-648-terms-service-accuracy-pass.md	historical Done card	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/plans/vm551-gate-b1-placement-instrument/owner-decisions.md	current semantic/product plan or reference	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/plans/vm551-gate-b1-placement-instrument/player-validation-plan.md	current semantic/product plan or reference	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/plans/vm551-gate-b1-product-fit/final-b1-architecture-decision.md	current semantic/product plan or reference	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/qa/2026-09-04-vm547-owner-review.md	historical audit/context/evidence	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/reference/37-identity-player-relationship-guide.md	current semantic/product plan or reference	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/reference/workflow.md	current workflow reference (Git-host authentication)	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/abzan houses/Abzan Houses_ Deep Research Report.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/abzan houses/abzan-houses-lore-source-packet.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/abzan/source-material/Abzan Houses_ Deep Research Report.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/abzan/source-material/abzan-houses-lore-source-packet.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/apocrypha-gate03-information-architecture.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/apocrypha-gate04-voice-copy-contract.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/apocrypha-gate045-source-gap-implementation.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/archive/bant-pre-push-cleanup/duplicate-canon-captures/Bant_Peace, Love and Understanding _ MAGIC_ THE GATHERING.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/archscry-phase-3-experienced-player-routing-proof.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/bant/bant-lore-source-packet.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/bant/bant-research-dossier.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/bant/bant-source-ledger.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/canon/guilds/dimir/dimir_sigil_animation.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/canon/mark_rosewater_official_misc/Black_Philosophy_Drive_to_Work_Podcast_Transcript.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/canon/mark_rosewater_official_misc/Blue_Philosophy_Drive_to_Work_Podcast_Transcript.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/canon/mark_rosewater_official_misc/Colors_Answer_Questions_Mailbag_2018.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/canon/mark_rosewater_official_misc/Flavor_vs_Function_in_Magic_Design.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/canon/mark_rosewater_official_misc/Green_Philosophy_Drive_to_Work_Podcast_Transcript.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/canon/mark_rosewater_official_misc/Red_Philosophy_Drive_to_Work_Podcast_Transcript.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/canon/mark_rosewater_official_misc/White_Philosophy_Drive_to_Work_Podcast_Transcript.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/canon/mark_rosewater_official_three_color/Abzan_We Will Survive _ MAGIC_ THE GATHERING.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/canon/mark_rosewater_official_three_color/Bant_Peace, Love and Understanding _ MAGIC_ THE GATHERING.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/canon/mark_rosewater_official_three_color/Esper_Striving For Perfection _ Magic_ The Gathering.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/canon/mark_rosewater_official_three_color/Grixis_Looking Out For Number One _ MAGIC_ THE GATHERING.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/canon/mark_rosewater_official_three_color/Jeskai_Smart Thinking _ MAGIC_ THE GATHERING.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/canon/mark_rosewater_official_three_color/Jund_Following Your Heart _ MAGIC_ THE GATHERING.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/canon/mark_rosewater_official_three_color/Mardu_Finishing First _ MAGIC_ THE GATHERING.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/canon/mark_rosewater_official_three_color/Naya_Searching Within _ MAGIC_ THE GATHERING.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/canon/mark_rosewater_official_three_color/Sultai_Whatever It Takes _ MAGIC_ THE GATHERING.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/canon/mark_rosewater_official_three_color/Temur_What Doesn't Kill You Makes You Stronger _ MAGIC_ THE GATHERING.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/canon/mark_rosewater_official_two_color/selesnya_Group Think _ MAGIC_ THE GATHERING.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/canon/misc/bibliography.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/canon/misc/Deep_Dive_MTG_Color_Pie_Research.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/canon/misc/mtg_five_color_and_colorless_dossier.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/canon/misc/MTG_Lore_Research_Enhanced_Final.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/cleaned_EDH_commander_discussion.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/colorless/source-material/09_Sources_and_Bibliography.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/colorless/source-material/colorless_mtg_notes_sourced_v2.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/colorless/source-material/Deep Dive MTG Color Pie Research.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/esper/esper-evidence-ledger.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/esper/esper-research-dossier.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/esper/esper-source-ledger.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/grixis/Grixis Research Report_ Lore and Mechanics.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/grixis/grixis-reliability-audit.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/grixis/grixis-source-ledger.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/ink/ink-reliability-audit.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/jeskai way/jeskai-way-lore-source-packet.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/jeskai/jeskai-reliability-audit.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/jeskai/source-material/jeskai-way-lore-source-packet.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/jund/source-material/jund-lore-source-packet.unmanaged-vm161-seed.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/loom-identity-lens-v0/README.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/loom-identity-lens-v0/recommendation-evidence-contract.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/mardu horde/mardu-horde-lore-source-packet.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/mardu/source-material/mardu-horde-lore-source-packet.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/naya/source-material/naya_deep-research-report.generated-seed.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/naya/source-material/naya-lore-source-packet.unmanaged-vm161-seed.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/placementResearch/YT-new-new-commander-brackets-refined-player-evidence.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/sultai brood/sultai-brood-deep-research-report.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/sultai brood/sultai-brood-lore-source-packet.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/sultai/source-material/sultai-brood-deep-research-report.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/sultai/source-material/sultai-brood-lore-source-packet.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/temur/source-material/temur-frontier-lore-source-packet.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/webdev/generic-webdev/Expert_Web_Development_Implementation_Plan.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/webdev/vox-mana-specific/codex_generic_landing_mockup_brief.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/webdev/vox-mana-specific/codex_index_modern_homepage_redo_brief.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/wubrg/wubrg-external-evidence-audit.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/research/wubrg/WUBRG-five-color-deep-research-report.md	incidental source/analysis	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+docs/strategy/2026-07-03-external-reviewer-two-week-test.md	historical audit/context/evidence	KEEP	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection
+README.md	current repository reference	UPDATE REFERENCE	broader baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 query or explicit scope-fence inspection

@@ -1,0 +1,841 @@
+path	category	disposition	basis
+docs/analysis/color-audits/black-source-mapping-report.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/analysis/color-audits/blue-source-mapping-report.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/analysis/color-audits/green-source-mapping-report.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/analysis/color-audits/white-source-mapping-report.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/architecture/cdn-font-dependency-review.md	current reference	UPDATE REFERENCE	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/architecture/colors/abzan/identity.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/architecture/colors/abzan/metaphysics.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/architecture/colors/colorless/metaphysics.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/architecture/colors/colorless/product-decision-gate.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/architecture/colors/dune/identity.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/architecture/colors/dune/metaphysics.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/architecture/colors/glint/identity.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/architecture/colors/glint/metaphysics.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/architecture/colors/jeskai/identity.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/architecture/colors/jeskai/metaphysics.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/architecture/colors/mardu/identity.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/architecture/colors/mardu/metaphysics.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/architecture/colors/sultai/identity.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/architecture/colors/sultai/metaphysics.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/architecture/colors/temur/identity.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/architecture/colors/temur/metaphysics.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/architecture/colors/yore/identity.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/architecture/colors/yore/metaphysics.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/architecture/core-logic-and-algorithms.md	current reference	UPDATE REFERENCE	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/architecture/data-flow-map.md	current reference	UPDATE REFERENCE	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/architecture/project-atlas.md	current reference	UPDATE REFERENCE	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/architecture/route-ownership-matrix.md	current reference	UPDATE REFERENCE	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/architecture/supabase-frontend-security-review.md	current reference	UPDATE REFERENCE	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/archive/phase4-manual-views/HANDOFF_INDEX.md	archive	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/archive/phase4-manual-views/board.md	archive	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/archive/vm551-historical-review-evidence/compatibility-independent-review/2026-08-01-1234-codex-vm551-gate-a-compatibility-independent-review.md	archive	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/archive/vm551-historical-review-evidence/compatibility-independent-review/independent-review-gate-a-compatibility-candidate.md	archive	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/archive/vm551-historical-review-evidence/consumer-map-final-independent-review/independent-review-consumer-map-completion-candidate.md	archive	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/archive/vm551-historical-review-evidence/final-audit-independent-review/independent-review-final-reconciled-candidate.md	archive	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/audits/2026-06-05-vm297-placement-source-of-truth-contamination-audit.md	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/audits/2026-06-29-vox-mana-deep-audit.md	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/audits/2026-06-29-vox-mana-self-snapshot.md	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/audits/2026-06-30-vox-mana-self-snapshot.md	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/audits/2026-06-30-vox-mana-voice-audit.md	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/audits/2026-07-04-vox-mana-delta-reevaluation.md	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/audits/2026-07-10-vox-mana-self-snapshot.md	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/audits/archscry-current-state-2026-08-22/manifest.json	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/audits/archscry-current-state-2026-08-30/manifest.json	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/audits/sirf-all-37-checkpoint-2026-08-30/manifest.json	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/audits/sirf-post-wave-07-checkpoint-2026-08-30/manifest.json	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/audits/vm551-all-37-dossier-closeout/approval-packet-2-identity-dossier.tsv	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/audits/vm551-placement-system/audit-placement-system-remediation.mjs	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/audits/vm551-placement-system/bounded-mvp-repair-plan.md	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/audits/vm551-placement-system/claim-evidence-register.csv	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/audits/vm551-placement-system/downstream-compatibility-contract.md	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/audits/vm551-placement-system/owner-review-critical-extract.md	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/audits/vm551-placement-system/placement-system-architecture-map.md	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/audits/vm551-placement-system/requirements-specification.md	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/audits/vm551-placement-system/requirements-traceability-matrix.csv	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/audits/vm551-placement-system/result-field-consumer-map.csv	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/audits/vm551-placement-system/validate-downstream-compatibility-docs.mjs	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/context/2026-06-05-faction-quality-audit-session-briefing-codex-supersession.md	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/diagrams/archscry-quick-flow.mmd	current reference	UPDATE REFERENCE	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/diagrams/archscry-quick-flow.svg	current reference	UPDATE REFERENCE	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/diagrams/data-pipeline.mmd	current reference	UPDATE REFERENCE	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/diagrams/diagrams.md	current reference	UPDATE REFERENCE	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/diagrams/persistence-auth-flow.mmd	current reference	UPDATE REFERENCE	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/diagrams/persistence-auth-flow.svg	current reference	UPDATE REFERENCE	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/diagrams/project-architecture.mmd	current reference	UPDATE REFERENCE	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/diagrams/project-architecture.svg	current reference	UPDATE REFERENCE	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/diagrams/scrying-terminal-flow.mmd	current reference	UPDATE REFERENCE	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/diagrams/scrying-terminal-flow.svg	current reference	UPDATE REFERENCE	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-14-2243-codex-cleanup-batch-1-foundation.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-15-0038-codex-scryfall-discovery-foundation.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-15-0640-codex-archscry-result-narrative-ux-polish.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-15-0914-codex-vm005-archscry-maze-continuity.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-15-1723-codex-backlog-seeding-repo-obsidian.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-15-1926-codex-vm015-returning-user-commander-fit-check.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-15-1932-codex-vm016-archscry-profile-return-qr.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-15-2106-codex-vm018-commander-table-fit-rule-zero-card.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-17-0229-codex-vm023-mono-identity-layer-refactor-white-pilot.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-17-1305-codex-vm027-black-mono-authoring-pass.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-17-1342-codex-vm028-blue-mono-authoring-pass.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-17-1445-codex-vm029-red-mono-authoring-pass.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-17-1504-codex-vm030-green-mono-authoring-pass.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-17-2135-codex-vm035-colorless-foundation.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-20-0657-codex-vm076-cleanup-push-preview-archive-batch.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-20-2118-codex-vm091-safe-backup-push-ui-refactor-exploration.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-21-2104-codex-vm098-safe-backup-push-ui-refactor-exploration-2.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-22-0751-codex-vm100-privacy-terms-archive-document-refresh.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-22-1945-codex-vm100-privacy-merge-resolution-and-hardening-branch.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-22-2146-codex-vm106-frontend-hardening-phase-1-security-accessibility.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-24-1715-codex-vm117-performance-pass.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-25-0820-codex-vm127-archscry-index-extraction.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-25-1100-codex-vm129-maze-search-console-redesign.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-25-1719-codex-archscry-dossier-console.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-25-1838-codex-archscry-dossier-onboarding-trust-pass.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-25-2318-codex-vm132-archscry-dossier-ux-polish.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-26-0021-codex-vm135-archscry-card-voices-identity-story.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-26-0029-codex-branch-push-bundle.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-26-0731-codex-vm136-archscry-precon-layer.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-26-0816-codex-vm137-faction-native-precons.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-26-1007-codex-vm138-precon-unicode-name-preservation.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-26-2138-codex-vm139-precon-mechanics-import.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-26-2312-codex-vm143-route-ownership-matrix.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-26-2334-codex-vm148-canonical-homepage-cutover.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-27-0706-codex-vm149-identity-preview-registry.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-27-0730-codex-vm088-home-mana-lens-closeout.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-27-2118-codex-vm145-legal-page-css-extraction.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-27-2131-codex-vm152-legal-page-visual-alignment.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-27-2134-codex-vm153-legal-glass-opacity-match.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-27-2205-codex-vm144-preview-archive-audit.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-27-2208-codex-vm146-cdn-font-review.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-28-0944-codex-vm147a-home-risk-reduction-plan.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-28-1151-codex-vm147a-home-risk-reduction-implementation.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-28-1452-codex-vm147b-archscry-risk-reduction.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-28-1715-codex-vm155-supabase-frontend-security-review.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-28-1922-codex-vm013-placement-domains-prerequisite.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-28-2247-codex-vm156-canon-inventory-three-color-audit.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-28-2251-codex-branch-cleanup-push-bundle.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-28-2346-codex-vm157-bant-identity-metaphysics-authoring.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-29-0738-codex-vm158-bant-docs-parity-fill-pass.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-29-1249-codex-vm159-bant-raw-faction-source-packet.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-29-1720-codex-vm159a-bant-raw-packet-reconciliation.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-29-1757-codex-vm160-bant-controlled-placement-promotion.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-29-1841-codex-vm161-mana-base-basics-placeholder-suppression.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-29-2001-codex-vm162-mana-base-empty-tier-suppression.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-29-2124-codex-vm163-esper-source-packet-evidence-ledger.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-29-2206-codex-vm168-bant-downstream-lore-reconciliation.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-29-2239-codex-vm169-bant-gold-standard-parity-cleanup.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-29-2254-codex-vm170-bant-research-folder-cleanup.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-29-2318-codex-vm163a-vm164-esper-packet-repair-base-docs.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-29-2349-codex-vm165-esper-docs-parity-fill.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-30-0018-codex-vm166-esper-raw-faction-source-packet.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-30-0119-codex-vm167-esper-controlled-runtime-promotion.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-30-0847-codex-vm171-esper-post-promotion-lore-reconciliation.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-30-0851-codex-vm164-grixis-source-packet.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-30-0926-codex-vm172-bant-post-cleanup-source-path-reconciliation.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-30-0932-codex-vm165-grixis-identity-metaphysics.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-30-1035-codex-vm166-grixis-raw-faction-source-packet.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-30-1119-codex-vm167-grixis-raw-packet-review-gate.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-30-1621-codex-vm168-grixis-controlled-runtime-promotion.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-30-1715-codex-vm173-grixis-dossier-recommendation-quality-repair.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-30-1728-codex-vm174-grixis-maze-sidebar-identity-repair.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-30-1746-codex-vm175-bant-esper-dossier-recommendation-parity-audit.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-30-1754-codex-vm176-jund-source-packet.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-30-1812-codex-vm177-jund-identity-metaphysics.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-30-1817-codex-vm181-naya-source-packet.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-30-1826-codex-vm178-jund-docs-parity-fill.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-30-1828-codex-vm182-naya-identity-metaphysics.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-30-1848-codex-vm183-naya-docs-parity-fill.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-30-1852-codex-vm179-jund-raw-faction-source-packet.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-30-1922-codex-vm180-jund-raw-packet-review-gate.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-30-1922-codex-vm184-naya-raw-faction-source-packet.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-30-2042-codex-vm185-naya-raw-packet-review-gate.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-30-2056-codex-vm186-jund-controlled-runtime-promotion.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-30-2212-codex-vm188-naya-controlled-runtime-promotion.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-30-2237-codex-vm189-jund-dossier-empty-panel-link-dedup-repair.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-30-2303-codex-vm190-jund-starter-cards-mana-base-coverage.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-30-2347-codex-vm191-jund-archscry-placement-surface-completeness.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-30-2358-codex-vm192-jund-live-parity-archscry-text-hardening.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-31-0006-codex-vm193-grixis-live-parity-archscry-text-hardening.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-31-0019-codex-vm194-bant-live-parity-text-hardening.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-31-0022-codex-vm196-naya-live-parity-archscry-text-hardening.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-31-0026-codex-vm195-esper-live-parity-archscry-text-hardening.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-31-0058-codex-vm197-alara-shard-parity-closeout.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-31-0757-codex-vm200-abzan-source-packet.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-31-0805-codex-vm201-tarkir-clan-source-restore.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-31-0817-codex-vm203-208-temur-planning.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-31-0844-codex-vm203-temur-source-packet.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-31-0859-codex-vm198-abzan-identity-metaphysics.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-31-0911-codex-vm204-temur-identity-metaphysics.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-31-0919-codex-vm199-abzan-docs-parity-fill.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-31-0950-codex-vm205-temur-docs-parity-fill.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-31-0953-codex-vm200-abzan-raw-faction-source-packet.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-31-1020-codex-vm201-abzan-raw-packet-review-gate.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-31-1024-codex-vm206-temur-raw-faction-source-packet.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-31-1042-codex-vm207-temur-raw-packet-review-gate.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-31-1108-codex-vm202-abzan-controlled-runtime-promotion.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-31-1615-codex-vm197-abzan-source-packet-evidence-ledger.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-31-1619-codex-vm209-214-sultai-kanban-reservation-only.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-31-1631-codex-vm208-temur-controlled-runtime-promotion.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-31-1637-codex-vm215-220-jeskai-kanban-reservation-only.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-31-1645-codex-vm215-abzan-dossier-manual-qa-repair.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-31-1650-codex-vm209-sultai-source-packet-evidence-ledger.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-31-1652-codex-vm221-temur-live-parity-hardening.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-31-1719-codex-vm223-228-mardu-kanban-reservation-only.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-31-1722-codex-vm222-temur-dossier-link-maze-qa-repair.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-31-1725-codex-vm210-sultai-identity-metaphysics.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-31-1729-codex-vm223-mardu-source-packet-evidence-ledger.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-31-1731-codex-jeskai-kanban-id-repair.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-31-1744-codex-vm211-sultai-docs-parity-fill.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-31-1753-codex-vm224-mardu-identity-metaphysics.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-31-1757-codex-vm229-jeskai-source-packet.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-31-1810-codex-vm212-sultai-raw-faction-source-packet.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-31-1813-codex-vm225-mardu-docs-parity-fill.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-31-1819-codex-vm230-jeskai-identity-metaphysics.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-31-1832-codex-vm213-sultai-raw-packet-review-gate.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-31-1843-codex-vm231-jeskai-docs-parity-fill.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-31-1846-codex-vm226-mardu-raw-faction-source-packet.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-31-1910-codex-vm227-mardu-raw-packet-review-gate.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-31-1916-codex-vm232-jeskai-raw-faction-source-packet.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-31-1920-codex-vm214-sultai-controlled-runtime-promotion.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-31-1931-codex-vm235-mardu-status-marker-repair.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-31-1936-codex-vm233-jeskai-raw-packet-review-gate.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-31-1956-codex-vm236-sultai-live-copy-polish-reservation.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-31-2010-codex-vm228-mardu-controlled-runtime-promotion.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-31-2035-codex-vm237-mardu-quick-reading-reachability-repair.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-31-2043-codex-vm234-jeskai-controlled-runtime-promotion.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-31-2128-codex-vm238-mardu-maze-link-query-preservation-repair.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-05-31-2203-codex-vm239-jeskai-dossier-deck-start-dedup-qa-closeout.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-01-0011-codex-gold-standard-onboarding-publish-bundle.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-01-0836-codex-vm270-jeskai-hero-background-image-trial.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-01-2330-codex-vm271-archscry-identity-hero-background-rollout.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-02-1135-codex-vm240-yore-source-packet.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-02-1153-codex-vm240-yore-naming-clarification.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-02-1245-codex-vm241-yore-identity-metaphysics.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-02-1528-codex-vm242-yore-docs-parity-fill.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-02-1622-codex-vm243-yore-non-live-raw-packet.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-02-1824-codex-vm245-yore-promotion-stop-gate.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-02-1825-codex-vm246-glint-source-packet.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-02-2049-codex-vm244-yore-review-gate.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-02-2050-codex-vm247-glint-identity-metaphysics.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-02-2142-codex-vm248-glint-docs-parity-fill.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-02-2211-codex-vm245-yore-controlled-runtime-promotion.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-02-2226-codex-vm249-glint-non-live-raw-packet.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-03-0655-codex-vm252-dune-source-packet.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-03-0700-codex-vm273-yore-placement-copy-polish.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-03-0718-codex-vm250-glint-review-gate.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-03-0736-codex-vm253-dune-identity-metaphysics.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-03-1222-codex-vm274-yore-identity-hero-background.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-03-1226-codex-vm254-dune-docs-parity-fill.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-03-1240-codex-vm251-glint-controlled-runtime-promotion.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-03-1406-codex-vm275-glint-identity-hero-background.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-03-1700-codex-vm255-dune-non-live-raw-packet.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-03-1908-codex-vm276-glint-source-enrichment-card.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-03-1920-codex-vm256-dune-review-gate.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-03-2059-codex-vm276-glint-source-enrichment-reconciliation.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-03-2137-codex-vm257-dune-controlled-runtime-promotion.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-03-2231-codex-vm278-dune-identity-hero-background.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-03-2236-codex-vm258-ink-source-packet.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-03-2236-codex-vm279-dune-maze-query-archidekt-links.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-03-2253-codex-vm280-four-color-maze-handoff-repair.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-04-0005-codex-vm259-ink-identity-metaphysics.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-04-0705-codex-vm260-ink-docs-parity-fill.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-04-0714-codex-vm284-quandrix-golden-path-calibration.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-04-0754-codex-vm261-ink-non-live-raw-packet.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-04-0815-codex-vm262-ink-review-gate.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-04-0911-codex-vm263-ink-controlled-runtime-promotion.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-04-1206-codex-vm264-witch-source-packet.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-04-1416-codex-vm265-witch-identity-metaphysics.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-04-1652-codex-vm266-witch-docs-parity-fill.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-04-2144-codex-vm267-witch-non-live-raw-packet.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-04-2235-codex-vm268-witch-review-gate.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-04-2354-codex-vm269-witch-controlled-runtime-promotion.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-05-0736-codex-vm293-witch-identity-hero-background.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-05-0843-codex-vm297-placement-source-of-truth-audit.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-05-0929-codex-vm298-witch-source-durability-repair.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-05-1004-codex-vm299-jeskai-mardu-source-durability.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-05-1126-codex-vm300-source-generated-guardrails.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-09-0820-codex-vm301-yore-source-first-authoring.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-09-0851-codex-vm302-dune-source-first-authoring.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-09-1025-codex-vm303-glint-source-first-authoring.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-09-1218-codex-vm304-ink-source-first-authoring.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-09-1404-codex-vm305-supabase-context-isolation.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-09-1642-codex-vm306-ur-rg-mechanics-source-first.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-09-2000-codex-vm307-lorehold-mechanics-signal-balance.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-09-2005-codex-vm308-colorless-source-packet.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-09-2107-codex-vm314-abzan-display-enrichment.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-09-2136-codex-vm309-colorless-identity-metaphysics.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-09-2142-codex-vm315-sultai-display-enrichment.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-09-2213-codex-vm310-colorless-docs-parity.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-09-2338-codex-vm316-temur-display-enrichment.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-10-0646-codex-vm311-colorless-raw-packet.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-10-0656-codex-vm317-bant-display-enrichment.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-10-0728-codex-vm312-colorless-review-gate.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-10-0729-codex-vm318-esper-display-enrichment.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-10-0932-codex-vm320-colorless-leakage-repair.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-10-0933-codex-vm319-grixis-display-enrichment.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-10-1510-codex-vm321-colorless-review-gate-rerun.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-10-1517-codex-vm322-jund-display-enrichment.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-10-1637-codex-vm323-naya-display-enrichment.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-10-1640-codex-vm313-colorless-promotion-planning.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-10-1922-codex-vm325-source-bound-gold-standard-rule.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-10-1929-codex-vm324-colorless-readiness-repair.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-10-2016-codex-vm326-colorless-review-gate.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-10-2249-codex-vm327-colorless-controlled-promotion.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-10-2255-codex-vm328-witch-authority-repair.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-10-2349-codex-vm329-colorless-ux-repair.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-11-0032-codex-vm330-four-color-authority-sweep.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-11-0035-codex-vm331-colorless-copy-maze-repair.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-11-0658-codex-vm333-sultai-dossier-copy-blocked.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-11-0708-codex-vm334-colorless-product-decision-gate.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-11-0718-planning-architect-vm335-mono-source-authority-decision.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-11-0811-codex-vm337-colorless-controlled-dossier-expansion.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-11-2115-codex-vm338-colorless-layer2-source-authority-repair.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-11-2243-codex-vm339-colorless-official-source-capture.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-11-2243-codex-vm340-colorless-layer2-gold-certification.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-11-2332-codex-vm341-colorless-dossier-ux-polish.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-11-2358-codex-vm342-colorless-dossier-micro-polish.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-12-0644-codex-ravnica-guild-source-normalization.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-12-0726-codex-vm346-strixhaven-cohort-repair.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-12-1007-codex-vm347-shard-clan-cohort-repair.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-12-1120-codex-vm348-four-color-cohort-repair.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-12-1618-codex-source-bound-thickness-repair.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-12-2034-codex-source-bound-richness-cleanup.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-12-2211-codex-vm362-colorless-public-richness-gate.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-12-2213-codex-vm361-mono-source-inventory.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-12-2316-codex-vm363-repo-cleanup-publish.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-13-0047-codex-archscry-identity-matrix-data-map.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-13-0750-codex-vm367-wubrg-gold-layer1-layer2.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-13-0912-codex-wubrg-source-bound-deepening.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-13-1119-codex-wubrg-identity-hero-prompt.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-13-1147-codex-wubrg-identity-hero-hookup.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-13-1442-planning-architect-vm377-mono-gold-source-intake-planning.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-13-1653-codex-vm377-mono-gold-execution.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-13-1826-codex-vm378-379-380-source-bound-repair.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-13-1843-codex-vm381-publish-clean-dirty-tree.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-13-1926-codex-vm382-gate-compression-simulator.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-13-1954-codex-vm383-gate-compression-preview.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-13-2212-codex-vm384-gate-live-promotion.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-14-1555-codex-vm389-home-identity-signal.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-14-1832-codex-vm394-pre-push-exposure-gitignore-audit.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-15-0940-codex-vm400-apocrypha-release-train-publish.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-15-2049-claude-vm407-identity-radar-v2-plan.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-19-1500-claude-vm413-fraunces-spectral-type-system.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-19-2339-codex-vm413-typography-implementation.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-20-2131-codex-vm414-apocrypha-visual-alignment.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-27-1815-codex-vm422-account-deck-links.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-27-1842-codex-vm422-data-security-layer.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-27-1903-codex-vm424-homepage-positioning.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-27-1951-codex-vm422-ui-community-ledger.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-27-2000-codex-vm422-live-rls-harness.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-27-2011-codex-vm422-grant-account-list-hardening.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-27-2015-codex-vm422-moderation-state-hardening.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-27-2018-codex-vm422-blocked-live-supabase.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-27-2321-codex-vm423-feedback-composer.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-28-0930-codex-vm423-feedback-ux-simplification.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-28-1109-codex-vm425-index-mock-signal-mirror.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-28-2001-codex-vm405-maze-deck-idea-tray-v2.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-28-2040-codex-vm422-private-deck-links.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-29-0013-codex-vm426-reading-finds.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-29-0143-codex-vm427-main-promotion-sweep.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-29-1856-codex-vm428-deep-audit-report.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-29-2332-codex-vm429-self-snapshot.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-29-2340-codex-vm430-qa-test-plan.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-29-2356-codex-vm431-qa-plan-vault.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-30-0000-codex-vm432-self-snapshot-vault.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-30-0001-codex-vm439-voice-audit.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-30-1351-codex-vm440-443-voice-copy-repair.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-30-1358-codex-vm444-37-identity-docs.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-30-1408-codex-vm445-profile-rls-source.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-30-1414-codex-vm446-live-rls-blocked.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-30-1421-codex-vm447-minimal-ci.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-30-1429-codex-vm448-browser-smoke.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-30-1436-codex-vm449-maze-copy.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-30-1444-codex-vm450-visual-waivers.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-30-1455-codex-vm451-route-metadata.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-30-1501-codex-vm452-public-demo-case-study.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-30-1725-codex-vm453-collaboration-self-snapshot.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-30-1727-codex-vm452-vm453-decision-record-clarification.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-30-1746-codex-vm454-448-449-reconciliation.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-30-1806-codex-vm455-readiness-residuals.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-30-1834-codex-vm456-player-language.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-30-2058-codex-vm457-loom-foundation-deep-dive.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-30-2131-codex-vm458-deck-saving-deferral.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-30-2144-codex-vm459-self-snapshot-refresh.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-06-30-2155-codex-vm460-collaboration-self-snapshot-refresh.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-03-0951-codex-vm461-465-readiness-pass.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-03-2041-codex-vm466-470-decision-qa-pass.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-04-0045-codex-vm471-scryfall-grounding.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-04-0912-codex-vm472-robust-implicit-maze-compiler.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-04-0958-codex-vm473-mixed-mode-ambiguity-blocking.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-04-1237-codex-vm474-delta-reevaluation.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-07-2330-codex-vm478-colorless-catalog-lane-test-repair.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-09-1759-codex-vm485-maze-modal-mana-pips.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-09-1923-codex-vm486-robboles-recurring-ideas.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-09-1951-codex-vm488-placement-learning-ideas.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-09-2203-codex-vm494-dirty-tree-recovery-main-promotion.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-09-2312-codex-vm495-release-test-loose-ends.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-10-0042-codex-vm496-vox-mana-self-snapshot.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-10-1700-codex-vm498-colorless-lifecycle-reconciliation.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-11-1221-codex-crit001-vm501-containment.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-12-0708-codex-vm502-prismari-q1-candidate.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-12-1126-codex-vm506-lorehold-gate1-audit.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-12-1142-codex-vm506-lorehold-gate2-evidence.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-12-1154-codex-vm506-lorehold-gate3-remediation.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-12-1211-codex-vm506-lorehold-gate4-validation.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-12-1353-codex-vm503-quandrix-gate1-audit.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-12-1444-codex-vm503-quandrix-gate2-evidence.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-12-1515-codex-vm503-quandrix-gate3-remediation.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-12-1529-codex-vm503-quandrix-gate4-blocker.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-12-1545-codex-vm503-quandrix-gate4-resolution.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-12-1806-codex-vm504-silverquill-gate1-audit.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-12-1838-codex-vm504-silverquill-gate2-evidence.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-12-1908-codex-vm504-silverquill-gate3-remediation.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-12-2018-codex-vm504-silverquill-gate4-validation.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-12-2029-codex-vm504-silverquill-wording-blocker-resolution.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-12-2059-codex-vm504-silverquill-scope-policy-cleanup.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-12-2319-codex-vm505-witherbloom-gate1-audit.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-12-2348-codex-vm505-witherbloom-gate2-evidence.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-13-0805-codex-vm505-witherbloom-gate3-remediation.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-13-0844-codex-vm505-witherbloom-gate4-validation.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-13-1152-codex-vm505-witherbloom-scope-policy-cleanup.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-13-1658-codex-vm507-izzet-gate1-audit.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-13-1807-codex-vm507-izzet-gate2-evidence.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-13-2046-codex-vm507-izzet-gate3-remediation.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-13-2226-codex-vm507-izzet-gate4-validation.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-13-2259-codex-vm507-izzet-candidate-record.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-14-0705-codex-vm508-azorius-gate1-audit.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-14-0803-codex-vm508-azorius-gate2-evidence.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-14-1616-codex-vm508-azorius-gate4-validation.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-14-1738-codex-vm508-azorius-pre-candidate-cleanup.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-14-1838-codex-vm508-azorius-candidate-record.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-14-1934-codex-vm509-boros-gate1-audit.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-14-2127-codex-vm509-boros-gate2-evidence.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-14-2326-codex-vm509-boros-gate4-validation.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-15-1656-codex-vm510-rakdos-gate1-gate2.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-15-2252-codex-vm510-rakdos-gate3-gate4.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-16-0817-codex-vm510-rakdos-certification.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-16-0917-codex-vm511-golgari-gate1-gate2.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-16-1128-codex-vm511-golgari-candidate.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-16-1400-codex-vm511-golgari-review-fix.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-16-1624-codex-vm511-golgari-certification.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-16-1719-codex-vm512-gruul-gate1-gate2.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-16-1754-codex-vm512-gruul-candidate.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-16-2213-codex-vm513-dimir-gate1-gate2.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-16-2254-codex-vm513-dimir-candidate.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-16-2329-codex-vm513-dimir-independent-review.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-17-0702-codex-vm514-orzhov-gate1-gate2.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-17-0743-codex-vm514-orzhov-candidate.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-17-0806-codex-vm514-orzhov-independent-review.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-17-1032-codex-vm515-selesnya-gate1-gate2.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-17-1106-codex-vm515-selesnya-candidate.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-17-1725-codex-vm516-simic-drift-preflight.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-17-1752-codex-vm516-simic-gate1-gate2.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-17-1835-codex-vm516-simic-candidate.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-17-2036-codex-vm516-simic-preview-remediation.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-17-2204-codex-vm516-simic-replacement-review.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-17-2232-codex-vm516-simic-certification.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-17-2331-codex-vm517-white-drift-preflight.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-18-0815-codex-vm517-white-candidate.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-18-1050-codex-vm518-blue-candidate.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-18-1354-codex-vm519-black-candidate.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-18-1449-codex-vm519-black-independent-review.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-18-1515-codex-vm519-black-preview-replacement.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-18-1555-codex-vm519-black-replacement-review.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-18-1705-codex-vm520-red-gate1-gate2.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-18-1727-codex-vm520-red-candidate.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-18-1756-codex-vm520-red-independent-review.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-18-1824-codex-vm520-red-replacement-candidate.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-18-1857-codex-vm520-red-replacement-independent-review.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-18-2121-codex-vm521-green-gate1-gate2.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-18-2147-codex-vm521-green-candidate.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-18-2221-codex-vm521-green-independent-review.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-19-1034-codex-vm522-bant-drift-preflight-stop.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-19-1118-codex-vm522-bant-preflight-rerun-stop.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-19-1944-codex-vm522-bant-gate1-gate2.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-19-2048-codex-vm522-bant-gate3-gate4.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-19-2157-codex-vm522-bant-independent-review.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-20-0013-codex-vm522-bant-replacement-independent-review.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-20-0902-codex-vm523-esper-drift-preflight.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-20-1023-codex-vm523-esper-gate1-gate2.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-20-1219-codex-vm523-esper-gate3-gate4.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-20-1914-codex-vm523-esper-independent-review.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-20-2155-codex-vm524-grixis-drift-preflight.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-20-2239-codex-vm524-grixis-gate1-gate2.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-20-2358-codex-vm524-grixis-gate3-gate4.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-21-0825-codex-vm524-grixis-independent-review.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-21-1229-codex-vm525-jund-drift-preflight.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-21-1457-codex-vm525-jund-gate1-gate2.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-21-1710-codex-vm525-jund-gate3-gate4-stop.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-21-2213-codex-vm525-jund-candidate-workflow.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-21-2233-codex-vm525-jund-independent-review.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-21-2336-codex-vm526-naya-drift-preflight.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-21-2346-codex-vm526-naya-gate1-gate2.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-22-0746-codex-vm526-naya-independent-review.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-22-1014-codex-vm527-abzan-drift-preflight.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-22-1035-codex-vm527-abzan-gate1-gate2.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-22-1549-codex-vm528-temur-gate1-gate2.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-22-1758-codex-vm528-temur-candidate-workflow.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-22-1911-codex-vm528-temur-independent-review.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-22-2039-codex-vm529-sultai-gate1-gate2.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-22-2123-codex-vm529-sultai-independent-review.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-22-2213-codex-vm530-mardu-gate1-gate2.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-22-2235-codex-vm530-mardu-candidate-workflow.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-22-2258-codex-vm530-mardu-independent-review.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-23-0614-codex-vm530-mardu-certification.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-23-0800-codex-vm531-jeskai-drift-preflight.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-23-0825-codex-vm531-jeskai-gate1-gate2.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-23-0937-codex-vm531-jeskai-candidate-workflow.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-23-1123-codex-vm531-jeskai-independent-review.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-23-1215-codex-vm531-jeskai-certification.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-23-1646-codex-vm532-yore-drift-preflight.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-23-1818-codex-vm532-yore-gate1-gate2.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-23-2042-codex-vm532-yore-certification.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-23-2108-codex-vm533-glint-gate1-gate2.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-23-2323-codex-vm534-dune-gate1-gate2.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-24-1330-codex-vm535-ink-candidate-workflow.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-24-2014-codex-vm537-colorless-candidate-workflow.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-24-2031-codex-vm537-colorless-independent-review.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-24-2245-codex-vm538-wubrg-candidate-workflow.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-07-24-2300-codex-vm538-wubrg-independent-review.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-08-01-0900-codex-vm551-placement-system-audit.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-08-01-1205-codex-vm551-final-compatibility-reconciliation.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-08-01-1653-codex-vm551-consumer-map-completion.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-08-01-1735-codex-vm551-final-consumer-map-correction.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-08-01-1836-codex-vm551-gate-a-design.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-08-01-1924-codex-vm551-gate-a-implementation.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-08-01-2330-codex-vm551-gate-a-owner-qa-remediation.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-08-09-2010-codex-vm553-37-identity-relationship-guide.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-08-20-2029-codex-vm574-card-signals-remediation.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-08-29-2311-codex-vm596-wubrg-semantic-repair.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-09-01-0901-codex-vm616-maze-context-recovery-owner-review.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-09-01-1755-codex-vm619-guided-reading-owner-review.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-09-03-0004-codex-vm016-local-reading-return.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/2026-09-13-2125-codex-vm647-privacy-service-accuracy.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/handoffs/HANDOFF_INDEX.md	historical handoff	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/incidents/CRIT-001-identity-recovery-ledger.json	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/incidents/recoveries/VM-502-prismari-semantic-recovery.md	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/incidents/recoveries/VM-503-quandrix-semantic-recovery.md	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/incidents/recoveries/VM-504-silverquill-semantic-recovery.md	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/incidents/recoveries/VM-505-witherbloom-semantic-recovery.md	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/incidents/recoveries/VM-506-lorehold-semantic-recovery.md	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/incidents/recoveries/VM-507-izzet-semantic-recovery.md	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/incidents/recoveries/VM-508-azorius-semantic-recovery.md	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/incidents/recoveries/VM-509-boros-semantic-recovery.md	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/incidents/recoveries/VM-510-rakdos-semantic-recovery.md	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/incidents/recoveries/VM-511-golgari-semantic-recovery.md	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/incidents/recoveries/VM-512-gruul-semantic-recovery.md	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/incidents/recoveries/VM-513-dimir-semantic-recovery.md	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/incidents/recoveries/VM-514-orzhov-semantic-recovery.md	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/incidents/recoveries/VM-515-selesnya-semantic-recovery.md	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/incidents/recoveries/VM-516-simic-drift-preflight.md	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/incidents/recoveries/VM-516-simic-semantic-recovery.md	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/incidents/recoveries/VM-517-white-drift-preflight-rerun.md	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/incidents/recoveries/VM-517-white-drift-preflight.md	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/incidents/recoveries/VM-517-white-independent-review.md	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/incidents/recoveries/VM-518-blue-drift-preflight.md	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/incidents/recoveries/VM-518-blue-independent-review.md	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/incidents/recoveries/VM-518-blue-semantic-recovery.md	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/incidents/recoveries/VM-519-black-drift-preflight.md	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/incidents/recoveries/VM-519-black-independent-review.md	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/incidents/recoveries/VM-519-black-replacement-independent-review.md	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/incidents/recoveries/VM-519-black-semantic-recovery.md	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/incidents/recoveries/VM-520-red-drift-preflight.md	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/incidents/recoveries/VM-520-red-independent-review.md	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/incidents/recoveries/VM-520-red-replacement-independent-review.md	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/incidents/recoveries/VM-520-red-semantic-recovery.md	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/incidents/recoveries/VM-521-green-drift-preflight.md	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/incidents/recoveries/VM-521-green-independent-review.md	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/incidents/recoveries/VM-521-green-provenance-rereview.md	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/incidents/recoveries/VM-535-ink-semantic-recovery.md	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/incidents/recoveries/VM-538-wubrg-semantic-recovery.md	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/backlog/VM-009-32-deck-challenge-saved-taste-profile-deck-import-later.md	active backlog	SUPERSEDE/CLOSE	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/backlog/VM-014-ui-shell-cleanup-legacy-terminal-follow-up.md	active backlog	SUPERSEDE/CLOSE	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/backlog/VM-236-sultai-live-copy-polish-identity-display-repair.md	active backlog	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/backlog/VM-422-account-deck-links-community-deck-ledger.md	active backlog	SUPERSEDE/CLOSE	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/backlog/VM-446-vm422-live-private-deck-link-rls-proof.md	active backlog	SUPERSEDE/CLOSE	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/board.md	current task/navigation	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-002-cleanup-batch-1-foundation.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-003-scryfall-discovery-foundation.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-005-archscry-maze-ux-continuity-link-reliability.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-016-archscry-profile-return-qr.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-106-frontend-hardening-phase-1-security-accessibility.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-117-phase-7-performance-pass-script-deferral-cls-lighthouse.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-130-archscry-live-dossier-console-redesign.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-135-archscry-card-voices-identity-story-land-dedupe.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-136-archscry-precon-layer.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-137-faction-native-precons.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-146-cdn-font-dependency-review.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-147A-home-route-css-js-risk-reduction.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-147B-archscry-route-css-js-risk-reduction.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-147C-maze-route-css-js-risk-reduction.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-154-home-hero-horizontal-overflow-containment.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-155-targeted-supabase-frontend-security-review.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-157-bant-identity-metaphysics-authoring-pass.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-158-bant-docs-parity-fill-pass.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-159-bant-raw-faction-source-packet.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-159A-bant-raw-packet-reconciliation.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-160-bant-controlled-placement-promotion.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-161-mana-base-basics-placeholder-suppression.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-162-mana-base-empty-tier-suppression.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-163-esper-source-packet-evidence-ledger.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-163A-VM-164-esper-packet-repair-base-docs.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-164-grixis-source-packet-evidence-ledger.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-165-esper-docs-parity-fill.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-165-grixis-identity-metaphysics.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-166-esper-raw-faction-source-packet.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-166-grixis-raw-faction-source-packet.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-167-esper-controlled-runtime-promotion.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-167-grixis-raw-packet-review-gate.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-168-bant-downstream-lore-reconciliation.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-168-grixis-controlled-runtime-promotion.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-175-bant-esper-dossier-recommendation-parity-audit.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-176-jund-source-packet-evidence-ledger.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-177-jund-identity-metaphysics.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-178-jund-docs-parity-fill.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-179-jund-raw-faction-source-packet.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-180-jund-raw-packet-review-gate.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-181-naya-source-packet-evidence-ledger.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-182-naya-identity-metaphysics.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-183-naya-docs-parity-fill.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-184-naya-raw-faction-source-packet.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-185-naya-raw-packet-review-gate.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-186-jund-controlled-runtime-promotion.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-188-naya-controlled-runtime-promotion.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-189-jund-dossier-empty-panel-link-dedup-repair.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-190-jund-starter-cards-mana-base-coverage.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-191-jund-archscry-placement-surface-completeness.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-196-naya-live-parity-archscry-text-hardening.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-197-abzan-source-packet-evidence-ledger.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-198-abzan-identity-and-metaphysics.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-199-abzan-docs-parity-fill.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-200-abzan-houses-source-packet-evidence-ledger.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-200-abzan-raw-faction-source-packet.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-201-abzan-raw-packet-review-gate.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-201-tarkir-clan-source-folder-restore.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-202-abzan-controlled-runtime-promotion.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-203-temur-frontier-source-packet-evidence-ledger.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-204-temur-frontier-identity-and-metaphysics.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-205-temur-frontier-docs-parity-fill.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-206-temur-frontier-raw-faction-source-packet.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-207-temur-frontier-raw-packet-review-gate.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-208-temur-frontier-controlled-runtime-promotion.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-209-sultai-brood-source-packet-evidence-ledger.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-210-sultai-brood-identity-and-metaphysics.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-211-sultai-brood-docs-parity-fill.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-212-sultai-brood-raw-faction-source-packet.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-213-sultai-brood-raw-packet-review-gate.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-214-sultai-brood-controlled-runtime-promotion.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-215-abzan-dossier-manual-qa-repair.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-221-temur-live-parity-archscry-text-hardening.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-222-temur-dossier-link-maze-qa-repair.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-223-mardu-horde-source-packet-evidence-ledger.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-224-mardu-horde-identity-and-metaphysics.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-225-mardu-horde-docs-parity-fill.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-226-mardu-horde-raw-faction-source-packet.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-227-mardu-horde-raw-packet-review-gate.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-228-mardu-horde-controlled-runtime-promotion.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-229-jeskai-way-source-packet-evidence-ledger.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-230-jeskai-way-identity-and-metaphysics.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-231-jeskai-way-docs-parity-fill.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-232-jeskai-way-raw-faction-source-packet.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-233-jeskai-way-raw-packet-review-gate.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-234-jeskai-way-controlled-runtime-promotion.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-235-mardu-raw-packet-non-live-status-marker-repair.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-237-mardu-live-quick-reading-reachability-repair.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-238-mardu-maze-link-query-preservation-repair.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-239-jeskai-dossier-deck-start-de-dup-and-qa-closeout.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-240-yore-source-packet-and-evidence-ledger.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-241-yore-identity-and-metaphysics-docs.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-242-yore-docs-parity-fill.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-243-yore-non-live-raw-packet.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-244-yore-review-gate.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-245-yore-controlled-runtime-promotion.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-246-glint-source-packet-and-evidence-ledger.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-247-glint-identity-and-metaphysics-docs.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-248-glint-docs-parity-fill.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-249-glint-non-live-raw-packet.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-250-glint-review-gate.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-251-glint-controlled-runtime-promotion.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-252-dune-source-packet-and-evidence-ledger.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-253-dune-identity-and-metaphysics-docs.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-254-dune-docs-parity-fill.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-255-dune-non-live-raw-packet.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-256-dune-review-gate.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-257-dune-controlled-runtime-promotion.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-258-ink-source-packet-and-evidence-ledger.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-259-ink-identity-and-metaphysics-docs.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-260-ink-docs-parity-fill.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-261-ink-non-live-raw-packet.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-262-ink-review-gate.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-264-witch-source-packet-and-evidence-ledger.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-265-witch-identity-and-metaphysics-docs.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-266-witch-docs-parity-fill.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-267-witch-non-live-raw-packet.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-268-witch-review-gate.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-269-witch-controlled-runtime-promotion.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-271-archscry-identity-hero-background-rollout.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-273-yore-live-placement-copy-polish-manual-qa-repair.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-274-yore-identity-hero-background-dossier-hookup.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-275-glint-identity-hero-background-dossier-hookup.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-276-glint-source-enrichment-and-downstream-lore-reconciliation.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-278-dune-identity-hero-background-dossier-hookup.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-279-dune-maze-query-and-archidekt-only-deck-link-repair.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-293-witch-identity-hero-background-dossier-hookup.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-297-placement-data-source-of-truth-contamination-audit.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-298-witch-public-copy-source-durability-repair.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-299-jeskai-mardu-source-durability-repair.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-300-source-generated-guardrails.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-301-yore-source-first-authoring-pass.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-302-dune-source-first-authoring-pass.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-303-glint-source-first-authoring-pass.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-304-ink-source-first-authoring-pass.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-305-supabase-context-isolation.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-306-ur-rg-mechanics-source-first-repair.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-307-lorehold-mechanics-signal-balance.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-308-colorless-source-packet-and-evidence-ledger.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-309-colorless-identity-and-metaphysics-docs.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-310-colorless-docs-parity-fill.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-311-colorless-non-live-raw-packet.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-312-colorless-review-gate.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-313-colorless-controlled-promotion-planning.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-315-sultai-display-enrichment.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-316-temur-display-enrichment.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-317-bant-display-enrichment.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-318-esper-display-enrichment.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-319-grixis-display-enrichment.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-320-colorless-runtime-test-leakage-classification-and-repair.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-321-colorless-review-gate-rerun.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-322-jund-display-enrichment.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-323-naya-display-enrichment.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-324-colorless-source-intake-ux-readiness-repair.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-325-source-bound-gold-standard-rule.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-326-colorless-raw-packet-review-gate.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-327-colorless-controlled-promotion-implementation.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-328-witch-source-generated-authority-repair.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-329-colorless-dossier-hero-precon-mana-base-maze-ux-repair.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-330-four-color-layer-1-authority-sweep.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-334-colorless-product-decision-gate.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-335-mono-source-authority-decision.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-338-colorless-layer2-source-authority-repair.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-339-colorless-official-source-capture-ledger-promotion.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-340-colorless-relocation-cleanup-gold-certification.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-342-colorless-dossier-micro-polish.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-345-ravnica-guild-generated-rebuild-review-gate.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-348-four-color-source-bound-cohort-repair.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-361-mono-color-official-source-inventory.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-373-wubrg-identity-hero-background-hookup.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-377-mono-gold-source-intake-planning.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-384-gate-compression-live-promotion.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-394-pre-push-exposure-and-gitignore-audit.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-400-publish-apocrypha-release-train-bundle.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-407-identity-radar-v2-visual-info-upgrade.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-413-fraunces-spectral-type-system-unification.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-414-apocrypha-public-route-visual-alignment.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-423-feedback-composer-static-email-processor.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-424-homepage-first-visit-positioning.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-425-index-mock-signal-mirror-preview.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-427-repo-scan-test-sweep-main-promotion.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-428-vox-mana-deep-audit-report.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-429-vox-mana-self-snapshot.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-430-vox-mana-comprehensive-test-plan.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-431-add-qa-plan-to-obsidian-vault.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-432-add-self-snapshot-to-obsidian-vault.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-444-canonical-37-identity-docs-reconciliation.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-445-profile-supabase-rls-source-artifact.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-447-minimal-ci-validation-gate.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-448-critical-browser-e2e-smoke.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-449-maze-return-loop-microcopy-tightening.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-450-visual-baseline-acceptance-waiver-cleanup.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-453-collaboration-self-snapshot.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-454-vm448-vm449-handoff-trail-reconciliation.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-455-remaining-readiness-residuals-release-caveat-sweep.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-456-term-preserving-player-language-pass.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-457-loom-foundation-deep-dive.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-458-deck-saving-deferral-archscry-surface-suppression.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-459-2026-06-30-vox-mana-self-snapshot-refresh.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-460-collaboration-self-snapshot-refresh.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-461-account-scope-freeze-reactivation-checklist.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-470-account-scope-freeze-and-reactivation-checklist.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-471-scryfall-grounding-plain-reading-compiler-foundation.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-472-robust-implicit-maze-compiler-framework.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-474-vox-mana-delta-reevaluation.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-494-dirty-tree-recovery-main-promotion.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-495-release-test-loose-ends.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-496-vox-mana-self-snapshot-2026-07-10.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-502-prismari-semantic-recovery.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-551-full-placement-system-audit.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-564-all-37-dossier-term-hover-audit.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-625-public-identity-atlas-explorer.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/kanban/done/VM-647-privacy-service-accuracy-pass.md	historical Done card	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/plans/vm551-gate-a-trust-containment/current-ui-and-copy-inventory.md	active plan	UPDATE REFERENCE	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/plans/vm551-gate-a-trust-containment/gate-a-regression-matrix.csv	active plan	UPDATE REFERENCE	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/plans/vm551-gate-a-trust-containment/implementation-file-plan.md	active plan	UPDATE REFERENCE	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/plans/vm551-gate-a-trust-containment/implementation-slices.md	active plan	UPDATE REFERENCE	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/plans/vm551-gate-a-trust-containment/implementation-status.md	active plan	UPDATE REFERENCE	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/plans/vm551-gate-a-trust-containment/matrix-compatibility-plan.md	active plan	UPDATE REFERENCE	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/plans/vm551-gate-a-trust-containment/public-confidence-replacement.md	active plan	UPDATE REFERENCE	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/plans/vm637-public-content-retention-map.md	active plan	UPDATE REFERENCE	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/prototypes/vm551-gate-b1-production-fidelity-preview/validate-preview-browser.mjs	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/qa/2026-07-03-browser-smoke-ci-pilot.md	historical QA evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/qa/2026-08-01-vm551-gate-a-owner-qa.md	historical QA evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/qa/2026-09-02-vm620-vm621-combined-owner-review.md	historical QA evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/qa/vox-mana-test-plan.md	current QA reference	UPDATE REFERENCE	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/reference/README.md	current reference	UPDATE REFERENCE	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/reference/data-contracts.md	current reference	UPDATE REFERENCE	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/reference/manual-test-cases.md	current reference	UPDATE REFERENCE	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/reference/method-reference.md	current reference	UPDATE REFERENCE	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/reference/move-into-repo.md	current reference	UPDATE REFERENCE	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/reference/source-generated-guardrails.md	current reference	UPDATE REFERENCE	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/reference/spec-index.md	current reference	UPDATE REFERENCE	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/reports/2026-08-30-vm613-current-state-recon.md	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/research/abzan/README.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/research/abzan/abzan-evidence-ledger.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/research/abzan/abzan-research-dossier.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/research/archscry-sound-play-audit/identity-evidence/32-glint-identity-evidence.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/research/archscry-sound-play-audit/identity-evidence/34-ink-identity-evidence.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/research/archscry-sound-play-audit/identity-evidence/35-witch-identity-evidence.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/research/canon/misc/Archscry Architecture_ Mono Color Integration.rtf	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/research/colorless/README.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/research/colorless/colorless-canon-relocation-map.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/research/colorless/colorless-evidence-ledger.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/research/colorless/colorless-layer2-gap-analysis.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/research/colorless/colorless-manual-fill.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/research/colorless/colorless-reliability-audit.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/research/dune/README.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/research/esper/README.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/research/glint/README.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/research/grixis/README.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/research/grixis/grixis-lore-source-packet.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/research/ink/README.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/research/jeskai/README.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/research/jeskai/jeskai-evidence-ledger.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/research/jeskai/jeskai-research-dossier.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/research/jeskai/jeskai-source-ledger.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/research/jund/README.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/research/jund/jund-evidence-ledger.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/research/jund/jund-lore-source-packet.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/research/jund/jund-reliability-audit.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/research/mardu/README.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/research/mardu/mardu-evidence-ledger.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/research/mardu/mardu-lore-source-packet.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/research/mardu/mardu-research-dossier.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/research/naya/README.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/research/naya/naya-evidence-ledger.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/research/naya/naya-research-dossier.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/research/sultai/README.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/research/sultai/sultai-evidence-ledger.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/research/sultai/sultai-lore-source-packet.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/research/sultai/sultai-research-dossier.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/research/temur/README.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/research/temur/temur-evidence-ledger.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/research/temur/temur-lore-source-packet.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/research/temur/temur-research-dossier.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/research/ui_research/KEEP THIS_archscry-interactive-premo.html	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/research/ui_research/vox-mana-landing-interactive-premo.html	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/research/witch/README.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/research/yore/README.md	incidental source/analysis	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/strategy/2026-06-30-loom-foundation-deep-dive.md	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/strategy/2026-06-30-vox-mana-public-demo-case-study.md	historical evidence	KEEP	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/strategy/2026-07-03-account-scope-freeze-reactivation-checklist.md	current strategy	SUPERSEDE/CLOSE	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/supabase-profile-update.sql	deployment artifact	ARCHIVE	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
+docs/supabase-vm422-deck-links.sql	deployment artifact	ARCHIVE	baseline 01e11dc3e6cdae683e9f8120a0034f26d33806f1 exact literal-match query
