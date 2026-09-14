@@ -25,8 +25,8 @@
       title: "Official Design",
       kicker: "Official Design",
       tone: "canon",
-      shortDescription: "Official Wizards design articles for color philosophy, mechanics, faction design, and design intent.",
-      usefulFor: "Color, guild, shard, wedge, and mechanic design support.",
+      shortDescription: "Official Wizards articles about color philosophy, mechanics, factions, and design intent.",
+      usefulFor: "Understanding how Magic's colors and factions are designed.",
       notProving: "Rules text, Oracle records, story canon, legality, or deckbuilding advice."
     },
     lore: {
@@ -34,26 +34,26 @@
       title: "Worldbuilding & Lore",
       kicker: "Worldbuilding & Lore",
       tone: "codex",
-      shortDescription: "Official story, plane, setting, and flavor material for lore and identity context.",
-      usefulFor: "Setting details, guild flavor, plane context, and story support.",
-      notProving: "Design intent, rules meaning, card-record truth, or community interpretation."
+      shortDescription: "Official stories and plane guides about settings, characters, guilds, and events.",
+      usefulFor: "Checking story, setting, guild, and plane context.",
+      notProving: "Design intent, rules meaning, card records, or community interpretation."
     },
     "official-archives": {
       id: "apoc-library-official-archives",
       title: "Official Archives",
       kicker: "Official Archives",
       tone: "scholarship",
-      shortDescription: "Historical Wizards material kept for source lineage and older official context.",
-      usefulFor: "Older official statements and how ideas were framed at the time.",
-      notProving: "Current guidance unless the registry marks it current and verified."
+      shortDescription: "Older Wizards material preserved for historical context.",
+      usefulFor: "Finding earlier official statements and how ideas were framed at the time.",
+      notProving: "Current guidance without confirmation from a current official source."
     },
     supplemental: {
       id: "apoc-library-supplemental-references",
       title: "Supplemental References",
       kicker: "Supplemental References",
       tone: "logic",
-      shortDescription: "Community, wiki, video, social, and archive links kept only for navigation or context.",
-      usefulFor: "Chronology, terminology, community framing, and source trails needing official support.",
+      shortDescription: "Community, wiki, video, and archive links that can help you follow a source trail.",
+      usefulFor: "Finding chronology, terminology, community context, or leads to official material.",
       notProving: "Official canon, rules meaning, card records, design intent, legality, recommendations, or Vox Mana claims."
     }
   });
@@ -272,11 +272,11 @@
       "</div>",
       "</div>",
       '<p class="apoc-source-meta">' + formatMetadata(source).map(escapeHtml).join(" · ") + "</p>",
-      "<p><strong>Supports:</strong> " + escapeHtml(source.usedFor) + "</p>",
-      "<p><strong>Not for:</strong> " + escapeHtml(source.notFor) + "</p>",
+      "<p><strong>Used for:</strong> " + escapeHtml(source.usedFor) + "</p>",
+      "<p><strong>Does not establish:</strong> " + escapeHtml(source.notFor) + "</p>",
       renderTags(source),
       '<p class="apoc-source-verification">' + escapeHtml(verificationCopy(source)) + "</p>",
-      '<a class="apoc-source-link" href="' + escapeHtml(source.url) + '" target="_blank" rel="noopener" data-source-link="' + escapeHtml(source.id) + '" aria-label="Open source: ' + escapeHtml(source.title) + '">Open source</a>',
+      '<a class="apoc-source-link" href="' + escapeHtml(source.url) + '" target="_blank" rel="noopener" data-source-link="' + escapeHtml(source.id) + '" aria-label="Read source: ' + escapeHtml(source.title) + '">Read source</a>',
       "</article>",
       "</li>"
     ].join("");
@@ -326,8 +326,8 @@
       '<span class="vm-card-kicker">' + escapeHtml(shelf.kicker) + "</span>",
       '<span class="apoc-library-title">' + escapeHtml(shelf.title) + "</span>",
       '<span class="apoc-library-desc">' + escapeHtml(shelf.shortDescription) + "</span>",
-      '<span class="apoc-library-desc"><strong>Useful for:</strong> ' + escapeHtml(shelf.usefulFor) + "</span>",
-      '<span class="apoc-library-desc"><strong>Not for:</strong> ' + escapeHtml(shelf.notProving) + "</span>",
+      '<span class="apoc-library-desc"><strong>Best for:</strong> ' + escapeHtml(shelf.usefulFor) + "</span>",
+      '<span class="apoc-library-desc"><strong>Does not establish:</strong> ' + escapeHtml(shelf.notProving) + "</span>",
       "</span>",
       '<span class="apoc-shelf__count" data-source-count="' + records.length + '" aria-label="' + records.length + (records.length === 1 ? " source" : " sources") + '">' + records.length + (records.length === 1 ? " source" : " sources") + "</span>",
       "</summary>",
@@ -385,20 +385,18 @@
       return source.verification.status === "verified";
     }).length;
     var pending = authorized.length - verified;
-    var suppressed = suppressedRecords(registry).length;
     var summary = document.querySelector(".apoc-registry-summary");
     if (!summary) {
       return;
     }
     summary.innerHTML = [
-      "<span data-source-total=\"" + authorized.length + "\">" + authorized.length + " rendered sources</span>",
+      "<span data-source-total=\"" + authorized.length + "\">" + authorized.length + " public sources</span>",
       "<span>" + (groupCounts.design || 0) + " design</span>",
       "<span>" + (groupCounts.lore || 0) + " lore</span>",
       "<span>" + (groupCounts["official-archives"] || 0) + " archive</span>",
       "<span>" + (groupCounts.supplemental || 0) + " supplemental</span>",
       "<span>" + verified + " checked links</span>",
-      "<span>" + pending + " pending link checks</span>",
-      "<span>" + suppressed + " rules record suppressed</span>"
+      "<span>" + pending + " pending link checks</span>"
     ].join("");
   }
 
@@ -418,7 +416,7 @@
     root.setAttribute("data-render-mode", "registry");
     updateSummary(registry);
     revealAll(root.querySelectorAll("[data-reveal]"));
-    setSourceStatus("Source shelves loaded from the registry. Counts are calculated from source records.", "ok");
+    setSourceStatus("Source library ready.", "ok");
   }
 
   function initRegistryLibrary() {
@@ -429,7 +427,7 @@
 
     if (window.location.protocol === "file:") {
       root.setAttribute("data-render-mode", "fallback");
-      setSourceStatus("Static source shelves are available below. Registry enhancement needs the site to be served over HTTP.", "notice");
+      setSourceStatus("The complete public source library is available below.", "notice");
       return Promise.resolve();
     }
 
@@ -447,7 +445,7 @@
       .catch(function (error) {
         root.setAttribute("data-render-mode", "fallback");
         console.error("Apocrypha registry rendering failed:", error);
-        setSourceStatus("Source registry unavailable. Apocrypha cannot show source cards safely right now. Static source shelves remain available below.", "error");
+        setSourceStatus("The live source list could not be refreshed. The complete public source library remains available below.", "error");
       });
   }
 
