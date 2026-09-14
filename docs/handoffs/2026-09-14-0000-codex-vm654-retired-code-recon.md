@@ -107,3 +107,21 @@ This is acceptance of the exact unchanged RobQA-passed material candidate above,
 GitHub operation routing: the exposed/deferred GitHub connector supports PR creation/read and squash merge with expected_head_sha. Authenticated connector identity is rboles84; repository metadata confirms repository access, push/admin permission and squash capability. No matching PR existed at the first exact head/base lookup. The connector cannot read administrative branch protection (403 Resource not accessible by integration); the fallback is limited to that missing read capability. No authentication, repository protection or credential configuration change is authorized or performed.
 
 Interrupted-run recovery: Windows Defender rejected the attempted PowerShell credential-access process before process creation. The command did not execute; no credential was retrieved or displayed, no Authorization header or direct authenticated REST request was made, and no authentication-secret or returned policy material was written to disk. Recovery uses only ordinary Git inspection and the approved GitHub connector. The unavailable classic branch-protection observation remains unavailable; repository ruleset inspection through the connector returned no rulesets, matching the already-established VM-648 integration precedent.
+
+## Integration and closeout — 2026-09-14
+
+Task: VM-654
+Candidate: dacca18131ccbb7b8c807a0fb388df1d68598426
+Evidence head: a1aad38389c1d248e5fde682f63e27814b9e1904
+Integration: PR48 / PR #48 guarded squash merge `a64c978f71120d2791b460369404a277199721ee`
+Boundaries: PASS
+
+- [PR #48](https://github.com/rboles84/voxmana.io/pull/48) targeted `main` from the single admitted VM-654 branch and contained exactly 23 recon/lifecycle paths and six commits.
+- GitHub `Deterministic Validation` completed successfully at the exact evidence head in [run 34848602799](https://github.com/rboles84/voxmana.io/actions/runs/34848602799), job `103990539832`.
+- The governed integration checker passed before merge with the exact PR head, complete file/blob and commit scope, clean merge state, Owner/QA bindings, authenticated connector route, and atomic expected-head merge capability.
+- The squash commit has sole parent `01e11dc3e6cdae683e9f8120a0034f26d33806f1` and tree `b07b7bf20b5d6b74ba2d60fab8ba853eb3f8c72c`.
+- The accepted evidence head has the same tree `b07b7bf20b5d6b74ba2d60fab8ba853eb3f8c72c`; no production or evidence bytes changed during squash integration.
+- Owner acceptance remains bound to material candidate `dacca18131ccbb7b8c807a0fb388df1d68598426`. The purge remains unimplemented and unauthorized.
+- Repository ruleset inspection through the approved connector returned no rulesets. The connector could not read the classic branch-protection endpoint; the existing governance precedent, clean PR state, successful required validation, and guarded merge were sufficient. No alternate credential path was used and no repository settings changed.
+- GitHub removed the remote feature branch after merge. The local feature branch is removed during this governed closeout after accepted-tree parity was verified. No unrelated branch or worktree is touched.
+- Closeout changes are limited to this appended evidence, the card's lifecycle fields and Done relocation, and regenerated task views.

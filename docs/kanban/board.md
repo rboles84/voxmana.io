@@ -1,4 +1,4 @@
-<!-- task-view-sha256:8e4d33ec9eae6fdc8324293e0cc072aafc5b34665055e7d6737d85b386e726de -->
+<!-- task-view-sha256:7e2402893409e0ad4b94fcbe77358c871f95e9fda42678782db8d7697699153e -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -52,7 +52,6 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 
 | ID | Card | Declared status | Diagnostics |
 |---|---|---|---|
-| VM-654 | [Retired Code Recon](in-progress/VM-654-retired-code-recon.md) | Accepted |  |
 
 ## Integrated
 
@@ -674,6 +673,7 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | VM-651 | [Agent Model Routing](done/VM-651-agent-model-routing.md) | Done |  |
 | VM-652 | [Archscry Dossier Flow and Precon Hover Integrity](done/VM-652-archscry-dossier-integrity.md) | Done |  |
 | VM-653 | [Kanban Lifecycle Cleanup](done/VM-653-kanban-lifecycle-cleanup.md) | Done |  |
+| VM-654 | [Retired Code Recon](done/VM-654-retired-code-recon.md) | Done |  |
 
 ## Unresolved
 

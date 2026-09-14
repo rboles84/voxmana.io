@@ -2,7 +2,7 @@
 
 ID: VM-654
 Title: Retired Code Recon
-Status: Accepted
+Status: Done
 Type: Repository-local audit; zero production change
 Area: Shared persistence, Archscry, Home, routes, retired Supabase systems
 Priority: High
@@ -47,7 +47,7 @@ Admission baseline: 01e11dc3e6cdae683e9f8120a0034f26d33806f1
 Candidate: dacca18131ccbb7b8c807a0fb388df1d68598426
 RobQA: PASS at dacca18131ccbb7b8c807a0fb388df1d68598426 ; SEPARATE; docs/handoffs/2026-09-14-0004-robqa-vm654-recon.md
 Owner: ACCEPTED at dacca18131ccbb7b8c807a0fb388df1d68598426 ; decision: docs/handoffs/2026-09-14-0000-codex-vm654-retired-code-recon.md#owner-acceptance
-Integration: PENDING; Owner authorized normal recon merge/closeout on 2026-09-14; purge not authorized
+Integration: INTEGRATED via PR #48 guarded squash merge `a64c978f71120d2791b460369404a277199721ee`; purge not authorized
 Dependencies: None
 Decisions: Owner authorizes recon task/evidence only and explicitly prohibits production changes. Repository-required records are the sole write exception.
 Evidence: docs/audits/retired-code-recon/README.md
