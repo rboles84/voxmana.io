@@ -57,3 +57,38 @@ Production HTML/JS/CSS, package/CI/tests, source/generated data, dossier copy, C
 ## Follow-up and Owner Review
 
 Next agent: independent RobQA for this exact recon candidate, then Owner review of the proposal. The future purge needs its own accepted implementation scope; this task stops at evidence. Review the preservation/legacy migration and generated-context prerequisites plus removal order; no manual UI review is needed for this unchanged production candidate.
+
+## Material candidate
+
+- Baseline: `01e11dc3e6cdae683e9f8120a0034f26d33806f1`
+- Candidate: `dacca18131ccbb7b8c807a0fb388df1d68598426`
+- Changed paths: `22`
+
+## Files changed
+
+- `docs/audits/retired-code-recon/README.md`
+- `docs/audits/retired-code-recon/archscry.md`
+- `docs/audits/retired-code-recon/documentation-additional-paths.tsv`
+- `docs/audits/retired-code-recon/documentation-inventory.md`
+- `docs/audits/retired-code-recon/documentation-paths.tsv`
+- `docs/audits/retired-code-recon/faction-context-provenance.md`
+- `docs/audits/retired-code-recon/home-routes.md`
+- `docs/audits/retired-code-recon/reference-hits.txt`
+- `docs/audits/retired-code-recon/runtime-manifest.md`
+- `docs/audits/retired-code-recon/shared-probes.json`
+- `docs/audits/retired-code-recon/shared-probes.mjs`
+- `docs/audits/retired-code-recon/shared-storage.md`
+- `docs/audits/retired-code-recon/supabase-current-dependencies.md`
+- `docs/audits/retired-code-recon/supabase-deck.md`
+- `docs/audits/retired-code-recon/tests-ci.md`
+- `docs/handoffs/2026-09-14-0000-codex-vm654-retired-code-recon.md`
+- `docs/handoffs/2026-09-14-0001-robdev-vm654-home-routes.md`
+- `docs/handoffs/2026-09-14-0002-robdev-vm654-supabase-deck.md`
+- `docs/handoffs/2026-09-14-0003-robdev-vm654-archscry.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-654-retired-code-recon.md`
+
+## Exact-candidate review outcome
+
+Independent RobQA PASS is bound to candidate dacca18131ccbb7b8c807a0fb388df1d68598426 in 2026-09-14-0004-robqa-vm654-recon.md. All 22 material paths are recon evidence or required workflow records. Exact baseline-to-candidate diff checking, generated indexes, source probes, provenance comparison and the material change-report validator passed. The recon proceeds to Owner Review with Owner PENDING; the proposed purge remains unimplemented. This appended verdict/accounting, the QA handoff, card delivery binding and generated views form a separately reviewed evidence-only delta; they are not the full task diff. Final evidence-head and total-branch accounting are reported from Git at delivery.
