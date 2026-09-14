@@ -2,7 +2,7 @@
 
 ID: VM-647
 Title: Privacy Service Accuracy and Owner Prose Pass
-Status: In Progress
+Status: Owner Review
 Type: Page content review and bounded implementation
 Area: Privacy
 Priority: Medium
@@ -88,20 +88,20 @@ The Owner approved a bounded public-disclosure pass after read-only recon. The r
 
 ## Acceptance Criteria
 
-- [ ] Record what already works and should remain unchanged, then distinguish accuracy, Owner intent and task usability findings.
-- [ ] Every proposed voice/content change has concrete evidence or an explicit Owner preference; one dismissive response is not its justification.
-- [ ] Before broad voice/presentation changes, review feedback from several players doing actual tasks; record unresolved feedback needs rather than inventing results. Targeted factual corrections and unchanged retention do not require this broad-change step.
-- [ ] Unchanged retention can satisfy this pass when the review supports it. The criteria below apply to the selected scope and do not mandate edits to every section.
-- [ ] Introduction and summaries describe the offered release rather than a removed journey.
-- [ ] Collection, use, analytics, feedback, local storage, sharing, retention and user-choice claims are reconciled with recorded evidence.
-- [ ] Active services, optional/disabled features and outbound links are distinguished accurately; legacy state access is addressed where relevant.
-- [ ] Reading-model and source/operator descriptions neither overstate provenance nor erase development history.
-- [ ] No disclosure is removed merely because a feature entry point is hidden.
-- [ ] Tooltips, metadata and effective-date treatment agree with actual policy revisions; unknown facts remain explicit until resolved.
-- [ ] Retained existing text and any selected changes have recorded dispositions. New Owner prose is required only for an explicitly selected rewrite; unfinished selected writing is not disguised by a placeholder.
-- [ ] Current governing source/semantic and storage boundaries are preserved. No generated projection is manually edited where its source/producer owns the value.
-- [ ] Applicable RobQA evidence covers the actual changed contract, and the shortest Owner review is supplied. Engineering PASS, Owner acceptance and integration are recorded as separate states.
-- [ ] Card/handoff and generated views are current; delivery uses the canonical SHIP/ACCEPT/REJECT lifecycle when implementation is requested.
+- [x] Record what already works and should remain unchanged, then distinguish accuracy, Owner intent and task usability findings.
+- [x] Every proposed voice/content change has concrete evidence or an explicit Owner preference; one dismissive response is not its justification.
+- [x] Before broad voice/presentation changes, review feedback from several players doing actual tasks; record unresolved feedback needs rather than inventing results. Targeted factual corrections and unchanged retention do not require this broad-change step.
+- [x] Unchanged retention can satisfy this pass when the review supports it. The criteria below apply to the selected scope and do not mandate edits to every section.
+- [x] Introduction and summaries describe the offered release rather than a removed journey.
+- [x] Collection, use, analytics, feedback, local storage, sharing, retention and user-choice claims are reconciled with recorded evidence.
+- [x] Active services, optional/disabled features and outbound links are distinguished accurately; legacy state access is addressed where relevant.
+- [x] Reading-model and source/operator descriptions neither overstate provenance nor erase development history.
+- [x] No disclosure is removed merely because a feature entry point is hidden.
+- [x] Tooltips, metadata and effective-date treatment agree with actual policy revisions; unknown facts remain explicit until resolved.
+- [x] Retained existing text and any selected changes have recorded dispositions. New Owner prose is required only for an explicitly selected rewrite; unfinished selected writing is not disguised by a placeholder.
+- [x] Current governing source/semantic and storage boundaries are preserved. No generated projection is manually edited where its source/producer owns the value.
+- [x] Applicable RobQA evidence covers the actual changed contract, and the shortest Owner review is supplied. Engineering PASS, Owner acceptance and integration are recorded as separate states.
+- [x] Card/handoff and generated views are current; delivery uses the canonical SHIP/ACCEPT/REJECT lifecycle when implementation is requested.
 
 ## Files Likely Impacted
 
@@ -175,9 +175,10 @@ VM-650 has no future page-work scope. Preserve the accepted Home and Archscry fa
 Record version: 1
 Branch: codex/vm-647-privacy-service-accuracy
 Admission baseline: 80535dd7afe8604a38e6ff026bd982de8733b81d
-Candidate: PENDING
-RobQA: PENDING
+Candidate: 224e6a1536b3f7017fb38b25748a5ac2a215fa37
+RobQA: PASS at 224e6a1536b3f7017fb38b25748a5ac2a215fa37 — SAME-AGENT DISTINCT PHASE by `/root`; see task handoff.
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Decisions: Intake authorized 2026-09-08; Preserve-voice direction added 2026-09-08: retain unchanged is valid. Owner approved the bounded public-disclosure direction on 2026-09-13: name Scryfall because it is part of the Magic experience; describe hosting/protection, optional feedback delivery and limited product analytics by purpose without publishing backend vendor names or implementation inventory; foreground Vox Mana's local-first reading and Reading Finds experience, no required account, no sale of personal information or advertising profiles, constrained analytics, optional feedback and real browser-data controls; retain accurate reading-method, operator, fan-project, intellectual-property and contact language; keep exact technical reconciliation in internal repository documentation. No runtime/service/configuration change, Terms-page edit, broad legal expansion, compliance certification, redesign, CSS change, storage migration, schema change or historical-erasure claim is admitted. Supabase receives no public mention unless implementation uncovers material active or retained user-data processing, which requires an Owner stop. Related-page coordination above is not a dependency-isolation authorization.
+Evidence: [Task handoff](../../handoffs/2026-09-13-2125-codex-vm647-privacy-service-accuracy.md)

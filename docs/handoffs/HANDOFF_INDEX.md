@@ -1,4 +1,4 @@
-<!-- task-view-sha256:6226cd39f65248b1cad5497ccec27667bf79d67df1a30643fc789794f56be5f5 -->
+<!-- task-view-sha256:f97a67e1322d6eed84d1ecc0f1b484e1e1f7184cae7d7a35aabec0001e082934 -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -10,6 +10,7 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 |---|---|---|---|---|
 | 2026-09-13T00:00:00Z (authored) | Codex (`/root`, coordinator); RobDev implementation by `/root/vm645_implementation`; independent RobQA by `/root/vm645_qa` | [VM-645 — Apocrypha source annotations and Owner prose pass](2026-09-13-1653-codex-vm645-apocrypha-prose.md) | VM-645, VM-637, VM-644 | Identity displayed from heading; not admission metadata. Legacy status retained verbatim: Owner Review — exact-candidate engineering PASS; Owner decision pending. |
 | 2026-09-13T00:00:00Z (authored) | Codex (`/root`), RobDev implementation and same-agent distinct-phase RobQA | [VM-646 — Strategium table guidance and Owner prose pass](2026-09-13-1838-codex-vm646-strategium-prose.md) | VM-646, VM-637, VM-645 | Identity displayed from heading; not admission metadata. Legacy status retained verbatim: In Progress — implementation complete; exact-candidate RobQA pending. |
+| 2026-09-13T00:00:00Z (authored) | Codex (`/root`), RobDev implementation and same-agent distinct-phase RobQA | [VM-647 — Privacy service accuracy and Owner prose pass](2026-09-13-2125-codex-vm647-privacy-service-accuracy.md) | VM-647, VM-637, VM-646, VM-648 | Identity displayed from heading; not admission metadata. Legacy status retained verbatim: Owner Review — exact-candidate RobQA PASS; Owner decision pending. |
 | 2026-09-12T00:00:00Z (authored) | Codex (`/root`, implementation and coordination) | [VM-652 — Archscry dossier integrity](2026-09-12-0000-codex-vm652-archscry-dossier-integrity.md) | VM-652, VM-650, VM-643 | Identity displayed from heading; not admission metadata. Legacy status retained verbatim: Owner Review — exact-candidate engineering PASS; Owner PENDING. |
 | 2026-09-12T00:00:00Z (authored) | Codex / RobDev | [VM-653 — Kanban Lifecycle Cleanup](2026-09-12-0000-codex-vm653-kanban-lifecycle-cleanup.md) | VM-653, VM-541, VM-637, VM-406 | Identity displayed from heading; not admission metadata. |
 | 2026-09-12T00:00:00Z (authored) | Codex (`/root`, implementation and coordination) | [VM-652 — Abzan hero-to-summary spacing correction](2026-09-12-0001-codex-vm652-abzan-spacing-correction.md) | VM-652, VM-650, VM-643 | Identity displayed from heading; not admission metadata. Legacy status retained verbatim: Owner Review — corrected exact-candidate engineering PASS; Owner PENDING. |
