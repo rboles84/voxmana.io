@@ -2,7 +2,7 @@
 
 ID: VM-646
 Title: Strategium Table Guidance and Owner Prose Pass
-Status: Owner Review
+Status: Accepted
 Type: Page content review and bounded implementation
 Area: Strategium
 Priority: Medium
@@ -191,7 +191,7 @@ Branch: codex/vm-646-strategium-prose-pass
 Admission baseline: 7f3414c9691d1984224ffebd9a9e9612ffa4d992
 Candidate: 966e317947a1f97078620c977214eb8d909a2b7b
 RobQA: PASS at 966e317947a1f97078620c977214eb8d909a2b7b — SAME-AGENT DISTINCT PHASE by `/root`; see task handoff.
-Owner: PENDING
+Owner: ACCEPTED at 966e317947a1f97078620c977214eb8d909a2b7b — current Owner command `ACCEPT VM-646`; see task handoff.
 Integration: PENDING
 Dependencies: None
 Decisions: Intake authorized 2026-09-08; Preserve-voice direction added 2026-09-08: retain unchanged is valid. Owner approved the exact bounded change contract on 2026-09-13: preserve every Strategium route, flow, choice catalog, result catalog, state/history contract, archetype, layout and visual treatment; correct the During selected-response contradiction, route an uncertain deck plan to the existing clarification outcome, make the no-additional-category result report the supplied selection without declaring disclosure unnecessary, repair one incomplete Review sentence, update current optional-bracket framing, make the readiness checklist measure preparation without requiring accessories or a second deck, separate color identity from predicted behavior, and replace inaccurate Beyond WUBRG identity-drift framing. No Finding-a-Table change, broad voice cleanup, CSS change, new flow, response filtering, schema/storage change, generated-data edit, identity-semantic change, bracket calculator, embedded Game Changers list or external-service dependency is admitted. Related-page coordination above is not a dependency-isolation authorization.

@@ -129,3 +129,12 @@ The lifecycle enumeration was justified because VM-646 changes Before result cla
 - Screenshots, visual regression and viewport matrices: no CSS/layout change; aesthetics and tone remain Owner judgment.
 - Placement, scoring, identity, source-data and generated-artifact suites: those protected systems are unchanged.
 - Repeated full Review harness attempts or dialog diagnostics: prohibited after the bounded causal check found no relationship to VM-646.
+
+## Owner acceptance — 2026-09-13
+
+Task: VM-646
+Candidate: 966e317947a1f97078620c977214eb8d909a2b7b
+Owner: ACCEPT
+Decision reference: Current Codex task Owner message, 2026-09-13: `ACCEPT VM-646`.
+
+The Owner accepted the unchanged RobQA-passed material candidate and authorized the normal PR, guarded squash integration and lifecycle closeout path. This acceptance adds no product changes and does not claim that integration has already occurred.
