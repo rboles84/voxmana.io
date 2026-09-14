@@ -2,7 +2,7 @@
 
 ID: VM-648
 Title: Terms Service Accuracy and Owner Prose Pass
-Status: Owner Review
+Status: Accepted
 Type: Page content review and bounded implementation
 Area: Terms
 Priority: Medium
@@ -187,7 +187,7 @@ Branch: codex/vm-648-terms-privacy-boundary
 Admission baseline: 3ac54b666dd7fc2fefc6a6f890ca9876277a4345
 Candidate: e38b713c0ca2b3901672037a75f767620d721327
 RobQA: PASS at e38b713c0ca2b3901672037a75f767620d721327 — SAME-AGENT DISTINCT PHASE by `/root`; see task handoff.
-Owner: PENDING
+Owner: ACCEPTED at e38b713c0ca2b3901672037a75f767620d721327 — current Owner command `Accept VM-648`; see task handoff.
 Integration: PENDING
 Dependencies: None
 Decisions: Intake authorized 2026-09-08; Preserve-voice direction added 2026-09-08: retain unchanged is valid. Owner authorized the sentence-level Privacy/Terms ownership boundary and implementation on 2026-09-13. Terms is the primary page; narrow Privacy removals are authorized only where needed to eliminate duplicated or Terms-owned content. Scope amendment: extend the existing copy-boundary checker with the approved document-ownership and exact-sentence non-duplication invariant; no new framework or runtime behavior. No runtime or legal-compliance expansion. Intellectual-property wording requires an explicit legal-review disposition before completion.

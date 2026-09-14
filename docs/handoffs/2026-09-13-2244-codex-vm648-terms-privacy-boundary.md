@@ -114,3 +114,12 @@ Execution reason: QA-1 is proportionate for bounded authored policy copy and a f
 ## Candidate-stage delivery verification — 2026-09-13
 
 The canonical candidate checker returned PASS for material candidate `e38b713c0ca2b3901672037a75f767620d721327` using the authenticated same-agent distinct-phase QA record. Owner remains PENDING; no integration action has been taken.
+
+## Owner decision — 2026-09-13
+
+Task: VM-648
+Candidate: e38b713c0ca2b3901672037a75f767620d721327
+Owner: ACCEPT
+Decision reference: Current task Owner message on 2026-09-13: `Accept VM-648`.
+
+The Owner accepted the exact RobQA-passed material candidate and authorized the governed integration path. This decision does not convert the engineering review into a legal-compliance certification.
