@@ -1,4 +1,4 @@
-<!-- task-view-sha256:e6a54caa56a9cea5225978d2082fc38a81d43b12893dd561da74edc2a1cb0214 -->
+<!-- task-view-sha256:65c8eb85e6c294da2b2568205be65c4bda65bc5fe5f280eab7b67c088c7ae3ce -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -32,7 +32,6 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | VM-629 | [Placement Language Repetition Reduction](backlog/VM-629-placement-language-repetition-reduction.md) | Backlog |  |
 | VM-630 | [CRIT-001 Live Provenance Pointer Normalization](backlog/VM-630-crit001-live-provenance-pointer-normalization.md) | Backlog |  |
 | VM-637 | [Public Content Retention and Owner Prose Plan](backlog/VM-637-public-content-retention.md) | Backlog |  |
-| VM-646 | [Strategium Table Guidance and Owner Prose Pass](backlog/VM-646-strategium-owner-prose-pass.md) | Backlog |  |
 | VM-647 | [Privacy Service Accuracy and Owner Prose Pass](backlog/VM-647-privacy-service-accuracy-pass.md) | Backlog |  |
 | VM-648 | [Terms Service Accuracy and Owner Prose Pass](backlog/VM-648-terms-service-accuracy-pass.md) | Backlog |  |
 
@@ -55,6 +54,7 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 
 | ID | Card | Declared status | Diagnostics |
 |---|---|---|---|
+| VM-646 | [Strategium Table Guidance and Owner Prose Pass](in-progress/VM-646-strategium-owner-prose-pass.md) | Accepted |  |
 
 ## Integrated
 
