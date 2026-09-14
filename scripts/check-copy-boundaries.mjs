@@ -157,6 +157,66 @@ for (const relativePath of SCOPED_FILES) {
   });
 }
 
+const POLICY_OWNERSHIP_RULES = [
+  {
+    path: "privacy/index.html",
+    label: "Terms-owned concept in Privacy",
+    regex: /\b(unofficial fan project|placement model|official Wizards canon|without sign(?:ing)? in|acceptable use|warrant(?:y|ies)|commercial purpose|acknowledge this privacy policy)\b/i,
+    suggestion: "Keep service scope, model limits, legal protections, fan/IP language, and assent in Terms; Privacy should cover information handling.",
+  },
+  {
+    path: "terms/index.html",
+    label: "Privacy-owned or backend concept in Terms",
+    regex: /\b(PostHog|Web3Forms|Supabase|Scryfall|Reading Finds|guild-recruiter|product analytics|feedback service|authentication flows)\b/i,
+    suggestion: "Keep provider data flows and backend inventory in Privacy or internal documentation; Terms may use a concise Privacy cross-reference.",
+  },
+];
+
+for (const rule of POLICY_OWNERSHIP_RULES) {
+  readLines(rule.path).forEach((line, index) => {
+    if (rule.regex.test(line)) {
+      findings.push({
+        path: rule.path,
+        line: index + 1,
+        label: rule.label,
+        suggestion: rule.suggestion,
+        text: line.trim(),
+      });
+    }
+  });
+}
+
+function visibleMainSentences(relativePath) {
+  const source = fs.readFileSync(path.join(ROOT, relativePath), "utf8");
+  const main = source.match(/<main\b[\s\S]*?<\/main>/i)?.[0] || "";
+  return main
+    .replace(/<script\b[\s\S]*?<\/script>/gi, " ")
+    .replace(/<style\b[\s\S]*?<\/style>/gi, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&[a-z0-9#]+;/gi, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .split(/(?<=[.!?])\s+/)
+    .map((sentence) => sentence.trim())
+    .filter((sentence) => sentence.length >= 40 && sentence.split(/\s+/).length >= 6);
+}
+
+const privacySentences = visibleMainSentences("privacy/index.html");
+const termsSentences = visibleMainSentences("terms/index.html");
+const termsSentenceSet = new Set(termsSentences.map((sentence) => sentence.toLowerCase()));
+
+for (const sentence of privacySentences) {
+  if (termsSentenceSet.has(sentence.toLowerCase())) {
+    findings.push({
+      path: "privacy/index.html + terms/index.html",
+      line: 1,
+      label: "exact cross-document sentence duplication",
+      suggestion: "Assign the concept to one policy and replace the other occurrence with at most one concise cross-reference when needed.",
+      text: sentence,
+    });
+  }
+}
+
 if (findings.length) {
   console.error("Copy-boundary check failed:");
   findings.forEach((finding) => {
