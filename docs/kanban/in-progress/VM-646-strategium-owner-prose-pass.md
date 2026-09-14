@@ -2,7 +2,7 @@
 
 ID: VM-646
 Title: Strategium Table Guidance and Owner Prose Pass
-Status: In Progress
+Status: Owner Review
 Type: Page content review and bounded implementation
 Area: Strategium
 Priority: Medium
@@ -46,22 +46,22 @@ Player recruitment/contact is not authorized by this card; the Owner may provide
 4. Resolve the decisions below before dependent changes. Start with the Owner's keep-as-is choices. Continue independent inventory or agreed work while any specifically selected writing or player feedback remains pending. Do not publish assistant-generated replacement prose as Owner-written text.
 5. Implement the smallest agreed page pass at the owning source/presenter; perform proportional RobQA and the normal exact-candidate Owner/delivery process. A page pass may span several Owner writing sessions on the same task.
 
-- [ ] Record which flows remain offered during this review and any selected revisions; define direct-link behavior only for flows explicitly selected for temporary omission.
-- [ ] Use the proposed order Before the Game → Finding a Table → During the Game → Review → Console, unless the Owner chooses a different priority.
-- [ ] Review questions, choices, assembled statements, recommendations and follow-up explanations; retain existing wording where appropriate and obtain Owner prose only for selected rewrites. Reviewing static HTML alone is insufficient.
-- [ ] Distinguish the Owner's practical advice from rules statements requiring current support and from unsupported claims about other players' motives or color-based behavior.
+- [x] Record which flows remain offered during this review and any selected revisions; define direct-link behavior only for flows explicitly selected for temporary omission.
+- [x] Use the proposed order Before the Game → Finding a Table → During the Game → Review → Console, unless the Owner chooses a different priority.
+- [x] Review questions, choices, assembled statements, recommendations and follow-up explanations; retain existing wording where appropriate and obtain Owner prose only for selected rewrites. Reviewing static HTML alone is insufficient.
+- [x] Distinguish the Owner's practical advice from rules statements requiring current support and from unsupported claims about other players' motives or color-based behavior.
 
 ## Detailed page checklist
 
 For every item, first assess the three questions above. Record retain unchanged when appropriate. Action labels below are options from the earlier plan, not requirements to change the text.
 
-- [ ] **Review option — rewrite/trim:** landing-page introduction, flow summaries, and claims about what the tool can infer about a player or pod.
-- [ ] **Before the Game:** review and retain or selectively revise questions, answer descriptions, assembled spoken statements, disclosures, and advice. Temporarily hide the flow if its current prose is being withheld.
-- [ ] **Finding a Table:** review and retain or selectively revise preference questions, fit/mismatch conclusions, and suggested questions to ask a pod.
-- [ ] **During the Game:** review and retain or selectively revise scenario descriptions, response options, suggested interventions, and explanations of why they might help.
-- [ ] **Game Review:** review and retain or selectively revise prompts, result interpretations, causal claims about the game, and suggested next steps.
-- [ ] **Console:** review and retain or selectively revise readiness/learning guidance and color-based claims about how opponents perceive a deck; temporarily hide explanatory sections only when selected for a recorded reason.
-- [ ] **Review:** identity handoffs, related guide/help text, and links between available and temporarily hidden flows.
+- [x] **Review option — rewrite/trim:** landing-page introduction, flow summaries, and claims about what the tool can infer about a player or pod.
+- [x] **Before the Game:** review and retain or selectively revise questions, answer descriptions, assembled spoken statements, disclosures, and advice. Temporarily hide the flow if its current prose is being withheld.
+- [x] **Finding a Table:** review and retain or selectively revise preference questions, fit/mismatch conclusions, and suggested questions to ask a pod.
+- [x] **During the Game:** review and retain or selectively revise scenario descriptions, response options, suggested interventions, and explanations of why they might help.
+- [x] **Game Review:** review and retain or selectively revise prompts, result interpretations, causal claims about the game, and suggested next steps.
+- [x] **Console:** review and retain or selectively revise readiness/learning guidance and color-based claims about how opponents perceive a deck; temporarily hide explanatory sections only when selected for a recorded reason.
+- [x] **Review:** identity handoffs, related guide/help text, and links between available and temporarily hidden flows.
 
 Treat these as small subpasses within Strategium: Before the Game → Finding a Table → During the Game → Review → Console. Restore an independently useful flow when its writing is complete instead of waiting for the entire section.
 
@@ -84,28 +84,28 @@ The Owner approved the bounded change contract after read-only recon. All four p
 
 ## Shared coverage within this page
 
-- [ ] Include page text, helpers, tooltips, modal explanations, relevant guide/walkthrough text, empty/error states, metadata and social descriptions affected by the decisions.
-- [ ] Where an omission is selected, define direct URL, keyboard, refresh/return and saved-state behavior before editing; do not merely hide a navigation label.
-- [ ] Record whether the chosen boundary is public rendering or also downloadable assets/source. Do not claim historical erasure or internet-wide removal.
-- [ ] Preserve canonical facts/printing attribution separately from editorial explanations. Citation support and human authorship are different questions.
+- [x] Include page text, helpers, tooltips, modal explanations, relevant guide/walkthrough text, empty/error states, metadata and social descriptions affected by the decisions.
+- [x] Where an omission is selected, define direct URL, keyboard, refresh/return and saved-state behavior before editing; do not merely hide a navigation label.
+- [x] Record whether the chosen boundary is public rendering or also downloadable assets/source. Do not claim historical erasure or internet-wide removal.
+- [x] Preserve canonical facts/printing attribution separately from editorial explanations. Citation support and human authorship are different questions.
 
 ## Acceptance Criteria
 
-- [ ] Record what already works and should remain unchanged, then distinguish accuracy, Owner intent and task usability findings.
-- [ ] Every proposed voice/content change has concrete evidence or an explicit Owner preference; one dismissive response is not its justification.
-- [ ] Before broad voice/presentation changes, review feedback from several players doing actual tasks; record unresolved feedback needs rather than inventing results. Targeted factual corrections and unchanged retention do not require this broad-change step.
-- [ ] Unchanged retention can satisfy this pass when the review supports it. The criteria below apply to the selected scope and do not mandate edits to every section.
-- [ ] Landing summaries and every selected subflow have an explicit retain/rewrite/trim/hide disposition.
-- [ ] Questions, answer descriptions and all affected assembled result paths agree, including changed selections and restart/return states.
-- [ ] Before-game statements reflect what the user actually supplied and do not add undeclared conclusions.
-- [ ] Fit/mismatch, intervention and post-game advice avoid presenting an inference as an established cause or diagnosis.
-- [ ] Console/color-perception prose has a documented treatment, and unfinished sections are not exposed through alternate navigation.
-- [ ] No answers/state are lost because a page is withheld; restore/access behavior is explicit.
-- [ ] Changed landing, subpage links, identity handoffs, guidance and metadata form a usable journey.
-- [ ] Retained existing text and any selected changes have recorded dispositions. New Owner prose is required only for an explicitly selected rewrite; unfinished selected writing is not disguised by a placeholder.
-- [ ] Current governing source/semantic and storage boundaries are preserved. No generated projection is manually edited where its source/producer owns the value.
-- [ ] Applicable RobQA evidence covers the actual changed contract, and the shortest Owner review is supplied. Engineering PASS, Owner acceptance and integration are recorded as separate states.
-- [ ] Card/handoff and generated views are current; delivery uses the canonical SHIP/ACCEPT/REJECT lifecycle when implementation is requested.
+- [x] Record what already works and should remain unchanged, then distinguish accuracy, Owner intent and task usability findings.
+- [x] Every proposed voice/content change has concrete evidence or an explicit Owner preference; one dismissive response is not its justification.
+- [x] Before broad voice/presentation changes, review feedback from several players doing actual tasks; record unresolved feedback needs rather than inventing results. Targeted factual corrections and unchanged retention do not require this broad-change step.
+- [x] Unchanged retention can satisfy this pass when the review supports it. The criteria below apply to the selected scope and do not mandate edits to every section.
+- [x] Landing summaries and every selected subflow have an explicit retain/rewrite/trim/hide disposition.
+- [x] Questions, answer descriptions and all affected assembled result paths agree, including changed selections and restart/return states.
+- [x] Before-game statements reflect what the user actually supplied and do not add undeclared conclusions.
+- [x] Fit/mismatch, intervention and post-game advice avoid presenting an inference as an established cause or diagnosis.
+- [x] Console/color-perception prose has a documented treatment, and unfinished sections are not exposed through alternate navigation.
+- [x] No answers/state are lost because a page is withheld; restore/access behavior is explicit.
+- [x] Changed landing, subpage links, identity handoffs, guidance and metadata form a usable journey.
+- [x] Retained existing text and any selected changes have recorded dispositions. New Owner prose is required only for an explicitly selected rewrite; unfinished selected writing is not disguised by a placeholder.
+- [x] Current governing source/semantic and storage boundaries are preserved. No generated projection is manually edited where its source/producer owns the value.
+- [x] Applicable RobQA evidence covers the actual changed contract, and the shortest Owner review is supplied. Engineering PASS, Owner acceptance and integration are recorded as separate states.
+- [x] Card/handoff and generated views are current; delivery uses the canonical SHIP/ACCEPT/REJECT lifecycle when implementation is requested.
 
 ## Files Likely Impacted
 
@@ -189,8 +189,8 @@ VM-650 has no future page-work scope. Preserve the accepted Home and Archscry fa
 Record version: 1
 Branch: codex/vm-646-strategium-prose-pass
 Admission baseline: 7f3414c9691d1984224ffebd9a9e9612ffa4d992
-Candidate: PENDING
-RobQA: PENDING
+Candidate: 966e317947a1f97078620c977214eb8d909a2b7b
+RobQA: PASS at 966e317947a1f97078620c977214eb8d909a2b7b — SAME-AGENT DISTINCT PHASE by `/root`; see task handoff.
 Owner: PENDING
 Integration: PENDING
 Dependencies: None

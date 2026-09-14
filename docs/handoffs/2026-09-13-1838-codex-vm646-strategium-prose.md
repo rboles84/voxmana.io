@@ -85,3 +85,47 @@ PASS if the selected result paths agree with the player's answers, the Console q
 ## Not touched
 
 Strategium landing, Finding a Table, Guide, route structure, direct links, URL/state/history, statement composition, response choices, result catalogs, archetypes, individual color cards, CSS/layout, storage, generated data, identity semantics, placement/scoring, services and sibling page-pass stories.
+
+## Exact-candidate RobQAPass evidence — 2026-09-13
+
+Task: VM-646
+Candidate: 966e317947a1f97078620c977214eb8d909a2b7b
+RobQA: PASS
+Execution: SAME-AGENT DISTINCT PHASE
+Reviewer: `/root`
+Implementer: `/root`
+Independence required: no
+Execution reason: The result-mapping change is bounded to the existing route-local evaluator, is exhaustively deterministic, and changes no protected identity, placement, storage, navigation, schema, security or integration authority. After the stable candidate was committed, the baseline-to-candidate diff and acceptance criteria were reread before executing the selected evidence.
+
+### Change classification
+
+- **QA-4:** the two narrow Before/During evaluator changes affect result meaning.
+- **QA-1:** Review and Console copy, metadata, readiness labels and the grammatical repair.
+- **Browser boundary:** one focused objective readiness interaction check is justified because the changed percentage label is written dynamically into the DOM; subjective visual judgment remains with the Owner.
+
+### Exact-candidate tests selected
+
+- `npm.cmd run test:strategium-lifecycle` — PASS at the final candidate worktree: route loading, every option branch, all 48 During moment/response pairs, deterministic output, history/reset, mobile overflow and all 1,935,360 Before statement combinations; maximum statement length 352, no capitalization/conjunction/list-punctuation violations.
+- Focused Review/Console source assertions — PASS: all approved new phrases are present after whitespace normalization and superseded phrases are absent.
+- Focused headless readiness contract — PASS: the two approved items and `Table preparation status` render; the meter advances from `0% prepared` to `100% prepared`, ten of ten pressed and `aria-valuenow="10"`.
+- `npm.cmd run test:copy-boundaries` — PASS across 30 live-copy files.
+- `npm.cmd run test:route-metadata` — PASS for 16 public route heads.
+- `npm.cmd run lint:js` — PASS for 38 files.
+- `npm.cmd run lint:html` — PASS.
+- `npm.cmd run task -- indexes --check` — PASS before the evidence-only update.
+- `git diff --check 7f3414c9691d1984224ffebd9a9e9612ffa4d992..966e317947a1f97078620c977214eb8d909a2b7b` — PASS.
+- Final admission continuation — PASS at candidate `966e317947a1f97078620c977214eb8d909a2b7b` against unchanged live `main` baseline `7f3414c9691d1984224ffebd9a9e9612ffa4d992`.
+
+### Known harness debt
+
+`npm.cmd run test:strategium-review` did not complete: after it had exercised the changed readiness sequence, it later timed out waiting for focus on the unchanged `#strategiumLessonConsoleLink` dialog control at `scripts/strategium-review-tests.mjs:758`. One causal check confirmed the candidate changes no lesson-dialog markup, focus management, history ownership or that test step. Per the RobQA user-visible automation-failure gate, the run remains honestly FAIL / suspected pre-existing timing debt. The directly relevant static and focused browser evidence is green, so this unrelated late failure does not block Owner Review and is not repaired or retried inside VM-646.
+
+### CPU-heavy validation
+
+The lifecycle enumeration was justified because VM-646 changes Before result classification and During result-list construction. It protects every affected branch and the existing generated-statement boundary. No placement, synthetic, mutation, recovery or whole-site stress suite was run.
+
+### Tests intentionally skipped
+
+- Screenshots, visual regression and viewport matrices: no CSS/layout change; aesthetics and tone remain Owner judgment.
+- Placement, scoring, identity, source-data and generated-artifact suites: those protected systems are unchanged.
+- Repeated full Review harness attempts or dialog diagnostics: prohibited after the bounded causal check found no relationship to VM-646.
