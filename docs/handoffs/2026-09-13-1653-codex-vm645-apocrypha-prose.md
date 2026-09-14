@@ -124,3 +124,20 @@ Owner: ACCEPT
 Decision reference: Current Codex task Owner message, 2026-09-13: `ACCEPT VM-645`.
 
 The Owner accepted the unchanged RobQA-passed material candidate and authorized the normal PR, guarded squash integration and lifecycle closeout path. This acceptance adds no product changes and does not claim that integration has already occurred.
+
+## Integration and closeout — 2026-09-13
+
+Task: VM-645
+Candidate: 6291ed86f7e181cedb2e8635a320e0a8f23420bc
+Evidence head: 9117d7e6c6dcfaac0c77577d3a2f8166362002f9
+Integration: PR #44 guarded squash merge `808a955a32052f824173535aae76c4ae92ff4202`
+Boundaries: PASS
+
+- GitHub `Deterministic Validation` completed successfully at the exact PR head.
+- The integration checker passed with no blockers before merge.
+- The squash commit has sole parent `df04f4f2ae1b7f05457c8f222821c60b8209cfea` and tree `4964070ced3cbe8a73170e9020ed5c722d167d6c`.
+- The accepted evidence head has the same tree `4964070ced3cbe8a73170e9020ed5c722d167d6c`; no product or evidence bytes changed during squash integration.
+- Owner acceptance remains bound to material candidate `6291ed86f7e181cedb2e8635a320e0a8f23420bc`.
+- Repository policy observation: `main` had no configured branch protection and no rulesets; the repository's process-enforced deterministic validation completed successfully. No settings were changed.
+- GitHub removed the remote feature branch after merge; the local feature branch was deleted only after accepted-tree parity was verified. No VM-645 worktree remains.
+- Closeout changes are limited to this appended evidence, the card's lifecycle fields and Done relocation, and regenerated task views. No VM-646 or other sibling work entered VM-645.

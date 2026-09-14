@@ -2,7 +2,7 @@
 
 ID: VM-645
 Title: Apocrypha Source Annotations and Owner Prose Pass
-Status: Accepted
+Status: Done
 Type: Page content review and bounded implementation
 Area: Apocrypha
 Priority: Medium
@@ -158,7 +158,7 @@ Admission baseline: df04f4f2ae1b7f05457c8f222821c60b8209cfea
 Candidate: 6291ed86f7e181cedb2e8635a320e0a8f23420bc
 RobQA: PASS at 6291ed86f7e181cedb2e8635a320e0a8f23420bc — SEPARATE reviewer `/root/vm645_qa`; see task handoff.
 Owner: ACCEPTED at 6291ed86f7e181cedb2e8635a320e0a8f23420bc — current Owner command `ACCEPT VM-645`; see task handoff.
-Integration: PENDING
+Integration: INTEGRATED via PR #44 guarded squash merge `808a955a32052f824173535aae76c4ae92ff4202`
 Dependencies: None
 Decisions: Intake authorized 2026-09-08; Preserve-voice direction added 2026-09-08: retain unchanged is valid. Owner approved the exact bounded copy sheet on 2026-09-13: shorten the page's evidence-system explanations, remove the redundant Quick Guide, use player-facing source labels and status copy, correct the unsupported public rules promise, retain all source registry annotation values, repair the existing rendering validator path, and provide code-based QA plus a short Owner visual checklist. No visual redesign, CSS change, source reclassification, source-link change, annotation rewrite, Home change, or stale linkedFrom cleanup is admitted. Related-page coordination above is not a dependency-isolation authorization.
 Evidence: [Task handoff](../../handoffs/2026-09-13-1653-codex-vm645-apocrypha-prose.md)

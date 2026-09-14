@@ -1,4 +1,4 @@
-<!-- task-view-sha256:1306939070345519d062637492388aeca46a2c51d83268d3fd4f98cce61f653a -->
+<!-- task-view-sha256:e6a54caa56a9cea5225978d2082fc38a81d43b12893dd561da74edc2a1cb0214 -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -55,7 +55,6 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 
 | ID | Card | Declared status | Diagnostics |
 |---|---|---|---|
-| VM-645 | [Apocrypha Source Annotations and Owner Prose Pass](in-progress/VM-645-apocrypha-owner-prose-pass.md) | Accepted |  |
 
 ## Integrated
 
@@ -668,6 +667,7 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | VM-642 | [Home Public Content and Owner Prose Pass](done/VM-642-home-owner-prose-pass.md) | Done |  |
 | VM-643 | [Archscry Atlas and Dossier Owner Prose Pass](done/VM-643-archscry-owner-prose-pass.md) | Done |  |
 | VM-644 | [Maze Search Guidance and Owner Prose Pass](done/VM-644-maze-owner-prose-pass.md) | Done |  |
+| VM-645 | [Apocrypha Source Annotations and Owner Prose Pass](done/VM-645-apocrypha-owner-prose-pass.md) | Done |  |
 | VM-649 | [Integrate public-content backlog intake](done/VM-649-backlog-integration.md) | Done |  |
 | VM-650 | [Site Visual Continuity](done/VM-650-site-visual-continuity.md) | Done |  |
 | VM-651 | [Agent Model Routing](done/VM-651-agent-model-routing.md) | Done |  |
