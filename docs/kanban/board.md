@@ -1,4 +1,4 @@
-<!-- task-view-sha256:975428e606c084dd054eace6774e1b038097c5a62edafcac1472239ccbe120e9 -->
+<!-- task-view-sha256:7da77824006ee0bd92a35bde9b88e87ce6c7ff6bbd854fae8c04aa3b9790e5ca -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -32,7 +32,6 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | VM-629 | [Placement Language Repetition Reduction](backlog/VM-629-placement-language-repetition-reduction.md) | Backlog |  |
 | VM-630 | [CRIT-001 Live Provenance Pointer Normalization](backlog/VM-630-crit001-live-provenance-pointer-normalization.md) | Backlog |  |
 | VM-637 | [Public Content Retention and Owner Prose Plan](backlog/VM-637-public-content-retention.md) | Backlog |  |
-| VM-647 | [Privacy Service Accuracy and Owner Prose Pass](backlog/VM-647-privacy-service-accuracy-pass.md) | Backlog |  |
 | VM-648 | [Terms Service Accuracy and Owner Prose Pass](backlog/VM-648-terms-service-accuracy-pass.md) | Backlog |  |
 
 ## Ready
@@ -54,6 +53,7 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 
 | ID | Card | Declared status | Diagnostics |
 |---|---|---|---|
+| VM-647 | [Privacy Service Accuracy and Owner Prose Pass](in-progress/VM-647-privacy-service-accuracy-pass.md) | Accepted |  |
 
 ## Integrated
 
