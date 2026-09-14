@@ -2,7 +2,7 @@
 
 ID: VM-647
 Title: Privacy Service Accuracy and Owner Prose Pass
-Status: Backlog
+Status: In Progress
 Type: Page content review and bounded implementation
 Area: Privacy
 Priority: Medium
@@ -104,6 +104,18 @@ Draft against current verified behavior or a clearly identified accepted release
 
 The sequence is an Owner work order, not an authorization for dependent branches or a requirement to create seven simultaneous worktrees. Work one card at a time. Follow actual availability on other pages rather than assuming all proposed changes have shipped.
 
+## Admission Scope
+
+- `docs/kanban/backlog/VM-647-privacy-service-accuracy-pass.md`
+- `docs/kanban/in-progress/VM-647-privacy-service-accuracy-pass.md`
+- `docs/kanban/done/VM-647-privacy-service-accuracy-pass.md`
+- `docs/kanban/board.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/handoffs/2026-09-13-2125-codex-vm647-privacy-service-accuracy.md`
+- `privacy/index.html`
+- `docs/reference/product-telemetry.md`
+- `docs/architecture/data-flow-map.md`
+
 ## Protected behavior and non-goals
 
 - No redesign, new engine, new analytics dashboard, mass all-identity rewrite, ranking/scoring change or schema/storage migration is implied by this page pass.
@@ -145,11 +157,11 @@ VM-650 has no future page-work scope. Preserve the accepted Home and Archscry fa
 ## Delivery
 
 Record version: 1
-Branch: PENDING
-Admission baseline: PENDING
+Branch: codex/vm-647-privacy-service-accuracy
+Admission baseline: 80535dd7afe8604a38e6ff026bd982de8733b81d
 Candidate: PENDING
 RobQA: PENDING
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
-Decisions: Intake authorized 2026-09-08; Preserve-voice direction added 2026-09-08: retain unchanged is valid; page-specific decisions and any selected Owner wording remain to be recorded before dependent implementation. Related-page coordination above is not a dependency-isolation authorization.
+Decisions: Intake authorized 2026-09-08; Preserve-voice direction added 2026-09-08: retain unchanged is valid. Owner approved the bounded public-disclosure direction on 2026-09-13: name Scryfall because it is part of the Magic experience; describe hosting/protection, optional feedback delivery and limited product analytics by purpose without publishing backend vendor names or implementation inventory; foreground Vox Mana's local-first reading and Reading Finds experience, no required account, no sale of personal information or advertising profiles, constrained analytics, optional feedback and real browser-data controls; retain accurate reading-method, operator, fan-project, intellectual-property and contact language; keep exact technical reconciliation in internal repository documentation. No runtime/service/configuration change, Terms-page edit, broad legal expansion, compliance certification, redesign, CSS change, storage migration, schema change or historical-erasure claim is admitted. Supabase receives no public mention unless implementation uncovers material active or retained user-data processing, which requires an Owner stop. Related-page coordination above is not a dependency-isolation authorization.
