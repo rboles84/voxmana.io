@@ -54,7 +54,7 @@ RobQA: PENDING
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
-Decisions: Owner explicitly authorizes the VM-656 core retired product purge and requires Owner Review stop; VM-654 merged evidence controls dependencies except for the explicit deferral of generated-context relocation and preservation of `faction-context.ts` in place. Scope amendment: add the exact Maze shell path containing the retired hidden account user badge and the frontend lint inventory that positively requires the removed Terminal module.
+Decisions: Owner explicitly authorizes the VM-656 core retired product purge and requires Owner Review stop; VM-654 merged evidence controls dependencies except for the explicit deferral of generated-context relocation and preservation of `faction-context.ts` in place. Prior scope added the Maze account badge and frontend lint inventory. Scope amendment: add current Archscry runtime-source inventory and retained regression/replay fixtures that still positively require retired Terminal, session, or Supabase seams.
 Evidence: docs/audits/retired-code-recon/README.md
 
 ## Admission Scope
@@ -81,12 +81,21 @@ Evidence: docs/audits/retired-code-recon/README.md
 - `tests/retirement/`
 - `scripts/frontend-smoke.mjs`
 - `scripts/lint-frontend-js.mjs`
+- `scripts/lib/read-archscry-runtime-source.mjs`
 - `scripts/validate-frontend-html.mjs`
 - `scripts/browser-smoke.mjs`
 - `scripts/visual-regression-archscry.mjs`
 - `scripts/visual-regression-home.mjs`
 - `scripts/lighthouse-home.mjs`
 - `scripts/vm422-live-rls-check.mjs`
+- `scripts/vm551-all-37-live-ui-replay.mjs`
+- `scripts/vm551-card-rationale-authority-tests.mjs`
+- `scripts/vm551-dossier-content-integrity-tests.mjs`
+- `scripts/vm551-gate-a-owner-qa-tests.mjs`
+- `scripts/vm559-authored-media-ui-replay.mjs`
+- `scripts/vm574-card-signals-validation.mjs`
+- `scripts/vm650-three-plays-html-tests.mjs`
+- `scripts/audit/archscry-current-state.mjs`
 - `package.json`
 - `.github/workflows/validation.yml`
 - `docs/architecture/core-logic-and-algorithms.md`
