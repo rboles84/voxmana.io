@@ -2,7 +2,7 @@
 
 ID: VM-656
 Title: Core Retired Product Purge
-Status: In Progress
+Status: Owner Review
 Type: Product/runtime retirement
 Area: Shared persistence, Archscry, Maze, Home, retired Supabase systems
 Priority: High
@@ -49,13 +49,13 @@ RobDev skill and full governing pass loaded before planning. VM-654 evidence rec
 Record version: 1
 Branch: codex/vm-656-core-retired-product-purge
 Admission baseline: dd6f8ab0d8fd54d0355862c57204efc8c126a33d
-Candidate: PENDING
-RobQA: PENDING
+Candidate: 0f90344ee3751439c05e68f5e4acbf315e6b30fe
+RobQA: PASS at 0f90344ee3751439c05e68f5e4acbf315e6b30fe — SEPARATE; `docs/handoffs/2026-09-14-2145-robqa-vm656-core-retired-product-purge.md`
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Decisions: Owner explicitly authorizes the VM-656 core retired product purge and requires Owner Review stop; VM-654 merged evidence controls dependencies except for the explicit deferral of generated-context relocation and preservation of `faction-context.ts` in place. Prior scope added the Maze account badge and frontend lint inventory. Scope amendment: add current Archscry runtime-source inventory and retained regression/replay fixtures that still positively require retired Terminal, session, or Supabase seams. Scope amendment: add the current copy-boundary inventory and an archive destination for conflicting active product plans discovered during implementation.
-Evidence: docs/audits/retired-code-recon/README.md
+Evidence: `docs/audits/retired-code-recon/README.md`; implementation handoff `docs/handoffs/2026-09-14-2144-codex-vm656-core-retired-product-purge.md`; independent RobQA handoff `docs/handoffs/2026-09-14-2145-robqa-vm656-core-retired-product-purge.md`
 
 ## Admission Scope
 

@@ -1,4 +1,4 @@
-<!-- task-view-sha256:87521acfafb5df299dcea1c82e4f33830af30b321a78d68cd46c79b3bc4f1e4f -->
+<!-- task-view-sha256:4967417d48860b901ae881f47c4e27c1ae5429449bf7a89e1c4b672d07010ff7 -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -15,9 +15,8 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | VM-006 | [Archscry / Maze Verification and Repeat-Visit Polish](backlog/VM-006-archscry-maze-verification-repeat-visit-polish.md) | backlog | Legacy status retained verbatim: backlog |
 | VM-007 | [Commander Dossier Quality and Link Follow-Up](backlog/VM-007-commander-dossier-quality-link-follow-up.md) | backlog | Legacy status retained verbatim: backlog |
 | VM-008 | [Commander Compass V1.5 Archetype-Guided Recommendations](backlog/VM-008-commander-compass-v1-5-archetype-guided-recommendations.md) | backlog | Legacy status retained verbatim: backlog |
-| VM-009 | [32-Deck Challenge, Saved Taste Profile, and Deck Import Later](backlog/VM-009-32-deck-challenge-saved-taste-profile-deck-import-later.md) | backlog | Legacy status retained verbatim: backlog |
 | VM-010 | [The Loom Commander Finder Mode and Graph/Query Layer](backlog/VM-010-the-loom-commander-finder-mode-graph-query-layer.md) | backlog | Legacy status retained verbatim: backlog |
-| VM-014 | [UI Shell Cleanup and Legacy Terminal Follow-Up](backlog/VM-014-ui-shell-cleanup-legacy-terminal-follow-up.md) | backlog | Legacy status retained verbatim: backlog |
+| VM-014 | [UI Shell And Asset Cleanup](backlog/VM-014-ui-shell-cleanup-legacy-terminal-follow-up.md) | backlog | Legacy status retained verbatim: backlog |
 | VM-015 | [Returning User Commander Fit Check](backlog/VM-015-returning-user-commander-fit-check.md) | backlog | Legacy status retained verbatim: backlog |
 | VM-018 | [Commander Table Fit and Rule Zero Card](backlog/VM-018-commander-table-fit-rule-zero-card.md) | backlog | Legacy status retained verbatim: backlog |
 | VM-025 | [Combo Discovery Placement Section](backlog/VM-025-combo-discovery-placement-section.md) | backlog | Legacy status retained verbatim: backlog |
@@ -25,8 +24,6 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | VM-356 | [Rakdos And Quandrix Story Source Intake](backlog/VM-356-rakdos-quandrix-story-source-intake.md) | backlog | Legacy status retained verbatim: backlog |
 | VM-398 | [VM-398 - Apocrypha Research Vault Backlog Preservation](backlog/VM-398-apocrypha-research-vault-backlog-preservation.md) | Backlog | Identity displayed from filename; not admission metadata. |
 | VM-406 | [Archscry Placement To Strategium Bridge Concepts](backlog/VM-406-archscry-placement-strategium-bridge-concepts.md) | Backlog |  |
-| VM-422 | [Account Deck Links And Community Deck Ledger](backlog/VM-422-account-deck-links-community-deck-ledger.md) | Backlog - deferred enhancement | Legacy status retained verbatim: Backlog - deferred enhancement |
-| VM-446 | [VM-422 Live Private Deck-Link RLS Proof](backlog/VM-446-vm422-live-private-deck-link-rls-proof.md) | Backlog - conditional security gate | Legacy status retained verbatim: Backlog - conditional security gate |
 | VM-548 | [Commander Seed Discovery Mode](backlog/VM-548-commander-seed-discovery-mode.md) | backlog | Legacy status retained verbatim: backlog |
 | VM-628 | [Archscry Portable Reading Recovery](backlog/VM-628-archscry-portable-reading-recovery.md) | Backlog |  |
 | VM-629 | [Placement Language Repetition Reduction](backlog/VM-629-placement-language-repetition-reduction.md) | Backlog |  |
@@ -42,12 +39,12 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 
 | ID | Card | Declared status | Diagnostics |
 |---|---|---|---|
-| VM-656 | [Core Retired Product Purge](in-progress/VM-656-core-retired-product-purge.md) | In Progress |  |
 
 ## Owner Review
 
 | ID | Card | Declared status | Diagnostics |
 |---|---|---|---|
+| VM-656 | [Core Retired Product Purge](in-progress/VM-656-core-retired-product-purge.md) | Owner Review |  |
 
 ## Accepted
 
