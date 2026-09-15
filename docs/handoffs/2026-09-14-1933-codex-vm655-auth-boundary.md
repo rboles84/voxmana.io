@@ -136,3 +136,14 @@ Correction verification:
 - `git diff --check 39f674241b8733a027813160a004b5a62b180678..24961923511fa38d6e6b3bf6d0aed4208bc3713d` — PASS.
 
 The corrected candidate requires a new separate independent RobQA verdict. Candidate `4741069e` remains BLOCKED historical evidence and must not be used for Owner Review.
+
+## Owner acceptance
+
+Task: VM-655
+Candidate: 24961923511fa38d6e6b3bf6d0aed4208bc3713d
+Owner: ACCEPT
+Decision reference: current Codex task, Owner message dated 2026-09-14 beginning "OWNER ACCEPT — VM-655".
+
+The Owner accepted the exact corrected material candidate after independent RobQA PASS and authorized normal VM-655 integration and closeout. The accepted boundary requires canonical pre-approved routes at integration and closeout, rejects REST/GCM credential bridging, permits unavailable optional policy evidence, and blocks unavailable required policy evidence without creating another authentication path.
+
+The documented host-observation limitation is accepted. Closeout must not expand scope, add authentication infrastructure, query additional live GitHub policy, inspect credentials, or reproduce the Defender-blocked command.
