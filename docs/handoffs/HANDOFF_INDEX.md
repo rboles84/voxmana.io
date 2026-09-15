@@ -1,4 +1,4 @@
-<!-- task-view-sha256:f5570129819844b9a6f32c3258a7411122b6a94ae8e724b35bd58dd4247a3f78 -->
+<!-- task-view-sha256:cc95d92bf4cb9657094dab621c3961835f43c6460f9deca4a48a408580323d17 -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -8,11 +8,14 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 
 | Authored / filename date | Agent | Handoff | Related task references | Diagnostics |
 |---|---|---|---|---|
+| 2026-09-14T19:33:00Z (filename) | Codex `/root` | [VM-655 Authentication Boundary Implementation Handoff](2026-09-14-1933-codex-vm655-auth-boundary.md) | VM-655 | Identity displayed from heading; not admission metadata. |
 | 2026-09-14T00:02:00Z (filename) | Unknown | [RobDev handoff — VM-654 Supabase and deck recon](2026-09-14-0002-robdev-vm654-supabase-deck.md) | VM-654 | Identity displayed from heading; not admission metadata. |
 | 2026-09-14T00:00:00Z (authored) | Codex coordinator | [VM-654 — Retired-code reconnaissance handoff](2026-09-14-0000-codex-vm654-retired-code-recon.md) | VM-654 | Identity displayed from heading; not admission metadata. |
 | 2026-09-14T00:00:00Z (authored) | Unknown | [RobDev handoff — VM-654 Home and routes reconnaissance](2026-09-14-0001-robdev-vm654-home-routes.md) | VM-654 | Identity displayed from heading; not admission metadata. |
 | 2026-09-14T00:00:00Z (authored) | Unknown | [RobDev handoff — VM-654 Archscry/Maze trace](2026-09-14-0003-robdev-vm654-archscry.md) | VM-654 | Identity displayed from heading; not admission metadata. |
 | 2026-09-14T00:00:00Z (authored) | Unknown | [Independent RobQA handoff — VM-654 retired-code recon](2026-09-14-0004-robqa-vm654-recon.md) | VM-654 | Identity displayed from heading; not admission metadata. |
+| 2026-09-14T00:00:00Z (authored) | Unknown | [VM-655 — Independent authentication-boundary RobQA](2026-09-14-1934-robqa-vm655-auth-boundary.md) | VM-655 | Identity displayed from heading; not admission metadata. |
+| 2026-09-14T00:00:00Z (authored) | Unknown | [VM-655 — Independent rebuilt-candidate RobQA](2026-09-14-2002-robqa-vm655-correction.md) | VM-655 | Identity displayed from heading; not admission metadata. |
 | 2026-09-13T00:00:00Z (authored) | Codex (`/root`, coordinator); RobDev implementation by `/root/vm645_implementation`; independent RobQA by `/root/vm645_qa` | [VM-645 — Apocrypha source annotations and Owner prose pass](2026-09-13-1653-codex-vm645-apocrypha-prose.md) | VM-645, VM-637, VM-644 | Identity displayed from heading; not admission metadata. Legacy status retained verbatim: Owner Review — exact-candidate engineering PASS; Owner decision pending. |
 | 2026-09-13T00:00:00Z (authored) | Codex (`/root`), RobDev implementation and same-agent distinct-phase RobQA | [VM-646 — Strategium table guidance and Owner prose pass](2026-09-13-1838-codex-vm646-strategium-prose.md) | VM-646, VM-637, VM-645 | Identity displayed from heading; not admission metadata. Legacy status retained verbatim: In Progress — implementation complete; exact-candidate RobQA pending. |
 | 2026-09-13T00:00:00Z (authored) | Codex (`/root`), RobDev implementation and same-agent distinct-phase RobQA | [VM-647 — Privacy service accuracy and Owner prose pass](2026-09-13-2125-codex-vm647-privacy-service-accuracy.md) | VM-647, VM-637, VM-646, VM-648 | Identity displayed from heading; not admission metadata. Legacy status retained verbatim: Owner Review — exact-candidate RobQA PASS; Owner decision pending. |

@@ -1,4 +1,4 @@
-<!-- task-view-sha256:7e2402893409e0ad4b94fcbe77358c871f95e9fda42678782db8d7697699153e -->
+<!-- task-view-sha256:adf285d1386cbe2cd8f17541b8b9557f9406cab0845a0fc599333d2f93179121 -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -52,6 +52,7 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 
 | ID | Card | Declared status | Diagnostics |
 |---|---|---|---|
+| VM-655 | [Authentication Boundary and Unavailable Policy Evidence](in-progress/VM-655-authentication-boundary.md) | Accepted |  |
 
 ## Integrated
 
