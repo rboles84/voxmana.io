@@ -147,3 +147,20 @@ Decision reference: current Codex task, Owner message dated 2026-09-14 beginning
 The Owner accepted the exact corrected material candidate after independent RobQA PASS and authorized normal VM-655 integration and closeout. The accepted boundary requires canonical pre-approved routes at integration and closeout, rejects REST/GCM credential bridging, permits unavailable optional policy evidence, and blocks unavailable required policy evidence without creating another authentication path.
 
 The documented host-observation limitation is accepted. Closeout must not expand scope, add authentication infrastructure, query additional live GitHub policy, inspect credentials, or reproduce the Defender-blocked command.
+
+## Integration and closeout — 2026-09-14
+
+Task: VM-655
+Candidate: 24961923511fa38d6e6b3bf6d0aed4208bc3713d
+Evidence head: 851d56a510b75bd51e4689dffabccea3f93b5d0c
+Integration: PR49 / PR #49 guarded squash merge `2801ab4f4d2c7ace822c963a9f81929607d71baa`
+Boundaries: PASS
+
+- [PR #49](https://github.com/rboles84/voxmana.io/pull/49) targeted `main` from the single admitted VM-655 branch and contained exactly 10 paths and 11 commits.
+- GitHub `Deterministic Validation` completed successfully at the exact evidence head in [run 34924104041](https://github.com/rboles84/voxmana.io/actions/runs/34924104041), job `104238334815`.
+- The governed integration checker passed before merge with exact PR head/base, complete file/blob and commit parity, clean mergeability, authentic Owner/QA bindings, the pre-approved connector route, optional-unavailable policy evidence, and atomic expected-head merge capability.
+- The squash commit has sole parent `39f674241b8733a027813160a004b5a62b180678` and tree `bcef28717480dacfe070a1c247ecf9c140db6f2b`; the accepted evidence head has the same tree.
+- The connector's normal merge interface used `expected_head_sha=851d56a510b75bd51e4689dffabccea3f93b5d0c`. No policy endpoint, credential source, alternate authentication route, or repository setting was queried or changed.
+- Closeout changes are limited to this appended integration record, the card's Done lifecycle fields and relocation, and regenerated task views.
+
+Full Git accounting and cleanup evidence: `docs/handoffs/2026-09-14-2120-codex-vm655-closeout.md`.

@@ -1,4 +1,4 @@
-<!-- task-view-sha256:adf285d1386cbe2cd8f17541b8b9557f9406cab0845a0fc599333d2f93179121 -->
+<!-- task-view-sha256:a18a9b3c70898135bdd40d5c5fd29d3be740144cbda81b0a120286650fc9181f -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -52,7 +52,6 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 
 | ID | Card | Declared status | Diagnostics |
 |---|---|---|---|
-| VM-655 | [Authentication Boundary and Unavailable Policy Evidence](in-progress/VM-655-authentication-boundary.md) | Accepted |  |
 
 ## Integrated
 
@@ -675,6 +674,7 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | VM-652 | [Archscry Dossier Flow and Precon Hover Integrity](done/VM-652-archscry-dossier-integrity.md) | Done |  |
 | VM-653 | [Kanban Lifecycle Cleanup](done/VM-653-kanban-lifecycle-cleanup.md) | Done |  |
 | VM-654 | [Retired Code Recon](done/VM-654-retired-code-recon.md) | Done |  |
+| VM-655 | [Authentication Boundary and Unavailable Policy Evidence](done/VM-655-authentication-boundary.md) | Done |  |
 
 ## Unresolved
 

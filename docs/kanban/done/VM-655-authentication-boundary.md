@@ -2,7 +2,7 @@
 
 ID: VM-655
 Title: Authentication Boundary and Unavailable Policy Evidence
-Status: Accepted
+Status: Done
 Type: Governance / delivery tooling
 Area: GitHub operation routing and deterministic delivery checks
 Priority: High
@@ -54,7 +54,7 @@ Admission baseline: 39f674241b8733a027813160a004b5a62b180678
 Candidate: 24961923511fa38d6e6b3bf6d0aed4208bc3713d
 RobQA: PASS at 24961923511fa38d6e6b3bf6d0aed4208bc3713d — SEPARATE; docs/handoffs/2026-09-14-2002-robqa-vm655-correction.md
 Owner: ACCEPTED at 24961923511fa38d6e6b3bf6d0aed4208bc3713d — current Owner message; decision recorded in docs/handoffs/2026-09-14-1933-codex-vm655-auth-boundary.md#owner-acceptance
-Integration: PENDING
+Integration: INTEGRATED via PR #49 guarded squash merge `2801ab4f4d2c7ace822c963a9f81929607d71baa`; closeout recorded in docs/handoffs/2026-09-14-2120-codex-vm655-closeout.md
 Dependencies: None
 Decisions: Owner accepted the four-file material plan with authority-derived policy requirement state and pre-approved alternate-route constraints. Repository-required task, handoff, and generated records remain in scope. Scope amendment: preserve the blocked review of candidate 4741069e and admit a distinct corrected-candidate RobQA handoff.
 Evidence: Implementation, correction, and Owner acceptance: docs/handoffs/2026-09-14-1933-codex-vm655-auth-boundary.md; blocked QA: docs/handoffs/2026-09-14-1934-robqa-vm655-auth-boundary.md; corrected-candidate QA PASS: docs/handoffs/2026-09-14-2002-robqa-vm655-correction.md
