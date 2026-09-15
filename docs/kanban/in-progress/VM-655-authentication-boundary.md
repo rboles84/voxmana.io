@@ -51,13 +51,13 @@ The historical Defender-blocked command is evidence only. Do not execute, recons
 Record version: 1
 Branch: codex/vm-655-auth-boundary
 Admission baseline: 39f674241b8733a027813160a004b5a62b180678
-Candidate: 4741069e952fa2f88e9ce52dba731ed73e29a7d6
+Candidate: PENDING
 RobQA: PENDING
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Decisions: Owner accepted the four-file material plan with authority-derived policy requirement state and pre-approved alternate-route constraints. Repository-required task, handoff, and generated records remain in scope. Scope amendment: preserve the blocked review of candidate 4741069e and admit a distinct corrected-candidate RobQA handoff.
-Evidence: docs/handoffs/2026-09-14-1933-codex-vm655-auth-boundary.md
+Evidence: Implementation: docs/handoffs/2026-09-14-1933-codex-vm655-auth-boundary.md; blocked QA: docs/handoffs/2026-09-14-1934-robqa-vm655-auth-boundary.md
 
 ## Admission Scope
 
