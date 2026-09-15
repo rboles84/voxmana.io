@@ -200,11 +200,8 @@ function isIgnorableConsoleError(entry) {
     url.endsWith("/favicon.ico") ||
     url.startsWith("https://fonts.googleapis.com/") ||
     url.startsWith("https://fonts.gstatic.com/") ||
-    url.startsWith("https://cdn.jsdelivr.net/npm/@supabase/supabase-js") ||
     text.includes("fonts.googleapis.com") ||
-    text.includes("fonts.gstatic.com") ||
-    text.includes("@supabase/supabase-js") ||
-    text.includes("cdn.jsdelivr.net/npm/@supabase/supabase-js")
+    text.includes("fonts.gstatic.com")
   );
 }
 
@@ -349,32 +346,6 @@ async function capturePage(browser, url, captureConfig, seededResult) {
   });
   await page.emulateMediaFeatures([{ name: "prefers-reduced-motion", value: "reduce" }]);
   await page.evaluateOnNewDocument(({ seededState, seededPlacementResult }) => {
-    const supabaseStub = {
-      createClient: () => ({
-        auth: {
-          getSession: async () => ({ data: { session: null } }),
-          signInWithOAuth: async () => ({ data: null, error: null }),
-          signOut: async () => ({ error: null }),
-        },
-        from: () => ({
-          select() { return this; },
-          eq() { return this; },
-          update() { return this; },
-          maybeSingle: async () => ({ data: null, error: null }),
-          upsert: async () => ({ error: null }),
-        }),
-        functions: {
-          invoke: async () => ({ data: null, error: null }),
-        },
-      }),
-    };
-
-    Object.defineProperty(window, "supabase", {
-      configurable: true,
-      enumerable: false,
-      value: supabaseStub,
-      writable: true,
-    });
     Object.defineProperty(window, "__vmVisualRegressionDisableCardArt", {
       configurable: true,
       enumerable: false,
@@ -383,8 +354,20 @@ async function capturePage(browser, url, captureConfig, seededResult) {
     });
 
     try {
-      localStorage.clear();
-      sessionStorage.clear();
+      [
+        "vm_archscry_saved_reading_v1",
+        "vm_archscry_maze_handoff_v1",
+        "vm_last_result",
+        "vm_placement_result",
+        "vm_pending_result",
+        "vm_user",
+        "vm_avatar_url",
+        "vm_profile",
+        "vm_reduce_motion",
+      ].forEach((key) => {
+        localStorage.removeItem(key);
+        sessionStorage.removeItem(key);
+      });
       localStorage.setItem("vm_reduce_motion", "true");
       if (seededState === "dossier" && seededPlacementResult) {
         sessionStorage.setItem("vm_last_result", JSON.stringify(seededPlacementResult));

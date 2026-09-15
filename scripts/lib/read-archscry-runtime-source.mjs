@@ -9,7 +9,6 @@ export const ARCHSCRY_RUNTIME_SOURCE_PATHS = Object.freeze({
   data: "runtime/data.js",
   navigation: "runtime/navigation.js",
   questionnaire: "runtime/questionnaire.js",
-  interview: "runtime/interview.js",
   renderUtils: "runtime/render-utils.js",
   dossierView: "runtime/dossier-view.js",
   dossierControls: "runtime/dossier-controls.js",

@@ -6,7 +6,7 @@ flowchart TD
   Schema["data/placement-model.schema.json"]
   Context["supabase/functions/guild-recruiter/faction-context.ts"]
   Frontend["assets/js/index.js<br/>adaptive reading + dossier"]
-  Edge["guild-recruiter edge function"]
+  Audit["producer + audit + validation<br/>comparison consumers"]
   Docs["docs/reference/data-contracts.md"]
 
   Raw --> Builder
@@ -17,6 +17,6 @@ flowchart TD
   Builder --> Context
   Model --> Frontend
   Display --> Frontend
-  Context --> Edge
+  Context --> Audit
   Schema --> Docs
   Model --> Docs

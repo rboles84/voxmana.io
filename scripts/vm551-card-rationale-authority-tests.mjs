@@ -124,7 +124,6 @@ for (const inventoryPath of [
   assert.equal(new Set(identities).size, 37, `${inventoryPath} must not duplicate identities`);
 }
 
-globalThis.VM_SESSION = { profile: null, username: "" };
 globalThis.window = { addEventListener() {}, location: { href: "http://localhost/archscry/" }, history: { replaceState() {} } };
 globalThis.document = {
   addEventListener() {}, querySelectorAll() { return []; }, querySelector() { return null; }, getElementById() { return null; }, body: {},

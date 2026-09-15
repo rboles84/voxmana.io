@@ -154,11 +154,10 @@ function previewClock() {
   };
 }
 
-const previewGlobals = ["VM_SESSION", "window", "document", "Node", "Element", "HTMLElement", "HTMLImageElement", "HTMLButtonElement", "HTMLAnchorElement", "Image"];
+const previewGlobals = ["window", "document", "Node", "Element", "HTMLElement", "HTMLImageElement", "HTMLButtonElement", "HTMLAnchorElement", "Image"];
 const originalGlobals = new Map(previewGlobals.map((name) => [name, Object.getOwnPropertyDescriptor(globalThis, name)]));
 const clock = previewClock();
 Object.assign(globalThis, {
-  VM_SESSION: { profile: null, username: "" },
   Node: PreviewElement,
   Element: PreviewElement,
   HTMLElement: PreviewElement,

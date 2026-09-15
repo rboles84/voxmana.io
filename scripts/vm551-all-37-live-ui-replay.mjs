@@ -379,11 +379,12 @@ async function replay(page, origin, witness) {
       ? certifiedResult
       : null;
   await page.evaluateOnNewDocument((enableDesktopHover, cachedResult, lockReviewInput, disableAncillaryCardArt) => {
-    localStorage.clear();
-    sessionStorage.clear();
-    if (cachedResult) sessionStorage.setItem("vm_last_result", JSON.stringify(cachedResult));
+    ["vm_archscry_saved_reading_v1", "vm_archscry_maze_handoff_v1", "vm_last_result", "vm_placement_result", "vm_pending_result"].forEach((key) => {
+      localStorage.removeItem(key);
+      sessionStorage.removeItem(key);
+    });
+    if (cachedResult) localStorage.setItem("vm_archscry_saved_reading_v1", JSON.stringify(cachedResult));
     if (disableAncillaryCardArt) window.__vmVisualRegressionDisableCardArt = true;
-    window.supabase = { createClient: () => ({ auth: { getSession: async () => ({ data: { session: null }, error: null }) } }) };
     if (lockReviewInput) {
       document.addEventListener("DOMContentLoaded", () => {
         const guard = document.createElement("div");

@@ -123,4 +123,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     const { initializeArchscryDevReview } = await import("./runtime/dev-review.js?v=vm636");
     initializeArchscryDevReview();
   }
+
+  document.documentElement.dataset.vmArchscryReady = "true";
 });

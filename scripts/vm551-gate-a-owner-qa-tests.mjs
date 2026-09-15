@@ -23,7 +23,7 @@ import { getDossierRadarProfile, renderComponentManaSymbols } from "../assets/js
 
 const readText = (path) => readFile(new URL(path, import.meta.url), "utf8");
 const indexSource = await readArchscryRuntimeSource([
-  "data", "navigation", "questionnaire", "interview", "renderUtils", "dossierView",
+  "data", "navigation", "questionnaire", "renderUtils", "dossierView",
   "dossierControls", "content", "cardMedia", "actions", "boot", "entry",
 ]);
 const startPanelSource = indexSource.slice(
@@ -80,7 +80,7 @@ assert.match(indexSource, /role="img"[\s\S]*mana identity/);
 assert.doesNotMatch(indexSource, /The atlas is still opening|frontier still widens/i);
 assert.doesNotMatch(indexSource, /id="\$\{id\}">\$\{name\}<\/div><div class="staple-name"/);
 assert.doesNotMatch(indexSource, /wants to restricted action/i);
-assert.match(indexSource, /case "start-interview-flow":\s*await startInterviewFlow\(\);\s*return;\s*case "resume-quick-flow":\s*resumeIncompleteQuickReading\(\);/);
+assert.doesNotMatch(indexSource, /start-interview-flow|Scrying Terminal|VM_SESSION|supabase/i);
 assert.match(indexSource, /state === "incomplete" && getResumableQuickQuestion\(\)/);
 
 const azoriusGolden = runAdaptiveGoldenPath({ model: placementModel, factions, targetFaction: "WU" }).result;
@@ -112,7 +112,7 @@ assert.doesNotMatch(indexSource, /data-tied-identity-container="original-intro"|
 assert.match(indexSource, /data-dossier-identity-key="\$\{escapeAttributeValue\(dossier\.targetFactionKey\)\}"/);
 assert.match(indexSource, /includeAlternative: resultState !== "tied"/);
 assert.match(indexSource, /tiedPeerDossier: resultState === "tied" && isPrimary \? tiedPeerDossier : null/);
-assert.match(indexSource, /const adjacentMatches = resultState === "tied" \? \[\] : dossier\.adjacentFits/);
+assert.match(indexSource, /const adjacentMatches = identityOnlyMode \|\| resultState === "tied" \? \[\] : dossier\.adjacentFits \|\| \[\]/);
 assert.doesNotMatch(indexSource, /serialized result|stored primary|Original stored reading|identity-keyed container|plan leakage/i);
 assert.match(indexSource, /resultState === "tied" \? "Original reading"/);
 assert.match(indexSource, /Compare this co-leader/);
@@ -187,18 +187,18 @@ for (const value of new Set(factionStrings.filter((entry) => /\(precon\)/i.test(
   assert.notEqual(classified.lookupName, value.replace(/\s*\(precon\)\s*$/i, "").trim(), `${value} must not reach named-card lookup under its display name.`);
 }
 assert.match(indexSource, /if \(card\.recordType !== "CARD" \|\| !card\.name\)[\s\S]*continue;/);
-assert.match(indexSource, /loadCachedScryfallNamedCard\(card\.name\)/);
+assert.match(indexSource, /loadCachedScryfallNamedCard\(cardName, \{ requireDetails: true \}\)/);
 assert.match(indexSource, /createScryfallNamedCardLookup/);
 assert.match(indexSource, /scryfallLocalCardByName/);
 assert.match(cacheSource, /const inFlight = new Map\(\)/);
-assert.match(cacheSource, /vm_scryfall_named_cache_v2/);
-assert.match(indexSource, /setTimeout\(resolve, 90\)/);
+assert.match(cacheSource, /vm_scryfall_named_cache_v4/);
+assert.match(cacheSource, /SCRYFALL_MIN_REQUEST_INTERVAL_MS = 125/);
 assert.match(cacheSource, /response\.status === 404/);
 assert.match(cacheSource, /response\.status === 429/);
 for (const slug of ["abzan-armor", "stalwart-unity", "eldrazi-unbound", "first-flight", "phantom-premonition", "spirit-squadron", "buckle-up"]) {
   assert.match(indexSource, new RegExp(`https://edhrec\\.com/precon/${slug}`));
 }
-assert.match(indexSource, /"Research this precon"/);
+assert.match(indexSource, /buildPreconResearchLinks\(precon\)/);
 
 const omens = buildReadingOmens({
   activeFactionKey: "WU",
@@ -212,7 +212,7 @@ assert.ok(omens.every((omen) => !/does not prove your personality/i.test(omen.co
 
 const azoriusGuidance = getCommanderFactionGuidance(factions.WU);
 assert.match(azoriusGuidance.commanderPlan, /proactive rule-setting.*reactive permission.*tempo/i);
-assert.match(azoriusGuidance.spellcraftIdentity, /counterspells.*sweepers.*detain.*taxes/i);
+assert.match(azoriusGuidance.spellcraftIdentity, /public rule-setting.*procedural permission.*timed enforcement/i);
 assert.match(azoriusGuidance.tableCautionText, /interaction window that matters/i);
 assert.doesNotMatch(`${azoriusGuidance.commanderPlan} ${azoriusGuidance.spellcraftIdentity} ${azoriusGuidance.tableCautionText}`, /always|must prolong|wants to restricted action/i);
 const azoriusLane = buildCommanderStartingLane({
@@ -224,14 +224,10 @@ const azoriusLane = buildCommanderStartingLane({
 });
 assert.deepEqual(
   azoriusLane.details.slice(0, 4).map((detail) => detail.label),
-  ["Suggested budget lane", "Experience assumption", "Possible directions", "Why these appear"]
+  ["Suggested budget lane", "Experience assumption", "Possible directions", "Guild spellcraft"]
 );
 assert.match(azoriusLane.copy, /explore|starting direction/i);
-assert.match(azoriusLane.copy, /not a conclusion/i);
-assert.match(indexSource, /Isperia can turn creatures attacking you or a planeswalker you control into optional card draw/);
-assert.match(indexSource, /Lavinia restricts oversized noncreature spells and counters spells cast without mana/);
-assert.match(indexSource, /Grand Arbiter reduces the cost of your White and Blue spells and adds one generic mana to opponents' spells/);
-
+assert.match(azoriusLane.copy, /adjust the budget.*complexity.*table role/i);
 const laneSummaries = buildTagExplanationSummaries({
   tagRefs: [
     { category: "mechanical", tag: "draw" },
@@ -245,11 +241,6 @@ const laneSummaries = buildTagExplanationSummaries({
 assert.equal(laneSummaries.length, 3);
 assert.equal(new Set(laneSummaries.map((item) => item.copy.trim().toLowerCase())).size, 3);
 assert.ok(laneSummaries.every((item) => item.meaning && item.copy && item.helper));
-
-for (const term of ["Draw-Go Control", "Prison Control", "Midrange", "Control", "Tempo", "Stax", "Pillowfort", "Hatebears", "taxation", "sweepers", "detain", "parity", "open mana"]) {
-  const escaped = term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-  assert.match(indexSource, new RegExp(`(?:"${escaped}"|\\b${escaped})\\s*:`));
-}
 
 assert.match(cssSource, /how-this-plays-grid[\s\S]*grid-template-columns:repeat\(2,minmax\(0,1fr\)\)/);
 assert.match(cssSource, /first-of-type > \.table-identity-list\{\s*margin-top:0/);
@@ -304,25 +295,18 @@ assert.match(cssSource, /#dossierOverlayLine \+ #dossierColorText\{\s*margin-top
 
 assert.match(indexSource, /matrixFlavorSnippetsForFaction/);
 assert.match(indexSource, /APP_STATE\.scryfallLocalCardByName\.get/);
-assert.match(indexSource, /loadResultCardArt\(faction, commanderPreviewCandidates, renderableStarterCards, landRecommendations, matrixFlavorSnippets\)/);
-assert.doesNotMatch(indexSource, /commander-preview-label|Commander starting points/);
+assert.match(indexSource, /loadResultCardArt\([\s\S]{0,300}context\.matrixFlavorSnippets/);
+assert.doesNotMatch(startPanelSource, /commander-preview-label/);
 assert.match(startPanelSource, /<div class="section-label">Start Here<\/div>/);
 assert.match(startPanelSource, /\$\{commanderLane\.title\}/);
 assert.match(startPanelSource, /commanderLane\.details\.map/);
 assert.doesNotMatch(startPanelSource, /commanderPreviewHtml|commander-preview-grid|data-commander-card|id="cmd_/);
 assert.match(indexSource, /matrixCardVoice: true/);
-assert.match(radarSource, /class="vm-card-voice-image"/);
-assert.match(radarSource, /class="vm-card-voice-name"[\s\S]*href="\$\{escapeDossierHtml\(snippet\.scryfall_uri\)\}"/);
-assert.match(radarSource, /data-card-preview-anchor/);
-assert.match(radarSource, /data-card-preview-source/);
-assert.doesNotMatch(radarSource, /vm-card-voice-action|View on Scryfall/);
-assert.match(radarSource, /id="mcv_\$\{index\}"/);
-assert.match(radarSource, /id="mcv_name_\$\{index\}"/);
-assert.match(indexSource, /CARD_PREVIEW_IMAGE_SELECTOR = "img\.staple-img, img\.land-img, img\.vm-card-voice-image"/);
+assert.match(indexSource, /CARD_PREVIEW_IMAGE_SELECTOR = "img\.staple-img, img\.land-img, img\.vm-card-voice-image, img\.vm-card-rationale-image"/);
 assert.match(indexSource, /target\.matches\(CARD_PREVIEW_IMAGE_SELECTOR\)/);
 assert.match(indexSource, /target\.closest\("a\[href\]"\)/);
-assert.match(indexSource, /window\.addEventListener\("scroll", hideCardPreviewOverlay/);
-assert.match(indexSource, /overlay\.innerHTML = `<img alt="">`/);
+assert.match(indexSource, /window\.addEventListener\("scroll", \(\) => \{[\s\S]{0,120}hideCardPreviewOverlay/);
+assert.match(indexSource, /overlay\.innerHTML = `[\s\S]{0,160}<img alt="">/);
 assert.doesNotMatch(indexSource, /card-preview-overlay[\s\S]{0,180}<span|overlay\.querySelector\("span"\)/);
 assert.doesNotMatch(cssSource, /\.card-preview-overlay span\s*\{/);
 assert.match(indexSource, /canonicalFlavorLookupName[\s\S]*card\.scryfall_id && card\.card_faces\?\.\[0\]\?\.name/);

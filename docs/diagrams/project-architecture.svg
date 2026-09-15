@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="920" height="520" viewBox="0 0 920 520" role="img" aria-labelledby="title desc">
   <title id="title">Vox Mana project architecture</title>
-  <desc id="desc">Static browser routes share runtime helpers, generated data, external APIs, Supabase, and local tools.</desc>
+  <desc id="desc">Static browser routes share runtime helpers, generated data, device-local state, Scryfall, and local tools.</desc>
   <defs>
     <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#8fbfd0"/></marker>
     <style>
@@ -16,10 +16,10 @@
   <rect class="accent" x="265" y="260" width="180" height="60"/><text class="text" x="355" y="285" text-anchor="middle">Generated data</text><text class="small" x="355" y="303" text-anchor="middle">factions + model</text>
   <rect class="accent" x="475" y="260" width="180" height="60"/><text class="text" x="565" y="285" text-anchor="middle">Shared runtime</text><text class="small" x="565" y="303" text-anchor="middle">shared, topbar, motion</text>
   <rect class="box" x="65" y="395" width="170" height="60"/><text class="text" x="150" y="420" text-anchor="middle">External tools</text><text class="small" x="150" y="438" text-anchor="middle">build + command panel</text>
-  <rect class="box" x="320" y="395" width="170" height="60"/><text class="text" x="405" y="420" text-anchor="middle">Supabase</text><text class="small" x="405" y="438" text-anchor="middle">auth, profiles, edge</text>
-  <rect class="box" x="555" y="395" width="150" height="60"/><text class="text" x="630" y="420" text-anchor="middle">Anthropic</text><text class="small" x="630" y="438" text-anchor="middle">interview model</text>
+  <rect class="box" x="320" y="395" width="170" height="60"/><text class="text" x="405" y="420" text-anchor="middle">Local reading</text><text class="small" x="405" y="438" text-anchor="middle">v1 + Maze handoff</text>
+  <rect class="box" x="555" y="395" width="150" height="60"/><text class="text" x="630" y="420" text-anchor="middle">Reading Finds</text><text class="small" x="630" y="438" text-anchor="middle">separate local state</text>
   <rect class="box" x="735" y="395" width="140" height="60"/><text class="text" x="805" y="420" text-anchor="middle">Scryfall</text><text class="small" x="805" y="438" text-anchor="middle">cards API</text>
   <path class="line" d="M425 80 L155 135"/><path class="line" d="M445 80 L365 135"/><path class="line" d="M475 80 L555 135"/><path class="line" d="M500 80 L765 135"/>
   <path class="line" d="M355 195 L355 260"/><path class="line" d="M440 175 L515 260"/><path class="line" d="M565 195 L565 260"/><path class="line" d="M775 195 L615 260"/>
-  <path class="line" d="M150 395 L320 320"/><path class="line" d="M355 320 L405 395"/><path class="line" d="M405 395 L600 395"/><path class="line" d="M565 320 L805 395"/>
+  <path class="line" d="M150 395 L320 320"/><path class="line" d="M355 195 L405 395"/><path class="line" d="M565 195 L630 395"/><path class="line" d="M565 320 L805 395"/>
 </svg>

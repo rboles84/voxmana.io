@@ -5,7 +5,6 @@ import { COMMANDER_FACTION_GUIDANCE } from "../../assets/js/archscry/dossier/fou
 import { buildCommanderStartingLane } from "../../assets/js/archscry/dossier/reading.js";
 import { buildPreconRecommendations } from "../../assets/js/archscry/dossier/precons.js";
 
-globalThis.VM_SESSION = {};
 const { buildPreconSectionHtml } = await import("../../assets/js/archscry/runtime/dossier-view.js");
 
 const readJson = (path) => JSON.parse(fs.readFileSync(path, "utf8"));

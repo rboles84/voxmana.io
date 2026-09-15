@@ -52,7 +52,6 @@ const scriptSources = {
   archscryDevReview: await readFile("assets/js/archscry/runtime/dev-review.js", "utf8"),
   archscryDossierView: await readFile("assets/js/archscry/runtime/dossier-view.js", "utf8"),
   archscryIdentityAtlas: await readFile("assets/js/archscry/runtime/identity-atlas.js", "utf8"),
-  archscryInterview: await readFile("assets/js/archscry/runtime/interview.js", "utf8"),
   archscryPresentation: await readFile("assets/js/archscry/archscry-presentation.js", "utf8"),
   archscryQuestionnaire: await readFile("assets/js/archscry/runtime/questionnaire.js", "utf8"),
   guide: await readFile("assets/js/guide/guide.js", "utf8"),
@@ -624,19 +623,15 @@ expect(
     scriptSources.archscry.includes('from "./runtime/boot.js?v=vm636"') &&
     scriptSources.archscry.includes('from "./runtime/data.js?v=vm636"') &&
     scriptSources.archscry.includes('from "./runtime/dossier-view.js?v=vm636"') &&
-    scriptSources.archscry.includes('from "./runtime/interview.js?v=vm636"') &&
     scriptSources.archscry.includes('from "./runtime/questionnaire.js?v=vm636"') &&
     scriptSources.archscry.includes('from "./runtime/identity-atlas.js?v=vm636"') &&
     scriptSources.archscry.includes('import("./runtime/dev-review.js?v=vm636")') &&
     scriptSources.archscryActions.includes('from "./dossier-view.js?v=vm636"') &&
-    scriptSources.archscryActions.includes('from "./interview.js?v=vm636"') &&
     scriptSources.archscryActions.includes('from "./questionnaire.js?v=vm636"') &&
     scriptSources.archscryBoot.includes('from "./dossier-view.js?v=vm636"') &&
     scriptSources.archscryDevReview.includes('from "./dossier-view.js?v=vm636"') &&
     scriptSources.archscryDevReview.includes('from "./questionnaire.js?v=vm636"') &&
     scriptSources.archscryIdentityAtlas.includes('from "./dossier-view.js?v=vm636"') &&
-    scriptSources.archscryInterview.includes('from "../archscry-presentation.js?v=vm636"') &&
-    scriptSources.archscryInterview.includes('from "./dossier-view.js?v=vm636"') &&
     scriptSources.archscryQuestionnaire.includes('from "../archscry-presentation.js?v=vm636"') &&
     scriptSources.archscryQuestionnaire.includes('from "./dossier-view.js?v=vm636"') &&
     scriptSources.archscryDossierView.includes('from "../archscry-presentation.js?v=vm636"') &&

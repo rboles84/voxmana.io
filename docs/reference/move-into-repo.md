@@ -1,45 +1,11 @@
-# Move Into Repo
+# Repository Location And Runtime Boundary
 
-Copy these files into `C:\dev\mtgSiteWIP` and replace the existing versions there:
+Vox Mana is maintained directly in `C:\dev\voxmana.io`. Do not copy a parallel browser runtime from the historical `mtgSiteWIP` workspace.
 
-- `index.html`
-- `shared.js`
-- `docs/reference/README.md`
-- `maze/index.html`
-- `data/factions.json`
-- `data/placement-model.json`
-- `data/placement-model.schema.json`
-- `data/raw-factions/`
-- `docs/reference/data-contracts.md`
-- `docs/reference/manual-test-cases.md`
-- `docs/supabase-profile-update.sql`
-- `supabase/functions/guild-recruiter/index.ts`
-- `supabase/functions/guild-recruiter/faction-context.ts`
+Current deployment inputs are the static route HTML, `assets/`, and `data/` artifacts owned by this repository. Archscry reading persistence is device-local through `assets/js/shared/shared.js` and `vm_archscry_saved_reading_v1`; there is no Supabase browser client, OAuth/profile deployment step, account Deck Links schema, Scrying Terminal, or deployable `guild-recruiter` function.
 
-Keep these existing repo files:
+Use the repository builders for generated artifacts and commit their governed outputs. `supabase/functions/guild-recruiter/faction-context.ts` remains temporarily in its historical path because current producer/audit/validation tooling consumes that byte-identical generated comparison projection. Do not deploy it as a function or relocate it as part of product-runtime work; a separate deterministic tooling task owns that move.
 
-- `docs/reference/workflow.md`
-- `.github/ISSUE_TEMPLATE/task.yml`
-- `.github/pull_request_template.md`
+Retired profile and account Deck Links SQL are preserved only as historical artifacts under `docs/archive/retired-supabase-runtime/`. Never run them as a current setup step.
 
-Delete these older automated-test artifacts from the repo for this phase:
-
-- `package.json`
-- `playwright.config.js`
-- `tests/`
-- `.github/workflows/test.yml`
-- `docs/testing.md`
-
-## Recommended copy order
-
-1. Copy `data/factions.json`.
-2. Copy `data/raw-factions/`.
-3. From `C:\dev\projectFiles\voxmana-tools`, run `npm run build:factions` to generate placement artifacts and the edge-function context.
-4. Copy `shared.js`.
-5. Copy `index.html`.
-6. Copy the `supabase/functions/guild-recruiter` files.
-7. Copy the new docs.
-8. Remove the automated-test files listed above.
-9. Run the SQL in `docs/supabase-profile-update.sql`.
-10. Redeploy the edge function.
-11. Redeploy the static site.
+Follow [Workflow](workflow.md) for admission, targeted checks, Owner Review, and integration. Do not delete the package, tests, CI workflow, or other governed repository infrastructure during deployment preparation.

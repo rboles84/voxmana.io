@@ -52,10 +52,6 @@ export function validateQuickReadingReachability() {
   validateGateB1RuntimeModel(APP_STATE.placementModel, liveFactionKeys);
 }
 
-/**
- * Applies the feature flag to terminal-only UI already in the DOM.
- */
-
 export async function loadFactionData() {
   const json = await loadCoreJson("factions.json", "faction data");
   APP_STATE.factions = json.factions || {};

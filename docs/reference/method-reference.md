@@ -73,15 +73,14 @@ This is the Javadoc-equivalent inventory for the current working tree. It focuse
 
 ### `assets/js/archscry/index.js`
 
-`index.js` is now a stable compatibility facade and explicit lifecycle owner. It re-exports the established 21-symbol public surface, assigns the established 16 browser globals, retains the placement-save and history listeners, and invokes the unchanged `DOMContentLoaded` boot order.
+`index.js` is a stable compatibility facade and explicit lifecycle owner. It re-exports the current public surface, assigns a small retained browser-global surface, and invokes the explicit `DOMContentLoaded` boot order.
 
 | Owner | Purpose |
 |---|---|
-| `runtime/state.js` | Owns the single shared `APP_STATE` object and session reference. |
+| `runtime/state.js` | Owns the shared `APP_STATE` object and in-memory reading reference. |
 | `runtime/data.js` | Loads canonical route data through the module-relative `data/` URL and validates catalogs. |
-| `runtime/navigation.js` | Owns section, session, topbar, and route navigation behavior. |
+| `runtime/navigation.js` | Owns current section/reset/Forget/Begin Again and route navigation behavior. |
 | `runtime/questionnaire.js` | Owns quick-reading question flow and finalization. |
-| `runtime/interview.js` | Owns the feature-flagged Scrying Terminal flow. |
 | `runtime/dossier-view.js` | Builds and renders the active/adjacent dossier result. |
 | `runtime/dossier-controls.js` | Owns dossier panels, routing controls, Maze handoff, and related interactions. |
 | `runtime/content.js` | Selects approved dossier copy, rationales, voices, and flavor echoes. |
@@ -92,44 +91,22 @@ This is the Javadoc-equivalent inventory for the current working tree. It focuse
 
 `commander-dossier.js` remains the stable 40-export facade over the DOM-free `dossier/foundation.js`, `dossier/reading.js`, `dossier/precons.js`, and `dossier/audit.js` owners. `archscry-result.js` remains its star-re-export compatibility facade.
 
-Window handlers exposed by `Object.assign(window, ...)`: `answerQuickQuestion`, `goBackQuickQuestion`, `handleRetake`, `handleSavePlacement`, `handleSignOut`, `openInterviewDossier`, `openLibrary`, `openResearch`, `returnToInterviewSource`, `returnToPrimaryReading`, `saveCurrentResult`, `showSection`, `startInterviewFlow`, `startQuickFlow`, `submitInterview`, and `switchAdjacentView`.
-
-### `assets/js/shared/site-flags.js`
-
-| Line | Symbol | Scope | Purpose |
-|---:|---|---|---|
-| 8 | `VM_SITE_FLAGS` | Global | Shared checked-in feature flags for hiding or revealing the archived terminal. |
+Window handlers exposed by `Object.assign(window, ...)`: `answerQuickQuestion`, `goBackQuickQuestion`, `handleRetake`, `openLibrary`, `openResearch`, `returnToPrimaryReading`, `showSection`, `startQuickFlow`, and `switchAdjacentView`.
 
 ### `assets/js/shared/shared.js`
 
 | Line | Symbol | Scope | Purpose |
 |---:|---|---|---|
-| 6 | `VM_CONFIG` | Global | Supabase URL and anon key config. |
-| 12 | `VM_RESULT_VERSION` | Global | Shared result version fallback. |
-| 21 | `getSupabase()` | Global | Lazily creates browser Supabase client. |
-| 49 | `readJsonStorage(key)` | Global | Reads JSON from `sessionStorage`. |
-| 64 | `writeStringStorage(key, value)` | Global | Writes/removes plain session-storage values. |
-| 80 | `writeJsonStorage(key, value)` | Global | Writes/removes JSON session-storage values. |
-| 96 | `clonePlacementResult(result)` | Global | Deep-clones result payloads. |
-| 110 | `deriveDisplayName(authSession, profileRow)` | Global | Chooses user-facing name from auth/profile. |
-| 134 | `deriveAvatarUrl(authSession, profileRow)` | Global | Chooses avatar URL from auth/profile. |
-| 147 | `normalizeStarterProfile(starterProfile)` | Global | Fills starter profile defaults. |
-| 163 | `normalizeMatch(match, index)` | Global | Normalizes ranked match entries. |
-| 193 | `normalizePlacementResult(result, fallbackProfile)` | Global | Normalizes saved/interview/quick result payloads. |
-| 251 | `makeLegacyPlacementResult(profileRow)` | Global | Builds compatibility result from legacy profile rows. |
-| 277 | `vm_cachePlacementResult(result)` | Global | Stores/removes cached placement result. |
-| 286 | `vm_getCachedPlacementResult()` | Global | Reads cached placement result. |
-| 296 | `syncSessionState(authSession, profileRow)` | Global | Updates `VM_SESSION` from auth/profile. |
-| 318 | `VM_SESSION` | Global | Shared browser session/profile/interview state object. |
-| 383 | `vm_startInterview(context)` | Global | Starts Scrying Terminal with opening message when enabled. |
-| 400 | `vm_conductInterview(userMessage)` | Global | Sends one interview message to edge function when enabled. |
-| 449 | `vm_resetInterview()` | Global | Clears local interview state. |
-| 463 | `vm_savePlacementResult(result)` | Global | Saves normalized result to Supabase profile. |
-| 538 | `vm_saveWithGoogle(result)` | Global | Starts OAuth flow after caching pending result. |
-| 569 | `vm_checkPendingSave()` | Global | Completes post-OAuth pending save. |
-| 606 | `vm_signOut()` | Global | Signs out and clears session state. |
-| 621 | `vm_resumeSession()` | Global | Loads existing Supabase session/profile. |
-| 672 | `vm_clearPlacement()` | Global | Clears saved placement fields. |
+| 3 | `VM_RESULT_VERSION` | Global | Shared result version fallback. |
+| 4 | `VM_SAVED_READING_STORAGE_KEY` | Global | Sole persistent saved-reading key. |
+| 11 | `VM_READING_STATE` | Global | In-memory current-reading bridge for Archscry and Maze. |
+| 66 | `normalizeStarterProfile(starterProfile)` | Global | Fills starter profile defaults. |
+| 75 | `normalizeMatch(match, index)` | Global | Normalizes ranked match entries. |
+| 100 | `normalizePlacementResult(result, fallbackProfile)` | Global | Preserves the current placement-result version and payload semantics. |
+| 173 | `placementResultFromStoredValue(value)` | Internal | Extracts a valid result from raw or legacy/profile wrappers without inventing missing fields. |
+| 209 | `vm_cachePlacementResult(result)` | Global | Writes and verifies the complete normalized v1 reading. |
+| 219 | `vm_getCachedPlacementResult()` | Global | Gives valid v1 precedence or performs conservative one-time exact-key legacy migration. |
+| 245 | `vm_forgetSavedReading()` / `vm_clearPlacement()` | Global | Removes the saved reading and exact retired fallbacks while preserving unrelated storage and Maze context. |
 
 ### `assets/js/archscry/quick-reading.js`
 
@@ -530,41 +507,16 @@ Local endpoints served by `main`: `GET /`, `/index.html`, `/panel.js`, `/panel.c
 | 378 | `bindEvents()` | Internal | Binds all panel controls. |
 | 452 | `boot()` | Internal | Initializes panel. |
 
-## Backend
-
-### `supabase/functions/guild-recruiter/index.ts`
-
-| Line | Symbol | Scope | Purpose |
-|---:|---|---|---|
-| 3 | `Message` | Type | Sanitized chat message shape. |
-| 8 | `StarterProfile` | Type | Format, budget, and experience context. |
-| 14 | `MatchResult` | Type | Ranked or adjacent match shape. |
-| 25 | `DecisionResult` | Type | Placement result subset returned by model. |
-| 43 | `RequestBody` | Type | Edge function request JSON shape. |
-| 51 | `TurnResponse` | Type | Edge function response JSON shape. |
-| 60 | `RESULT_VERSION` | Internal | Server-side result version. |
-| 78 | `normalizeStarterProfile(profile)` | Internal | Fills starter profile defaults. |
-| 89 | `getThrottleKey(req, sessionId)` | Internal | Chooses rate-limit bucket. |
-| 98 | `enforceRateLimit(key)` | Internal | Applies in-memory calls-per-minute throttle. |
-| 110 | `sanitizeHistory(history)` | Internal | Trims, coerces, and limits chat history. |
-| 130 | `normalizeManaScores(scores)` | Internal | Clamps WUBRG scores to integer 1-10 range. |
-| 142 | `normalizeMatch(match, index)` | Internal | Normalizes match rank/score/confidence fields. |
-| 163 | `normalizeDecisionResult(result, starterProfile)` | Internal | Emits full frontend-compatible decision payload. |
-| 210 | `buildSystemPrompt(starterProfile, currentResult)` | Internal | Builds Anthropic prompt from generated faction context. |
-| 316 | `callAnthropic(systemPrompt, messages)` | Internal | Calls Anthropic Messages API and returns text. |
-| 355 | `parseTurnResponse(rawContent)` | Internal | Strips code fences and parses JSON. |
-| 367 | `buildRecoveryResponse(turn)` | Internal | Returns safe fallback interview question. |
-| 380 | `hasUsableDecision(result)` | Internal | Type guard for minimum decision fields. |
-| 390 | `serve(async req => ...)` | Endpoint | Handles CORS, validation, rate limit, model call, normalization, and JSON response. |
-
-Endpoint behavior: `OPTIONS` returns CORS ok, non-`POST` returns `405`, empty messages return `400`, messages over `MAX_MESSAGE_LENGTH` return `400`, overlong interviews return `400`, throttled requests return `429`, valid turns return `TurnResponse`.
+## Retained generated comparison projection
 
 ### `supabase/functions/guild-recruiter/faction-context.ts`
 
 | Line | Symbol | Scope | Purpose |
 |---:|---|---|---|
-| 5 | `FACTION_CONTEXT` | Generated export | Condensed faction lore and placement guidance for the edge prompt. |
-| 3072 | `PLACEMENT_MODEL_META` | Generated export | Model metadata imported by the edge function. |
+| 5 | `FACTION_CONTEXT` | Generated export | Condensed faction lore and placement guidance consumed by current producer/audit/validation tooling. |
+| 3072 | `PLACEMENT_MODEL_META` | Generated export | Model metadata retained for deterministic parity checks. |
+
+VM-656 deliberately leaves this byte-identical generated file in its historical namespace. It is not browser-loaded or deployable by itself; relocation belongs to a separate tooling task.
 
 ## Files With No Named Functions
 

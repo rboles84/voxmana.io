@@ -6,7 +6,6 @@ import path from "node:path";
 import * as ChromeLauncher from "chrome-launcher";
 import puppeteer from "puppeteer-core";
 
-globalThis.VM_SESSION = { profile: {} };
 globalThis.window = {
   addEventListener() {},
   location: { href: "http://localhost/archscry/", search: "", hash: "" },
@@ -203,8 +202,10 @@ try {
     await page.evaluateOnNewDocument((placement, shouldClear) => {
       globalThis.__vmVisualRegressionDisableCardArt = true;
       if (!sessionStorage.getItem("vm625-seeded")) {
-        sessionStorage.clear();
-        if (shouldClear) localStorage.clear();
+        ["vm_last_result", "vm_placement_result", "vm_pending_result", "vm_profile", "vm625-seeded"].forEach((key) => sessionStorage.removeItem(key));
+        if (shouldClear) {
+          ["vm_archscry_saved_reading_v1", "vm_archscry_maze_handoff_v1", "vm625-owner-state"].forEach((key) => localStorage.removeItem(key));
+        }
         if (placement) {
           localStorage.setItem("vm_archscry_saved_reading_v1", JSON.stringify(placement));
           sessionStorage.setItem("vm_profile", JSON.stringify({ sentinel: "vm625-profile" }));
@@ -217,17 +218,6 @@ try {
         localStorage.setItem("vm625-owner-state", "preserve-me");
         sessionStorage.setItem("vm625-seeded", "1");
       }
-      globalThis.supabase = {
-        createClient() {
-          return {
-            auth: {
-              getSession: async () => ({ data: { session: null }, error: null }),
-              signInWithOAuth: async () => ({ data: null, error: null }),
-              signOut: async () => ({ error: null }),
-            },
-          };
-        },
-      };
     }, savedPlacement, fresh);
     await page.setRequestInterception(true);
     page.on("request", (request) => {

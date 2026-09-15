@@ -14,7 +14,7 @@ Gold standard means source-backed parity, not output symmetry. Parity work may i
 
 Official researched data means approved local source material under `docs/research/**`, source and evidence ledgers, raw faction packets under `data/raw-factions/**`, approved canon inventory/capture files, approved Commander recommendation files, and architecture identity/metaphysics docs only where a card explicitly promotes the relevant section into a raw packet, claim ledger, or cited source ledger entry.
 
-Generated/runtime surfaces are comparison targets only. `data/factions.json`, `data/placement-model.json`, `data/identity-layers.json`, Supabase context, hardcoded dossier copy, generated snippets, existing Archscry UI output, and existing display affinity copy are not canonical evidence.
+Generated/runtime surfaces are comparison targets only. `data/factions.json`, `data/placement-model.json`, `data/identity-layers.json`, the retained `faction-context.ts` comparison projection, hardcoded dossier copy, generated snippets, existing Archscry UI output, and existing display affinity copy are not canonical evidence.
 
 No web search, model memory, general MTG knowledge, or unsourced inference may be used to fill parity fields unless the active card is explicitly a source-acquisition card and records the new source in the approved source/evidence ledger.
 
@@ -39,7 +39,7 @@ Non-canonical comparison targets include:
 - `data/identity-layers.json`
 - generated `data/placement-model.json`
 - generated `data/placement-model.schema.json`
-- generated Supabase faction context
+- generated `supabase/functions/guild-recruiter/faction-context.ts` comparison projection (historical path retained temporarily after VM-656)
 - generated flavor/snippet output
 - hardcoded dossier/presentation copy
 - existing Archscry UI output

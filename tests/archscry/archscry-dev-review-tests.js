@@ -135,17 +135,6 @@ try {
         localStorage.setItem("vm_archscry_maze_handoff_v1", JSON.stringify({ sentinel: "vm579-maze" }));
         localStorage.setItem("vm579-owner-state", "preserve-me");
       }
-      globalThis.supabase = {
-        createClient() {
-          return {
-            auth: {
-              getSession: async () => ({ data: { session: null }, error: null }),
-              signInWithOAuth: async () => ({ data: null, error: null }),
-              signOut: async () => ({ error: null }),
-            },
-          };
-        },
-      };
     }, savedPlacement);
     await page.setRequestInterception(true);
     page.on("request", (request) => {

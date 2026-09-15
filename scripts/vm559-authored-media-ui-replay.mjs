@@ -152,10 +152,11 @@ async function exerciseIdentity(page, origin, witness) {
   let failedCandidateOnce = false;
 
   await page.evaluateOnNewDocument((savedResult) => {
-    localStorage.clear();
-    sessionStorage.clear();
-    sessionStorage.setItem("vm_last_result", JSON.stringify(savedResult));
-    window.supabase = { createClient: () => ({ auth: { getSession: async () => ({ data: { session: null }, error: null }) } }) };
+    ["vm_archscry_saved_reading_v1", "vm_archscry_maze_handoff_v1", "vm_last_result", "vm_placement_result", "vm_pending_result"].forEach((key) => {
+      localStorage.removeItem(key);
+      sessionStorage.removeItem(key);
+    });
+    localStorage.setItem("vm_archscry_saved_reading_v1", JSON.stringify(savedResult));
   }, result);
   page.on("console", (message) => { if (message.type() === "error") consoleErrors.push(message.text()); });
   await page.setRequestInterception(true);
@@ -358,10 +359,11 @@ async function exerciseFirstHoverRegression(browser, origin, witness) {
     const page = await browser.newPage();
     await page.setViewport(viewports.desktop);
     await page.evaluateOnNewDocument((savedResult) => {
-      localStorage.clear();
-      sessionStorage.clear();
-      sessionStorage.setItem("vm_last_result", JSON.stringify(savedResult));
-      window.supabase = { createClient: () => ({ auth: { getSession: async () => ({ data: { session: null }, error: null }) } }) };
+      ["vm_archscry_saved_reading_v1", "vm_archscry_maze_handoff_v1", "vm_last_result", "vm_placement_result", "vm_pending_result"].forEach((key) => {
+        localStorage.removeItem(key);
+        sessionStorage.removeItem(key);
+      });
+      localStorage.setItem("vm_archscry_saved_reading_v1", JSON.stringify(savedResult));
     }, result);
     await page.setRequestInterception(true);
     page.on("request", (request) => {
@@ -423,14 +425,15 @@ async function exerciseFirstHoverRegression(browser, origin, witness) {
   const touchPage = await browser.newPage();
   await touchPage.setViewport(viewports.mobile);
   await touchPage.evaluateOnNewDocument((savedResult) => {
-    localStorage.clear();
-    sessionStorage.clear();
-    sessionStorage.setItem("vm_last_result", JSON.stringify(savedResult));
+    ["vm_archscry_saved_reading_v1", "vm_archscry_maze_handoff_v1", "vm_last_result", "vm_placement_result", "vm_pending_result"].forEach((key) => {
+      localStorage.removeItem(key);
+      sessionStorage.removeItem(key);
+    });
+    localStorage.setItem("vm_archscry_saved_reading_v1", JSON.stringify(savedResult));
     const nativeMatchMedia = window.matchMedia.bind(window);
     window.matchMedia = (query) => query === "(hover: hover) and (pointer: fine)"
       ? { matches: false, media: query, onchange: null, addListener() {}, removeListener() {}, addEventListener() {}, removeEventListener() {}, dispatchEvent() { return false; } }
       : nativeMatchMedia(query);
-    window.supabase = { createClient: () => ({ auth: { getSession: async () => ({ data: { session: null }, error: null }) } }) };
   }, result);
   await touchPage.setRequestInterception(true);
   touchPage.on("request", (request) => {
