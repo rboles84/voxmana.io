@@ -54,7 +54,7 @@ RobQA: PENDING
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
-Decisions: Owner explicitly authorizes the VM-656 core retired product purge and requires Owner Review stop; VM-654 merged evidence controls dependencies except for the explicit deferral of generated-context relocation and preservation of `faction-context.ts` in place. Prior scope added the Maze account badge and frontend lint inventory. Scope amendment: add current Archscry runtime-source inventory and retained regression/replay fixtures that still positively require retired Terminal, session, or Supabase seams.
+Decisions: Owner explicitly authorizes the VM-656 core retired product purge and requires Owner Review stop; VM-654 merged evidence controls dependencies except for the explicit deferral of generated-context relocation and preservation of `faction-context.ts` in place. Prior scope added the Maze account badge and frontend lint inventory. Scope amendment: add current Archscry runtime-source inventory and retained regression/replay fixtures that still positively require retired Terminal, session, or Supabase seams. Scope amendment: add the current copy-boundary inventory and an archive destination for conflicting active product plans discovered during implementation.
 Evidence: docs/audits/retired-code-recon/README.md
 
 ## Admission Scope
@@ -96,6 +96,7 @@ Evidence: docs/audits/retired-code-recon/README.md
 - `scripts/vm574-card-signals-validation.mjs`
 - `scripts/vm650-three-plays-html-tests.mjs`
 - `scripts/audit/archscry-current-state.mjs`
+- `scripts/check-copy-boundaries.mjs`
 - `package.json`
 - `.github/workflows/validation.yml`
 - `docs/architecture/core-logic-and-algorithms.md`
@@ -123,3 +124,4 @@ Evidence: docs/audits/retired-code-recon/README.md
 - `docs/supabase-profile-update.sql`
 - `docs/supabase-vm422-deck-links.sql`
 - `docs/archive/retired-supabase-runtime/`
+- `docs/archive/retired-product-plans/`
