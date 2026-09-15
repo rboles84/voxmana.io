@@ -115,3 +115,24 @@ Independent RobQA reviewer using the repo-local RobQA authority.
 
 - `docs/kanban/in-progress/VM-655-authentication-boundary.md`
 - Owner-accepted VM-655 plan and implementation constraints in the current task.
+
+## Correction after independent BLOCKED review
+
+Independent RobQA blocked candidate `4741069e952fa2f88e9ce52dba731ed73e29a7d6` because closeout did not validate the retained selected merge route against the canonical vocabulary and pre-approved merge set. The blocked review remains unchanged in `docs/handoffs/2026-09-14-1934-robqa-vm655-auth-boundary.md`.
+
+Corrected candidate: `24961923511fa38d6e6b3bf6d0aed4208bc3713d`
+
+The correction moved selected merge-route vocabulary and membership validation into the shared host-route boundary used by integration and closeout. Integration-only write authorization and expected-head checks remain stage-specific. Two closeout regressions now reject an unapproved selected route and the retired `rest-gcm` route.
+
+Correction verification:
+
+- `npm run test:task-delivery` — PASS, 94/94.
+- `npm run test:workflow-instructions` — PASS, 15/15.
+- `npm run lint:js` — PASS, 38 files.
+- Focused closeout route witness — PASS, 2/2.
+- `node --check scripts/lib/task-delivery-host.mjs` — PASS.
+- `npm run task -- indexes --check` — PASS before this appended evidence.
+- `npm run validate:admission -- --task=VM-655 --mode=continue` — PASS before corrected candidate commit.
+- `git diff --check 39f674241b8733a027813160a004b5a62b180678..24961923511fa38d6e6b3bf6d0aed4208bc3713d` — PASS.
+
+The corrected candidate requires a new separate independent RobQA verdict. Candidate `4741069e` remains BLOCKED historical evidence and must not be used for Owner Review.
