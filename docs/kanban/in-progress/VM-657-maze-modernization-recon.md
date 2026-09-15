@@ -71,7 +71,7 @@ RobQA: PENDING
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
-Decisions: Planning and reconnaissance only; Owner Review is the stop point. The explicit out-of-scope boundaries remain in force.
+Decisions: Planning and reconnaissance only; Owner Review is the stop point. The explicit out-of-scope boundaries remain in force. Scope amendment: add the exact consolidated planning/recon handoff and independent RobQA handoff paths required to present and review this documentation-only candidate; no production, runtime, test-contract, or generated-data path is added.
 Evidence: PENDING planning/recon handoff
 
 ## Admission Scope
@@ -79,3 +79,5 @@ Evidence: PENDING planning/recon handoff
 - `docs/kanban/in-progress/VM-657-maze-modernization-recon.md`
 - `docs/kanban/board.md`
 - `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/handoffs/2026-09-15-0740-codex-vm657-maze-modernization-recon.md`
+- `docs/handoffs/2026-09-15-0740-robqa-vm657-maze-modernization-recon.md`
