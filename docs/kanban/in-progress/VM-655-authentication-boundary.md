@@ -2,7 +2,7 @@
 
 ID: VM-655
 Title: Authentication Boundary and Unavailable Policy Evidence
-Status: In Progress
+Status: Owner Review
 Type: Governance / delivery tooling
 Area: GitHub operation routing and deterministic delivery checks
 Priority: High
@@ -24,7 +24,7 @@ Owner plan acceptance in the current task. Admission start verified clean local 
 - [x] Permit an unavailable optional policy observation and block an unavailable required observation without adding an authentication route.
 - [x] Preserve current exact-candidate, Owner, RobQA, PR-scope, CI, mergeability, and expected-head controls.
 - [x] Add a synthetic deterministic regression witness that accesses no real credential and does not reproduce the Defender-blocked command.
-- [ ] Complete separate independent RobQA on the exact candidate and stop at Owner Review.
+- [x] Complete separate independent RobQA on the exact candidate and stop at Owner Review.
 
 ## Files Likely Impacted
 
@@ -52,12 +52,12 @@ Record version: 1
 Branch: codex/vm-655-auth-boundary
 Admission baseline: 39f674241b8733a027813160a004b5a62b180678
 Candidate: 24961923511fa38d6e6b3bf6d0aed4208bc3713d
-RobQA: PENDING
+RobQA: PASS at 24961923511fa38d6e6b3bf6d0aed4208bc3713d — SEPARATE; docs/handoffs/2026-09-14-2002-robqa-vm655-correction.md
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Decisions: Owner accepted the four-file material plan with authority-derived policy requirement state and pre-approved alternate-route constraints. Repository-required task, handoff, and generated records remain in scope. Scope amendment: preserve the blocked review of candidate 4741069e and admit a distinct corrected-candidate RobQA handoff.
-Evidence: Implementation and correction: docs/handoffs/2026-09-14-1933-codex-vm655-auth-boundary.md; blocked QA: docs/handoffs/2026-09-14-1934-robqa-vm655-auth-boundary.md
+Evidence: Implementation and correction: docs/handoffs/2026-09-14-1933-codex-vm655-auth-boundary.md; blocked QA: docs/handoffs/2026-09-14-1934-robqa-vm655-auth-boundary.md; corrected-candidate QA PASS: docs/handoffs/2026-09-14-2002-robqa-vm655-correction.md
 
 ## Admission Scope
 
