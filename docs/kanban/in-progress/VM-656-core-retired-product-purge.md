@@ -2,7 +2,7 @@
 
 ID: VM-656
 Title: Core Retired Product Purge
-Status: Owner Review
+Status: Accepted
 Type: Product/runtime retirement
 Area: Shared persistence, Archscry, Maze, Home, retired Supabase systems
 Priority: High
@@ -51,7 +51,7 @@ Branch: codex/vm-656-core-retired-product-purge
 Admission baseline: dd6f8ab0d8fd54d0355862c57204efc8c126a33d
 Candidate: 0f90344ee3751439c05e68f5e4acbf315e6b30fe
 RobQA: PASS at 0f90344ee3751439c05e68f5e4acbf315e6b30fe — SEPARATE; `docs/handoffs/2026-09-14-2145-robqa-vm656-core-retired-product-purge.md`
-Owner: PENDING
+Owner: ACCEPTED at 0f90344ee3751439c05e68f5e4acbf315e6b30fe — current Codex task, 2026-09-14, `OWNER ACCEPT — VM-656`; OWNER-VISUAL PASS
 Integration: PENDING
 Dependencies: None
 Decisions: Owner explicitly authorizes the VM-656 core retired product purge and requires Owner Review stop; VM-654 merged evidence controls dependencies except for the explicit deferral of generated-context relocation and preservation of `faction-context.ts` in place. Prior scope added the Maze account badge and frontend lint inventory. Scope amendment: add current Archscry runtime-source inventory and retained regression/replay fixtures that still positively require retired Terminal, session, or Supabase seams. Scope amendment: add the current copy-boundary inventory and an archive destination for conflicting active product plans discovered during implementation.

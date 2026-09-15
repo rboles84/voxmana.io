@@ -218,3 +218,14 @@ Targeted static, unit, syntax, HTML, integration and focused browser checks are 
 ## Owner Review boundary
 
 This task stops at Owner Review. No PR, push, merge, remote cleanup, generated-context relocation, modern UI foundation work, route modernization, or CSS modernization is authorized by this candidate. Owner should perform final visual confirmation of Home, Archscry and Maze before accepting the exact SHA.
+
+## Owner acceptance
+
+Task: VM-656
+Candidate: 0f90344ee3751439c05e68f5e4acbf315e6b30fe
+Owner: ACCEPT
+Decision reference: current Codex task, Owner message dated 2026-09-14 beginning `OWNER ACCEPT — VM-656`.
+
+The Owner completed and passed the bounded visual review of Home, Archscry and Maze. The observed Selesnya reading, dossier, radar, public topbar, Begin Again, Forget, Home atmosphere/back-to-top, dossier-to-Maze context, Plain Reading/search, diagnostics, Field Guide, Reading Finds, dossier thread and Maze return all worked without a new visual hole or incomplete retained surface.
+
+The Owner accepts the exact independent-RobQA-passed material candidate and authorizes normal integration and closeout only. Maze semantic/query quality remains outside VM-656. Generated-context relocation remains deferred; no remote Supabase cleanup or additional product/UI modernization is authorized.
