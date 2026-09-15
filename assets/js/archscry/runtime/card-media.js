@@ -310,12 +310,6 @@ export const ScryfallNamedCardLookup = createScryfallNamedCardLookup({
   authoredResolver: (name) => APP_STATE.archscryAuthoredCardByName.get(normalizeCardName(name)) || null,
 });
 
-/**
- * Saves the current active result through Google OAuth or a live signed-in session.
- *
- * @returns {Promise<void>} Resolves after the save flow has started or completed.
- */
-
 export let cardPreviewOverlay = null;
 
 export let cardPreviewRequestId = 0;

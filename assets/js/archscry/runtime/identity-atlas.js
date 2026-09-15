@@ -17,12 +17,10 @@ import {
 
 import {
   showSection,
-  updateTopbar,
 } from "./navigation.js?v=vm636";
 
 import {
   APP_STATE,
-  SESSION,
 } from "./state.js?v=vm636";
 
 export function resolveIdentityExploreRequest(search, entries = []) {
@@ -40,7 +38,6 @@ export function resolveIdentityExploreRequest(search, entries = []) {
 }
 
 export function hasSavedArchscryReading() {
-  if (SESSION.profile?.placementResult) return true;
   try {
     return typeof globalThis.vm_getCachedPlacementResult === "function" && Boolean(globalThis.vm_getCachedPlacementResult());
   } catch (_) {
@@ -263,7 +260,6 @@ export function renderIdentityAtlas(entries, options = {}) {
   initializeIdentityAtlasPager(root);
   document.title = "Identity Atlas - Vox Mana";
   showSection("atlas");
-  updateTopbar();
   requestAnimationFrame(() => root.querySelector("#identity-atlas-heading")?.focus({ preventScroll: true }));
 }
 

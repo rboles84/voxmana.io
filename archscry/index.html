@@ -18,8 +18,6 @@
 <meta name="twitter:description" content="A quick Commander color identity reading with a human-readable placement dossier.">
 <meta name="twitter:image" content="https://voxmana.io/assets/img/social/vox-mana-share-v1.png">
 <link rel="icon" type="image/svg+xml" href="../assets/img/vox-mana-header-logo.svg">
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js" defer></script>
-<script src="../assets/js/shared/site-flags.js" defer></script>
 <script src="../assets/js/shared/shared.js" defer></script>
 <!-- Vox Mana shared design system -->
 <link rel="stylesheet" href="../assets/css/tokens.css?v=vm635">
@@ -43,10 +41,7 @@
 
 <div class="app">
 
-  <!-- ============================================================
-       TOPBAR — Batch 3 markup with auth identity elements preserved
-       id="topbar" required by index.js updateTopbar()
-       ============================================================ -->
+  <!-- Shared public Vox Mana topbar. -->
   <header class="vm-topbar" role="banner" id="topbar">
     <a class="vm-brand" href="../index.html" aria-label="Vox Mana home">
       <span class="vm-brand-mark" aria-hidden="true">
@@ -64,17 +59,6 @@
     </nav>
 
     <div class="vm-utility">
-      <!-- Auth identity — populated and shown by index.js after sign-in -->
-      <div class="tb-identity hidden" id="tb-identity">
-        <div class="tb-avatar" id="tb-avatar"></div>
-        <div class="tb-copy">
-          <div class="tb-name" id="tb-name"></div>
-          <div class="tb-placement" id="tb-placement"></div>
-        </div>
-      </div>
-      <button class="tb-btn hidden" id="tb-retake" type="button" data-action="retake">Begin Again</button>
-      <button class="tb-btn hidden" id="tb-signout" type="button" data-action="sign-out">Sign Out</button>
-
       <a class="vm-utility-link" href="../guide/index.html" data-vm-nav="guide">Guide</a>
       <button
         type="button"
@@ -130,7 +114,6 @@
         <div class="landing-actions">
           <button class="btn-primary" type="button" data-action="start-quick-flow">Start the Reading</button>
           <a class="btn-secondary" href="?explore=atlas">Explore the Identity Atlas</a>
-          <button class="btn-secondary" type="button" data-vm-terminal-only hidden data-action="start-interview-flow">Use the Scrying Terminal</button>
         </div>
       </div>
     </div>
@@ -176,46 +159,6 @@
 
       <div class="quick-footer">
         <button class="btn-secondary" type="button" id="quick-back-btn" data-action="quick-back">Back</button>
-        <button class="btn-secondary" type="button" data-vm-terminal-only hidden data-action="start-interview-flow">Switch to the Scrying Terminal</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       SCRYING TERMINAL
-       ============================================================ -->
-  <section class="section hidden" id="interview" data-vm-terminal-only hidden aria-labelledby="archscry-interview-title">
-    <div class="interview-shell">
-      <div class="interview-header">
-        <div>
-          <div class="eyebrow">Scrying Terminal</div>
-          <h2 class="interview-title" id="archscry-interview-title">A deeper reading.</h2>
-        </div>
-        <div class="interview-copy">
-          The terminal uses your starter preferences, asks one question at a time,
-          and returns the same result shape as the quick reading so save and restore behave identically.
-        </div>
-      </div>
-
-      <div id="terminal-output"></div>
-      <div id="terminal-input-row">
-        <input id="terminal-input" type="text" placeholder="Enter your response..." autocomplete="off">
-        <button id="terminal-submit" type="button" data-action="submit-interview">Transmit</button>
-      </div>
-      <div id="terminal-status"></div>
-      <div id="terminal-error"></div>
-
-      <div id="decree-container">
-        <div class="decree-title" id="decree-title"></div>
-        <div class="decree-tagline" id="decree-tagline"></div>
-        <hr class="decree-rule" id="decree-rule">
-        <div class="decree-text" id="decree-text"></div>
-        <div class="decree-runner" id="decree-runner"></div>
-        <div class="decree-actions">
-          <button class="btn-primary" type="button" data-action="open-interview-dossier">Open Full Dossier</button>
-          <span class="decree-runner">This reading stays on this device.</span>
-          <button class="btn-secondary" type="button" data-action="retake">Begin Again</button>
-        </div>
       </div>
     </div>
   </section>

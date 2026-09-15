@@ -43,6 +43,6 @@ jobs:
           npm run test:parser
           npm run test:placement
           npm run test:maze-finds
-          npm run test:deck-links
+          npm run test:retired-runtime
           npm run test:copy-boundaries
           npm run test:frontend-smoke

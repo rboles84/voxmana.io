@@ -71,11 +71,9 @@ import {
 } from "./data.js?v=vm636";
 
 import {
-  ACCOUNT_DECK_LINKS_ENABLED,
   MANA_BASE_SEGMENTS,
   STARTER_CARD_SEGMENTS,
   applyDossierConsoleState,
-  buildAccountDeckLinkPanelHtml,
   buildDossierLayoutToggleHtml,
   buildDossierPanelHtml,
   buildDossierTabsHtml,
@@ -86,15 +84,11 @@ import {
   initializeDossierRadarIfVisible,
   normalizeDossierPanelId,
   normalizeDossierSegment,
-  refreshAccountDeckLinks,
   resolveDossierConsoleState,
 } from "./dossier-controls.js?v=vm636";
 
 import {
-  applyTerminalVisibility,
-  isScryingTerminalEnabled,
   showSection,
-  updateTopbar,
 } from "./navigation.js?v=vm636";
 
 import {
@@ -110,7 +104,6 @@ import {
 
 import {
   APP_STATE,
-  SESSION,
   getFaction,
   getResumableQuickQuestion,
   getStarterProfile,
@@ -1613,8 +1606,8 @@ export function commanderMetaHtml(indexed) {
 
 export function getActiveResultContext() {
   return {
-    result: APP_STATE.activeResult || SESSION.profile?.placementResult || vm_getCachedPlacementResult(),
-    viewKey: APP_STATE.activeViewKey || APP_STATE.activeResult?.faction || SESSION.profile?.placementResult?.faction || null,
+    result: APP_STATE.activeResult || vm_getCachedPlacementResult(),
+    viewKey: APP_STATE.activeViewKey || APP_STATE.activeResult?.faction || null,
   };
 }
 
@@ -1685,7 +1678,6 @@ export function renderBoundedResultShell(result, state) {
   APP_STATE.activeResult = result;
   APP_STATE.activeViewKey = result?.faction || null;
   showSection("result");
-  updateTopbar();
 }
 
 export function answerGroundedDirectionReason(result, identityKey) {
@@ -1772,7 +1764,6 @@ export function renderResult(viewKey, { mode = "placement", exploreSlug = "", ha
   const activeKey = identityOnlyMode
     ? requestedKey
     : allowedAlternativeKeys.has(requestedKey) ? requestedKey : result?.faction;
-  const terminalEnabled = isScryingTerminalEnabled();
   destroyDossierManaRadar();
   educationalTermAllocation = new Map();
   renderedEducationalTerms = new Set();
@@ -1785,9 +1776,8 @@ export function renderResult(viewKey, { mode = "placement", exploreSlug = "", ha
         <div class="landing-actions" style="justify-content:center;margin-top:1.5rem">
           <button class="btn-primary" type="button" ${buildActionAttrs("show-section", { section: "landing" })}>Go to landing</button>
         </div>
-      </div>`;
+    </div>`;
     showSection("result");
-    updateTopbar();
     return;
   }
 
@@ -2060,10 +2050,6 @@ export function renderResult(viewKey, { mode = "placement", exploreSlug = "", ha
     ? `<div class="footer-button-row"><button class="btn-secondary" type="button" ${buildActionAttrs("return-primary-reading")}>Back to original reading</button></div>`
     : "";
 
-  const returnToTerminalButton =
-    terminalEnabled && APP_STATE.resultSource === "interview"
-      ? `<button class="btn-secondary" type="button" ${buildActionAttrs("return-interview-source")}>Return to the Terminal</button>`
-      : "";
   const decreeCopy = dossier.decreeCopy;
   const pipsHtml = buildManaPipsHtml(faction.colors || [], "guild-mana-symbols");
   const decksHtml = buildDeckDiscoveryHtml(buildDeckDiscoveryGroups({
@@ -2242,9 +2228,6 @@ export function renderResult(viewKey, { mode = "placement", exploreSlug = "", ha
         <div class="section-label">What to Look For</div>
         <div class="archetypes-grid public-three-item-grid" data-item-count="${archetypeItems.length}">${archetypeHtml}</div>
       </div>` : ""}`;
-  const accountDeckLinksPanelHtml = !identityOnlyMode && ACCOUNT_DECK_LINKS_ENABLED
-    ? buildAccountDeckLinkPanelHtml({ result })
-    : "";
   const starterCardPanelContent = {
     creatures: `
       <div class="staples-category">
@@ -2308,8 +2291,6 @@ export function renderResult(viewKey, { mode = "placement", exploreSlug = "", ha
       <div class="footer-note">Card and land images via Scryfall. Deck links open EDHREC, Archidekt, or MTGDecks; Maze searches stay connected to this reading.</div>
       <div class="footer-button-row">
         <span class="footer-note">This reading is saved on this device.</span>
-        ${returnToTerminalButton}
-        ${terminalEnabled ? `<button class="btn-secondary" type="button" data-vm-terminal-only ${buildActionAttrs("start-interview-flow")}>Try the deeper reading</button>` : ""}
         <button class="btn-secondary" type="button" ${buildActionAttrs("forget-saved-reading")}>Forget this reading</button>
         <button class="btn-secondary" type="button" ${buildActionAttrs("retake")}>Begin Again</button>
       </div>
@@ -2327,7 +2308,6 @@ export function renderResult(viewKey, { mode = "placement", exploreSlug = "", ha
     { id: "why", content: whyPanelHtml },
     adjacentSectionHtml ? { id: "adjacent", content: adjacentSectionHtml } : null,
     { id: "commander-deck-starts", content: deckStartsPanelHtml },
-    !identityOnlyMode && ACCOUNT_DECK_LINKS_ENABLED ? { id: "decks-saved", content: accountDeckLinksPanelHtml } : null,
     hasStarterCardReferences ? { id: "starter-cards", content: starterCardsPanelHtml } : null,
     { id: "mana-base", content: manaBasePanelHtml },
     { id: "maze-discovery", content: mazePanelHtml },
@@ -2409,11 +2389,6 @@ export function renderResult(viewKey, { mode = "placement", exploreSlug = "", ha
   APP_STATE.activeDossierRadarFaction = faction;
   showSection("result");
   applyDossierConsoleState();
-  applyTerminalVisibility();
-  updateTopbar();
-  if (!identityOnlyMode) {
-    void refreshAccountDeckLinks();
-  }
   if (!identityOnlyMode || explorationMode) {
     initializeDossierRadarIfVisible(result, faction);
   }
