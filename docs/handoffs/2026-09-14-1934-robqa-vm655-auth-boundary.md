@@ -89,4 +89,3 @@ No visual or subjective product judgment is implicated by this finding.
 ## Reviewer changes and disposition
 
 This handoff is the reviewer's only repository write. No implementation, test, workflow, task card, generated view, Git index, commit, branch, PR, credential, host setting, or Owner decision was changed. Do not commit a PASS binding for candidate `4741069e952fa2f88e9ce52dba731ed73e29a7d6`.
-
