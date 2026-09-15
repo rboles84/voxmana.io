@@ -18,12 +18,12 @@ Owner plan acceptance in the current task. Admission start verified clean local 
 
 ## Acceptance Criteria
 
-- [ ] Define one canonical authentication-boundary invariant and explicit dangerous-fallback prohibitions.
-- [ ] Remove REST/GCM as a GitHub workflow route while preserving normal authenticated Git transport and normal use of interfaces already approved for the operation.
-- [ ] Require `policy.required` and `policy.basis` to derive from governing repository rules, the active task contract, or explicit Owner instruction; reject missing, contradictory, or unsupported state.
-- [ ] Permit an unavailable optional policy observation and block an unavailable required observation without adding an authentication route.
-- [ ] Preserve current exact-candidate, Owner, RobQA, PR-scope, CI, mergeability, and expected-head controls.
-- [ ] Add a synthetic deterministic regression witness that accesses no real credential and does not reproduce the Defender-blocked command.
+- [x] Define one canonical authentication-boundary invariant and explicit dangerous-fallback prohibitions.
+- [x] Remove REST/GCM as a GitHub workflow route while preserving normal authenticated Git transport and normal use of interfaces already approved for the operation.
+- [x] Require `policy.required` and `policy.basis` to derive from governing repository rules, the active task contract, or explicit Owner instruction; reject missing, contradictory, or unsupported state.
+- [x] Permit an unavailable optional policy observation and block an unavailable required observation without adding an authentication route.
+- [x] Preserve current exact-candidate, Owner, RobQA, PR-scope, CI, mergeability, and expected-head controls.
+- [x] Add a synthetic deterministic regression witness that accesses no real credential and does not reproduce the Defender-blocked command.
 - [ ] Complete separate independent RobQA on the exact candidate and stop at Owner Review.
 
 ## Files Likely Impacted
@@ -51,13 +51,13 @@ The historical Defender-blocked command is evidence only. Do not execute, recons
 Record version: 1
 Branch: codex/vm-655-auth-boundary
 Admission baseline: 39f674241b8733a027813160a004b5a62b180678
-Candidate: PENDING
+Candidate: 4741069e952fa2f88e9ce52dba731ed73e29a7d6
 RobQA: PENDING
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Decisions: Owner accepted the four-file material plan with authority-derived policy requirement state and pre-approved alternate-route constraints. Repository-required task, handoff, and generated records remain in scope.
-Evidence: Pending
+Evidence: docs/handoffs/2026-09-14-1933-codex-vm655-auth-boundary.md
 
 ## Admission Scope
 
