@@ -229,3 +229,18 @@ Decision reference: current Codex task, Owner message dated 2026-09-14 beginning
 The Owner completed and passed the bounded visual review of Home, Archscry and Maze. The observed Selesnya reading, dossier, radar, public topbar, Begin Again, Forget, Home atmosphere/back-to-top, dossier-to-Maze context, Plain Reading/search, diagnostics, Field Guide, Reading Finds, dossier thread and Maze return all worked without a new visual hole or incomplete retained surface.
 
 The Owner accepts the exact independent-RobQA-passed material candidate and authorizes normal integration and closeout only. Maze semantic/query quality remains outside VM-656. Generated-context relocation remains deferred; no remote Supabase cleanup or additional product/UI modernization is authorized.
+
+## Integration and closeout — 2026-09-14
+
+Task: VM-656
+Candidate: 0f90344ee3751439c05e68f5e4acbf315e6b30fe
+Evidence head: ac1d5661be26f3627b763451c12c3048c07529fc
+Integration: PR50 / PR #50 guarded squash merge `8e28585477f683aab0c6eb51315b489171091f75`
+Boundaries: PASS
+
+- [PR #50](https://github.com/rboles84/voxmana.io/pull/50) passed Deterministic Validation at the exact evidence head before the connector performed the expected-head guarded squash merge.
+- The squash commit has sole parent `dd6f8ab0d8fd54d0355862c57204efc8c126a33d` and the same tree as the accepted evidence head.
+- Local `main` is synchronized; the remote feature branch was already absent after merge and the verified local feature branch was deleted.
+- No generated-context relocation, remote Supabase cleanup, Maze semantic-quality work, product/UI modernization, or other post-candidate material work occurred.
+
+Full Git accounting and cleanup evidence: `docs/handoffs/2026-09-14-2337-codex-vm656-closeout.md`.
