@@ -38,7 +38,7 @@ Current Owner request for Maze modernization reconnaissance and planning only. T
 - [ ] A repository-grounded recon identifies the current Maze ownership seams, relevant dependencies, and preservation constraints without modifying product behavior.
 - [ ] The planning record distinguishes observed facts, open questions, risks, and recommendations; it does not invent product decisions.
 - [ ] A bounded future modernization sequence names likely owners and proportional validation questions while retaining the explicit boundaries above.
-- [ ] The planning result is presented for Owner Review and stops before implementation, candidate QA, acceptance, PR creation, or integration.
+- [ ] The planning result is presented for Owner Review after proportional QA-0 of the planning/documentation candidate and stops before redesign implementation, implementation-candidate QA, acceptance, PR creation, or integration.
 - [ ] Only the authorized card, planning/handoff evidence, and required generated coordination views may change for this task.
 
 ## Files Likely Impacted

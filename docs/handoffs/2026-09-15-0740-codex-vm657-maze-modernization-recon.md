@@ -1,10 +1,14 @@
 # VM-657 — Maze Modernization Recon and Design Handoff
 
-Date: 2026-09-15  
-Agent: Codex `/root`  
-Branch: `codex/vm-657-maze-modernization-recon`  
-Status: Planning-only candidate for Owner review  
-Implementation authority: **None**  
+Date: 2026-09-15
+
+Agent: Codex `/root`
+
+Branch: `codex/vm-657-maze-modernization-recon`
+
+Status: Planning-only candidate for Owner review
+
+Implementation authority: **None**
 
 ## Executive answer
 
