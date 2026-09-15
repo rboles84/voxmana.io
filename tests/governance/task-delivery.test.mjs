@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { execFileSync } from "node:child_process";
 import { checkDelivery } from "../../scripts/lib/task-delivery.mjs";
 import { expectedFiles } from "../../scripts/lib/task-delivery-host.mjs";
@@ -12,6 +13,8 @@ import { gitChangeSet } from "../../scripts/validate/validate-change-report.mjs"
 import { run } from "../../scripts/task.mjs";
 
 const fixtures = [];
+const repositoryRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
+const standardPolicyBasis = { authority: "repository-rule", reference: "docs/reference/workflow.md#main-protection-and-exceptions" };
 const task = "VM-901", branch = "codex/vm-901-delivery", cardPath = "docs/kanban/in-progress/VM-901-delivery.md";
 // This test process can use file transport only, including read-only checker subprocesses.
 process.env.GIT_ALLOW_PROTOCOL = "file";
@@ -77,8 +80,8 @@ function fixture({ linkedPlan = true, admittedPlan = true, recordQa = true } = {
 function host(f) {
   const head = f.packet.head;
   return { source: "authenticated-host-read", observedAt: new Date().toISOString(), repository: "fixture/repo", main: f.baseline,
-    identity: { login: "fixture", repositoryAccess: true }, route: { discoveryComplete: true, read: "connector", merge: "connector", expectedHeadGuard: true, writeAuthorized: true },
-    unresolvedWrites: [], matchingPrNumbers: [7], policy: { observed: true, allowed: true, source: "https://api.github.com/repos/fixture/repo/branches/main/protection", requiredChecks: [] },
+    identity: { login: "fixture", repositoryAccess: true }, route: { discoveryComplete: true, approvedBeforeAttempt: { read: ["connector"], merge: ["connector"] }, read: "connector", merge: "connector", expectedHeadGuard: true, writeAuthorized: true },
+    unresolvedWrites: [], matchingPrNumbers: [7], policy: { required: false, basis: standardPolicyBasis, observed: true, allowed: true, source: "https://api.github.com/repos/fixture/repo/branches/main/protection", requiredChecks: [] },
     checks: { head, runs: [{ name: "Deterministic Validation", head, status: "completed", conclusion: "success", url: "https://github.com/fixture/repo/actions/runs/1" }] },
     pr: { number: 7, url: "https://github.com/fixture/repo/pull/7", head, base: f.baseline, headRef: branch, headRepository: "fixture/repo", baseRef: "main", baseRepository: "fixture/repo",
       state: "open", merged: false, draft: false, mergeable: true, mergeState: "clean",
@@ -141,6 +144,23 @@ test("candidate: archived/generated metadata cannot manufacture QA", () => { con
 test("candidate: observation age/head binding fails closed", () => { const f = fixture(); f.packet.observedAt = "2000-01-01T00:00:00Z"; blocked(f, /stale/); });
 
 test("integration: exact Owner and independent QA with evidence-only PR head", () => pass(integration()));
+test("integration: unavailable policy stays unavailable without crossing the authentication boundary", () => {
+  const optional = integration();
+  optional.packet.host.policy = { required: false, basis: standardPolicyBasis, observed: false,
+    unavailable: { route: "connector", reason: "approved interface denied policy visibility" } };
+  assert.deepEqual(pass(optional).host.requiredChecks, ["Deterministic Validation"]);
+
+  const required = integration();
+  required.packet.host.policy = { required: true, basis: { authority: "owner-instruction", reference: "current Owner decision" }, observed: false,
+    unavailable: { route: "connector", reason: "approved interface denied policy visibility" } };
+  blocked(required, /Required repository policy observation unavailable through approved interface; stop and report to Owner/);
+
+  const routing = fs.readFileSync(path.join(repositoryRoot, "docs/reference/workflow.md"), "utf8");
+  for (const prohibition of [/git credential fill/i, /gh auth token/i, /secret-store interrogation/i,
+    /constructing authenticated HTTP or REST\s+calls from retrieved credentials/i]) assert.match(routing, prohibition);
+  assert.doesNotMatch(routing, /Established REST\/GCM API access/);
+  assert.match(routing, /failure may select only another interface in that pre-approved set/i);
+});
 for (const [name, mutate, pattern] of [
   ["missing Owner", f => delete f.packet.owner, /authentic owner/],
   ["unverified Owner", f => { f.packet.owner.verified = false; }, /authentic owner/],
@@ -152,7 +172,12 @@ for (const [name, mutate, pattern] of [
   ["unknown prior merge", f => f.packet.host.unresolvedWrites.push({ operation: "merge", pr: 7 }), /reconcile.*before any retry/],
   ["no guarded merge", f => { f.packet.host.route.expectedHeadGuard = false; }, /guarded/],
   ["discovery incomplete", f => { f.packet.host.route.discoveryComplete = false; }, /discovery/],
+  ["route not approved before attempt", f => { f.packet.host.route.read = "gh"; }, /discovery/],
+  ["retired REST-GCM route", f => { f.packet.host.route.read = "rest-gcm"; f.packet.host.route.approvedBeforeAttempt.read = ["rest-gcm"]; }, /discovery/],
   ["Git auth only", f => { f.packet.host.identity.repositoryAccess = false; }, /Git transport/],
+  ["missing policy basis", f => { delete f.packet.host.policy.basis; }, /Missing or unsupported/],
+  ["unsupported policy basis", f => { f.packet.host.policy.basis = { authority: "agent-choice", reference: "unavailable" }; }, /Missing or unsupported/],
+  ["contradictory optional policy", f => { f.packet.host.policy.required = true; }, /Contradictory/],
   ["policy denial", f => { f.packet.host.policy.allowed = false; }, /policy/],
   ["CI failed", f => { f.packet.host.checks.runs[0].conclusion = "failure"; }, /CI failed/],
   ["CI pending", f => { f.packet.host.checks.runs[0].status = "in_progress"; }, /CI failed/],

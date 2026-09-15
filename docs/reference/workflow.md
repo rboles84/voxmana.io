@@ -358,21 +358,34 @@ Native Git remains the authority for local history, diffs, refs, and worktree st
 fetch/push on the established Git transport; successful Git/GCM authentication does not prove GitHub
 API permissions.
 
-**Discover before fallback.** Identify the repository and actual operation first: repository inspection,
-PR lookup/create/update, CI inspection, merge, or another explicitly authorized action. Search the
-host's exposed and deferred tool inventory by capability and read the matching tools' actual schemas.
-Use the discovery/loading interface provided by that host; visible browser controls or a missing CLI
-do not establish that the connector is absent. A repository script cannot enumerate host connectors.
-If discovery cannot be completed, record that limitation rather than silently treating unknown as absent.
+**Authentication-boundary invariant.** Authentication belongs to the approved interface through which it
+is provided. Use an already-authenticated tool only through its intended interface. An unavailable field,
+permission error, inaccessible observation or 403/404 leaves that fact unavailable; it does not authorize
+a new authentication path. Never retrieve, display, copy, materialize, transfer or repurpose the credential
+behind Git, Git Credential Manager, a connector, `gh`, a browser session or another authenticated tool.
+Prohibited actions include invoking `git credential fill`, `gh auth token`, Credential Manager or other
+secret-store interrogation, searching environment variables or configuration files for authentication
+secrets, placing credentials in shell or script variables, and constructing authenticated HTTP or REST
+calls from retrieved credentials. Normal authenticated Git transport and approved tools remain usable
+through their normal interfaces; Git's internal use of its configured credential helper is not credential
+retrieval by the acting agent.
+
+**Approve routes before attempting the operation.** Identify the repository and actual operation first:
+repository inspection, PR lookup/create/update, CI inspection, merge, or another explicitly authorized
+action. Search the host's exposed and deferred tool inventory by capability and read the matching tools'
+actual schemas before the first attempt. Record the interfaces repository governance approves for that
+operation. A failure may select only another interface in that pre-approved set; it does not authorize
+discovery or adoption of another authentication path. A repository script cannot enumerate host
+connectors. If initial discovery cannot be completed, record that limitation rather than silently treating
+unknown as absent.
 
 Use this priority for the operation, stopping when a suitable route is established:
 
 | Priority | Route | Suitability check |
 |---|---|---|
 | 1 | Authenticated GitHub connector | The discovered callable tool supports this operation, target repository, and required safeguards. Inspect deferred tools before concluding a capability is missing. |
-| 2 | Established REST/GCM API access | An existing usable API path supports the operation without exposing credentials or changing authentication. Git transport success alone is insufficient. |
-| 3 | Suitable installed gh | Use only an already available CLI with applicable repository access and the required operation/flags. Do not install or configure it as part of fallback. |
-| 4 | Necessary browser use | Use only when earlier routes are demonstrably unsuitable for this operation and the browser can preserve its required safeguards. Request sign-in only if this remaining route actually needs it. |
+| 2 | Suitable installed gh | Use only when it was identified and approved for this operation before the first attempt, is already available with applicable repository access, and supports the required operation/flags. Do not install, configure or discover it because another interface failed. |
+| 3 | Necessary browser use | Use only when it was identified and approved for this operation before the first attempt, earlier approved routes are unsuitable, and the browser can preserve the required safeguards. Do not search for browser sessions or request sign-in because another interface failed. |
 
 Probe candidates with read-only identity/repository/status operations as needed. Public repository reads
 alone do not prove authentication; identity alone does not prove repository write permission. Permission
@@ -380,28 +393,31 @@ metadata is evidence, not a guarantee that a token/app can perform every write. 
 PR, comment, merge, or other mutation merely to test access. Execute writes only for the authorized task.
 
 Select per operation: a connector that can inspect a PR may lack merge support. Preserve its useful read
-route while discovering the appropriate write route. Reuse valid discovery/access observations within
+route while selecting an appropriate pre-approved write route. Reuse valid discovery/access observations within
 the current host session; reassess when the operation, host, authentication, or observed capability
 changes. Refresh operation-specific Git/PR facts where the delivery contract requires it. Do not probe
-REST, gh, or browser after an adequate connector route is established merely to complete an inventory.
+`gh` or browser after an adequate connector route is established merely to complete an inventory.
 
 **Classify the obstacle before choosing another route.**
 
 | Observation | Required next action |
 |---|---|
-| Missing/unsupported capability, or a confirmed unavailable mechanism before any write was submitted | Discover the next suitable existing route for this operation. |
-| Authentication failure | Distinguish it from absence of tools or repository authority; use another already authorized existing route if available. Do not change credentials, request browser sign-in prematurely, or log the Owner out. |
-| Authenticated but denied, or an ambiguous 403/404 | Inspect the response and one relevant read-only check to distinguish credential scope, repository access, policy, rate/service limits, and operation prerequisites. Do not equate these responses with a browser-login requirement. |
-| Route-specific credential scope is insufficient, while the action and alternate access are authorized | An existing alternate route may be suitable. Never use fallback to evade repository/org policy or a missing Owner decision. |
+| Missing/unsupported capability, or a confirmed unavailable mechanism before any write was submitted | Use the next suitable interface only when it was in the operation's pre-approved route set. Otherwise record the limitation and apply the required/optional evidence rule; do not discover another authentication path. |
+| Authentication failure | Distinguish it from absence of tools or repository authority using facts exposed by the same interface. Use another interface only when it was pre-approved for this operation. Do not change or retrieve credentials, request browser sign-in, or log the Owner out. |
+| Authenticated but denied, or an ambiguous 403/404 | Inspect the response and information already available through that approved interface to distinguish repository access, policy, rate/service limits and operation prerequisites. Apply the required/optional evidence rule; the response does not authorize credential discovery, extraction or another authentication route. |
+| Route-specific scope is insufficient, while the action and an alternate interface were already approved | The alternate interface may be used through its normal interface. The failed interface never donates its credential. Never use fallback to evade repository/org policy or a missing Owner decision. |
 | Policy denial, unmet CI/review requirements, changed expected head, or invalid request/state | Reconcile the actual prerequisite under the existing delivery rules. Switching credentials or interfaces does not satisfy it. |
 | A write may have been submitted but its result is unknown | Stop further writes, including via other routes, and reconcile remote state as below. |
 
 Escalate to the Owner only for a real access/authorization decision, an unresolved requirement, or when
 no suitable existing route can complete the operation. State the operation, decisive observed obstacle,
 routes ruled out and why, and the smallest missing action. Unknown capability, missing gh, or a visible
-logged-out browser alone is insufficient evidence for a sign-in request. Do not expose credential
-values, install tools/plugins, alter auth configuration, modify repository permissions, or change
-browser sessions as an implicit repair.
+logged-out browser alone is insufficient evidence for a sign-in request. Do not retrieve or expose
+credential values, install tools/plugins, alter auth configuration, modify repository permissions, or
+change browser sessions as an implicit repair. If current governance explicitly requires an observation
+and no approved interface can provide it, stop and report the exact unavailable fact to the Owner. If the
+observation is not required, record the limitation and continue without inventing another proof or
+authentication route.
 
 **Preserve operation safeguards.** A merge route must submit the expected PR head to the server's
 atomic head check (the connector's actual expected-head argument or the equivalent API/CLI feature).
@@ -513,7 +529,7 @@ RobQA is a repository process gate, not a pretend second GitHub identity. Do not
 
 ### Main Protection And Exceptions
 
-Intended host protection is PR-based integration with the strict `Deterministic Validation` check, no force pushes or deletion of `main`, zero required GitHub approving reviews and administrator bypass only for the narrow lifecycle-only closeout exception. Conversation resolution is required only if the team has adopted it. These are policy intentions, not a claim about configured host state. Verify actual current settings through the authorized read-only host route when delivery depends on them; record observations and process-enforced gaps in task/PR/handoff evidence. Configuration changes require explicit authority and are outside ordinary fallback or admission. Squash is normal; an exceptional merge/rebase history requires explicit justification.
+Intended host protection is PR-based integration with the strict `Deterministic Validation` check, no force pushes or deletion of `main`, zero required GitHub approving reviews and administrator bypass only for the narrow lifecycle-only closeout exception. Conversation resolution is required only if the team has adopted it. These are policy intentions, not a claim about configured host state. Separate live branch-policy/settings visibility is supplemental during ordinary ACCEPT when the current task and repository rules already identify the required CI, PR state, mergeability and atomic expected-head guard. Verify actual current settings when a governing repository rule, active task contract or explicit Owner instruction makes that observation required. That authority and its reference determine the requirement before an observation attempt; unavailability never changes required evidence into optional evidence. Record optional unavailable visibility and continue without another authentication route; stop and report required unavailable visibility. Configuration changes require explicit authority and are outside ordinary fallback or admission. Squash is normal; an exceptional merge/rebase history requires explicit justification.
 
 Direct-to-`main` work is limited to truly trivial repository administration and lifecycle-only closeout that cannot change product behavior. Public UI, JavaScript, CSS, routes, persistence, scoring, identity data, Maze, Loom, Archscry, generated production content, and shared runtime behavior always use a branch and PR. When uncertain, use a branch and PR.
 
