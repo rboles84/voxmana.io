@@ -54,7 +54,7 @@ RobQA: PENDING
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
-Decisions: Owner explicitly authorizes the VM-656 core retired product purge and requires Owner Review stop; VM-654 merged evidence controls dependencies except for the explicit deferral of generated-context relocation and preservation of `faction-context.ts` in place.
+Decisions: Owner explicitly authorizes the VM-656 core retired product purge and requires Owner Review stop; VM-654 merged evidence controls dependencies except for the explicit deferral of generated-context relocation and preservation of `faction-context.ts` in place. Scope amendment: add the exact Maze shell path containing the retired hidden account user badge proven by current consumer tracing.
 Evidence: docs/audits/retired-code-recon/README.md
 
 ## Admission Scope
@@ -67,6 +67,7 @@ Evidence: docs/audits/retired-code-recon/README.md
 - `README.md`
 - `index.html`
 - `archscry/index.html`
+- `maze/index.html`
 - `assets/js/shared/shared.js`
 - `assets/js/shared/site-flags.js`
 - `assets/js/home/home.js`
