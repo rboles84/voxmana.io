@@ -56,7 +56,7 @@ RobQA: PENDING
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
-Decisions: Owner accepted the four-file material plan with authority-derived policy requirement state and pre-approved alternate-route constraints. Repository-required task, handoff, and generated records remain in scope.
+Decisions: Owner accepted the four-file material plan with authority-derived policy requirement state and pre-approved alternate-route constraints. Repository-required task, handoff, and generated records remain in scope. Scope amendment: preserve the blocked review of candidate 4741069e and admit a distinct corrected-candidate RobQA handoff.
 Evidence: docs/handoffs/2026-09-14-1933-codex-vm655-auth-boundary.md
 
 ## Admission Scope
@@ -68,5 +68,6 @@ Evidence: docs/handoffs/2026-09-14-1933-codex-vm655-auth-boundary.md
 - `docs/kanban/in-progress/VM-655-authentication-boundary.md`
 - `docs/handoffs/2026-09-14-1933-codex-vm655-auth-boundary.md`
 - `docs/handoffs/2026-09-14-1934-robqa-vm655-auth-boundary.md`
+- `docs/handoffs/2026-09-14-2002-robqa-vm655-correction.md`
 - `docs/kanban/board.md`
 - `docs/handoffs/HANDOFF_INDEX.md`
