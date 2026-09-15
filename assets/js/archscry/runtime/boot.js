@@ -19,7 +19,6 @@ import {
 
 import {
   APP_STATE,
-  SESSION,
 } from "./state.js?v=vm636";
 
 export function renderInitializationError(error) {
@@ -40,14 +39,11 @@ export function renderInitializationError(error) {
 /**
  * Restores the best available placement view after page load.
  *
- * @param {boolean} savedFromOAuth True when the current load just completed an OAuth save.
  */
-
-export function restoreInitialView(savedFromOAuth) {
-  const profileResult = SESSION.profile?.placementResult || null;
+export function restoreInitialView() {
   const cached = vm_getCachedPlacementResult();
   const handoff = readArchscryDossierHandoff();
-  const result = profileResult || cached || handoff?.placementResult || null;
+  const result = cached || handoff?.placementResult || null;
   const requestedView = requestedDossierViewKey();
   const viewKey = requestedView && APP_STATE.factions[requestedView] ? requestedView : result?.faction;
   captureMazeReturnUrl();
@@ -59,23 +55,9 @@ export function restoreInitialView(savedFromOAuth) {
     APP_STATE.dossierLayoutMode = "focus";
   }
 
-  if (savedFromOAuth && result) {
-    APP_STATE.activeResult = result;
-    APP_STATE.activeViewKey = viewKey;
-    APP_STATE.resultSource = "saved";
-    APP_STATE.returnSection = null;
-    renderResult(viewKey);
-    if (mazeReturnAnchor) {
-      scrollToAnchorOnce(mazeReturnAnchor);
-    }
-    return;
-  }
-
   if (result) {
     APP_STATE.activeResult = result;
     APP_STATE.activeViewKey = viewKey;
-    APP_STATE.resultSource = profileResult ? "saved" : "cached";
-    APP_STATE.returnSection = null;
     vm_cachePlacementResult(result);
     renderResult(viewKey);
     if (mazeReturnAnchor) {

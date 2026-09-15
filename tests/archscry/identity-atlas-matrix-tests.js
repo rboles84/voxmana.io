@@ -3,7 +3,6 @@ import fs from "node:fs";
 
 const layers = JSON.parse(fs.readFileSync("data/identity-layers.json", "utf8"));
 const factions = JSON.parse(fs.readFileSync("data/factions.json", "utf8")).factions;
-globalThis.VM_SESSION = { profile: {} };
 const frames = [];
 globalThis.window = { addEventListener() {}, location: { href: "http://localhost/archscry/?explore=blue", search: "?explore=blue", hash: "" }, history: { replaceState() {} }, requestAnimationFrame(fn) { frames.push(fn); } };
 const nodes = new Map();

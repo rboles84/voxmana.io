@@ -1,5 +1,7 @@
 # Supabase Frontend Security Review
 
+> Historical security review, superseded for current product architecture by the Owner-approved VM-656 retirement. The browser SDK/client, account/OAuth/profile persistence, account Deck Links, Community Deck Ledger, and executable `guild-recruiter` function described below are no longer active or dormant product paths. The reviewed SQL artifacts are preserved under `docs/archive/retired-supabase-runtime/`; no live Supabase cleanup or resource deletion was performed. The byte-identical generated comparison projection remains temporarily at `supabase/functions/guild-recruiter/faction-context.ts` for current producer/audit/validation consumers pending a separate deterministic relocation.
+
 This document records a code-only, non-mutating security review of Vox Mana's checked-in Supabase frontend surface and the archived `guild-recruiter` Edge Function.
 
 ## Summary

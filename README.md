@@ -49,7 +49,7 @@ The project uses curated source data and generated artifacts. Source-governed da
 
 The Maze uses Scryfall-compatible search concepts and exposes the generated query so users can learn the shape of a search. Mentions of Scryfall in this project describe search or data integration only; they do not imply endorsement, affiliation, or ownership of Scryfall data.
 
-Most public use can happen without signing in. Some flows use browser storage for reading state, return paths, or local Reading Finds. Optional sign-in and account-backed features have additional privacy and readiness boundaries; see [privacy](privacy/) and [terms](terms/).
+Public use requires no account or sign-in. Browser storage holds the latest completed same-device Archscry reading, route handoff context, local Reading Finds, selected caches, and reduced-motion preference; see [privacy](privacy/) and [terms](terms/).
 
 ## Current Status
 

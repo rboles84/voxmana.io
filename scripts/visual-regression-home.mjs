@@ -7,8 +7,6 @@ import pixelmatch from "pixelmatch";
 import { PNG } from "pngjs";
 import puppeteer from "puppeteer-core";
 
-import { stabilizeAndVerifyRadar } from "./visual-radar-assertions.mjs";
-
 const root = process.cwd();
 const host = "127.0.0.1";
 const browserCandidates = [
@@ -29,7 +27,6 @@ const baselineConsolePath = path.join(baselineDir, "console-baseline.json");
 const currentConsolePath = path.join(currentDir, "console-current.json");
 const threshold = 0.1;
 const maxMismatchedPixels = 300;
-const captureHeroIdentityId = "boros";
 const requiredBaselineArtifacts = ["console-baseline.json", "mobile.png", "tablet.png", "desktop.png"];
 const modeArg = process.argv.find(arg => arg.startsWith("--mode="));
 const mode = modeArg ? modeArg.slice("--mode=".length) : "compare";
@@ -167,126 +164,6 @@ function isIgnorableConsoleError(entry) {
   );
 }
 
-async function verifyCanvasPresent(page, selector, label) {
-  await page.waitForSelector(selector);
-  const present = await page.evaluate(targetSelector => {
-    const canvas = document.querySelector(targetSelector);
-    return (
-      canvas instanceof HTMLCanvasElement &&
-      canvas.width > 0 &&
-      canvas.height > 0 &&
-      canvas.getBoundingClientRect().width > 0 &&
-      canvas.getBoundingClientRect().height > 0
-    );
-  }, selector);
-
-  if (!present) {
-    throw new Error(`${label} was not present and sized before capture.`);
-  }
-}
-
-async function verifyHeroManaCaptureState(page) {
-  const state = await page.evaluate(() => ({
-    datasetText: document.getElementById("heroManaDatasetPills")?.textContent ?? "",
-    title: document.getElementById("heroManaTitle")?.textContent ?? "",
-    signalState: document.getElementById("heroManaSignalState")?.textContent ?? "",
-    intervalCalls: window.__vmIntervalCallCount ?? 0,
-  }));
-
-  for (const expectedText of ["White", "Red", "Boros"]) {
-    if (!state.datasetText.includes(expectedText)) {
-      throw new Error(`Forced Boros hero capture did not render ${expectedText} in the overlay pills.`);
-    }
-  }
-
-  if (!state.title.includes("Boros")) {
-    throw new Error("Forced Boros hero capture did not resolve the registry alias to Boros.");
-  }
-
-  if (state.signalState !== "Still") {
-    throw new Error(`Reduced-motion hero capture should report Still, found "${state.signalState}".`);
-  }
-
-  if (state.intervalCalls !== 0) {
-    throw new Error("Reduced-motion hero capture should not start the Mana Lens interval.");
-  }
-}
-
-async function verifyHeroManaCycleInteraction(browser, url) {
-  const page = await browser.newPage();
-
-  try {
-    await page.setViewport({
-      width: 1024,
-      height: 1000,
-      deviceScaleFactor: 1,
-    });
-    await page.emulateMediaFeatures([{ name: "prefers-reduced-motion", value: "no-preference" }]);
-    await page.evaluateOnNewDocument(identityId => {
-      const originalSetInterval = window.setInterval.bind(window);
-
-      window.setInterval = (handler, timeout, ...args) => {
-        const tunedTimeout = timeout === 9000 ? 60 : timeout;
-        return originalSetInterval(handler, tunedTimeout, ...args);
-      };
-
-      Object.defineProperty(window, "__vmVisualRegressionHeroIdentityId", {
-        configurable: true,
-        enumerable: false,
-        value: identityId,
-        writable: false,
-      });
-
-      try {
-        localStorage.removeItem("vm_reduce_motion");
-      } catch {
-        // Ignore storage access failures.
-      }
-    }, "W");
-
-    await page.goto(url, { waitUntil: "domcontentloaded" });
-    await page.waitForFunction(() => document.readyState === "complete");
-    await page.waitForSelector("#heroManaTitle");
-    await page.waitForFunction(() => document.getElementById("heroManaTitle")?.textContent?.includes("White"));
-
-    const initialTitle = await page.$eval("#heroManaTitle", node => node.textContent);
-    await page.waitForFunction(
-      title => document.getElementById("heroManaTitle")?.textContent !== title,
-      { timeout: 1000 },
-      initialTitle
-    );
-
-    await page.evaluate(() => {
-      const panel = document.querySelector(".vm-hero-mana");
-      if (!panel) return;
-      panel.dispatchEvent(new PointerEvent("pointerenter"));
-      panel.dispatchEvent(new MouseEvent("mouseenter"));
-    });
-
-    const pausedTitle = await page.$eval("#heroManaTitle", node => node.textContent);
-    await delay(180);
-    const titleAfterPause = await page.$eval("#heroManaTitle", node => node.textContent);
-    if (titleAfterPause !== pausedTitle) {
-      throw new Error("Home Mana Lens changed identities while reader hover pause was active.");
-    }
-
-    await page.evaluate(() => {
-      const panel = document.querySelector(".vm-hero-mana");
-      if (!panel) return;
-      panel.dispatchEvent(new PointerEvent("pointerleave"));
-      panel.dispatchEvent(new MouseEvent("mouseleave"));
-    });
-
-    await page.waitForFunction(
-      title => document.getElementById("heroManaTitle")?.textContent !== title,
-      { timeout: 1000 },
-      pausedTitle
-    );
-  } finally {
-    await page.close();
-  }
-}
-
 async function verifyBaselineArtifacts() {
   const missingArtifacts = [];
 
@@ -338,9 +215,9 @@ async function capturePage(browser, url, viewport, screenshotDir) {
     deviceScaleFactor: 1,
   });
   await page.emulateMediaFeatures([{ name: "prefers-reduced-motion", value: "reduce" }]);
-  await page.evaluateOnNewDocument(seed => {
+  await page.evaluateOnNewDocument(randomSeed => {
     const seededRandom = (() => {
-      let state = seed.randomSeed >>> 0;
+      let state = randomSeed >>> 0;
       return () => {
         state = (1664525 * state + 1013904223) >>> 0;
         return state / 0x100000000;
@@ -355,31 +232,13 @@ async function capturePage(browser, url, viewport, screenshotDir) {
       value: originalRandom,
       writable: false,
     });
-    Object.defineProperty(window, "__vmVisualRegressionHeroIdentityId", {
-      configurable: true,
-      enumerable: false,
-      value: seed.identityId,
-      writable: false,
-    });
-    Object.defineProperty(window, "__vmIntervalCallCount", {
-      configurable: true,
-      enumerable: false,
-      value: 0,
-      writable: true,
-    });
-
-    const originalSetInterval = window.setInterval.bind(window);
-    window.setInterval = (handler, timeout, ...args) => {
-      window.__vmIntervalCallCount += 1;
-      return originalSetInterval(handler, timeout, ...args);
-    };
 
     try {
       localStorage.setItem("vm_reduce_motion", "true");
     } catch {
       // Ignore storage access failures.
     }
-  }, { randomSeed: 121, identityId: captureHeroIdentityId });
+  }, 121);
 
   await page.goto(url, { waitUntil: "domcontentloaded" });
   await page.waitForFunction(() => document.readyState === "complete");
@@ -387,30 +246,21 @@ async function capturePage(browser, url, viewport, screenshotDir) {
   await page.evaluate(async () => {
     await document.fonts.ready;
   });
-  await page.waitForSelector("#vmHeroManaChart");
-  await page.waitForFunction(() => {
-    const heroCanvas = document.getElementById("vmHeroManaChart");
-    const datasetPills = document.getElementById("heroManaDatasetPills");
-    return Boolean(
-      heroCanvas &&
-      heroCanvas.clientWidth > 0 &&
-      heroCanvas.clientHeight > 0 &&
-      datasetPills &&
-      datasetPills.textContent &&
-      datasetPills.textContent.trim().length > 0
-    );
-  });
-  await page.waitForFunction(() => Boolean(
-    window.Chart &&
-    document.getElementById("heroManaTitle")?.textContent?.includes("Boros")
-  ));
-  await verifyCanvasPresent(page, ".vm-bg__stars", "Background star canvas");
-  await verifyHeroManaCaptureState(page);
-  await stabilizeAndVerifyRadar(page, {
-    selector: "#vmHeroManaChart",
-    label: `Home ${viewport.name} hero radar`,
-    pointStyle: "home",
-  });
+  await page.waitForSelector(".vm-stars");
+  await page.waitForSelector(".vm-orbs");
+  const atmosphere = await page.evaluate(() => ({
+    stars: document.querySelectorAll(".vm-star").length,
+    orbs: document.querySelectorAll(".vm-orb").length,
+    pointerX: document.body.style.getPropertyValue("--mx"),
+    pointerY: document.body.style.getPropertyValue("--my"),
+    retiredLens: Boolean(document.querySelector("#vmHeroManaChart, #heroManaTitle")),
+  }));
+  if (!atmosphere.stars || !atmosphere.orbs || !atmosphere.pointerX || !atmosphere.pointerY) {
+    throw new Error(`Home ${viewport.name} atmosphere did not initialize before capture.`);
+  }
+  if (atmosphere.retiredLens) {
+    throw new Error(`Home ${viewport.name} still contains retired Mana Lens markup.`);
+  }
   await page.addStyleTag({
     content: `
       .vm-bg__stars {
@@ -525,8 +375,6 @@ try {
     allConsoleErrors.push(...capture.consoleErrors.map(error => ({ viewport: viewport.name, ...error })));
     allPageErrors.push(...capture.pageErrors.map(error => ({ viewport: viewport.name, ...error })));
   }
-
-  await verifyHeroManaCycleInteraction(browser, url);
 
   const normalizedConsoleErrors = normalizeErrors(allConsoleErrors.filter(error => !isIgnorableConsoleError(error)));
   const normalizedPageErrors = normalizeErrors(allPageErrors);

@@ -19,10 +19,7 @@ import {
 } from "./card-media.js?v=vm636";
 
 import {
-  handleArchiveDeckLink,
-  handleSaveDeckLink,
   initializeDossierMobileTabs,
-  refreshAccountDeckLinks,
   scrollDossierTabs,
   setDossierLayoutMode,
   setDossierPanel,
@@ -37,16 +34,8 @@ import {
 } from "./dossier-view.js?v=vm636";
 
 import {
-  openInterviewDossier,
-  returnToInterviewSource,
-  startInterviewFlow,
-  submitInterview,
-} from "./interview.js?v=vm636";
-
-import {
   forgetSavedReading,
   handleRetake,
-  handleSignOut,
   showSection,
 } from "./navigation.js?v=vm636";
 
@@ -100,14 +89,8 @@ export async function handleArchscryActionClick(event) {
     case "retake":
       await handleRetake();
       return;
-    case "sign-out":
-      await handleSignOut();
-      return;
     case "start-quick-flow":
       startQuickFlow();
-      return;
-    case "start-interview-flow":
-      await startInterviewFlow();
       return;
     case "resume-quick-flow":
       resumeIncompleteQuickReading();
@@ -130,12 +113,6 @@ export async function handleArchscryActionClick(event) {
     case "show-section":
       showSection(actionNode.dataset.section || "landing");
       return;
-    case "submit-interview":
-      await submitInterview();
-      return;
-    case "open-interview-dossier":
-      openInterviewDossier();
-      return;
     case "answer-quick-question":
       answerQuickQuestion(Number(actionNode.dataset.answerIndex));
       return;
@@ -148,20 +125,8 @@ export async function handleArchscryActionClick(event) {
     case "return-primary-reading":
       returnToPrimaryReading();
       return;
-    case "return-interview-source":
-      returnToInterviewSource();
-      return;
     case "forget-saved-reading":
       forgetSavedReading();
-      return;
-    case "save-deck-link":
-      await handleSaveDeckLink();
-      return;
-    case "archive-deck-link":
-      await handleArchiveDeckLink(actionNode);
-      return;
-    case "refresh-deck-links":
-      await refreshAccountDeckLinks();
       return;
     case "set-dossier-panel":
       setDossierPanel(actionNode.dataset.panelId || "");

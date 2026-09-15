@@ -6,7 +6,6 @@ const originalWindow = globalThis.window;
 const originalDocument = globalThis.document;
 const originalHistory = globalThis.history;
 const originalLocation = globalThis.location;
-const originalVmSession = globalThis.VM_SESSION;
 
 function setGlobal(name, value) {
   Object.defineProperty(globalThis, name, {
@@ -46,7 +45,6 @@ setGlobal("history", {
   pushState() {},
 });
 setGlobal("location", globalThis.window.location);
-setGlobal("VM_SESSION", { profile: null, username: "" });
 
 try {
   const { scryfallSearch, scryfallExact } = await import("../../assets/js/maze/research-search.js");
@@ -130,5 +128,4 @@ try {
   setGlobal("document", originalDocument);
   setGlobal("history", originalHistory);
   setGlobal("location", originalLocation);
-  setGlobal("VM_SESSION", originalVmSession);
 }

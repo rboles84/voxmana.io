@@ -10,6 +10,6 @@
   <rect class="out" x="675" y="125" width="190" height="54"/><text class="text" x="770" y="147" text-anchor="middle">schema</text><text class="small" x="770" y="164" text-anchor="middle">contract docs/tests</text>
   <rect class="out" x="675" y="205" width="190" height="54"/><text class="text" x="770" y="227" text-anchor="middle">faction context</text><text class="small" x="770" y="244" text-anchor="middle">edge prompt</text>
   <rect class="box" x="675" y="315" width="190" height="54"/><text class="text" x="770" y="337" text-anchor="middle">Archscry</text><text class="small" x="770" y="354" text-anchor="middle">dossier + scoring</text>
-  <rect class="box" x="430" y="315" width="190" height="54"/><text class="text" x="525" y="337" text-anchor="middle">Edge function</text><text class="small" x="525" y="354" text-anchor="middle">interview context</text>
+  <rect class="box" x="430" y="315" width="190" height="54"/><text class="text" x="525" y="337" text-anchor="middle">Audit + validation</text><text class="small" x="525" y="354" text-anchor="middle">comparison consumers</text>
   <path class="line" d="M265 102 L350 145"/><path class="line" d="M265 207 L350 170"/><path class="line" d="M570 145 L675 72"/><path class="line" d="M570 155 L675 152"/><path class="line" d="M570 170 L675 232"/><path class="line" d="M770 99 L770 315"/><path class="line" d="M770 259 L560 315"/>
 </svg>

@@ -53,57 +53,31 @@ Flow:
 
 1. Load `data/` JSON through module-resolved URLs derived from `import.meta.url`, so `factions`, `placement-model`, `identity-layers`, deck tags, and optional Scryfall discovery indexes all work under both hosted routes and direct `file://` use.
 2. Render starter profile chips.
-3. Resume Supabase/session state and pending OAuth saves.
-4. Show a saved/cached result or the landing state.
+3. Restore a valid device-local v1 reading, or conservatively migrate one valid legacy/profile result when v1 is absent.
+4. Show the restored result or the landing state.
 5. Quick path creates adaptive state, renders answer cards, applies selections, and finalizes.
-6. The Scrying Terminal remains behind a feature flag and is hidden by default.
-7. Result rendering switches between primary and adjacent fits, translates raw placement signals into a faction-native presenter layer, renders deck/source guidance, loads Scryfall card art, and exposes save actions.
-8. Maze links carry an Archscry handoff through query parameters and `localStorage` so Maze can show a return banner back to the originating dossier. Dossier paths are generated through the shared Maze handoff helper as four stable lanes: commander candidates, noncommander support, flavor/story echoes, and outside-color commander stretch. Each link includes a visible `plainReadingQuery`, executable `operatorQuery`, stable `pathType`, active `fit`, faction name, and return URL.
-9. External Commander directory links use a presenter-layer alias router: Strixhaven colleges map through their guild/color pair analogs before building EDHREC or MTGDecks directory URLs.
-
-## Scrying Terminal Backend
-
-Files: `assets/js/shared/shared.js`, `supabase/functions/guild-recruiter/index.ts`, `supabase/functions/guild-recruiter/faction-context.ts`.
-
-Frontend helpers in `shared.js` keep interview history and call the edge function only when the terminal feature flag is enabled. The edge function is retained for the archived terminal path: it sanitizes input, enforces simple in-memory rate limiting, builds a prompt from generated faction context, calls Anthropic, parses JSON, and normalizes a decision result before returning it.
-
-Important constraints:
-
-- `MAX_TURNS` is 5.
-- `MAX_HISTORY_ITEMS` is 8.
-- `MAX_MESSAGE_LENGTH` is 700.
-- `MAX_CALLS_PER_MINUTE` is 7.
-- The model must output JSON only.
-- Decisions must include a usable `faction` and `decree` before being normalized.
-- The edge function uses generated faction context instead of inventing lore at runtime.
-
-Failure handling:
-
-- Empty/too-long messages return `400`.
-- Non-POST returns `405`.
-- Rate-limit overflow returns `429`.
-- Invalid model output falls back to a safe recovery question.
-- Missing Anthropic key or service failures return a JSON error when the archived terminal path is active.
+6. Result rendering switches between primary and adjacent fits, translates raw placement signals into a faction-native presenter layer, renders deck/source guidance, and loads Scryfall card art.
+7. Maze links carry an Archscry handoff through query parameters and `localStorage` so Maze can show a return banner back to the originating dossier. Dossier paths are generated through the shared Maze handoff helper as four stable lanes: commander candidates, noncommander support, flavor/story echoes, and outside-color commander stretch. Each link includes a visible `plainReadingQuery`, executable `operatorQuery`, stable `pathType`, active `fit`, faction name, and return URL.
+8. External Commander directory links use a presenter-layer alias router: Strixhaven colleges map through their guild/color pair analogs before building EDHREC or MTGDecks directory URLs.
 
 ## Persistence And Resume
 
 File: `assets/js/shared/shared.js`.
 
-Persistence centers on a normalized placement result.
+Persistence centers on a normalized placement result stored only on the current device.
 
 Flow:
 
 1. `normalizePlacementResult` fills compatibility fields and clamps values.
-2. `vm_cachePlacementResult` stores guest/current results in `sessionStorage`.
-3. `vm_savePlacementResult` writes Supabase profile fields plus full `placement_result`.
-4. `vm_saveWithGoogle` stores a pending result and starts OAuth.
-5. `vm_checkPendingSave` completes save after redirect.
-6. `vm_resumeSession` loads Supabase auth/profile and syncs `VM_SESSION`.
-7. `vm_clearPlacement` clears saved placement fields while preserving auth.
+2. `vm_cachePlacementResult` writes the complete result to `localStorage` key `vm_archscry_saved_reading_v1` and verifies the durable round trip.
+3. `vm_getCachedPlacementResult` gives valid v1 data precedence. When v1 is absent, it may normalize and migrate one valuable result from exact legacy/profile/pending keys, deleting those exact old copies only after persistence verification.
+4. A failed durable write returns the recoverable normalized result without destroying its sole old copy.
+5. `vm_clearPlacement` removes only the saved-reading key and exact retired fallback keys, and strips personal placement data from the Maze handoff while preserving unrelated route context and Reading Finds.
 
 Legacy fallback:
 
-- `makeLegacyPlacementResult` can build a minimal result from old profile rows containing `guild` and `scores`.
+- Legacy/profile wrappers are accepted only as compatibility input to one-time local migration; they are not active account authorities.
+- `vm_pending_result` is never submitted remotely during migration.
 
 ## Scryfall Natural-Language Parser
 
@@ -207,7 +181,7 @@ It does not generate painterly WEBP backgrounds; those are tracked in the asset 
 
 File: `scripts/build/build-faction-artifacts.mjs`.
 
-This script reads `data/identity-layers.json` plus every raw faction folder, validates expected ids, normalizes placement/profile data, builds faction records, builds the adaptive model, writes the JSON schema, and emits the edge-function TypeScript context.
+This script reads `data/identity-layers.json` plus every raw faction folder, validates expected ids, normalizes placement/profile data, builds faction records, builds the adaptive model, writes the JSON schema, and emits the retained TypeScript comparison projection at `supabase/functions/guild-recruiter/faction-context.ts`. VM-656 removed the executable Edge Function; moving that current generated projection out of the historical namespace is a separate deterministic tooling task.
 
 Important transforms:
 

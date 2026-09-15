@@ -4,9 +4,9 @@
   <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#8fbfd0"/></marker><style>.bg{fill:#121315}.route{fill:#202225;stroke:#bfa46a;rx:7}.run{fill:#172a2e;stroke:#62b7c4;rx:7}.text{fill:#f1ead7;font:14px Arial}.small{fill:#c9c0aa;font:12px Arial}.line{stroke:#8fbfd0;stroke-width:1.5;marker-end:url(#arrow)}</style></defs>
   <rect class="bg" width="920" height="430"/>
   <rect class="route" x="45" y="45" width="145" height="52"/><text class="text" x="117" y="75" text-anchor="middle">/</text>
-  <rect class="run" x="245" y="45" width="190" height="52"/><text class="text" x="340" y="68" text-anchor="middle">home.js</text><text class="small" x="340" y="86" text-anchor="middle">identity signal</text>
+  <rect class="run" x="245" y="45" width="190" height="52"/><text class="text" x="340" y="68" text-anchor="middle">home.js</text><text class="small" x="340" y="86" text-anchor="middle">stars + orbs + pointer</text>
   <rect class="route" x="45" y="125" width="145" height="52"/><text class="text" x="117" y="155" text-anchor="middle">/archscry/</text>
-  <rect class="run" x="245" y="125" width="190" height="52"/><text class="text" x="340" y="148" text-anchor="middle">index.js</text><text class="small" x="340" y="166" text-anchor="middle">quick + interview</text>
+  <rect class="run" x="245" y="125" width="190" height="52"/><text class="text" x="340" y="148" text-anchor="middle">index.js</text><text class="small" x="340" y="166" text-anchor="middle">quick + Atlas + dossier</text>
   <rect class="route" x="45" y="205" width="145" height="52"/><text class="text" x="117" y="235" text-anchor="middle">/maze/</text>
   <rect class="run" x="245" y="205" width="190" height="52"/><text class="text" x="340" y="228" text-anchor="middle">research-init.js</text><text class="small" x="340" y="246" text-anchor="middle">Smart/raw/builder</text>
   <rect class="route" x="45" y="285" width="145" height="52"/><text class="text" x="117" y="315" text-anchor="middle">/apocrypha/</text>

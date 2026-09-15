@@ -6,8 +6,8 @@ flowchart TD
   Library["Apocrypha library<br/>apocrypha/index.html"]
   Shared["Shared runtime<br/>shared.js, topbar, motion, atmosphere"]
   Data["Generated data<br/>factions.json + placement-model.json"]
-  Supabase["Supabase<br/>auth, profiles, edge function"]
-  Anthropic["Anthropic Messages API"]
+  LocalReading["Device-local reading<br/>v1 + Maze handoff"]
+  Finds["Maze Reading Finds<br/>separate local state"]
   Scryfall["Scryfall API"]
   Tools["External local tools<br/>artifact build + command panel"]
 
@@ -19,9 +19,8 @@ flowchart TD
   Archscry --> Shared
   Maze --> Shared
   Archscry --> Data
-  Archscry --> Supabase
-  Supabase --> Anthropic
+  Archscry --> LocalReading
+  Maze --> Finds
   Maze --> Scryfall
   Archscry --> Scryfall
   Tools --> Data
-  Tools --> Supabase

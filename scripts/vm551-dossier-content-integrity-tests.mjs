@@ -22,7 +22,7 @@ const commanderIndex = (await readJson("../data/scryfall/indexes/commander-index
 const cardRationaleSource = await readJson("../data/dossier/card-rationale-relationships.source.json");
 const cardRationaleCatalog = await readJson("../data/dossier/card-rationale-catalog.json");
 const indexSource = await readArchscryRuntimeSource([
-  "data", "navigation", "questionnaire", "interview", "renderUtils", "dossierView",
+  "data", "navigation", "questionnaire", "renderUtils", "dossierView",
   "dossierControls", "content", "cardMedia", "actions", "boot", "entry",
 ]);
 const radarSource = await readFile(new URL("../assets/js/archscry/dossier-radar.js", import.meta.url), "utf8");
@@ -146,7 +146,6 @@ const independentOmens = buildReadingOmens({
 assert.equal(independentOmens.length, 2, "Why This Fit must count independent positive dependency groups, not duplicate or neutral evidence");
 assert.deepEqual(independentOmens.map((omen) => omen.dependencyGroup), ["DG_C08", "DG_C16"]);
 
-globalThis.VM_SESSION = { profile: null, username: "" };
 globalThis.window = {
   addEventListener() {},
   location: { href: "http://localhost/archscry/" },

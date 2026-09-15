@@ -2,7 +2,6 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { buildCommanderStarterCards } from "../assets/js/archscry/commander-dossier.js";
 
-globalThis.VM_SESSION ||= {};
 const { APP_STATE } = await import("../assets/js/archscry/runtime/state.js?v=vm636");
 const { buildArchscryAuthoredCardLookup } = await import("../assets/js/archscry/runtime/data.js?v=vm636");
 const {

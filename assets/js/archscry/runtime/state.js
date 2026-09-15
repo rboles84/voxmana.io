@@ -7,7 +7,7 @@ import {
   selectNextAdaptiveQuestion,
 } from "../gate-b1-placement-engine.js?v=vm636";
 
-export const SESSION = VM_SESSION;
+export const READING_STATE = globalThis.VM_READING_STATE || { currentResult: null };
 
 export const APP_STATE = {
   factions: {},
@@ -22,9 +22,6 @@ export const APP_STATE = {
   refinementOriginResult: null,
   activeResult: null,
   activeViewKey: null,
-  resultSource: "quick",
-  returnSection: null,
-  interviewState: "idle",
   starterProfile: { ...DEFAULT_STARTER_PROFILE },
   deckTagCatalog: null,
   identityLayers: null,
@@ -95,10 +92,8 @@ export function getStarterProfile() {
   };
 }
 
-// Result finalization plus archived terminal flow.
-
 /**
- * Finalizes the adaptive quick reading, stores the normalized result locally, and opens the dossier.
+ * Returns the next incomplete quick-reading question when the saved state is resumable.
  */
 
 export function getResumableQuickQuestion() {

@@ -5,8 +5,7 @@ Use these product-specific cases after invoking the repo-local [RobQA skill](../
 ## Setup
 
 1. Deploy the updated static files.
-2. If you are testing the optional terminal path, deploy the updated `guild-recruiter` edge function. Run the relevant Supabase SQL only when testing a feature that still requires it, such as the optional terminal or deferred account deck links.
-4. Confirm `data/factions.json` is present at the site root under `/data/factions.json`.
+2. Confirm `data/factions.json` is present at the site root under `/data/factions.json`.
 5. Confirm `data/placement-model.json` is present at the site root under `/data/placement-model.json`.
 6. Confirm `data/precons/vox-mana-precon-catalog.json` is present at the site root under `/data/precons/vox-mana-precon-catalog.json`.
 7. Confirm `data/taxonomy/vox-mana-precon-themes.json` is present at the site root under `/data/taxonomy/vox-mana-precon-themes.json`.
@@ -19,8 +18,8 @@ Use these product-specific cases after invoking the repo-local [RobQA skill](../
 3. After the extraction or route-local refactor, run `npm.cmd run test:visual:home`.
 4. Confirm the compare run writes current and diff artifacts under `artifacts/visual-regression/home/current/` and `artifacts/visual-regression/home/diff/`.
 5. Confirm each viewport stays within the mismatch budget and the run reports no new console or page errors beyond `console-baseline.json`.
-6. Confirm the Home identity signal initializes from `data/identity-layers.json`, shows all 37 v1 preview identities, and the forced `boros` visual hook resolves through the registry alias list.
-7. Confirm the Home Mana Lens reports `Still` under reduced motion, uses the tuned 9000ms cycle outside reduced motion, and still pauses on hover/focus before resuming.
+6. Confirm current Home stars/orbs initialize deterministically and no retired Mana Lens/Chart/radar hook is required for capture.
+7. Confirm reduced motion suppresses continuous atmosphere motion without removing the static scene.
 8. If the harness fails, review the generated diff PNGs before accepting any visual change.
 
 ## VM-415 cross-route readability polish
@@ -125,37 +124,25 @@ The source report left 72 of 111 rows untested. Those interactive rows remain ou
 20. Verify `rg "innerHTML" assets/js/vm-feedback.js assets/js/vm-topbar.js` does not reveal user-controlled rendering.
 21. Confirm Privacy copy matches the actual fields sent and names Web3Forms as the feedback processor.
 
-## VM-422 Private account deck links
+## Retired product absence contract
 
-1. Apply `docs/supabase-vm422-deck-links.sql` to the target Supabase project before live account QA.
-2. In `/archscry/`, restore or complete a placement and confirm the deck-link form no longer appears immediately after placement info.
-3. Confirm the Dossier Directory includes an `Account Deck Links` tab after `Commander Deck Starts` on desktop and mobile.
-4. Click `Account Deck Links` and confirm the panel title is `Save a Deck Link for this Reading`.
-5. While signed out, attempt to save a valid Moxfield or Archidekt URL and confirm the page asks the user to save/sign in first without reloading.
-6. While signed in, save a private deck link with URL, title, commander, note, and attached placement; confirm it appears in `Saved Links` with provider badge, placement metadata, note, and `Private` status.
-7. Refresh, sign out/in, restore the reading, and confirm the saved deck link is still attached to that reading.
-8. Remove the saved link and confirm archived/removed rows do not appear after refresh, sign-out/sign-in, or placement restore.
-9. Confirm User B cannot read, edit, remove, vote on, or infer User A's private deck link; signed-out users cannot read private links.
-10. Confirm browser inserts/updates cannot create `submitted`, `public`, or `rejected` rows; browser writes are private-only plus owner removal.
-11. Confirm saving is blocked when no completed/restored placement exists.
-12. Confirm saving the same normalized URL twice for the same reading does not create duplicate visible rows.
-13. Confirm no public ledger CTA, submit button, visibility selector, upvote UI, or Community Deck Ledger language appears on Archscry.
-14. Confirm `/apocrypha/` has no Community Deck Ledger rail entry, linked section, vote UI, or deck-ledger script loading.
-15. Confirm user-submitted title, commander, note, and URL text render as text-safe content and do not execute HTML.
-16. Confirm allowed providers match the VM-422 allowlist and lookalike domains, malformed URLs, `javascript:` URLs, credentialed URLs, and non-http(s) URLs are rejected.
-17. With existing owner/non-owner test users and a service-role key available in the shell, run `npm.cmd run test:deck-links:live` with `VM422_OWNER_EMAIL`, `VM422_OWNER_PASSWORD`, `VM422_OTHER_EMAIL`, `VM422_OTHER_PASSWORD`, and `SUPABASE_SERVICE_ROLE_KEY` set.
-18. Run `npm.cmd run test:deck-links`, `npm.cmd run lint:js`, `npm.cmd run lint:html`, `npm.cmd run test:frontend-smoke`, and `npm.cmd test`.
+1. Confirm current public routes contain no Supabase browser SDK include or client initialization.
+2. Confirm Archscry contains no Scrying Terminal markup, action, listener, interview import, or feature flag.
+3. Confirm current public topbars contain no account, OAuth, profile, avatar, save-to-account, or sign-out control.
+4. Confirm Archscry has no account Deck Links panel/actions and Apocrypha loads no Community Deck Ledger module.
+5. Confirm no browser path invokes `guild-recruiter` and its authored executable `index.ts` is absent.
+6. Run `npm.cmd run test:retired-runtime`; do not run live Supabase/RLS checks.
 
 ## VM-147A Home route manual QA
 
 1. Open `/` and `/index.html`; confirm both load the canonical Home route with no broken asset requests.
-2. Confirm `index.html` loads `assets/css/home.css` and `assets/js/home.js`, and that `home.js` lazy-loads `assets/js/graph.js` after initial page load.
+2. Confirm `index.html` loads `assets/css/home.css` and `assets/js/home/home.js` without Home Chart/radar or identity-registry requests.
 3. Confirm the shared topbar marks Home as active, opens and closes the utility menu, and keeps Archscry, Maze, Apocrypha, and Strategium links working.
 4. Confirm the hero copy, WUBRG glyph row, route cards, and footer/back-to-top behavior render correctly.
-5. Confirm the identity signal radar renders through Chart.js, initializes from `data/identity-layers.json`, and shows the expected overlay pills and held-signal details.
-6. Confirm normal animation still runs: star atmosphere moves, reveal sections become visible, and the Mana Lens cycles unless hovered, focused, hidden, or latched.
-7. Enable reduced motion and confirm the hero signal reports `Still`, reveal sections are visible without scroll animation, and glyph/canvas motion is materially reduced.
-8. Check mobile, tablet, and desktop widths for no horizontal overflow, clipped chart content, or topbar/menu overlap.
+5. Confirm the stars/orbs render, body pointer atmosphere variables update, reduced motion is respected, and back-to-top still works.
+6. Confirm normal star/orb animation still runs and pauses appropriately when the document is hidden.
+7. Enable reduced motion and confirm continuous atmosphere motion is suppressed while content stays visible.
+8. Check mobile, tablet, and desktop widths for no horizontal overflow or topbar/menu overlap.
 9. Confirm the initial load has no console errors beyond known environment-only font or favicon noise already filtered by the visual harness.
 10. If any stale-code candidate cannot be proven unused, leave it in place and record it as follow-up rather than removing it during VM-147A.
 
@@ -497,23 +484,6 @@ The source report left 72 of 111 rows untested. Those interactive rows remain ou
    - `PASS with triage notes`
    - `FAIL with follow-up cards`
 
-## Archived terminal path
-
-1. Confirm `SCRYING_TERMINAL_ENABLED` is set to `false`.
-2. Open the site in a fresh browser session.
-3. Confirm the landing page and Archscry result view do not show any terminal CTA.
-4. Confirm direct navigation or inline calls to the terminal route do not open a chat flow.
-
-## Optional terminal path
-
-1. Set `SCRYING_TERMINAL_ENABLED` to `true`.
-2. Return to the landing page.
-3. Start the Scrying Terminal path.
-4. Confirm the terminal opens with the recruiter prompt.
-5. Provide 3-5 answers.
-6. Confirm the terminal reaches a decision.
-7. Confirm `Open Full Dossier` shows the same style of result page used by the quick path.
-
 ## Device-Local Reading Return
 
 1. Complete a quick reading and confirm no Google sign-in or manual save action appears.
@@ -522,11 +492,15 @@ The source report left 72 of 111 rows untested. Those interactive rows remain ou
 4. Complete a new reading, refresh, and confirm it replaces the prior device-local reading.
 5. Click `Forget this reading`; confirm the landing state returns and a refresh does not restore a dossier.
 6. In a fresh private browser profile, confirm no reading is restored.
+7. Seed a valid v1 result plus conflicting retired profile/legacy/pending values; confirm v1 wins and is not overwritten.
+8. With v1 absent, seed one valid legacy/profile result; confirm it migrates to v1 without changing model/evidence semantics.
+9. Force the v1 write to fail; confirm the recoverable reading remains usable and its sole old copy is not deleted.
+10. After Forget, seed stale personal placement content in retired fallbacks and the Maze handoff; reload and confirm no saved reading is recreated while unrelated handoff context and Reading Finds remain.
 
 ## Returning user
 
-1. Close the browser tab after saving a result.
-2. Reopen the site while still signed in.
+1. Close the browser tab after completing a result.
+2. Reopen the site on the same browser/device.
 3. Confirm the saved result appears first instead of the landing page.
 4. Confirm the adjacent fits are still present.
 5. Switch into each adjacent fit and confirm the dossier updates cleanly.
@@ -566,16 +540,6 @@ The source report left 72 of 111 rows untested. Those interactive rows remain ou
 2. Complete a reading.
 3. Confirm the current dossier remains usable and no account or Google-save fallback appears.
 
-### Archived terminal response
-1. With `SCRYING_TERMINAL_ENABLED` set to `false`, confirm the terminal remains hidden.
-2. With the flag enabled, break the edge function or Anthropic configuration.
-3. Start the Scrying Terminal.
-4. Confirm the terminal shows a graceful error and does not crash the page.
-
-### Rate limiting
-1. With the terminal enabled, rapidly submit interview requests until the limit is hit.
-2. Confirm the endpoint returns a throttling message instead of continuing indefinitely.
-
 ## Mobile sanity pass
 
 1. Open the site on a narrow viewport.
@@ -588,7 +552,7 @@ The source report left 72 of 111 rows untested. Those interactive rows remain ou
 
 1. Open `/archscry/`.
 2. Confirm the route uses `background-vox-gateway-clean-09.webp` with the current Home `vm-bg` atmosphere stack, star canvas, and painted overlay treatment instead of the older chamber image.
-3. Confirm the landing hero, quick-reading card, interview shell, decree state, and dossier sections feel like one continuous Archscry surface system.
+3. Confirm the landing hero, quick-reading card, decree state, and dossier sections feel like one continuous Archscry surface system.
 4. Complete a quick reading and confirm the `Mana Alignment Matrix`, adjacent fits, and lower dossier sections still render inside the refreshed shell without changing their behavior.
 5. Restore a saved result and confirm the refreshed shell is still present without changing result behavior.
 
@@ -635,7 +599,7 @@ The source report left 72 of 111 rows untested. Those interactive rows remain ou
 1. Open `index.html`, `/archscry/`, and `/maze/` in a browser with the accessibility tree or inspector open.
 2. Confirm each page exposes one `banner`, one `main`, and one `contentinfo` / footer landmark.
 3. Confirm the major page sections are named from visible headings through `aria-labelledby`.
-4. On `/archscry/`, confirm the landing, quick reading, Scrying Terminal, and result regions are inside the main landmark and have meaningful names.
+4. On `/archscry/`, confirm the landing, quick reading, Atlas, and result regions are inside the main landmark and have meaningful names.
 5. On `/maze/`, open a card detail modal and confirm the page background targets have `inert` while the modal is open.
 6. While the Maze modal is open, confirm Tab stays inside the modal, `Escape` closes it, outside click closes it, and focus returns to the opener.
 7. Close the Maze modal and confirm the background targets no longer have `inert`.

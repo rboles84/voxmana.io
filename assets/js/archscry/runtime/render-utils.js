@@ -25,12 +25,8 @@ export const MANA_SYMBOL_NAMES = {
   C: "Colorless",
 };
 
-// Data loading and optional route dependency inventory.
-
 /**
- * Returns true when the Scrying Terminal should be shown and wired up.
- *
- * @returns {boolean} True when the terminal is enabled.
+ * Builds accessible mana-color pips for a dossier or identity surface.
  */
 
 export function buildManaPipsHtml(colors = [], className = "") {

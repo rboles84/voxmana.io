@@ -173,7 +173,6 @@ nonLoreholdCollegeKeys.forEach((key) => {
   assert.equal(flavorAnchors.length, 0, `expected ${key} four-color flavor anchors to remain absent until source-backed`);
 });
 
-globalThis.VM_SESSION = { profile: null, username: "" };
 globalThis.window = {
   addEventListener() {},
   location: { href: "http://localhost/archscry/" },

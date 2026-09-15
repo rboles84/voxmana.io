@@ -7,7 +7,6 @@ import { buildCommanderStartingLane } from "../../assets/js/archscry/dossier/rea
 import { buildPreconRecommendations, selectPreconPreviewRecommendations } from "../../assets/js/archscry/dossier/precons.js";
 import { renderPlayerCopy } from "../../assets/js/archscry/runtime/render-utils.js";
 
-globalThis.VM_SESSION = {};
 const { canonicalUsageCardId, dedupePreconRecommendationsByProduct } = await import("../../assets/js/archscry/runtime/content.js");
 const { buildPreconSectionHtml, preconRationaleForDisplay } = await import("../../assets/js/archscry/runtime/dossier-view.js");
 

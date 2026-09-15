@@ -33,7 +33,6 @@ import {
 
 import {
   APP_STATE,
-  SESSION,
   getResumableQuickQuestion,
   getStarterProfile,
   placementQuestionById,
@@ -94,7 +93,6 @@ export function restoreRefinementOriginReading() {
   APP_STATE.quickTransition = null;
   APP_STATE.refinementMode = false;
   APP_STATE.refinementOriginResult = null;
-  SESSION.interviewResult = APP_STATE.activeResult;
   vm_cachePlacementResult(APP_STATE.activeResult);
   renderResult(APP_STATE.activeViewKey);
 }
@@ -127,10 +125,6 @@ export function revisitRefinementAnswer() {
   showSection("quick");
   renderQuickQuestion();
 }
-
-/**
- * Starts the deep interview flow using the current starter-profile preferences.
- */
 
 export function goBackQuickQuestion() {
   if (APP_STATE.refinementMode) {
@@ -351,9 +345,6 @@ export function finalizeQuickReading() {
 
   APP_STATE.activeResult = result;
   APP_STATE.activeViewKey = result.faction;
-  APP_STATE.resultSource = "quick";
-  APP_STATE.returnSection = null;
-  SESSION.interviewResult = result;
   vm_cachePlacementResult(result);
   trackVoxReadingCompleted({
     result,
@@ -361,13 +352,6 @@ export function finalizeQuickReading() {
   });
   renderResult();
 }
-
-/**
- * Updates the interview controls to reflect the current terminal state.
- *
- * @param {"idle"|"loading"|"interviewing"|"decided"} state Interview UI state.
- * @param {number=} turn Current turn number when known.
- */
 
 export function resumeIncompleteQuickReading() {
   const question = getResumableQuickQuestion();

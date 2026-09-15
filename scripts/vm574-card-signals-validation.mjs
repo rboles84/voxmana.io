@@ -10,7 +10,6 @@ import {
 } from "../assets/js/archscry/commander-dossier.js";
 import { normalizeArchscryMediaKey } from "./archscry-media-projection-core.mjs";
 
-globalThis.VM_SESSION = globalThis.VM_SESSION || {};
 const {
   addUsageCards,
   canonicalUsageCardId,

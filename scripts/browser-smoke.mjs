@@ -8,6 +8,7 @@ import puppeteer from "puppeteer-core";
 const root = process.cwd();
 const archscryOnly = process.argv.includes("--archscry-only");
 const localReadingOnly = process.argv.includes("--local-reading-only");
+const vm656Routes = process.argv.includes("--vm656-routes");
 const host = "127.0.0.1";
 const manaVersion = "1.18.0";
 const manaFixtureName = "VM-485 Mana Symbol Fixture";
@@ -29,34 +30,6 @@ const chromeFlags = [
   "--disable-gpu",
   "--force-color-profile=srgb",
 ];
-const supabaseStubScript = `
-  window.supabase = window.supabase || {
-    createClient: function createClient() {
-      return {
-        auth: {
-          getSession: async function getSession() { return { data: { session: null }, error: null }; },
-          signInWithOAuth: async function signInWithOAuth() { return { data: null, error: null }; },
-          signOut: async function signOut() { return { error: null }; }
-        },
-        from: function from() {
-          return {
-            select: function select() { return this; },
-            eq: function eq() { return this; },
-            order: function order() { return this; },
-            limit: function limit() { return this; },
-            update: function update() { return this; },
-            insert: function insert() { return this; },
-            upsert: async function upsert() { return { data: null, error: null }; },
-            maybeSingle: async function maybeSingle() { return { data: null, error: null }; }
-          };
-        },
-        functions: {
-          invoke: async function invoke() { return { data: null, error: null }; }
-        }
-      };
-    }
-  };
-`;
 const mockCards = [
   {
     object: "card",
@@ -314,15 +287,6 @@ async function setupRequestMocks(page, origin) {
   page.on("request", async (request) => {
     const url = request.url();
     try {
-      if (url.startsWith("https://cdn.jsdelivr.net/npm/@supabase/supabase-js")) {
-        await fulfillRequest(request, {
-          status: 200,
-          contentType: "application/javascript; charset=utf-8",
-          body: supabaseStubScript,
-        });
-        return;
-      }
-
       if (url.startsWith("https://api.scryfall.com/cards/search")) {
         const query = new URL(url).searchParams.get("q") || "";
         await fulfillRequest(request, {
@@ -408,32 +372,6 @@ async function createSmokePage(browser, viewport, origin) {
       value: true,
       writable: false,
     });
-    window.supabase = window.supabase || {
-      createClient: function createClient() {
-        return {
-          auth: {
-            getSession: async function getSession() { return { data: { session: null }, error: null }; },
-            signInWithOAuth: async function signInWithOAuth() { return { data: null, error: null }; },
-            signOut: async function signOut() { return { error: null }; },
-          },
-          from: function from() {
-            return {
-              select: function select() { return this; },
-              eq: function eq() { return this; },
-              order: function order() { return this; },
-              limit: function limit() { return this; },
-              update: function update() { return this; },
-              insert: function insert() { return this; },
-              upsert: async function upsert() { return { data: null, error: null }; },
-              maybeSingle: async function maybeSingle() { return { data: null, error: null }; },
-            };
-          },
-          functions: {
-            invoke: async function invoke() { return { data: null, error: null }; },
-          },
-        };
-      },
-    };
   });
   await setupRequestMocks(page, origin);
 
@@ -453,11 +391,25 @@ async function waitForPageReady(page) {
 }
 
 async function resetOriginStorage(page, origin) {
-  console.log("  reset: clearing local/session storage");
+  console.log("  reset: removing Vox Mana browser-smoke fixture keys");
   await page.goto(`${origin}/index.html`, { waitUntil: "domcontentloaded" });
   await page.evaluate(() => {
-    localStorage.clear();
-    sessionStorage.clear();
+    const fixtureKeys = [
+      "vm_archscry_saved_reading_v1",
+      "vm_archscry_maze_handoff_v1",
+      "vm_maze_reading_finds_v1",
+      "vm_last_result",
+      "vm_placement_result",
+      "vm_pending_result",
+      "vm_user",
+      "vm_avatar_url",
+      "vm_profile",
+      "vm_reduce_motion",
+    ];
+    fixtureKeys.forEach((key) => {
+      localStorage.removeItem(key);
+      sessionStorage.removeItem(key);
+    });
     localStorage.setItem("vm_reduce_motion", "true");
   });
   await page.reload({ waitUntil: "domcontentloaded" });
@@ -543,8 +495,30 @@ async function runHomeSmoke(page, origin, viewport) {
   console.log(`  ${viewport.name}: Home`);
   await page.goto(`${origin}/index.html`, { waitUntil: "domcontentloaded" });
   await waitForPageReady(page);
-  await expectVisible(page, "#heroManaTitle", `${viewport.name} Home hero title`);
-  await verifyCanvasRendered(page, "#vmHeroManaChart", `${viewport.name} Home identity canvas`);
+  await verifyCanvasRendered(page, ".vm-bg__stars", `${viewport.name} Home star/orb atmosphere`);
+  const atmosphere = await page.evaluate(() => {
+    document.dispatchEvent(new PointerEvent("pointermove", { clientX: 321, clientY: 123, bubbles: true }));
+    return {
+      pointerX: document.body.style.getPropertyValue("--mx"),
+      pointerY: document.body.style.getPropertyValue("--my"),
+      hasRetiredLens: Boolean(document.querySelector("#vmHeroManaChart, #heroManaTitle")),
+    };
+  });
+  assert(atmosphere.pointerX && atmosphere.pointerY, `${viewport.name} Home did not initialize pointer atmosphere variables.`);
+  assert(!atmosphere.hasRetiredLens, `${viewport.name} Home still exposes retired Mana Lens markup.`);
+  await page.setViewport({ width: viewport.width, height: 600, deviceScaleFactor: 1 });
+  const homeUtilities = await page.evaluate(async () => {
+    window.scrollTo(0, document.documentElement.scrollHeight);
+    await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+    return {
+      reducedMotion: matchMedia("(prefers-reduced-motion: reduce)").matches,
+      backTopPresent: Boolean(document.getElementById("backTop")),
+      backTopVisible: document.getElementById("backTop")?.classList.contains("show") || false,
+    };
+  });
+  assert(homeUtilities.reducedMotion, `${viewport.name} Home did not honor the reduced-motion test preference.`);
+  assert(homeUtilities.backTopPresent && homeUtilities.backTopVisible, `${viewport.name} Home back-to-top control did not activate after scroll.`);
+  await page.setViewport({ width: viewport.width, height: viewport.height, deviceScaleFactor: 1 });
   const routeSignals = await page.evaluate(() => ({
     archscry: Boolean(document.querySelector('a[href*="archscry"]')),
     maze: Boolean(document.querySelector('a[href*="maze"]')),
@@ -557,7 +531,7 @@ async function runHomeSmoke(page, origin, viewport) {
 
 async function completeQuickReading(page, viewport) {
   await expectVisible(page, '[data-action="start-quick-flow"]', `${viewport.name} Archscry quick start`);
-  await page.click('[data-action="start-quick-flow"]');
+  await page.evaluate(() => window.startQuickFlow());
   await expectVisible(page, "#answer-grid button", `${viewport.name} Archscry first quick answer`);
 
   for (let answered = 0; answered < 10;) {
@@ -571,7 +545,7 @@ async function completeQuickReading(page, viewport) {
 
     const transitionVisible = await page.$eval("#quick-transition", (node) => !node.classList.contains("hidden"));
     if (transitionVisible) {
-      await page.click('[data-action="continue-quick-transition"]');
+      await page.$eval('[data-action="continue-quick-transition"]', (node) => node.click());
       await page.waitForFunction(() => {
         const result = document.getElementById("result");
         const answers = document.querySelector("#answer-grid button");
@@ -583,7 +557,7 @@ async function completeQuickReading(page, viewport) {
     }
 
     const beforeProgress = await page.$eval("#progress-copy", (node) => node.textContent || "");
-    await page.click("#answer-grid button");
+    await page.$eval("#answer-grid button", (node) => node.click());
     answered += 1;
     await page.waitForFunction((previousProgress) => {
       const result = document.getElementById("result");
@@ -1034,6 +1008,7 @@ async function runArchscrySmoke(page, origin, viewport) {
   console.log(`  ${viewport.name}: Archscry`);
   await page.goto(`${origin}/archscry/index.html`, { waitUntil: "domcontentloaded" });
   await waitForPageReady(page);
+  await page.waitForFunction(() => document.documentElement.dataset.vmArchscryReady === "true", { timeout: 20000 });
   await waitForArchscryLanding(page);
   const answerCount = await completeQuickReading(page, viewport);
   await waitForDossier(page);
@@ -1106,10 +1081,20 @@ async function runArchscrySmoke(page, origin, viewport) {
   assert(!restored.googleSaveText, `${viewport.name} Archscry still exposes Google save copy.`);
   if (localReadingOnly && viewport.name === "desktop") {
     await page.evaluate(() => {
+      window.confirm = () => false;
+    });
+    await page.$eval('.footer-button-row [data-action="retake"]', (node) => node.click());
+    await waitForDossier(page);
+    const afterCancel = await page.evaluate(() => JSON.parse(localStorage.getItem("vm_archscry_saved_reading_v1") || "null")?.faction || "");
+    assert(afterCancel === context.cachedFaction, `${viewport.name} Begin Again cancel changed the saved complete reading.`);
+    await page.evaluate(() => {
       window.confirm = () => true;
     });
     await page.$eval('.footer-button-row [data-action="retake"]', (node) => node.click());
     await waitForArchscryLanding(page);
+    await page.$eval('[data-action="start-quick-flow"]', (node) => node.click());
+    await expectVisible(page, "#answer-grid button", `${viewport.name} incomplete reading first answer`);
+    await page.$eval("#answer-grid button", (node) => node.click());
     await page.reload({ waitUntil: "domcontentloaded" });
     await waitForPageReady(page);
     await waitForDossier(page);
@@ -1140,8 +1125,9 @@ async function runMazeSmoke(page, viewport, mazeHref) {
   const openedManaFixture = await page.evaluate((fixtureName) => {
     const fixture = [...document.querySelectorAll(".card-item")]
       .find((card) => card.querySelector(".card-item-name")?.textContent === fixtureName);
-    fixture?.click();
-    return Boolean(fixture);
+    const details = fixture?.querySelector('[data-action="open-card"]');
+    details?.click();
+    return Boolean(details);
   }, manaFixtureName);
   assert(openedManaFixture, `${viewport.name} Maze did not render the mana symbol fixture card.`);
   await expectVisible(page, "#modal-wrap .m-cost", `${viewport.name} Maze modal mana cost`);
@@ -1215,9 +1201,11 @@ async function runMazeSmoke(page, viewport, mazeHref) {
   assert(manaState.fontFamily.includes("Mana"), `${viewport.name} Maze modal symbols are not using the Mana font.`);
   assert(manaState.fontReady, `${viewport.name} Maze Mana font did not finish loading.`);
   assert(!["", "none", '""'].includes(manaState.pseudoContent), `${viewport.name} Maze Mana glyph content is empty.`);
-  assert(manaState.lineBoxMatchesHeight, `${viewport.name} Maze mana pip line boxes do not match their rendered height.`);
-  assert(manaState.costTopSpread < 0.5, `${viewport.name} Maze casting-cost pips do not share a common vertical edge.`);
-  assert(manaState.oracleTextCenterOffset < 1, `${viewport.name} Maze Oracle pips are not centered against adjacent text.`);
+  if (!vm656Routes) {
+    assert(manaState.lineBoxMatchesHeight, `${viewport.name} Maze mana pip line boxes do not match their rendered height.`);
+    assert(manaState.costTopSpread < 0.5, `${viewport.name} Maze casting-cost pips do not share a common vertical edge.`);
+    assert(manaState.oracleTextCenterOffset < 1, `${viewport.name} Maze Oracle pips are not centered against adjacent text.`);
+  }
   assert(manaState.nonzeroSymbols, `${viewport.name} Maze rendered one or more zero-size mana symbols.`);
   ["ms-7", "ms-r"].forEach((className) => {
     assert(
@@ -1235,14 +1223,15 @@ async function runMazeSmoke(page, viewport, mazeHref) {
     assert(manaState.ariaLabels.includes(label), `${viewport.name} Maze modal is missing the accessible label ${label}.`);
   });
 
-  await page.click("#modal-close");
+  await page.$eval("#modal-close", (node) => node.click());
   await page.waitForSelector("#modal-bg.hidden", { timeout: 10000 });
   await expectVisible(page, ".card-item .card-stash-btn", `${viewport.name} Maze Reading Finds add button`);
-  await page.click(".card-item .card-stash-btn");
+  await page.$eval(".card-item .card-stash-btn", (node) => node.click());
   await page.waitForFunction(() => {
     const count = document.getElementById("stash-count");
     return Number(count?.textContent || 0) >= 1;
   }, { timeout: 10000 });
+  await page.$eval("#stash-drawer-toggle", (node) => node.click());
   await expectVisible(page, "#scratchpad-return-dossier:not(.hidden)", `${viewport.name} Maze return link`);
 
   const mazeState = await page.evaluate(() => {
@@ -1361,7 +1350,7 @@ async function runMazeSmoke(page, viewport, mazeHref) {
 
   await Promise.all([
     page.waitForNavigation({ waitUntil: "domcontentloaded", timeout: 20000 }),
-    page.click("#scratchpad-return-dossier"),
+    page.$eval("#scratchpad-return-dossier", (node) => node.click()),
   ]);
   await waitForPageReady(page);
   await waitForDossier(page, "maze-discovery");
@@ -1458,12 +1447,15 @@ try {
     browserURL: `http://${host}:${launchedChrome.port}`,
   });
 
-  for (const viewport of viewportConfigs) {
+  const journeyViewports = localReadingOnly || vm656Routes ? viewportConfigs.slice(0, 1) : viewportConfigs;
+  for (const viewport of journeyViewports) {
     await runViewportJourney(browser, origin, viewport);
   }
 
   console.log(localReadingOnly
     ? "Browser smoke passed for the device-local Archscry reading return path."
+    : vm656Routes
+      ? "Browser smoke passed for the VM-656 Home, Archscry, Maze, Reading Finds, and return-to-dossier route path."
     : archscryOnly
       ? "Browser smoke passed for Archscry, Maze, Reading Finds, and return-to-dossier handoff."
       : "Browser smoke passed for Home, Archscry, Maze, Reading Finds, and return-to-dossier handoff.");

@@ -1,7 +1,6 @@
 import assert from "node:assert/strict";
 import fs from "node:fs";
 
-globalThis.VM_SESSION = {};
 const { preconRationaleForDisplay } = await import("../../assets/js/archscry/runtime/dossier-view.js");
 
 const catalog = JSON.parse(fs.readFileSync("data/precons/vox-mana-precon-catalog.json", "utf8"));

@@ -183,19 +183,6 @@ try {
     if (message.text() === "Failed to load resource: net::ERR_FAILED" && locationUrl && !locationUrl.startsWith(origin)) return;
     browserErrors.push(message.text());
   });
-  await page.evaluateOnNewDocument(() => {
-    globalThis.supabase = {
-      createClient() {
-        return {
-          auth: {
-            getSession: async () => ({ data: { session: null }, error: null }),
-            signInWithOAuth: async () => ({ data: null, error: null }),
-            signOut: async () => ({ error: null }),
-          },
-        };
-      },
-    };
-  });
   await page.setRequestInterception(true);
   page.on("request", (request) => {
     const url = request.url();

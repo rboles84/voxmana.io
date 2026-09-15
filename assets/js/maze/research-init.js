@@ -936,13 +936,6 @@ async function initializeResearchArchives() {
   await initializeParserDictionary();
   await initializeMazeDiscoveryProfiles();
 
-  const username = (typeof VM_SESSION !== "undefined") ? VM_SESSION.username : null;
-  const badge = document.getElementById("r-user-badge");
-  if (username && badge) {
-    badge.textContent = username;
-    badge.style.display = "";
-  }
-
   const urlParams = new URLSearchParams(location.search);
   initializeArchscryMazeHandoff(urlParams);
   buildQuickSearches();
@@ -3102,31 +3095,21 @@ function getStoredPlacementResult() {
   const activeHandoffResult = activePlacementResultFromArchscryHandoff(handoff);
   if (activeHandoffResult?.faction || activeHandoffResult?.mana_scores) return activeHandoffResult;
 
-  const sessionResult = (typeof VM_SESSION !== "undefined" && VM_SESSION.profile?.placementResult) ||
-    (typeof VM_SESSION !== "undefined" && VM_SESSION.interviewResult) ||
-    null;
-  if (sessionResult?.faction || sessionResult?.mana_scores) return sessionResult;
+  const currentResult = typeof VM_READING_STATE !== "undefined"
+    ? VM_READING_STATE.currentResult
+    : null;
+  if (currentResult?.faction || currentResult?.mana_scores) return currentResult;
 
   if (typeof vm_getCachedPlacementResult === "function") {
     const cached = vm_getCachedPlacementResult();
     if (cached?.faction || cached?.mana_scores) return cached;
   }
 
-  try {
-    if (handoff?.placementResult?.faction || handoff?.placementResult?.mana_scores) {
-      return handoff.placementResult;
-    }
-
-    const raw = localStorage.getItem("vm_last_result") || localStorage.getItem("vm_placement_result");
-    const parsed = raw ? JSON.parse(raw) : null;
-    return parsed?.placement_result || parsed;
-  } catch (_) {
-    return null;
-  }
+  return null;
 }
 
 function activePlacementResultFromArchscryHandoff(handoff) {
-  if (!handoff || typeof handoff !== "object") return null;
+  if (!handoff || typeof handoff !== "object" || handoff.savedReadingForgotten === true) return null;
   const colorlessActiveSignal = [
     handoff.fit,
     handoff.faction,

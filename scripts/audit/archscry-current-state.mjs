@@ -469,19 +469,6 @@ async function collectDossiers(identities) {
     const page = await browser.newPage();
     await page.setViewport({ width: 1440, height: 1000, deviceScaleFactor: 1 });
     await page.setCacheEnabled(true);
-    await page.evaluateOnNewDocument(() => {
-      globalThis.supabase = {
-        createClient() {
-          return {
-            auth: {
-              getSession: async () => ({ data: { session: null }, error: null }),
-              signInWithOAuth: async () => ({ data: null, error: null }),
-              signOut: async () => ({ error: null }),
-            },
-          };
-        },
-      };
-    });
     const runtimeMessages = [];
     const networkFailures = [];
     page.on("console", (message) => {
@@ -493,7 +480,7 @@ async function collectDossiers(identities) {
     page.on("request", (request) => {
       const url = request.url();
       if (url.startsWith(localBase)) return request.continue();
-      if (/posthog|supabase/i.test(url)) return request.abort();
+      if (/posthog/i.test(url)) return request.abort();
       if (url.startsWith("https://cards.scryfall.io/")) return request.continue();
       if (request.resourceType() === "image") return request.respond({ status: 200, contentType: "image/png", body: TRANSPARENT_PNG });
       return request.abort();
@@ -932,7 +919,7 @@ async function main() {
     },
     artifacts: artifactHashes(primaryArtifacts),
     large_local_artifact_policy: "Screenshots, per-identity raw HTML records, and detailed traces are generated under the task output root's ignored evidence/ subtree and are hashed; they are not automatically added to Git.",
-    telemetry_isolation: "Dossier Review used explicit mock mode; PostHog/Supabase requests were aborted; every dossier record reports zero emitted telemetry events.",
+    telemetry_isolation: "Dossier Review used explicit mock mode; PostHog requests were aborted; every dossier record reports zero emitted telemetry events.",
     environment_network_limitations: [
       "External Scryfall image delivery was allowed but bounded; any unavailable image is classified separately as an environment/network note rather than rewritten product truth.",
     ],

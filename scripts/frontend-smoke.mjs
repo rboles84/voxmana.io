@@ -63,14 +63,12 @@ const legacyHomeSource = await readFile(path.resolve(root, "index_old.html"), "u
 const guideSource = await readFile(path.resolve(root, "guide/index.html"), "utf8");
 const guideRuntimeSource = await readFile(path.resolve(root, "assets/js/guide/guide.js"), "utf8");
 const homeRuntimeSource = await readFile(path.resolve(root, "assets/js/home/home.js"), "utf8");
-const identityLayerSource = await readFile(path.resolve(root, "data/identity-layers.json"), "utf8");
-const identityLayerData = JSON.parse(identityLayerSource);
 const archscrySource = await readFile(path.resolve(root, "archscry/index.html"), "utf8");
 const archscryCssSource = await readFile(path.resolve(root, "assets/css/archscry.css"), "utf8");
 const archscryDataRuntimePath = path.resolve(root, "assets/js/archscry/runtime/data.js");
 const archscryDataRuntimeSource = await readFile(archscryDataRuntimePath, "utf8");
 const archscryRuntimeSource = await readArchscryRuntimeSource([
-  "data", "navigation", "questionnaire", "interview", "renderUtils", "dossierView",
+  "data", "navigation", "questionnaire", "renderUtils", "dossierView",
   "dossierControls", "content", "cardMedia", "actions", "boot", "entry",
 ]);
 const archscryDataBaseMatch = archscryDataRuntimeSource.match(
@@ -115,10 +113,6 @@ const currentStateHomeNamingFiles = [
   "docs/diagrams/project-architecture.svg",
   "docs/kanban/done/VM-154-home-hero-horizontal-overflow-containment.md",
 ];
-const previewEntries = Object.entries(identityLayerData.expressions ?? {})
-  .filter(([, expression]) => expression?.preview_eligible === true)
-  .sort((left, right) => Number(left[1].preview_order) - Number(right[1].preview_order));
-
 if (!mazeSource.includes('id="modal-wrap" role="dialog"')) {
   failures.push("Maze modal smoke check failed: dialog wrapper semantics are missing");
 }
@@ -153,52 +147,26 @@ for (const forbiddenHeroPickerHook of ["heroManaIdentitySelect", "heroManaPicker
     failures.push(`Home Mana Lens smoke check failed: stale picker hook ${forbiddenHeroPickerHook} is still present`);
   }
 }
-if (!homeRuntimeSource.includes("const heroManaCycleMs = 9000")) {
-  failures.push("Home Mana Lens smoke check failed: tuned 9000ms cycle constant is missing");
+if (/heroMana|VMRadar|Chart/.test(homeRuntimeSource)) {
+  failures.push("Home retired-runtime smoke check failed: Mana Lens or Home radar/Chart work remains");
 }
 if (
-  !homeRuntimeSource.includes("Promise.all([registryRequest, loadHeroManaChartRuntime()])") ||
-  !homeRuntimeSource.includes(".then(initHeroManaPreview)")
+  !homeRuntimeSource.includes("function initArchscryAtmosphere()") ||
+  !homeRuntimeSource.includes("document.body.style.setProperty('--mx'") ||
+  !homeRuntimeSource.includes("document.body.style.setProperty('--my'") ||
+  !homeRuntimeSource.includes("document.addEventListener('visibilitychange'") ||
+  !homeRuntimeSource.includes("window.matchMedia('(prefers-reduced-motion: reduce)')")
 ) {
-  failures.push("Home Mana Lens smoke check failed: preview initialization is not gated by registry and chart readiness");
+  failures.push("Home atmosphere smoke check failed: stars, pointer variables, visibility, or reduced-motion behavior is missing");
 }
-if (homeSource.includes('src="assets/js/vendor/chart.umd.js"')) {
-  failures.push("Home performance smoke check failed: Chart.js still blocks initial HTML parsing");
+if (homeSource.includes('src="./assets/js/shared/vm-radar.js"')) {
+  failures.push("Home retired-runtime smoke check failed: Home still loads the radar dependency");
 }
-if (!homeRuntimeSource.includes('window.requestIdleCallback(initialize, { timeout: 2000 })')) {
-  failures.push("Home performance smoke check failed: lazy chart initialization is not scheduled after initial load");
-}
-if (!homeRuntimeSource.includes("expression?.preview_eligible === true")) {
-  failures.push("Home Mana Lens smoke check failed: registry filtering does not use preview_eligible");
-}
-if (!homeRuntimeSource.includes("left.previewOrder - right.previewOrder")) {
-  failures.push("Home Mana Lens smoke check failed: registry identities are not sorted by preview_order");
-}
-if (!homeRuntimeSource.includes("window.setInterval(advanceHeroManaCycle, heroManaCycleMs)")) {
-  failures.push("Home Mana Lens smoke check failed: cycle interval does not use the tuned constant");
-}
-if (!homeRuntimeSource.includes('window.matchMedia("(prefers-reduced-motion: reduce)")')) {
-  failures.push("Home Mana Lens smoke check failed: reduced-motion guard is missing");
-}
-if (!homeRuntimeSource.includes('document.addEventListener("visibilitychange"')) {
-  failures.push("Home Mana Lens smoke check failed: hidden-tab pause/resume listener is missing");
-}
-if (!homeRuntimeSource.includes('addEventListener("pointerenter"') || !homeRuntimeSource.includes('addEventListener("focusin"')) {
-  failures.push("Home Mana Lens smoke check failed: reader hover/focus pause listeners are missing");
-}
-if (previewEntries.length !== 37) {
-  failures.push(`Home Mana Lens smoke check failed: expected 37 preview-eligible identities, found ${previewEntries.length}`);
-}
-previewEntries.forEach(([key, expression], index) => {
-  if (Number(expression.preview_order) !== index) {
-    failures.push(`Home Mana Lens smoke check failed: preview_order for ${key} should be ${index}`);
-  }
-});
 if (!archscrySource.includes('data-action="start-quick-flow"')) {
   failures.push("Archscry smoke check failed: quick-flow action hook is missing");
 }
-if (!archscrySource.includes('data-action="submit-interview"')) {
-  failures.push("Archscry smoke check failed: interview submit action hook is missing");
+if (/Scrying Terminal|data-vm-terminal-only|start-interview-flow|submit-interview/.test(archscrySource + archscryRuntimeSource)) {
+  failures.push("Archscry retired-runtime smoke check failed: Terminal markup or actions remain");
 }
 if (!archscrySource.includes('<main id="archscry-main"')) {
   failures.push("Archscry smoke check failed: main landmark is missing");

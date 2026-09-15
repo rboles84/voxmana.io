@@ -151,9 +151,13 @@ async function verifyHomePaintsBeforeAudit(port, targetUrl) {
     const page = await browser.newPage();
     await page.setViewport({ width: 1440, height: 1200, deviceScaleFactor: 1 });
     await page.goto(targetUrl, { waitUntil: "domcontentloaded", timeout: 30000 });
-    await page.waitForSelector("#heroManaTitle", { timeout: 10000 });
+    await page.waitForSelector(".vm-stars", { timeout: 10000 });
     await page.waitForFunction(
-      () => document.getElementById("heroManaTitle")?.textContent?.trim()?.length > 0,
+      () => (
+        document.querySelectorAll(".vm-star").length > 0 &&
+        document.querySelectorAll(".vm-orb").length > 0 &&
+        !document.querySelector("#vmHeroManaChart, #heroManaTitle")
+      ),
       { timeout: 10000 }
     );
     await page.close();

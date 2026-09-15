@@ -6,11 +6,11 @@ This document traces the main Vox Mana data paths from source content through ge
 
 | Source | Transform | Output | Consumer |
 |---|---|---|---|
-| `data/identity-layers.json` | Local faction artifact builder validates color and expression metadata, then merges it into runtime identity blocks. | `data/factions.json`, `data/placement-model.json`, `data/placement-model.schema.json`, Supabase `faction-context.ts` | Dossier rendering, adaptive reading, and archived terminal prompt context. |
-| `data/raw-factions/*/*.profile.json` | Local faction artifact builder reads faction identity, profile, source, and claim metadata. | `data/placement-model.json`, Supabase `faction-context.ts` | Adaptive reading and the archived Scrying Terminal prompt context. |
+| `data/identity-layers.json` | Local faction artifact builder validates color and expression metadata, then merges it into runtime identity blocks. | `data/factions.json`, `data/placement-model.json`, `data/placement-model.schema.json`, retained generated `faction-context.ts` comparison projection | Dossier rendering, adaptive reading, producer audits, and deterministic comparison validation. |
+| `data/raw-factions/*/*.profile.json` | Local faction artifact builder reads faction identity, profile, source, and claim metadata. | `data/placement-model.json`, retained generated `faction-context.ts` comparison projection | Adaptive reading plus current producer/audit/validation consumers. |
 | `data/raw-factions/*/*.placement.json` | Build script normalizes calibration, good/poor indicators, discriminator questions, and lateral inhibition targets. | `data/placement-model.json` | `assets/js/archscry/adaptive-placement.js`. |
 | `data/factions.json` | Build script enriches `_meta` while preserving display data. | `data/factions.json` | `assets/js/archscry/runtime/data.js` loading and `runtime/dossier-view.js` rendering. |
-| Build-time constants in `scripts/build/build-faction-artifacts.mjs` | Raw ids map to runtime keys, biological priors, known inhibition, question bank, schema. | `data/placement-model.json`, `data/placement-model.schema.json`, `supabase/functions/guild-recruiter/faction-context.ts` | Frontend and edge function. |
+| Build-time constants in `scripts/build/build-faction-artifacts.mjs` | Raw ids map to runtime keys, biological priors, known inhibition, question bank, schema. | `data/placement-model.json`, `data/placement-model.schema.json`, `supabase/functions/guild-recruiter/faction-context.ts` | Frontend plus current producer/audit/validation tooling; the historical namespace is temporary. |
 
 The authoritative edit path is raw/display data first, then `npm run build:factions` from this repo. Generated artifacts should not be hand-edited unless explicitly repairing generated output.
 
@@ -30,14 +30,13 @@ The authoritative edit path is `data/precons/vox-mana-precons.source.json` plus 
 
 | Data | Owner | Storage | Purpose |
 |---|---|---|---|
-| `APP_STATE` | `assets/js/archscry/runtime/state.js` | In-memory only | One shared object with the established identity/defaults/mutation semantics for factions, model, catalogs, quick answers, adaptive state, active result/view, interview state, and starter profile. Terminal UI state stays dormant unless the feature flag is enabled. |
-| `VM_SESSION` | `assets/js/shared/shared.js` | In-memory plus session storage | Current interview history/result. The feature-flagged Terminal state stays dormant unless enabled. |
+| `APP_STATE` | `assets/js/archscry/runtime/state.js` | In-memory only | One shared object with established identity/defaults/mutation semantics for factions, model, catalogs, quick answers, adaptive state, active result/view, and starter profile. |
+| `VM_READING_STATE` | `assets/js/shared/shared.js` | In-memory only | Current normalized reading used by Archscry and Maze during the page lifecycle; it is not a second persistent authority. |
 | Saved placement result | `assets/js/shared/shared.js` | `localStorage` key `vm_archscry_saved_reading_v1` | Latest complete Archscry reading for direct same-browser/device dossier return. A legacy session cache is migrated once when found. |
 | Archscry telemetry reading run | `assets/js/shared/vox-telemetry.js` | In-memory only | Correlates one reading start, its accepted answer IDs, and its first completed result. It is not persisted or used as a person identifier. |
 | Field Guide telemetry session | `assets/js/shared/vox-telemetry.js`, `assets/js/guide/guide-telemetry.js` | In-memory only | Correlates bounded Guide open, active-time threshold, intentional action, and walkthrough lifecycle events for one page load. It is not persisted or placed in a URL. |
-| Interview session bucket | `assets/js/shared/shared.js` | `sessionStorage` key `vm_interview_session_id` | Stable client throttle/session id for edge function calls. |
 | Reduce motion | `assets/js/shared/reduce-motion.js`, `assets/js/shared/vm-topbar.js` | `localStorage` key `vm_reduce_motion` | Shared motion preference. |
-| Home identity signal | `assets/js/home/home.js` plus `data/identity-layers.json` | Route-local runtime state, canonical preview registry fetch, and `data/factions.json` lore fetch | Renders the canonical homepage Identity Signal, hero radar, destination links, and mana lore note from registry-owned preview metadata. |
+| Home atmosphere | `assets/js/home/home.js` | Route-local runtime state | Renders current stars/orbs, maintains pointer atmosphere variables, honors reduced motion and visibility changes, and owns back-to-top behavior. |
 | Archscry-to-Maze handoff | Approved `data/dossier/identity-dossier-content.source.json` meaning -> authored `data/dossier/maze-discovery-profiles.source.json` query projection and lane boundaries -> `scripts/build/build-maze-discovery-profiles.mjs` -> generated discovery catalog -> shared `assets/js/maze/maze-handoff.js` factory -> Archscry links and Maze context UI | Normal reading context uses `localStorage` key `vm_archscry_maze_handoff_v1` plus Maze query params. Public `identity-explore` and local `dossier-review` contexts are query-carried and in-memory only. | Preserves originating dossier, active fit, faction name, return URL, `plainReadingQuery`, executable `operatorQuery`, stable `pathType`, source-governed semantic threads, and honest lane-specific unavailable explanations. Explicit transient identity context wins over a stale saved-reading handoff without writing, replacing, or claiming a placement. Archscry and Maze consume one catalog and one factory rather than maintaining separate definitions. |
 | VM-547 projection QA | Generated discovery catalog + pinned `data/scryfall/raw/oracle-cards.json` -> `scripts/audit/vm547-projection-audit.mjs` -> `tests/fixtures/vm547-projection-card-fixtures.json` + all-367 review evidence | Checked-in deterministic QA artifacts only; no browser or runtime persistence. | Covers all 367 lane projections with local result viability and card-level positive, plausible semantic-negative, and boundary fixtures. It blocks executable zero-result projections, broad-primitive drift, false conjunction labels, and named prior false positives without affecting result ranking or runtime search generation. |
 | Public Identity Atlas route state | `assets/js/archscry/runtime/identity-directory.js`, `assets/js/archscry/runtime/identity-atlas.js`, `assets/js/archscry/index.js` | URL-only `?explore=atlas` or `?explore=<slug>` state; no Atlas persistence key. | Projects the active 37-entry identity/faction registry into native dossier links and opens the accepted identity-only renderer. Explicit exploration wins over passive saved-reading restoration while the saved reading remains untouched. |
@@ -50,8 +49,6 @@ The authoritative edit path is `data/precons/vox-mana-precons.source.json` plus 
 flowchart LR
   User["User answers"] --> Quick["Quick adaptive flow"]
   Quick --> Result["Placement result"]
-  Interview["Archived Scrying Terminal"] --> Edge["guild-recruiter edge function"]
-  Edge --> Result
   Result --> Cache["device-local saved reading"]
   Result --> Dossier["Dossier render"]
   Cache --> Resume["Same-device saved-return behavior"]
@@ -67,8 +64,6 @@ Future domain selection should be inferred from placement inputs and results rat
 
 | Service | Caller | Endpoint family | Data sent | Data received |
 |---|---|---|---|---|
-| Supabase Edge Function | `assets/js/shared/shared.js` | `/functions/v1/guild-recruiter` | Message, sanitized history, session id, starter profile, optional current result | Interview turn response or normalized decision result when the archived terminal path is enabled. |
-| Anthropic | `supabase/functions/guild-recruiter/index.ts` | `https://api.anthropic.com/v1/messages` | Generated system prompt and sanitized messages | JSON text to parse as interview turn response when the archived terminal path is enabled. |
 | Scryfall Search | `assets/js/maze/research-search.js` | `/cards/search` | Query, unique, order, page | Card result pages and pagination URLs. |
 | Scryfall Named | `assets/js/maze/research-search.js`, `assets/js/archscry/runtime/card-media.js` | `/cards/named` | Fuzzy card name | Exact card detail or image/link metadata. |
 | Scryfall Random | `assets/js/maze/research-search.js` | `/cards/random` | Optional query | Random fallback/no-results card. |
@@ -77,7 +72,7 @@ Future domain selection should be inferred from placement inputs and results rat
 
 ## Device-Local Reading Persistence
 
-`assets/js/shared/shared.js` stores the complete normalized result under `vm_archscry_saved_reading_v1`. The browser renders that result directly on return, so no account, request, or profile row is required. Clearing browser storage or using another browser/device does not restore it; portable QR/link and account-backed recovery remain future scope.
+`assets/js/shared/shared.js` stores the complete normalized result under `vm_archscry_saved_reading_v1`. The browser renders that result directly on return, so no account, request, or profile row is involved. Clearing that exact reading or using another browser/device does not restore it; account-backed recovery is retired product scope.
 
 ## Research Workspace Data
 
@@ -100,7 +95,7 @@ Future domain selection should be inferred from placement inputs and results rat
 | `card-flavor-index.json` | Archscry result helpers select short flavor echoes by color identity, reading tags, and lore-tone fit. | Flavor Echoes result section with Scryfall links and "why it echoes" copy. |
 | `commander-index.json` | Archscry Commander preview enrichment checks local metadata after curated Commander Compass candidates are selected. | Commander type/color/tag metadata beside preview cards. |
 | `data/precons/vox-mana-precon-catalog.json` plus `data/taxonomy/vox-mana-precon-themes.json` | Archscry dossier helpers derive faction-native exact, other exact, and stretch recommendations from the active dossier view, reading tags, starter profile, and curated `factionRefs`. | `Recommended Precon Decks` subsection inside the `Commander Deck Starts` panel. |
-| Placement cache/profile result, persistent Archscry handoff, or explicit transient identity context plus the generated 37-profile discovery catalog | The shared Maze handoff factory derives a broad exact-identity commander pool, three identity-specific mechanical threads for commander/support/stretch searches, a flavor/story vocabulary thread, and an explicit stretch boundary. Archscry-originated links and Maze sidebar paths seed Plain Reading display text from `plainReadingQuery` while executing `operatorQuery`. An explicit `identity-explore` or `dossier-review` identity wins over stored placement context; otherwise an active handoff fit wins before fallback to the saved primary placement. | Compact Archscry `Maze Discovery Paths`; expanded Maze `From your dossier` reading/thread/interpretation/query-inspection chain; live Scryfall results; context-appropriate return copy; and a dismissible return-to-dossier banner. Public exploration creates no placement or Reading Finds association and returns to the browsed identity URL. WUBRG shows no executable outside-color lane because none can be truthful. |
+| Device-local v1 reading, persistent Archscry handoff, or explicit transient identity context plus the generated 37-profile discovery catalog | The shared Maze handoff factory derives a broad exact-identity commander pool, three identity-specific mechanical threads for commander/support/stretch searches, a flavor/story vocabulary thread, and an explicit stretch boundary. Archscry-originated links and Maze sidebar paths seed Plain Reading display text from `plainReadingQuery` while executing `operatorQuery`. An explicit `identity-explore` or `dossier-review` identity wins over stored placement context; otherwise an active handoff fit wins before fallback to the saved primary placement. | Compact Archscry `Maze Discovery Paths`; expanded Maze `From your dossier` reading/thread/interpretation/query-inspection chain; live Scryfall results; context-appropriate return copy; and a dismissible return-to-dossier banner. Public exploration creates no placement or Reading Finds association and returns to the browsed identity URL. WUBRG shows no executable outside-color lane because none can be truthful. |
 
 ## Command Panel Data
 

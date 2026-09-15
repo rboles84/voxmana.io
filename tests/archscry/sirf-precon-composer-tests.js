@@ -3,7 +3,6 @@ import fs from "node:fs";
 
 import { buildPreconRecommendations } from "../../assets/js/archscry/dossier/precons.js";
 
-globalThis.VM_SESSION = {};
 const {
   PRECON_RELATIONSHIP_GROUP_ORDER,
   canonicalPreconProductId,

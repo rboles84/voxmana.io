@@ -4,8 +4,8 @@
 
 Vox Mana now uses a raw-plus-generated data flow:
 
-- `data/identity-layers.json` is the canonical identity-layer registry for mono colors, expression routing, shared color language, and the Home identity preview registry.
-- `data/identity-layers.schema.json` describes the identity-layer and Home preview registry contract.
+- `data/identity-layers.json` is the canonical identity-layer registry for mono colors, expression routing, and shared color language. Retired Home-preview fields remain compatibility metadata until a separately governed source/schema cleanup.
+- `data/identity-layers.schema.json` describes the identity-layer registry and its retained compatibility metadata.
 - `data/precons/vox-mana-precons.source.json` is the canonical precon source catalog for Archscry dossier recommendations.
 - `data/precons/vox-mana-precons.source.schema.json` describes the hand-authored precon source contract.
 - `data/taxonomy/vox-mana-precon-themes.json` is the hand-authored precon theme taxonomy used to normalize theme language.
@@ -19,7 +19,7 @@ Vox Mana now uses a raw-plus-generated data flow:
 - `data/dossier/identity-dossier-content.source.json` is the approved authored dossier-copy source. `data/dossier/identity-dossier-content.catalog.json` is its runtime projection and must be regenerated with `npm run build:identity-dossier-content`; `npm run test:identity-dossier-content` rejects stale output, copy-hash drift, failed approvals, or WUBRG provenance that points back to generated runtime data.
 - `data/placement-model.json` is the generated adaptive placement model used by Archscry.
 - `data/placement-model.schema.json` describes the generated placement model shape.
-- `supabase/functions/guild-recruiter/faction-context.ts` is the generated server-side Scrying Terminal context.
+- `supabase/functions/guild-recruiter/faction-context.ts` is a retained generated comparison projection with current producer/audit/validation consumers. VM-656 removed its executable Edge Function consumer; namespace relocation is deferred to a separate deterministic tooling task.
 
 After changing identity layers, raw faction data, or display data, run `npm run build:factions` from `C:\dev\mtgSiteWIP`.
 
@@ -29,9 +29,9 @@ Source-first faction quality passes must also satisfy the source-bound gold stan
 
 VM-335 recorded mono colors as a transitional Layer 1 exception. VM-377 replaces that mono exception with raw-managed W/U/B/R/G source authority through `data/raw-factions/{white,blue,black,red,green}/` and `docs/research/mono_upgrade/`. Registry authorship in `data/identity-layers.json` is still not VM-325 claim evidence by itself.
 
-## Identity preview registry
+## Identity registry compatibility metadata
 
-`data/identity-layers.json` owns the canonical Home preview metadata for the 37-expression v1 Home Identity Signal. `assets/js/home/home.js` fetches this registry, selects entries where `preview_eligible` is `true`, sorts by `preview_order`, and keeps `data/factions.json` as the lore-note source. VM-389 promotes the historical 20-expression preview baseline plus the live shard, wedge, four-color, `COLORLESS`, and `WUBRG` identities into Home preview visibility without adding public routes, lowercase aliases, Maze behavior, directory links, schema/API changes, generated-data hand edits, or placement-model behavior changes.
+`data/identity-layers.json` still carries the accepted preview metadata for 37 expressions as source/schema compatibility data. Home no longer loads or renders that retired Mana Lens presentation after VM-656. The metadata does not independently authorize a future Home runtime or reactivation.
 
 For mono colors, the same registry owns active membership, routing metadata, and display-generation inputs. Source-backed mono display, placement, Commander support, and discriminator fields must trace to the VM-377 raw packets and promoted mono source-intake bundle, not to generated/runtime output alone.
 
@@ -51,7 +51,7 @@ When `preview_eligible` is `true`, the entry must also include:
 - `preview_hex`
 - `preview_scores`
 
-`preview_scores` uses the Home radar axis order:
+`preview_scores` retains the former Home radar axis order:
 
 - `order`
 - `knowledge`
@@ -87,7 +87,7 @@ Each faction entry contains:
 
 The frontend dossier renders from this file.
 
-The edge function imports `supabase/functions/guild-recruiter/faction-context.ts`, which is a condensed artifact generated from the same raw and display content.
+The builder emits `supabase/functions/guild-recruiter/faction-context.ts` as a condensed comparison artifact generated from the same raw and display content. Current producer, audit, validation, and test consumers keep that file in its historical path temporarily; no browser or deployable Edge Function imports it.
 
 ## Precon recommendation artifacts
 
@@ -306,51 +306,23 @@ Contract notes:
 - `whereThisLeads.tags` may be empty; the renderer should hide the tag row instead of filling it with placeholder copy.
 - Local summary-strip fallbacks are display-only and are not packet truth, canon, or source authority.
 
-## Profile storage
+## Device-local saved-reading storage
 
-`docs/supabase-profile-update.sql` is the checked-in Supabase schema/RLS artifact for optional signed-in profile storage.
+`localStorage` key `vm_archscry_saved_reading_v1` is the sole persistent saved-reading authority. Its value is the complete normalized placement result described above; VM-656 does not rename the key or change result payload semantics.
 
-The Supabase `profiles` row should keep compatibility fields plus the richer result payload:
+Storage rules:
 
-- `guild`
-- `scores`
-- `taken_at`
-- `display_name`
-- `avatar_url`
-- `placement_result`
+- a valid v1 result wins over every retired profile, pending, session, or legacy fallback;
+- when v1 is absent, a valid recoverable result may be normalized and migrated once from exact legacy/profile/pending keys;
+- the v1 write must be read back successfully before the only old copy is deleted;
+- a failed durable write leaves the old copy intact and returns the recoverable result for the current page lifecycle;
+- `vm_pending_result` is compatibility input only and is never remotely submitted;
+- Forget removes the v1 reading and exact retired reading fallbacks, and strips personal placement content from `vm_archscry_maze_handoff_v1` without deleting unrelated Maze route context;
+- no broad storage clearing or prefix deletion is permitted.
 
-`placement_result` is the source of truth for saved-return behavior. It would be the attachment context for private saved deck links if that deferred feature is reactivated later.
+`VM_READING_STATE.currentResult` is an in-memory cross-module bridge, not persistent storage. `vm_archscry_maze_handoff_v1` remains route/context state rather than a saved-reading authority. `vm_maze_reading_finds_v1`, Scryfall/parser caches, and `vm_reduce_motion` are separate retained contracts.
 
-RLS boundary: authenticated users may select, insert/upsert, and update only their own row where `auth.uid() = id`. Anonymous users should not receive profile table grants. Repo presence of the SQL artifact is not live Supabase proof; live project verification is still required before treating saved profiles as production-ready.
-
-## Account deck-link storage
-
-VM-422 adds `docs/supabase-vm422-deck-links.sql` as the checked-in Supabase SQL/policy artifact for external deck-link references. As of VM-458, VM-461, and the VM-470 reaffirmation, this is a dormant/deferred artifact, not active public release scope.
-
-The deck-link contract stores URLs and metadata only:
-
-- `user_deck_links` stores external deck URL, normalized provider, optional title/commander/note, placement metadata, visibility/moderation state, a public-safe display-name snapshot, and an upvote count.
-- `community_deck_votes` stores one signed-in-user `upvote` per public deck link.
-- `community_deck_ledger_public` is the sanitized public view with `security_invoker = true`.
-- `vm422_list_my_deck_links()` is the owner-scoped private account-list RPC. The deferred Archscry saved-link panel was designed to use it instead of selecting `user_deck_links` directly, so a signed-in user's private account list cannot absorb other users' approved public ledger rows or dormant moderation rows.
-
-This contract does not store decklists, card JSON, scraped content, Commander legality results, or hosted deck data.
-
-Display-name boundary: existing session/profile display logic can fall back to an email local part. VM-422 must not use that path for public ledger names. Browser insert/update grants do not include `public_display_name`; it remains the default `Vox Mana player` unless a trusted moderation/account process writes a sanitized public profile name.
-
-Grant boundary: because the public ledger view is `security_invoker = true`, browser roles need narrow underlying `user_deck_links` SELECT grants for the columns used by that public view. Do not broaden those grants to `owner_id`, moderation fields, private timestamps, or other account-only columns; use owner-scoped RPCs for private account surfaces.
-
-Visibility boundary if reactivated: VM-422 v1 remains private-only in product behavior and exposed browser writes. Browser users may create/update owner-owned `private` rows and move their own saved rows to the approved removal state, currently `archived`. Browser users must not directly create `submitted`, `public`, or `rejected` rows; those are future trusted moderation outcomes.
-
-Reactivation boundary: account-backed deck-link saving must stay hidden until the owner explicitly approves reactivation and VM-446 live private deck-link RLS proof passes against the target Supabase project with owner, non-owner, and service-role evidence. Repo SQL, local tests, and dormant UI/service code are not live proof.
-
-Frontend surfaces:
-
-- VM-458 hides the Archscry `Account Deck Links` dossier panel, deck-link form, saved-link list, save button, and active action dispatch from the current public flow. Do not restore those surfaces without owner reactivation approval and VM-446 live RLS proof.
-- Dormant VM-422 code in `assets/js/archscry/index.js` and related deck-link modules must continue to use DOM/text APIs if later revived.
-- `assets/js/apocrypha/community-deck-ledger.js` is dormant future-ready code. It is not linked or loaded by Apocrypha v1.
-- The public Apocrypha route must not expose Community Deck Ledger UI, voting controls, private saved links, or raw Supabase schema/policy/table errors to visitors.
-- `npm run test:deck-links:live` runs the optional live Supabase RLS verifier once test-user credentials and a service-role key are available.
+Retired profile and account Deck Links SQL are historical artifacts under `docs/archive/retired-supabase-runtime/`; they are not current schemas, runtime dependencies, or reactivation plans.
 ## Card-Voice Slot And Publication Contract
 
 `data/dossier/card-voice-relationships.source.json` is the active curated relationship authority. It may contain both `APPROVED_PUBLIC` records and `REVIEW_REQUIRED` proposals. `slot` is identity-local presentation order: accepted VM-551 records remain slot `1` with `pair_role: "ANCHOR"`; a complementary record uses slot `2`, `pair_role: "COMPLEMENT"`, and names its slot-1 relationship through `complements_relationship_id`. Owner-approved slot-2 records use `approval_basis: "OWNER_SEMANTIC_APPROVAL"`, retain the explicit `owner_decision: "APPROVE"` and structural validation, and become public only through the producer.
