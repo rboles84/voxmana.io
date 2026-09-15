@@ -1,4 +1,4 @@
-<!-- task-view-sha256:a18a9b3c70898135bdd40d5c5fd29d3be740144cbda81b0a120286650fc9181f -->
+<!-- task-view-sha256:87521acfafb5df299dcea1c82e4f33830af30b321a78d68cd46c79b3bc4f1e4f -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -42,6 +42,7 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 
 | ID | Card | Declared status | Diagnostics |
 |---|---|---|---|
+| VM-656 | [Core Retired Product Purge](in-progress/VM-656-core-retired-product-purge.md) | In Progress |  |
 
 ## Owner Review
 
