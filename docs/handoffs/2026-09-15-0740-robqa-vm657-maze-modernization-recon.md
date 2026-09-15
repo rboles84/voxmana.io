@@ -5,9 +5,16 @@ Agent: Codex `/root/robqa_vm657`
 Role: Independent RobQA
 Branch: `codex/vm-657-maze-modernization-recon`
 Baseline: `682cf03e2a18ee4f676ed0b78a7302d8a4d36fc7`
-Exact material candidate reviewed: `1866821b3df1facb98b84559f0ba4c2cd327de14`
-Verdict: **FAIL**
-Owner-review readiness: **BLOCKED pending a corrected candidate and fresh exact-candidate RobQA**
+Current exact material candidate reviewed: `10ed5aebcfd8ad1ea57f215175e093ab5aa204b7`
+Current verdict: **PASS**
+Owner-review readiness: **READY for Owner Review; Owner decision remains pending**
+
+## Review history
+
+- Cycle 1 reviewed `1866821b3df1facb98b84559f0ba4c2cd327de14` and returned **FAIL** for five `git diff --check` findings and a conflicting card acceptance criterion. The complete first-cycle evidence and correction request are preserved below.
+- Cycle 2 reviewed `10ed5aebcfd8ad1ea57f215175e093ab5aa204b7` and returned **PASS**. The fresh exact-candidate evidence follows the preserved first-cycle record.
+
+## Cycle 1 — preserved FAIL record
 
 ## Change classification
 
@@ -67,3 +74,71 @@ The card's fourth acceptance criterion says the planning result must stop before
 4. Commit a new material candidate and request fresh independent RobQA against that exact SHA.
 
 No production files were modified by this review. This FAIL does not reject the design direction; it only prevents an engineering PASS on the exact candidate reviewed.
+
+## Cycle 2 — exact-candidate PASS
+
+### Change classification
+
+- QA tier: **QA-0 — documentation / non-runtime planning metadata**.
+- Changed behavior: none. Relative to the baseline, the candidate adds the VM-657 task card, main planning handoff, and independent QA history, and refreshes the generated board and handoff index.
+- Protected behavior intentionally untouched: production HTML, CSS, JavaScript, parser/compiler semantics, Scryfall request behavior, routes, state/storage, identity/dossier/CECOS authority, generated production data, tests, package scripts, and deployment configuration.
+- QA execution mode: **SEPARATE**, executed by `/root/robqa_vm657`, which did not author the material candidate. Separate review remains proportionate for a substantive planning/governance artifact entering Owner Review.
+- Exact candidate and evidence: `10ed5aebcfd8ad1ea57f215175e093ab5aa204b7`; main evidence is `docs/handoffs/2026-09-15-0740-codex-vm657-maze-modernization-recon.md`.
+
+### Correction verification
+
+- The main handoff's five Markdown hard-break suffixes were replaced with blank-line-separated metadata. Baseline-to-candidate `git diff --check` is now clean.
+- Card acceptance criterion 4 now explicitly permits proportional QA-0 of the planning/documentation candidate and stops before redesign implementation, implementation-candidate QA, acceptance, PR creation, or integration. This is consistent with the main handoff's independent-documentation-QA stop line and the task's planning-only authority.
+- The prior FAIL handoff is retained verbatim as historical evidence rather than overwritten or recast as a PASS.
+
+### Tests selected
+
+| Test | Reason | Result |
+|---|---|---|
+| `git rev-parse HEAD` and `git merge-base <baseline> <candidate>` | Bind the review to the exact checked-out candidate and verify baseline ancestry | PASS — HEAD is `10ed5aeb…`; merge base is the declared baseline |
+| `git diff --name-status --find-renames <baseline>..<candidate>` and `git diff --numstat` | Prove exact five-file accounting and absence of runtime scope | PASS — five documentation/coordination files only |
+| `git diff --check <baseline> <candidate>` | Required QA-0 formatting check and direct regression for cycle 1 | PASS |
+| `npm run task -- indexes --check` | Prove both generated views match the current authored sources | PASS — `fresh: true`, 697 cards, 1,104 handoffs |
+| Corrective-diff and authored-content inspection | Verify both blockers were actually corrected without weakening boundaries or losing prior evidence | PASS |
+| Targeted local Markdown-link scan | Detect unresolved relative targets in the card and both handoffs | PASS — no unresolved authored relative targets |
+| Protected-path scan | Confirm no production, source/generated-data, test, script, workflow, or package path changed | PASS |
+
+### Tests intentionally skipped
+
+- Browser, screenshot, viewport, journey, parser, Maze runtime, and full regression suites: not required for QA-0 because the candidate changes no runtime or test contract. The explicitly requested browser reconnaissance remains documented in the main handoff with LIVE/FIXTURE/PATH limitations; repeating it would not verify either corrected documentation risk.
+- CPU-heavy validation: **NOT REQUIRED**. No engine, semantic, routing, integration, or production behavior changed.
+
+### Self-QA objective evidence
+
+- Deterministic case: full baseline-to-candidate file accounting and protected-path exclusion.
+- Verification layer: Git diff, generated-index checker, and authored Markdown inspection.
+- Browser justification: none for this QA cycle; browser work would not improve evidence for the changed documentation defects.
+- Objective result: the corrected candidate is internally consistent, clean under QA-0 checks, evidence-backed, bounded to planning, and does not imply implementation or Owner approval.
+
+### Manual findings converted to invariants
+
+- Finding: Markdown hard-break whitespace prevented the required QA-0 diff check from passing.
+- Defect class: candidate hygiene.
+- Regression invariant: every planning candidate presented for Owner Review must pass baseline-to-candidate `git diff --check`.
+- Finding: “stop before candidate QA” conflicted with the required planning-candidate QA-0 gate.
+- Defect class: lifecycle wording ambiguity.
+- Regression invariant: planning-only cards must distinguish documentation-candidate QA from prohibited future implementation work when Owner Review requires an engineering decision.
+
+### Remaining Owner judgment
+
+- Whether the Workbench + state ribbon + interpretation ledger is the right architectural direction.
+- The eight explicit product/flow choices listed in the main handoff, including wildcard execution, alternative behavior, zero-result specimen, Finds layout, confidence treatment, dossier context, and View Transitions.
+- Final visual hierarchy, density, typography, mana response, and whether the proposal feels unmistakably like Maze within the Vox Mana family.
+
+### Bounded Owner review
+
+Review the main recon handoff's executive answer, bounded evidence set, recommended architecture, state-by-state table, implementation sequence, objective success checks, and eight explicit Owner decisions. No browser route or manual regression run is required to decide whether to approve the planning direction; the candidate does not implement it.
+
+### Residual limitations
+
+- Screenshot witnesses remain inline task evidence rather than checked-in visual-regression artifacts.
+- The truly storage-free landing was source-inspected, and some degraded/error states were PATH evidence, to avoid destructive state or dependency manipulation.
+- External references can evolve; they inform patterns rather than establish Vox Mana product authority.
+- PASS certifies documentation evidence sufficiency only. It does not approve the recommended design, implement behavior, certify parser semantics, or authorize later work.
+
+**Final RobQAPass decision:** PASS for exact candidate `10ed5aebcfd8ad1ea57f215175e093ab5aa204b7`. The planning/documentation candidate is ready for Owner Review with Owner acceptance still PENDING.

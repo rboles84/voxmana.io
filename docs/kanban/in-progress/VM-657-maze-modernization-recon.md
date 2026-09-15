@@ -2,7 +2,7 @@
 
 ID: VM-657
 Title: Maze Modernization Recon
-Status: In Progress
+Status: Owner Review
 Type: Product reconnaissance and design planning
 Area: Maze modernization boundaries
 Priority: High
@@ -35,11 +35,11 @@ Current Owner request for Maze modernization reconnaissance and planning only. T
 
 ## Acceptance Criteria
 
-- [ ] A repository-grounded recon identifies the current Maze ownership seams, relevant dependencies, and preservation constraints without modifying product behavior.
-- [ ] The planning record distinguishes observed facts, open questions, risks, and recommendations; it does not invent product decisions.
-- [ ] A bounded future modernization sequence names likely owners and proportional validation questions while retaining the explicit boundaries above.
-- [ ] The planning result is presented for Owner Review after proportional QA-0 of the planning/documentation candidate and stops before redesign implementation, implementation-candidate QA, acceptance, PR creation, or integration.
-- [ ] Only the authorized card, planning/handoff evidence, and required generated coordination views may change for this task.
+- [x] A repository-grounded recon identifies the current Maze ownership seams, relevant dependencies, and preservation constraints without modifying product behavior.
+- [x] The planning record distinguishes observed facts, open questions, risks, and recommendations; it does not invent product decisions.
+- [x] A bounded future modernization sequence names likely owners and proportional validation questions while retaining the explicit boundaries above.
+- [x] The planning result is presented for Owner Review after proportional QA-0 of the planning/documentation candidate and stops before redesign implementation, implementation-candidate QA, acceptance, PR creation, or integration.
+- [x] Only the authorized card, planning/handoff evidence, and required generated coordination views may change for this task.
 
 ## Files Likely Impacted
 
@@ -66,13 +66,13 @@ Admission creates a planning/recon record only. Any future material change requi
 Record version: 1
 Branch: codex/vm-657-maze-modernization-recon
 Admission baseline: 682cf03e2a18ee4f676ed0b78a7302d8a4d36fc7
-Candidate: PENDING
-RobQA: PENDING
+Candidate: 10ed5aebcfd8ad1ea57f215175e093ab5aa204b7
+RobQA: PASS at 10ed5aebcfd8ad1ea57f215175e093ab5aa204b7 — SEPARATE QA-0 by `/root/robqa_vm657`; initial candidate `1866821b3df1facb98b84559f0ba4c2cd327de14` failed documentation hygiene/lifecycle wording and was corrected on the same task.
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Decisions: Planning and reconnaissance only; Owner Review is the stop point. The explicit out-of-scope boundaries remain in force. Scope amendment: add the exact consolidated planning/recon handoff and independent RobQA handoff paths required to present and review this documentation-only candidate; no production, runtime, test-contract, or generated-data path is added.
-Evidence: PENDING planning/recon handoff
+Evidence: [Planning/recon handoff](../../handoffs/2026-09-15-0740-codex-vm657-maze-modernization-recon.md); [independent RobQA handoff](../../handoffs/2026-09-15-0740-robqa-vm657-maze-modernization-recon.md)
 
 ## Admission Scope
 
