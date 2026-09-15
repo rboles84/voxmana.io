@@ -142,3 +142,12 @@ Review the main recon handoff's executive answer, bounded evidence set, recommen
 - PASS certifies documentation evidence sufficiency only. It does not approve the recommended design, implement behavior, certify parser semantics, or authorize later work.
 
 **Final RobQAPass decision:** PASS for exact candidate `10ed5aebcfd8ad1ea57f215175e093ab5aa204b7`. The planning/documentation candidate is ready for Owner Review with Owner acceptance still PENDING.
+
+## Delivery checker binding
+
+Task: VM-657
+Candidate: 10ed5aebcfd8ad1ea57f215175e093ab5aa204b7
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: /root/robqa_vm657
+Implementer: /root
