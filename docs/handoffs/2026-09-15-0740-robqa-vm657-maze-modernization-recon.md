@@ -151,3 +151,41 @@ RobQA: PASS
 Execution: SEPARATE
 Reviewer: /root/robqa_vm657
 Implementer: /root
+
+## Cycle 3 — replacement-candidate independent RobQA
+
+Older candidate conclusions above remain historical. This cycle governs the replacement material candidate `941b2fa038ce0951de8ccbb07b6a4e4ea1787e3c`.
+
+Task: VM-657
+Candidate: 941b2fa038ce0951de8ccbb07b6a4e4ea1787e3c
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: /root/robqa_vm657
+Implementer: /root
+
+### Classification and scope
+
+- QA tier: **QA-0 — documentation / non-runtime planning metadata**.
+- Exact baseline: `682cf03e2a18ee4f676ed0b78a7302d8a4d36fc7`; verified merge base matches.
+- Exact material scope: five authorized documentation/coordination paths—the task card, main recon/design handoff, independent QA handoff, generated board, and generated handoff index.
+- Protected behavior intentionally untouched: production HTML, CSS, JavaScript, parser/compiler/search behavior, route/state/storage contracts, source or generated production data, identity/dossier/CECOS authority, tests, scripts, package configuration, workflows, and deployment.
+
+### Evidence and checks
+
+- `git diff --name-status --find-renames <baseline>..<candidate>` and `git diff --numstat`: **PASS**; five documentation/coordination files only.
+- `git diff --check <baseline> <candidate>`: **PASS**.
+- `npm run task -- indexes --check`: **PASS**; generated views are fresh with 697 cards and 1,104 handoffs.
+- Protected-path scan: **PASS**; no runtime, data, test, script, package, or workflow path changed.
+- Targeted local-link inspection: **PASS**; the card's two relative evidence links resolve to the admitted handoffs, and no other unresolved authored relative target was found.
+- Full recon/design content review: **PASS**. The handoff remains evidence-labeled and explicit about live, fixture, path, historical, and recommendation boundaries; inventories default, good, partial, poor, zero, result-rich, error/degraded, dossier, Operator, Loom, modal, Finds, dense, and narrow states; covers ownership, lineage, Vox Mana family inheritance, external interaction patterns, anti-patterns, conceptual objects, responsive/accessibility/technology choices, future file/state boundaries, a three-slice implementation sequence, objective success checks, and bounded Owner decisions.
+- Scope prohibition review: **PASS**. The plan repeatedly denies implementation authority and leaves parser/compiler semantics, Scryfall behavior, dossier/identity/CECOS authority, generated data, routes, persistence, telemetry, and retired systems untouched.
+
+### Proportional exclusions and residual limits
+
+- Browser, screenshot, viewport, Maze runtime, parser, journey, and full regression suites were intentionally not rerun. They cannot improve evidence for this QA-0 material diff; the Owner-requested reconnaissance browser evidence is already labeled and bounded in the main handoff.
+- CPU-heavy validation: **NOT REQUIRED**.
+- Inline screenshots are not durable visual-regression artifacts; the storage-free landing and some degraded states remain honestly labeled source/PATH evidence.
+- Product architecture, visual quality, and the eight explicit flow choices remain Owner judgment. This PASS does not approve a redesign or authorize implementation.
+- At the reviewed material commit, lifecycle fields still cite the older `10ed5aeb…` candidate. Cycle 3 supplies the new exact-candidate decision; the coordinator must record the `941b2fa…` binding through the permitted evidence-only lifecycle update before relying on the delivery checker for final Owner Review state.
+
+**Cycle 3 verdict:** RobQAPass **PASS** for exact candidate `941b2fa038ce0951de8ccbb07b6a4e4ea1787e3c`. This cycle, not the historical conclusions above, is the governing engineering decision for the replacement candidate. Owner acceptance remains pending.

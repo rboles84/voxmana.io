@@ -66,8 +66,8 @@ Admission creates a planning/recon record only. Any future material change requi
 Record version: 1
 Branch: codex/vm-657-maze-modernization-recon
 Admission baseline: 682cf03e2a18ee4f676ed0b78a7302d8a4d36fc7
-Candidate: 10ed5aebcfd8ad1ea57f215175e093ab5aa204b7
-RobQA: PASS at 10ed5aebcfd8ad1ea57f215175e093ab5aa204b7 — SEPARATE QA-0 by `/root/robqa_vm657`; initial candidate `1866821b3df1facb98b84559f0ba4c2cd327de14` failed documentation hygiene/lifecycle wording and was corrected on the same task.
+Candidate: 941b2fa038ce0951de8ccbb07b6a4e4ea1787e3c
+RobQA: PASS at 941b2fa038ce0951de8ccbb07b6a4e4ea1787e3c — SEPARATE QA-0 by `/root/robqa_vm657`; this replacement candidate includes the complete planning and preserved QA history after the delivery checker found the earlier evidence boundary was not append-only.
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
