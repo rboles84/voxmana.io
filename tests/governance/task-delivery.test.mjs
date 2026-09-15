@@ -196,6 +196,8 @@ for (const [name, mutate, pattern] of [
   ["wrong merge tree", f => { f.packet.host.pr.mergeCommit = f.packet.head; }, /parent\/base|tree/],
   ["wrong merge parent", f => { f.packet.host.pr.base = f.candidate; }, /scope|parent|commit/],
   ["main unsynchronized", f => git(f.root, "update-ref", "refs/remotes/origin/main", f.baseline), /Stale origin\/main/],
+  ["selected merge route was not pre-approved", f => { f.packet.host.route.merge = "gh"; }, /pre-approved route/],
+  ["selected merge route uses retired REST-GCM", f => { f.packet.host.route.merge = "rest-gcm"; }, /pre-approved route/],
   ["missing closeout references", f => { f.packet.closeout.references = []; }, /Missing required/],
   ["Git accounting mismatch", f => { const r = f.packet.closeout.report; const text = fs.readFileSync(r.file, "utf8").replace(/Changed paths: \x60\d+\x60/, "Changed paths: \x60999\x60"); f.packet.closeout.report = ref(f, "report.md", text); }, /accounting mismatch/],
   ["boundary uncertainty", f => { f.packet.closeout.boundaries.verified = false; }, /boundary/],

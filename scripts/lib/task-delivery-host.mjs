@@ -40,8 +40,8 @@ export function validateHost(root, packet, record, refs, stage, now) {
   requireFact(h.route?.discoveryComplete === true && Array.isArray(approved?.read) && Array.isArray(approved?.merge) &&
     approved.read.length > 0 && approved.merge.length > 0 && approved.read.every(route => APPROVED_HOST_ROUTES.includes(route)) &&
     approved.merge.every(route => APPROVED_HOST_ROUTES.includes(route)) && APPROVED_HOST_ROUTES.includes(h.route.read) &&
-    approved.read.includes(h.route.read),
-    "Host capability discovery/read route unavailable; apply Phase 3 routing");
+    approved.read.includes(h.route.read) && APPROVED_HOST_ROUTES.includes(h.route.merge) && approved.merge.includes(h.route.merge),
+    "Host capability discovery or pre-approved route state unavailable; apply Phase 3 routing");
   requireFact(Array.isArray(h.unresolvedWrites) && h.unresolvedWrites.length === 0,
     "Unknown prior write outcome: reconcile the original authoritative PR/ref before any retry");
   requireFact(h.main === refs.main, "Host/main observation disagrees with live Git; refresh facts");
@@ -59,8 +59,7 @@ export function validateHost(root, packet, record, refs, stage, now) {
     requireFact(pr.head === packet.head && refs[record.branch] === pr.head, "PR/local/live feature head changed; reconcile before merge");
     requireFact(pr.base === refs.main, "PR base observation is not current main");
     requireFact(pr.draft === false && pr.mergeable === true && pr.mergeState === "clean", "Mergeability/prerequisite state is unavailable or blocked");
-    requireFact(APPROVED_HOST_ROUTES.includes(h.route.merge) && approved.merge.includes(h.route.merge) &&
-      h.route.expectedHeadGuard === true && h.route.writeAuthorized === true,
+    requireFact(h.route.expectedHeadGuard === true && h.route.writeAuthorized === true,
       "Expected-head guarded merge capability/authorization unavailable through governed route");
   } else {
     requireFact(pr.merged === true && pr.state === "closed", "Expected PR has not actually merged");
