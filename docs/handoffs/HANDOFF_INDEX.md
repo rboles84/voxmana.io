@@ -1,4 +1,4 @@
-<!-- task-view-sha256:effe5c61aa4c29ae503753d0da0fa687a670c5021a7a49ddbe242a0bfba634db -->
+<!-- task-view-sha256:39db5049f38ba132bcc915008fddedbd445f1e947af0dfc170bd45dba227dca1 -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -8,6 +8,8 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 
 | Authored / filename date | Agent | Handoff | Related task references | Diagnostics |
 |---|---|---|---|---|
+| 2026-09-15T00:00:00Z (authored) | Codex `/root` | [VM-657 — Maze Modernization Recon and Design Handoff](2026-09-15-0740-codex-vm657-maze-modernization-recon.md) | VM-657 | Identity displayed from heading; not admission metadata. |
+| 2026-09-15T00:00:00Z (authored) | Codex `/root/robqa_vm657` | [VM-657 — Independent RobQA Handoff](2026-09-15-0740-robqa-vm657-maze-modernization-recon.md) | VM-657 | Identity displayed from heading; not admission metadata. |
 | 2026-09-14T21:44:00Z (filename) | Codex `/root` | [VM-656 Core Retired Product Purge — Owner Review Handoff](2026-09-14-2144-codex-vm656-core-retired-product-purge.md) | VM-656 | Identity displayed from heading; not admission metadata. |
 | 2026-09-14T19:33:00Z (filename) | Codex `/root` | [VM-655 Authentication Boundary Implementation Handoff](2026-09-14-1933-codex-vm655-auth-boundary.md) | VM-655 | Identity displayed from heading; not admission metadata. |
 | 2026-09-14T00:02:00Z (filename) | Unknown | [RobDev handoff — VM-654 Supabase and deck recon](2026-09-14-0002-robdev-vm654-supabase-deck.md) | VM-654 | Identity displayed from heading; not admission metadata. |
