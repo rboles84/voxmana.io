@@ -748,3 +748,9 @@ This is evidence-only, not the full task diff.
 ## Closeout scope
 
 Only verified integration evidence, VM-657 Done lifecycle relocation, generated views, and branch cleanup are included. The task stops after successful deterministic closeout. No Maze implementation or follow-up task begins automatically.
+
+## Closeout merge binding — 2026-09-15
+
+Task: VM-657
+Candidate: 941b2fa038ce0951de8ccbb07b6a4e4ea1787e3c
+Integration: PR51 guarded squash merge `db628745b749776ec79fabd1b62724443d8d834c`
