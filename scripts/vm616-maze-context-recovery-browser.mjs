@@ -157,9 +157,9 @@ try {
   let weakSearchGeneration = 0;
   const presentWeakSearch = async (input = "Black Lotus with mana value 99 in Commander") => {
     await page.waitForSelector("#search-input");
-    if (await page.$eval("#mode-ai", element => element.getAttribute("aria-pressed") !== "true")) {
+    if (await page.$eval("#mode-ai", element => element.getAttribute("aria-selected") !== "true")) {
       await page.click("#mode-ai");
-      await page.waitForFunction(() => document.querySelector("#mode-ai")?.getAttribute("aria-pressed") === "true");
+      await page.waitForFunction(() => document.querySelector("#mode-ai")?.getAttribute("aria-selected") === "true");
     }
     await page.$eval("#search-input", element => { element.value = ""; });
     await page.type("#search-input", input);
@@ -338,7 +338,7 @@ try {
   await page.setViewport({ width: 1440, height: 1000 });
 
   await page.click("#mode-raw");
-  await page.waitForFunction(() => document.querySelector("#mode-raw")?.getAttribute("aria-pressed") === "true");
+  await page.waitForFunction(() => document.querySelector("#mode-raw")?.getAttribute("aria-selected") === "true");
   await page.$eval("#search-input", element => { element.value = ""; });
   await page.type("#search-input", "f:commander mv=99");
   await page.evaluate(() => window.doSearch());

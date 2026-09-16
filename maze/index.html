@@ -28,7 +28,7 @@
 <link rel="stylesheet" href="../assets/css/components.css?v=vm612">
 <link rel="stylesheet" href="../assets/vendor/mana/css/mana.min.css">
 <link rel="stylesheet" href="../assets/css/guide-beacon.css?v=vm620">
-<link rel="stylesheet" href="../assets/css/maze.css?v=vm635">
+<link rel="stylesheet" href="../assets/css/maze.css?v=vm658">
 </head>
 <body class="vm-maze-route" data-page="maze" data-vm-current="maze" data-bg="medium" data-vm-atmosphere="rich" data-maze-mode="ai" data-stash-open="false">
 
@@ -98,21 +98,18 @@
 <section class="r-search-zone maze-command-deck" aria-labelledby="maze-page-title">
   <div class="maze-command-copy">
     <span class="maze-eyebrow">The Implicit Maze</span>
-    <h1 id="maze-page-title">Search from a reading, syntax, or shape.</h1>
-    <p>
-      Follow a dossier thread, describe a card texture, write exact Scryfall syntax, or shape a query visually.
-      Maze keeps the translation visible so discoveries can come back to the reading.
-    </p>
+    <h1 id="maze-page-title">A card-search instrument.</h1>
+    <p>Follow a dossier thread, describe a texture, write exact syntax, or shape a query.</p>
   </div>
 
   <div class="maze-console-panel">
-    <div class="mode-row" role="group" aria-label="Maze search modes">
-      <button class="mode-btn mode-card on" id="mode-ai" type="button" data-action="set-mode" data-mode="ai" aria-pressed="true"><span class="mode-card-kicker">Human language</span><span class="mode-card-title">The Plain Reading</span><span class="mode-card-copy">Describe the card you want in plain English.</span><span class="mode-card-example">red vampires that sacrifice creatures</span></button>
-      <button class="mode-btn mode-card" id="mode-raw" type="button" data-action="set-mode" data-mode="raw" aria-pressed="false"><span class="mode-card-kicker">Scryfall syntax</span><span class="mode-card-title">The Operator's Hand</span><span class="mode-card-copy">Use exact operators and normalized syntax.</span><span class="mode-card-example">ci&lt;=br t:creature o:sacrifice f:commander</span></button>
-      <button class="mode-btn mode-card" id="mode-builder" type="button" data-action="set-mode" data-mode="builder" aria-pressed="false"><span class="mode-card-kicker">Visual query</span><span class="mode-card-title">The Loom</span><span class="mode-card-copy">Shape colors, card types, abilities, and refinements into a search.</span><span class="mode-card-example">filters become Scryfall syntax</span></button>
+    <div class="mode-row" role="tablist" aria-label="Maze search modes">
+      <button class="mode-btn mode-card on" id="mode-ai" type="button" role="tab" data-action="set-mode" data-mode="ai" aria-selected="true" aria-controls="maze-workbench-panel" tabindex="0"><span class="mode-card-kicker">Human language</span><span class="mode-card-title">Plain Reading</span></button>
+      <button class="mode-btn mode-card" id="mode-raw" type="button" role="tab" data-action="set-mode" data-mode="raw" aria-selected="false" aria-controls="maze-workbench-panel" tabindex="-1"><span class="mode-card-kicker">Scryfall syntax</span><span class="mode-card-title">Operator's Hand</span></button>
+      <button class="mode-btn mode-card" id="mode-builder" type="button" role="tab" data-action="set-mode" data-mode="builder" aria-selected="false" aria-controls="maze-workbench-panel" tabindex="-1"><span class="mode-card-kicker">Visual query</span><span class="mode-card-title">The Loom</span></button>
     </div>
 
-    <div class="maze-search-shell">
+    <div class="maze-search-shell" id="maze-workbench-panel" role="tabpanel" aria-labelledby="mode-ai" tabindex="-1">
       <div class="maze-mode-context" id="maze-mode-context">
         <span id="maze-mode-context-label">Plain reading open</span>
         <p id="maze-mode-context-copy">Describe the card you want in human language. Maze will translate the intent into Scryfall syntax before searching.</p>
@@ -316,6 +313,19 @@
           <a class="qi-btn" id="qi-scryfall" href="#" target="_blank" rel="noopener">Open in Scryfall</a>
         </div>
       </div>
+
+      <div class="maze-state-ribbon hidden" id="maze-state-ribbon" aria-label="Current search state">
+        <div class="maze-ribbon-item">
+          <span class="maze-ribbon-label">Request</span>
+          <span class="maze-ribbon-value" id="maze-ribbon-request"></span>
+        </div>
+        <div class="maze-ribbon-item">
+          <span class="maze-ribbon-label">Exact query</span>
+          <code class="maze-ribbon-query" id="maze-ribbon-query"></code>
+        </div>
+        <div class="maze-ribbon-item maze-ribbon-result" id="maze-ribbon-result" role="status" aria-live="polite"></div>
+        <button class="qi-btn maze-ribbon-copy" id="maze-ribbon-copy" type="button" data-action="copy-ribbon-query">Copy exact query</button>
+      </div>
     </div>
 </div>
 </section>
@@ -471,7 +481,7 @@
   </div>
 </div>
 <div class="maze-toast" id="toast" role="status" aria-live="polite"></div>
-<script type="module" src="../assets/js/maze/research-init.js?v=vm636"></script>
+<script type="module" src="../assets/js/maze/research-init.js?v=vm658"></script>
 <script src="../assets/js/shared/vm-rich-atmosphere.js" defer></script>
 <script src="../assets/js/shared/reduce-motion.js" defer></script>
 <script src="../assets/js/shared/guide-beacon.js?v=vm620" defer></script>

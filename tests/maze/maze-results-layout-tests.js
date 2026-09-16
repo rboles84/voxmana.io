@@ -57,6 +57,15 @@ assert.match(css, /\.current-weave::before \{[\s\S]*?radial-gradient[\s\S]*?line
 assert.match(source, /<a class="empty-card-link"[\s\S]*?target="_blank" rel="noopener">/, "the random specimen must retain its existing safe clickable semantics");
 assert.match(css, /\.empty-card-link:hover \.empty-card-frame \{[\s\S]*?translateY\(-3px\)[\s\S]*?border-color[\s\S]*?box-shadow/, "the clickable no-result specimen must reuse restrained lift and glow language");
 assert.match(css, /@media \(prefers-reduced-motion: reduce\)[\s\S]*?\.empty-card-frame,[\s\S]*?\.empty-card-frame img[\s\S]*?transition: none !important;/, "the no-result specimen treatment must respect reduced motion");
+assert.match(css, /\/\* VM-658 instrument frame:[\s\S]*?\.mode-row \{ gap: 0; border-bottom: 1px solid var\(--maze-line-soft\); \}/, "VM-658 modes must use a compact, flatter rail");
+assert.match(css, /\.mode-card\.on,[\s\S]*?border-bottom: 2px solid var\(--maze-gold-2\);[\s\S]*?box-shadow: none;/, "active mode must be an etched rail state rather than a floating card");
+assert.match(css, /\.maze-state-ribbon \{[\s\S]*?border-top: 1px solid var\(--maze-teal-line\);[\s\S]*?border-bottom: 1px solid var\(--maze-line-soft\);[\s\S]*?background: #14130f;/, "state ribbon must be an in-flow rule treatment");
+assert.match(css, /\.maze-ribbon-query \{[\s\S]*?overflow-wrap: anywhere;/, "full exact queries must wrap safely");
+assert.match(css, /@media \(max-width: 860px\)[\s\S]*?\.maze-command-deck \{ grid-template-columns: 1fr; \}/, "instrument frame must collapse at ordinary widths");
+assert.match(css, /@media \(max-width: 420px\)[\s\S]*?\.maze-state-ribbon \{ grid-template-columns: minmax\(0, 1fr\); \}[\s\S]*?\.maze-ribbon-copy \{ justify-self: stretch; \}/, "390px-safe ribbon must become a single wrapping column");
+assert.match(css, /body\.vm-maze-route :focus-visible \{[\s\S]*?outline: 2px solid rgba\(247, 215, 132, 0\.78\);/, "visible focus ring must remain present");
+assert.match(css, /@media \(prefers-reduced-motion: reduce\)[\s\S]*?\.maze-state-ribbon, \.mode-card \{ transition: none !important; \}/, "system reduced motion must cover the new frame");
+assert.match(css, /\[data-reduce-motion="true"\] \.maze-state-ribbon,[\s\S]*?\.mode-card \{ transition: none !important; \}/, "explicit reduced-motion mode must cover the new frame");
 
 assert.doesNotMatch(source, /showResultCardPreview|hideResultCardPreview|bindResultCardPreview/, "detached preview state must be removed");
 assert.doesNotMatch(source, /function resetBuilderFilters\(\)[\s\S]*?showToast\("Loom reset"\)/, "Loom reset must not create a persistent visual toast");

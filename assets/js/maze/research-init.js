@@ -41,6 +41,7 @@ import {
 
 // Route state, storage keys, and static UI definitions.
 let currentMode = "ai";
+const modeDraftValues = { ai: "", raw: "" };
 let currentQuery = "";
 let currentOrder = "name";
 let currentUnique = "cards";
@@ -53,6 +54,7 @@ let displayPage = 0;
 let hasMore = false;
 let nextPageUrl = null;
 let totalCards = 0;
+let ribbonExecutionQuery = "";
 let loomResultStatusText = "";
 let loomWeaveResultQuery = "";
 let loomWeaveResultCount = null;
@@ -1033,10 +1035,13 @@ function setMode(mode) {
   MODE_IDS.forEach((id) => {
     const btn = document.getElementById(`mode-${id}`);
     if (!btn) return;
-    btn.classList.toggle("on", id === mode);
+    const active = id === mode;
+    btn.classList.toggle("on", active);
     btn.classList.remove("teal-mode");
-    setAriaPressed(btn, id === mode);
+    btn.setAttribute("aria-selected", String(active));
+    btn.tabIndex = active ? 0 : -1;
   });
+  document.getElementById("maze-workbench-panel")?.setAttribute("aria-labelledby", `mode-${mode}`);
 
   const input = document.getElementById("search-input");
   const icon = document.getElementById("search-icon");
@@ -1045,6 +1050,9 @@ function setMode(mode) {
   const inputLabel = document.getElementById("search-input-label");
   const clearButton = document.getElementById("clear-search-btn");
   if (!input || !icon || !builder) return;
+  if (previousMode !== mode && Object.hasOwn(modeDraftValues, previousMode)) {
+    modeDraftValues[previousMode] = input.value;
+  }
   updateModeContent(mode);
   if (mode === "ai") {
     input.className = "s-input";
@@ -1097,11 +1105,32 @@ function setMode(mode) {
   }
 
   syncInputForModeSwitch(input, previousMode, mode);
+  if (previousMode === "builder" && Object.hasOwn(modeDraftValues, mode) && modeDraftValues[mode]) {
+    input.value = modeDraftValues[mode];
+  }
   sizeLoomQueryInput(input);
   updateLoomSidebarVisibility(mode);
   updateReadingContextDisclosure();
   updateLoomResultDelivery();
+  updateMazeStateRibbon();
   refreshInitialStateForMode();
+}
+
+function handleModeTabKeydown(event) {
+  const tabs = MODE_IDS.map((id) => document.getElementById(`mode-${id}`)).filter(Boolean);
+  const currentIndex = tabs.indexOf(event.currentTarget);
+  if (currentIndex < 0) return;
+  let nextIndex = -1;
+  if (event.key === "ArrowRight" || event.key === "ArrowDown") nextIndex = (currentIndex + 1) % tabs.length;
+  if (event.key === "ArrowLeft" || event.key === "ArrowUp") nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+  if (event.key === "Home") nextIndex = 0;
+  if (event.key === "End") nextIndex = tabs.length - 1;
+  if (nextIndex >= 0) {
+    event.preventDefault();
+    const nextTab = tabs[nextIndex];
+    setMode(nextTab.dataset.mode || "ai");
+    nextTab.focus();
+  }
 }
 
 function updateModeContent(mode) {
@@ -1410,6 +1439,7 @@ async function triggerSearch(query, opts = {}) {
   const searchApi = { endpoint: "/cards/search", unique: searchUnique, order: searchOrder };
   if (searchDir) searchApi.dir = searchDir;
   currentQuery = query;
+  ribbonExecutionQuery = query;
   currentOrder = searchOrder;
   currentUnique = searchUnique;
   currentDir = searchDir;
@@ -1591,6 +1621,7 @@ function renderResults(append = false) {
     loomWeaveResultCount = totalCards;
     updateLoomResultDelivery();
     renderCurrentWeave();
+    updateMazeStateRibbon();
   }
 }
 
@@ -3525,6 +3556,36 @@ function updateSearchActions(query = currentQuery, api = currentSearchApi) {
     scryfallLink.setAttribute("aria-disabled", hasQuery ? "false" : "true");
     scryfallLink.tabIndex = hasQuery ? 0 : -1;
   }
+  updateMazeStateRibbon(cleanQuery);
+}
+
+/** Keeps the presentation-only request → executable query → result state legible. */
+function getActiveMazeRibbonQuery() {
+  const inputValue = normalizeSearchInputValue(document.getElementById("search-input")?.value || "");
+  return currentMode === "ai" ? String(currentQuery || "").trim() : inputValue;
+}
+
+function updateMazeStateRibbon(query = getActiveMazeRibbonQuery()) {
+  const ribbon = document.getElementById("maze-state-ribbon");
+  const request = document.getElementById("maze-ribbon-request");
+  const exactQuery = document.getElementById("maze-ribbon-query");
+  const result = document.getElementById("maze-ribbon-result");
+  const cleanQuery = String(query || currentQuery || "").trim();
+  if (!ribbon || !request || !exactQuery || !result) return;
+  ribbon.classList.toggle("hidden", !cleanQuery);
+  if (!cleanQuery) return;
+  const inputValue = normalizeSearchInputValue(document.getElementById("search-input")?.value || "");
+  request.textContent = inputValue || cleanQuery;
+  exactQuery.textContent = cleanQuery;
+  const hasError = Boolean(document.getElementById("err-msg")?.textContent);
+  const noResults = document.getElementById("state-panel")?.classList.contains("empty-result-active");
+  const isLoading = Boolean(document.getElementById("search-btn")?.disabled);
+  if (ribbonExecutionQuery !== cleanQuery) result.textContent = "Ready to execute";
+  else if (hasError) result.textContent = "Execution needs attention";
+  else if (noResults) result.textContent = "No cards found";
+  else if (isLoading) result.textContent = "Executing search";
+  else if (totalCards > 0) result.textContent = `${totalCards.toLocaleString()} ${totalCards === 1 ? "card" : "cards"} found`;
+  else result.textContent = "Ready to execute";
 }
 
 /**
@@ -3543,6 +3604,11 @@ function copyQuery() {
     ? inputValue
     : currentQuery || inputValue || lastSmartInput;
   copyTextToClipboard(copyText, "Query copied");
+}
+
+function copyMazeRibbonQuery() {
+  const copyText = String(document.getElementById("maze-ribbon-query")?.textContent || "").trim();
+  if (copyText) copyTextToClipboard(copyText, "Query copied");
 }
 
 /**
@@ -3585,6 +3651,7 @@ function clearSearchInput() {
  */
 function resetSearchResults() {
   currentQuery = "";
+  ribbonExecutionQuery = "";
   currentOrder = "name";
   currentUnique = "cards";
   currentDir = undefined;
@@ -3672,6 +3739,7 @@ function setLoading(on) {
     document.getElementById("results-header").classList.add("hidden");
     document.getElementById("results-footer").classList.add("hidden");
   }
+  updateMazeStateRibbon();
 }
 
 /**
@@ -3714,6 +3782,7 @@ async function showNoResultsState(query, diagnostics = []) {
   loomWeaveResultCount = 0;
   updateLoomResultDelivery();
   renderCurrentWeave();
+  updateMazeStateRibbon();
 
   const card = await ResearchSearch.scryfallRandom("kw:deathtouch");
   if (card?.object === "card") renderNoResultsCard(card);
@@ -4376,6 +4445,7 @@ function bindMazeControls() {
   window.addEventListener("resize", resetStashDragForMobile);
 
   document.getElementById("search-input")?.addEventListener("keydown", handleSearchInputKeydown);
+  MODE_IDS.forEach((id) => document.getElementById(`mode-${id}`)?.addEventListener("keydown", handleModeTabKeydown));
   document.getElementById("exclude-colorless")?.addEventListener("change", rebuildFromFilters);
   document.getElementById("bld-format")?.addEventListener("change", rebuildFromFilters);
   document.getElementById("cmc-min")?.addEventListener("input", rebuildFromFilters);
@@ -4463,6 +4533,9 @@ function handleMazeActionClick(event) {
       return;
     case "copy-query":
       copyQuery();
+      return;
+    case "copy-ribbon-query":
+      copyMazeRibbonQuery();
       return;
     case "toggle-stash-drawer":
       toggleStashDrawer();
@@ -4664,6 +4737,7 @@ function showError(message) {
   el.classList.remove("hidden");
   document.getElementById("state-panel").classList.remove("empty-result-active");
   hideState();
+  updateMazeStateRibbon();
 }
 
 /**

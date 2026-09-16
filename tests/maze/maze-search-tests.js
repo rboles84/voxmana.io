@@ -17,18 +17,48 @@ import {
 const LIVE_FOUR_COLOR_EXACT_COMMANDER_FORBIDDEN_FILTERS = /(?:\bo:|\bft:|\bstorm\b|spell chain|\bknowledge\b|\bstudy\b|\bhungry\b|\bdevouring\b|\baggro\b|\baggressive\b)/i;
 
 const mazeHtml = readFileSync(new URL("../../maze/index.html", import.meta.url), "utf8");
+const mazeInitSource = readFileSync(new URL("../../assets/js/maze/research-init.js", import.meta.url), "utf8");
 const manaCss = readFileSync(new URL("../../assets/vendor/mana/css/mana.min.css", import.meta.url), "utf8");
 const manaAbilityIconSlugs = new Set([...manaCss.matchAll(/\.ms-ability-([a-z0-9-]+)/g)].map((match) => match[1]));
 const parserSeedFixture = JSON.parse(readFileSync(new URL("../../data/maze/scryfall-parser-seed-2026.json", import.meta.url), "utf8"));
 const groundingFixture = JSON.parse(readFileSync(new URL("../../data/scryfall/grounding/scryfall-grounding.json", import.meta.url), "utf8"));
 const semanticRegistryFixture = JSON.parse(readFileSync(new URL("../../data/scryfall/grounding/plain-reading-semantics.json", import.meta.url), "utf8"));
 const mazeDiscoveryProfileCatalogFixture = JSON.parse(readFileSync(new URL("../../data/dossier/maze-discovery-profiles.catalog.json", import.meta.url), "utf8"));
+assert.match(mazeHtml, /assets\/css\/maze\.css\?v=vm658/);
+assert.match(mazeHtml, /assets\/js\/maze\/research-init\.js\?v=vm658/);
 assert.doesNotMatch(mazeHtml, /id="mode-help-btn"/);
 assert.doesNotMatch(mazeHtml, /id="mode-help-popover"/);
 assert.match(mazeHtml, /<textarea\b[^>]*id="search-input"[^>]*rows="2"[\s\S]*?<\/textarea>/);
 assert.doesNotMatch(mazeHtml, /<input\b[^>]*id="search-input"/);
 assert.match(mazeHtml, /id="search-copy-btn"[^>]*data-action="copy-query"/);
 assert.match(mazeHtml, /id="search-scryfall-link"[^>]*aria-disabled="true"/);
+assert.match(mazeHtml, /class="mode-row" role="tablist" aria-label="Maze search modes"/);
+for (const mode of ["ai", "raw", "builder"]) {
+  assert.match(
+    mazeHtml,
+    new RegExp(`id="mode-${mode}"[^>]*role="tab"[^>]*aria-selected="(?:true|false)"[^>]*aria-controls="maze-workbench-panel"`),
+    `${mode} mode must be a tab connected to the shared workbench panel`
+  );
+}
+assert.match(mazeHtml, /id="maze-workbench-panel" role="tabpanel" aria-labelledby="mode-ai" tabindex="-1"/);
+assert.match(mazeHtml, /id="maze-reading-context" tabindex="-1"/, "dossier/source context must retain a focus target for entry and return");
+assert.match(mazeHtml, /id="maze-state-ribbon" aria-label="Current search state"/);
+assert.match(mazeHtml, /id="maze-ribbon-query"/);
+assert.match(mazeHtml, /id="maze-ribbon-copy"[^>]*data-action="copy-ribbon-query">Copy exact query/);
+assert.ok(
+  mazeHtml.indexOf('id="maze-reading-context"') < mazeHtml.indexOf('class="search-input-row"')
+    && mazeHtml.indexOf('class="search-input-row"') < mazeHtml.indexOf('id="maze-state-ribbon"'),
+  "source context, request, and exact-query ribbon must keep their logical DOM order"
+);
+assert.match(mazeInitSource, /function handleModeTabKeydown\(event\)[\s\S]*?ArrowRight[\s\S]*?ArrowLeft[\s\S]*?Home[\s\S]*?End/);
+assert.match(mazeInitSource, /MODE_IDS\.forEach\(\(id\) => document\.getElementById\(`mode-\$\{id\}`\)\?\.addEventListener\("keydown", handleModeTabKeydown\)\)/);
+assert.match(mazeInitSource, /function getActiveMazeRibbonQuery\(\)[\s\S]*?function updateMazeStateRibbon\(query = getActiveMazeRibbonQuery\(\)\)/);
+assert.match(mazeInitSource, /document\.getElementById\("maze-workbench-panel"\)\?\.setAttribute\("aria-labelledby", `mode-\$\{mode\}`\)/);
+assert.match(mazeInitSource, /hasError\) result\.textContent = "Execution needs attention"/);
+assert.match(mazeInitSource, /noResults\) result\.textContent = "No cards found"/);
+assert.match(mazeInitSource, /isLoading\) result\.textContent = "Executing search"/);
+assert.match(mazeInitSource, /totalCards\.toLocaleString\(\)/);
+assert.match(mazeInitSource, /else result\.textContent = "Ready to execute"/);
 assert.ok(
   mazeHtml.indexOf('id="builder-panel"') < mazeHtml.indexOf('class="search-input-row"'),
   "Loom construction must precede the live-query action region in DOM and focus order"
@@ -315,6 +345,7 @@ if (process.argv.includes("--vm592-focused")) {
   await runJeskaiArchscryOperatorPrecedenceCase();
   await runTechnicalRgwuPublicGuardCase();
   await runMazeUrlBootCase();
+  await runVm658InstrumentFrameCases();
 
   console.log("Maze search metadata helper cases passed.");
 }
@@ -1968,6 +1999,53 @@ async function runMazeUrlBootCase() {
   assert.equal(searchUrl.searchParams.get("q"), "c:r t:creature");
 }
 
+async function runVm658InstrumentFrameCases() {
+  const dom = installMazeDomHarness();
+  await import("../../assets/js/maze/research-init.js?vm658-instrument-frame");
+  await dom.dispatchWindowEvent("load");
+  const input = document.getElementById("search-input");
+  input.value = "vampires that sacrifice creatures";
+  dom.clickElement("mode-raw");
+  assert.equal(document.body.dataset.mazeMode, "raw", "click activation must select Operator's Hand");
+  assert.equal(document.getElementById("mode-raw").getAttribute("aria-selected"), "true");
+  assert.equal(document.getElementById("mode-ai").getAttribute("aria-selected"), "false");
+  assert.equal(document.getElementById("mode-raw").tabIndex, 0);
+  assert.equal(document.getElementById("mode-ai").tabIndex, -1);
+  assert.equal(document.getElementById("maze-workbench-panel").getAttribute("aria-labelledby"), "mode-raw");
+  dom.dispatchElementEvent("mode-raw", "keydown", { key: "ArrowRight" });
+  assert.equal(document.body.dataset.mazeMode, "builder", "ArrowRight must select Loom");
+  assert.equal(document.activeElement, document.getElementById("mode-builder"), "ArrowRight must move tab focus");
+  dom.dispatchElementEvent("mode-builder", "keydown", { key: "Home" });
+  assert.equal(document.body.dataset.mazeMode, "ai", "Home must select Plain Reading");
+  assert.equal(input.value, "vampires that sacrifice creatures", "Plain Reading value must survive tab round-trips");
+  dom.dispatchElementEvent("mode-ai", "keydown", { key: "End" });
+  assert.equal(document.body.dataset.mazeMode, "builder", "End must select Loom");
+
+  window.setMode("raw");
+  input.value = "c:r";
+  document.getElementById("search-btn").disabled = false;
+  dom.setFetchResponses([{ object: "error", code: "not_found", status: 404 }]);
+  await window.doSearch();
+  assert.equal(document.getElementById("maze-ribbon-query").textContent, "c:r", "ribbon must expose the exact executable query");
+  assert.equal(document.getElementById("maze-ribbon-result").textContent, "No cards found", "zero response must refresh the ribbon");
+  window.copyQuery();
+  assert.equal(dom.getCopiedText(), "c:r", "ribbon copy action shares the exact-query copy contract");
+  document.getElementById("state-panel").classList.remove("empty-result-active");
+  document.getElementById("search-btn").disabled = true;
+  window.setMode("raw");
+  assert.equal(document.getElementById("maze-ribbon-result").textContent, "Executing search", "loading state must refresh the ribbon");
+  document.getElementById("search-btn").disabled = false;
+  input.value = "c:u";
+  window.setMode("raw");
+  assert.equal(document.getElementById("maze-ribbon-result").textContent, "Ready to execute", "a new unexecuted query must not inherit an old result count");
+  dom.clickElement("maze-ribbon-copy");
+  assert.equal(dom.getCopiedText(), "c:u", "ribbon copy must use the exact query visibly shown in the ribbon");
+  input.value = "c:r";
+  document.getElementById("err-msg").textContent = "Scryfall unavailable";
+  window.setMode("raw");
+  assert.equal(document.getElementById("maze-ribbon-result").textContent, "Execution needs attention", "error state must refresh the ribbon");
+}
+
 function makeTestCards(count, prefix) {
   return Array.from({ length: count }, (_, index) => ({
     id: `${prefix}-${index}`,
@@ -2269,11 +2347,11 @@ function installMazeDomHarness() {
   };
 
   [
-    "search-input", "search-btn", "state-panel", "card-grid", "results-header",
+    "search-input", "search-btn", "state-panel", "card-grid", "results-header", "empty-query",
     "results-footer", "err-msg", "recent-list", "recent-section", "query-inspector",
     "qi-input-wrap", "qi-input-label", "qi-input", "qi-label", "qi-query", "qi-reason",
     "qi-scryfall", "res-count", "btn-more", "more-count", "stash-count", "stash-body",
-    "mode-ai", "mode-raw", "mode-builder", "search-icon", "builder-panel", "kw-wrap",
+    "mode-ai", "mode-raw", "mode-builder", "maze-workbench-panel", "maze-state-ribbon", "maze-ribbon-request", "maze-ribbon-query", "maze-ribbon-result", "maze-ribbon-copy", "search-icon", "builder-panel", "kw-wrap",
     "kw-input", "kw-add-btn", "kw-suggestions", "kw-chips", "kw-validation", "builder-summary", "color-validation", "mv-validation", "release-year-help", "release-year-validation",
     "color-pips", "colorless-only-btn", "builder-color-options", "exclude-colorless", "exclude-colorless-option", "color-op", "color-relation-picker", "color-relation-trigger", "color-relation-label", "bld-format", "cmc-min", "cmc-max", "release-year", "printing-scope", "sb-format", "modal-inner", "modal-bg",
     "maze-mode-context", "maze-mode-context-label", "maze-mode-context-copy", "maze-reading-context", "maze-reading-context-label", "maze-reading-context-detail", "maze-reading-context-action", "search-input-label", "clear-search-btn", "discovery-path-list",
@@ -2292,7 +2370,7 @@ function installMazeDomHarness() {
           ? "input"
           : ["color-op", "bld-format", "printing-scope", "sb-format"].includes(id)
             ? "select"
-            : ["kw-add-btn", "colorless-only-btn", "color-relation-trigger", "view-results-btn", "search-btn", "maze-reading-context-action"].includes(id)
+            : ["mode-ai", "mode-raw", "mode-builder", "maze-ribbon-copy", "kw-add-btn", "colorless-only-btn", "color-relation-trigger", "view-results-btn", "search-btn", "maze-reading-context-action"].includes(id)
               ? "button"
               : id === "color-relation-picker"
                 ? "details"
@@ -2324,6 +2402,14 @@ function installMazeDomHarness() {
   });
   const viewResultsButton = documentStub.getElementById("view-results-btn");
   viewResultsButton.dataset.action = "view-results";
+  ["ai", "raw", "builder"].forEach((mode) => {
+    const tab = documentStub.getElementById(`mode-${mode}`);
+    tab.dataset.action = "set-mode";
+    tab.dataset.mode = mode;
+    tab.setAttribute("role", "tab");
+    tab.setAttribute("aria-selected", String(mode === "ai"));
+  });
+  documentStub.getElementById("maze-ribbon-copy").dataset.action = "copy-ribbon-query";
 
   documentStub.getElementById("stash-drawer-toggle").dataset.stashToggleCount = "true";
 
@@ -2427,6 +2513,13 @@ function installMazeDomHarness() {
     },
     dispatchDocumentEvent(event, payload) {
       return documentEvents.get(event)?.(payload);
+    },
+    dispatchElementEvent(id, event, payload = {}) {
+      return elements.get(id)?.[`on${event}`]?.({ currentTarget: elements.get(id), preventDefault() {}, ...payload });
+    },
+    clickElement(id) {
+      const target = elements.get(id);
+      return page.onclick?.({ target });
     },
     getCopiedText: () => copiedText
   };
