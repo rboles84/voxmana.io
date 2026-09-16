@@ -690,3 +690,61 @@ Task: VM-657
 Candidate: 941b2fa038ce0951de8ccbb07b6a4e4ea1787e3c
 Owner: ACCEPT
 Decision reference: Current Codex task, Owner message dated 2026-09-15 headed `OWNER ACCEPT — VM-657 Maze Modernization Recon`.
+
+## Integration and closeout — 2026-09-15
+
+Task: VM-657
+Candidate: 941b2fa038ce0951de8ccbb07b6a4e4ea1787e3c
+Evidence head: 1dde8afa71068ee4cfadb44992a4d5ae514a28f7
+Integration: PR #51 guarded squash merge `db628745b749776ec79fabd1b62724443d8d834c`
+Boundaries: PASS
+
+### Integration evidence
+
+- [PR #51](https://github.com/rboles84/voxmana.io/pull/51) targeted `main` from the single admitted `codex/vm-657-maze-modernization-recon` branch and contained exactly five documentation/coordination paths and eight commits.
+- Required `Deterministic Validation` completed successfully at exact PR head `1dde8afa71068ee4cfadb44992a4d5ae514a28f7` in [run 35051547444](https://github.com/rboles84/voxmana.io/actions/runs/35051547444), job `104652821677`.
+- The integration-stage delivery validator passed with exact PR head/base, authenticated complete file/blob and commit parity, clean mergeability, authentic QA/Owner bindings, optional-unavailable policy visibility, and the connector's atomic expected-head guard.
+- The authenticated connector performed a squash merge with `expected_head_sha=1dde8afa71068ee4cfadb44992a4d5ae514a28f7`.
+- Squash commit `db628745b749776ec79fabd1b62724443d8d834c` has sole parent `682cf03e2a18ee4f676ed0b78a7302d8a4d36fc7` and tree `83417236dcec196744a9258afec24178b6734ee0`, identical to the accepted evidence head.
+- GitHub removed the remote feature branch after merge. Local `main` was fast-forwarded to the verified squash commit before lifecycle closeout.
+- The unrelated pre-existing working changes were excluded from VM-657 and preserved in the named Git stash `preserve unrelated working changes before VM-657 integration 2026-09-15`.
+
+### Product and stop-line disposition
+
+- The exact accepted material candidate remains `941b2fa038ce0951de8ccbb07b6a4e4ea1787e3c`; evidence-only lifecycle head was `1dde8afa71068ee4cfadb44992a4d5ae514a28f7`.
+- No Maze production HTML, CSS, JavaScript, parser/compiler/search behavior, route/state/storage contract, test contract, source/generated production data, identity/dossier/CECOS authority, Supabase system, or telemetry changed.
+- The accepted planning direction and the `Mapped`, `Review`, `Needs meaning`, `Blocked`, and `Exact syntax` labels remain future implementation authority only after a separately admitted task.
+- VM-658 was not created.
+
+## Material candidate
+
+- Baseline: `682cf03e2a18ee4f676ed0b78a7302d8a4d36fc7`
+- Candidate: `941b2fa038ce0951de8ccbb07b6a4e4ea1787e3c`
+- Changed paths: `5`
+
+## Files changed
+
+- `docs/handoffs/2026-09-15-0740-codex-vm657-maze-modernization-recon.md`
+- `docs/handoffs/2026-09-15-0740-robqa-vm657-maze-modernization-recon.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-657-maze-modernization-recon.md`
+
+## Evidence delta
+
+- Material candidate: `941b2fa038ce0951de8ccbb07b6a4e4ea1787e3c`
+- Evidence head: `1dde8afa71068ee4cfadb44992a4d5ae514a28f7`
+- Additional evidence-only paths: `4`
+
+This is evidence-only, not the full task diff.
+
+## Evidence-only paths
+
+- `docs/handoffs/2026-09-15-0740-codex-vm657-maze-modernization-recon.md`
+- `docs/handoffs/2026-09-15-0740-robqa-vm657-maze-modernization-recon.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-657-maze-modernization-recon.md`
+
+## Closeout scope
+
+Only verified integration evidence, VM-657 Done lifecycle relocation, generated views, and branch cleanup are included. The task stops after successful deterministic closeout. No Maze implementation or follow-up task begins automatically.

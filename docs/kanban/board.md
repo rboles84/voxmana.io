@@ -1,4 +1,4 @@
-<!-- task-view-sha256:27e34dc786cd36e09e4aeeca4307ae8e975926e0069a3da817a3f7dddbf177d0 -->
+<!-- task-view-sha256:f2409e913fd0dcf73daa6864532eba01e54f5aebbcfdbfd678656bb83ab6d58b -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -49,7 +49,6 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 
 | ID | Card | Declared status | Diagnostics |
 |---|---|---|---|
-| VM-657 | [Maze Modernization Recon](in-progress/VM-657-maze-modernization-recon.md) | Accepted |  |
 
 ## Integrated
 
@@ -674,6 +673,7 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | VM-654 | [Retired Code Recon](done/VM-654-retired-code-recon.md) | Done |  |
 | VM-655 | [Authentication Boundary and Unavailable Policy Evidence](done/VM-655-authentication-boundary.md) | Done |  |
 | VM-656 | [Core Retired Product Purge](done/VM-656-core-retired-product-purge.md) | Done |  |
+| VM-657 | [Maze Modernization Recon](done/VM-657-maze-modernization-recon.md) | Done |  |
 
 ## Unresolved
 
