@@ -2,7 +2,7 @@
 
 ID: VM-658
 Title: Maze Instrument Frame
-Status: In Progress
+Status: Owner Review
 Type: Production implementation
 Area: Maze presentation and interaction frame
 Priority: High
@@ -36,15 +36,15 @@ Current Owner implementation request, grounded in merged VM-657 card, Maze Moder
 
 ## Acceptance Criteria
 
-- [ ] Maze presents a compact identity/orientation mast and the active request controls within the initial working experience instead of leading with oversized introductory cards.
-- [ ] The three modes use correct accessible selection semantics and keyboard behavior, preserve current per-mode values, and expose only the active working surface as primary content.
-- [ ] A compact structural ribbon uses existing runtime information to maintain request → executable query → search state/results continuity, including accessible full-query and copy behavior.
-- [ ] Existing dossier entry, context state, independent-search path, return destination, and source meaning remain unchanged while a dedicated provenance/context region is established.
-- [ ] Search does not auto-scroll; explicit current result-navigation behavior remains available; focus order and focus-visible states remain coherent.
-- [ ] Desktop/laptop, useful wide desktop, and approximately 390px layouts preserve understandable request/state/results continuity without horizontal overflow or a sequence of oversized stacked sections.
-- [ ] Reduced-motion behavior remains complete and does not hide state or actions.
-- [ ] Focused evidence pins relevant existing query/runtime outputs and proves the presentation restructure does not change semantic/search behavior.
-- [ ] Proportional RobQA passes for the exact candidate and the task stops at Owner Review.
+- [x] Maze presents a compact identity/orientation mast and the active request controls within the initial working experience instead of leading with oversized introductory cards.
+- [x] The three modes use correct accessible selection semantics and keyboard behavior, preserve current per-mode values, and expose only the active working surface as primary content.
+- [x] A compact structural ribbon uses existing runtime information to maintain request → executable query → search state/results continuity, including accessible full-query and copy behavior.
+- [x] Existing dossier entry, context state, independent-search path, return destination, and source meaning remain unchanged while a dedicated provenance/context region is established.
+- [x] Search does not auto-scroll; explicit current result-navigation behavior remains available; focus order and focus-visible states remain coherent.
+- [x] Desktop/laptop, useful wide desktop, and approximately 390px layouts preserve understandable request/state/results continuity without horizontal overflow or a sequence of oversized stacked sections.
+- [x] Reduced-motion behavior remains complete and does not hide state or actions.
+- [x] Focused evidence pins relevant existing query/runtime outputs and proves the presentation restructure does not change semantic/search behavior.
+- [x] Proportional RobQA passes for the exact candidate and the task stops at Owner Review.
 
 ## Files Likely Impacted
 
@@ -75,13 +75,13 @@ The accepted VM-657 direction governs visual and structural intent. The Owner's 
 Record version: 1
 Branch: codex/vm-658-maze-instrument-frame
 Admission baseline: 6b57d5dc7fa77f51ddc0f27c69dc834dcf12a595
-Candidate: PENDING
-RobQA: PENDING
+Candidate: 1987332e8952f43111bd368f64b1ea0a568b5b7a
+RobQA: PASS at 1987332e8952f43111bd368f64b1ea0a568b5b7a — SEPARATE QA-2 with bounded QA-3 dossier/state edge by `/root/robqa_vm658`; rejected candidate `be971554664b0378aeb7f9cb4f6ddba46a8920a9` remains preserved in the QA record.
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Decisions: Implement accepted VM-657 Slice 1 only; preserve existing semantic/query/search/dossier/persistence behavior; stop at Owner Review and do not proceed into Slice 2. Scope amendment: include the existing focused VM-616 Maze context-recovery browser harness because its mode-selection assertions must follow the authorized button-to-tab semantic change and it supplies the bounded dossier entry/return evidence requested for VM-658. Scope amendment: update the existing route-specific frontend HTML assertion from the retired Maze module revision to `vm658` so the changed controller is not served under a stale production cache key.
-Evidence: PENDING
+Evidence: [RobDev implementation handoff](../../handoffs/2026-09-15-2144-codex-vm658-maze-instrument-frame.md); [independent RobQA handoff](../../handoffs/2026-09-15-2144-robqa-vm658-maze-instrument-frame.md)
 
 ## Admission Scope
 

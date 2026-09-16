@@ -67,3 +67,55 @@ Correction checks passed:
 - `node tests/maze/maze-results-layout-tests.js`
 - `node --check assets/js/maze/research-init.js`
 - `git diff --check`
+
+## Exact-candidate engineering result
+
+The governing corrected material candidate is `1987332e8952f43111bd368f64b1ea0a568b5b7a`. Independent `/root/robqa_vm658` issued RobQAPass PASS in SEPARATE execution after confirming both rejected-candidate blockers were resolved. Objective Chromium evidence measured a 1214px command deck and 900px workbench/input at 1280px, and a 378px command deck and 350px workbench/input at 390px, with zero horizontal overflow. It also verified direct and Loom-mediated draft preservation, real tab keyboard/focus/ARIA behavior, first-entry compiled conversion, exact ribbon query/state, no automatic result scrolling, reduced motion, and dossier independent/restore/return behavior.
+
+The earlier candidate `be971554664b0378aeb7f9cb4f6ddba46a8920a9` is rejected and must not be accepted or integrated. Its BLOCKED decision remains in the independent QA handoff as immutable correction history. The broad historical onboarding browser harness received one attempt and timed out in unrelated Guide Beacon setup; it was not retried. Focused corrected-candidate browser evidence covers the VM-658 risks without claiming that historical harness as green.
+
+## Material candidate
+
+- Baseline: `6b57d5dc7fa77f51ddc0f27c69dc834dcf12a595`
+- Candidate: `1987332e8952f43111bd368f64b1ea0a568b5b7a`
+- Changed paths: `12`
+
+This is the primary task change set derived from Git, including admission/lifecycle records and the preserved rejected-candidate QA history.
+
+## Files changed
+
+- `assets/css/maze.css`
+- `assets/js/maze/research-init.js`
+- `docs/handoffs/2026-09-15-2144-codex-vm658-maze-instrument-frame.md`
+- `docs/handoffs/2026-09-15-2144-robqa-vm658-maze-instrument-frame.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-658-maze-instrument-frame.md`
+- `maze/index.html`
+- `scripts/validate-frontend-html.mjs`
+- `scripts/vm616-maze-context-recovery-browser.mjs`
+- `tests/maze/maze-results-layout-tests.js`
+- `tests/maze/maze-search-tests.js`
+
+## Evidence delta
+
+- Material candidate: `1987332e8952f43111bd368f64b1ea0a568b5b7a`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `4`
+
+This delta records the corrected-candidate QA PASS, exact lifecycle binding, final Git accounting, and fresh generated views. It is not the full task diff.
+
+## Evidence-only paths
+
+- `docs/handoffs/2026-09-15-2144-codex-vm658-maze-instrument-frame.md`
+- `docs/handoffs/2026-09-15-2144-robqa-vm658-maze-instrument-frame.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-658-maze-instrument-frame.md`
+
+## Final branch delta
+
+The Git-derived final branch delta remains 12 unique paths from the admission baseline to the evidence head; the four evidence-only paths above already exist in the material comparison and receive only append-only evidence, lifecycle, checkbox, or generated-view updates.
+
+## Owner Review route
+
+Owner acceptance remains PENDING. Open Maze at an ordinary desktop width, switch Plain Reading → Operator's Hand → The Loom, and inspect once around 390px. Decide whether the compact mast, mode rail, request bench, provenance context, and state ribbon read as one continuous Vox Mana search instrument; whether the input task is immediately apparent; whether the three modes feel like views of one product; and whether the narrow composition stays comfortable. Engineering QA has already covered the objective interaction, width, overflow, query/runtime, dossier return, reduced-motion, and no-auto-scroll contracts. Do not begin Slice 2 from this review.

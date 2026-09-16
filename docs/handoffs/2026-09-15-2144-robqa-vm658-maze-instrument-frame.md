@@ -104,3 +104,74 @@ The responsive shrink-wrap failure and direct mode-draft loss are material objec
 - Follow-up recommendation: RobDev correct both defect classes on the same branch and hand a new immutable candidate to an independent RobQA reviewer.
 - Next suggested agent: RobDev implementation worker, then independent RobQA.
 - Related records: `docs/kanban/in-progress/VM-658-maze-instrument-frame.md`; `docs/handoffs/2026-09-15-2144-codex-vm658-maze-instrument-frame.md`; accepted VM-657 recon handoff.
+
+---
+
+## Corrected-candidate cycle — 2026-09-15
+
+Task: VM-658
+Candidate: 1987332e8952f43111bd368f64b1ea0a568b5b7a
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: /root/robqa_vm658
+Implementer: /root/robdev_vm658
+
+This cycle governs the corrected candidate above. The earlier BLOCKED decision for `be971554664b0378aeb7f9cb4f6ddba46a8920a9` remains preserved as rejected-candidate history.
+
+### Binding, independence, and classification
+
+- `HEAD` and the named candidate both resolved to `1987332e8952f43111bd368f64b1ea0a568b5b7a`; its merge-base with the admission baseline remained `6b57d5dc7fa77f51ddc0f27c69dc834dcf12a595`.
+- The worktree was clean at candidate binding. This reviewer did not implement the correction.
+- QA remains QA-2 component interaction with the bounded QA-3 dossier return/state edge. No protected parser, query, search, dossier-meaning, storage, semantic, generated-data, placement, or CECOS owner changed.
+- Correction scope from the rejected candidate: definite command-deck width, edited-draft ownership/restoration, focused regression assertions, and implementation/evidence records. The full baseline-to-candidate scope remains the admitted 12-path VM-658 slice.
+- CPU-heavy validation: **NOT REQUIRED**.
+
+### Checks and outcomes
+
+| Check | Outcome |
+|---|---|
+| `node tests/maze/maze-search-tests.js` | PASS — includes direct Plain custom → Operator custom → Plain → Operator preservation, Loom round trip, tabs, ribbon states/copy, and existing controller/dossier cases. |
+| `node tests/maze/maze-results-layout-tests.js` | PASS — includes the definite responsive command-deck width invariant plus rail/ribbon/focus/reduced-motion guards. |
+| `node tests/maze/research-mode-tests.js` | PASS — 14 mode and 14 leakage cases; existing first-entry conversion semantics remain pinned. |
+| `node tests/maze/maze-query-contract-tests.js` | PASS — executable query/API contracts unchanged. |
+| `node --check assets/js/maze/research-init.js` | PASS. |
+| `npm.cmd run lint:js` | PASS — 37 frontend JavaScript files. |
+| `npm.cmd run lint:html` | PASS. |
+| `npm.cmd run task -- indexes --check` | PASS — generated views fresh, 698 cards and 1106 handoffs. |
+| `git diff --check 6b57d5dc7fa77f51ddc0f27c69dc834dcf12a595..1987332e8952f43111bd368f64b1ea0a568b5b7a` | PASS. |
+| Focused local Chromium route with intercepted deterministic Scryfall response | Product checks completed; observations below. The first combined command emitted complete results and then reported an environment-only `EPERM` while chrome-launcher removed its temporary profile after browser shutdown. A bounded draft-only replay with corrected replace-style input exited 0. No product assertion failed. |
+
+### Objective browser evidence
+
+- Ordinary 1280px: route page 1214px, command deck 1214px, workbench/input 900px, horizontal overflow 0.
+- Narrow 390px: route page and command deck 378px, workbench/input 350px, horizontal overflow 0. The prior 28px deck / 89px workbench collapse is resolved.
+- Genuine edited drafts: Plain `vampires that sacrifice creatures` → Operator `c:r` → Plain restored the exact Plain draft → Operator restored exact `c:r`; after editing Plain to `vampires that sacrifice creatures at instant speed`, a Loom round trip restored that exact Plain draft and then exact Operator `c:r`.
+- Real keyboard operation: ArrowRight selected and focused `mode-raw`; End selected/focused `mode-builder`; Home selected/focused `mode-ai`. `aria-selected`, roving `tabindex=0`, body mode, and panel `aria-labelledby` remained synchronized.
+- Search execution: Plain `red and green with deathtouch` produced exact ribbon query `c:rg kw:deathtouch`, status `1 card found`, retained focus on `search-btn`, and kept `scrollY` at 0 before and after results. Switching to Operator after execution exposed the same compiled query, preserving first-entry conversion/search ownership.
+- Reduced motion: both system preference and explicit `data-reduce-motion` produced the browser's effectively-zero computed transition duration for the new mode/ribbon elements; source guards independently pin `transition: none !important` for both paths.
+- Dossier path: contextual entry rendered `data-state=dossier-thread`, named the Jund dossier thread, and exposed the Archscry return URL; Search independently produced `independent=1`, preserved the exact active query, disclosed detached Find association, and offered restore; restore returned to `reading-available` with the Jund return link intact.
+- Ribbon exact-query copy and ready/loading/zero/error states remain directly covered by the focused DOM/controller test. No screenshot, image comparison, or aesthetic inference was used.
+
+### Prior findings disposition
+
+- **Responsive shrink-wrap — RESOLVED.** The command deck now has a definite responsive width and fills the available route grid at both tested widths without horizontal overflow.
+- **Direct draft loss — RESOLVED.** Actual input edits are owned per editable mode and restored on direct and Loom-mediated transitions. Existing post-search conversion remains intact.
+- New blocker/major findings: **none**.
+
+### Skipped checks
+
+- `npm.cmd run test:maze-onboarding-browser` was intentionally not retried. Its single historical Guide Beacon timeout is already recorded above under the one-attempt harness-debt rule; the corrected candidate received focused browser evidence for the VM-658 geometry, keyboard, drafts, search scroll/ribbon, reduced-motion, and dossier return risks.
+- Full `npm test`, broad parser certification, placement/CECOS, semantic, generated-data, synthetic, mutation, enumeration, and visual-regression suites remain unjustified because their protected owners did not change.
+- No screenshot matrix or subjective visual automation ran under OWNER-VISUAL MODE.
+
+### Owner-only judgment and shortest Owner route
+
+RobQA does not certify the mast's aesthetics, spacing, typography, color restraint, visual hierarchy, motion feel, or whether the responsive composition feels distinctly Vox Mana.
+
+Shortest Owner review: open `/maze/` at an ordinary desktop width, switch Plain Reading → Operator's Hand → Loom, then inspect once around 390px. Judge only whether the compact mast/rail/request/ribbon reads as one calm instrument and whether the narrow composition feels comfortable; engineering QA has already covered width/overflow, keyboard/focus, draft preservation, exact query/copy/state, no-auto-scroll, reduced motion, and dossier return.
+
+### Governing verdict
+
+**RobQAPass PASS** for exact candidate `1987332e8952f43111bd368f64b1ea0a568b5b7a`.
+
+The corrected candidate satisfies the proportional engineering gate and may enter Owner Review. This is not Owner acceptance, visual certification, integration approval, deployment evidence, or authority to begin VM-657 Slice 2.
