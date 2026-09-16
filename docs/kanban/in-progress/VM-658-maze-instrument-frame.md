@@ -80,7 +80,7 @@ RobQA: PENDING
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
-Decisions: Implement accepted VM-657 Slice 1 only; preserve existing semantic/query/search/dossier/persistence behavior; stop at Owner Review and do not proceed into Slice 2. Scope amendment: include the existing focused VM-616 Maze context-recovery browser harness because its mode-selection assertions must follow the authorized button-to-tab semantic change and it supplies the bounded dossier entry/return evidence requested for VM-658.
+Decisions: Implement accepted VM-657 Slice 1 only; preserve existing semantic/query/search/dossier/persistence behavior; stop at Owner Review and do not proceed into Slice 2. Scope amendment: include the existing focused VM-616 Maze context-recovery browser harness because its mode-selection assertions must follow the authorized button-to-tab semantic change and it supplies the bounded dossier entry/return evidence requested for VM-658. Scope amendment: update the existing route-specific frontend HTML assertion from the retired Maze module revision to `vm658` so the changed controller is not served under a stale production cache key.
 Evidence: PENDING
 
 ## Admission Scope
@@ -90,6 +90,7 @@ Evidence: PENDING
 - `assets/js/maze/research-init.js`
 - `tests/maze/`
 - `scripts/vm616-maze-context-recovery-browser.mjs`
+- `scripts/validate-frontend-html.mjs`
 - `docs/kanban/in-progress/VM-658-maze-instrument-frame.md`
 - `docs/kanban/board.md`
 - `docs/handoffs/2026-09-15-2144-codex-vm658-maze-instrument-frame.md`
