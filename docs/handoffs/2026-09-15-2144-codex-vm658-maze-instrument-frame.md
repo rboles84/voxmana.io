@@ -52,3 +52,18 @@
 ## Owner-only judgment
 
 Owner review should decide whether the compact mast, restrained warm-black/gold-teal hierarchy, and flatter etched presentation feel like one Vox Mana instrument at wide, ordinary, and narrow sizes. This handoff makes no Owner acceptance, QA PASS, integration, or aesthetic certification claim.
+
+## RobDev correction note — post-RobQA blocker
+
+Corrected the two MAJOR findings from independent RobQA's rejected candidate `be971554664b0378aeb7f9cb4f6ddba46a8920a9` without changing parser/compiler/query/search ownership.
+
+- `maze-command-deck` now has `width: min(100%, 1320px)` and `justify-self: stretch`; this makes its responsive width definite while retaining the existing maximum and breakpoints, avoiding the shrink-to-fit command surface at ordinary and narrow widths.
+- Plain/Operator draft preservation now records only actual input edits and restores an edited destination draft on every mode transition, including direct Plain↔Operator and Loom round trips. First-entry conversion remains with the existing `resolveModeInputValue` owner; a successful search clears the opposite transient draft so an earlier, unrelated edit cannot supersede current search conversion behavior.
+- Focused regression evidence now includes direct Plain custom → Operator custom → Plain → Operator restoration plus a Loom round trip. CSS evidence pins the definite responsive command-deck width.
+
+Correction checks passed:
+
+- `node tests/maze/maze-search-tests.js`
+- `node tests/maze/maze-results-layout-tests.js`
+- `node --check assets/js/maze/research-init.js`
+- `git diff --check`

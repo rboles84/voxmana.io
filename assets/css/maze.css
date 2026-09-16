@@ -3772,6 +3772,8 @@ body.vm-maze-route #mode-raw .mode-card-example {
 
 /* VM-658 instrument frame: compact, route-local hierarchy. */
 .maze-command-deck {
+  width: min(100%, 1320px);
+  justify-self: stretch;
   grid-template-columns: minmax(12rem, 0.42fr) minmax(0, 1.58fr);
   max-width: 1320px;
   margin-inline: auto;

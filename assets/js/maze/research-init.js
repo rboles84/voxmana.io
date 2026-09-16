@@ -42,6 +42,7 @@ import {
 // Route state, storage keys, and static UI definitions.
 let currentMode = "ai";
 const modeDraftValues = { ai: "", raw: "" };
+const modeDraftEdited = { ai: false, raw: false };
 let currentQuery = "";
 let currentOrder = "name";
 let currentUnique = "cards";
@@ -1050,9 +1051,6 @@ function setMode(mode) {
   const inputLabel = document.getElementById("search-input-label");
   const clearButton = document.getElementById("clear-search-btn");
   if (!input || !icon || !builder) return;
-  if (previousMode !== mode && Object.hasOwn(modeDraftValues, previousMode)) {
-    modeDraftValues[previousMode] = input.value;
-  }
   updateModeContent(mode);
   if (mode === "ai") {
     input.className = "s-input";
@@ -1105,7 +1103,7 @@ function setMode(mode) {
   }
 
   syncInputForModeSwitch(input, previousMode, mode);
-  if (previousMode === "builder" && Object.hasOwn(modeDraftValues, mode) && modeDraftValues[mode]) {
+  if (previousMode !== mode && modeDraftEdited[mode] && modeDraftValues[mode]) {
     input.value = modeDraftValues[mode];
   }
   sizeLoomQueryInput(input);
@@ -1280,6 +1278,7 @@ function bindSearchInputSelectOnFocus() {
 
   input.addEventListener("input", () => {
     selectAutoFilledInputOnFocus = false;
+    rememberModeDraftInput({ target: input });
   });
 }
 
@@ -1316,6 +1315,14 @@ async function doSearch() {
     const query = queryResult.query;
     const diagnostics = queryResult.diagnostics || [];
     const reason = currentMode === "builder" ? "" : queryResult.reason || "";
+    if (currentMode === "ai") {
+      modeDraftValues.raw = "";
+      modeDraftEdited.raw = false;
+    }
+    if (currentMode === "raw") {
+      modeDraftValues.ai = "";
+      modeDraftEdited.ai = false;
+    }
     if (currentMode === "raw" && queryResult.detectedMode === "plain_reading") {
       const input = document.getElementById("search-input");
       setMode("ai");
@@ -1623,6 +1630,12 @@ function renderResults(append = false) {
     renderCurrentWeave();
     updateMazeStateRibbon();
   }
+}
+
+function rememberModeDraftInput(event) {
+  if (!Object.hasOwn(modeDraftValues, currentMode)) return;
+  modeDraftValues[currentMode] = event.target?.value || "";
+  modeDraftEdited[currentMode] = true;
 }
 
 function deliverResultDestination(target) {

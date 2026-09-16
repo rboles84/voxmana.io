@@ -2005,6 +2005,7 @@ async function runVm658InstrumentFrameCases() {
   await dom.dispatchWindowEvent("load");
   const input = document.getElementById("search-input");
   input.value = "vampires that sacrifice creatures";
+  input.oninput?.();
   dom.clickElement("mode-raw");
   assert.equal(document.body.dataset.mazeMode, "raw", "click activation must select Operator's Hand");
   assert.equal(document.getElementById("mode-raw").getAttribute("aria-selected"), "true");
@@ -2020,6 +2021,18 @@ async function runVm658InstrumentFrameCases() {
   assert.equal(input.value, "vampires that sacrifice creatures", "Plain Reading value must survive tab round-trips");
   dom.dispatchElementEvent("mode-ai", "keydown", { key: "End" });
   assert.equal(document.body.dataset.mazeMode, "builder", "End must select Loom");
+  dom.clickElement("mode-raw");
+  input.value = "c:r";
+  input.oninput?.();
+  dom.clickElement("mode-ai");
+  assert.equal(input.value, "vampires that sacrifice creatures", "direct Plain return must restore its edited draft");
+  input.value = "vampires that sacrifice creatures at instant speed";
+  input.oninput?.();
+  dom.clickElement("mode-raw");
+  assert.equal(input.value, "c:r", "direct Operator return must restore its edited draft");
+  dom.clickElement("mode-builder");
+  dom.clickElement("mode-ai");
+  assert.equal(input.value, "vampires that sacrifice creatures at instant speed", "Loom round-trip must retain the latest Plain draft");
 
   window.setMode("raw");
   input.value = "c:r";

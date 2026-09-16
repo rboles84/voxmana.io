@@ -58,6 +58,7 @@ assert.match(source, /<a class="empty-card-link"[\s\S]*?target="_blank" rel="noo
 assert.match(css, /\.empty-card-link:hover \.empty-card-frame \{[\s\S]*?translateY\(-3px\)[\s\S]*?border-color[\s\S]*?box-shadow/, "the clickable no-result specimen must reuse restrained lift and glow language");
 assert.match(css, /@media \(prefers-reduced-motion: reduce\)[\s\S]*?\.empty-card-frame,[\s\S]*?\.empty-card-frame img[\s\S]*?transition: none !important;/, "the no-result specimen treatment must respect reduced motion");
 assert.match(css, /\/\* VM-658 instrument frame:[\s\S]*?\.mode-row \{ gap: 0; border-bottom: 1px solid var\(--maze-line-soft\); \}/, "VM-658 modes must use a compact, flatter rail");
+assert.match(css, /\.maze-command-deck \{[\s\S]*?width: min\(100%, 1320px\);[\s\S]*?justify-self: stretch;/, "instrument frame must have a definite responsive width instead of shrink-wrapping");
 assert.match(css, /\.mode-card\.on,[\s\S]*?border-bottom: 2px solid var\(--maze-gold-2\);[\s\S]*?box-shadow: none;/, "active mode must be an etched rail state rather than a floating card");
 assert.match(css, /\.maze-state-ribbon \{[\s\S]*?border-top: 1px solid var\(--maze-teal-line\);[\s\S]*?border-bottom: 1px solid var\(--maze-line-soft\);[\s\S]*?background: #14130f;/, "state ribbon must be an in-flow rule treatment");
 assert.match(css, /\.maze-ribbon-query \{[\s\S]*?overflow-wrap: anywhere;/, "full exact queries must wrap safely");
