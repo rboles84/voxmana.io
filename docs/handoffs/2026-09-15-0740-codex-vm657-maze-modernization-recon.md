@@ -673,3 +673,20 @@ There is no dedicated current Maze visual-regression script. Do not create a scr
 ## Stop line
 
 This recon is complete when the plan and independent documentation QA are presented. No recommendation above is implementation authority. A future modernization task must be admitted separately and must not silently absorb parser/compiler/data, dossier meaning, generated data, identity/CECOS, route, persistence, or retired-system scope.
+
+## Owner acceptance — 2026-09-15
+
+Owner accepted exact planning candidate `941b2fa038ce0951de8ccbb07b6a4e4ea1787e3c` in the current Codex task under the heading `OWNER ACCEPT — VM-657 Maze Modernization Recon`.
+
+The acceptance approves this planning/recon record only. It does not authorize Maze production implementation inside VM-657 and does not create or authorize VM-658.
+
+The accepted direction is the Maze Workbench architecture and documented three-slice future implementation path, including the compact instrument mast, accessible mode rail, request bench, dossier/source provenance, query/state ribbon, interpretation ledger, spatially connected results, non-overlay Reading Finds, categorical interpretation state, explicit confirmation before wildcard `*` execution, alternatives returning to interpretation review before search, retirement of the unrelated random zero-result specimen, dossier vocabulary shown as source context without claiming parser recognition, and deferred View Transitions.
+
+The accepted primary interpretation labels are `Mapped`, `Review`, `Needs meaning`, `Blocked`, and `Exact syntax`. The earlier recommended label `Clear` is superseded and must not be used as the primary successful interpretation label.
+
+VM-657 is authorized only for normal integration and closeout of this accepted record. Maze implementation remains a separately admitted future task.
+
+Task: VM-657
+Candidate: 941b2fa038ce0951de8ccbb07b6a4e4ea1787e3c
+Owner: ACCEPT
+Decision reference: Current Codex task, Owner message dated 2026-09-15 headed `OWNER ACCEPT — VM-657 Maze Modernization Recon`.

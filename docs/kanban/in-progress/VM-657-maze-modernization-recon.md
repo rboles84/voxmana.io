@@ -2,7 +2,7 @@
 
 ID: VM-657
 Title: Maze Modernization Recon
-Status: Owner Review
+Status: Accepted
 Type: Product reconnaissance and design planning
 Area: Maze modernization boundaries
 Priority: High
@@ -68,7 +68,7 @@ Branch: codex/vm-657-maze-modernization-recon
 Admission baseline: 682cf03e2a18ee4f676ed0b78a7302d8a4d36fc7
 Candidate: 941b2fa038ce0951de8ccbb07b6a4e4ea1787e3c
 RobQA: PASS at 941b2fa038ce0951de8ccbb07b6a4e4ea1787e3c — SEPARATE QA-0 by `/root/robqa_vm657`; this replacement candidate includes the complete planning and preserved QA history after the delivery checker found the earlier evidence boundary was not append-only.
-Owner: PENDING
+Owner: ACCEPTED at 941b2fa038ce0951de8ccbb07b6a4e4ea1787e3c — current Codex task, 2026-09-15, `OWNER ACCEPT — VM-657 Maze Modernization Recon`; planning/recon only, with no Maze implementation authority.
 Integration: PENDING
 Dependencies: None
 Decisions: Planning and reconnaissance only; Owner Review is the stop point. The explicit out-of-scope boundaries remain in force. Scope amendment: add the exact consolidated planning/recon handoff and independent RobQA handoff paths required to present and review this documentation-only candidate; no production, runtime, test-contract, or generated-data path is added.
