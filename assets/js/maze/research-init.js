@@ -1107,6 +1107,7 @@ function setMode(mode) {
   updateReadingContextDisclosure();
   updateLoomResultDelivery();
   updateMazeStateRibbon();
+  requestAnimationFrame(updateLoomSearchDock);
   refreshInitialStateForMode();
 }
 
@@ -1131,8 +1132,74 @@ function updateModeContent(mode) {
   const content = MODE_CONTENT[mode] || MODE_CONTENT.ai;
   const helpSummary = document.getElementById("maze-mode-help-summary");
   const helpCopy = document.getElementById("maze-mode-help-copy");
+  const help = document.getElementById("maze-mode-help");
   if (helpSummary) helpSummary.setAttribute("aria-label", `About ${content.label.replace(/ open$/i, "")}`);
   if (helpCopy) helpCopy.textContent = content.copy;
+  if (help) {
+    help.dataset.mode = mode;
+    help.open = false;
+  }
+  MODE_IDS.forEach((id) => document.getElementById(`mode-${id}`)?.removeAttribute("aria-describedby"));
+  document.getElementById(`mode-${mode}`)?.setAttribute("aria-describedby", "maze-mode-help-copy");
+}
+
+let loomSearchDockObserver = null;
+let loomSearchDockScrollHandler = null;
+let loomSearchDockFocusHandler = null;
+
+function updateLoomSearchDock() {
+  const dock = document.getElementById("loom-search-dock");
+  const canonicalSearch = document.getElementById("search-btn");
+  const builder = document.getElementById("builder-panel");
+  if (!dock || !canonicalSearch || !builder) return;
+  loomSearchDockObserver?.disconnect();
+  loomSearchDockObserver = null;
+  if (loomSearchDockScrollHandler) window.removeEventListener?.("scroll", loomSearchDockScrollHandler);
+  if (loomSearchDockScrollHandler) window.removeEventListener?.("resize", loomSearchDockScrollHandler);
+  loomSearchDockScrollHandler = null;
+  if (loomSearchDockFocusHandler) {
+    builder.removeEventListener?.("focusin", loomSearchDockFocusHandler);
+    builder.removeEventListener?.("focusout", loomSearchDockFocusHandler);
+  }
+  loomSearchDockFocusHandler = null;
+  dock.hidden = true;
+  if (currentMode !== "builder" || builder.classList.contains("hidden")) return;
+  const syncDock = (isVisible) => {
+    dock.hidden = Boolean(isVisible);
+    if (dock.hidden) return;
+    const focused = document.activeElement;
+    if (!(focused instanceof Element) || !builder.contains(focused)) return;
+    const focusRect = focused.getBoundingClientRect();
+    const dockRect = dock.getBoundingClientRect();
+    const overlaps = focusRect.left < dockRect.right
+      && focusRect.right > dockRect.left
+      && focusRect.top < dockRect.bottom
+      && focusRect.bottom > dockRect.top;
+    if (overlaps) dock.hidden = true;
+  };
+  const syncDockFromViewport = () => {
+    const rect = canonicalSearch.getBoundingClientRect?.();
+    if (!rect) {
+      dock.hidden = true;
+      return;
+    }
+    syncDock(rect.bottom > 0 && rect.top < window.innerHeight && rect.right > 0 && rect.left < window.innerWidth);
+  };
+  if ("IntersectionObserver" in window) {
+    loomSearchDockObserver = new IntersectionObserver(
+      ([entry]) => syncDock(entry?.isIntersecting),
+      { threshold: 0 }
+    );
+    loomSearchDockObserver.observe(canonicalSearch);
+  } else {
+    syncDockFromViewport();
+  }
+  loomSearchDockScrollHandler = syncDockFromViewport;
+  loomSearchDockFocusHandler = () => requestAnimationFrame(syncDockFromViewport);
+  window.addEventListener?.("scroll", loomSearchDockScrollHandler, { passive: true });
+  window.addEventListener?.("resize", loomSearchDockScrollHandler, { passive: true });
+  builder.addEventListener?.("focusin", loomSearchDockFocusHandler);
+  builder.addEventListener?.("focusout", loomSearchDockFocusHandler);
 }
 
 function updateReadingContextDisclosure() {
@@ -3577,16 +3644,13 @@ function getActiveMazeRibbonQuery() {
 
 function updateMazeStateRibbon(query = getActiveMazeRibbonQuery()) {
   const ribbon = document.getElementById("maze-state-ribbon");
-  const request = document.getElementById("maze-ribbon-request");
-  const exactQuery = document.getElementById("maze-ribbon-query");
+  const origin = document.getElementById("maze-ribbon-origin");
   const result = document.getElementById("maze-ribbon-result");
   const cleanQuery = String(query || currentQuery || "").trim();
-  if (!ribbon || !request || !exactQuery || !result) return;
+  if (!ribbon || !origin || !result) return;
   ribbon.classList.toggle("hidden", !cleanQuery);
   if (!cleanQuery) return;
-  const inputValue = normalizeSearchInputValue(document.getElementById("search-input")?.value || "");
-  request.textContent = inputValue || cleanQuery;
-  exactQuery.textContent = cleanQuery;
+  origin.textContent = MODE_CONTENT[currentMode]?.label?.replace(/ open$/i, "") || "Maze";
   const hasError = Boolean(document.getElementById("err-msg")?.textContent);
   const noResults = document.getElementById("state-panel")?.classList.contains("empty-result-active");
   const isLoading = Boolean(document.getElementById("search-btn")?.disabled);
@@ -3614,11 +3678,6 @@ function copyQuery() {
     ? inputValue
     : currentQuery || inputValue || lastSmartInput;
   copyTextToClipboard(copyText, "Query copied");
-}
-
-function copyMazeRibbonQuery() {
-  const copyText = String(document.getElementById("maze-ribbon-query")?.textContent || "").trim();
-  if (copyText) copyTextToClipboard(copyText, "Query copied");
 }
 
 /**
@@ -4544,9 +4603,6 @@ function handleMazeActionClick(event) {
     case "copy-query":
       copyQuery();
       return;
-    case "copy-ribbon-query":
-      copyMazeRibbonQuery();
-      return;
     case "toggle-stash-drawer":
       toggleStashDrawer();
       return;
@@ -4665,6 +4721,13 @@ function handleMazeActionChange(event) {
 
 function handleMazeGlobalKeydown(event) {
   const colorRelationPicker = document.getElementById("color-relation-picker");
+  const modeHelp = document.getElementById("maze-mode-help");
+  if (event.key === "Escape" && modeHelp?.open) {
+    event.preventDefault();
+    modeHelp.open = false;
+    document.getElementById(`mode-${currentMode}`)?.focus?.();
+    return;
+  }
   const relationOption = event.target?.closest?.('[data-action="set-color-relation"]');
   if (relationOption && ["ArrowDown", "ArrowUp", "Home", "End"].includes(event.key)) {
     const options = getColorRelationOptions();
@@ -4708,6 +4771,10 @@ function handleMazeGlobalKeydown(event) {
 }
 
 function handleMazeDocumentClick(event) {
+  const modeHelp = document.getElementById("maze-mode-help");
+  if (modeHelp?.open && !modeHelp.contains(event.target)) {
+    modeHelp.open = false;
+  }
   const colorRelationPicker = document.getElementById("color-relation-picker");
   if (colorRelationPicker?.open && !colorRelationPicker.contains(event.target)) {
     colorRelationPicker.open = false;

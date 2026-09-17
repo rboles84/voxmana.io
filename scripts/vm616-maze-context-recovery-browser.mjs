@@ -111,6 +111,7 @@ const { server, baseUrl } = await startServer();
 const frameOnly = process.argv.includes("--vm658-frame");
 let browser;
 let launchedChrome;
+let interceptedSearchRequests = 0;
 
 try {
   await mkdir(witnessDirectory, { recursive: true });
@@ -129,6 +130,7 @@ try {
   page.on("request", request => {
     const url = request.url();
     if (url.startsWith("https://api.scryfall.com/cards/search")) {
+      interceptedSearchRequests += 1;
       const executedQuery = new URL(url).searchParams.get("q");
       const isZeroWitness = executedQuery === "f:commander mv=99";
       const data = isZeroWitness ? [] : [associatedCard, independentCard];
@@ -157,8 +159,43 @@ try {
 
   if (frameOnly) {
     await page.setViewport({ width: 390, height: 844, isMobile: true, hasTouch: true });
-    await page.goto(`${baseUrl}/maze/`, { waitUntil: "domcontentloaded" });
+    await page.goto(`${baseUrl}/maze/index.html`, { waitUntil: "domcontentloaded" });
     await page.waitForSelector("#search-input");
+    await page.waitForFunction(() => document.getElementById("maze-reading-context")?.dataset.state === "standalone");
+    const standaloneContext = await page.$eval("#maze-reading-context", element => {
+      const style = getComputedStyle(element);
+      const rect = element.getBoundingClientRect();
+      return { hidden: element.hidden, state: element.dataset.state, display: style.display, height: rect.height, width: rect.width };
+    });
+    expect(standaloneContext.hidden && standaloneContext.state === "standalone" && standaloneContext.display === "none" && standaloneContext.height === 0 && standaloneContext.width === 0, "direct standalone context must be computed absent and consume zero space");
+    expect(await page.$$eval("#maze-reading-context", elements => elements.length) === 1, "direct standalone route must not retain a duplicate context surface");
+    expect(await page.$eval("#maze-mode-help", element => element.open) === false, "mode help must begin closed");
+    await page.click("#maze-mode-help-summary");
+    expect(await page.$eval("#maze-mode-help", element => element.open), "mode help must open from its native control");
+    expect(await page.$eval("#maze-mode-help-copy", element => {
+      const rect = element.getBoundingClientRect();
+      return rect.left >= 0 && rect.right <= document.documentElement.clientWidth;
+    }), "Plain mode help disclosure must remain within the 390px viewport");
+    await page.keyboard.press("Escape");
+    expect(await page.$eval("#maze-mode-help", element => !element.open), "mode help must dismiss with Escape");
+    await page.click("#maze-mode-help-summary");
+    await page.click("#maze-page-title");
+    expect(await page.$eval("#maze-mode-help", element => !element.open), "mode help must dismiss on an outside click");
+    const helpAlignedToActiveTab = () => page.evaluate(() => {
+      const help = document.getElementById("maze-mode-help-summary")?.getBoundingClientRect();
+      const active = document.querySelector('[role="tab"][aria-selected="true"]')?.getBoundingClientRect();
+      return Boolean(help && active && help.left >= active.left - 4 && help.left <= active.right);
+    });
+    expect(await helpAlignedToActiveTab(), "Plain mode help trigger must sit within its active tab region");
+    await page.click("#mode-raw");
+    expect(await helpAlignedToActiveTab(), "Operator mode help trigger must move with its active tab region");
+    await page.click("#maze-mode-help-summary");
+    expect(await page.$eval("#maze-mode-help-copy", element => {
+      const rect = element.getBoundingClientRect();
+      return rect.left >= 0 && rect.right <= document.documentElement.clientWidth;
+    }), "Operator mode help disclosure must remain within the 390px viewport");
+    await page.keyboard.press("Escape");
+    await page.click("#mode-ai");
     await page.type("#search-input", "vampires that sacrifice creatures");
     await new Promise(resolve => setTimeout(resolve, 250));
     const measureFrame = () => page.evaluate(() => {
@@ -173,16 +210,58 @@ try {
         ribbonTop: top("#maze-state-ribbon"),
         nextBodyTop: top(".r-body"),
         overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+        sharedRow: (() => {
+          const style = getComputedStyle(document.querySelector(".search-input-row"));
+          return { width: Math.round(rect(".search-input-row")?.width || 0), padding: style.padding, border: style.border, background: style.backgroundColor };
+        })(),
       };
     });
     const plain390 = await measureFrame();
     await page.click("#mode-builder");
     await page.waitForFunction(() => !document.getElementById("builder-panel")?.classList.contains("hidden"));
+    expect(await helpAlignedToActiveTab(), "Loom mode help trigger must move with its active tab region");
     const loom390 = await measureFrame();
     expect(plain390.overflow <= 1 && loom390.overflow <= 1, "390px Plain and Loom frames should not overflow horizontally");
     expect(Math.abs(plain390.inputActionBottom - loom390.inputActionBottom) <= 12, "Plain-to-Loom must keep the shared primary input/action position stable");
+    expect(JSON.stringify(plain390.sharedRow) === JSON.stringify(loom390.sharedRow), "Plain and Loom must share the same query/action shell treatment");
     expect(loom390.builderTop >= loom390.inputActionBottom, "Loom expansion must begin after the shared request/action");
     expect(!loom390.ribbonTop || loom390.builderTop >= loom390.ribbonTop, "when visible, the exact-query ribbon must precede Loom expansion");
+    expect(await page.$eval("#loom-search-dock", element => element.hidden), "deep Loom dock must remain absent while canonical Search is visible");
+    await page.$eval("#builder-panel", element => {
+      document.documentElement.style.scrollBehavior = "auto";
+      window.scrollTo(0, window.scrollY + element.getBoundingClientRect().top - 12);
+      window.dispatchEvent(new Event("scroll"));
+    });
+    await new Promise(resolve => setTimeout(resolve, 150));
+    expect(await page.$eval("#loom-search-dock", element => !element.hidden), "deep Loom dock must appear when canonical Search leaves the viewport");
+    expect(await page.$eval("#loom-search-dock", element => {
+      const rect = element.getBoundingClientRect();
+      return rect.left >= 0 && rect.right <= document.documentElement.clientWidth && rect.bottom <= window.innerHeight;
+    }), "deep Loom dock must remain contained at 390px");
+    const beforeDockSearch = interceptedSearchRequests;
+    await page.$eval("#loom-search-dock", element => element.click());
+    await new Promise(resolve => setTimeout(resolve, 250));
+    expect(interceptedSearchRequests > beforeDockSearch, "deep Loom dock must invoke the existing Search action");
+    await page.$eval(".search-input-row", element => element.scrollIntoView({ block: "center" }));
+    await new Promise(resolve => setTimeout(resolve, 150));
+    expect(await page.$eval("#loom-search-dock", element => element.hidden), "deep Loom dock must disappear when canonical Search returns to the viewport");
+    await page.setViewport({ width: 720, height: 500, hasTouch: true });
+    await page.$eval("#release-year", element => {
+      document.documentElement.style.scrollBehavior = "auto";
+      element.scrollIntoView({ block: "end" });
+      element.focus();
+      window.dispatchEvent(new Event("scroll"));
+    });
+    await new Promise(resolve => setTimeout(resolve, 150));
+    expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth) <= 1, "200%-equivalent deep Loom route must not overflow horizontally");
+    expect(await page.evaluate(() => {
+      const dock = document.getElementById("loom-search-dock");
+      const focused = document.activeElement;
+      if (dock?.hidden || !(focused instanceof Element)) return true;
+      const dockRect = dock.getBoundingClientRect();
+      const focusRect = focused.getBoundingClientRect();
+      return !(focusRect.left < dockRect.right && focusRect.right > dockRect.left && focusRect.top < dockRect.bottom && focusRect.bottom > dockRect.top);
+    }), "deep Loom dock must not cover the focused control at 200%-equivalent geometry");
     console.log(`VM-658 focused 390px frame: Plain ${JSON.stringify(plain390)}; Loom ${JSON.stringify(loom390)}`);
   } else {
   let weakSearchGeneration = 0;

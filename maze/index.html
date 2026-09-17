@@ -110,7 +110,7 @@
     </div>
 
     <details class="maze-mode-help" id="maze-mode-help">
-      <summary id="maze-mode-help-summary" aria-label="About Plain Reading"><span aria-hidden="true">?</span></summary>
+      <summary id="maze-mode-help-summary" aria-label="About Plain Reading"><span aria-hidden="true">?</span><span>About</span></summary>
       <p id="maze-mode-help-copy">Describe the card you want in human language. Maze will translate the intent into Scryfall syntax before searching.</p>
     </details>
 
@@ -163,25 +163,15 @@
 
       <div class="maze-state-ribbon hidden" id="maze-state-ribbon" aria-label="Current search state">
         <div class="maze-ribbon-item">
-          <span class="maze-ribbon-label">Request</span>
-          <span class="maze-ribbon-value" id="maze-ribbon-request"></span>
-        </div>
-        <div class="maze-ribbon-item">
-          <span class="maze-ribbon-label">Exact query</span>
-          <code class="maze-ribbon-query" id="maze-ribbon-query"></code>
+          <span class="maze-ribbon-label">Origin</span>
+          <span class="maze-ribbon-origin" id="maze-ribbon-origin"></span>
         </div>
         <div class="maze-ribbon-item maze-ribbon-result" id="maze-ribbon-result" role="status" aria-live="polite"></div>
-        <button class="qi-btn maze-ribbon-copy" id="maze-ribbon-copy" type="button" data-action="copy-ribbon-query">Copy exact query</button>
       </div>
 
       <!-- The Loom (shown only in builder mode) -->
       <div class="builder-panel hidden" id="builder-panel">
         <div class="builder-head">
-          <div>
-            <span class="builder-kicker">The Loom</span>
-            <h2>Shape a Commander search</h2>
-            <p>Choose what you want. The Loom builds the Scryfall query as you refine it.</p>
-          </div>
           <button class="builder-reset-btn" id="builder-reset-btn" type="button" data-action="reset-builder">Reset Loom</button>
         </div>
 
@@ -325,6 +315,7 @@
         </fieldset>
 
         <p class="visually-hidden" id="builder-summary" aria-live="polite">Commander format is ready. Add filters or search as-is.</p>
+        <button class="loom-search-dock" id="loom-search-dock" type="button" data-action="search" aria-label="Search the current Loom query" hidden>Search current Loom query</button>
       </div>
     </div>
 </div>

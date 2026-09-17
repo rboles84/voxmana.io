@@ -191,7 +191,19 @@ The primary input/action moves only 7px from Plain to Loom (bounded by the focus
 
 RobQA risk transfer: independently verify the new DOM/focus order, the compact primary action above expanded Loom controls at 390px, and the unchanged query/draft/search semantics. Owner-only judgment remains whether this predictable shared request surface reads appropriately with the full Loom controls below it; this note does not claim QA PASS, Owner acceptance, integration, or Slice-2 work.
 
-## Owner-correction exact-candidate engineering result
+## RobDev second Owner-correction implementation — 2026-09-16
+
+Direct Chromium reproduction of `/maze/index.html` found the escaped context surface: `#maze-reading-context` had `hidden=true` and `data-state=standalone`, but its route CSS won with computed `display:flex`, a `733.81 × 38.92px` rect, and one DOM instance. The correction adds the route-local `[hidden]` rule with `display:none !important`; the same direct path now reports `display:none`, `0 × 0px`, and one DOM instance. Context presentation logic remains unchanged for genuine dossier/retained independent states.
+
+The canonical shared query row remains the only exact-query/Search/Copy/Open surface. The ribbon now contains only mode origin and execution/result status; its request/exact-query/full-query/copy nodes and handler are removed. Native active-mode help stays closed by default, receives active mode copy/`aria-describedby`, is next to the mode rail, and closes on Escape. The permanent Loom title/introduction is removed; its useful explanation is retained in active-mode help, while Reset and all existing controls/filter help remain.
+
+`updateLoomSearchDock` reuses the existing Search action through a conditional dock. It is active only in Loom, follows canonical search visibility through IntersectionObserver with a scroll/geometry fallback, makes no query/copy state, and does not move focus. The bounded `--vm658-frame` browser route now directly verifies standalone computed absence, help open/Escape dismissal, nonduplicative ribbon, 390px Plain/Loom geometry, dock appearance after the canonical Search leaves view, same-action execution, dock disappearance when canonical Search returns, and 200%-equivalent containment. Its fresh 390px reading is Plain frame/input/body `734/439/750px`, Loom `2301/446/2317px`, builder `780–2288px`, ribbon `683px`, and 0px overflow.
+
+Checks passed: `node scripts/vm616-maze-context-recovery-browser.mjs --vm658-frame`; `node tests/maze/maze-search-tests.js`; `node tests/maze/maze-results-layout-tests.js`; `node --check assets/js/maze/research-init.js`; `node --check scripts/vm616-maze-context-recovery-browser.mjs`; `git diff --check`.
+
+RobQA transfer: independently exercise the visible dock at desktop, 390px, and a 200%-equivalent viewport, including reduced motion; confirm retained dossier/independent visibility, tab/draft/query/search behavior, and no-auto-scroll remain unchanged. Owner-only judgment is the compact status/origin ribbon and dock’s visual restraint. No QA PASS, Owner acceptance, integration, or Slice-2 behavior is claimed.
+
+## Superseded first-correction engineering result
 
 The governing replacement material candidate is `7eae53f61f1b875bd508c4034232993d48712c1c`. Independent `/root/robqa_vm658` issued RobQAPass PASS in SEPARATE execution for that exact SHA. There were no blocking or major findings. The previous Owner-rejected candidate `1987332e8952f43111bd368f64b1ea0a568b5b7a` remains prohibited from integration and is retained only as history.
 
@@ -201,7 +213,7 @@ Objective 390px evidence improved the default Plain frame from the rejected cand
 
 The full historical VM-616 browser harness was not claimed green: its single earlier attempt timed out in unrelated Guide Beacon setup and was not retried. The required focused `--vm658-frame` route and bounded exact-candidate browser probes cover the changed VM-658 risks.
 
-## Material candidate
+## Superseded first-correction material candidate
 
 - Baseline: `6b57d5dc7fa77f51ddc0f27c69dc834dcf12a595`
 - Candidate: `7eae53f61f1b875bd508c4034232993d48712c1c`
@@ -209,7 +221,7 @@ The full historical VM-616 browser harness was not claimed green: its single ear
 
 This is the primary task change set derived from Git, including the preserved rejected-candidate and prior QA history.
 
-## Files changed
+## Superseded first-correction files changed
 
 - `assets/css/maze.css`
 - `assets/js/maze/research-init.js`
@@ -224,7 +236,7 @@ This is the primary task change set derived from Git, including the preserved re
 - `tests/maze/maze-results-layout-tests.js`
 - `tests/maze/maze-search-tests.js`
 
-## Evidence delta
+## Superseded first-correction evidence delta
 
 - Material candidate: `7eae53f61f1b875bd508c4034232993d48712c1c`
 - Evidence head: `HEAD`
@@ -232,18 +244,18 @@ This is the primary task change set derived from Git, including the preserved re
 
 This delta records the exact-candidate RobQA PASS, completed correction criteria, Owner Review lifecycle binding, final Git accounting, and fresh generated board view. It is not the full task diff.
 
-## Evidence-only paths
+## Superseded first-correction evidence-only paths
 
 - `docs/handoffs/2026-09-15-2144-codex-vm658-maze-instrument-frame.md`
 - `docs/handoffs/2026-09-15-2144-robqa-vm658-maze-instrument-frame.md`
 - `docs/kanban/board.md`
 - `docs/kanban/in-progress/VM-658-maze-instrument-frame.md`
 
-## Final branch delta
+## Superseded first-correction final branch delta
 
 The Git-derived final branch delta remains 12 unique paths from the admission baseline to the evidence head. The four evidence-only paths already exist in the material comparison and receive only append-only evidence, lifecycle, checkbox, or generated-view updates after the candidate.
 
-## Owner Review route
+## Superseded first-correction Owner Review route
 
 Owner acceptance remains PENDING. Open Maze at an ordinary desktop width, confirm the standalone mast is appropriately quiet, open the `?` help once, and switch Plain Reading → Operator's Hand → The Loom. Then inspect once around 390px and decide whether the shared request/ribbon remains primary while Loom expansion feels intentional; whether the three modes feel like views of one product; and whether Maze belongs beside Home and Archscry without copying them. Engineering QA already covers semantics, focus/drafts, containment/order, dossier context/return, exact query/copy/state, no-auto-scroll, reduced motion, and runtime preservation. Do not integrate the rejected SHA and do not begin Slice 2 from this review.
 
@@ -258,3 +270,11 @@ The deep-Loom affordance may add only a compact conditional route-local trigger 
 Owner: REJECT
 Candidate: 7eae53f61f1b875bd508c4034232993d48712c1c
 Decision reference: Current Codex task, second Owner correction request dated 2026-09-16 beginning `Do not integrate candidate`.
+
+## RobDev correction-completion note — 2026-09-16
+
+Final scoped review confirms the second Owner-correction implementation is confined to the Maze route, its focused tests, and the bounded browser witness. The direct `/maze/index.html` witness now observes one standalone context node with `hidden`, computed `display:none`, and a zero rectangle. The active-mode native help starts closed, is horizontally within the selected tab region for Plain, Operator, and Loom, stays viewport-contained when open at 390px, and dismisses with Escape. The retired mobile ribbon-copy selector was also removed; the canonical Live Scryfall row remains the sole query/copy/action surface.
+
+The `--vm658-frame` route passed at 390px: Plain frame/input/body landmarks were `734/439/750px`; Loom was `2252/432/2268px`, with builder `751–2239px`, ribbon `653px`, and 0px horizontal overflow. The shared query/action computed box treatment was identical across Plain and Loom. The focused deep-Loom probe confirmed the dock follows canonical `#search-btn` visibility, invokes the existing action, returns hidden with canonical Search visible, and does not overlap the focused control at its 720px/500px 200%-equivalent witness.
+
+Developer evidence rerun: `node tests/maze/maze-search-tests.js`; `node tests/maze/maze-results-layout-tests.js`; `node --check assets/js/maze/research-init.js`; `node --check scripts/vm616-maze-context-recovery-browser.mjs`; `node scripts/vm616-maze-context-recovery-browser.mjs --vm658-frame`; `git diff --check`. All passed. Protected, unchanged boundaries: parsers/compiler/query bytes, Scryfall execution and pre-existing Discovery/Helper auto-execution, drafts and tabs, dossier/return semantics, persistence, results/no-auto-scroll, modal, generated data, and all Slice-2 work. RobQA should independently inspect the rendered contextual/independent states, active-help affordance, and dock behavior; this is implementation evidence only, not QA or Owner acceptance.
