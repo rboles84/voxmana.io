@@ -108,6 +108,7 @@ function rowsByOracleId(draft) {
 }
 
 const { server, baseUrl } = await startServer();
+const frameOnly = process.argv.includes("--vm658-frame");
 let browser;
 let launchedChrome;
 
@@ -154,6 +155,36 @@ try {
     else request.abort();
   });
 
+  if (frameOnly) {
+    await page.setViewport({ width: 390, height: 844, isMobile: true, hasTouch: true });
+    await page.goto(`${baseUrl}/maze/`, { waitUntil: "domcontentloaded" });
+    await page.waitForSelector("#search-input");
+    await page.type("#search-input", "vampires that sacrifice creatures");
+    await new Promise(resolve => setTimeout(resolve, 250));
+    const measureFrame = () => page.evaluate(() => {
+      const rect = selector => document.querySelector(selector)?.getBoundingClientRect();
+      const bottom = selector => Math.round(rect(selector)?.bottom || 0);
+      const top = selector => Math.round(rect(selector)?.top || 0);
+      return {
+        frameBottom: bottom(".maze-command-deck"),
+        inputActionBottom: Math.max(bottom("#search-input"), bottom("#search-btn")),
+        builderTop: top("#builder-panel"),
+        builderBottom: bottom("#builder-panel"),
+        ribbonTop: top("#maze-state-ribbon"),
+        nextBodyTop: top(".r-body"),
+        overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+      };
+    });
+    const plain390 = await measureFrame();
+    await page.click("#mode-builder");
+    await page.waitForFunction(() => !document.getElementById("builder-panel")?.classList.contains("hidden"));
+    const loom390 = await measureFrame();
+    expect(plain390.overflow <= 1 && loom390.overflow <= 1, "390px Plain and Loom frames should not overflow horizontally");
+    expect(Math.abs(plain390.inputActionBottom - loom390.inputActionBottom) <= 12, "Plain-to-Loom must keep the shared primary input/action position stable");
+    expect(loom390.builderTop >= loom390.inputActionBottom, "Loom expansion must begin after the shared request/action");
+    expect(!loom390.ribbonTop || loom390.builderTop >= loom390.ribbonTop, "when visible, the exact-query ribbon must precede Loom expansion");
+    console.log(`VM-658 focused 390px frame: Plain ${JSON.stringify(plain390)}; Loom ${JSON.stringify(loom390)}`);
+  } else {
   let weakSearchGeneration = 0;
   const presentWeakSearch = async (input = "Black Lotus with mana value 99 in Commander") => {
     await page.waitForSelector("#search-input");
@@ -204,8 +235,8 @@ try {
 
   await page.setViewport({ width: 1440, height: 1000 });
   await page.goto(`${baseUrl}/maze/`, { waitUntil: "domcontentloaded" });
-  await page.waitForFunction(() => document.querySelector("#maze-reading-context")?.dataset.state === "standalone");
-  expect(await page.$eval("#maze-reading-context", element => element.innerText).then(text => text.includes("No reading is changing this query")), "Standalone Maze should disclose that no reading changes the query");
+  await page.waitForFunction(() => document.querySelector("#maze-reading-context")?.hidden === true);
+  expect(await page.$eval("#maze-reading-context", element => element.hidden), "Standalone Maze must not render a permanent absence-of-context surface");
 
   await presentWeakSearch();
   const weakState = await page.evaluate(() => ({
@@ -459,6 +490,33 @@ try {
   await page.screenshot({ path: path.join(witnessDirectory, "guide-maze-desktop-1440x1000.png"), fullPage: true });
 
   await page.setViewport({ width: 390, height: 844, isMobile: true, hasTouch: true });
+  await page.goto(`${baseUrl}/maze/`, { waitUntil: "domcontentloaded" });
+  await page.waitForFunction(() => document.querySelector("#maze-reading-context")?.hidden === true);
+  const plain390 = await page.evaluate(() => {
+    const rect = selector => Math.round(document.querySelector(selector)?.getBoundingClientRect().bottom || 0);
+    return {
+      frameBottom: rect(".maze-command-deck"),
+      inputActionBottom: Math.max(rect("#search-input"), rect("#search-btn")),
+      ribbonTop: Math.round(document.querySelector("#maze-state-ribbon")?.getBoundingClientRect().top || 0),
+      resultsTop: Math.round(document.querySelector("#results-header")?.getBoundingClientRect().top || 0),
+      overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+    };
+  });
+  await page.click("#mode-builder");
+  const loom390 = await page.evaluate(() => {
+    const rect = selector => Math.round(document.querySelector(selector)?.getBoundingClientRect().bottom || 0);
+    return {
+      inputActionBottom: Math.max(rect("#search-input"), rect("#search-btn")),
+      ribbonTop: Math.round(document.querySelector("#maze-state-ribbon")?.getBoundingClientRect().top || 0),
+      resultsTop: Math.round(document.querySelector("#results-header")?.getBoundingClientRect().top || 0),
+      overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+    };
+  });
+  expect(plain390.overflow <= 1 && loom390.overflow <= 1, "390px Maze frame and Loom workspace should not overflow horizontally");
+  expect(loom390.inputActionBottom <= loom390.ribbonTop, "Loom must retain its primary input/action before the exact-query ribbon");
+  console.log(`VM-658 390px geometry: Plain ${JSON.stringify(plain390)}; Loom ${JSON.stringify(loom390)}`);
+
+  await page.setViewport({ width: 390, height: 844, isMobile: true, hasTouch: true });
   await page.goto(`${baseUrl}/guide/maze/`, { waitUntil: "domcontentloaded" });
   expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth) <= 1, "Mobile Maze Guide should not overflow horizontally");
   await page.screenshot({ path: path.join(witnessDirectory, "guide-maze-mobile-390x844.png"), fullPage: true });
@@ -471,6 +529,7 @@ try {
   await page.goto(`${baseUrl}/guide/maze/`, { waitUntil: "domcontentloaded" });
   expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth) <= 1, "Maze Guide should reflow at a 200%-zoom-equivalent CSS viewport");
   expect(pageErrors.length === 0, `Rendered routes should not raise page errors: ${pageErrors.join(" | ")}`);
+  }
 } finally {
   if (browser) await browser.disconnect();
   if (launchedChrome) await launchedChrome.kill();
@@ -478,9 +537,11 @@ try {
 }
 
 if (failures.length) {
-  console.error(`VM-616 rendered validation failed (${failures.length}):`);
+  console.error(`${frameOnly ? "VM-658 focused frame" : "VM-616 rendered"} validation failed (${failures.length}):`);
   failures.forEach(failure => console.error(`- ${failure}`));
   process.exitCode = 1;
 } else {
-  console.log("VM-616 rendered Maze context, Reading Finds isolation, history, and Guide checks passed.");
+  console.log(frameOnly
+    ? "VM-658 focused rendered frame checks passed."
+    : "VM-616 rendered Maze context, Reading Finds isolation, history, and Guide checks passed.");
 }

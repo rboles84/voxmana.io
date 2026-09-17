@@ -1047,7 +1047,6 @@ function setMode(mode) {
   const input = document.getElementById("search-input");
   const icon = document.getElementById("search-icon");
   const builder = document.getElementById("builder-panel");
-  const modeContext = document.getElementById("maze-mode-context");
   const inputLabel = document.getElementById("search-input-label");
   const clearButton = document.getElementById("clear-search-btn");
   if (!input || !icon || !builder) return;
@@ -1066,7 +1065,6 @@ function setMode(mode) {
     icon.textContent = "*";
     icon.style.color = "";
     builder.classList.add("hidden");
-    modeContext?.classList.remove("hidden");
   } else if (mode === "raw") {
     input.className = "s-input mono";
     input.readOnly = false;
@@ -1082,7 +1080,6 @@ function setMode(mode) {
     icon.style.color = "var(--maze-gold-2)";
     document.getElementById("mode-raw").classList.add("teal-mode");
     builder.classList.add("hidden");
-    modeContext?.classList.remove("hidden");
   } else {
     input.className = "s-input mono";
     input.readOnly = true;
@@ -1098,7 +1095,6 @@ function setMode(mode) {
     icon.style.color = "";
     document.getElementById("mode-builder").classList.add("teal-mode");
     builder.classList.remove("hidden");
-    modeContext?.classList.add("hidden");
     rebuildFromFilters();
   }
 
@@ -1133,10 +1129,10 @@ function handleModeTabKeydown(event) {
 
 function updateModeContent(mode) {
   const content = MODE_CONTENT[mode] || MODE_CONTENT.ai;
-  const contextLabel = document.getElementById("maze-mode-context-label");
-  const contextCopy = document.getElementById("maze-mode-context-copy");
-  if (contextLabel) contextLabel.textContent = content.label;
-  if (contextCopy) contextCopy.textContent = content.copy;
+  const helpSummary = document.getElementById("maze-mode-help-summary");
+  const helpCopy = document.getElementById("maze-mode-help-copy");
+  if (helpSummary) helpSummary.setAttribute("aria-label", `About ${content.label.replace(/ open$/i, "")}`);
+  if (helpCopy) helpCopy.textContent = content.copy;
 }
 
 function updateReadingContextDisclosure() {
@@ -1186,6 +1182,7 @@ function updateReadingContextDisclosure() {
     label.textContent = "Standalone search";
     detail.textContent = "No reading is changing this query.";
   }
+  context.hidden = !(independent ? retainedFactionName : factionName);
   action.classList.toggle("hidden", independent ? !retainedFactionName : !factionName);
 }
 

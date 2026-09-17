@@ -7,10 +7,10 @@ const source = await readFile(new URL("../../assets/js/maze/research-init.js", i
 
 assert.match(html, /data-stash-open="false"/, "Reading Finds must begin closed");
 assert.match(html, /search-input-row[\s\S]*?id="stash-drawer-toggle"[\s\S]*?<\/div>/, "Reading Finds toggle must live with search actions");
-assert.ok(html.indexOf('id="builder-panel"') < html.indexOf('class="search-input-row"'), "Loom controls must precede its action region in DOM order");
+assert.ok(html.indexOf('class="search-input-row"') < html.indexOf('id="maze-state-ribbon"') && html.indexOf('id="maze-state-ribbon"') < html.indexOf('id="builder-panel"'), "shared request/action and exact-query ribbon must precede expanded Loom controls in DOM order");
 assert.match(html, /id="builder-panel"[\s\S]*?<fieldset[\s\S]*?<legend>Colors<\/legend>[\s\S]*?<legend>Card Type<\/legend>[\s\S]*?<legend>Abilities<\/legend>[\s\S]*?<legend>Refine<\/legend>[\s\S]*?<legend>Printing &amp; artwork<\/legend>/, "Loom must expose full-width semantic groups in causal order");
 assert.match(source, /if \(inputLabel\) inputLabel\.textContent = "Live Scryfall query";/, "Loom must label its one compact live query directly");
-assert.ok(html.indexOf('id="bld-format"') < html.indexOf('id="search-btn"'), "Loom format control must precede Search in DOM order");
+assert.ok(html.indexOf('id="search-btn"') < html.indexOf('id="builder-panel"') && html.indexOf('id="builder-panel"') < html.indexOf('id="bld-format"'), "Loom controls must expand after the shared Search action while preserving their internal group order");
 assert.match(html, /id="builder-summary"[^>]*class="visually-hidden"|class="visually-hidden"[^>]*id="builder-summary"/, "builder summary must remain nonvisual");
 assert.doesNotMatch(html, /id="maze-card-preview"/, "Maze must not render a detached hover preview");
 
@@ -57,13 +57,14 @@ assert.match(css, /\.current-weave::before \{[\s\S]*?radial-gradient[\s\S]*?line
 assert.match(source, /<a class="empty-card-link"[\s\S]*?target="_blank" rel="noopener">/, "the random specimen must retain its existing safe clickable semantics");
 assert.match(css, /\.empty-card-link:hover \.empty-card-frame \{[\s\S]*?translateY\(-3px\)[\s\S]*?border-color[\s\S]*?box-shadow/, "the clickable no-result specimen must reuse restrained lift and glow language");
 assert.match(css, /@media \(prefers-reduced-motion: reduce\)[\s\S]*?\.empty-card-frame,[\s\S]*?\.empty-card-frame img[\s\S]*?transition: none !important;/, "the no-result specimen treatment must respect reduced motion");
-assert.match(css, /\/\* VM-658 instrument frame:[\s\S]*?\.mode-row \{ gap: 0; border-bottom: 1px solid var\(--maze-line-soft\); \}/, "VM-658 modes must use a compact, flatter rail");
+assert.match(css, /\.mode-row \{[\s\S]*?gap: 0;[\s\S]*?border-bottom: 1px solid var\(--maze-line-soft\);[\s\S]*?padding-right: 1\.75rem;/, "VM-658 modes must use a compact, flatter rail with room for its help affordance");
 assert.match(css, /\.maze-command-deck \{[\s\S]*?width: min\(100%, 1320px\);[\s\S]*?justify-self: stretch;/, "instrument frame must have a definite responsive width instead of shrink-wrapping");
-assert.match(css, /\.mode-card\.on,[\s\S]*?border-bottom: 2px solid var\(--maze-gold-2\);[\s\S]*?box-shadow: none;/, "active mode must be an etched rail state rather than a floating card");
+assert.match(css, /\.mode-card\.on \{[\s\S]*?border-bottom: 2px solid var\(--maze-gold-2\);[\s\S]*?box-shadow: none;/, "active mode must be an etched rail state rather than a floating card");
 assert.match(css, /\.maze-state-ribbon \{[\s\S]*?border-top: 1px solid var\(--maze-teal-line\);[\s\S]*?border-bottom: 1px solid var\(--maze-line-soft\);[\s\S]*?background: #14130f;/, "state ribbon must be an in-flow rule treatment");
 assert.match(css, /\.maze-ribbon-query \{[\s\S]*?overflow-wrap: anywhere;/, "full exact queries must wrap safely");
-assert.match(css, /@media \(max-width: 860px\)[\s\S]*?\.maze-command-deck \{ grid-template-columns: 1fr; \}/, "instrument frame must collapse at ordinary widths");
-assert.match(css, /@media \(max-width: 420px\)[\s\S]*?\.maze-state-ribbon \{ grid-template-columns: minmax\(0, 1fr\); \}[\s\S]*?\.maze-ribbon-copy \{ justify-self: stretch; \}/, "390px-safe ribbon must become a single wrapping column");
+assert.match(css, /@media \(max-width: 1180px\)[\s\S]*?\.maze-command-deck \{[\s\S]*?grid-template-columns: 1fr;/, "instrument frame must collapse at ordinary widths without mode-specific mast rearrangement");
+assert.match(css, /@media \(max-width: 420px\)[\s\S]*?\.maze-state-ribbon \{ grid-template-columns: minmax\(0, 1fr\) auto; \}[\s\S]*?\.maze-ribbon-copy \{ justify-self: stretch; margin: \.2rem; \}/, "390px-safe ribbon must retain a compact wrapping action row");
+assert.doesNotMatch(css, /VM-658 instrument frame|data-maze-mode="builder"\] \.maze-command-(?:deck|copy)|\.maze-mode-context/, "frame styling must have one authoritative layer without retired mode-specific rearrangements or context card rules");
 assert.match(css, /body\.vm-maze-route :focus-visible \{[\s\S]*?outline: 2px solid rgba\(247, 215, 132, 0\.78\);/, "visible focus ring must remain present");
 assert.match(css, /@media \(prefers-reduced-motion: reduce\)[\s\S]*?\.maze-state-ribbon, \.mode-card \{ transition: none !important; \}/, "system reduced motion must cover the new frame");
 assert.match(css, /\[data-reduce-motion="true"\] \.maze-state-ribbon,[\s\S]*?\.mode-card \{ transition: none !important; \}/, "explicit reduced-motion mode must cover the new frame");

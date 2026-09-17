@@ -26,8 +26,9 @@ const semanticRegistryFixture = JSON.parse(readFileSync(new URL("../../data/scry
 const mazeDiscoveryProfileCatalogFixture = JSON.parse(readFileSync(new URL("../../data/dossier/maze-discovery-profiles.catalog.json", import.meta.url), "utf8"));
 assert.match(mazeHtml, /assets\/css\/maze\.css\?v=vm658/);
 assert.match(mazeHtml, /assets\/js\/maze\/research-init\.js\?v=vm658/);
-assert.doesNotMatch(mazeHtml, /id="mode-help-btn"/);
-assert.doesNotMatch(mazeHtml, /id="mode-help-popover"/);
+assert.match(mazeHtml, /<details class="maze-mode-help" id="maze-mode-help">[\s\S]*?<summary id="maze-mode-help-summary" aria-label="About Plain Reading">/);
+assert.match(mazeHtml, /id="maze-mode-help-copy">Describe the card you want in human language/);
+assert.match(mazeHtml, /id="maze-reading-context" tabindex="-1" hidden/, "context region must begin absent until real context exists");
 assert.match(mazeHtml, /<textarea\b[^>]*id="search-input"[^>]*rows="2"[\s\S]*?<\/textarea>/);
 assert.doesNotMatch(mazeHtml, /<input\b[^>]*id="search-input"/);
 assert.match(mazeHtml, /id="search-copy-btn"[^>]*data-action="copy-query"/);
@@ -60,8 +61,9 @@ assert.match(mazeInitSource, /isLoading\) result\.textContent = "Executing searc
 assert.match(mazeInitSource, /totalCards\.toLocaleString\(\)/);
 assert.match(mazeInitSource, /else result\.textContent = "Ready to execute"/);
 assert.ok(
-  mazeHtml.indexOf('id="builder-panel"') < mazeHtml.indexOf('class="search-input-row"'),
-  "Loom construction must precede the live-query action region in DOM and focus order"
+  mazeHtml.indexOf('class="search-input-row"') < mazeHtml.indexOf('id="maze-state-ribbon"')
+    && mazeHtml.indexOf('id="maze-state-ribbon"') < mazeHtml.indexOf('id="builder-panel"'),
+  "shared live-query action and exact-query ribbon must precede Loom construction in DOM and focus order"
 );
 assert.equal((mazeHtml.match(/id="search-input"/g) || []).length, 1, "Loom must retain one authoritative visible live query");
 assert.doesNotMatch(mazeHtml, /id="builder-generated-query"/, "redundant generated-query output must be removed");
@@ -2004,6 +2006,9 @@ async function runVm658InstrumentFrameCases() {
   await import("../../assets/js/maze/research-init.js?vm658-instrument-frame");
   await dom.dispatchWindowEvent("load");
   const input = document.getElementById("search-input");
+  assert.equal(document.getElementById("maze-reading-context").hidden, true, "standalone Maze must not retain a permanent absence-of-context surface");
+  assert.equal(document.getElementById("maze-mode-help").open, false, "mode help must begin closed");
+  assert.match(document.getElementById("maze-mode-help-copy").textContent, /human language/);
   input.value = "vampires that sacrifice creatures";
   input.oninput?.();
   dom.clickElement("mode-raw");
@@ -2013,6 +2018,7 @@ async function runVm658InstrumentFrameCases() {
   assert.equal(document.getElementById("mode-raw").tabIndex, 0);
   assert.equal(document.getElementById("mode-ai").tabIndex, -1);
   assert.equal(document.getElementById("maze-workbench-panel").getAttribute("aria-labelledby"), "mode-raw");
+  assert.match(document.getElementById("maze-mode-help-copy").textContent, /exact Scryfall operators/i, "mode help must follow active mode copy");
   dom.dispatchElementEvent("mode-raw", "keydown", { key: "ArrowRight" });
   assert.equal(document.body.dataset.mazeMode, "builder", "ArrowRight must select Loom");
   assert.equal(document.activeElement, document.getElementById("mode-builder"), "ArrowRight must move tab focus");
@@ -2367,7 +2373,7 @@ function installMazeDomHarness() {
     "mode-ai", "mode-raw", "mode-builder", "maze-workbench-panel", "maze-state-ribbon", "maze-ribbon-request", "maze-ribbon-query", "maze-ribbon-result", "maze-ribbon-copy", "search-icon", "builder-panel", "kw-wrap",
     "kw-input", "kw-add-btn", "kw-suggestions", "kw-chips", "kw-validation", "builder-summary", "color-validation", "mv-validation", "release-year-help", "release-year-validation",
     "color-pips", "colorless-only-btn", "builder-color-options", "exclude-colorless", "exclude-colorless-option", "color-op", "color-relation-picker", "color-relation-trigger", "color-relation-label", "bld-format", "cmc-min", "cmc-max", "release-year", "printing-scope", "sb-format", "modal-inner", "modal-bg",
-    "maze-mode-context", "maze-mode-context-label", "maze-mode-context-copy", "maze-reading-context", "maze-reading-context-label", "maze-reading-context-detail", "maze-reading-context-action", "search-input-label", "clear-search-btn", "discovery-path-list",
+    "maze-mode-help", "maze-mode-help-summary", "maze-mode-help-copy", "maze-reading-context", "maze-reading-context-label", "maze-reading-context-detail", "maze-reading-context-action", "search-input-label", "clear-search-btn", "discovery-path-list",
     "quick-search-list", "color-grid", "type-checks", "ability-checks", "rarity-checks", "reading-path-section",
     "reading-path-list", "r-user-badge", "maze-return-banner", "maze-return-copy",
     "maze-return-link", "maze-return-dismiss",
