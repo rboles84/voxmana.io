@@ -119,3 +119,21 @@ The Git-derived final branch delta remains 12 unique paths from the admission ba
 ## Owner Review route
 
 Owner acceptance remains PENDING. Open Maze at an ordinary desktop width, switch Plain Reading → Operator's Hand → The Loom, and inspect once around 390px. Decide whether the compact mast, mode rail, request bench, provenance context, and state ribbon read as one continuous Vox Mana search instrument; whether the input task is immediately apparent; whether the three modes feel like views of one product; and whether the narrow composition stays comfortable. Engineering QA has already covered the objective interaction, width, overflow, query/runtime, dossier return, reduced-motion, and no-auto-scroll contracts. Do not begin Slice 2 from this review.
+
+## Owner rejection and correction loop — 2026-09-16
+
+Owner rejected exact candidate `1987332e8952f43111bd368f64b1ea0a568b5b7a` after visual/product review and explicitly prohibited its integration. Engineering QA for that candidate remains valid historical evidence, but its candidate and Owner-review bindings are superseded for delivery. VM-658 returns to RobDev on the same branch; the overall compact instrument-frame direction remains accepted.
+
+The bounded Slice-1 correction removes permanent default-context and active-mode explanation surfaces, replaces mode guidance with compact accessible progressive disclosure, stabilizes the shared upper frame when The Loom is active, reduces measurable 390px frame overhead, and consolidates the retired frame CSS layer rather than adding another end-of-file override. It must not hide later-slice content or implement the interpretation ledger, Loom constraint ledger, dossier source ledger, or other Slice-2 behavior.
+
+Baseline inspection confirms discovery/helper immediate execution predates VM-658: the admission baseline `6b57d5dc7fa77f51ddc0f27c69dc834dcf12a595` already routes `runQuickSearch` directly through loading state to `triggerSearch`. VM-658 will preserve that runtime contract. The following are recorded for VM-659/Slice 2 only, without creating that task:
+
+- discovery/helper choices should prepare the current request/query for Plain/Operator inspection and wait for explicit Search;
+- dossier entry around 390px should prioritize compact source provenance, selected path, request/query, Search, and results;
+- deeper source detail should use native accessible progressive disclosure;
+- suggested searches should become compact rows, dossier detail should collapse after path selection, and active search state should be distinct from available dossier context;
+- Slice 2 should remove request/query/result duplication when it introduces the interpretation ledger.
+
+Owner: REJECT
+Candidate: 1987332e8952f43111bd368f64b1ea0a568b5b7a
+Decision reference: Current Codex task, Owner correction request dated 2026-09-16 beginning `Do not integrate exact candidate`.
