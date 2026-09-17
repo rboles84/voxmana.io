@@ -2,7 +2,7 @@
 
 ID: VM-658
 Title: Maze Instrument Frame
-Status: Owner Review
+Status: In Progress
 Type: Production implementation
 Area: Maze presentation and interaction frame
 Priority: High
@@ -82,17 +82,30 @@ Owner rejected exact candidate `1987332e8952f43111bd368f64b1ea0a568b5b7a` after 
 - [x] Discovery/helper auto-execution is confirmed as pre-VM-658 behavior and preserved in this candidate. The future prepare-for-review then explicit-Search behavior and compact dossier/source progression are recorded for VM-659/Slice 2 only.
 - [x] Existing keyboard/ARIA, draft preservation, query bytes, Scryfall execution, result contracts, no-auto-scroll, dossier meaning/return, reduced motion, persistence, generated data, and parser/compiler semantics remain green under proportional exact-candidate RobQA.
 
+## Second Owner Correction — 2026-09-16
+
+Owner rejected exact candidate `7eae53f61f1b875bd508c4034232993d48712c1c` after rendered-product and DevTools review while retaining the accepted Slice-1 direction and improved mobile/mode continuity. This correction remains VM-658 on the existing branch; do not integrate the rejected candidate, begin Slice 2, or create VM-659.
+
+- [ ] `#maze-reading-context[hidden]` is absent from computed/rendered layout on direct standalone `/maze/index.html` entry, consumes zero permanent space, and still renders truthful retained dossier/reading context when that context genuinely exists.
+- [ ] The existing Live Scryfall query surface is the sole canonical exact-query display and owns Search, Copy, and Open in Scryfall; the state ribbon is a compact execution/status bridge without repeated Request, Exact query, full query text, or another copy action.
+- [ ] Active-mode help remains closed by default and keyboard/click accessible, is visually associated with the active mode, is anchored and readily dismissible, and does not reintroduce permanent instructional prose or a bespoke help framework.
+- [ ] The Loom's permanent title/introduction block is removed while filter labels, necessary filter-specific explanations, Reset Loom, controls, and compilation behavior remain unchanged; useful generic guidance moves into active-mode help.
+- [ ] Plain Reading, Operator's Hand, and The Loom share one authoritative structural/visual shell for query/input, actions, Reading Finds, and status; Loom adds its builder beneath without a special shared-surface hero/card treatment.
+- [ ] When The Loom is active and the canonical Search region is outside the viewport, a compact in-context execution affordance invokes the same existing Search action and compiled query; it disappears when canonical Search is visible, avoids focused controls and browser chrome, and remains usable at 390px and 200% zoom with reduced motion.
+- [ ] Focused real-browser evidence verifies direct standalone entry and computed hidden state, anchored/dismissible help, shared-frame equivalence, nonduplicative ribbon, deep-Loom Search reachability, approximately 390px containment, and unchanged query/runtime/search behavior.
+- [ ] Existing tab semantics, keyboard/focus, Plain/Operator drafts, Loom round trips, first-entry conversions, no-auto-scroll, exact query bytes, dossier detach/restore/return, reduced motion, persistence, generated data, parser/compiler semantics, and pre-existing Discovery/Helper auto-execution remain preserved.
+
 ## Delivery
 
 Record version: 1
 Branch: codex/vm-658-maze-instrument-frame
 Admission baseline: 6b57d5dc7fa77f51ddc0f27c69dc834dcf12a595
-Candidate: 7eae53f61f1b875bd508c4034232993d48712c1c
-RobQA: PASS at 7eae53f61f1b875bd508c4034232993d48712c1c — SEPARATE — reviewer `/root/robqa_vm658`
+Candidate: PENDING
+RobQA: PENDING
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
-Decisions: Implement accepted VM-657 Slice 1 only; preserve existing semantic/query/search/dossier/persistence behavior; stop at Owner Review and do not proceed into Slice 2. Scope amendment: include the existing focused VM-616 Maze context-recovery browser harness because its mode-selection assertions must follow the authorized button-to-tab semantic change and it supplies the bounded dossier entry/return evidence requested for VM-658. Scope amendment: update the existing route-specific frontend HTML assertion from the retired Maze module revision to `vm658` so the changed controller is not served under a stale production cache key.
+Decisions: Implement accepted VM-657 Slice 1 only; preserve existing semantic/query/search/dossier/persistence behavior; stop at Owner Review and do not proceed into Slice 2. Scope amendment: include the existing focused VM-616 Maze context-recovery browser harness because its mode-selection assertions must follow the authorized button-to-tab semantic change and it supplies the bounded dossier entry/return evidence requested for VM-658. Scope amendment: update the existing route-specific frontend HTML assertion from the retired Maze module revision to `vm658` so the changed controller is not served under a stale production cache key. Second Owner correction: preserve the accepted mobile/mode direction while fixing the escaped hidden context, query/ribbon duplication, active-mode help attachment/dismissal, Loom intro duplication, shared-shell consistency, and deep-Loom Search reachability without changing execution semantics or entering Slice 2.
 Evidence: [RobDev implementation handoff](../../handoffs/2026-09-15-2144-codex-vm658-maze-instrument-frame.md); [independent RobQA handoff](../../handoffs/2026-09-15-2144-robqa-vm658-maze-instrument-frame.md)
 
 ## Admission Scope

@@ -246,3 +246,15 @@ The Git-derived final branch delta remains 12 unique paths from the admission ba
 ## Owner Review route
 
 Owner acceptance remains PENDING. Open Maze at an ordinary desktop width, confirm the standalone mast is appropriately quiet, open the `?` help once, and switch Plain Reading → Operator's Hand → The Loom. Then inspect once around 390px and decide whether the shared request/ribbon remains primary while Loom expansion feels intentional; whether the three modes feel like views of one product; and whether Maze belongs beside Home and Archscry without copying them. Engineering QA already covers semantics, focus/drafts, containment/order, dossier context/return, exact query/copy/state, no-auto-scroll, reduced motion, and runtime preservation. Do not integrate the rejected SHA and do not begin Slice 2 from this review.
+
+## Second Owner rejection and correction loop — 2026-09-16
+
+Owner rejected exact candidate `7eae53f61f1b875bd508c4034232993d48712c1c` after rendered-product and DevTools review and explicitly prohibited integration. The accepted Slice-1 direction, improved mobile layout, and three-mode continuity remain valid; the exact candidate and its RobQA PASS are now historical evidence only.
+
+The Owner supplied a concrete escaped-render witness on direct `/maze/index.html` entry: `#maze-reading-context` carried both `hidden` and `data-state="standalone"` while its standalone absence message remained visibly rendered. The next correction must prove the actual computed/rendered hidden state, not merely the DOM property. It must also make the existing Live Scryfall query surface canonical, reduce the ribbon to execution/status orientation, attach dismissible progressive help to the active mode, remove the redundant Loom introduction, unify the shared work shell across all modes, and keep the same Search action reachable while working deep in Loom.
+
+The deep-Loom affordance may add only a compact conditional route-local trigger tied to the existing Search action/query. It must not add another query implementation, copy action, semantic state, permanent action bar, future ledger, or Slice-2 behavior. Discovery/helper auto-execution remains pre-existing and preserved; the future prepare-for-review flow and full 37-dossier inventory remain recorded requirements for Slice 2 and are not authorized here.
+
+Owner: REJECT
+Candidate: 7eae53f61f1b875bd508c4034232993d48712c1c
+Decision reference: Current Codex task, second Owner correction request dated 2026-09-16 beginning `Do not integrate candidate`.
