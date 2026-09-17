@@ -190,3 +190,59 @@ Focused `node scripts/vm616-maze-context-recovery-browser.mjs --vm658-frame` evi
 The primary input/action moves only 7px from Plain to Loom (bounded by the focused invariant at 12px); the larger Loom height is its visible controls below the request/ribbon, not a displaced shared action. The focused frame route passed, as did `node tests/maze/maze-search-tests.js`, `node tests/maze/maze-results-layout-tests.js`, `node --check assets/js/maze/research-init.js`, `node --check scripts/vm616-maze-context-recovery-browser.mjs`, and `git diff --check`.
 
 RobQA risk transfer: independently verify the new DOM/focus order, the compact primary action above expanded Loom controls at 390px, and the unchanged query/draft/search semantics. Owner-only judgment remains whether this predictable shared request surface reads appropriately with the full Loom controls below it; this note does not claim QA PASS, Owner acceptance, integration, or Slice-2 work.
+
+## Owner-correction exact-candidate engineering result
+
+The governing replacement material candidate is `7eae53f61f1b875bd508c4034232993d48712c1c`. Independent `/root/robqa_vm658` issued RobQAPass PASS in SEPARATE execution for that exact SHA. There were no blocking or major findings. The previous Owner-rejected candidate `1987332e8952f43111bd368f64b1ea0a568b5b7a` remains prohibited from integration and is retained only as history.
+
+The exact candidate removes the standalone absence-of-context surface, replaces permanent mode explanation with closed native progressive disclosure, keeps the shared request/action before the state ribbon and Loom expansion, consolidates the frame CSS into one authoritative layer, and preserves pre-existing discovery/helper auto-execution. It does not implement Slice 2 or create VM-659.
+
+Objective 390px evidence improved the default Plain frame from the rejected candidate's 988px bottom / 692px input-action bottom to 809px / 514px, with zero horizontal overflow. The replacement candidate's Loom view keeps the same shared input/action at 521px (a 7px shift), then places the ribbon at 757px and begins Loom controls at 937px. At 1440px RobQA measured a 1320px command deck and 984px console/request row with zero horizontal overflow.
+
+The full historical VM-616 browser harness was not claimed green: its single earlier attempt timed out in unrelated Guide Beacon setup and was not retried. The required focused `--vm658-frame` route and bounded exact-candidate browser probes cover the changed VM-658 risks.
+
+## Material candidate
+
+- Baseline: `6b57d5dc7fa77f51ddc0f27c69dc834dcf12a595`
+- Candidate: `7eae53f61f1b875bd508c4034232993d48712c1c`
+- Changed paths: `12`
+
+This is the primary task change set derived from Git, including the preserved rejected-candidate and prior QA history.
+
+## Files changed
+
+- `assets/css/maze.css`
+- `assets/js/maze/research-init.js`
+- `docs/handoffs/2026-09-15-2144-codex-vm658-maze-instrument-frame.md`
+- `docs/handoffs/2026-09-15-2144-robqa-vm658-maze-instrument-frame.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-658-maze-instrument-frame.md`
+- `maze/index.html`
+- `scripts/validate-frontend-html.mjs`
+- `scripts/vm616-maze-context-recovery-browser.mjs`
+- `tests/maze/maze-results-layout-tests.js`
+- `tests/maze/maze-search-tests.js`
+
+## Evidence delta
+
+- Material candidate: `7eae53f61f1b875bd508c4034232993d48712c1c`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `4`
+
+This delta records the exact-candidate RobQA PASS, completed correction criteria, Owner Review lifecycle binding, final Git accounting, and fresh generated board view. It is not the full task diff.
+
+## Evidence-only paths
+
+- `docs/handoffs/2026-09-15-2144-codex-vm658-maze-instrument-frame.md`
+- `docs/handoffs/2026-09-15-2144-robqa-vm658-maze-instrument-frame.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-658-maze-instrument-frame.md`
+
+## Final branch delta
+
+The Git-derived final branch delta remains 12 unique paths from the admission baseline to the evidence head. The four evidence-only paths already exist in the material comparison and receive only append-only evidence, lifecycle, checkbox, or generated-view updates after the candidate.
+
+## Owner Review route
+
+Owner acceptance remains PENDING. Open Maze at an ordinary desktop width, confirm the standalone mast is appropriately quiet, open the `?` help once, and switch Plain Reading → Operator's Hand → The Loom. Then inspect once around 390px and decide whether the shared request/ribbon remains primary while Loom expansion feels intentional; whether the three modes feel like views of one product; and whether Maze belongs beside Home and Archscry without copying them. Engineering QA already covers semantics, focus/drafts, containment/order, dossier context/return, exact query/copy/state, no-auto-scroll, reduced motion, and runtime preservation. Do not integrate the rejected SHA and do not begin Slice 2 from this review.

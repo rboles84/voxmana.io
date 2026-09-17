@@ -2,7 +2,7 @@
 
 ID: VM-658
 Title: Maze Instrument Frame
-Status: In Progress
+Status: Owner Review
 Type: Production implementation
 Area: Maze presentation and interaction frame
 Priority: High
@@ -74,21 +74,21 @@ The accepted VM-657 direction governs visual and structural intent. The Owner's 
 
 Owner rejected exact candidate `1987332e8952f43111bd368f64b1ea0a568b5b7a` after visual/product review while accepting the overall instrument-frame direction. This correction remains VM-658 Slice 1 and must not begin Slice 2 or create VM-659.
 
-- [ ] Standalone Maze renders no permanent absence-of-context banner; contextual UI appears only when dossier/reading context exists or the player explicitly detaches from retained context.
-- [ ] Secondary active-mode guidance moves from a permanent block to a compact, keyboard/click-accessible progressive-disclosure help affordance associated with the active mode; the Field Guide remains separate.
-- [ ] The mast, mode rail, request/workbench role, and ribbon position remain spatially stable across Plain Reading, Operator's Hand, and The Loom; Loom controls expand inside the active workspace without activating future ledger behavior.
-- [ ] At approximately 390px, Slice-1-added overhead is reduced without hiding warnings, interpretation state, dossier information, results, or other later-slice content; objective before/after vertical measurements distinguish frame overhead from legacy content.
-- [ ] VM-658 frame CSS replaces or consolidates the retired command-deck/mode-card/frame layer instead of adding another trailing override layer; unrelated Loom, interpretation, results, modal, and Reading Finds CSS remain untouched.
-- [ ] Discovery/helper auto-execution is confirmed as pre-VM-658 behavior and preserved in this candidate. The future prepare-for-review then explicit-Search behavior and compact dossier/source progression are recorded for VM-659/Slice 2 only.
-- [ ] Existing keyboard/ARIA, draft preservation, query bytes, Scryfall execution, result contracts, no-auto-scroll, dossier meaning/return, reduced motion, persistence, generated data, and parser/compiler semantics remain green under proportional exact-candidate RobQA.
+- [x] Standalone Maze renders no permanent absence-of-context banner; contextual UI appears only when dossier/reading context exists or the player explicitly detaches from retained context.
+- [x] Secondary active-mode guidance moves from a permanent block to a compact, keyboard/click-accessible progressive-disclosure help affordance associated with the active mode; the Field Guide remains separate.
+- [x] The mast, mode rail, request/workbench role, and ribbon position remain spatially stable across Plain Reading, Operator's Hand, and The Loom; Loom controls expand inside the active workspace without activating future ledger behavior.
+- [x] At approximately 390px, Slice-1-added overhead is reduced without hiding warnings, interpretation state, dossier information, results, or other later-slice content; objective before/after vertical measurements distinguish frame overhead from legacy content.
+- [x] VM-658 frame CSS replaces or consolidates the retired command-deck/mode-card/frame layer instead of adding another trailing override layer; unrelated Loom, interpretation, results, modal, and Reading Finds CSS remain untouched.
+- [x] Discovery/helper auto-execution is confirmed as pre-VM-658 behavior and preserved in this candidate. The future prepare-for-review then explicit-Search behavior and compact dossier/source progression are recorded for VM-659/Slice 2 only.
+- [x] Existing keyboard/ARIA, draft preservation, query bytes, Scryfall execution, result contracts, no-auto-scroll, dossier meaning/return, reduced motion, persistence, generated data, and parser/compiler semantics remain green under proportional exact-candidate RobQA.
 
 ## Delivery
 
 Record version: 1
 Branch: codex/vm-658-maze-instrument-frame
 Admission baseline: 6b57d5dc7fa77f51ddc0f27c69dc834dcf12a595
-Candidate: PENDING
-RobQA: PENDING
+Candidate: 7eae53f61f1b875bd508c4034232993d48712c1c
+RobQA: PASS at 7eae53f61f1b875bd508c4034232993d48712c1c — SEPARATE — reviewer `/root/robqa_vm658`
 Owner: PENDING
 Integration: PENDING
 Dependencies: None

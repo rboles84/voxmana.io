@@ -175,3 +175,75 @@ Shortest Owner review: open `/maze/` at an ordinary desktop width, switch Plain 
 **RobQAPass PASS** for exact candidate `1987332e8952f43111bd368f64b1ea0a568b5b7a`.
 
 The corrected candidate satisfies the proportional engineering gate and may enter Owner Review. This is not Owner acceptance, visual certification, integration approval, deployment evidence, or authority to begin VM-657 Slice 2.
+
+---
+
+## Owner-correction QA cycle — 2026-09-16
+
+Task: VM-658
+Candidate: 7eae53f61f1b875bd508c4034232993d48712c1c
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: /root/robqa_vm658
+Implementer: /root/robdev_vm658
+
+This cycle governs the Owner-correction candidate above. The earlier rejected-candidate and corrected-candidate histories remain preserved; neither earlier decision governs this exact candidate.
+
+### Candidate binding, independence, and risk classification
+
+- `HEAD` and the named candidate resolved to `7eae53f61f1b875bd508c4034232993d48712c1c` on `codex/vm-658-maze-instrument-frame`; merge-base with the admission baseline resolved to `6b57d5dc7fa77f51ddc0f27c69dc834dcf12a595`.
+- The worktree was clean at binding. This reviewer did not implement the Owner correction and changed only this admitted QA handoff after evidence collection.
+- Configured route: RobQA, supplied by the coordinator as the separate reviewer route. No independent host telemetry surface was available to attest backend identity or measured effort beyond that configured route.
+- Classification: QA-2 component interaction, with a bounded QA-3 dossier context/return edge. The full baseline-to-candidate diff contains the admitted 12-path VM-658 slice, including preserved prior QA history.
+- Protected owners remain unchanged: parser/compiler meaning, request construction and Scryfall API options, result ordering/paging, dossier source meaning, Reading Finds persistence, generated semantic data, placement/CECOS, and retired account/Supabase systems. No Slice 2 history, comparison, saved-investigation, or ledger feature entered the candidate.
+
+### Checks and outcomes
+
+| Check | Outcome |
+|---|---|
+| `node tests/maze/maze-search-tests.js` | PASS — standalone context absence, closed mode help, tab semantics/keyboard/focus, distinct Plain/Operator drafts through direct and Loom round trips, exact ribbon query/copy/state, dossier launch/controller cases, and `runQuickSearch` execution assertions. |
+| `node tests/maze/maze-results-layout-tests.js` | PASS — shared request/action → ribbon → Loom DOM order, definite frame width, responsive collapse, focus-visible/no-auto-scroll guards, reduced motion, and one authoritative frame layer with retired mode-specific rules absent. |
+| `node tests/maze/research-mode-tests.js` | PASS — 14 mode and 14 leakage cases; established first-entry conversion semantics remain pinned. |
+| `node tests/maze/maze-query-contract-tests.js` | PASS — executable query and API contracts unchanged. |
+| `node --check assets/js/maze/research-init.js` | PASS. |
+| `node --check scripts/vm616-maze-context-recovery-browser.mjs` | PASS. |
+| `npm.cmd run lint:js` | PASS — 37 frontend JavaScript files. |
+| `npm.cmd run lint:html` | PASS — public HTML, landmarks, navigation, scoped fonts, and route checks. |
+| `npm.cmd run task -- indexes --check` | PASS — generated views fresh; 698 cards and 1106 handoffs before this append. |
+| `git diff --check 6b57d5dc7fa77f51ddc0f27c69dc834dcf12a595..7eae53f61f1b875bd508c4034232993d48712c1c` | PASS. |
+| `node scripts/vm616-maze-context-recovery-browser.mjs --vm658-frame` | PASS — focused real Chromium 390px Plain/Loom frame route. |
+
+### Objective behavior and contract evidence
+
+- The focused Chromium route measured Plain at frame bottom 809px, shared input/action bottom 514px, next body top 825px, and zero horizontal overflow. Loom measured frame bottom 2576px, input/action bottom 521px, ribbon top 757px, builder top 937px/bottom 2563px, next body top 2592px, and zero overflow. The shared primary action moved only 7px; the ribbon and Loom expansion remained after the shared request/action.
+- A bounded ordinary-desktop Chromium probe at a 1440px viewport measured a 1320px command deck, 984px console/request row, and zero horizontal overflow. The standalone context region was hidden and mode help was closed by default.
+- Native `<details>` help opened with keyboard Enter and closed by click. After selecting Operator's Hand, its accessible summary and body copy changed to the active-mode guidance. ArrowRight selected and focused Loom with `aria-selected=true`; mode switching left `scrollY` at 0.
+- Browser-computed reduced-motion transitions for the changed mode/ribbon surfaces were effectively zero (`1e-05s` Chromium normalization), while source guards independently require `transition: none !important` for both system preference and explicit reduced-motion state.
+- A bounded contextual browser probe rendered visible `dossier-thread` context, a Search independently action, and the Archscry return link. Detaching preserved the canonical active query in `independent=1`, showed visible association consequences and Restore reading context; restoring removed `independent=1`, returned to visible `reading-available`, and retained the return link. The probe also confirmed standalone context remains absent rather than showing an absence-of-context banner.
+- The two supplemental probe processes emitted their complete product observations, then encountered Windows `EPERM` while `chrome-launcher` removed a temporary profile. This occurred after browser disconnect and does not negate the captured DOM/geometry evidence; the required repository focused browser command itself exited 0.
+- Source/diff inspection confirms the state ribbon displays and copies the active executable query, `renderResults` does not take focus or auto-scroll, and `runQuickSearch` still performs loading → `triggerSearch` auto-execution as it did before VM-658. Query/runtime owners were not changed by the Owner correction.
+- CSS inspection and the focused layout test confirm a single authoritative frame layer, no retired `.maze-mode-context` or builder-specific deck/copy rearrangement, and syntactically valid trailing 720px/420px/reduced-motion rules.
+
+### Findings and protected-system assessment
+
+- Blocking or major findings: **none**.
+- The Owner correction satisfies the objective acceptance risks in scope: standalone absence, visible contextual/independent/restore/return states, progressive disclosure, stable shared-frame order, actual narrow and desktop containment, tab/draft continuity, exact query/copy/state, no automatic scroll ownership, reduced motion, and unchanged execution/query contracts.
+- No evidence suggests drift in protected parser, generated-data, placement, dossier-meaning, persistence, or account systems.
+
+### Skipped checks and why
+
+- The full historical `npm.cmd run test:maze-onboarding-browser` was not retried. Its prior single-attempt Guide Beacon timeout is preserved above as harness debt, and the task explicitly requested the focused `--vm658-frame` route instead.
+- Full `npm test`, broad parser/placement/semantic/generated-data certification, synthetic/mutation/enumeration runs, and historical certification were skipped because their protected owners did not change and they are disproportionate to this QA-2 correction.
+- Screenshot matrices and aesthetic interpretation were skipped under OWNER-VISUAL MODE. No objective conclusion here relies on subjective image judgment.
+
+### Owner-only judgment and shortest Owner route
+
+RobQA does not certify whether the flatter frame, spacing, typography, gold/teal treatment, disclosure affordance, Loom expansion, or narrow composition feels coherent, restrained, polished, or distinctly Vox Mana.
+
+Shortest Owner review: open `/maze/` at an ordinary desktop width; confirm the standalone mast feels appropriately quiet, open the `?` help once, and switch Plain Reading → Operator's Hand → Loom. Then inspect once around 390px and judge whether the shared request/ribbon stays primary while Loom expansion feels intentional. Engineering QA has already covered accessibility semantics, focus/drafts, containment/order, context/return, exact query/copy/state, no-auto-scroll, reduced motion, and runtime preservation.
+
+### Governing verdict
+
+**RobQAPass PASS** for exact candidate `7eae53f61f1b875bd508c4034232993d48712c1c`.
+
+The exact Owner-correction candidate satisfies the proportional engineering gate and may enter Owner Review. This is not Owner acceptance, subjective visual certification, integration approval, deployment evidence, or authority to begin Slice 2.
