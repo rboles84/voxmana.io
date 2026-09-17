@@ -278,3 +278,55 @@ Final scoped review confirms the second Owner-correction implementation is confi
 The `--vm658-frame` route passed at 390px: Plain frame/input/body landmarks were `734/439/750px`; Loom was `2252/432/2268px`, with builder `751–2239px`, ribbon `653px`, and 0px horizontal overflow. The shared query/action computed box treatment was identical across Plain and Loom. The focused deep-Loom probe confirmed the dock follows canonical `#search-btn` visibility, invokes the existing action, returns hidden with canonical Search visible, and does not overlap the focused control at its 720px/500px 200%-equivalent witness.
 
 Developer evidence rerun: `node tests/maze/maze-search-tests.js`; `node tests/maze/maze-results-layout-tests.js`; `node --check assets/js/maze/research-init.js`; `node --check scripts/vm616-maze-context-recovery-browser.mjs`; `node scripts/vm616-maze-context-recovery-browser.mjs --vm658-frame`; `git diff --check`. All passed. Protected, unchanged boundaries: parsers/compiler/query bytes, Scryfall execution and pre-existing Discovery/Helper auto-execution, drafts and tabs, dossier/return semantics, persistence, results/no-auto-scroll, modal, generated data, and all Slice-2 work. RobQA should independently inspect the rendered contextual/independent states, active-help affordance, and dock behavior; this is implementation evidence only, not QA or Owner acceptance.
+
+## Second-correction exact-candidate engineering result
+
+The governing material candidate is `dbed6dc9f8ae1ecb4b8a2fb6dc305c9c0337c641`. Independent `/root/robqa_vm658` issued RobQAPass PASS in SEPARATE execution for that exact SHA with no blocking or major findings. Rejected candidates `1987332e8952f43111bd368f64b1ea0a568b5b7a` and `7eae53f61f1b875bd508c4034232993d48712c1c` remain prohibited from integration and are retained only as history.
+
+The correction makes standalone context truly absent in computed layout, leaves the Live Scryfall query as the sole exact-query/action surface, reduces the ribbon to origin and execution/result status, anchors dismissible native help to the active mode, removes the permanent Loom introduction, and flattens Loom beneath the common work shell. Its deep-Loom affordance calls the existing Search action only while canonical Search is outside the viewport and yields to focused controls. No Slice-2 behavior is included.
+
+The focused rendered witness passed at 390px with zero horizontal overflow and identical computed shared-row treatment across Plain and Loom. Direct `/maze/index.html` reported one standalone context node with `hidden`, computed `display:none`, and a `0 × 0px` rectangle. The same route proved help containment and Escape/outside dismissal, same-action dock execution, dock removal when canonical Search returned, and focus-safe `720 × 500` geometry as the 200%-equivalent case.
+
+## Material candidate
+
+- Baseline: `6b57d5dc7fa77f51ddc0f27c69dc834dcf12a595`
+- Candidate: `dbed6dc9f8ae1ecb4b8a2fb6dc305c9c0337c641`
+- Changed paths: `12`
+
+## Files changed
+
+- `assets/css/maze.css`
+- `assets/js/maze/research-init.js`
+- `docs/handoffs/2026-09-15-2144-codex-vm658-maze-instrument-frame.md`
+- `docs/handoffs/2026-09-15-2144-robqa-vm658-maze-instrument-frame.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-658-maze-instrument-frame.md`
+- `maze/index.html`
+- `scripts/validate-frontend-html.mjs`
+- `scripts/vm616-maze-context-recovery-browser.mjs`
+- `tests/maze/maze-results-layout-tests.js`
+- `tests/maze/maze-search-tests.js`
+
+## Evidence delta
+
+- Material candidate: `dbed6dc9f8ae1ecb4b8a2fb6dc305c9c0337c641`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `4`
+
+This delta records the exact-candidate RobQA PASS, completed second-correction criteria, Owner Review lifecycle binding, final Git accounting, and regenerated board view. It is not the full task diff.
+
+## Evidence-only paths
+
+- `docs/handoffs/2026-09-15-2144-codex-vm658-maze-instrument-frame.md`
+- `docs/handoffs/2026-09-15-2144-robqa-vm658-maze-instrument-frame.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-658-maze-instrument-frame.md`
+
+## Final branch delta
+
+The Git-derived final branch delta remains 12 unique paths from the admission baseline to the evidence head. The four evidence-only paths already exist in the material comparison and receive only append-only evidence, lifecycle, checkbox, or generated-view updates after the candidate.
+
+## Owner Review route
+
+Owner acceptance remains PENDING. Review direct standalone `/maze/index.html` at an ordinary desktop width and around 390px. Confirm the context absence, active-mode help placement/dismissal, sole canonical Live Scryfall query/actions, compact status/origin ribbon, flat shared Plain/Operator/Loom shell, and conditional deep-Loom Search affordance. Engineering evidence covers objective semantics, tabs/focus/drafts, exact query/runtime preservation, dossier detach/restore/return, no-auto-scroll, containment, and reduced motion; final visual quality remains Owner-only. Do not integrate either rejected SHA, and do not begin Slice 2 from this review.

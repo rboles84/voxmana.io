@@ -2,7 +2,7 @@
 
 ID: VM-658
 Title: Maze Instrument Frame
-Status: In Progress
+Status: Owner Review
 Type: Production implementation
 Area: Maze presentation and interaction frame
 Priority: High
@@ -86,22 +86,22 @@ Owner rejected exact candidate `1987332e8952f43111bd368f64b1ea0a568b5b7a` after 
 
 Owner rejected exact candidate `7eae53f61f1b875bd508c4034232993d48712c1c` after rendered-product and DevTools review while retaining the accepted Slice-1 direction and improved mobile/mode continuity. This correction remains VM-658 on the existing branch; do not integrate the rejected candidate, begin Slice 2, or create VM-659.
 
-- [ ] `#maze-reading-context[hidden]` is absent from computed/rendered layout on direct standalone `/maze/index.html` entry, consumes zero permanent space, and still renders truthful retained dossier/reading context when that context genuinely exists.
-- [ ] The existing Live Scryfall query surface is the sole canonical exact-query display and owns Search, Copy, and Open in Scryfall; the state ribbon is a compact execution/status bridge without repeated Request, Exact query, full query text, or another copy action.
-- [ ] Active-mode help remains closed by default and keyboard/click accessible, is visually associated with the active mode, is anchored and readily dismissible, and does not reintroduce permanent instructional prose or a bespoke help framework.
-- [ ] The Loom's permanent title/introduction block is removed while filter labels, necessary filter-specific explanations, Reset Loom, controls, and compilation behavior remain unchanged; useful generic guidance moves into active-mode help.
-- [ ] Plain Reading, Operator's Hand, and The Loom share one authoritative structural/visual shell for query/input, actions, Reading Finds, and status; Loom adds its builder beneath without a special shared-surface hero/card treatment.
-- [ ] When The Loom is active and the canonical Search region is outside the viewport, a compact in-context execution affordance invokes the same existing Search action and compiled query; it disappears when canonical Search is visible, avoids focused controls and browser chrome, and remains usable at 390px and 200% zoom with reduced motion.
-- [ ] Focused real-browser evidence verifies direct standalone entry and computed hidden state, anchored/dismissible help, shared-frame equivalence, nonduplicative ribbon, deep-Loom Search reachability, approximately 390px containment, and unchanged query/runtime/search behavior.
-- [ ] Existing tab semantics, keyboard/focus, Plain/Operator drafts, Loom round trips, first-entry conversions, no-auto-scroll, exact query bytes, dossier detach/restore/return, reduced motion, persistence, generated data, parser/compiler semantics, and pre-existing Discovery/Helper auto-execution remain preserved.
+- [x] `#maze-reading-context[hidden]` is absent from computed/rendered layout on direct standalone `/maze/index.html` entry, consumes zero permanent space, and still renders truthful retained dossier/reading context when that context genuinely exists.
+- [x] The existing Live Scryfall query surface is the sole canonical exact-query display and owns Search, Copy, and Open in Scryfall; the state ribbon is a compact execution/status bridge without repeated Request, Exact query, full query text, or another copy action.
+- [x] Active-mode help remains closed by default and keyboard/click accessible, is visually associated with the active mode, is anchored and readily dismissible, and does not reintroduce permanent instructional prose or a bespoke help framework.
+- [x] The Loom's permanent title/introduction block is removed while filter labels, necessary filter-specific explanations, Reset Loom, controls, and compilation behavior remain unchanged; useful generic guidance moves into active-mode help.
+- [x] Plain Reading, Operator's Hand, and The Loom share one authoritative structural/visual shell for query/input, actions, Reading Finds, and status; Loom adds its builder beneath without a special shared-surface hero/card treatment.
+- [x] When The Loom is active and the canonical Search region is outside the viewport, a compact in-context execution affordance invokes the same existing Search action and compiled query; it disappears when canonical Search is visible, avoids focused controls and browser chrome, and remains usable at 390px and 200% zoom with reduced motion.
+- [x] Focused real-browser evidence verifies direct standalone entry and computed hidden state, anchored/dismissible help, shared-frame equivalence, nonduplicative ribbon, deep-Loom Search reachability, approximately 390px containment, and unchanged query/runtime/search behavior.
+- [x] Existing tab semantics, keyboard/focus, Plain/Operator drafts, Loom round trips, first-entry conversions, no-auto-scroll, exact query bytes, dossier detach/restore/return, reduced motion, persistence, generated data, parser/compiler semantics, and pre-existing Discovery/Helper auto-execution remain preserved.
 
 ## Delivery
 
 Record version: 1
 Branch: codex/vm-658-maze-instrument-frame
 Admission baseline: 6b57d5dc7fa77f51ddc0f27c69dc834dcf12a595
-Candidate: PENDING
-RobQA: PENDING
+Candidate: dbed6dc9f8ae1ecb4b8a2fb6dc305c9c0337c641
+RobQA: PASS at dbed6dc9f8ae1ecb4b8a2fb6dc305c9c0337c641 — SEPARATE
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
