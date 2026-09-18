@@ -170,6 +170,10 @@ try {
     expect(standaloneContext.hidden && standaloneContext.state === "standalone" && standaloneContext.display === "none" && standaloneContext.height === 0 && standaloneContext.width === 0, "direct standalone context must be computed absent and consume zero space");
     expect(await page.$$eval("#maze-reading-context", elements => elements.length) === 1, "direct standalone route must not retain a duplicate context surface");
     expect(await page.$eval("#maze-mode-help", element => element.open) === false, "mode help must begin closed");
+    expect(await page.$eval("#maze-mode-help-summary .ms-ability-collect-evidence", element => {
+      const rect = element.getBoundingClientRect();
+      return rect.width > 0 && rect.height > 0 && element.getAttribute("aria-hidden") === "true";
+    }), "active-mode help must visibly render the local decorative Mana glyph");
     await page.click("#maze-mode-help-summary");
     expect(await page.$eval("#maze-mode-help", element => element.open), "mode help must open from its native control");
     expect(await page.$eval("#maze-mode-help-copy", element => {
@@ -202,7 +206,21 @@ try {
     await page.keyboard.press("Escape");
     await page.click("#mode-ai");
     await page.type("#search-input", "vampires that sacrifice creatures");
-    await new Promise(resolve => setTimeout(resolve, 250));
+    await page.waitForFunction(() => !document.getElementById("query-inspector")?.classList.contains("hidden"));
+    const inspectorGap = () => page.$eval("#query-inspector", inspector => {
+      const row = document.querySelector(".search-input-row")?.getBoundingClientRect();
+      const inspectorRect = inspector.getBoundingClientRect();
+      return Math.round(inspectorRect.top - row.bottom);
+    });
+    const plainInspectorGap = await inspectorGap();
+    console.log(`VM-658 inspector gaps: Plain ${plainInspectorGap}px`);
+    expect(plainInspectorGap >= 16, "Plain Reading must keep a spacing-scale gap between its action row and query inspector");
+    await page.click("#mode-raw");
+    await page.type("#search-input", " c:r");
+    await page.waitForFunction(() => !document.getElementById("query-inspector")?.classList.contains("hidden"));
+    const rawInspectorGap = await inspectorGap();
+    console.log(`VM-658 inspector gaps: Operator ${rawInspectorGap}px`);
+    expect(rawInspectorGap >= 16, "Operator's Hand must keep the same parent-level inspector gap");
     const measureFrame = () => page.evaluate(() => {
       const rect = selector => document.querySelector(selector)?.getBoundingClientRect();
       const bottom = selector => Math.round(rect(selector)?.bottom || 0);
@@ -232,6 +250,14 @@ try {
     expect(await page.$eval(".maze-primary-workbench", element => getComputedStyle(element).display === "none" && element.getClientRects().length === 0), "Loom must not render the Plain and Operator top query/action workbench");
     expect(loom390.colorsTop >= loom390.builderTop && loom390.colorsTop < loom390.completionTop, "Loom must begin with Colors before its bottom completion region");
     expect(loom390.completionTop >= loom390.builderTop, "Loom completion action must remain in flow after its controls");
+    const loomSeparator = await page.evaluate(() => {
+      const mode = getComputedStyle(document.querySelector(".mode-row"));
+      const panel = getComputedStyle(document.querySelector("#builder-panel"));
+      const compose = getComputedStyle(document.querySelector(".builder-compose-grid"));
+      return { mode: mode.borderBottomWidth, panel: panel.borderTopWidth, compose: compose.borderTopWidth };
+    });
+    console.log(`VM-658 Loom separators: ${JSON.stringify(loomSeparator)}`);
+    expect(loomSeparator.mode === "1px" && loomSeparator.panel === "0px" && loomSeparator.compose === "0px", "Loom rail-to-Colors transition must retain exactly its one mode-rail hairline");
     expect(await page.$$("#maze-state-ribbon, #loom-search-dock").then(elements => elements.length) === 0, "focused route must not retain ribbon or floating dock surfaces");
     expect(await page.$$("#loom-query-output, #loom-search-btn, #loom-copy-btn, #loom-scryfall-link, #loom-stash-drawer-toggle, #loom-reset-btn").then(elements => elements.length) === 6, "Loom must expose exactly one generated query and completion action set");
     expect(await page.$$("#loom-result-delivery, #loom-result-status, #view-results-btn, #current-weave-count, #current-weave-state").then(elements => elements.length) === 0, "Loom must leave totals and status to the normal result header");
@@ -243,6 +269,29 @@ try {
     expect(interceptedSearchRequests > beforeDockSearch, "bottom Loom completion action must invoke the existing Search action");
     expect(await page.$eval("#loom-copy-btn", element => !element.disabled), "Loom Copy must share the valid generated-query action state");
     expect(await page.$eval("#loom-scryfall-link", element => element.getAttribute("aria-disabled") === "false" && new URL(element.href).searchParams.get("q") === document.getElementById("search-input").value), "Loom Open must share the generated query/link owner");
+    const loomOpenStyle = () => page.$eval("#loom-scryfall-link", element => {
+      const style = getComputedStyle(element);
+      const rect = element.getBoundingClientRect();
+      return { display: style.display, alignItems: style.alignItems, height: Math.round(rect.height), paddingInline: style.paddingInline, color: style.color };
+    });
+    const loomOpenNormal = await loomOpenStyle();
+    const loomCopyStyle = await page.$eval("#loom-copy-btn", element => {
+      const style = getComputedStyle(element);
+      const rect = element.getBoundingClientRect();
+      return { height: Math.round(rect.height), paddingInline: style.paddingInline };
+    });
+    console.log(`VM-658 Loom Open normal: ${JSON.stringify(loomOpenNormal)}`);
+    expect(loomOpenNormal.display === "flex" && loomOpenNormal.alignItems === "center" && loomOpenNormal.height === loomCopyStyle.height && loomOpenNormal.paddingInline === loomCopyStyle.paddingInline && loomOpenNormal.color === "rgb(247, 215, 132)", "Loom Open must match secondary-action geometry and Maze gold in its normal state");
+    await page.hover("#loom-scryfall-link");
+    const loomOpenHover = await loomOpenStyle();
+    console.log(`VM-658 Loom Open hover: ${JSON.stringify(loomOpenHover)}`);
+    expect(loomOpenHover.color === "rgb(255, 228, 154)", "Loom Open hover must remain Maze gold");
+    await page.mouse.move(0, 0);
+    await page.$eval("#loom-copy-btn", element => element.focus());
+    await page.keyboard.press("Tab");
+    const loomOpenFocus = await loomOpenStyle();
+    console.log(`VM-658 Loom Open focus: ${JSON.stringify(loomOpenFocus)}`);
+    expect(await page.$eval("#loom-scryfall-link", element => document.activeElement === element && element.matches(":focus-visible")) && loomOpenFocus.color === "rgb(255, 228, 154)", "keyboard focus-visible Loom Open state must remain Maze gold");
     await page.setViewport({ width: 720, height: 500, hasTouch: true });
     await page.$eval("#release-year", element => {
       document.documentElement.style.scrollBehavior = "auto";
@@ -285,6 +334,11 @@ try {
     expect(plainActionGeometry.every((item) => item.height === 60), "Plain action controls must share one 60px height");
     expect(new Set(plainActionGeometry.filter((item) => item.selector !== "#search-btn").map((item) => item.top)).size === 1, "Plain secondary actions, including Open in Scryfall, must share one wrapped-row vertical alignment");
     expect(plainActionGeometry.every((item) => item.display === "flex" && item.alignItems === "center" && item.justifyContent === "center"), "Plain action content must be centered consistently");
+    const plainDesktopInspectorGap = await inspectorGap();
+    await page.click("#mode-raw");
+    const rawDesktopInspectorGap = await inspectorGap();
+    console.log(`VM-658 desktop inspector gaps: Plain ${plainDesktopInspectorGap}px; Operator ${rawDesktopInspectorGap}px`);
+    expect(plainDesktopInspectorGap >= 16 && rawDesktopInspectorGap === plainDesktopInspectorGap, "desktop Plain and Operator must keep the same spacing-scale inspector gap");
     const manaGlyph = await page.evaluate(() => {
       const glyph = document.createElement("i");
       glyph.className = "ms ms-ability-collect-evidence";

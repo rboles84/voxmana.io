@@ -395,7 +395,7 @@ body.vm-maze-route :focus-visible {
 }
 
 .maze-mode-help > summary::-webkit-details-marker { display: none; }
-.maze-mode-help > summary span:first-child {
+.maze-mode-help > summary .ms {
   display: grid;
   place-items: center;
   width: 1.15rem;
@@ -403,7 +403,7 @@ body.vm-maze-route :focus-visible {
   border: 1px solid var(--maze-teal-line);
   border-radius: 50%;
   color: var(--maze-teal);
-  font-family: var(--font-mono, monospace);
+  font-size: 0.76rem;
 }
 .maze-mode-help p {
   position: absolute;
@@ -486,6 +486,11 @@ body.vm-maze-route :focus-visible {
   align-items: stretch;
   font-size: 0;
   line-height: 0;
+}
+
+.maze-primary-workbench {
+  display: grid;
+  gap: 1rem;
 }
 
 .search-wrap {
@@ -590,6 +595,25 @@ body.vm-maze-route :focus-visible {
   white-space: normal;
   border-color: var(--maze-teal-line);
   color: var(--maze-teal);
+}
+
+.loom-completion #loom-scryfall-link,
+.loom-completion #loom-scryfall-link:visited {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  padding-inline: 0.85rem;
+  border-color: var(--maze-line-strong);
+  color: var(--maze-gold-2);
+}
+
+.loom-completion #loom-scryfall-link:hover,
+.loom-completion #loom-scryfall-link:focus-visible,
+.loom-completion #loom-scryfall-link:active {
+  border-color: rgba(247, 215, 132, 0.52);
+  background-color: rgba(247, 215, 132, 0.1);
+  color: #ffe49a;
 }
 
 .query-action-btn.is-disabled,
@@ -872,9 +896,9 @@ body.vm-maze-route :focus-visible {
   margin-inline: auto;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: 1rem;
-  padding: 0.85rem 0 0;
-  border-top: 1px solid var(--maze-line-soft);
+  gap: 0;
+  padding: 1rem 0 0;
+  border-top: 0;
 }
 
 body.vm-maze-route[data-maze-mode="ai"] .search-input-row > :not(.search-wrap),
@@ -906,8 +930,8 @@ body.vm-maze-route[data-maze-mode="builder"] .maze-primary-workbench {
   grid-template-columns: minmax(0, 1.55fr) minmax(280px, 0.72fr);
   gap: clamp(1.1rem, 2vw, 1.75rem);
   align-items: stretch;
-  padding-top: 1rem;
-  border-top: 1px solid var(--maze-line-soft);
+  padding-top: 0;
+  border-top: 0;
 }
 
 .builder-control-stack {

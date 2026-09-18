@@ -57,6 +57,7 @@ assert.match(css, /\.builder-validation\.release-year-validation \{[\s\S]*?width
 assert.match(css, /@media \(max-width: 820px\)[\s\S]*?\.printing-row \{[\s\S]*?grid-template-columns: 1fr;/, "printing controls must stack at the accepted Loom breakpoint");
 assert.match(html, /<details class="color-relation-picker"[\s\S]*?data-action="set-color-relation"/, "color relation must reuse a native disclosure with explicit options");
 assert.match(css, /@media \(max-width: 820px\)[\s\S]*?\.search-input-row \{[\s\S]*?grid-auto-rows: max-content;/, "accepted single-column mobile action treatment must remain intact");
+assert.match(css, /\.maze-primary-workbench \{\s*display: grid;\s*gap: 1rem;/, "Plain and Operator must use parent-level spacing between the canonical action row and inspector");
 assert.match(css, /body\.vm-maze-route\[data-maze-mode="builder"\] \.maze-primary-workbench \{\s*display: none;/, "Loom must hide the Plain and Operator query/action region instead of presenting a second top query surface");
 assert.match(css, /\.builder-output code \{[\s\S]*?overflow-wrap: anywhere;/, "Loom's single bottom generated query must wrap rather than create a nested horizontal scroll");
 assert.match(css, /\.current-weave::before \{[\s\S]*?radial-gradient[\s\S]*?linear-gradient/, "Current Weave must reuse restrained arcane/cartographic geometry");
@@ -70,7 +71,16 @@ assert.match(css, /\.maze-command-deck \{[\s\S]*?width: min\(100%, 1320px\);[\s\
 assert.doesNotMatch(css, /data-maze-mode="builder"\] \.search-input-row/, "Loom must not apply a special visual shell to the shared query/action row");
 assert.match(css, /body\.vm-maze-route\[data-maze-mode="ai"\] \.search-input-row > :not\(\.search-wrap\),[\s\S]*?min-height: 60px;[\s\S]*?height: 60px;[\s\S]*?align-items: center;[\s\S]*?justify-content: center;/, "Plain and Operator top action controls must retain a common centered 60px treatment");
 assert.match(css, /\.maze-mode-help \{[\s\S]*?position: relative;[\s\S]*?grid-column: 1;[\s\S]*?justify-self: end;[\s\S]*?\.maze-mode-help\[data-mode="raw"\] \{ grid-column: 2; \}[\s\S]*?\.maze-mode-help\[data-mode="builder"\] \{ grid-column: 3; \}/, "native help trigger must occupy the reserved active-tab grid slot");
+assert.match(html, /id="maze-mode-help-summary"[^>]*><i class="ms ms-ability-collect-evidence" aria-hidden="true"><\/i><span>About<\/span>/, "active-mode help must visibly use the local Mana collect-evidence glyph with optional About text");
+assert.doesNotMatch(html.match(/<summary id="maze-mode-help-summary"[\s\S]*?<\/summary>/)?.[0] || "", />\?<|>\?<\//, "active-mode help must not retain a visible question-mark glyph");
+assert.match(css, /\.maze-mode-help > summary \.ms \{[\s\S]*?width: 1\.15rem;[\s\S]*?height: 1\.15rem;/, "the visible Mana help glyph must retain a compact dedicated target");
 assert.match(css, /\.mode-card\.on \{[\s\S]*?border-bottom: 2px solid var\(--maze-gold-2\);[\s\S]*?box-shadow: none;/, "active mode must be an etched rail state rather than a floating card");
+assert.match(css, /\.mode-row \{[\s\S]*?border-bottom: 1px solid var\(--maze-line-soft\);/, "the mode rail must own the single Loom transition hairline");
+assert.match(css, /\.builder-panel \{[\s\S]*?padding: 1rem 0 0;[\s\S]*?border-top: 0;/, "Loom panel must not duplicate the rail transition border");
+assert.match(css, /\.builder-compose-grid \{[\s\S]*?padding-top: 0;[\s\S]*?border-top: 0;/, "Loom Colors must not add a second rail-to-builder separator");
+assert.doesNotMatch(css, /\.(?:builder-panel|builder-compose-grid)::(?:before|after)/, "Loom transition must not recreate a duplicate separator with a pseudo-element");
+assert.match(css, /\.loom-completion #loom-scryfall-link,\s*\.loom-completion #loom-scryfall-link:visited \{[\s\S]*?display: inline-flex;[\s\S]*?align-items: center;[\s\S]*?height: 60px;[\s\S]*?padding-inline: 0\.85rem;[\s\S]*?color: var\(--maze-gold-2\);/, "bottom Loom Open must reuse centered secondary-action geometry and Maze gold in normal and visited states");
+assert.match(css, /\.loom-completion #loom-scryfall-link:hover,[\s\S]*?\.loom-completion #loom-scryfall-link:focus-visible,[\s\S]*?\.loom-completion #loom-scryfall-link:active \{[\s\S]*?color: #ffe49a;/, "bottom Loom Open must retain Maze gold across interactive states without becoming primary");
 assert.match(css, /\.maze-reading-context\[hidden\] \{\s*display: none !important;/, "hidden standalone context must win over the contextual flex surface");
 assert.doesNotMatch(html, /qi-actions|qi-scryfall/, "query inspector must not duplicate the canonical Copy/Open controls");
 assert.match(css, /@media \(max-width: 1180px\)[\s\S]*?\.maze-command-deck \{[\s\S]*?grid-template-columns: 1fr;/, "instrument frame must collapse at ordinary widths without mode-specific mast rearrangement");
