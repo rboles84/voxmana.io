@@ -330,3 +330,15 @@ The Git-derived final branch delta remains 12 unique paths from the admission ba
 ## Owner Review route
 
 Owner acceptance remains PENDING. Review direct standalone `/maze/index.html` at an ordinary desktop width and around 390px. Confirm the context absence, active-mode help placement/dismissal, sole canonical Live Scryfall query/actions, compact status/origin ribbon, flat shared Plain/Operator/Loom shell, and conditional deep-Loom Search affordance. Engineering evidence covers objective semantics, tabs/focus/drafts, exact query/runtime preservation, dossier detach/restore/return, no-auto-scroll, containment, and reduced motion; final visual quality remains Owner-only. Do not integrate either rejected SHA, and do not begin Slice 2 from this review.
+
+## Third Owner rejection and removal-first correction — 2026-09-17
+
+Owner rejected exact candidate `dbed6dc9f8ae1ecb4b8a2fb6dc305c9c0337c641` after final visual review and explicitly prohibited integration. The accepted instrument direction, computed standalone-context fix, mobile improvement, three-mode unity, and authoritative shared Live Scryfall query surface remain valid; the exact candidate and its RobQA PASS are historical evidence only.
+
+The new correction removes rather than compresses: delete the Slice-1 ribbon across all modes, delete the conditional floating Loom Search dock and observer machinery, reserve real in-tab space for active-mode help, keep one shared query/action shell, and add one in-flow bottom Loom completion Search using the existing Search path. Result totals remain with results unless a minimal Loom follow-up can prove it belongs to the exact current executed query and clears after filter edits. No new history, ledger, status strip, help card, query surface, Copy/Open action, or Loom hero is authorized.
+
+Future prepare-before-explicit-Search behavior, progressive dossier/provenance architecture, and the actual-state audit of all 37 dossier identities remain mandatory Slice-2 work but are not authorized in VM-658. Parser/compiler meaning, query/API bytes, Scryfall behavior, pre-existing helper auto-execution, dossier authority, identity/CECOS/Placement, generated data, Reading Finds persistence, result contracts, modal behavior, and retired account systems remain protected.
+
+Owner: REJECT
+Candidate: dbed6dc9f8ae1ecb4b8a2fb6dc305c9c0337c641
+Decision reference: Current Codex task, third Owner correction request dated 2026-09-17 beginning `Do not integrate candidate`.
