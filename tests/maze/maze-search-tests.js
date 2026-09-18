@@ -33,7 +33,7 @@ assert.match(mazeHtml, /<textarea\b[^>]*id="search-input"[^>]*rows="2"[\s\S]*?<\
 assert.doesNotMatch(mazeHtml, /<input\b[^>]*id="search-input"/);
 assert.match(mazeHtml, /id="search-copy-btn"[^>]*data-action="copy-query"/);
 assert.match(mazeHtml, /id="search-scryfall-link"[^>]*aria-disabled="true"/);
-assert.match(mazeHtml, /class="mode-row" role="tablist" aria-label="Maze search modes"/);
+assert.match(mazeHtml, /class="mode-tabs" role="tablist" aria-label="Maze search modes"/);
 for (const mode of ["ai", "raw", "builder"]) {
   assert.match(
     mazeHtml,
@@ -43,28 +43,23 @@ for (const mode of ["ai", "raw", "builder"]) {
 }
 assert.match(mazeHtml, /id="maze-workbench-panel" role="tabpanel" aria-labelledby="mode-ai" tabindex="-1"/);
 assert.match(mazeHtml, /id="maze-reading-context" tabindex="-1"/, "dossier/source context must retain a focus target for entry and return");
-assert.match(mazeHtml, /id="maze-state-ribbon" aria-label="Current search state"/);
-assert.match(mazeHtml, /id="maze-ribbon-origin"/);
-assert.doesNotMatch(mazeHtml, /maze-ribbon-(?:request|query|copy)|copy-ribbon-query/, "ribbon must not duplicate canonical query or copy controls");
+assert.doesNotMatch(mazeHtml, /maze-state-ribbon|maze-ribbon-|updateMazeStateRibbon|getActiveMazeRibbonQuery/, "the retired state ribbon must not remain in any mode");
+assert.doesNotMatch(mazeHtml, /loom-search-dock|updateLoomSearchDock|IntersectionObserver/, "the retired floating Loom dock and observer machinery must not remain");
+assert.doesNotMatch(mazeHtml, /<div class="qi-actions">|id="qi-scryfall"/, "the inspector must not duplicate the canonical Copy/Open actions");
 assert.ok(
   mazeHtml.indexOf('id="maze-reading-context"') < mazeHtml.indexOf('class="search-input-row"')
-    && mazeHtml.indexOf('class="search-input-row"') < mazeHtml.indexOf('id="maze-state-ribbon"'),
-  "source context, canonical request, and compact status ribbon must keep their logical DOM order"
+    && mazeHtml.indexOf('class="search-input-row"') < mazeHtml.indexOf('id="builder-panel"'),
+  "source context and canonical request must precede Loom construction"
 );
 assert.match(mazeInitSource, /function handleModeTabKeydown\(event\)[\s\S]*?ArrowRight[\s\S]*?ArrowLeft[\s\S]*?Home[\s\S]*?End/);
 assert.match(mazeInitSource, /MODE_IDS\.forEach\(\(id\) => document\.getElementById\(`mode-\$\{id\}`\)\?\.addEventListener\("keydown", handleModeTabKeydown\)\)/);
-assert.match(mazeInitSource, /function getActiveMazeRibbonQuery\(\)[\s\S]*?function updateMazeStateRibbon\(query = getActiveMazeRibbonQuery\(\)\)/);
 assert.match(mazeInitSource, /document\.getElementById\("maze-workbench-panel"\)\?\.setAttribute\("aria-labelledby", `mode-\$\{mode\}`\)/);
-assert.match(mazeInitSource, /hasError\) result\.textContent = "Execution needs attention"/);
-assert.match(mazeInitSource, /noResults\) result\.textContent = "No cards found"/);
-assert.match(mazeInitSource, /isLoading\) result\.textContent = "Executing search"/);
-assert.match(mazeInitSource, /totalCards\.toLocaleString\(\)/);
-assert.match(mazeInitSource, /else result\.textContent = "Ready to execute"/);
 assert.ok(
-  mazeHtml.indexOf('class="search-input-row"') < mazeHtml.indexOf('id="maze-state-ribbon"')
-    && mazeHtml.indexOf('id="maze-state-ribbon"') < mazeHtml.indexOf('id="builder-panel"'),
-  "shared live-query action and exact-query ribbon must precede Loom construction in DOM and focus order"
+  mazeHtml.indexOf('class="search-input-row"') < mazeHtml.indexOf('id="builder-panel"')
+    && mazeHtml.indexOf('id="builder-panel"') < mazeHtml.indexOf('id="loom-search-btn"'),
+  "shared live-query action and bottom Loom completion action must preserve focus order"
 );
+assert.match(mazeHtml, /id="loom-search-btn"[^>]*data-action="search"/, "bottom Loom completion action must use the existing Search path");
 assert.equal((mazeHtml.match(/id="search-input"/g) || []).length, 1, "Loom must retain one authoritative visible live query");
 assert.doesNotMatch(mazeHtml, /id="builder-generated-query"/, "redundant generated-query output must be removed");
 assert.match(mazeHtml, /<fieldset class="builder-group builder-group-colors">[\s\S]*?<legend>Colors<\/legend>/);
@@ -607,10 +602,15 @@ async function runVm592LoomCases() {
   assert.equal(document.getElementById("results-header").scrollIntoViewOptions, undefined, "successful Search must not force result scrolling");
   assert.match(getRenderedText(document.getElementById("res-count")), /Showing 1 of 1 cards/);
   assert.equal(document.getElementById("loom-result-status").textContent, "1 card found");
+  assert.equal(document.getElementById("loom-result-delivery").classList.contains("hidden"), false, "Loom follow-up must only appear for its exact executed query");
   assert.equal(document.getElementById("current-weave-state").textContent, "1 card found", "completed result count must reflect in Current Weave");
   document.querySelector(".page").onclick?.({ target: document.getElementById("view-results-btn") });
   assert.equal(document.activeElement, document.getElementById("results-header"), "View results must deliberately move focus");
   assert.deepEqual(document.getElementById("results-header").scrollIntoViewOptions, { behavior: "smooth", block: "start" });
+
+  document.getElementById("cmc-min").value = "3";
+  document.getElementById("cmc-min").oninput?.({ target: document.getElementById("cmc-min") });
+  assert.equal(document.getElementById("loom-result-delivery").classList.contains("hidden"), true, "edited Loom filters must not leave a stale result follow-up attached to a new query");
 
   window.resetBuilderFilters();
   assert.equal(document.getElementById("bld-format").value, "commander");
@@ -846,7 +846,7 @@ async function runMazeDomMetadataCases() {
   assert.equal(lastUrl.searchParams.get("dir"), "desc");
   assert.equal(lastUrl.searchParams.get("unique"), "prints");
 
-  const inspectorUrl = new URL(document.getElementById("qi-scryfall").href);
+  const inspectorUrl = new URL(document.getElementById("search-scryfall-link").href);
   assert.equal(inspectorUrl.searchParams.get("q"), manaRockQuery);
   assert.equal(inspectorUrl.searchParams.get("order"), "released");
   assert.equal(inspectorUrl.searchParams.get("dir"), "desc");
@@ -1219,7 +1219,6 @@ async function runMazeDomMetadataCases() {
   assert.equal(document.getElementById("recent-list").children.length, recentCountBeforeBlock);
   assert.equal(document.getElementById("search-copy-btn").disabled, true);
   assert.equal(document.getElementById("search-scryfall-link").getAttribute("aria-disabled"), "true");
-  assert.equal(document.getElementById("qi-scryfall").getAttribute("aria-disabled"), "true");
   assert.equal(document.getElementById("qi-query").textContent, "type:dragon c=r legal:commander");
   assert.match(document.getElementById("qi-diagnostics").innerHTML, /Detected plain English/);
   assert.match(document.getElementById("qi-diagnostics").innerHTML, /multiple set families/);
@@ -2046,24 +2045,8 @@ async function runVm658InstrumentFrameCases() {
   dom.setFetchResponses([{ object: "error", code: "not_found", status: 404 }]);
   await window.doSearch();
   assert.equal(input.value, "c:r", "canonical Live Scryfall query surface must retain the exact executable query");
-  assert.equal(document.getElementById("maze-ribbon-origin").textContent, "Operator syntax active", "ribbon must retain compact mode origin without duplicating the query");
-  assert.equal(document.getElementById("maze-ribbon-result").textContent, "No cards found", "zero response must refresh the ribbon");
   window.copyQuery();
   assert.equal(dom.getCopiedText(), "c:r", "canonical copy action must preserve the exact-query copy contract");
-  document.getElementById("state-panel").classList.remove("empty-result-active");
-  document.getElementById("search-btn").disabled = true;
-  window.setMode("raw");
-  assert.equal(document.getElementById("maze-ribbon-result").textContent, "Executing search", "loading state must refresh the ribbon");
-  document.getElementById("search-btn").disabled = false;
-  input.value = "c:u";
-  window.setMode("raw");
-  assert.equal(document.getElementById("maze-ribbon-result").textContent, "Ready to execute", "a new unexecuted query must not inherit an old result count");
-  window.copyQuery();
-  assert.equal(dom.getCopiedText(), "c:r", "canonical copy must use the restored exact query visibly shown in the input");
-  input.value = "c:r";
-  document.getElementById("err-msg").textContent = "Scryfall unavailable";
-  window.setMode("raw");
-  assert.equal(document.getElementById("maze-ribbon-result").textContent, "Execution needs attention", "error state must refresh the ribbon");
 }
 
 function makeTestCards(count, prefix) {
@@ -2370,8 +2353,8 @@ function installMazeDomHarness() {
     "search-input", "search-btn", "state-panel", "card-grid", "results-header", "empty-query",
     "results-footer", "err-msg", "recent-list", "recent-section", "query-inspector",
     "qi-input-wrap", "qi-input-label", "qi-input", "qi-label", "qi-query", "qi-reason",
-    "qi-scryfall", "res-count", "btn-more", "more-count", "stash-count", "stash-body",
-    "mode-ai", "mode-raw", "mode-builder", "maze-workbench-panel", "maze-state-ribbon", "maze-ribbon-origin", "maze-ribbon-result", "search-icon", "builder-panel", "loom-search-dock", "kw-wrap",
+    "res-count", "btn-more", "more-count", "stash-count", "stash-body",
+    "mode-ai", "mode-raw", "mode-builder", "maze-workbench-panel", "search-icon", "builder-panel", "loom-search-btn", "kw-wrap",
     "kw-input", "kw-add-btn", "kw-suggestions", "kw-chips", "kw-validation", "builder-summary", "color-validation", "mv-validation", "release-year-help", "release-year-validation",
     "color-pips", "colorless-only-btn", "builder-color-options", "exclude-colorless", "exclude-colorless-option", "color-op", "color-relation-picker", "color-relation-trigger", "color-relation-label", "bld-format", "cmc-min", "cmc-max", "release-year", "printing-scope", "sb-format", "modal-inner", "modal-bg",
     "maze-mode-help", "maze-mode-help-summary", "maze-mode-help-copy", "maze-reading-context", "maze-reading-context-label", "maze-reading-context-detail", "maze-reading-context-action", "search-input-label", "clear-search-btn", "discovery-path-list",
@@ -2382,7 +2365,7 @@ function installMazeDomHarness() {
     "loom-result-delivery", "loom-result-status", "view-results-btn", "current-weave", "current-weave-pips",
     "current-weave-title", "current-weave-primary", "current-weave-secondary", "current-weave-count", "current-weave-state"
   ].forEach((id) => {
-    const tagName = ["qi-scryfall", "search-scryfall-link"].includes(id)
+    const tagName = ["search-scryfall-link"].includes(id)
       ? "a"
       : id === "search-input"
         ? "textarea"
@@ -2390,7 +2373,7 @@ function installMazeDomHarness() {
           ? "input"
           : ["color-op", "bld-format", "printing-scope", "sb-format"].includes(id)
             ? "select"
-            : ["mode-ai", "mode-raw", "mode-builder", "loom-search-dock", "kw-add-btn", "colorless-only-btn", "color-relation-trigger", "view-results-btn", "search-btn", "maze-reading-context-action"].includes(id)
+            : ["mode-ai", "mode-raw", "mode-builder", "loom-search-btn", "kw-add-btn", "colorless-only-btn", "color-relation-trigger", "view-results-btn", "search-btn", "maze-reading-context-action"].includes(id)
               ? "button"
               : id === "color-relation-picker"
                 ? "details"

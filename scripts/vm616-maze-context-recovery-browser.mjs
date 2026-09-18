@@ -183,8 +183,13 @@ try {
     expect(await page.$eval("#maze-mode-help", element => !element.open), "mode help must dismiss on an outside click");
     const helpAlignedToActiveTab = () => page.evaluate(() => {
       const help = document.getElementById("maze-mode-help-summary")?.getBoundingClientRect();
-      const active = document.querySelector('[role="tab"][aria-selected="true"]')?.getBoundingClientRect();
-      return Boolean(help && active && help.left >= active.left - 4 && help.left <= active.right);
+      const activeTab = document.querySelector('[role="tab"][aria-selected="true"]');
+      const active = activeTab?.getBoundingClientRect();
+      const title = activeTab?.querySelector(".mode-card-title")?.getBoundingClientRect();
+      return Boolean(help && active && title
+        && help.left >= active.left
+        && help.right <= active.right
+        && help.left >= title.right);
     });
     expect(await helpAlignedToActiveTab(), "Plain mode help trigger must sit within its active tab region");
     await page.click("#mode-raw");
@@ -207,7 +212,7 @@ try {
         inputActionBottom: Math.max(bottom("#search-input"), bottom("#search-btn")),
         builderTop: top("#builder-panel"),
         builderBottom: bottom("#builder-panel"),
-        ribbonTop: top("#maze-state-ribbon"),
+        completionTop: top(".loom-completion"),
         nextBodyTop: top(".r-body"),
         overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
         sharedRow: (() => {
@@ -225,26 +230,13 @@ try {
     expect(Math.abs(plain390.inputActionBottom - loom390.inputActionBottom) <= 12, "Plain-to-Loom must keep the shared primary input/action position stable");
     expect(JSON.stringify(plain390.sharedRow) === JSON.stringify(loom390.sharedRow), "Plain and Loom must share the same query/action shell treatment");
     expect(loom390.builderTop >= loom390.inputActionBottom, "Loom expansion must begin after the shared request/action");
-    expect(!loom390.ribbonTop || loom390.builderTop >= loom390.ribbonTop, "when visible, the exact-query ribbon must precede Loom expansion");
-    expect(await page.$eval("#loom-search-dock", element => element.hidden), "deep Loom dock must remain absent while canonical Search is visible");
-    await page.$eval("#builder-panel", element => {
-      document.documentElement.style.scrollBehavior = "auto";
-      window.scrollTo(0, window.scrollY + element.getBoundingClientRect().top - 12);
-      window.dispatchEvent(new Event("scroll"));
-    });
-    await new Promise(resolve => setTimeout(resolve, 150));
-    expect(await page.$eval("#loom-search-dock", element => !element.hidden), "deep Loom dock must appear when canonical Search leaves the viewport");
-    expect(await page.$eval("#loom-search-dock", element => {
-      const rect = element.getBoundingClientRect();
-      return rect.left >= 0 && rect.right <= document.documentElement.clientWidth && rect.bottom <= window.innerHeight;
-    }), "deep Loom dock must remain contained at 390px");
+    expect(loom390.completionTop >= loom390.builderTop, "Loom completion action must remain in flow after its controls");
+    expect(await page.$$("#maze-state-ribbon, #loom-search-dock").then(elements => elements.length) === 0, "focused route must not retain ribbon or floating dock surfaces");
+    await page.$eval("#loom-search-btn", element => element.scrollIntoView({ block: "center" }));
     const beforeDockSearch = interceptedSearchRequests;
-    await page.$eval("#loom-search-dock", element => element.click());
+    await page.$eval("#loom-search-btn", element => element.click());
     await new Promise(resolve => setTimeout(resolve, 250));
-    expect(interceptedSearchRequests > beforeDockSearch, "deep Loom dock must invoke the existing Search action");
-    await page.$eval(".search-input-row", element => element.scrollIntoView({ block: "center" }));
-    await new Promise(resolve => setTimeout(resolve, 150));
-    expect(await page.$eval("#loom-search-dock", element => element.hidden), "deep Loom dock must disappear when canonical Search returns to the viewport");
+    expect(interceptedSearchRequests > beforeDockSearch, "bottom Loom completion action must invoke the existing Search action");
     await page.setViewport({ width: 720, height: 500, hasTouch: true });
     await page.$eval("#release-year", element => {
       document.documentElement.style.scrollBehavior = "auto";
@@ -254,14 +246,12 @@ try {
     });
     await new Promise(resolve => setTimeout(resolve, 150));
     expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth) <= 1, "200%-equivalent deep Loom route must not overflow horizontally");
-    expect(await page.evaluate(() => {
-      const dock = document.getElementById("loom-search-dock");
-      const focused = document.activeElement;
-      if (dock?.hidden || !(focused instanceof Element)) return true;
-      const dockRect = dock.getBoundingClientRect();
-      const focusRect = focused.getBoundingClientRect();
-      return !(focusRect.left < dockRect.right && focusRect.right > dockRect.left && focusRect.top < dockRect.bottom && focusRect.bottom > dockRect.top);
-    }), "deep Loom dock must not cover the focused control at 200%-equivalent geometry");
+    expect(await page.$eval("#search-input", element => element.scrollHeight <= element.clientHeight + 1), "Loom live query must not become a nested scroll trap");
+    await page.setViewport({ width: 1440, height: 900 });
+    for (const mode of ["ai", "raw", "builder"]) {
+      await page.click(`#mode-${mode}`);
+      expect(await helpAlignedToActiveTab(), `desktop ${mode} mode help trigger must stay inside its reserved active tab space`);
+    }
     console.log(`VM-658 focused 390px frame: Plain ${JSON.stringify(plain390)}; Loom ${JSON.stringify(loom390)}`);
   } else {
   let weakSearchGeneration = 0;
@@ -576,7 +566,7 @@ try {
     return {
       frameBottom: rect(".maze-command-deck"),
       inputActionBottom: Math.max(rect("#search-input"), rect("#search-btn")),
-      ribbonTop: Math.round(document.querySelector("#maze-state-ribbon")?.getBoundingClientRect().top || 0),
+      builderTop: Math.round(document.querySelector("#builder-panel")?.getBoundingClientRect().top || 0),
       resultsTop: Math.round(document.querySelector("#results-header")?.getBoundingClientRect().top || 0),
       overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
     };
@@ -586,13 +576,13 @@ try {
     const rect = selector => Math.round(document.querySelector(selector)?.getBoundingClientRect().bottom || 0);
     return {
       inputActionBottom: Math.max(rect("#search-input"), rect("#search-btn")),
-      ribbonTop: Math.round(document.querySelector("#maze-state-ribbon")?.getBoundingClientRect().top || 0),
+      completionTop: Math.round(document.querySelector(".loom-completion")?.getBoundingClientRect().top || 0),
       resultsTop: Math.round(document.querySelector("#results-header")?.getBoundingClientRect().top || 0),
       overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
     };
   });
   expect(plain390.overflow <= 1 && loom390.overflow <= 1, "390px Maze frame and Loom workspace should not overflow horizontally");
-  expect(loom390.inputActionBottom <= loom390.ribbonTop, "Loom must retain its primary input/action before the exact-query ribbon");
+  expect(loom390.inputActionBottom <= loom390.completionTop, "Loom must retain its primary input/action before its bottom completion action");
   console.log(`VM-658 390px geometry: Plain ${JSON.stringify(plain390)}; Loom ${JSON.stringify(loom390)}`);
 
   await page.setViewport({ width: 390, height: 844, isMobile: true, hasTouch: true });

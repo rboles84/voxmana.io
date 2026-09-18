@@ -55,7 +55,6 @@ let displayPage = 0;
 let hasMore = false;
 let nextPageUrl = null;
 let totalCards = 0;
-let ribbonExecutionQuery = "";
 let loomResultStatusText = "";
 let loomWeaveResultQuery = "";
 let loomWeaveResultCount = null;
@@ -1106,8 +1105,6 @@ function setMode(mode) {
   updateLoomSidebarVisibility(mode);
   updateReadingContextDisclosure();
   updateLoomResultDelivery();
-  updateMazeStateRibbon();
-  requestAnimationFrame(updateLoomSearchDock);
   refreshInitialStateForMode();
 }
 
@@ -1141,65 +1138,6 @@ function updateModeContent(mode) {
   }
   MODE_IDS.forEach((id) => document.getElementById(`mode-${id}`)?.removeAttribute("aria-describedby"));
   document.getElementById(`mode-${mode}`)?.setAttribute("aria-describedby", "maze-mode-help-copy");
-}
-
-let loomSearchDockObserver = null;
-let loomSearchDockScrollHandler = null;
-let loomSearchDockFocusHandler = null;
-
-function updateLoomSearchDock() {
-  const dock = document.getElementById("loom-search-dock");
-  const canonicalSearch = document.getElementById("search-btn");
-  const builder = document.getElementById("builder-panel");
-  if (!dock || !canonicalSearch || !builder) return;
-  loomSearchDockObserver?.disconnect();
-  loomSearchDockObserver = null;
-  if (loomSearchDockScrollHandler) window.removeEventListener?.("scroll", loomSearchDockScrollHandler);
-  if (loomSearchDockScrollHandler) window.removeEventListener?.("resize", loomSearchDockScrollHandler);
-  loomSearchDockScrollHandler = null;
-  if (loomSearchDockFocusHandler) {
-    builder.removeEventListener?.("focusin", loomSearchDockFocusHandler);
-    builder.removeEventListener?.("focusout", loomSearchDockFocusHandler);
-  }
-  loomSearchDockFocusHandler = null;
-  dock.hidden = true;
-  if (currentMode !== "builder" || builder.classList.contains("hidden")) return;
-  const syncDock = (isVisible) => {
-    dock.hidden = Boolean(isVisible);
-    if (dock.hidden) return;
-    const focused = document.activeElement;
-    if (!(focused instanceof Element) || !builder.contains(focused)) return;
-    const focusRect = focused.getBoundingClientRect();
-    const dockRect = dock.getBoundingClientRect();
-    const overlaps = focusRect.left < dockRect.right
-      && focusRect.right > dockRect.left
-      && focusRect.top < dockRect.bottom
-      && focusRect.bottom > dockRect.top;
-    if (overlaps) dock.hidden = true;
-  };
-  const syncDockFromViewport = () => {
-    const rect = canonicalSearch.getBoundingClientRect?.();
-    if (!rect) {
-      dock.hidden = true;
-      return;
-    }
-    syncDock(rect.bottom > 0 && rect.top < window.innerHeight && rect.right > 0 && rect.left < window.innerWidth);
-  };
-  if ("IntersectionObserver" in window) {
-    loomSearchDockObserver = new IntersectionObserver(
-      ([entry]) => syncDock(entry?.isIntersecting),
-      { threshold: 0 }
-    );
-    loomSearchDockObserver.observe(canonicalSearch);
-  } else {
-    syncDockFromViewport();
-  }
-  loomSearchDockScrollHandler = syncDockFromViewport;
-  loomSearchDockFocusHandler = () => requestAnimationFrame(syncDockFromViewport);
-  window.addEventListener?.("scroll", loomSearchDockScrollHandler, { passive: true });
-  window.addEventListener?.("resize", loomSearchDockScrollHandler, { passive: true });
-  builder.addEventListener?.("focusin", loomSearchDockFocusHandler);
-  builder.addEventListener?.("focusout", loomSearchDockFocusHandler);
 }
 
 function updateReadingContextDisclosure() {
@@ -1510,7 +1448,6 @@ async function triggerSearch(query, opts = {}) {
   const searchApi = { endpoint: "/cards/search", unique: searchUnique, order: searchOrder };
   if (searchDir) searchApi.dir = searchDir;
   currentQuery = query;
-  ribbonExecutionQuery = query;
   currentOrder = searchOrder;
   currentUnique = searchUnique;
   currentDir = searchDir;
@@ -1692,7 +1629,6 @@ function renderResults(append = false) {
     loomWeaveResultCount = totalCards;
     updateLoomResultDelivery();
     renderCurrentWeave();
-    updateMazeStateRibbon();
   }
 }
 
@@ -1717,7 +1653,10 @@ function updateLoomResultDelivery() {
   const delivery = document.getElementById("loom-result-delivery");
   const status = document.getElementById("loom-result-status");
   if (!delivery || !status) return;
-  const shouldShow = currentMode === "builder" && Boolean(loomResultStatusText);
+  const liveQuery = normalizeSearchInputValue(document.getElementById("search-input")?.value || "");
+  const shouldShow = currentMode === "builder"
+    && Boolean(loomResultStatusText)
+    && normalizeSearchInputValue(loomWeaveResultQuery) === liveQuery;
   delivery.classList.toggle("hidden", !shouldShow);
   status.textContent = shouldShow ? loomResultStatusText : "";
 }
@@ -2198,6 +2137,7 @@ function rebuildFromFilters() {
   updateBuilderOutput(validation);
   updateBuilderValidation(validation);
   renderCurrentWeave({ query, validation });
+  updateLoomResultDelivery();
   if (currentMode === "builder") updateSearchActions(validation.valid ? query : "", {});
 }
 
@@ -3633,33 +3573,6 @@ function updateSearchActions(query = currentQuery, api = currentSearchApi) {
     scryfallLink.setAttribute("aria-disabled", hasQuery ? "false" : "true");
     scryfallLink.tabIndex = hasQuery ? 0 : -1;
   }
-  updateMazeStateRibbon(cleanQuery);
-}
-
-/** Keeps the presentation-only request → executable query → result state legible. */
-function getActiveMazeRibbonQuery() {
-  const inputValue = normalizeSearchInputValue(document.getElementById("search-input")?.value || "");
-  return currentMode === "ai" ? String(currentQuery || "").trim() : inputValue;
-}
-
-function updateMazeStateRibbon(query = getActiveMazeRibbonQuery()) {
-  const ribbon = document.getElementById("maze-state-ribbon");
-  const origin = document.getElementById("maze-ribbon-origin");
-  const result = document.getElementById("maze-ribbon-result");
-  const cleanQuery = String(query || currentQuery || "").trim();
-  if (!ribbon || !origin || !result) return;
-  ribbon.classList.toggle("hidden", !cleanQuery);
-  if (!cleanQuery) return;
-  origin.textContent = MODE_CONTENT[currentMode]?.label?.replace(/ open$/i, "") || "Maze";
-  const hasError = Boolean(document.getElementById("err-msg")?.textContent);
-  const noResults = document.getElementById("state-panel")?.classList.contains("empty-result-active");
-  const isLoading = Boolean(document.getElementById("search-btn")?.disabled);
-  if (ribbonExecutionQuery !== cleanQuery) result.textContent = "Ready to execute";
-  else if (hasError) result.textContent = "Execution needs attention";
-  else if (noResults) result.textContent = "No cards found";
-  else if (isLoading) result.textContent = "Executing search";
-  else if (totalCards > 0) result.textContent = `${totalCards.toLocaleString()} ${totalCards === 1 ? "card" : "cards"} found`;
-  else result.textContent = "Ready to execute";
 }
 
 /**
@@ -3720,7 +3633,6 @@ function clearSearchInput() {
  */
 function resetSearchResults() {
   currentQuery = "";
-  ribbonExecutionQuery = "";
   currentOrder = "name";
   currentUnique = "cards";
   currentDir = undefined;
@@ -3808,7 +3720,6 @@ function setLoading(on) {
     document.getElementById("results-header").classList.add("hidden");
     document.getElementById("results-footer").classList.add("hidden");
   }
-  updateMazeStateRibbon();
 }
 
 /**
@@ -3851,7 +3762,6 @@ async function showNoResultsState(query, diagnostics = []) {
   loomWeaveResultCount = 0;
   updateLoomResultDelivery();
   renderCurrentWeave();
-  updateMazeStateRibbon();
 
   const card = await ResearchSearch.scryfallRandom("kw:deathtouch");
   if (card?.object === "card") renderNoResultsCard(card);
@@ -4814,7 +4724,6 @@ function showError(message) {
   el.classList.remove("hidden");
   document.getElementById("state-panel").classList.remove("empty-result-active");
   hideState();
-  updateMazeStateRibbon();
 }
 
 /**

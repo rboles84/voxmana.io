@@ -279,7 +279,7 @@ The `--vm658-frame` route passed at 390px: Plain frame/input/body landmarks were
 
 Developer evidence rerun: `node tests/maze/maze-search-tests.js`; `node tests/maze/maze-results-layout-tests.js`; `node --check assets/js/maze/research-init.js`; `node --check scripts/vm616-maze-context-recovery-browser.mjs`; `node scripts/vm616-maze-context-recovery-browser.mjs --vm658-frame`; `git diff --check`. All passed. Protected, unchanged boundaries: parsers/compiler/query bytes, Scryfall execution and pre-existing Discovery/Helper auto-execution, drafts and tabs, dossier/return semantics, persistence, results/no-auto-scroll, modal, generated data, and all Slice-2 work. RobQA should independently inspect the rendered contextual/independent states, active-help affordance, and dock behavior; this is implementation evidence only, not QA or Owner acceptance.
 
-## Second-correction exact-candidate engineering result
+## Superseded second-correction exact-candidate engineering result
 
 The governing material candidate is `dbed6dc9f8ae1ecb4b8a2fb6dc305c9c0337c641`. Independent `/root/robqa_vm658` issued RobQAPass PASS in SEPARATE execution for that exact SHA with no blocking or major findings. Rejected candidates `1987332e8952f43111bd368f64b1ea0a568b5b7a` and `7eae53f61f1b875bd508c4034232993d48712c1c` remain prohibited from integration and are retained only as history.
 
@@ -287,13 +287,13 @@ The correction makes standalone context truly absent in computed layout, leaves 
 
 The focused rendered witness passed at 390px with zero horizontal overflow and identical computed shared-row treatment across Plain and Loom. Direct `/maze/index.html` reported one standalone context node with `hidden`, computed `display:none`, and a `0 × 0px` rectangle. The same route proved help containment and Escape/outside dismissal, same-action dock execution, dock removal when canonical Search returned, and focus-safe `720 × 500` geometry as the 200%-equivalent case.
 
-## Material candidate
+## Superseded second-correction material candidate
 
 - Baseline: `6b57d5dc7fa77f51ddc0f27c69dc834dcf12a595`
 - Candidate: `dbed6dc9f8ae1ecb4b8a2fb6dc305c9c0337c641`
 - Changed paths: `12`
 
-## Files changed
+## Superseded second-correction files changed
 
 - `assets/css/maze.css`
 - `assets/js/maze/research-init.js`
@@ -308,7 +308,7 @@ The focused rendered witness passed at 390px with zero horizontal overflow and i
 - `tests/maze/maze-results-layout-tests.js`
 - `tests/maze/maze-search-tests.js`
 
-## Evidence delta
+## Superseded second-correction evidence delta
 
 - Material candidate: `dbed6dc9f8ae1ecb4b8a2fb6dc305c9c0337c641`
 - Evidence head: `HEAD`
@@ -316,18 +316,18 @@ The focused rendered witness passed at 390px with zero horizontal overflow and i
 
 This delta records the exact-candidate RobQA PASS, completed second-correction criteria, Owner Review lifecycle binding, final Git accounting, and regenerated board view. It is not the full task diff.
 
-## Evidence-only paths
+## Superseded second-correction evidence-only paths
 
 - `docs/handoffs/2026-09-15-2144-codex-vm658-maze-instrument-frame.md`
 - `docs/handoffs/2026-09-15-2144-robqa-vm658-maze-instrument-frame.md`
 - `docs/kanban/board.md`
 - `docs/kanban/in-progress/VM-658-maze-instrument-frame.md`
 
-## Final branch delta
+## Superseded second-correction final branch delta
 
 The Git-derived final branch delta remains 12 unique paths from the admission baseline to the evidence head. The four evidence-only paths already exist in the material comparison and receive only append-only evidence, lifecycle, checkbox, or generated-view updates after the candidate.
 
-## Owner Review route
+## Superseded second-correction Owner Review route
 
 Owner acceptance remains PENDING. Review direct standalone `/maze/index.html` at an ordinary desktop width and around 390px. Confirm the context absence, active-mode help placement/dismissal, sole canonical Live Scryfall query/actions, compact status/origin ribbon, flat shared Plain/Operator/Loom shell, and conditional deep-Loom Search affordance. Engineering evidence covers objective semantics, tabs/focus/drafts, exact query/runtime preservation, dossier detach/restore/return, no-auto-scroll, containment, and reduced motion; final visual quality remains Owner-only. Do not integrate either rejected SHA, and do not begin Slice 2 from this review.
 
@@ -342,3 +342,13 @@ Future prepare-before-explicit-Search behavior, progressive dossier/provenance a
 Owner: REJECT
 Candidate: dbed6dc9f8ae1ecb4b8a2fb6dc305c9c0337c641
 Decision reference: Current Codex task, third Owner correction request dated 2026-09-17 beginning `Do not integrate candidate`.
+
+## RobDev third Owner-correction implementation — 2026-09-17
+
+Pre-edit contract: the rejected route retained a persistent state ribbon, a floating observer-backed Loom action, and a visually overlaid mode-help trigger. The route-local implementation now removes all ribbon/dock DOM, CSS, controller, and focused-test machinery. The Live Scryfall row is the only query, Copy, Open, Search, and Finds surface; the query inspector still presents interpretation/compiled-query information but no longer contains another Copy/Open pair. The Loom keeps all filters, Reset, and its absent intro, then ends after Printing & artwork with one in-flow `Search these Loom filters` button using the existing `data-action="search"` path.
+
+Active-mode help is now a grid item in the selected tab's explicit shared rail column, with reserved tab padding; only its closed disclosure body is anchored. It starts closed, retains native click/keyboard handling plus Escape/outside dismissal, and the focused browser witness confirms the trigger is inside the active tab and does not intersect its title at 390px and desktop. `updateLoomResultDelivery()` now compares the stored executed Loom query with the current generated input and is refreshed during `rebuildFromFilters`, so the optional bottom result/View-results follow-up hides immediately on a filter edit; totals remain in the result set.
+
+Focused developer evidence passed: `node tests/maze/maze-search-tests.js`; `node tests/maze/maze-results-layout-tests.js`; `node --check assets/js/maze/research-init.js`; `node --check scripts/vm616-maze-context-recovery-browser.mjs`; `node scripts/vm616-maze-context-recovery-browser.mjs --vm658-frame`; and `git diff --check`. The browser route recorded 0px horizontal overflow at 390px, identical Plain/Loom shared-row boxes, direct standalone hidden-context absence, no nested Loom query scroll trap, ribbon/dock absence, bottom-action execution through the existing request path, and preserved help containment. Protected boundaries remain query/parser/compiler/API bytes, pre-existing Discovery/Helper auto-execution, tabs/drafts/round trips, dossier entry-return semantics, persistence, results/no-auto-scroll, modal, reduced motion, generated data, and all Slice-2 work.
+
+RobQA transfer: independently inspect the rendered in-flow grid help slot and disclosure at desktop/390px, exact-query Copy/Open singularity, bottom Loom action and stale-follow-up clearing, and preserved contextual/independent dossier states. This is RobDev implementation evidence only; it makes no RobQA PASS, Owner acceptance, integration, or future-slice claim.
