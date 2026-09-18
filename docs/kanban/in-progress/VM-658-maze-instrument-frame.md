@@ -2,7 +2,7 @@
 
 ID: VM-658
 Title: Maze Instrument Frame
-Status: In Progress
+Status: Accepted
 Type: Production implementation
 Area: Maze presentation and interaction frame
 Priority: High
@@ -126,13 +126,13 @@ Owner rejected exact candidate `fd4212e129b44e42f370ad2dbddc5beebe0cf808` while 
 
 Owner rejected exact candidate `ad00249087ae60a3c2ce38ed72cde39110971244` while accepting the VM-658 Slice-1 architecture and interaction model. This final polish correction is limited to four visual/presentation defects; do not reopen layout architecture, mode/query ownership, Loom flow, runtime semantics, or Slice 2.
 
-- [ ] Plain Reading and Operator's Hand have a consistent intentional spacing-scale gap between the canonical query/action row and `#query-inspector`, without another container, border, separator, or inflated inspector padding.
-- [ ] The active-mode help trigger visibly uses the local Mana v1.18.0 `ms ms-ability-collect-evidence` glyph with the optional visible About label while retaining its dynamic accessible active-mode name and accepted activation/dismissal behavior.
-- [ ] The Loom transition from the active mode rail to Colors contains exactly one intentional etched/hairline separator, with the actual contributing borders/rules consolidated rather than arbitrarily hidden.
-- [ ] Bottom Loom Open in Scryfall is a vertically centered member of the existing secondary action family with matching height/padding and the intended Maze gold/yellow treatment across normal, visited, hover, focus-visible, and active states.
-- [ ] Desktop and approximately 390px remain non-overflowing; the help slot stays contained and non-overlapping.
-- [ ] Focused regression evidence pins the Plain/Operator inspector gap, required help glyph and accessible label, single Loom transition rule, and bottom Open computed alignment/color/state treatment.
-- [ ] Plain/Operator query-first behavior, Loom builder-first behavior/filter order/completion ownership, exact query/search/copy/finds/reset/result behavior, standalone context, tabs/drafts, dossier return, reduced motion, parser/compiler/API meaning, current helper auto-execution, and all Slice-2 boundaries remain unchanged.
+- [x] Plain Reading and Operator's Hand have a consistent intentional spacing-scale gap between the canonical query/action row and `#query-inspector`, without another container, border, separator, or inflated inspector padding.
+- [x] The active-mode help trigger visibly uses the local Mana v1.18.0 `ms ms-ability-collect-evidence` glyph with the optional visible About label while retaining its dynamic accessible active-mode name and accepted activation/dismissal behavior.
+- [x] The Loom transition from the active mode rail to Colors contains exactly one intentional etched/hairline separator, with the actual contributing borders/rules consolidated rather than arbitrarily hidden.
+- [x] Bottom Loom Open in Scryfall is a vertically centered member of the existing secondary action family with matching height/padding and the intended Maze gold/yellow treatment across normal, visited, hover, focus-visible, and active states.
+- [x] Desktop and approximately 390px remain non-overflowing; the help slot stays contained and non-overlapping.
+- [x] Focused regression evidence pins the Plain/Operator inspector gap, required help glyph and accessible label, single Loom transition rule, and bottom Open computed alignment/color/state treatment.
+- [x] Plain/Operator query-first behavior, Loom builder-first behavior/filter order/completion ownership, exact query/search/copy/finds/reset/result behavior, standalone context, tabs/drafts, dossier return, reduced motion, parser/compiler/API meaning, current helper auto-execution, and all Slice-2 boundaries remain unchanged.
 
 Future Slice-2 requirements remain mandatory but out of scope here: prepare-before-explicit-Search behavior for Discovery/Helper paths; progressive dossier/source/provenance hierarchy; and the actual-state audit of all 37 dossier identities. VM-658 must not silently repair semantic/query/source-authority findings from that future work.
 
@@ -141,9 +141,9 @@ Future Slice-2 requirements remain mandatory but out of scope here: prepare-befo
 Record version: 1
 Branch: codex/vm-658-maze-instrument-frame
 Admission baseline: 6b57d5dc7fa77f51ddc0f27c69dc834dcf12a595
-Candidate: PENDING
-RobQA: PENDING
-Owner: PENDING
+Candidate: 71a26b683fd5fde594e717a9aea6a565fd7f0891
+RobQA: PASS at 71a26b683fd5fde594e717a9aea6a565fd7f0891 — SEPARATE execution by /root/robqa_vm658
+Owner: ACCEPTED at 71a26b683fd5fde594e717a9aea6a565fd7f0891 — current Codex task Owner decision dated 2026-09-17
 Integration: PENDING
 Dependencies: None
 Decisions: Implement accepted VM-657 Slice 1 only; preserve existing semantic/query/search/dossier/persistence behavior; stop at Owner Review and do not proceed into Slice 2. Scope amendment: include the existing focused VM-616 Maze context-recovery browser harness because its mode-selection assertions must follow the authorized button-to-tab semantic change and it supplies the bounded dossier entry/return evidence requested for VM-658. Scope amendment: update the existing route-specific frontend HTML assertion from the retired Maze module revision to `vm658` so the changed controller is not served under a stale production cache key. Second Owner correction: preserve the accepted mobile/mode direction while fixing the escaped hidden context, query/ribbon duplication, active-mode help attachment/dismissal, Loom intro duplication, shared-shell consistency, and deep-Loom Search reachability without changing execution semantics or entering Slice 2. Third Owner correction: remove the Slice-1 ribbon and floating dock, reserve non-overlapping active-tab help space, keep one authoritative shared query shell, and provide an in-flow bottom Loom Search action with truthful executed-query follow-up only; retain all prior semantic/runtime boundaries and defer the 37-dossier/provenance architecture to Slice 2. Fourth Owner correction: preserve the accepted common instrument shell while making Loom builder-first, moving its single generated query/action ownership to a bottom completion region, removing Loom View results/status duplication, normalizing Plain/Operator action alignment, and evaluating the local Mana help glyph without changing protected behavior or entering Slice 2. Fifth Owner correction: retain the accepted architecture and make only the four specified visual repairs—inspector spacing, required Collect Evidence help glyph, one Loom-to-Colors rule, and bottom Open action alignment/color—before returning to Owner Review.

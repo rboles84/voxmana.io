@@ -596,3 +596,69 @@ This is the fresh governing cycle for the exact repaired-witness candidate. The 
 **RobQAPass BLOCKED / engineering FAIL** for exact candidate `4de7134cc346cbca77adda0f1c17ebc5c5fe882b`.
 
 No product defect is confirmed, but the exact candidate cannot enter Owner Review because its required rendered witness still lacks an explicit PASS and leaves material objective criteria unverified. No integration or Slice-2 authority is granted.
+
+---
+
+## Fifth-correction normalized-Operator QA cycle — 2026-09-17
+
+Task: VM-658
+Candidate: 71a26b683fd5fde594e717a9aea6a565fd7f0891
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: /root/robqa_vm658
+Implementer: /root/robdev_vm658
+
+This fresh cycle governs the exact candidate above. The prior `240889622f59f50f44946cd6bf760ec351c38e2e` and `4de7134cc346cbca77adda0f1c17ebc5c5fe882b` BLOCKED cycles remain durable history.
+
+### Candidate binding, independence, and scope
+
+- `HEAD` and the named candidate resolved to `71a26b683fd5fde594e717a9aea6a565fd7f0891`; merge-base with admission baseline resolved to `6b57d5dc7fa77f51ddc0f27c69dc834dcf12a595`; the worktree was clean at binding.
+- Reviewer `/root/robqa_vm658` did not implement the candidate; implementer remains `/root/robdev_vm658`; execution is SEPARATE.
+- Delta from `4de7134cc346cbca77adda0f1c17ebc5c5fe882b` is the normalized Operator witness input (`c:r AND t:creature`) plus append-only handoff history. Product CSS, markup, runtime, query owners, and focused product tests are unchanged.
+- QA classification remains QA-1 presentation with targeted interaction/rendered evidence. Broad or CPU-heavy suites were not justified.
+
+### Checks and honest outcomes
+
+| Check | Outcome |
+|---|---|
+| `node tests/maze/maze-results-layout-tests.js` | PASS — focused layout/hover guards. |
+| `node tests/maze/maze-search-tests.js` | PASS — focused search/controller/helper cases. |
+| `node tests/maze/research-mode-tests.js` | PASS — 14 mode and 14 leakage cases. |
+| `node tests/maze/maze-query-contract-tests.js` | PASS. |
+| `node --check assets/js/maze/research-init.js` | PASS. |
+| `node --check scripts/vm616-maze-context-recovery-browser.mjs` | PASS. |
+| `npm.cmd run lint:html` | PASS. |
+| `git diff --check 6b57d5dc7fa77f51ddc0f27c69dc834dcf12a595..71a26b683fd5fde594e717a9aea6a565fd7f0891` | PASS. |
+| `node scripts/vm616-maze-context-recovery-browser.mjs --vm658-frame` | Automated test: FAIL / harness debt. It completed the relevant route and emitted all measurements, then reported three assertion failures caused by immediate transition sampling and measuring a hidden inspector after the mode-cycle sequence. It did not print explicit PASS and was bounded with Ctrl+C after output. No product defect was reproduced. |
+
+### Nine-point objective evidence
+
+1. Real explicit Plain and normalized Operator searches at about 390px each measured a 16px action-row-to-Query-Inspector gap. The same parent `.maze-primary-workbench` 1rem grid gap owns both modes with no desktop breakpoint override. The later negative desktop probe is non-rendered geometry: the harness had cycled through Loom, which hides the workbench/inspector, then measured the still-hidden inspector instead of executing a new desktop search.
+2. The focused route passed the visible local `ms ms-ability-collect-evidence` glyph assertion with a nonzero rectangle and `aria-hidden=true`; the help summary contains no visible question mark.
+3. Default-closed native help, click opening, Escape dismissal, outside-click dismissal, 390px containment, active-tab attachment, and dynamic `About Plain Reading` / `About Operator's Hand` / `About The Loom` accessible naming passed before the harness's reported failures. Existing native summary keyboard semantics and focus-visible guards remain unchanged.
+4. Computed Loom separator evidence was exactly `{mode:"1px", panel:"0px", compose:"0px"}`. Static guards confirm no builder-panel/compose pseudo-element recreates a duplicate rule.
+5. Bottom Loom Open computed `display:flex`, `align-items:center`, matching Copy height and padding, and passed the harness's normal-state secondary-action geometry assertion. Its 160px narrow stacked height matched its action-family peer rather than representing a vertical-alignment defect.
+6. Normal Open computed `rgb(247, 215, 132)`. Immediate hover and keyboard-focus samples computed `rgb(248, 216, 134)` and `rgb(253, 225, 149)`: both are gold/yellow transition intermediates, not generic white. CSS targets `#ffe49a` for hover/focus-visible/active after the declared 180ms color transition, and normal/visited share Maze gold. The combined focus assertion reached the link by keyboard; its exact-color subcheck sampled before transition completion. These are coherent gold-family states; the brittle zero-wait exact-RGB assertions are harness debt.
+7. Accepted Slice-1 architecture remains intact: Plain/Operator are query-first; Loom hides the top workbench, starts at Colors, retains filter order, and has one bottom generated query plus Search/Copy/Open/Finds/Reset; no ribbon, dock, View Results, or pre-result count/status returned. Normal results retain totals.
+8. The focused route reported zero horizontal overflow for Plain and Loom around 390px and passed the 720×500 200%-equivalent containment/nested-scroll checks. Desktop action geometry remained five centered 60px controls with Open aligned; help stayed in its reserved tab space across desktop modes.
+9. Product runtime is byte-unchanged in the replacement delta. Focused search/mode/query tests preserve exact compiler/request bytes, Search/Copy/Open/Finds/Reset owners, tabs/focus/drafts and Loom round trips, no-auto-scroll, standalone context, dossier detach/restore/return, persistence, reduced motion, helper auto-execution, and the VM-659/Slice-2 boundary.
+
+### Findings and harness-debt classification
+
+- Blocking findings: **none**.
+- Major findings: **none**.
+- Minor product findings: **none**.
+- The browser's three failures are recorded, not relabelled green: two exact-RGB assertions sample an intentional transition immediately, and the desktop gap assertion reads a hidden inspector after a Loom cycle. Directly relevant rendered measurements plus invariant CSS/DOM guards cover the product criteria, so this known witness debt is non-blocking under RobQAPass.
+- The post-output process retained the known cleanup handle; bounded Ctrl+C was used. The harness was not rerun, weakened, or expanded into broad diagnostics.
+
+### Skipped checks and OWNER-VISUAL boundary
+
+- Full npm, broad parser/placement/semantic/generated-data, historical browser, mutation, synthetic, enumeration, screenshot comparison, and aesthetic automation were skipped as disproportionate.
+- Owner alone judges whether the 1rem breathing room, collect-evidence glyph, single etched transition, and gold Open treatment feel polished, coherent, calm, and distinctly Vox Mana.
+- Shortest Owner route: open direct `/maze/index.html` at desktop and about 390px; execute one Plain and one normalized Operator search; open/dismiss each mode's About control; then inspect Loom's single rail-to-Colors rule and bottom Open across pointer and keyboard states.
+
+### Governing verdict
+
+**RobQAPass PASS** for exact candidate `71a26b683fd5fde594e717a9aea6a565fd7f0891`.
+
+The exact candidate may enter Owner Review. This PASS is engineering evidence, not Owner acceptance, subjective visual certification, integration approval, deployment evidence, or VM-659/Slice-2 authority.

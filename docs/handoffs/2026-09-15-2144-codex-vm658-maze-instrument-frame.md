@@ -514,3 +514,64 @@ The bounded witness now follows the accepted real product contract in both modes
 Independent RobQA correctly blocked exact candidate `4de7134cc346cbca77adda0f1c17ebc5c5fe882b` after the rendered witness measured the Plain inspector gap at `16px` but timed out waiting for the Operator Query Inspector. The bounded causal check confirmed the witness used exact raw syntax (`c:r`), for which the unchanged product intentionally keeps the inspector hidden when there is no normalization, final reason, or diagnostic to show.
 
 The Operator witness now uses the established normalized raw case `c:r AND t:creature`, which exercises the visible Query Inspector through the same explicit canonical Search path without changing product behavior or weakening an assertion. Product CSS, markup, runtime JavaScript, query ownership, and interaction contracts remain byte-unchanged from the preceding material candidate. The blocked SHA remains non-integrable history; the replacement exact candidate requires fresh independent RobQA.
+
+## Fifth-correction exact-candidate engineering result
+
+The governing material candidate is `71a26b683fd5fde594e717a9aea6a565fd7f0891`. Independent `/root/robqa_vm658` issued RobQAPass PASS in SEPARATE execution for that exact SHA with no blocker, major, or minor product findings. Every earlier exact candidate, including the two blocked fifth-correction witness candidates, remains rejected or blocked historical evidence and is prohibited from integration.
+
+The fifth correction is presentation-only. Plain and Operator now have a shared `1rem` parent-level action-to-inspector gap. The active-mode About trigger visibly uses the local Mana v1.18.0 `ms ms-ability-collect-evidence` glyph with its dynamic accessible mode name and existing disclosure behavior. Loom's rail-to-Colors transition has one computed `1px` separator owner, with the builder panel and compose grid contributing `0px`. Bottom Loom Open is a centered secondary action matching the action-family height/padding and using the intended gold/yellow family across link states.
+
+Focused rendered evidence measured Plain and normalized Operator gaps at `16px`, verified the glyph and help behavior, recorded the Loom separator as `{mode:"1px", panel:"0px", compose:"0px"}`, matched Open geometry to Copy, and reported zero horizontal overflow around 390px. The browser harness honestly remains red because two exact RGB assertions sample the declared 180ms color transition immediately and one later desktop probe measures a hidden inspector after cycling through Loom; those known witness defects are recorded as non-blocking harness debt, not product PASS results. Static guards pin the state endpoints, and no product defect was reproduced.
+
+## Material candidate
+
+- Baseline: `6b57d5dc7fa77f51ddc0f27c69dc834dcf12a595`
+- Candidate: `71a26b683fd5fde594e717a9aea6a565fd7f0891`
+- Changed paths: `12`
+
+## Files changed
+
+- `assets/css/maze.css`
+- `assets/js/maze/research-init.js`
+- `docs/handoffs/2026-09-15-2144-codex-vm658-maze-instrument-frame.md`
+- `docs/handoffs/2026-09-15-2144-robqa-vm658-maze-instrument-frame.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-658-maze-instrument-frame.md`
+- `maze/index.html`
+- `scripts/validate-frontend-html.mjs`
+- `scripts/vm616-maze-context-recovery-browser.mjs`
+- `tests/maze/maze-results-layout-tests.js`
+- `tests/maze/maze-search-tests.js`
+
+## Evidence delta
+
+- Material candidate: `71a26b683fd5fde594e717a9aea6a565fd7f0891`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `4`
+
+This delta records the independent exact-candidate RobQA PASS, completed fifth-correction criteria, Owner Review lifecycle binding, final Git accounting, and regenerated board view. It is not the full task diff.
+
+## Evidence-only paths
+
+- `docs/handoffs/2026-09-15-2144-codex-vm658-maze-instrument-frame.md`
+- `docs/handoffs/2026-09-15-2144-robqa-vm658-maze-instrument-frame.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-658-maze-instrument-frame.md`
+
+## Final branch delta
+
+The Git-derived final branch delta remains 12 unique paths from the admission baseline to the evidence head. The four evidence-only paths already exist in the material comparison and receive only append-only QA evidence, lifecycle, checkbox, or generated-view updates after the candidate.
+
+## Owner Review route
+
+Owner acceptance remains PENDING. Review direct standalone `/maze/index.html` at an ordinary desktop width and around 390px. Execute one Plain request and one normalized Operator query to compare the new inspector breathing room; open and dismiss each active mode's About control; then inspect Loom's single rail-to-Colors rule and bottom Open in Scryfall across pointer, keyboard-focus, and visited states. Engineering evidence covers objective layout, containment, action ownership, protected query/runtime behavior, and the recorded harness limitations; final visual quality remains Owner-only. Do not integrate any rejected or blocked SHA, and do not begin VM-659 or Slice 2 from this review.
+
+## Owner acceptance — 2026-09-17
+
+Task: VM-658
+Candidate: 71a26b683fd5fde594e717a9aea6a565fd7f0891
+Owner: ACCEPT
+Decision reference: Current Codex task Owner message dated 2026-09-17 beginning `OWNER ACCEPT — VM-658 Maze Instrument Frame`.
+
+Owner completed visual review and accepted the exact RobQA-passed material candidate. The final Slice-1 instrument frame, Plain/Operator inspector separation, Collect Evidence About treatment, single Loom-to-Colors separator, bottom Loom Open alignment and gold interaction treatment, desktop/390px coherence, and accepted query-first/builder-first flows are approved. The recorded browser-harness timing/state anomalies are accepted as non-blocking test debt because independent RobQA found no corresponding product defect. Authorization is limited to normal VM-658 integration and closeout; VM-659 and Slice 2 must not begin automatically.
