@@ -95,3 +95,13 @@ Bind separate RobQA to the exact candidate SHA, rerun the focused governance che
 ## Next suggested agent
 
 Separate RobQA reviewer applying `.agents/skills/robqa/SKILL.md` to the exact VM-659 candidate.
+
+## Owner Decision — 2026-09-18
+
+Task: VM-659
+
+Candidate: c38f42feee4487f29cf72febdb5e9e5a74bd7595
+
+Owner: ACCEPT
+
+Decision reference: Current Codex task Owner message dated 2026-09-18 accepting the exact VM-659 material candidate `c38f42feee4487f29cf72febdb5e9e5a74bd7595`.

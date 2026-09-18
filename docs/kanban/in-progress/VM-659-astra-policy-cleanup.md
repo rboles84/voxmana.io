@@ -2,7 +2,7 @@
 
 ID: VM-659
 Title: Astra Policy Cleanup
-Status: Owner Review
+Status: Accepted
 Type: Documentation / workflow governance
 Area: Agent coordination and model routing
 Priority: High
@@ -56,7 +56,7 @@ Branch: codex/vm-659-astra-policy-cleanup
 Admission baseline: 774e89ef106280feac4e7042b073bbc0dea2c214
 Candidate: c38f42feee4487f29cf72febdb5e9e5a74bd7595
 RobQA: PASS at c38f42feee4487f29cf72febdb5e9e5a74bd7595 — SEPARATE execution by `/root/robqa_vm659`
-Owner: PENDING
+Owner: ACCEPT at c38f42feee4487f29cf72febdb5e9e5a74bd7595 — current Codex task Owner decision dated 2026-09-18
 Integration: NOT STARTED
 Dependencies: None
 Decisions: Preserve session/Owner coordinator selection; remove obsolete positive Astra/xhigh policy without replacing it with another hardcoded root route; preserve current child-agent routing and historical records.
