@@ -124,6 +124,7 @@
         <button class="maze-reading-context-action hidden" id="maze-reading-context-action" type="button" data-action="search-independently">Search independently</button>
       </div>
 
+      <div class="maze-primary-workbench">
       <div class="search-input-row">
         <div class="search-wrap">
           <label class="search-input-label" id="search-input-label" for="search-input">Search query</label>
@@ -153,13 +154,10 @@
         </div>
         <span class="qi-reason hidden" id="qi-reason"></span>
       </div>
+      </div>
 
       <!-- The Loom (shown only in builder mode) -->
       <div class="builder-panel hidden" id="builder-panel">
-        <div class="builder-head">
-          <button class="builder-reset-btn" id="builder-reset-btn" type="button" data-action="reset-builder">Reset Loom</button>
-        </div>
-
         <div class="builder-compose-grid">
           <div class="builder-control-stack">
         <fieldset class="builder-group builder-group-colors">
@@ -236,10 +234,6 @@
               <p class="current-weave-primary" id="current-weave-primary">No choices woven yet.</p>
               <p class="current-weave-secondary" id="current-weave-secondary">Choose a color, card type, ability, or refinement.</p>
             </div>
-            <div class="current-weave-status">
-              <span id="current-weave-count">0 choices woven</span>
-              <strong id="current-weave-state">Ready to search</strong>
-            </div>
           </aside>
         </div>
 
@@ -300,10 +294,16 @@
         </fieldset>
 
         <div class="loom-completion">
-          <button class="btn-search loom-completion-search" id="loom-search-btn" type="button" data-action="search">Search these Loom filters</button>
-          <div class="loom-result-delivery hidden" id="loom-result-delivery">
-            <span id="loom-result-status" role="status" aria-live="polite" aria-atomic="true"></span>
-            <button class="query-action-btn" id="view-results-btn" type="button" data-action="view-results">View results</button>
+          <div class="builder-output" aria-live="polite">
+            <span>Generated Scryfall query</span>
+            <code id="loom-query-output"></code>
+          </div>
+          <div class="loom-completion-actions">
+            <button class="btn-search loom-completion-search" id="loom-search-btn" type="button" data-action="search">Search these Loom filters</button>
+            <button class="query-action-btn is-disabled" id="loom-copy-btn" type="button" data-action="copy-query" disabled>Copy</button>
+            <a class="query-action-btn is-disabled" id="loom-scryfall-link" href="#" target="_blank" rel="noopener" aria-disabled="true" tabindex="-1">Open in Scryfall</a>
+            <button class="query-action-btn stash-drawer-toggle" id="loom-stash-drawer-toggle" type="button" data-action="toggle-stash-drawer" aria-controls="stash-panel" aria-expanded="false"><span>Reading Finds</span><span class="stash-drawer-count" data-stash-toggle-count>0</span></button>
+            <button class="query-action-btn" id="loom-reset-btn" type="button" data-action="reset-builder">Reset Loom</button>
           </div>
         </div>
         <p class="visually-hidden" id="builder-summary" aria-live="polite">Commander format is ready. Add filters or search as-is.</p>

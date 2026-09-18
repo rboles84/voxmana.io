@@ -353,7 +353,7 @@ Focused developer evidence passed: `node tests/maze/maze-search-tests.js`; `node
 
 RobQA transfer: independently inspect the rendered in-flow grid help slot and disclosure at desktop/390px, exact-query Copy/Open singularity, bottom Loom action and stale-follow-up clearing, and preserved contextual/independent dossier states. This is RobDev implementation evidence only; it makes no RobQA PASS, Owner acceptance, integration, or future-slice claim.
 
-## Third-correction exact-candidate engineering result
+## Superseded third-correction exact-candidate engineering result
 
 The governing material candidate is `fd4212e129b44e42f370ad2dbddc5beebe0cf808`. Independent `/root/robqa_vm658` issued RobQAPass PASS in SEPARATE execution for that exact SHA with no blocker, major, or minor findings. Owner-rejected candidates `1987332e8952f43111bd368f64b1ea0a568b5b7a`, `7eae53f61f1b875bd508c4034232993d48712c1c`, and `dbed6dc9f8ae1ecb4b8a2fb6dc305c9c0337c641` remain prohibited from integration and are retained only as history.
 
@@ -361,13 +361,13 @@ The removal-first correction deletes the persistent state ribbon and floating Lo
 
 Focused rendered evidence passed at 390px with zero horizontal overflow, non-overlapping mode help, identical Plain/Loom computed shared-row treatment, no nested Loom query scroll trap, and the bottom action after the final filter controls. Direct `/maze/index.html` retained one hidden context node with computed `display:none` and a zero rectangle. RobQA recorded a non-blocking browser wrapper cleanup anomaly after the script had printed complete measurements and explicit product-assertion PASS; it did not retry the already-complete witness.
 
-## Material candidate
+## Superseded third-correction material candidate
 
 - Baseline: `6b57d5dc7fa77f51ddc0f27c69dc834dcf12a595`
 - Candidate: `fd4212e129b44e42f370ad2dbddc5beebe0cf808`
 - Changed paths: `12`
 
-## Files changed
+## Superseded third-correction files changed
 
 - `assets/css/maze.css`
 - `assets/js/maze/research-init.js`
@@ -382,7 +382,7 @@ Focused rendered evidence passed at 390px with zero horizontal overflow, non-ove
 - `tests/maze/maze-results-layout-tests.js`
 - `tests/maze/maze-search-tests.js`
 
-## Evidence delta
+## Superseded third-correction evidence delta
 
 - Material candidate: `fd4212e129b44e42f370ad2dbddc5beebe0cf808`
 - Evidence head: `HEAD`
@@ -390,18 +390,18 @@ Focused rendered evidence passed at 390px with zero horizontal overflow, non-ove
 
 This delta records the exact-candidate RobQA PASS, completed third-correction criteria, Owner Review lifecycle binding, final Git accounting, and regenerated board view. It is not the full task diff.
 
-## Evidence-only paths
+## Superseded third-correction evidence-only paths
 
 - `docs/handoffs/2026-09-15-2144-codex-vm658-maze-instrument-frame.md`
 - `docs/handoffs/2026-09-15-2144-robqa-vm658-maze-instrument-frame.md`
 - `docs/kanban/board.md`
 - `docs/kanban/in-progress/VM-658-maze-instrument-frame.md`
 
-## Final branch delta
+## Superseded third-correction final branch delta
 
 The Git-derived final branch delta remains 12 unique paths from the admission baseline to the evidence head. The four evidence-only paths already exist in the material comparison and receive only append-only evidence, lifecycle, checkbox, or generated-view updates after the candidate.
 
-## Owner Review route
+## Superseded third-correction Owner Review route
 
 Owner acceptance remains PENDING. Review direct standalone `/maze/index.html` at an ordinary desktop width and around 390px. Confirm the absence of the ribbon and floating dock, the in-tab help spacing, one shared query/action shell, and the natural end-of-form Loom Search/follow-up. Engineering QA covers objective semantics, tabs/focus/drafts, exact query/runtime preservation, stale-count suppression, dossier detach/restore/return, no-auto-scroll, containment, and reduced motion; final visual quality remains Owner-only. Do not integrate any rejected SHA, and do not begin Slice 2 from this review.
 
@@ -416,3 +416,17 @@ The Loom-specific View results and any pre-results count/status duplication are 
 Owner: REJECT
 Candidate: fd4212e129b44e42f370ad2dbddc5beebe0cf808
 Decision reference: Current Codex task attachment dated 2026-09-17 beginning `Do not integrate candidate`.
+
+## RobDev fourth Owner-correction implementation — 2026-09-17
+
+Pre-edit contract: Plain/Operator already owned the canonical top query/action workbench, while Loom still exposed it above its filters and retained a separate bottom action plus stale-result machinery. The route-local controller is the owner for the mode switch, generated Loom input, action state, same `data-action` dispatch, and Reading Finds drawer state; no parser, compiler, query, API, storage, or data producer changed.
+
+Changed behavior: `maze-primary-workbench` now contains the Plain/Operator top row and query inspector and is not rendered in Loom. Loom begins at Colors, preserves its filter order, and ends after Printing & artwork with one completion region: existing generated-query bytes, `Search these Loom filters`, Copy, Open in Scryfall, Reading Finds, and Reset. Both bottom Copy/Open controls are updated by the existing `updateSearchActions` owner, both Finds toggles share the existing drawer state, and loading/focus restoration covers either Search trigger. The Loom View-results/pre-results-count/status path and abandoned builder-header/reset CSS/DOM were removed. Plain/Operator action controls receive common 60px centered geometry only. The in-flow help slot is inset 0.35rem within its active tab track.
+
+Glyph evaluation: local Mana v1.18.0 defines `ms ms-ability-collect-evidence` in `assets/vendor/mana/css/mana.min.css` and `assets/vendor/mana/fonts/mana.svg`. The focused real-route probe rendered it at `15 × 16px`; it is available but was not adopted because the evidence-collection pictogram does not naturally communicate About/Learn more. The visible `? About` text and dynamic semantic label remain the accessible help treatment.
+
+Focused implementation evidence passed: `node tests/maze/maze-search-tests.js`; `node tests/maze/maze-results-layout-tests.js`; `node --check assets/js/maze/research-init.js`; `node --check scripts/vm616-maze-context-recovery-browser.mjs`; `node scripts/vm616-maze-context-recovery-browser.mjs --vm658-frame`; and `git diff --check`. The bounded 390px route recorded Plain `frame/input/body` landmarks of `745/451/761px`, Loom `frame/builder/completion/body` landmarks of `2693/280–2681/1717–2681/2709px`, and 0px horizontal overflow in both modes. The browser witness also proved direct standalone context remains hidden with computed `display:none` and a zero rect; active help stays contained/dismissible; Loom hides the top workbench, begins with Colors, has exactly its one completion action set, uses the same Search action/query bytes, has no ribbon/dock/count/View-results residue, and has no nested query scroll trap.
+
+Protected behavior and transfer: preserved tabs/keyboard/focus and draft round trips, parser/compiler/query/API bytes, Scryfall execution, pre-existing Discovery/Helper auto-execution, contextual/independent dossier and return meaning, Reading Finds persistence, results/paging/no-auto-scroll, modal, reduced motion, and generated data. Realistic remaining review risk is experiential: confirm the builder-first progression and action density feel coherent at desktop/390px, and that the chosen text help communicates naturally; no QA or Owner acceptance is asserted here. Files changed: `maze/index.html`, `assets/css/maze.css`, `assets/js/maze/research-init.js`, focused Maze tests, and the bounded browser witness. No task-card, board, QA handoff, source data, parser/compiler, or Slice-2 surface was changed.
+
+Final coordinator review removed the now-unused explicit result-destination helper and retired Current Weave result-status CSS/grid rows. A new desktop browser geometry assertion then reproduced the Owner's Open in Scryfall alignment defect: a later generic `.query-action-btn` rule computed Copy/Open as block elements despite their nominal centered base rule. The authoritative Plain/Operator action rule now restores `inline-flex`; the real witness records Search, Clear, Copy, Open, and Finds at 60px high, with the wrapped secondary row sharing one top edge and every control computing centered flex content. The focused layout suite and product browser assertions pass after this cleanup; the browser process still requires bounded termination after its explicit PASS because of the previously recorded cleanup-handle debt.

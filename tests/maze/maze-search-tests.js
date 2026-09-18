@@ -384,12 +384,12 @@ async function runVm592LoomCases() {
   assert.equal(document.getElementById("sidebar-color-section").hidden, true, "Loom must hide duplicate sidebar color controls");
   assert.equal(document.getElementById("sidebar-format-section").hidden, true, "Loom must hide duplicate sidebar format controls");
   assert.equal(document.getElementById("clear-search-btn").hidden, true, "Loom must hide the duplicate generic Clear/Reset action");
-  assert.equal(document.getElementById("search-copy-btn").disabled, false, "valid live query must enable Copy before Search");
-  assert.equal(document.getElementById("search-scryfall-link").getAttribute("aria-disabled"), "false", "valid live query must enable Open before Search");
+  assert.equal(document.getElementById("loom-copy-btn").disabled, false, "valid generated Loom query must enable its one bottom Copy control before Search");
+  assert.equal(document.getElementById("loom-scryfall-link").getAttribute("aria-disabled"), "false", "valid generated Loom query must enable its one bottom Open control before Search");
+  assert.equal(document.getElementById("loom-query-output").textContent, input.value, "Loom completion must display the exact generated query bytes");
   assert.equal(document.getElementById("printing-scope").disabled, true, "printing rule must wait for a valid release year");
   assert.equal(document.getElementById("current-weave-title").textContent, "Commander");
   assert.equal(document.getElementById("current-weave-primary").textContent, "No choices woven yet.");
-  assert.equal(document.getElementById("current-weave-count").textContent, "0 choices woven");
   const coldQuery = input.value;
   window.renderCurrentWeave();
   assert.equal(input.value, coldQuery, "rendering Current Weave must not change the live query");
@@ -413,7 +413,6 @@ async function runVm592LoomCases() {
   assert.equal(input.value, "id<=wu f:commander");
   assert.match(document.getElementById("builder-summary").textContent, /Commander colors: WU · Fits these Commander colors/);
   assert.equal(document.getElementById("current-weave-title").textContent, "White–Blue fit");
-  assert.equal(document.getElementById("current-weave-count").textContent, "1 choice woven");
   assert.equal(document.getElementById("current-weave-primary").classList.contains("hidden"), true, "identity-only state must not claim there are no choices");
   const oneChoiceQuery = input.value;
   assert.equal(window.weaveChoiceCount(), 1);
@@ -594,33 +593,28 @@ async function runVm592LoomCases() {
     data: makeTestCards(1, "Loom"),
     has_more: false
   }]);
-  document.getElementById("search-btn").focus();
-  await window.doSearch();
+  document.getElementById("loom-search-btn").focus();
+  document.querySelector(".page").onclick?.({ target: document.getElementById("loom-search-btn") });
   await waitForFetchCount(dom.fetchUrls, loomResultStart + 1);
   assert.equal(latestFetchUrl(dom.fetchUrls).searchParams.get("q"), executedQuery, "executed Loom query must match the live reflection");
-  assert.equal(document.activeElement, document.getElementById("search-btn"), "successful Search must preserve focus");
+  assert.equal(document.activeElement, document.getElementById("loom-search-btn"), "successful Loom Search must preserve focus");
   assert.equal(document.getElementById("results-header").scrollIntoViewOptions, undefined, "successful Search must not force result scrolling");
   assert.match(getRenderedText(document.getElementById("res-count")), /Showing 1 of 1 cards/);
-  assert.equal(document.getElementById("loom-result-status").textContent, "1 card found");
-  assert.equal(document.getElementById("loom-result-delivery").classList.contains("hidden"), false, "Loom follow-up must only appear for its exact executed query");
-  assert.equal(document.getElementById("current-weave-state").textContent, "1 card found", "completed result count must reflect in Current Weave");
-  document.querySelector(".page").onclick?.({ target: document.getElementById("view-results-btn") });
-  assert.equal(document.activeElement, document.getElementById("results-header"), "View results must deliberately move focus");
-  assert.deepEqual(document.getElementById("results-header").scrollIntoViewOptions, { behavior: "smooth", block: "start" });
+  assert.equal(document.getElementById("loom-query-output").textContent, executedQuery, "Loom completion must retain only the exact generated query, while the normal result header owns totals");
+  document.querySelector(".page").onclick?.({ target: document.getElementById("loom-copy-btn") });
+  assert.equal(dom.clipboardWrites.at(-1), executedQuery, "Loom Copy must reuse the exact generated query owner");
 
   document.getElementById("cmc-min").value = "3";
   document.getElementById("cmc-min").oninput?.({ target: document.getElementById("cmc-min") });
-  assert.equal(document.getElementById("loom-result-delivery").classList.contains("hidden"), true, "edited Loom filters must not leave a stale result follow-up attached to a new query");
+  assert.notEqual(document.getElementById("loom-query-output").textContent, executedQuery, "editing Loom filters must immediately replace the completion query rather than attach stale result state");
 
   window.resetBuilderFilters();
   assert.equal(document.getElementById("bld-format").value, "commander");
   assert.equal(document.getElementById("color-op").value, "id");
   assert.equal(input.value, "f:commander");
-  assert.equal(document.getElementById("search-copy-btn").disabled, false);
+  assert.equal(document.getElementById("loom-copy-btn").disabled, false);
   assert.equal(document.getElementById("current-weave-title").textContent, "Commander");
   assert.equal(document.getElementById("current-weave-primary").textContent, "No choices woven yet.");
-  assert.equal(document.getElementById("current-weave-count").textContent, "0 choices woven");
-  assert.equal(document.getElementById("current-weave-state").textContent, "Ready to search");
   assert.doesNotMatch(document.querySelector(".maze-toast")?.textContent || "", /Loom reset/, "reset must not create a persistent Loom reset toast");
 
   document.querySelector(".page").onclick?.({ target: document.getElementById("colorless-only-btn") });
@@ -2354,7 +2348,7 @@ function installMazeDomHarness() {
     "results-footer", "err-msg", "recent-list", "recent-section", "query-inspector",
     "qi-input-wrap", "qi-input-label", "qi-input", "qi-label", "qi-query", "qi-reason",
     "res-count", "btn-more", "more-count", "stash-count", "stash-body",
-    "mode-ai", "mode-raw", "mode-builder", "maze-workbench-panel", "search-icon", "builder-panel", "loom-search-btn", "kw-wrap",
+    "mode-ai", "mode-raw", "mode-builder", "maze-workbench-panel", "maze-primary-workbench", "search-icon", "builder-panel", "loom-search-btn", "loom-query-output", "loom-copy-btn", "loom-scryfall-link", "loom-stash-drawer-toggle", "loom-reset-btn", "kw-wrap",
     "kw-input", "kw-add-btn", "kw-suggestions", "kw-chips", "kw-validation", "builder-summary", "color-validation", "mv-validation", "release-year-help", "release-year-validation",
     "color-pips", "colorless-only-btn", "builder-color-options", "exclude-colorless", "exclude-colorless-option", "color-op", "color-relation-picker", "color-relation-trigger", "color-relation-label", "bld-format", "cmc-min", "cmc-max", "release-year", "printing-scope", "sb-format", "modal-inner", "modal-bg",
     "maze-mode-help", "maze-mode-help-summary", "maze-mode-help-copy", "maze-reading-context", "maze-reading-context-label", "maze-reading-context-detail", "maze-reading-context-action", "search-input-label", "clear-search-btn", "discovery-path-list",
@@ -2362,10 +2356,9 @@ function installMazeDomHarness() {
     "reading-path-list", "r-user-badge", "maze-return-banner", "maze-return-copy",
     "maze-return-link", "maze-return-dismiss",
     "stash-drawer-toggle", "search-copy-btn", "search-scryfall-link", "sidebar-color-section", "sidebar-format-section",
-    "loom-result-delivery", "loom-result-status", "view-results-btn", "current-weave", "current-weave-pips",
-    "current-weave-title", "current-weave-primary", "current-weave-secondary", "current-weave-count", "current-weave-state"
+    "current-weave", "current-weave-pips", "current-weave-title", "current-weave-primary", "current-weave-secondary"
   ].forEach((id) => {
-    const tagName = ["search-scryfall-link"].includes(id)
+    const tagName = ["search-scryfall-link", "loom-scryfall-link"].includes(id)
       ? "a"
       : id === "search-input"
         ? "textarea"
@@ -2373,7 +2366,7 @@ function installMazeDomHarness() {
           ? "input"
           : ["color-op", "bld-format", "printing-scope", "sb-format"].includes(id)
             ? "select"
-            : ["mode-ai", "mode-raw", "mode-builder", "loom-search-btn", "kw-add-btn", "colorless-only-btn", "color-relation-trigger", "view-results-btn", "search-btn", "maze-reading-context-action"].includes(id)
+            : ["mode-ai", "mode-raw", "mode-builder", "loom-search-btn", "loom-copy-btn", "loom-stash-drawer-toggle", "loom-reset-btn", "kw-add-btn", "colorless-only-btn", "color-relation-trigger", "search-btn", "maze-reading-context-action"].includes(id)
               ? "button"
               : id === "color-relation-picker"
                 ? "details"
@@ -2403,8 +2396,6 @@ function installMazeDomHarness() {
     button.setAttribute("aria-pressed", String(value === "id"));
     documentStub.getElementById("color-relation-picker").appendChild(button);
   });
-  const viewResultsButton = documentStub.getElementById("view-results-btn");
-  viewResultsButton.dataset.action = "view-results";
   ["ai", "raw", "builder"].forEach((mode) => {
     const tab = documentStub.getElementById(`mode-${mode}`);
     tab.dataset.action = "set-mode";
@@ -2414,6 +2405,7 @@ function installMazeDomHarness() {
   });
 
   documentStub.getElementById("stash-drawer-toggle").dataset.stashToggleCount = "true";
+  documentStub.getElementById("loom-stash-drawer-toggle").dataset.stashToggleCount = "true";
 
   const windowStub = {
     document: documentStub,

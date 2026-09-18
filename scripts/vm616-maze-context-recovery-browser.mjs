@@ -213,6 +213,8 @@ try {
         builderTop: top("#builder-panel"),
         builderBottom: bottom("#builder-panel"),
         completionTop: top(".loom-completion"),
+        completionBottom: bottom(".loom-completion"),
+        colorsTop: top(".builder-group-colors"),
         nextBodyTop: top(".r-body"),
         overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
         sharedRow: (() => {
@@ -227,16 +229,20 @@ try {
     expect(await helpAlignedToActiveTab(), "Loom mode help trigger must move with its active tab region");
     const loom390 = await measureFrame();
     expect(plain390.overflow <= 1 && loom390.overflow <= 1, "390px Plain and Loom frames should not overflow horizontally");
-    expect(Math.abs(plain390.inputActionBottom - loom390.inputActionBottom) <= 12, "Plain-to-Loom must keep the shared primary input/action position stable");
-    expect(JSON.stringify(plain390.sharedRow) === JSON.stringify(loom390.sharedRow), "Plain and Loom must share the same query/action shell treatment");
-    expect(loom390.builderTop >= loom390.inputActionBottom, "Loom expansion must begin after the shared request/action");
+    expect(await page.$eval(".maze-primary-workbench", element => getComputedStyle(element).display === "none" && element.getClientRects().length === 0), "Loom must not render the Plain and Operator top query/action workbench");
+    expect(loom390.colorsTop >= loom390.builderTop && loom390.colorsTop < loom390.completionTop, "Loom must begin with Colors before its bottom completion region");
     expect(loom390.completionTop >= loom390.builderTop, "Loom completion action must remain in flow after its controls");
     expect(await page.$$("#maze-state-ribbon, #loom-search-dock").then(elements => elements.length) === 0, "focused route must not retain ribbon or floating dock surfaces");
+    expect(await page.$$("#loom-query-output, #loom-search-btn, #loom-copy-btn, #loom-scryfall-link, #loom-stash-drawer-toggle, #loom-reset-btn").then(elements => elements.length) === 6, "Loom must expose exactly one generated query and completion action set");
+    expect(await page.$$("#loom-result-delivery, #loom-result-status, #view-results-btn, #current-weave-count, #current-weave-state").then(elements => elements.length) === 0, "Loom must leave totals and status to the normal result header");
+    expect(await page.$eval("#loom-query-output", element => element.textContent.trim() === document.getElementById("search-input").value.trim()), "Loom completion query must use the existing generated query bytes");
     await page.$eval("#loom-search-btn", element => element.scrollIntoView({ block: "center" }));
     const beforeDockSearch = interceptedSearchRequests;
     await page.$eval("#loom-search-btn", element => element.click());
     await new Promise(resolve => setTimeout(resolve, 250));
     expect(interceptedSearchRequests > beforeDockSearch, "bottom Loom completion action must invoke the existing Search action");
+    expect(await page.$eval("#loom-copy-btn", element => !element.disabled), "Loom Copy must share the valid generated-query action state");
+    expect(await page.$eval("#loom-scryfall-link", element => element.getAttribute("aria-disabled") === "false" && new URL(element.href).searchParams.get("q") === document.getElementById("search-input").value), "Loom Open must share the generated query/link owner");
     await page.setViewport({ width: 720, height: 500, hasTouch: true });
     await page.$eval("#release-year", element => {
       document.documentElement.style.scrollBehavior = "auto";
@@ -246,13 +252,51 @@ try {
     });
     await new Promise(resolve => setTimeout(resolve, 150));
     expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth) <= 1, "200%-equivalent deep Loom route must not overflow horizontally");
-    expect(await page.$eval("#search-input", element => element.scrollHeight <= element.clientHeight + 1), "Loom live query must not become a nested scroll trap");
+    expect(await page.$eval("#loom-query-output", element => {
+      const style = getComputedStyle(element);
+      return style.overflowX !== "scroll" && element.getBoundingClientRect().right <= document.documentElement.clientWidth;
+    }), "Loom generated query must not become a nested scroll trap");
     await page.setViewport({ width: 1440, height: 900 });
     for (const mode of ["ai", "raw", "builder"]) {
       await page.click(`#mode-${mode}`);
       expect(await helpAlignedToActiveTab(), `desktop ${mode} mode help trigger must stay inside its reserved active tab space`);
     }
-    console.log(`VM-658 focused 390px frame: Plain ${JSON.stringify(plain390)}; Loom ${JSON.stringify(loom390)}`);
+    await page.click("#mode-ai");
+    const plainActionGeometry = await page.evaluate(() => [
+      "#search-btn",
+      "#clear-search-btn",
+      "#search-copy-btn",
+      "#search-scryfall-link",
+      "#stash-drawer-toggle"
+    ].map((selector) => {
+      const element = document.querySelector(selector);
+      const rect = element.getBoundingClientRect();
+      const style = getComputedStyle(element);
+      return {
+        selector,
+        top: Math.round(rect.top),
+        height: Math.round(rect.height),
+        display: style.display,
+        alignItems: style.alignItems,
+        justifyContent: style.justifyContent
+      };
+    }));
+    console.log(`VM-658 desktop action geometry: ${JSON.stringify(plainActionGeometry)}`);
+    expect(plainActionGeometry.every((item) => item.height === 60), "Plain action controls must share one 60px height");
+    expect(new Set(plainActionGeometry.filter((item) => item.selector !== "#search-btn").map((item) => item.top)).size === 1, "Plain secondary actions, including Open in Scryfall, must share one wrapped-row vertical alignment");
+    expect(plainActionGeometry.every((item) => item.display === "flex" && item.alignItems === "center" && item.justifyContent === "center"), "Plain action content must be centered consistently");
+    const manaGlyph = await page.evaluate(() => {
+      const glyph = document.createElement("i");
+      glyph.className = "ms ms-ability-collect-evidence";
+      glyph.style.cssText = "font-size:16px;position:absolute;visibility:hidden";
+      document.body.appendChild(glyph);
+      const style = getComputedStyle(glyph);
+      const rect = glyph.getBoundingClientRect();
+      glyph.remove();
+      return { fontFamily: style.fontFamily, width: Math.round(rect.width), height: Math.round(rect.height) };
+    });
+    expect(manaGlyph.width > 0 && manaGlyph.height > 0, "vendored Mana collect-evidence glyph must be measurable in the real route");
+    console.log(`VM-658 focused 390px frame: Plain ${JSON.stringify(plain390)}; Loom ${JSON.stringify(loom390)}; Mana ${JSON.stringify(manaGlyph)}`);
   } else {
   let weakSearchGeneration = 0;
   const presentWeakSearch = async (input = "Black Lotus with mana value 99 in Commander") => {
@@ -573,16 +617,18 @@ try {
   });
   await page.click("#mode-builder");
   const loom390 = await page.evaluate(() => {
-    const rect = selector => Math.round(document.querySelector(selector)?.getBoundingClientRect().bottom || 0);
+    const rect = selector => document.querySelector(selector)?.getBoundingClientRect();
     return {
-      inputActionBottom: Math.max(rect("#search-input"), rect("#search-btn")),
-      completionTop: Math.round(document.querySelector(".loom-completion")?.getBoundingClientRect().top || 0),
-      resultsTop: Math.round(document.querySelector("#results-header")?.getBoundingClientRect().top || 0),
+      primaryWorkbenchDisplay: getComputedStyle(document.querySelector(".maze-primary-workbench")).display,
+      colorsTop: Math.round(rect(".builder-group-colors")?.top || 0),
+      completionTop: Math.round(rect(".loom-completion")?.top || 0),
+      completionBottom: Math.round(rect(".loom-completion")?.bottom || 0),
+      resultsTop: Math.round(rect("#results-header")?.top || 0),
       overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
     };
   });
   expect(plain390.overflow <= 1 && loom390.overflow <= 1, "390px Maze frame and Loom workspace should not overflow horizontally");
-  expect(loom390.inputActionBottom <= loom390.completionTop, "Loom must retain its primary input/action before its bottom completion action");
+  expect(loom390.primaryWorkbenchDisplay === "none" && loom390.colorsTop < loom390.completionTop, "Loom must start at filters and keep its completion action after them");
   console.log(`VM-658 390px geometry: Plain ${JSON.stringify(plain390)}; Loom ${JSON.stringify(loom390)}`);
 
   await page.setViewport({ width: 390, height: 844, isMobile: true, hasTouch: true });

@@ -7,14 +7,16 @@ const source = await readFile(new URL("../../assets/js/maze/research-init.js", i
 
 assert.match(html, /data-stash-open="false"/, "Reading Finds must begin closed");
 assert.match(html, /search-input-row[\s\S]*?id="stash-drawer-toggle"[\s\S]*?<\/div>/, "Reading Finds toggle must live with search actions");
-assert.ok(html.indexOf('class="search-input-row"') < html.indexOf('id="builder-panel"') && html.indexOf('id="builder-panel"') < html.indexOf('id="loom-search-btn"'), "shared request/action must precede expanded Loom controls and their in-flow completion action");
+assert.ok(html.indexOf('class="maze-primary-workbench"') < html.indexOf('id="builder-panel"') && html.indexOf('id="builder-panel"') < html.indexOf('id="loom-search-btn"'), "Plain and Operator request workbench must remain separate from the Loom completion action");
 assert.match(html, /id="builder-panel"[\s\S]*?<fieldset[\s\S]*?<legend>Colors<\/legend>[\s\S]*?<legend>Card Type<\/legend>[\s\S]*?<legend>Abilities<\/legend>[\s\S]*?<legend>Refine<\/legend>[\s\S]*?<legend>Printing &amp; artwork<\/legend>/, "Loom must expose full-width semantic groups in causal order");
 assert.match(source, /if \(inputLabel\) inputLabel\.textContent = "Live Scryfall query";/, "Loom must label its one compact live query directly");
 assert.doesNotMatch(html, /Shape a Commander search|Choose what you want\. The Loom builds/, "Loom must not retain a permanent introductory hero above its controls");
 assert.match(html, /id="loom-search-btn"[^>]*data-action="search"[^>]*>Search these Loom filters/, "bottom Loom completion action must explicitly invoke the existing Search action without a duplicate query surface");
+assert.match(html, /id="loom-query-output"[\s\S]*?id="loom-search-btn"[\s\S]*?id="loom-copy-btn"[\s\S]*?id="loom-scryfall-link"[\s\S]*?id="loom-stash-drawer-toggle"[\s\S]*?id="loom-reset-btn"/, "Loom completion must own one generated query and its one Search, Copy, Open, Finds, and Reset action set");
+assert.doesNotMatch(html, /view-results-btn|loom-result-delivery|loom-result-status|current-weave-count|current-weave-state/, "Loom must not retain a pre-results count, status, or View results follow-up");
 assert.doesNotMatch(html, /loom-search-dock|maze-state-ribbon|maze-ribbon-/, "retired floating and persistent state surfaces must be removed");
 assert.doesNotMatch(source, /updateLoomSearchDock|IntersectionObserver|updateMazeStateRibbon|getActiveMazeRibbonQuery/, "retired observer and ribbon controller machinery must be removed");
-assert.ok(html.indexOf('id="search-btn"') < html.indexOf('id="builder-panel"') && html.indexOf('id="builder-panel"') < html.indexOf('id="bld-format"'), "Loom controls must expand after the shared Search action while preserving their internal group order");
+assert.ok(html.indexOf('<legend>Colors</legend>') < html.indexOf('id="bld-format"') && html.indexOf('id="bld-format"') < html.indexOf('id="loom-query-output"'), "Loom controls must begin with Colors and retain their internal order through the bottom completion region");
 assert.match(html, /id="builder-summary"[^>]*class="visually-hidden"|class="visually-hidden"[^>]*id="builder-summary"/, "builder summary must remain nonvisual");
 assert.doesNotMatch(html, /id="maze-card-preview"/, "Maze must not render a detached hover preview");
 
@@ -39,7 +41,7 @@ assert.match(css, /@supports \(appearance: base-select\)[\s\S]*?\.bld-select::pi
 assert.match(css, /@media \(max-width: 560px\)[\s\S]*?\.more-abilities > summary,[\s\S]*?\.more-abilities-panel,[\s\S]*?\.bld-select \{\s*width: 100%;/, "Format must follow More Abilities alignment inside the existing responsive stack");
 assert.match(css, /\.state-sub code \{[\s\S]*?white-space: nowrap;/, "the shared Plain and Operator example query must remain intact at every width");
 assert.match(css, /\.state-panel \{[\s\S]*?min-width: 0;[\s\S]*?width: 100%;[\s\S]*?max-width: 100%;[\s\S]*?@media \(max-width: 560px\)[\s\S]*?\.state-panel \{[\s\S]*?padding: 2rem clamp\(1\.25rem, 6vw, 1\.75rem\);[\s\S]*?\.state-sub \{[\s\S]*?max-width: 38ch;[\s\S]*?overflow-wrap: anywhere;/, "Plain and Operator mobile empty states must remain contained with readable side breathing room");
-assert.match(css, /@media \(min-width: 641px\) and \(max-width: 1050px\)[\s\S]*?\.current-weave \{[\s\S]*?grid-template-areas:[\s\S]*?"mark copy"[\s\S]*?"mark status";/, "tablet widths must use an intentional compact full-width Current Weave");
+assert.match(css, /@media \(min-width: 641px\) and \(max-width: 1050px\)[\s\S]*?\.current-weave \{[\s\S]*?grid-template-areas:[\s\S]*?"kicker kicker"[\s\S]*?"mark copy";/, "tablet widths must keep an intentional compact Current Weave without a retired result-status row");
 assert.match(css, /@media \(max-width: 640px\)[\s\S]*?\.current-weave \{\s*display: none;/, "phone widths must intentionally omit the passive visual panel");
 assert.doesNotMatch(css, /@media[^\{]*(?:height|min-height|max-height)[^\{]*\{[\s\S]{0,500}?\.current-weave/, "Current Weave visibility must never depend on viewport height");
 const currentWeaveMarkup = html.match(/<aside class="current-weave"[\s\S]*?<\/aside>/)?.[0] || "";
@@ -55,8 +57,8 @@ assert.match(css, /\.builder-validation\.release-year-validation \{[\s\S]*?width
 assert.match(css, /@media \(max-width: 820px\)[\s\S]*?\.printing-row \{[\s\S]*?grid-template-columns: 1fr;/, "printing controls must stack at the accepted Loom breakpoint");
 assert.match(html, /<details class="color-relation-picker"[\s\S]*?data-action="set-color-relation"/, "color relation must reuse a native disclosure with explicit options");
 assert.match(css, /@media \(max-width: 820px\)[\s\S]*?\.search-input-row \{[\s\S]*?grid-auto-rows: max-content;/, "accepted single-column mobile action treatment must remain intact");
-assert.match(css, /body\.vm-maze-route\[data-maze-mode="builder"\] \.s-input \{[\s\S]*?max-height: none;[\s\S]*?overflow: hidden;[\s\S]*?overflow-wrap: anywhere;[\s\S]*?resize: none;/, "normal Loom queries must grow and wrap without an inner scroll region");
-assert.match(source, /function sizeLoomQueryInput\([\s\S]*?input\.style\.height = "auto";[\s\S]*?input\.scrollHeight/, "Loom must autosize its single live query after projection and viewport changes");
+assert.match(css, /body\.vm-maze-route\[data-maze-mode="builder"\] \.maze-primary-workbench \{\s*display: none;/, "Loom must hide the Plain and Operator query/action region instead of presenting a second top query surface");
+assert.match(css, /\.builder-output code \{[\s\S]*?overflow-wrap: anywhere;/, "Loom's single bottom generated query must wrap rather than create a nested horizontal scroll");
 assert.match(css, /\.current-weave::before \{[\s\S]*?radial-gradient[\s\S]*?linear-gradient/, "Current Weave must reuse restrained arcane/cartographic geometry");
 assert.match(source, /<a class="empty-card-link"[\s\S]*?target="_blank" rel="noopener">/, "the random specimen must retain its existing safe clickable semantics");
 assert.match(css, /\.empty-card-link:hover \.empty-card-frame \{[\s\S]*?translateY\(-3px\)[\s\S]*?border-color[\s\S]*?box-shadow/, "the clickable no-result specimen must reuse restrained lift and glow language");
@@ -66,6 +68,7 @@ assert.match(css, /\.mode-tabs \{ display: contents; \}/, "mode tabs must share 
 assert.match(css, /#mode-ai \{ grid-column: 1; grid-row: 1; \}[\s\S]*?#mode-raw \{ grid-column: 2; grid-row: 1; \}[\s\S]*?#mode-builder \{ grid-column: 3; grid-row: 1; \}/, "each tab must retain its explicit shared-grid track beneath the help slot");
 assert.match(css, /\.maze-command-deck \{[\s\S]*?width: min\(100%, 1320px\);[\s\S]*?justify-self: stretch;/, "instrument frame must have a definite responsive width instead of shrink-wrapping");
 assert.doesNotMatch(css, /data-maze-mode="builder"\] \.search-input-row/, "Loom must not apply a special visual shell to the shared query/action row");
+assert.match(css, /body\.vm-maze-route\[data-maze-mode="ai"\] \.search-input-row > :not\(\.search-wrap\),[\s\S]*?min-height: 60px;[\s\S]*?height: 60px;[\s\S]*?align-items: center;[\s\S]*?justify-content: center;/, "Plain and Operator top action controls must retain a common centered 60px treatment");
 assert.match(css, /\.maze-mode-help \{[\s\S]*?position: relative;[\s\S]*?grid-column: 1;[\s\S]*?justify-self: end;[\s\S]*?\.maze-mode-help\[data-mode="raw"\] \{ grid-column: 2; \}[\s\S]*?\.maze-mode-help\[data-mode="builder"\] \{ grid-column: 3; \}/, "native help trigger must occupy the reserved active-tab grid slot");
 assert.match(css, /\.mode-card\.on \{[\s\S]*?border-bottom: 2px solid var\(--maze-gold-2\);[\s\S]*?box-shadow: none;/, "active mode must be an etched rail state rather than a floating card");
 assert.match(css, /\.maze-reading-context\[hidden\] \{\s*display: none !important;/, "hidden standalone context must win over the contextual flex surface");

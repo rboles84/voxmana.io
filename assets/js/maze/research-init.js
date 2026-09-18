@@ -55,9 +55,6 @@ let displayPage = 0;
 let hasMore = false;
 let nextPageUrl = null;
 let totalCards = 0;
-let loomResultStatusText = "";
-let loomWeaveResultQuery = "";
-let loomWeaveResultCount = null;
 let searchReturnFocusEl = null;
 let recentSearches = [];
 let toastTimeout;
@@ -1050,6 +1047,7 @@ function setMode(mode) {
   const clearButton = document.getElementById("clear-search-btn");
   if (!input || !icon || !builder) return;
   updateModeContent(mode);
+  document.querySelector(".maze-primary-workbench")?.classList.toggle("hidden", mode === "builder");
   if (mode === "ai") {
     input.className = "s-input";
     input.readOnly = false;
@@ -1104,7 +1102,6 @@ function setMode(mode) {
   sizeLoomQueryInput(input);
   updateLoomSidebarVisibility(mode);
   updateReadingContextDisclosure();
-  updateLoomResultDelivery();
   refreshInitialStateForMode();
 }
 
@@ -1302,10 +1299,6 @@ async function doSearch() {
     }
   }
 
-  loomResultStatusText = "";
-  loomWeaveResultQuery = "";
-  loomWeaveResultCount = null;
-  updateLoomResultDelivery();
   renderCurrentWeave();
   setLoading(true);
   clearError();
@@ -1492,10 +1485,6 @@ function handleBlockedQueryResult(queryResult, {
   hasMore = false;
   nextPageUrl = null;
   totalCards = 0;
-  loomResultStatusText = "";
-  loomWeaveResultQuery = "";
-  loomWeaveResultCount = null;
-  updateLoomResultDelivery();
   renderCurrentWeave();
   updateSearchActions("", {});
   showQueryInspector(queryResult.query || "", reason, diagnostics, queryResult.api || {}, {
@@ -1624,10 +1613,6 @@ function renderResults(append = false) {
     : `All ${allResults.length} cards loaded`;
 
   if (!append) {
-    loomResultStatusText = `${totalCards.toLocaleString()} ${totalCards === 1 ? "card" : "cards"} found`;
-    loomWeaveResultQuery = currentQuery;
-    loomWeaveResultCount = totalCards;
-    updateLoomResultDelivery();
     renderCurrentWeave();
   }
 }
@@ -1636,37 +1621,6 @@ function rememberModeDraftInput(event) {
   if (!Object.hasOwn(modeDraftValues, currentMode)) return;
   modeDraftValues[currentMode] = event.target?.value || "";
   modeDraftEdited[currentMode] = true;
-}
-
-function deliverResultDestination(target) {
-  if (!target) return;
-  const reduceMotion = document.documentElement?.dataset?.reduceMotion === "true"
-    || window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches === true;
-  target.focus?.({ preventScroll: true });
-  target.scrollIntoView?.({
-    behavior: reduceMotion ? "auto" : "smooth",
-    block: "start"
-  });
-}
-
-function updateLoomResultDelivery() {
-  const delivery = document.getElementById("loom-result-delivery");
-  const status = document.getElementById("loom-result-status");
-  if (!delivery || !status) return;
-  const liveQuery = normalizeSearchInputValue(document.getElementById("search-input")?.value || "");
-  const shouldShow = currentMode === "builder"
-    && Boolean(loomResultStatusText)
-    && normalizeSearchInputValue(loomWeaveResultQuery) === liveQuery;
-  delivery.classList.toggle("hidden", !shouldShow);
-  status.textContent = shouldShow ? loomResultStatusText : "";
-}
-
-function viewLoomResults() {
-  const resultsHeader = document.getElementById("results-header");
-  const target = resultsHeader?.classList.contains("hidden")
-    ? document.getElementById("state-panel")
-    : resultsHeader;
-  deliverResultDestination(target);
 }
 
 /**
@@ -2137,7 +2091,6 @@ function rebuildFromFilters() {
   updateBuilderOutput(validation);
   updateBuilderValidation(validation);
   renderCurrentWeave({ query, validation });
-  updateLoomResultDelivery();
   if (currentMode === "builder") updateSearchActions(validation.valid ? query : "", {});
 }
 
@@ -2379,8 +2332,6 @@ function renderCurrentWeave(options = {}) {
   const title = document.getElementById("current-weave-title");
   const primary = document.getElementById("current-weave-primary");
   const secondary = document.getElementById("current-weave-secondary");
-  const count = document.getElementById("current-weave-count");
-  const state = document.getElementById("current-weave-state");
   const choices = weaveChoiceCount();
   const formatLabel = bFilters.format
     ? `${bFilters.format.charAt(0).toUpperCase()}${bFilters.format.slice(1)}`
@@ -2388,14 +2339,12 @@ function renderCurrentWeave(options = {}) {
 
   renderCurrentWeavePips();
   if (title) title.textContent = weaveColorTitle();
-  if (count) count.textContent = `${choices} ${choices === 1 ? "choice" : "choices"} woven`;
   primary?.classList.remove("hidden");
 
   if (!validation.valid) {
     if (validation.field === "releaseYear" && !releaseYearValidationRequested) {
       panel.dataset.weaveState = "ready";
       if (secondary) secondary.textContent = "Finish the four-digit release year to refine printings.";
-      if (state) state.textContent = "Finish the year to search";
       return;
     }
     panel.dataset.weaveState = "invalid";
@@ -2410,7 +2359,6 @@ function renderCurrentWeave(options = {}) {
       : validation.field === "releaseYear"
         ? "Correct the release year in Printing & artwork."
         : "Correct the selection in Colors.";
-    if (state) state.textContent = "Not ready to search";
     return;
   }
 
@@ -2444,12 +2392,7 @@ function renderCurrentWeave(options = {}) {
   if (secondary) secondary.textContent = detailParts.length || choices
     ? refinementParts.join(" · ")
     : "Choose a color, card type, ability, or refinement.";
-  const hasCurrentResults = loomWeaveResultCount !== null
-    && normalizeSearchInputValue(loomWeaveResultQuery) === query;
-  if (state) state.textContent = hasCurrentResults
-    ? `${loomWeaveResultCount.toLocaleString()} ${loomWeaveResultCount === 1 ? "card" : "cards"} found`
-    : "Ready to search";
-  panel.dataset.weaveState = hasCurrentResults ? "results" : "ready";
+  panel.dataset.weaveState = "ready";
 }
 
 /**
@@ -3558,21 +3501,23 @@ function showQueryInspector(query, reason, diagnostics = [], api = null, ui = {}
 function updateSearchActions(query = currentQuery, api = currentSearchApi) {
   const cleanQuery = String(query || "").trim();
   const hasQuery = Boolean(cleanQuery);
-  const copyButton = document.getElementById("search-copy-btn");
-  const scryfallLink = document.getElementById("search-scryfall-link");
+  const copyButtons = ["search-copy-btn", "loom-copy-btn"].map((id) => document.getElementById(id)).filter(Boolean);
+  const scryfallLinks = ["search-scryfall-link", "loom-scryfall-link"].map((id) => document.getElementById(id)).filter(Boolean);
+  const loomQueryOutput = document.getElementById("loom-query-output");
   const href = hasQuery ? buildScryfallWebSearchUrl(cleanQuery, api || {}) : "#";
 
-  if (copyButton) {
+  copyButtons.forEach((copyButton) => {
     copyButton.disabled = !hasQuery;
     copyButton.classList.toggle("is-disabled", !hasQuery);
-  }
+  });
 
-  if (scryfallLink) {
+  scryfallLinks.forEach((scryfallLink) => {
     scryfallLink.href = href;
     scryfallLink.classList.toggle("is-disabled", !hasQuery);
     scryfallLink.setAttribute("aria-disabled", hasQuery ? "false" : "true");
     scryfallLink.tabIndex = hasQuery ? 0 : -1;
-  }
+  });
+  if (loomQueryOutput) loomQueryOutput.textContent = cleanQuery;
 }
 
 /**
@@ -3643,10 +3588,6 @@ function resetSearchResults() {
   hasMore = false;
   nextPageUrl = null;
   totalCards = 0;
-  loomResultStatusText = "";
-  loomWeaveResultQuery = "";
-  loomWeaveResultCount = null;
-  updateLoomResultDelivery();
 
   clearNode(document.getElementById("card-grid"));
   document.getElementById("card-grid").classList.add("hidden");
@@ -3699,10 +3640,17 @@ function refreshInitialStateForMode() {
  * @param {boolean} on - Whether loading state is active.
  */
 function setLoading(on) {
-  const btn = document.getElementById("search-btn");
-  if (on && document.activeElement === btn) searchReturnFocusEl = btn;
-  btn.disabled = on;
-  btn.textContent = on ? "..." : "Search";
+  const buttons = ["search-btn", "loom-search-btn"]
+    .map((id) => document.getElementById(id))
+    .filter(Boolean);
+  const focusedButton = buttons.find((button) => document.activeElement === button);
+  if (on && focusedButton) searchReturnFocusEl = focusedButton;
+  buttons.forEach((button) => {
+    button.disabled = on;
+    button.textContent = on
+      ? "..."
+      : (button.id === "loom-search-btn" ? "Search these Loom filters" : "Search");
+  });
   if (!on && searchReturnFocusEl) {
     searchReturnFocusEl.focus?.({ preventScroll: true });
     searchReturnFocusEl = null;
@@ -3757,10 +3705,6 @@ async function showNoResultsState(query, diagnostics = []) {
   document.getElementById("empty-query").textContent = query;
   panel.classList.add("empty-result-active");
   panel.style.display = "flex";
-  loomResultStatusText = "No cards found";
-  loomWeaveResultQuery = query;
-  loomWeaveResultCount = 0;
-  updateLoomResultDelivery();
   renderCurrentWeave();
 
   const card = await ResearchSearch.scryfallRandom("kw:deathtouch");
@@ -4248,7 +4192,9 @@ function updateStashDrawerCount(count = getScratchpadTotalQuantity()) {
 
 function setStashDrawerOpen(open) {
   document.body.dataset.stashOpen = open ? "true" : "false";
-  document.getElementById("stash-drawer-toggle")?.setAttribute("aria-expanded", open ? "true" : "false");
+  document.querySelectorAll('[data-action="toggle-stash-drawer"]').forEach((toggle) => {
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+  });
 }
 
 function toggleStashDrawer() {
@@ -4558,9 +4504,6 @@ function handleMazeActionClick(event) {
       return;
     case "load-more":
       loadMore();
-      return;
-    case "view-results":
-      viewLoomResults();
       return;
     case "copy-stash-export":
     case "copy-scratchpad-export":
