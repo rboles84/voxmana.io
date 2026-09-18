@@ -2,7 +2,7 @@
 
 ID: VM-659
 Title: Astra Policy Cleanup
-Status: In Progress
+Status: Owner Review
 Type: Documentation / workflow governance
 Area: Agent coordination and model routing
 Priority: High
@@ -31,14 +31,14 @@ Current Owner implementation request following the completed repository-wide Ast
 
 ## Acceptance Criteria
 
-- [ ] No active coordinator policy or prompt requires Astra/xhigh.
-- [ ] The root/coordinator remains selected by the current session or explicit Owner choice; no repository-level root-model pin is introduced.
-- [ ] Generic child defaults remain `gpt-5.6-terra` / `medium`.
-- [ ] Named RobDev, RobQA, and clerical routing remains unchanged.
-- [ ] Governance tests enforce the corrected model-neutral coordinator policy and existing child-routing guarantees.
-- [ ] Historical Astra records and unrelated MTG Astral content remain unchanged.
-- [ ] Existing governance validation and relevant CI checks pass; `git diff --check` passes.
-- [ ] The exact candidate receives RobQA PASS and stops at Owner Review.
+- [x] No active coordinator policy or prompt requires Astra/xhigh.
+- [x] The root/coordinator remains selected by the current session or explicit Owner choice; no repository-level root-model pin is introduced.
+- [x] Generic child defaults remain `gpt-5.6-terra` / `medium`.
+- [x] Named RobDev, RobQA, and clerical routing remains unchanged.
+- [x] Governance tests enforce the corrected model-neutral coordinator policy and existing child-routing guarantees.
+- [x] Historical Astra records and unrelated MTG Astral content remain unchanged.
+- [x] Existing governance validation and relevant CI checks pass; `git diff --check` passes.
+- [x] The exact candidate receives RobQA PASS and stops at Owner Review.
 
 ## Risks
 
@@ -54,13 +54,13 @@ Apply RobDev to make the smallest authoritative policy, prompt, comment, and cou
 Record version: 1
 Branch: codex/vm-659-astra-policy-cleanup
 Admission baseline: 774e89ef106280feac4e7042b073bbc0dea2c214
-Candidate: PENDING
-RobQA: PENDING
+Candidate: c38f42feee4487f29cf72febdb5e9e5a74bd7595
+RobQA: PASS at c38f42feee4487f29cf72febdb5e9e5a74bd7595 — SEPARATE execution by `/root/robqa_vm659`
 Owner: PENDING
 Integration: NOT STARTED
 Dependencies: None
 Decisions: Preserve session/Owner coordinator selection; remove obsolete positive Astra/xhigh policy without replacing it with another hardcoded root route; preserve current child-agent routing and historical records.
-Evidence: PENDING
+Evidence: [RobDev implementation handoff](../../handoffs/2026-09-18-1059-codex-vm659-astra-policy-cleanup.md); [independent RobQA handoff](../../handoffs/2026-09-18-1059-robqa-vm659-astra-policy-cleanup.md)
 
 ## Admission Scope
 
