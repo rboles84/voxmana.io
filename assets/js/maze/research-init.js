@@ -41,6 +41,8 @@ import {
 
 // Route state, storage keys, and static UI definitions.
 let currentMode = "ai";
+const modeDraftValues = { ai: "", raw: "" };
+const modeDraftEdited = { ai: false, raw: false };
 let currentQuery = "";
 let currentOrder = "name";
 let currentUnique = "cards";
@@ -53,9 +55,6 @@ let displayPage = 0;
 let hasMore = false;
 let nextPageUrl = null;
 let totalCards = 0;
-let loomResultStatusText = "";
-let loomWeaveResultQuery = "";
-let loomWeaveResultCount = null;
 let searchReturnFocusEl = null;
 let recentSearches = [];
 let toastTimeout;
@@ -1033,19 +1032,22 @@ function setMode(mode) {
   MODE_IDS.forEach((id) => {
     const btn = document.getElementById(`mode-${id}`);
     if (!btn) return;
-    btn.classList.toggle("on", id === mode);
+    const active = id === mode;
+    btn.classList.toggle("on", active);
     btn.classList.remove("teal-mode");
-    setAriaPressed(btn, id === mode);
+    btn.setAttribute("aria-selected", String(active));
+    btn.tabIndex = active ? 0 : -1;
   });
+  document.getElementById("maze-workbench-panel")?.setAttribute("aria-labelledby", `mode-${mode}`);
 
   const input = document.getElementById("search-input");
   const icon = document.getElementById("search-icon");
   const builder = document.getElementById("builder-panel");
-  const modeContext = document.getElementById("maze-mode-context");
   const inputLabel = document.getElementById("search-input-label");
   const clearButton = document.getElementById("clear-search-btn");
   if (!input || !icon || !builder) return;
   updateModeContent(mode);
+  document.querySelector(".maze-primary-workbench")?.classList.toggle("hidden", mode === "builder");
   if (mode === "ai") {
     input.className = "s-input";
     input.readOnly = false;
@@ -1060,7 +1062,6 @@ function setMode(mode) {
     icon.textContent = "*";
     icon.style.color = "";
     builder.classList.add("hidden");
-    modeContext?.classList.remove("hidden");
   } else if (mode === "raw") {
     input.className = "s-input mono";
     input.readOnly = false;
@@ -1076,7 +1077,6 @@ function setMode(mode) {
     icon.style.color = "var(--maze-gold-2)";
     document.getElementById("mode-raw").classList.add("teal-mode");
     builder.classList.add("hidden");
-    modeContext?.classList.remove("hidden");
   } else {
     input.className = "s-input mono";
     input.readOnly = true;
@@ -1092,24 +1092,49 @@ function setMode(mode) {
     icon.style.color = "";
     document.getElementById("mode-builder").classList.add("teal-mode");
     builder.classList.remove("hidden");
-    modeContext?.classList.add("hidden");
     rebuildFromFilters();
   }
 
   syncInputForModeSwitch(input, previousMode, mode);
+  if (previousMode !== mode && modeDraftEdited[mode] && modeDraftValues[mode]) {
+    input.value = modeDraftValues[mode];
+  }
   sizeLoomQueryInput(input);
   updateLoomSidebarVisibility(mode);
   updateReadingContextDisclosure();
-  updateLoomResultDelivery();
   refreshInitialStateForMode();
+}
+
+function handleModeTabKeydown(event) {
+  const tabs = MODE_IDS.map((id) => document.getElementById(`mode-${id}`)).filter(Boolean);
+  const currentIndex = tabs.indexOf(event.currentTarget);
+  if (currentIndex < 0) return;
+  let nextIndex = -1;
+  if (event.key === "ArrowRight" || event.key === "ArrowDown") nextIndex = (currentIndex + 1) % tabs.length;
+  if (event.key === "ArrowLeft" || event.key === "ArrowUp") nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+  if (event.key === "Home") nextIndex = 0;
+  if (event.key === "End") nextIndex = tabs.length - 1;
+  if (nextIndex >= 0) {
+    event.preventDefault();
+    const nextTab = tabs[nextIndex];
+    setMode(nextTab.dataset.mode || "ai");
+    nextTab.focus();
+  }
 }
 
 function updateModeContent(mode) {
   const content = MODE_CONTENT[mode] || MODE_CONTENT.ai;
-  const contextLabel = document.getElementById("maze-mode-context-label");
-  const contextCopy = document.getElementById("maze-mode-context-copy");
-  if (contextLabel) contextLabel.textContent = content.label;
-  if (contextCopy) contextCopy.textContent = content.copy;
+  const helpSummary = document.getElementById("maze-mode-help-summary");
+  const helpCopy = document.getElementById("maze-mode-help-copy");
+  const help = document.getElementById("maze-mode-help");
+  if (helpSummary) helpSummary.setAttribute("aria-label", `About ${content.label.replace(/ open$/i, "")}`);
+  if (helpCopy) helpCopy.textContent = content.copy;
+  if (help) {
+    help.dataset.mode = mode;
+    help.open = false;
+  }
+  MODE_IDS.forEach((id) => document.getElementById(`mode-${id}`)?.removeAttribute("aria-describedby"));
+  document.getElementById(`mode-${mode}`)?.setAttribute("aria-describedby", "maze-mode-help-copy");
 }
 
 function updateReadingContextDisclosure() {
@@ -1159,6 +1184,7 @@ function updateReadingContextDisclosure() {
     label.textContent = "Standalone search";
     detail.textContent = "No reading is changing this query.";
   }
+  context.hidden = !(independent ? retainedFactionName : factionName);
   action.classList.toggle("hidden", independent ? !retainedFactionName : !factionName);
 }
 
@@ -1251,6 +1277,7 @@ function bindSearchInputSelectOnFocus() {
 
   input.addEventListener("input", () => {
     selectAutoFilledInputOnFocus = false;
+    rememberModeDraftInput({ target: input });
   });
 }
 
@@ -1272,10 +1299,6 @@ async function doSearch() {
     }
   }
 
-  loomResultStatusText = "";
-  loomWeaveResultQuery = "";
-  loomWeaveResultCount = null;
-  updateLoomResultDelivery();
   renderCurrentWeave();
   setLoading(true);
   clearError();
@@ -1287,6 +1310,14 @@ async function doSearch() {
     const query = queryResult.query;
     const diagnostics = queryResult.diagnostics || [];
     const reason = currentMode === "builder" ? "" : queryResult.reason || "";
+    if (currentMode === "ai") {
+      modeDraftValues.raw = "";
+      modeDraftEdited.raw = false;
+    }
+    if (currentMode === "raw") {
+      modeDraftValues.ai = "";
+      modeDraftEdited.ai = false;
+    }
     if (currentMode === "raw" && queryResult.detectedMode === "plain_reading") {
       const input = document.getElementById("search-input");
       setMode("ai");
@@ -1454,10 +1485,6 @@ function handleBlockedQueryResult(queryResult, {
   hasMore = false;
   nextPageUrl = null;
   totalCards = 0;
-  loomResultStatusText = "";
-  loomWeaveResultQuery = "";
-  loomWeaveResultCount = null;
-  updateLoomResultDelivery();
   renderCurrentWeave();
   updateSearchActions("", {});
   showQueryInspector(queryResult.query || "", reason, diagnostics, queryResult.api || {}, {
@@ -1586,40 +1613,14 @@ function renderResults(append = false) {
     : `All ${allResults.length} cards loaded`;
 
   if (!append) {
-    loomResultStatusText = `${totalCards.toLocaleString()} ${totalCards === 1 ? "card" : "cards"} found`;
-    loomWeaveResultQuery = currentQuery;
-    loomWeaveResultCount = totalCards;
-    updateLoomResultDelivery();
     renderCurrentWeave();
   }
 }
 
-function deliverResultDestination(target) {
-  if (!target) return;
-  const reduceMotion = document.documentElement?.dataset?.reduceMotion === "true"
-    || window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches === true;
-  target.focus?.({ preventScroll: true });
-  target.scrollIntoView?.({
-    behavior: reduceMotion ? "auto" : "smooth",
-    block: "start"
-  });
-}
-
-function updateLoomResultDelivery() {
-  const delivery = document.getElementById("loom-result-delivery");
-  const status = document.getElementById("loom-result-status");
-  if (!delivery || !status) return;
-  const shouldShow = currentMode === "builder" && Boolean(loomResultStatusText);
-  delivery.classList.toggle("hidden", !shouldShow);
-  status.textContent = shouldShow ? loomResultStatusText : "";
-}
-
-function viewLoomResults() {
-  const resultsHeader = document.getElementById("results-header");
-  const target = resultsHeader?.classList.contains("hidden")
-    ? document.getElementById("state-panel")
-    : resultsHeader;
-  deliverResultDestination(target);
+function rememberModeDraftInput(event) {
+  if (!Object.hasOwn(modeDraftValues, currentMode)) return;
+  modeDraftValues[currentMode] = event.target?.value || "";
+  modeDraftEdited[currentMode] = true;
 }
 
 /**
@@ -2331,8 +2332,6 @@ function renderCurrentWeave(options = {}) {
   const title = document.getElementById("current-weave-title");
   const primary = document.getElementById("current-weave-primary");
   const secondary = document.getElementById("current-weave-secondary");
-  const count = document.getElementById("current-weave-count");
-  const state = document.getElementById("current-weave-state");
   const choices = weaveChoiceCount();
   const formatLabel = bFilters.format
     ? `${bFilters.format.charAt(0).toUpperCase()}${bFilters.format.slice(1)}`
@@ -2340,14 +2339,12 @@ function renderCurrentWeave(options = {}) {
 
   renderCurrentWeavePips();
   if (title) title.textContent = weaveColorTitle();
-  if (count) count.textContent = `${choices} ${choices === 1 ? "choice" : "choices"} woven`;
   primary?.classList.remove("hidden");
 
   if (!validation.valid) {
     if (validation.field === "releaseYear" && !releaseYearValidationRequested) {
       panel.dataset.weaveState = "ready";
       if (secondary) secondary.textContent = "Finish the four-digit release year to refine printings.";
-      if (state) state.textContent = "Finish the year to search";
       return;
     }
     panel.dataset.weaveState = "invalid";
@@ -2362,7 +2359,6 @@ function renderCurrentWeave(options = {}) {
       : validation.field === "releaseYear"
         ? "Correct the release year in Printing & artwork."
         : "Correct the selection in Colors.";
-    if (state) state.textContent = "Not ready to search";
     return;
   }
 
@@ -2396,12 +2392,7 @@ function renderCurrentWeave(options = {}) {
   if (secondary) secondary.textContent = detailParts.length || choices
     ? refinementParts.join(" · ")
     : "Choose a color, card type, ability, or refinement.";
-  const hasCurrentResults = loomWeaveResultCount !== null
-    && normalizeSearchInputValue(loomWeaveResultQuery) === query;
-  if (state) state.textContent = hasCurrentResults
-    ? `${loomWeaveResultCount.toLocaleString()} ${loomWeaveResultCount === 1 ? "card" : "cards"} found`
-    : "Ready to search";
-  panel.dataset.weaveState = hasCurrentResults ? "results" : "ready";
+  panel.dataset.weaveState = "ready";
 }
 
 /**
@@ -3510,21 +3501,23 @@ function showQueryInspector(query, reason, diagnostics = [], api = null, ui = {}
 function updateSearchActions(query = currentQuery, api = currentSearchApi) {
   const cleanQuery = String(query || "").trim();
   const hasQuery = Boolean(cleanQuery);
-  const copyButton = document.getElementById("search-copy-btn");
-  const scryfallLink = document.getElementById("search-scryfall-link");
+  const copyButtons = ["search-copy-btn", "loom-copy-btn"].map((id) => document.getElementById(id)).filter(Boolean);
+  const scryfallLinks = ["search-scryfall-link", "loom-scryfall-link"].map((id) => document.getElementById(id)).filter(Boolean);
+  const loomQueryOutput = document.getElementById("loom-query-output");
   const href = hasQuery ? buildScryfallWebSearchUrl(cleanQuery, api || {}) : "#";
 
-  if (copyButton) {
+  copyButtons.forEach((copyButton) => {
     copyButton.disabled = !hasQuery;
     copyButton.classList.toggle("is-disabled", !hasQuery);
-  }
+  });
 
-  if (scryfallLink) {
+  scryfallLinks.forEach((scryfallLink) => {
     scryfallLink.href = href;
     scryfallLink.classList.toggle("is-disabled", !hasQuery);
     scryfallLink.setAttribute("aria-disabled", hasQuery ? "false" : "true");
     scryfallLink.tabIndex = hasQuery ? 0 : -1;
-  }
+  });
+  if (loomQueryOutput) loomQueryOutput.textContent = cleanQuery;
 }
 
 /**
@@ -3595,10 +3588,6 @@ function resetSearchResults() {
   hasMore = false;
   nextPageUrl = null;
   totalCards = 0;
-  loomResultStatusText = "";
-  loomWeaveResultQuery = "";
-  loomWeaveResultCount = null;
-  updateLoomResultDelivery();
 
   clearNode(document.getElementById("card-grid"));
   document.getElementById("card-grid").classList.add("hidden");
@@ -3651,10 +3640,17 @@ function refreshInitialStateForMode() {
  * @param {boolean} on - Whether loading state is active.
  */
 function setLoading(on) {
-  const btn = document.getElementById("search-btn");
-  if (on && document.activeElement === btn) searchReturnFocusEl = btn;
-  btn.disabled = on;
-  btn.textContent = on ? "..." : "Search";
+  const buttons = ["search-btn", "loom-search-btn"]
+    .map((id) => document.getElementById(id))
+    .filter(Boolean);
+  const focusedButton = buttons.find((button) => document.activeElement === button);
+  if (on && focusedButton) searchReturnFocusEl = focusedButton;
+  buttons.forEach((button) => {
+    button.disabled = on;
+    button.textContent = on
+      ? "..."
+      : (button.id === "loom-search-btn" ? "Search these Loom filters" : "Search");
+  });
   if (!on && searchReturnFocusEl) {
     searchReturnFocusEl.focus?.({ preventScroll: true });
     searchReturnFocusEl = null;
@@ -3709,10 +3705,6 @@ async function showNoResultsState(query, diagnostics = []) {
   document.getElementById("empty-query").textContent = query;
   panel.classList.add("empty-result-active");
   panel.style.display = "flex";
-  loomResultStatusText = "No cards found";
-  loomWeaveResultQuery = query;
-  loomWeaveResultCount = 0;
-  updateLoomResultDelivery();
   renderCurrentWeave();
 
   const card = await ResearchSearch.scryfallRandom("kw:deathtouch");
@@ -4200,7 +4192,9 @@ function updateStashDrawerCount(count = getScratchpadTotalQuantity()) {
 
 function setStashDrawerOpen(open) {
   document.body.dataset.stashOpen = open ? "true" : "false";
-  document.getElementById("stash-drawer-toggle")?.setAttribute("aria-expanded", open ? "true" : "false");
+  document.querySelectorAll('[data-action="toggle-stash-drawer"]').forEach((toggle) => {
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+  });
 }
 
 function toggleStashDrawer() {
@@ -4376,6 +4370,7 @@ function bindMazeControls() {
   window.addEventListener("resize", resetStashDragForMobile);
 
   document.getElementById("search-input")?.addEventListener("keydown", handleSearchInputKeydown);
+  MODE_IDS.forEach((id) => document.getElementById(`mode-${id}`)?.addEventListener("keydown", handleModeTabKeydown));
   document.getElementById("exclude-colorless")?.addEventListener("change", rebuildFromFilters);
   document.getElementById("bld-format")?.addEventListener("change", rebuildFromFilters);
   document.getElementById("cmc-min")?.addEventListener("input", rebuildFromFilters);
@@ -4510,9 +4505,6 @@ function handleMazeActionClick(event) {
     case "load-more":
       loadMore();
       return;
-    case "view-results":
-      viewLoomResults();
-      return;
     case "copy-stash-export":
     case "copy-scratchpad-export":
       copyScratchpadExport();
@@ -4582,6 +4574,13 @@ function handleMazeActionChange(event) {
 
 function handleMazeGlobalKeydown(event) {
   const colorRelationPicker = document.getElementById("color-relation-picker");
+  const modeHelp = document.getElementById("maze-mode-help");
+  if (event.key === "Escape" && modeHelp?.open) {
+    event.preventDefault();
+    modeHelp.open = false;
+    document.getElementById(`mode-${currentMode}`)?.focus?.();
+    return;
+  }
   const relationOption = event.target?.closest?.('[data-action="set-color-relation"]');
   if (relationOption && ["ArrowDown", "ArrowUp", "Home", "End"].includes(event.key)) {
     const options = getColorRelationOptions();
@@ -4625,6 +4624,10 @@ function handleMazeGlobalKeydown(event) {
 }
 
 function handleMazeDocumentClick(event) {
+  const modeHelp = document.getElementById("maze-mode-help");
+  if (modeHelp?.open && !modeHelp.contains(event.target)) {
+    modeHelp.open = false;
+  }
   const colorRelationPicker = document.getElementById("color-relation-picker");
   if (colorRelationPicker?.open && !colorRelationPicker.contains(event.target)) {
     colorRelationPicker.open = false;

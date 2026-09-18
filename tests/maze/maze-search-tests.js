@@ -17,22 +17,49 @@ import {
 const LIVE_FOUR_COLOR_EXACT_COMMANDER_FORBIDDEN_FILTERS = /(?:\bo:|\bft:|\bstorm\b|spell chain|\bknowledge\b|\bstudy\b|\bhungry\b|\bdevouring\b|\baggro\b|\baggressive\b)/i;
 
 const mazeHtml = readFileSync(new URL("../../maze/index.html", import.meta.url), "utf8");
+const mazeInitSource = readFileSync(new URL("../../assets/js/maze/research-init.js", import.meta.url), "utf8");
 const manaCss = readFileSync(new URL("../../assets/vendor/mana/css/mana.min.css", import.meta.url), "utf8");
 const manaAbilityIconSlugs = new Set([...manaCss.matchAll(/\.ms-ability-([a-z0-9-]+)/g)].map((match) => match[1]));
 const parserSeedFixture = JSON.parse(readFileSync(new URL("../../data/maze/scryfall-parser-seed-2026.json", import.meta.url), "utf8"));
 const groundingFixture = JSON.parse(readFileSync(new URL("../../data/scryfall/grounding/scryfall-grounding.json", import.meta.url), "utf8"));
 const semanticRegistryFixture = JSON.parse(readFileSync(new URL("../../data/scryfall/grounding/plain-reading-semantics.json", import.meta.url), "utf8"));
 const mazeDiscoveryProfileCatalogFixture = JSON.parse(readFileSync(new URL("../../data/dossier/maze-discovery-profiles.catalog.json", import.meta.url), "utf8"));
-assert.doesNotMatch(mazeHtml, /id="mode-help-btn"/);
-assert.doesNotMatch(mazeHtml, /id="mode-help-popover"/);
+assert.match(mazeHtml, /assets\/css\/maze\.css\?v=vm658/);
+assert.match(mazeHtml, /assets\/js\/maze\/research-init\.js\?v=vm658/);
+assert.match(mazeHtml, /<details class="maze-mode-help" id="maze-mode-help">[\s\S]*?<summary id="maze-mode-help-summary" aria-label="About Plain Reading">/);
+assert.match(mazeHtml, /id="maze-mode-help-copy">Describe the card you want in human language/);
+assert.match(mazeHtml, /id="maze-reading-context" tabindex="-1" hidden/, "context region must begin absent until real context exists");
 assert.match(mazeHtml, /<textarea\b[^>]*id="search-input"[^>]*rows="2"[\s\S]*?<\/textarea>/);
 assert.doesNotMatch(mazeHtml, /<input\b[^>]*id="search-input"/);
 assert.match(mazeHtml, /id="search-copy-btn"[^>]*data-action="copy-query"/);
 assert.match(mazeHtml, /id="search-scryfall-link"[^>]*aria-disabled="true"/);
+assert.match(mazeHtml, /class="mode-tabs" role="tablist" aria-label="Maze search modes"/);
+for (const mode of ["ai", "raw", "builder"]) {
+  assert.match(
+    mazeHtml,
+    new RegExp(`id="mode-${mode}"[^>]*role="tab"[^>]*aria-selected="(?:true|false)"[^>]*aria-controls="maze-workbench-panel"`),
+    `${mode} mode must be a tab connected to the shared workbench panel`
+  );
+}
+assert.match(mazeHtml, /id="maze-workbench-panel" role="tabpanel" aria-labelledby="mode-ai" tabindex="-1"/);
+assert.match(mazeHtml, /id="maze-reading-context" tabindex="-1"/, "dossier/source context must retain a focus target for entry and return");
+assert.doesNotMatch(mazeHtml, /maze-state-ribbon|maze-ribbon-|updateMazeStateRibbon|getActiveMazeRibbonQuery/, "the retired state ribbon must not remain in any mode");
+assert.doesNotMatch(mazeHtml, /loom-search-dock|updateLoomSearchDock|IntersectionObserver/, "the retired floating Loom dock and observer machinery must not remain");
+assert.doesNotMatch(mazeHtml, /<div class="qi-actions">|id="qi-scryfall"/, "the inspector must not duplicate the canonical Copy/Open actions");
 assert.ok(
-  mazeHtml.indexOf('id="builder-panel"') < mazeHtml.indexOf('class="search-input-row"'),
-  "Loom construction must precede the live-query action region in DOM and focus order"
+  mazeHtml.indexOf('id="maze-reading-context"') < mazeHtml.indexOf('class="search-input-row"')
+    && mazeHtml.indexOf('class="search-input-row"') < mazeHtml.indexOf('id="builder-panel"'),
+  "source context and canonical request must precede Loom construction"
 );
+assert.match(mazeInitSource, /function handleModeTabKeydown\(event\)[\s\S]*?ArrowRight[\s\S]*?ArrowLeft[\s\S]*?Home[\s\S]*?End/);
+assert.match(mazeInitSource, /MODE_IDS\.forEach\(\(id\) => document\.getElementById\(`mode-\$\{id\}`\)\?\.addEventListener\("keydown", handleModeTabKeydown\)\)/);
+assert.match(mazeInitSource, /document\.getElementById\("maze-workbench-panel"\)\?\.setAttribute\("aria-labelledby", `mode-\$\{mode\}`\)/);
+assert.ok(
+  mazeHtml.indexOf('class="search-input-row"') < mazeHtml.indexOf('id="builder-panel"')
+    && mazeHtml.indexOf('id="builder-panel"') < mazeHtml.indexOf('id="loom-search-btn"'),
+  "shared live-query action and bottom Loom completion action must preserve focus order"
+);
+assert.match(mazeHtml, /id="loom-search-btn"[^>]*data-action="search"/, "bottom Loom completion action must use the existing Search path");
 assert.equal((mazeHtml.match(/id="search-input"/g) || []).length, 1, "Loom must retain one authoritative visible live query");
 assert.doesNotMatch(mazeHtml, /id="builder-generated-query"/, "redundant generated-query output must be removed");
 assert.match(mazeHtml, /<fieldset class="builder-group builder-group-colors">[\s\S]*?<legend>Colors<\/legend>/);
@@ -315,6 +342,7 @@ if (process.argv.includes("--vm592-focused")) {
   await runJeskaiArchscryOperatorPrecedenceCase();
   await runTechnicalRgwuPublicGuardCase();
   await runMazeUrlBootCase();
+  await runVm658InstrumentFrameCases();
 
   console.log("Maze search metadata helper cases passed.");
 }
@@ -356,12 +384,12 @@ async function runVm592LoomCases() {
   assert.equal(document.getElementById("sidebar-color-section").hidden, true, "Loom must hide duplicate sidebar color controls");
   assert.equal(document.getElementById("sidebar-format-section").hidden, true, "Loom must hide duplicate sidebar format controls");
   assert.equal(document.getElementById("clear-search-btn").hidden, true, "Loom must hide the duplicate generic Clear/Reset action");
-  assert.equal(document.getElementById("search-copy-btn").disabled, false, "valid live query must enable Copy before Search");
-  assert.equal(document.getElementById("search-scryfall-link").getAttribute("aria-disabled"), "false", "valid live query must enable Open before Search");
+  assert.equal(document.getElementById("loom-copy-btn").disabled, false, "valid generated Loom query must enable its one bottom Copy control before Search");
+  assert.equal(document.getElementById("loom-scryfall-link").getAttribute("aria-disabled"), "false", "valid generated Loom query must enable its one bottom Open control before Search");
+  assert.equal(document.getElementById("loom-query-output").textContent, input.value, "Loom completion must display the exact generated query bytes");
   assert.equal(document.getElementById("printing-scope").disabled, true, "printing rule must wait for a valid release year");
   assert.equal(document.getElementById("current-weave-title").textContent, "Commander");
   assert.equal(document.getElementById("current-weave-primary").textContent, "No choices woven yet.");
-  assert.equal(document.getElementById("current-weave-count").textContent, "0 choices woven");
   const coldQuery = input.value;
   window.renderCurrentWeave();
   assert.equal(input.value, coldQuery, "rendering Current Weave must not change the live query");
@@ -385,7 +413,6 @@ async function runVm592LoomCases() {
   assert.equal(input.value, "id<=wu f:commander");
   assert.match(document.getElementById("builder-summary").textContent, /Commander colors: WU · Fits these Commander colors/);
   assert.equal(document.getElementById("current-weave-title").textContent, "White–Blue fit");
-  assert.equal(document.getElementById("current-weave-count").textContent, "1 choice woven");
   assert.equal(document.getElementById("current-weave-primary").classList.contains("hidden"), true, "identity-only state must not claim there are no choices");
   const oneChoiceQuery = input.value;
   assert.equal(window.weaveChoiceCount(), 1);
@@ -566,28 +593,28 @@ async function runVm592LoomCases() {
     data: makeTestCards(1, "Loom"),
     has_more: false
   }]);
-  document.getElementById("search-btn").focus();
-  await window.doSearch();
+  document.getElementById("loom-search-btn").focus();
+  document.querySelector(".page").onclick?.({ target: document.getElementById("loom-search-btn") });
   await waitForFetchCount(dom.fetchUrls, loomResultStart + 1);
   assert.equal(latestFetchUrl(dom.fetchUrls).searchParams.get("q"), executedQuery, "executed Loom query must match the live reflection");
-  assert.equal(document.activeElement, document.getElementById("search-btn"), "successful Search must preserve focus");
+  assert.equal(document.activeElement, document.getElementById("loom-search-btn"), "successful Loom Search must preserve focus");
   assert.equal(document.getElementById("results-header").scrollIntoViewOptions, undefined, "successful Search must not force result scrolling");
   assert.match(getRenderedText(document.getElementById("res-count")), /Showing 1 of 1 cards/);
-  assert.equal(document.getElementById("loom-result-status").textContent, "1 card found");
-  assert.equal(document.getElementById("current-weave-state").textContent, "1 card found", "completed result count must reflect in Current Weave");
-  document.querySelector(".page").onclick?.({ target: document.getElementById("view-results-btn") });
-  assert.equal(document.activeElement, document.getElementById("results-header"), "View results must deliberately move focus");
-  assert.deepEqual(document.getElementById("results-header").scrollIntoViewOptions, { behavior: "smooth", block: "start" });
+  assert.equal(document.getElementById("loom-query-output").textContent, executedQuery, "Loom completion must retain only the exact generated query, while the normal result header owns totals");
+  document.querySelector(".page").onclick?.({ target: document.getElementById("loom-copy-btn") });
+  assert.equal(dom.clipboardWrites.at(-1), executedQuery, "Loom Copy must reuse the exact generated query owner");
+
+  document.getElementById("cmc-min").value = "3";
+  document.getElementById("cmc-min").oninput?.({ target: document.getElementById("cmc-min") });
+  assert.notEqual(document.getElementById("loom-query-output").textContent, executedQuery, "editing Loom filters must immediately replace the completion query rather than attach stale result state");
 
   window.resetBuilderFilters();
   assert.equal(document.getElementById("bld-format").value, "commander");
   assert.equal(document.getElementById("color-op").value, "id");
   assert.equal(input.value, "f:commander");
-  assert.equal(document.getElementById("search-copy-btn").disabled, false);
+  assert.equal(document.getElementById("loom-copy-btn").disabled, false);
   assert.equal(document.getElementById("current-weave-title").textContent, "Commander");
   assert.equal(document.getElementById("current-weave-primary").textContent, "No choices woven yet.");
-  assert.equal(document.getElementById("current-weave-count").textContent, "0 choices woven");
-  assert.equal(document.getElementById("current-weave-state").textContent, "Ready to search");
   assert.doesNotMatch(document.querySelector(".maze-toast")?.textContent || "", /Loom reset/, "reset must not create a persistent Loom reset toast");
 
   document.querySelector(".page").onclick?.({ target: document.getElementById("colorless-only-btn") });
@@ -813,7 +840,7 @@ async function runMazeDomMetadataCases() {
   assert.equal(lastUrl.searchParams.get("dir"), "desc");
   assert.equal(lastUrl.searchParams.get("unique"), "prints");
 
-  const inspectorUrl = new URL(document.getElementById("qi-scryfall").href);
+  const inspectorUrl = new URL(document.getElementById("search-scryfall-link").href);
   assert.equal(inspectorUrl.searchParams.get("q"), manaRockQuery);
   assert.equal(inspectorUrl.searchParams.get("order"), "released");
   assert.equal(inspectorUrl.searchParams.get("dir"), "desc");
@@ -1186,7 +1213,6 @@ async function runMazeDomMetadataCases() {
   assert.equal(document.getElementById("recent-list").children.length, recentCountBeforeBlock);
   assert.equal(document.getElementById("search-copy-btn").disabled, true);
   assert.equal(document.getElementById("search-scryfall-link").getAttribute("aria-disabled"), "true");
-  assert.equal(document.getElementById("qi-scryfall").getAttribute("aria-disabled"), "true");
   assert.equal(document.getElementById("qi-query").textContent, "type:dragon c=r legal:commander");
   assert.match(document.getElementById("qi-diagnostics").innerHTML, /Detected plain English/);
   assert.match(document.getElementById("qi-diagnostics").innerHTML, /multiple set families/);
@@ -1968,6 +1994,55 @@ async function runMazeUrlBootCase() {
   assert.equal(searchUrl.searchParams.get("q"), "c:r t:creature");
 }
 
+async function runVm658InstrumentFrameCases() {
+  const dom = installMazeDomHarness();
+  await import("../../assets/js/maze/research-init.js?vm658-instrument-frame");
+  await dom.dispatchWindowEvent("load");
+  const input = document.getElementById("search-input");
+  assert.equal(document.getElementById("maze-reading-context").hidden, true, "standalone Maze must not retain a permanent absence-of-context surface");
+  assert.equal(document.getElementById("maze-mode-help").open, false, "mode help must begin closed");
+  assert.match(document.getElementById("maze-mode-help-copy").textContent, /human language/);
+  input.value = "vampires that sacrifice creatures";
+  input.oninput?.();
+  dom.clickElement("mode-raw");
+  assert.equal(document.body.dataset.mazeMode, "raw", "click activation must select Operator's Hand");
+  assert.equal(document.getElementById("mode-raw").getAttribute("aria-selected"), "true");
+  assert.equal(document.getElementById("mode-ai").getAttribute("aria-selected"), "false");
+  assert.equal(document.getElementById("mode-raw").tabIndex, 0);
+  assert.equal(document.getElementById("mode-ai").tabIndex, -1);
+  assert.equal(document.getElementById("maze-workbench-panel").getAttribute("aria-labelledby"), "mode-raw");
+  assert.match(document.getElementById("maze-mode-help-copy").textContent, /exact Scryfall operators/i, "mode help must follow active mode copy");
+  dom.dispatchElementEvent("mode-raw", "keydown", { key: "ArrowRight" });
+  assert.equal(document.body.dataset.mazeMode, "builder", "ArrowRight must select Loom");
+  assert.equal(document.activeElement, document.getElementById("mode-builder"), "ArrowRight must move tab focus");
+  dom.dispatchElementEvent("mode-builder", "keydown", { key: "Home" });
+  assert.equal(document.body.dataset.mazeMode, "ai", "Home must select Plain Reading");
+  assert.equal(input.value, "vampires that sacrifice creatures", "Plain Reading value must survive tab round-trips");
+  dom.dispatchElementEvent("mode-ai", "keydown", { key: "End" });
+  assert.equal(document.body.dataset.mazeMode, "builder", "End must select Loom");
+  dom.clickElement("mode-raw");
+  input.value = "c:r";
+  input.oninput?.();
+  dom.clickElement("mode-ai");
+  assert.equal(input.value, "vampires that sacrifice creatures", "direct Plain return must restore its edited draft");
+  input.value = "vampires that sacrifice creatures at instant speed";
+  input.oninput?.();
+  dom.clickElement("mode-raw");
+  assert.equal(input.value, "c:r", "direct Operator return must restore its edited draft");
+  dom.clickElement("mode-builder");
+  dom.clickElement("mode-ai");
+  assert.equal(input.value, "vampires that sacrifice creatures at instant speed", "Loom round-trip must retain the latest Plain draft");
+
+  window.setMode("raw");
+  input.value = "c:r";
+  document.getElementById("search-btn").disabled = false;
+  dom.setFetchResponses([{ object: "error", code: "not_found", status: 404 }]);
+  await window.doSearch();
+  assert.equal(input.value, "c:r", "canonical Live Scryfall query surface must retain the exact executable query");
+  window.copyQuery();
+  assert.equal(dom.getCopiedText(), "c:r", "canonical copy action must preserve the exact-query copy contract");
+}
+
 function makeTestCards(count, prefix) {
   return Array.from({ length: count }, (_, index) => ({
     id: `${prefix}-${index}`,
@@ -2269,22 +2344,21 @@ function installMazeDomHarness() {
   };
 
   [
-    "search-input", "search-btn", "state-panel", "card-grid", "results-header",
+    "search-input", "search-btn", "state-panel", "card-grid", "results-header", "empty-query",
     "results-footer", "err-msg", "recent-list", "recent-section", "query-inspector",
     "qi-input-wrap", "qi-input-label", "qi-input", "qi-label", "qi-query", "qi-reason",
-    "qi-scryfall", "res-count", "btn-more", "more-count", "stash-count", "stash-body",
-    "mode-ai", "mode-raw", "mode-builder", "search-icon", "builder-panel", "kw-wrap",
+    "res-count", "btn-more", "more-count", "stash-count", "stash-body",
+    "mode-ai", "mode-raw", "mode-builder", "maze-workbench-panel", "maze-primary-workbench", "search-icon", "builder-panel", "loom-search-btn", "loom-query-output", "loom-copy-btn", "loom-scryfall-link", "loom-stash-drawer-toggle", "loom-reset-btn", "kw-wrap",
     "kw-input", "kw-add-btn", "kw-suggestions", "kw-chips", "kw-validation", "builder-summary", "color-validation", "mv-validation", "release-year-help", "release-year-validation",
     "color-pips", "colorless-only-btn", "builder-color-options", "exclude-colorless", "exclude-colorless-option", "color-op", "color-relation-picker", "color-relation-trigger", "color-relation-label", "bld-format", "cmc-min", "cmc-max", "release-year", "printing-scope", "sb-format", "modal-inner", "modal-bg",
-    "maze-mode-context", "maze-mode-context-label", "maze-mode-context-copy", "maze-reading-context", "maze-reading-context-label", "maze-reading-context-detail", "maze-reading-context-action", "search-input-label", "clear-search-btn", "discovery-path-list",
+    "maze-mode-help", "maze-mode-help-summary", "maze-mode-help-copy", "maze-reading-context", "maze-reading-context-label", "maze-reading-context-detail", "maze-reading-context-action", "search-input-label", "clear-search-btn", "discovery-path-list",
     "quick-search-list", "color-grid", "type-checks", "ability-checks", "rarity-checks", "reading-path-section",
     "reading-path-list", "r-user-badge", "maze-return-banner", "maze-return-copy",
     "maze-return-link", "maze-return-dismiss",
     "stash-drawer-toggle", "search-copy-btn", "search-scryfall-link", "sidebar-color-section", "sidebar-format-section",
-    "loom-result-delivery", "loom-result-status", "view-results-btn", "current-weave", "current-weave-pips",
-    "current-weave-title", "current-weave-primary", "current-weave-secondary", "current-weave-count", "current-weave-state"
+    "current-weave", "current-weave-pips", "current-weave-title", "current-weave-primary", "current-weave-secondary"
   ].forEach((id) => {
-    const tagName = ["qi-scryfall", "search-scryfall-link"].includes(id)
+    const tagName = ["search-scryfall-link", "loom-scryfall-link"].includes(id)
       ? "a"
       : id === "search-input"
         ? "textarea"
@@ -2292,7 +2366,7 @@ function installMazeDomHarness() {
           ? "input"
           : ["color-op", "bld-format", "printing-scope", "sb-format"].includes(id)
             ? "select"
-            : ["kw-add-btn", "colorless-only-btn", "color-relation-trigger", "view-results-btn", "search-btn", "maze-reading-context-action"].includes(id)
+            : ["mode-ai", "mode-raw", "mode-builder", "loom-search-btn", "loom-copy-btn", "loom-stash-drawer-toggle", "loom-reset-btn", "kw-add-btn", "colorless-only-btn", "color-relation-trigger", "search-btn", "maze-reading-context-action"].includes(id)
               ? "button"
               : id === "color-relation-picker"
                 ? "details"
@@ -2322,10 +2396,16 @@ function installMazeDomHarness() {
     button.setAttribute("aria-pressed", String(value === "id"));
     documentStub.getElementById("color-relation-picker").appendChild(button);
   });
-  const viewResultsButton = documentStub.getElementById("view-results-btn");
-  viewResultsButton.dataset.action = "view-results";
+  ["ai", "raw", "builder"].forEach((mode) => {
+    const tab = documentStub.getElementById(`mode-${mode}`);
+    tab.dataset.action = "set-mode";
+    tab.dataset.mode = mode;
+    tab.setAttribute("role", "tab");
+    tab.setAttribute("aria-selected", String(mode === "ai"));
+  });
 
   documentStub.getElementById("stash-drawer-toggle").dataset.stashToggleCount = "true";
+  documentStub.getElementById("loom-stash-drawer-toggle").dataset.stashToggleCount = "true";
 
   const windowStub = {
     document: documentStub,
@@ -2427,6 +2507,13 @@ function installMazeDomHarness() {
     },
     dispatchDocumentEvent(event, payload) {
       return documentEvents.get(event)?.(payload);
+    },
+    dispatchElementEvent(id, event, payload = {}) {
+      return elements.get(id)?.[`on${event}`]?.({ currentTarget: elements.get(id), preventDefault() {}, ...payload });
+    },
+    clickElement(id) {
+      const target = elements.get(id);
+      return page.onclick?.({ target });
     },
     getCopiedText: () => copiedText
   };

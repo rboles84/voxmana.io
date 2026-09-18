@@ -108,8 +108,10 @@ function rowsByOracleId(draft) {
 }
 
 const { server, baseUrl } = await startServer();
+const frameOnly = process.argv.includes("--vm658-frame");
 let browser;
 let launchedChrome;
+let interceptedSearchRequests = 0;
 
 try {
   await mkdir(witnessDirectory, { recursive: true });
@@ -128,6 +130,7 @@ try {
   page.on("request", request => {
     const url = request.url();
     if (url.startsWith("https://api.scryfall.com/cards/search")) {
+      interceptedSearchRequests += 1;
       const executedQuery = new URL(url).searchParams.get("q");
       const isZeroWitness = executedQuery === "f:commander mv=99";
       const data = isZeroWitness ? [] : [associatedCard, independentCard];
@@ -154,12 +157,215 @@ try {
     else request.abort();
   });
 
+  if (frameOnly) {
+    await page.setViewport({ width: 390, height: 844, isMobile: true, hasTouch: true });
+    await page.goto(`${baseUrl}/maze/index.html`, { waitUntil: "domcontentloaded" });
+    await page.waitForSelector("#search-input");
+    await page.waitForFunction(() => document.getElementById("maze-reading-context")?.dataset.state === "standalone");
+    const standaloneContext = await page.$eval("#maze-reading-context", element => {
+      const style = getComputedStyle(element);
+      const rect = element.getBoundingClientRect();
+      return { hidden: element.hidden, state: element.dataset.state, display: style.display, height: rect.height, width: rect.width };
+    });
+    expect(standaloneContext.hidden && standaloneContext.state === "standalone" && standaloneContext.display === "none" && standaloneContext.height === 0 && standaloneContext.width === 0, "direct standalone context must be computed absent and consume zero space");
+    expect(await page.$$eval("#maze-reading-context", elements => elements.length) === 1, "direct standalone route must not retain a duplicate context surface");
+    expect(await page.$eval("#maze-mode-help", element => element.open) === false, "mode help must begin closed");
+    expect(await page.$eval("#maze-mode-help-summary .ms-ability-collect-evidence", element => {
+      const rect = element.getBoundingClientRect();
+      return rect.width > 0 && rect.height > 0 && element.getAttribute("aria-hidden") === "true";
+    }), "active-mode help must visibly render the local decorative Mana glyph");
+    await page.click("#maze-mode-help-summary");
+    expect(await page.$eval("#maze-mode-help", element => element.open), "mode help must open from its native control");
+    expect(await page.$eval("#maze-mode-help-copy", element => {
+      const rect = element.getBoundingClientRect();
+      return rect.left >= 0 && rect.right <= document.documentElement.clientWidth;
+    }), "Plain mode help disclosure must remain within the 390px viewport");
+    await page.keyboard.press("Escape");
+    expect(await page.$eval("#maze-mode-help", element => !element.open), "mode help must dismiss with Escape");
+    await page.click("#maze-mode-help-summary");
+    await page.click("#maze-page-title");
+    expect(await page.$eval("#maze-mode-help", element => !element.open), "mode help must dismiss on an outside click");
+    const helpAlignedToActiveTab = () => page.evaluate(() => {
+      const help = document.getElementById("maze-mode-help-summary")?.getBoundingClientRect();
+      const activeTab = document.querySelector('[role="tab"][aria-selected="true"]');
+      const active = activeTab?.getBoundingClientRect();
+      const title = activeTab?.querySelector(".mode-card-title")?.getBoundingClientRect();
+      return Boolean(help && active && title
+        && help.left >= active.left
+        && help.right <= active.right
+        && help.left >= title.right);
+    });
+    expect(await helpAlignedToActiveTab(), "Plain mode help trigger must sit within its active tab region");
+    await page.click("#mode-raw");
+    expect(await helpAlignedToActiveTab(), "Operator mode help trigger must move with its active tab region");
+    await page.click("#maze-mode-help-summary");
+    expect(await page.$eval("#maze-mode-help-copy", element => {
+      const rect = element.getBoundingClientRect();
+      return rect.left >= 0 && rect.right <= document.documentElement.clientWidth;
+    }), "Operator mode help disclosure must remain within the 390px viewport");
+    await page.keyboard.press("Escape");
+    await page.click("#mode-ai");
+    await page.type("#search-input", "vampires that sacrifice creatures");
+    await page.click("#search-btn");
+    await page.waitForFunction(() => !document.getElementById("query-inspector")?.classList.contains("hidden"));
+    await page.waitForFunction(() => document.getElementById("search-btn")?.disabled === false);
+    const inspectorGap = () => page.$eval("#query-inspector", inspector => {
+      const row = document.querySelector(".search-input-row")?.getBoundingClientRect();
+      const inspectorRect = inspector.getBoundingClientRect();
+      return Math.round(inspectorRect.top - row.bottom);
+    });
+    const plainInspectorGap = await inspectorGap();
+    console.log(`VM-658 inspector gaps: Plain ${plainInspectorGap}px`);
+    expect(plainInspectorGap >= 16, "Plain Reading must keep a spacing-scale gap between its action row and query inspector");
+    await page.click("#mode-raw");
+    await page.click("#search-input");
+    await page.keyboard.down("Control");
+    await page.keyboard.press("A");
+    await page.keyboard.up("Control");
+    await page.type("#search-input", "c:r AND t:creature");
+    await page.click("#search-btn");
+    await page.waitForFunction(() => !document.getElementById("query-inspector")?.classList.contains("hidden"));
+    await page.waitForFunction(() => document.getElementById("search-btn")?.disabled === false);
+    const rawInspectorGap = await inspectorGap();
+    console.log(`VM-658 inspector gaps: Operator ${rawInspectorGap}px`);
+    expect(rawInspectorGap >= 16, "Operator's Hand must keep the same parent-level inspector gap");
+    const measureFrame = () => page.evaluate(() => {
+      const rect = selector => document.querySelector(selector)?.getBoundingClientRect();
+      const bottom = selector => Math.round(rect(selector)?.bottom || 0);
+      const top = selector => Math.round(rect(selector)?.top || 0);
+      return {
+        frameBottom: bottom(".maze-command-deck"),
+        inputActionBottom: Math.max(bottom("#search-input"), bottom("#search-btn")),
+        builderTop: top("#builder-panel"),
+        builderBottom: bottom("#builder-panel"),
+        completionTop: top(".loom-completion"),
+        completionBottom: bottom(".loom-completion"),
+        colorsTop: top(".builder-group-colors"),
+        nextBodyTop: top(".r-body"),
+        overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+        sharedRow: (() => {
+          const style = getComputedStyle(document.querySelector(".search-input-row"));
+          return { width: Math.round(rect(".search-input-row")?.width || 0), padding: style.padding, border: style.border, background: style.backgroundColor };
+        })(),
+      };
+    });
+    const plain390 = await measureFrame();
+    await page.click("#mode-builder");
+    await page.waitForFunction(() => !document.getElementById("builder-panel")?.classList.contains("hidden"));
+    expect(await helpAlignedToActiveTab(), "Loom mode help trigger must move with its active tab region");
+    const loom390 = await measureFrame();
+    expect(plain390.overflow <= 1 && loom390.overflow <= 1, "390px Plain and Loom frames should not overflow horizontally");
+    expect(await page.$eval(".maze-primary-workbench", element => getComputedStyle(element).display === "none" && element.getClientRects().length === 0), "Loom must not render the Plain and Operator top query/action workbench");
+    expect(loom390.colorsTop >= loom390.builderTop && loom390.colorsTop < loom390.completionTop, "Loom must begin with Colors before its bottom completion region");
+    expect(loom390.completionTop >= loom390.builderTop, "Loom completion action must remain in flow after its controls");
+    const loomSeparator = await page.evaluate(() => {
+      const mode = getComputedStyle(document.querySelector(".mode-row"));
+      const panel = getComputedStyle(document.querySelector("#builder-panel"));
+      const compose = getComputedStyle(document.querySelector(".builder-compose-grid"));
+      return { mode: mode.borderBottomWidth, panel: panel.borderTopWidth, compose: compose.borderTopWidth };
+    });
+    console.log(`VM-658 Loom separators: ${JSON.stringify(loomSeparator)}`);
+    expect(loomSeparator.mode === "1px" && loomSeparator.panel === "0px" && loomSeparator.compose === "0px", "Loom rail-to-Colors transition must retain exactly its one mode-rail hairline");
+    expect(await page.$$("#maze-state-ribbon, #loom-search-dock").then(elements => elements.length) === 0, "focused route must not retain ribbon or floating dock surfaces");
+    expect(await page.$$("#loom-query-output, #loom-search-btn, #loom-copy-btn, #loom-scryfall-link, #loom-stash-drawer-toggle, #loom-reset-btn").then(elements => elements.length) === 6, "Loom must expose exactly one generated query and completion action set");
+    expect(await page.$$("#loom-result-delivery, #loom-result-status, #view-results-btn, #current-weave-count, #current-weave-state").then(elements => elements.length) === 0, "Loom must leave totals and status to the normal result header");
+    expect(await page.$eval("#loom-query-output", element => element.textContent.trim() === document.getElementById("search-input").value.trim()), "Loom completion query must use the existing generated query bytes");
+    await page.$eval("#loom-search-btn", element => element.scrollIntoView({ block: "center" }));
+    const beforeDockSearch = interceptedSearchRequests;
+    await page.$eval("#loom-search-btn", element => element.click());
+    await new Promise(resolve => setTimeout(resolve, 250));
+    expect(interceptedSearchRequests > beforeDockSearch, "bottom Loom completion action must invoke the existing Search action");
+    expect(await page.$eval("#loom-copy-btn", element => !element.disabled), "Loom Copy must share the valid generated-query action state");
+    expect(await page.$eval("#loom-scryfall-link", element => element.getAttribute("aria-disabled") === "false" && new URL(element.href).searchParams.get("q") === document.getElementById("search-input").value), "Loom Open must share the generated query/link owner");
+    const loomOpenStyle = () => page.$eval("#loom-scryfall-link", element => {
+      const style = getComputedStyle(element);
+      const rect = element.getBoundingClientRect();
+      return { display: style.display, alignItems: style.alignItems, height: Math.round(rect.height), paddingInline: style.paddingInline, color: style.color };
+    });
+    const loomOpenNormal = await loomOpenStyle();
+    const loomCopyStyle = await page.$eval("#loom-copy-btn", element => {
+      const style = getComputedStyle(element);
+      const rect = element.getBoundingClientRect();
+      return { height: Math.round(rect.height), paddingInline: style.paddingInline };
+    });
+    console.log(`VM-658 Loom Open normal: ${JSON.stringify(loomOpenNormal)}`);
+    expect(loomOpenNormal.display === "flex" && loomOpenNormal.alignItems === "center" && loomOpenNormal.height === loomCopyStyle.height && loomOpenNormal.paddingInline === loomCopyStyle.paddingInline && loomOpenNormal.color === "rgb(247, 215, 132)", "Loom Open must match secondary-action geometry and Maze gold in its normal state");
+    await page.hover("#loom-scryfall-link");
+    const loomOpenHover = await loomOpenStyle();
+    console.log(`VM-658 Loom Open hover: ${JSON.stringify(loomOpenHover)}`);
+    expect(loomOpenHover.color === "rgb(255, 228, 154)", "Loom Open hover must remain Maze gold");
+    await page.mouse.move(0, 0);
+    await page.$eval("#loom-copy-btn", element => element.focus());
+    await page.keyboard.press("Tab");
+    const loomOpenFocus = await loomOpenStyle();
+    console.log(`VM-658 Loom Open focus: ${JSON.stringify(loomOpenFocus)}`);
+    expect(await page.$eval("#loom-scryfall-link", element => document.activeElement === element && element.matches(":focus-visible")) && loomOpenFocus.color === "rgb(255, 228, 154)", "keyboard focus-visible Loom Open state must remain Maze gold");
+    await page.setViewport({ width: 720, height: 500, hasTouch: true });
+    await page.$eval("#release-year", element => {
+      document.documentElement.style.scrollBehavior = "auto";
+      element.scrollIntoView({ block: "end" });
+      element.focus();
+      window.dispatchEvent(new Event("scroll"));
+    });
+    await new Promise(resolve => setTimeout(resolve, 150));
+    expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth) <= 1, "200%-equivalent deep Loom route must not overflow horizontally");
+    expect(await page.$eval("#loom-query-output", element => {
+      const style = getComputedStyle(element);
+      return style.overflowX !== "scroll" && element.getBoundingClientRect().right <= document.documentElement.clientWidth;
+    }), "Loom generated query must not become a nested scroll trap");
+    await page.setViewport({ width: 1440, height: 900 });
+    for (const mode of ["ai", "raw", "builder"]) {
+      await page.click(`#mode-${mode}`);
+      expect(await helpAlignedToActiveTab(), `desktop ${mode} mode help trigger must stay inside its reserved active tab space`);
+    }
+    await page.click("#mode-ai");
+    const plainActionGeometry = await page.evaluate(() => [
+      "#search-btn",
+      "#clear-search-btn",
+      "#search-copy-btn",
+      "#search-scryfall-link",
+      "#stash-drawer-toggle"
+    ].map((selector) => {
+      const element = document.querySelector(selector);
+      const rect = element.getBoundingClientRect();
+      const style = getComputedStyle(element);
+      return {
+        selector,
+        top: Math.round(rect.top),
+        height: Math.round(rect.height),
+        display: style.display,
+        alignItems: style.alignItems,
+        justifyContent: style.justifyContent
+      };
+    }));
+    console.log(`VM-658 desktop action geometry: ${JSON.stringify(plainActionGeometry)}`);
+    expect(plainActionGeometry.every((item) => item.height === 60), "Plain action controls must share one 60px height");
+    expect(new Set(plainActionGeometry.filter((item) => item.selector !== "#search-btn").map((item) => item.top)).size === 1, "Plain secondary actions, including Open in Scryfall, must share one wrapped-row vertical alignment");
+    expect(plainActionGeometry.every((item) => item.display === "flex" && item.alignItems === "center" && item.justifyContent === "center"), "Plain action content must be centered consistently");
+    const plainDesktopInspectorGap = await inspectorGap();
+    await page.click("#mode-raw");
+    const rawDesktopInspectorGap = await inspectorGap();
+    console.log(`VM-658 desktop inspector gaps: Plain ${plainDesktopInspectorGap}px; Operator ${rawDesktopInspectorGap}px`);
+    expect(plainDesktopInspectorGap >= 16 && rawDesktopInspectorGap === plainDesktopInspectorGap, "desktop Plain and Operator must keep the same spacing-scale inspector gap");
+    const manaGlyph = await page.evaluate(() => {
+      const glyph = document.createElement("i");
+      glyph.className = "ms ms-ability-collect-evidence";
+      glyph.style.cssText = "font-size:16px;position:absolute;visibility:hidden";
+      document.body.appendChild(glyph);
+      const style = getComputedStyle(glyph);
+      const rect = glyph.getBoundingClientRect();
+      glyph.remove();
+      return { fontFamily: style.fontFamily, width: Math.round(rect.width), height: Math.round(rect.height) };
+    });
+    expect(manaGlyph.width > 0 && manaGlyph.height > 0, "vendored Mana collect-evidence glyph must be measurable in the real route");
+    console.log(`VM-658 focused 390px frame: Plain ${JSON.stringify(plain390)}; Loom ${JSON.stringify(loom390)}; Mana ${JSON.stringify(manaGlyph)}`);
+  } else {
   let weakSearchGeneration = 0;
   const presentWeakSearch = async (input = "Black Lotus with mana value 99 in Commander") => {
     await page.waitForSelector("#search-input");
-    if (await page.$eval("#mode-ai", element => element.getAttribute("aria-pressed") !== "true")) {
+    if (await page.$eval("#mode-ai", element => element.getAttribute("aria-selected") !== "true")) {
       await page.click("#mode-ai");
-      await page.waitForFunction(() => document.querySelector("#mode-ai")?.getAttribute("aria-pressed") === "true");
+      await page.waitForFunction(() => document.querySelector("#mode-ai")?.getAttribute("aria-selected") === "true");
     }
     await page.$eval("#search-input", element => { element.value = ""; });
     await page.type("#search-input", input);
@@ -204,8 +410,8 @@ try {
 
   await page.setViewport({ width: 1440, height: 1000 });
   await page.goto(`${baseUrl}/maze/`, { waitUntil: "domcontentloaded" });
-  await page.waitForFunction(() => document.querySelector("#maze-reading-context")?.dataset.state === "standalone");
-  expect(await page.$eval("#maze-reading-context", element => element.innerText).then(text => text.includes("No reading is changing this query")), "Standalone Maze should disclose that no reading changes the query");
+  await page.waitForFunction(() => document.querySelector("#maze-reading-context")?.hidden === true);
+  expect(await page.$eval("#maze-reading-context", element => element.hidden), "Standalone Maze must not render a permanent absence-of-context surface");
 
   await presentWeakSearch();
   const weakState = await page.evaluate(() => ({
@@ -338,7 +544,7 @@ try {
   await page.setViewport({ width: 1440, height: 1000 });
 
   await page.click("#mode-raw");
-  await page.waitForFunction(() => document.querySelector("#mode-raw")?.getAttribute("aria-pressed") === "true");
+  await page.waitForFunction(() => document.querySelector("#mode-raw")?.getAttribute("aria-selected") === "true");
   await page.$eval("#search-input", element => { element.value = ""; });
   await page.type("#search-input", "f:commander mv=99");
   await page.evaluate(() => window.doSearch());
@@ -459,6 +665,35 @@ try {
   await page.screenshot({ path: path.join(witnessDirectory, "guide-maze-desktop-1440x1000.png"), fullPage: true });
 
   await page.setViewport({ width: 390, height: 844, isMobile: true, hasTouch: true });
+  await page.goto(`${baseUrl}/maze/`, { waitUntil: "domcontentloaded" });
+  await page.waitForFunction(() => document.querySelector("#maze-reading-context")?.hidden === true);
+  const plain390 = await page.evaluate(() => {
+    const rect = selector => Math.round(document.querySelector(selector)?.getBoundingClientRect().bottom || 0);
+    return {
+      frameBottom: rect(".maze-command-deck"),
+      inputActionBottom: Math.max(rect("#search-input"), rect("#search-btn")),
+      builderTop: Math.round(document.querySelector("#builder-panel")?.getBoundingClientRect().top || 0),
+      resultsTop: Math.round(document.querySelector("#results-header")?.getBoundingClientRect().top || 0),
+      overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+    };
+  });
+  await page.click("#mode-builder");
+  const loom390 = await page.evaluate(() => {
+    const rect = selector => document.querySelector(selector)?.getBoundingClientRect();
+    return {
+      primaryWorkbenchDisplay: getComputedStyle(document.querySelector(".maze-primary-workbench")).display,
+      colorsTop: Math.round(rect(".builder-group-colors")?.top || 0),
+      completionTop: Math.round(rect(".loom-completion")?.top || 0),
+      completionBottom: Math.round(rect(".loom-completion")?.bottom || 0),
+      resultsTop: Math.round(rect("#results-header")?.top || 0),
+      overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+    };
+  });
+  expect(plain390.overflow <= 1 && loom390.overflow <= 1, "390px Maze frame and Loom workspace should not overflow horizontally");
+  expect(loom390.primaryWorkbenchDisplay === "none" && loom390.colorsTop < loom390.completionTop, "Loom must start at filters and keep its completion action after them");
+  console.log(`VM-658 390px geometry: Plain ${JSON.stringify(plain390)}; Loom ${JSON.stringify(loom390)}`);
+
+  await page.setViewport({ width: 390, height: 844, isMobile: true, hasTouch: true });
   await page.goto(`${baseUrl}/guide/maze/`, { waitUntil: "domcontentloaded" });
   expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth) <= 1, "Mobile Maze Guide should not overflow horizontally");
   await page.screenshot({ path: path.join(witnessDirectory, "guide-maze-mobile-390x844.png"), fullPage: true });
@@ -471,6 +706,7 @@ try {
   await page.goto(`${baseUrl}/guide/maze/`, { waitUntil: "domcontentloaded" });
   expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth) <= 1, "Maze Guide should reflow at a 200%-zoom-equivalent CSS viewport");
   expect(pageErrors.length === 0, `Rendered routes should not raise page errors: ${pageErrors.join(" | ")}`);
+  }
 } finally {
   if (browser) await browser.disconnect();
   if (launchedChrome) await launchedChrome.kill();
@@ -478,9 +714,11 @@ try {
 }
 
 if (failures.length) {
-  console.error(`VM-616 rendered validation failed (${failures.length}):`);
+  console.error(`${frameOnly ? "VM-658 focused frame" : "VM-616 rendered"} validation failed (${failures.length}):`);
   failures.forEach(failure => console.error(`- ${failure}`));
   process.exitCode = 1;
 } else {
-  console.log("VM-616 rendered Maze context, Reading Finds isolation, history, and Guide checks passed.");
+  console.log(frameOnly
+    ? "VM-658 focused rendered frame checks passed."
+    : "VM-616 rendered Maze context, Reading Finds isolation, history, and Guide checks passed.");
 }
