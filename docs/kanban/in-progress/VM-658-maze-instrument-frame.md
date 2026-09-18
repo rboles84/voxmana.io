@@ -2,7 +2,7 @@
 
 ID: VM-658
 Title: Maze Instrument Frame
-Status: Done
+Status: Integrated
 Type: Production implementation
 Area: Maze presentation and interaction frame
 Priority: High
