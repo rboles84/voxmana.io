@@ -2,7 +2,7 @@
 
 ID: VM-658
 Title: Maze Instrument Frame
-Status: In Progress
+Status: Owner Review
 Type: Production implementation
 Area: Maze presentation and interaction frame
 Priority: High
@@ -112,15 +112,15 @@ Owner rejected exact candidate `dbed6dc9f8ae1ecb4b8a2fb6dc305c9c0337c641` after 
 
 Owner rejected exact candidate `fd4212e129b44e42f370ad2dbddc5beebe0cf808` while accepting the Slice-1 frame in principle. This final bounded correction remains VM-658; do not integrate a rejected candidate, begin VM-659, or enter Slice 2.
 
-- [ ] Plain Reading and Operator's Hand retain the top canonical request/query action region, with Search, Clear where applicable, Copy, Open in Scryfall, and Reading Finds using consistent height, alignment, centering, and padding rhythm.
-- [ ] The Loom is builder-first: its top query/action region is not rendered, its working flow begins directly with Colors, and all existing filter groups retain their current order and behavior.
-- [ ] One bottom Loom completion region after Printing & artwork owns exactly one generated-query representation plus same-owner Search, Copy, Open in Scryfall, Reading Finds, and Reset Loom actions.
-- [ ] Bottom Loom Search, Copy, Open, Finds, and Reset reuse the existing query/compiler/execution/storage/reset owners without an alternate query representation or duplicate top action set.
-- [ ] Remove the Loom-specific View results action and avoid a second Loom result-count/status region; result totals remain truthful with the actual results header and existing result rendering/paging contracts.
-- [ ] Keep active-mode help in a dedicated, non-overlapping right-side tab slot with slightly more edge breathing room, complete keyboard/click/Escape/outside dismissal, 390px containment, and an accessible active-mode name.
-- [ ] Evaluate the locally available Mana v1.18.0 `ms ms-ability-collect-evidence` glyph at rendered size and record whether it provides a natural About/Learn-more cue; retain a restrained conventional help treatment if it does not.
-- [ ] Focused real-browser evidence proves builder-first Loom order, one bottom generated query/action region, exact shared action ownership, Plain/Operator alignment, no View results duplication, help containment, direct standalone computed absence, and no 390px overflow or nested query scroll trap.
-- [ ] Existing parser/compiler/query/API bytes, dossier detach/restore/return, pre-existing Discovery/Helper auto-execution, persistence, result contracts, reduced motion, generated data, and all deferred Slice-2 systems remain unchanged.
+- [x] Plain Reading and Operator's Hand retain the top canonical request/query action region, with Search, Clear where applicable, Copy, Open in Scryfall, and Reading Finds using consistent height, alignment, centering, and padding rhythm.
+- [x] The Loom is builder-first: its top query/action region is not rendered, its working flow begins directly with Colors, and all existing filter groups retain their current order and behavior.
+- [x] One bottom Loom completion region after Printing & artwork owns exactly one generated-query representation plus same-owner Search, Copy, Open in Scryfall, Reading Finds, and Reset Loom actions.
+- [x] Bottom Loom Search, Copy, Open, Finds, and Reset reuse the existing query/compiler/execution/storage/reset owners without an alternate query representation or duplicate top action set.
+- [x] Remove the Loom-specific View results action and avoid a second Loom result-count/status region; result totals remain truthful with the actual results header and existing result rendering/paging contracts.
+- [x] Keep active-mode help in a dedicated, non-overlapping right-side tab slot with slightly more edge breathing room, complete keyboard/click/Escape/outside dismissal, 390px containment, and an accessible active-mode name.
+- [x] Evaluate the locally available Mana v1.18.0 `ms ms-ability-collect-evidence` glyph at rendered size and record whether it provides a natural About/Learn-more cue; retain a restrained conventional help treatment if it does not.
+- [x] Focused real-browser evidence proves builder-first Loom order, one bottom generated query/action region, exact shared action ownership, Plain/Operator alignment, no View results duplication, help containment, direct standalone computed absence, and no 390px overflow or nested query scroll trap.
+- [x] Existing parser/compiler/query/API bytes, dossier detach/restore/return, pre-existing Discovery/Helper auto-execution, persistence, result contracts, reduced motion, generated data, and all deferred Slice-2 systems remain unchanged.
 
 Future Slice-2 requirements remain mandatory but out of scope here: prepare-before-explicit-Search behavior for Discovery/Helper paths; progressive dossier/source/provenance hierarchy; and the actual-state audit of all 37 dossier identities. VM-658 must not silently repair semantic/query/source-authority findings from that future work.
 
@@ -129,8 +129,8 @@ Future Slice-2 requirements remain mandatory but out of scope here: prepare-befo
 Record version: 1
 Branch: codex/vm-658-maze-instrument-frame
 Admission baseline: 6b57d5dc7fa77f51ddc0f27c69dc834dcf12a595
-Candidate: PENDING
-RobQA: PENDING
+Candidate: ad00249087ae60a3c2ce38ed72cde39110971244
+RobQA: PASS at ad00249087ae60a3c2ce38ed72cde39110971244 — SEPARATE reviewer `/root/robqa_vm658`; see independent evidence.
 Owner: PENDING
 Integration: PENDING
 Dependencies: None

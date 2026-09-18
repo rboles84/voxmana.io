@@ -430,3 +430,55 @@ Focused implementation evidence passed: `node tests/maze/maze-search-tests.js`; 
 Protected behavior and transfer: preserved tabs/keyboard/focus and draft round trips, parser/compiler/query/API bytes, Scryfall execution, pre-existing Discovery/Helper auto-execution, contextual/independent dossier and return meaning, Reading Finds persistence, results/paging/no-auto-scroll, modal, reduced motion, and generated data. Realistic remaining review risk is experiential: confirm the builder-first progression and action density feel coherent at desktop/390px, and that the chosen text help communicates naturally; no QA or Owner acceptance is asserted here. Files changed: `maze/index.html`, `assets/css/maze.css`, `assets/js/maze/research-init.js`, focused Maze tests, and the bounded browser witness. No task-card, board, QA handoff, source data, parser/compiler, or Slice-2 surface was changed.
 
 Final coordinator review removed the now-unused explicit result-destination helper and retired Current Weave result-status CSS/grid rows. A new desktop browser geometry assertion then reproduced the Owner's Open in Scryfall alignment defect: a later generic `.query-action-btn` rule computed Copy/Open as block elements despite their nominal centered base rule. The authoritative Plain/Operator action rule now restores `inline-flex`; the real witness records Search, Clear, Copy, Open, and Finds at 60px high, with the wrapped secondary row sharing one top edge and every control computing centered flex content. The focused layout suite and product browser assertions pass after this cleanup; the browser process still requires bounded termination after its explicit PASS because of the previously recorded cleanup-handle debt.
+
+## Fourth-correction exact-candidate engineering result
+
+The governing material candidate is `ad00249087ae60a3c2ce38ed72cde39110971244`. Independent `/root/robqa_vm658` issued RobQAPass PASS in SEPARATE execution for that exact SHA with no blocker, major, or minor findings. All four earlier exact candidates remain Owner-rejected historical evidence and are prohibited from integration.
+
+Plain Reading and Operator's Hand retain their query-first top workbench with consistently centered actions. The Loom now starts directly at Colors, preserves its filter sequence, and ends after Printing & artwork with one generated-query representation plus same-owner Search, Copy, Open in Scryfall, Reading Finds, and Reset actions. Its top workbench, View results affordance, and pre-result count/status duplication are absent. Result totals remain with the actual result header.
+
+Focused Chromium evidence passed at desktop, 390px, and a 200%-equivalent viewport: Open aligns with the other 60px centered actions; help remains closed by default, contained, non-overlapping, and dismissible; direct standalone context computes to `display:none` with a zero rectangle; Loom has no top workbench, begins with Colors, has one bottom completion, and produces no horizontal overflow or nested query scroll. Mana v1.18.0's collect-evidence glyph rendered at 15×16px but was rejected as a misleading About/Learn-more symbol, so the semantically labelled `? About` treatment remains. The focused browser retained its known cleanup handle after printing explicit PASS; bounded termination is recorded as harness debt, not a product failure.
+
+## Material candidate
+
+- Baseline: `6b57d5dc7fa77f51ddc0f27c69dc834dcf12a595`
+- Candidate: `ad00249087ae60a3c2ce38ed72cde39110971244`
+- Changed paths: `12`
+
+## Files changed
+
+- `assets/css/maze.css`
+- `assets/js/maze/research-init.js`
+- `docs/handoffs/2026-09-15-2144-codex-vm658-maze-instrument-frame.md`
+- `docs/handoffs/2026-09-15-2144-robqa-vm658-maze-instrument-frame.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-658-maze-instrument-frame.md`
+- `maze/index.html`
+- `scripts/validate-frontend-html.mjs`
+- `scripts/vm616-maze-context-recovery-browser.mjs`
+- `tests/maze/maze-results-layout-tests.js`
+- `tests/maze/maze-search-tests.js`
+
+## Evidence delta
+
+- Material candidate: `ad00249087ae60a3c2ce38ed72cde39110971244`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `4`
+
+This delta records the exact-candidate RobQA PASS, completed fourth-correction criteria, Owner Review lifecycle binding, final Git accounting, and regenerated board view. It is not the full task diff.
+
+## Evidence-only paths
+
+- `docs/handoffs/2026-09-15-2144-codex-vm658-maze-instrument-frame.md`
+- `docs/handoffs/2026-09-15-2144-robqa-vm658-maze-instrument-frame.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-658-maze-instrument-frame.md`
+
+## Final branch delta
+
+The Git-derived final branch delta remains 12 unique paths from the admission baseline to the evidence head. The four evidence-only paths already exist in the material comparison and receive only append-only evidence, lifecycle, checkbox, or generated-view updates after the candidate.
+
+## Owner Review route
+
+Owner acceptance remains PENDING. Review direct standalone `/maze/index.html` at an ordinary desktop width and around 390px. Compare Plain and Operator action alignment, open and dismiss the inset `? About`, then follow the Loom from Colors through Printing & artwork to its one bottom completion region. Engineering QA covers objective workbench visibility, filter/action order, exact same-owner query/search/copy/open behavior, result-total ownership, tabs/drafts, no-auto-scroll, dossier detach/restore/return, containment, reduced motion, and protected semantic/query contracts; final visual quality remains Owner-only. Do not integrate any rejected SHA, and do not begin VM-659 or Slice 2 from this review.

@@ -403,3 +403,74 @@ Shortest Owner review: open direct standalone `/maze/index.html` at desktop widt
 **RobQAPass PASS** for exact material candidate `fd4212e129b44e42f370ad2dbddc5beebe0cf808`.
 
 The candidate may enter Owner Review. This is not Owner acceptance, visual certification, integration approval, deployment evidence, or authority to begin Slice 2.
+
+---
+
+## Fourth Owner-correction QA cycle — 2026-09-17
+
+Task: VM-658
+Candidate: ad00249087ae60a3c2ce38ed72cde39110971244
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: /root/robqa_vm658
+Implementer: /root/robdev_vm658
+
+This cycle governs the exact fourth Owner-correction material candidate above. The Owner-rejected `fd4212e129b44e42f370ad2dbddc5beebe0cf808` PASS and every earlier candidate decision remain history only.
+
+### Candidate binding, independence, and risk
+
+- `HEAD` and the named candidate resolved to `ad00249087ae60a3c2ce38ed72cde39110971244` on `codex/vm-658-maze-instrument-frame`; merge-base with the admitted baseline resolved to `6b57d5dc7fa77f51ddc0f27c69dc834dcf12a595`.
+- The worktree was clean at binding. This reviewer did not implement the correction and used SEPARATE execution.
+- QA tier: QA-2 for tab/disclosure/action/layout behavior, with the already-admitted bounded QA-3 dossier return/context edge. CPU-heavy validation: **NOT REQUIRED**.
+- The fourth-correction delta was inspected in the full 12-path baseline-to-candidate slice. The material correction separates the Plain/Operator query-first workbench from Loom, moves Loom's sole query/action completion to the end of its filter sequence, removes pre-result delivery duplication, normalizes the Plain/Operator actions, and insets the help trigger. No VM-659/Slice-2 behavior was introduced.
+
+### Checks and outcomes
+
+| Check | Changed-risk purpose | Outcome |
+|---|---|---|
+| `node tests/maze/maze-search-tests.js` | Shared handlers, tabs/drafts, query/copy/open/search, no-auto-scroll, dossier/controller, helper auto-execution | PASS — `Maze search metadata helper cases passed.` |
+| `node tests/maze/maze-results-layout-tests.js` | Loom order/completion singularity, removed duplicate status, action alignment guards, hidden context, responsive/reduced-motion invariants | PASS — focused layout/hover checks passed. |
+| `node tests/maze/research-mode-tests.js` | Plain/Operator first-entry conversion and edited-draft/Loom round trips | PASS — 14 mode and 14 leakage cases. |
+| `node tests/maze/maze-query-contract-tests.js` | Exact compiler/request/API query contracts | PASS. |
+| `node --check assets/js/maze/research-init.js` | Changed controller syntax | PASS. |
+| `node --check scripts/vm616-maze-context-recovery-browser.mjs` | Focused witness syntax | PASS. |
+| `npm.cmd run lint:html` | Route structure, landmark, and HTML semantics | PASS. |
+| `npm.cmd run task -- indexes --check` | Coordination-view freshness before this append | PASS — fresh, 698 cards and 1106 handoffs. |
+| `git diff --check 6b57d5dc7fa77f51ddc0f27c69dc834dcf12a595..ad00249087ae60a3c2ce38ed72cde39110971244` | Exact-candidate whitespace/error guard | PASS. |
+| `node scripts/vm616-maze-context-recovery-browser.mjs --vm658-frame` | Real Chromium visibility, help, action geometry, exact Loom completion, and narrow/deep containment | Product assertions PASS — printed `VM-658 focused rendered frame checks passed.`; post-PASS handle debt noted below. |
+
+### Objective behavior and contract evidence
+
+- Plain and Operator retain the top query-first workbench. At 1440px Chromium measured Search, Clear, Copy, Open in Scryfall, and Reading Finds at a common 60px height with flex centering; all four secondary actions shared the same top coordinate, so Open is not vertically displaced.
+- Loom computes the top `.maze-primary-workbench` as `display:none` with no client rect, begins at Colors, and retains Colors → Card Type → Abilities → Refine → Printing & artwork. Its in-flow completion follows Printing & artwork and contains exactly one generated-query output plus Search, Copy, Open, Reading Finds, and Reset. Retired `View results`, pre-result status/count, ribbon, and floating dock surfaces are absent; actual totals remain owned by `#res-count` in the result header.
+- The bottom Search uses the existing `data-action="search"` dispatch and `doSearch`; Copy uses the existing `copyQuery`; both Open links are synchronized by `updateSearchActions`; both Reading Finds toggles are synchronized by `setStashDrawerOpen`. The focused browser intercepted a request from bottom Search, confirmed Copy enabled, and confirmed Open carried the exact current input query. Query-contract tests preserved compiler/request bytes.
+- Direct standalone `/maze/index.html` retained exactly one context node with `hidden=true`, `data-state=standalone`, computed `display:none`, and a zero-width/zero-height rectangle. The correction did not alter the dossier launch/detach/restore/return owners; focused controller coverage remained green.
+- Native help began closed, opened from its summary, dismissed with Escape and outside click, stayed within the active Plain/Operator/Loom tab region at 390px and desktop, and its disclosure stayed within the narrow viewport. The semantic label updates to `About Plain Reading`, `About Operator's Hand`, or `About The Loom`; native `details/summary` supplies keyboard activation.
+- Mana v1.18 does contain and render `ms-ability-collect-evidence` (the Chromium probe measured 15×16px), but that glyph specifically depicts the MTG collect-evidence mechanic. Retaining the visible `? About` control is therefore the semantically accurate engineering choice for general mode help; whether its appearance is preferable remains Owner-only.
+- At 390px, Plain measured frame/input-action/body bottoms of 745/451/761px; Loom measured frame/builder/completion/body bounds of 2693px, 280–2681px, 1717–2681px, and 2709px. Both had zero horizontal overflow. Colors preceded completion, completion remained before the results body, and the generated query did not become a nested horizontal scroll trap at the 720×500 200%-equivalent witness.
+- Source and targeted tests preserve roving tab semantics/focus, genuine per-mode draft restoration and Loom round trips, search focus restoration with `preventScroll`, result no-auto-scroll ownership, reduced-motion transition guards, dossier/persistence behavior, query/parser/search contracts, and the pre-VM-658 `runQuickSearch` auto-execution path.
+
+### Findings, protected systems, and harness debt
+
+- Blocking findings: **none**.
+- Major findings: **none**.
+- Minor findings: **none** within the admitted engineering scope.
+- Protected parser/compiler meaning, generated data, placement/CECOS, result totals, dossier source meaning, Reading Finds persistence, and retired account systems showed no evidence of drift.
+- After all focused Chromium assertions passed and the PASS line printed, the known browser-process handle did not return naturally. The bounded Ctrl+C cleanup did not yield a final exit code. Per the task's explicit rule, this is recorded as non-blocking harness debt, not a product failure; the harness was not rerun.
+
+### Intentionally skipped
+
+- Full `npm test`, broad parser/placement/semantic/generated-data certification, mutation/synthetic/enumeration runs, and historical onboarding-browser certification were skipped as disproportionate and outside the changed-risk slice.
+- Screenshot comparison and subjective styling judgments were skipped under OWNER-VISUAL MODE. No engineering conclusion rests on aesthetic interpretation.
+
+### Owner-only judgment and shortest Owner route
+
+RobQA does not certify whether the query-first Plain/Operator hierarchy, builder-first Loom, inset `? About`, bottom completion composition, spacing, typography, or use of Vox Mana ornament feels polished, calm, or visually correct.
+
+Shortest Owner review: open `/maze/index.html` at an ordinary desktop width; compare Plain and Operator action alignment, open/dismiss `? About`, then enter Loom and scroll once from Colors through Printing & artwork to the single completion row. Repeat once near 390px and judge only hierarchy, spacing, label/icon treatment, and visual comfort. Engineering QA already covers structure/order, geometry/containment, semantics/dismissal, exact actions/query bytes, drafts, no-auto-scroll, context/return, and protected contracts.
+
+### Governing verdict
+
+**RobQAPass PASS** for exact candidate `ad00249087ae60a3c2ce38ed72cde39110971244`.
+
+The exact candidate may enter Owner Review. This is not Owner acceptance, visual certification, integration approval, deployment evidence, or authority to begin VM-659/Slice 2.
