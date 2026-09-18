@@ -404,3 +404,15 @@ The Git-derived final branch delta remains 12 unique paths from the admission ba
 ## Owner Review route
 
 Owner acceptance remains PENDING. Review direct standalone `/maze/index.html` at an ordinary desktop width and around 390px. Confirm the absence of the ribbon and floating dock, the in-tab help spacing, one shared query/action shell, and the natural end-of-form Loom Search/follow-up. Engineering QA covers objective semantics, tabs/focus/drafts, exact query/runtime preservation, stale-count suppression, dossier detach/restore/return, no-auto-scroll, containment, and reduced motion; final visual quality remains Owner-only. Do not integrate any rejected SHA, and do not begin Slice 2 from this review.
+
+## Fourth Owner rejection and final bounded correction — 2026-09-17
+
+Owner rejected exact candidate `fd4212e129b44e42f370ad2dbddc5beebe0cf808` while accepting the overall Slice-1 frame, standalone-context correction, ribbon and floating-dock removal, unified instrument identity, current mobile structure, and Plain/Operator canonical query ownership. The candidate and its independent PASS remain historical only and are prohibited from integration.
+
+This final correction makes the internal work flow mode-appropriate: Plain Reading and Operator's Hand remain query-first with the shared top request/action region, while The Loom becomes builder-first and begins directly with Colors. The Loom's one generated query representation and its existing Search, Copy, Open in Scryfall, Reading Finds, and Reset owners move together into a single bottom completion region after Printing & artwork. The top query/action block is absent in Loom; no alternate query/compiler/execution/storage owner is authorized.
+
+The Loom-specific View results and any pre-results count/status duplication are removed so normal results follow the completion region and own totals. Plain/Operator actions receive alignment-only normalization. Active-mode help retains its accepted behavior in a slightly inset reserved tab slot; implementation must evaluate the local Mana v1.18.0 `ms ms-ability-collect-evidence` glyph at actual size and record the chosen treatment without forcing a misleading symbol. All parser/query/API/dossier/persistence and Slice-2 boundaries remain protected.
+
+Owner: REJECT
+Candidate: fd4212e129b44e42f370ad2dbddc5beebe0cf808
+Decision reference: Current Codex task attachment dated 2026-09-17 beginning `Do not integrate candidate`.

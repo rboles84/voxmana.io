@@ -2,7 +2,7 @@
 
 ID: VM-658
 Title: Maze Instrument Frame
-Status: Owner Review
+Status: In Progress
 Type: Production implementation
 Area: Maze presentation and interaction frame
 Priority: High
@@ -108,6 +108,20 @@ Owner rejected exact candidate `dbed6dc9f8ae1ecb4b8a2fb6dc305c9c0337c641` after 
 - [x] Focused real-browser evidence proves no ribbon or floating dock, reserved non-overlapping mode help, one canonical query surface, one shared shell, bottom in-flow same-action Search, truthful executed-versus-edited Loom result state, direct standalone computed absence, and 390px containment/no nested scroll trap.
 - [x] Existing tab semantics, keyboard/focus, Plain/Operator drafts, Loom round trips, first-entry conversion, no-auto-scroll, query/API bytes, dossier detach/restore/return, reduced motion, persistence, result contracts, generated data, parser/compiler semantics, and pre-existing Discovery/Helper auto-execution remain unchanged.
 
+## Fourth Owner Correction — 2026-09-17
+
+Owner rejected exact candidate `fd4212e129b44e42f370ad2dbddc5beebe0cf808` while accepting the Slice-1 frame in principle. This final bounded correction remains VM-658; do not integrate a rejected candidate, begin VM-659, or enter Slice 2.
+
+- [ ] Plain Reading and Operator's Hand retain the top canonical request/query action region, with Search, Clear where applicable, Copy, Open in Scryfall, and Reading Finds using consistent height, alignment, centering, and padding rhythm.
+- [ ] The Loom is builder-first: its top query/action region is not rendered, its working flow begins directly with Colors, and all existing filter groups retain their current order and behavior.
+- [ ] One bottom Loom completion region after Printing & artwork owns exactly one generated-query representation plus same-owner Search, Copy, Open in Scryfall, Reading Finds, and Reset Loom actions.
+- [ ] Bottom Loom Search, Copy, Open, Finds, and Reset reuse the existing query/compiler/execution/storage/reset owners without an alternate query representation or duplicate top action set.
+- [ ] Remove the Loom-specific View results action and avoid a second Loom result-count/status region; result totals remain truthful with the actual results header and existing result rendering/paging contracts.
+- [ ] Keep active-mode help in a dedicated, non-overlapping right-side tab slot with slightly more edge breathing room, complete keyboard/click/Escape/outside dismissal, 390px containment, and an accessible active-mode name.
+- [ ] Evaluate the locally available Mana v1.18.0 `ms ms-ability-collect-evidence` glyph at rendered size and record whether it provides a natural About/Learn-more cue; retain a restrained conventional help treatment if it does not.
+- [ ] Focused real-browser evidence proves builder-first Loom order, one bottom generated query/action region, exact shared action ownership, Plain/Operator alignment, no View results duplication, help containment, direct standalone computed absence, and no 390px overflow or nested query scroll trap.
+- [ ] Existing parser/compiler/query/API bytes, dossier detach/restore/return, pre-existing Discovery/Helper auto-execution, persistence, result contracts, reduced motion, generated data, and all deferred Slice-2 systems remain unchanged.
+
 Future Slice-2 requirements remain mandatory but out of scope here: prepare-before-explicit-Search behavior for Discovery/Helper paths; progressive dossier/source/provenance hierarchy; and the actual-state audit of all 37 dossier identities. VM-658 must not silently repair semantic/query/source-authority findings from that future work.
 
 ## Delivery
@@ -115,12 +129,12 @@ Future Slice-2 requirements remain mandatory but out of scope here: prepare-befo
 Record version: 1
 Branch: codex/vm-658-maze-instrument-frame
 Admission baseline: 6b57d5dc7fa77f51ddc0f27c69dc834dcf12a595
-Candidate: fd4212e129b44e42f370ad2dbddc5beebe0cf808
-RobQA: PASS at fd4212e129b44e42f370ad2dbddc5beebe0cf808 — SEPARATE
+Candidate: PENDING
+RobQA: PENDING
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
-Decisions: Implement accepted VM-657 Slice 1 only; preserve existing semantic/query/search/dossier/persistence behavior; stop at Owner Review and do not proceed into Slice 2. Scope amendment: include the existing focused VM-616 Maze context-recovery browser harness because its mode-selection assertions must follow the authorized button-to-tab semantic change and it supplies the bounded dossier entry/return evidence requested for VM-658. Scope amendment: update the existing route-specific frontend HTML assertion from the retired Maze module revision to `vm658` so the changed controller is not served under a stale production cache key. Second Owner correction: preserve the accepted mobile/mode direction while fixing the escaped hidden context, query/ribbon duplication, active-mode help attachment/dismissal, Loom intro duplication, shared-shell consistency, and deep-Loom Search reachability without changing execution semantics or entering Slice 2. Third Owner correction: remove the Slice-1 ribbon and floating dock, reserve non-overlapping active-tab help space, keep one authoritative shared query shell, and provide an in-flow bottom Loom Search action with truthful executed-query follow-up only; retain all prior semantic/runtime boundaries and defer the 37-dossier/provenance architecture to Slice 2.
+Decisions: Implement accepted VM-657 Slice 1 only; preserve existing semantic/query/search/dossier/persistence behavior; stop at Owner Review and do not proceed into Slice 2. Scope amendment: include the existing focused VM-616 Maze context-recovery browser harness because its mode-selection assertions must follow the authorized button-to-tab semantic change and it supplies the bounded dossier entry/return evidence requested for VM-658. Scope amendment: update the existing route-specific frontend HTML assertion from the retired Maze module revision to `vm658` so the changed controller is not served under a stale production cache key. Second Owner correction: preserve the accepted mobile/mode direction while fixing the escaped hidden context, query/ribbon duplication, active-mode help attachment/dismissal, Loom intro duplication, shared-shell consistency, and deep-Loom Search reachability without changing execution semantics or entering Slice 2. Third Owner correction: remove the Slice-1 ribbon and floating dock, reserve non-overlapping active-tab help space, keep one authoritative shared query shell, and provide an in-flow bottom Loom Search action with truthful executed-query follow-up only; retain all prior semantic/runtime boundaries and defer the 37-dossier/provenance architecture to Slice 2. Fourth Owner correction: preserve the accepted common instrument shell while making Loom builder-first, moving its single generated query/action ownership to a bottom completion region, removing Loom View results/status duplication, normalizing Plain/Operator action alignment, and evaluating the local Mana help glyph without changing protected behavior or entering Slice 2.
 Evidence: [RobDev implementation handoff](../../handoffs/2026-09-15-2144-codex-vm658-maze-instrument-frame.md); [independent RobQA handoff](../../handoffs/2026-09-15-2144-robqa-vm658-maze-instrument-frame.md)
 
 ## Admission Scope
