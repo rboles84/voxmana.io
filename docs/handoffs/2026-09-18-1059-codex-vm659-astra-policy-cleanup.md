@@ -105,3 +105,30 @@ Candidate: c38f42feee4487f29cf72febdb5e9e5a74bd7595
 Owner: ACCEPT
 
 Decision reference: Current Codex task Owner message dated 2026-09-18 accepting the exact VM-659 material candidate `c38f42feee4487f29cf72febdb5e9e5a74bd7595`.
+
+## Integration Result — 2026-09-18
+
+Task: VM-659
+
+Candidate: c38f42feee4487f29cf72febdb5e9e5a74bd7595
+
+Evidence head: f583927d9f16a285042e5aff998d2d536c23cb8d
+
+Integration: PR53 guarded squash merge 3379688cc3bff9ef58b55900fa33fe3a175a9e63
+
+- [PR #53](https://github.com/rboles84/voxmana.io/pull/53) targeted `main` from the single admitted `codex/vm-659-astra-policy-cleanup` branch and contained exactly 10 paths and 6 commits.
+- `Deterministic Validation` completed successfully at exact evidence head `f583927d9f16a285042e5aff998d2d536c23cb8d` in workflow run `35375243478`, job `105698269403`.
+- The integration-stage delivery validator passed with exact Owner/RobQA bindings, complete host-observed path/blob and commit parity, clean mergeability, and the connector's atomic expected-head merge guard.
+- The GitHub connector squash-merged with `expected_head_sha=f583927d9f16a285042e5aff998d2d536c23cb8d`; the resulting commit is `3379688cc3bff9ef58b55900fa33fe3a175a9e63`.
+- GitHub removed the remote feature branch automatically. Local `main` was fast-forwarded to the verified squash result before closeout.
+- No product/runtime files, unrelated governance, VM-658 records, tags, stashes, or worktrees were changed during integration.
+
+## Closeout Boundaries — 2026-09-18
+
+Task: VM-659
+
+Candidate: c38f42feee4487f29cf72febdb5e9e5a74bd7595
+
+Boundaries: PASS
+
+Closeout is limited to the verified VM-659 integration record, Done lifecycle relocation, generated Kanban refresh, and removal of the exact merged topic-branch reference. No later-phase or unrelated work is included.
