@@ -482,3 +482,15 @@ The Git-derived final branch delta remains 12 unique paths from the admission ba
 ## Owner Review route
 
 Owner acceptance remains PENDING. Review direct standalone `/maze/index.html` at an ordinary desktop width and around 390px. Compare Plain and Operator action alignment, open and dismiss the inset `? About`, then follow the Loom from Colors through Printing & artwork to its one bottom completion region. Engineering QA covers objective workbench visibility, filter/action order, exact same-owner query/search/copy/open behavior, result-total ownership, tabs/drafts, no-auto-scroll, dossier detach/restore/return, containment, reduced motion, and protected semantic/query contracts; final visual quality remains Owner-only. Do not integrate any rejected SHA, and do not begin VM-659 or Slice 2 from this review.
+
+## Fifth Owner rejection and four-item visual correction — 2026-09-17
+
+Owner rejected exact candidate `ad00249087ae60a3c2ce38ed72cde39110971244` while accepting the VM-658 Slice-1 architecture and interaction model. The candidate and its RobQA PASS remain historical evidence only and are prohibited from integration.
+
+The bounded product outcome is four presentation repairs in the existing route-local markup/CSS owners: add spacing-scale breathing room between the Plain/Operator action row and `#query-inspector`; replace the visible help question mark with the Owner-required local Mana v1.18.0 `ms ms-ability-collect-evidence` glyph while preserving the dynamic accessible About name and current disclosure behavior; identify and consolidate the actual adjacent rules so Loom reads mode rail → one etched rule → Colors; and normalize the bottom Loom Open in Scryfall link as a centered gold/yellow secondary action across link states. The existing mode rail, workbench, builder, completion actions, and focused browser witness are the machinery to reuse; no new UI or behavior owner is authorized.
+
+Protected behavior remains Plain/Operator query-first flow, Loom builder-first order and completion ownership, exact query/compiler/API bytes, Search/Copy/Finds/Reset, result totals, standalone context, tabs/focus/drafts, dossier detach/restore/return, reduced motion, current Discovery/Helper auto-execution, persistence, generated data, and every Slice-2 boundary. Relevant objective states are desktop and approximately 390px spacing/containment, disclosure keyboard/click/Escape/outside dismissal, one computed transition rule, and bottom link geometry/color/link states. Stop after the smallest CSS/markup/test correction and return to Owner Review.
+
+Owner: REJECT
+Candidate: ad00249087ae60a3c2ce38ed72cde39110971244
+Decision reference: Current Codex task attachment dated 2026-09-17 beginning `Do not integrate candidate`.
