@@ -47,20 +47,22 @@ Record efficiency or escalation notes only when useful, such as when reasoning w
 
 ## Agent Model Routing
 
-This is Owner-authorized delegation guidance. It assigns an available model and reasoning effort to a role; it does not replace that role's governing authority, independence requirements, delivery gates, or an explicit user choice.
+This is Owner-authorized delegation guidance. The coordinator uses the current session's model and reasoning effort unless the Owner explicitly chooses otherwise; delegated roles receive the routes below. Routing does not replace a role's governing authority, independence requirements, delivery gates, or an explicit user choice.
 
 | Delegated role | Requested model | Requested effort | Routing obligation |
 |---|---|---|---|
-| Conversation, planning, and coordination | `gpt-6-astra` | `xhigh` | Coordinate scope, decisions, and delivery; delegate routine construction rather than performing it under the coordinator route. |
+| Conversation, planning, and coordination | Session-selected | Session-selected | Use the current coordinator/session context for scope, decisions, and delivery; delegate routine construction through the configured child routes. |
 | RobDev implementation and routine source reading | `gpt-5.6-terra` | `medium` | Apply RobDev, implement the approved scope, and run developer verification. |
 | Independent RobQA and test strategy | `gpt-5.6-sol` | `medium` | Apply RobQA independently; its separate-QA rules remain unchanged. |
 | Clerical records, including routine Kanban updates | `gpt-5.6-terra` | `low` | Maintain bounded records without reopening substantive implementation or governance decisions. |
 
-Documentation, governance, and substantive implementation use the Terra medium route. Method skills and role prompts route work to their governing authority; they do not select a model automatically. Where RobQA requires separate execution, independence concerns a non-implementing reviewer, not a different model family; a low-risk same-agent distinct QA phase remains allowed only where RobQA already allows it. Model selection never creates readiness or permission.
+Delegated documentation, governance, and substantive implementation use the Terra medium route. Method skills and role prompts route work to their governing authority; they do not select a model automatically. Where RobQA requires separate execution, independence concerns a non-implementing reviewer, not a different model family; a low-risk same-agent distinct QA phase remains allowed only where RobQA already allows it. Model selection never creates readiness or permission.
+
+Repository policy does not pin the coordinator's model or reasoning effort. The current session selection applies unless the Owner explicitly chooses another supported setting.
 
 ### Native Codex defaults and role configuration
 
-For supported native Codex subagent spawns, `.codex/config.toml` sets the project fallback to `gpt-5.6-terra` at `medium`. This prevents an omitted generic subagent route from inheriting the coordinator's Astra Extra High setting. It is a generic fallback, not a substitute for role selection: `.codex/agents/robdev.toml`, `.codex/agents/robqa.toml`, and `.codex/agents/clerical.toml` set the three role routes above explicitly.
+For supported native Codex subagent spawns, `.codex/config.toml` sets the project fallback to `gpt-5.6-terra` at `medium`. This prevents an omitted generic subagent route from inheriting the parent coordinator's session-selected model and effort. It is a generic fallback, not a substitute for role selection: `.codex/agents/robdev.toml`, `.codex/agents/robqa.toml`, and `.codex/agents/clerical.toml` set the three role routes above explicitly.
 
 Native Codex resolves an explicit spawn setting, then `[agents]` defaults, then the parent setting before applying a selected custom-agent file; a custom-agent file that sets model or effort takes precedence over that resolved value. Select the configured role where the runtime exposes role selection. An exception needs an explicitly named/configured escalation route or a supported explicit-spawn surface; it must still be announced, justified, bounded, and recorded. Return to the role's default lower route when the bounded escalation ends.
 

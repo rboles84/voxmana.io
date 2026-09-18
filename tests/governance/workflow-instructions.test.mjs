@@ -165,10 +165,10 @@ test('delivery routes remain canonical and stage invocation is explicit', () => 
   assert.ok(links('docs/reference/workflow.md').includes('task-context.md#focused-and-deep-rehydration'));
 });
 
-test('agent model routing assigns roles without replacing governing gates', () => {
+test('agent model routing preserves session-selected coordination and explicit delegated roles', () => {
   const routing = section('docs/reference/token-reasoning-cost-control.md', 'Agent Model Routing');
   for (const assignment of [
-    /^\| Conversation, planning, and coordination \| `gpt-6-astra` \| `xhigh` \|/m,
+    /^\| Conversation, planning, and coordination \| Session-selected \| Session-selected \|/m,
     /^\| RobDev implementation and routine source reading \| `gpt-5\.6-terra` \| `medium` \|/m,
     /^\| Independent RobQA and test strategy \| `gpt-5\.6-sol` \| `medium` \|/m,
     /^\| Clerical records, including routine Kanban updates \| `gpt-5\.6-terra` \| `low` \|/m
@@ -178,6 +178,14 @@ test('agent model routing assigns roles without replacing governing gates', () =
   assert.match(routing, /separate-QA rules remain unchanged/i);
   assert.match(routing, /independence concerns a non-implementing reviewer, not a different model family/i);
   assert.match(routing, /Model selection never creates readiness or permission/i);
+  assert.match(routing, /Repository policy does not pin the coordinator's model or reasoning effort/i);
+  assert.match(routing, /current session selection applies unless the Owner explicitly chooses/i);
+
+  for (const prompt of ['.codex/prompts/plan.md', '.codex/prompts/preflight.md']) {
+    const text = read(prompt);
+    assert.match(text, /current coordinator\/session context/i);
+    assert.doesNotMatch(text, /Astra|xhigh/i);
+  }
 });
 
 test('agent model routing requires explicit focused delegation and transparent capability gaps', () => {
@@ -209,9 +217,14 @@ test('agent model routing requires explicit focused delegation and transparent c
 
 test('native Codex routing files preserve the three role routes and a non-Astra fallback', () => {
   const config = read('.codex/config.toml');
+  const firstTable = config.search(/^\s*\[/m);
+  const rootConfig = firstTable === -1 ? config : config.slice(0, firstTable);
+  assert.doesNotMatch(rootConfig, /^model\s*=/m);
+  assert.doesNotMatch(rootConfig, /^model_reasoning_effort\s*=/m);
   assert.match(config, /^\[agents\]$/m);
   assert.match(config, /^default_subagent_model = "gpt-5\.6-terra"$/m);
   assert.match(config, /^default_subagent_reasoning_effort = "medium"$/m);
+  assert.doesNotMatch(config, /Astra|xhigh/i);
 
   const route = (text, file) => {
     const field = key => {
