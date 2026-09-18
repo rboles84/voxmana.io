@@ -222,7 +222,7 @@ try {
     await page.keyboard.down("Control");
     await page.keyboard.press("A");
     await page.keyboard.up("Control");
-    await page.type("#search-input", "c:r");
+    await page.type("#search-input", "c:r AND t:creature");
     await page.click("#search-btn");
     await page.waitForFunction(() => !document.getElementById("query-inspector")?.classList.contains("hidden"));
     await page.waitForFunction(() => document.getElementById("search-btn")?.disabled === false);

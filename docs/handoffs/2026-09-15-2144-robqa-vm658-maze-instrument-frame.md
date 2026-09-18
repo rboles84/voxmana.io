@@ -537,3 +537,62 @@ Owner alone judges whether the new breathing room, evidence glyph, single etched
 **RobQAPass BLOCKED / engineering FAIL** for exact candidate `240889622f59f50f44946cd6bf760ec351c38e2e`.
 
 No product defect is confirmed, but the exact candidate cannot enter Owner Review with its explicitly required objective rendered evidence unverified. This is not Owner acceptance, integration approval, deployment evidence, or Slice-2 authority.
+
+---
+
+## Fifth-correction repaired-witness QA cycle — 2026-09-17
+
+Task: VM-658
+Candidate: 4de7134cc346cbca77adda0f1c17ebc5c5fe882b
+RobQA: BLOCKED
+Execution: SEPARATE
+Reviewer: /root/robqa_vm658
+Implementer: /root/robdev_vm658
+
+This is the fresh governing cycle for the exact repaired-witness candidate. The `240889622f59f50f44946cd6bf760ec351c38e2e` BLOCKED decision remains durable history.
+
+### Binding, independence, and scope
+
+- `HEAD` and the named candidate resolved to `4de7134cc346cbca77adda0f1c17ebc5c5fe882b`; merge-base with admission baseline resolved to `6b57d5dc7fa77f51ddc0f27c69dc834dcf12a595`; the worktree was clean at binding.
+- The reviewer remains independent from `/root/robdev_vm658`; execution is SEPARATE.
+- Delta from the blocked candidate is limited to the focused browser witness and append-only handoff history. Product CSS, markup, runtime, tests, query ownership, and interaction contracts are byte-unchanged from `240889622f59f50f44946cd6bf760ec351c38e2e`.
+- QA remains QA-1 presentation with targeted interaction/rendered evidence. No heavy or broad suite was justified.
+
+### Checks and outcomes
+
+| Check | Outcome |
+|---|---|
+| `node tests/maze/maze-results-layout-tests.js` | PASS — focused layout/hover assertions. |
+| `node tests/maze/maze-search-tests.js` | PASS — focused search/controller/helper assertions. |
+| `node tests/maze/research-mode-tests.js` | PASS — 14 mode and 14 leakage cases. |
+| `node tests/maze/maze-query-contract-tests.js` | PASS. |
+| `node --check assets/js/maze/research-init.js` | PASS. |
+| `node --check scripts/vm616-maze-context-recovery-browser.mjs` | PASS. |
+| `npm.cmd run lint:html` | PASS. |
+| `git diff --check 6b57d5dc7fa77f51ddc0f27c69dc834dcf12a595..4de7134cc346cbca77adda0f1c17ebc5c5fe882b` | PASS. |
+| `node scripts/vm616-maze-context-recovery-browser.mjs --vm658-frame` | FAIL before completion. It followed explicit Plain Search and measured `VM-658 inspector gaps: Plain 16px`, then timed out after 30 seconds at line 227 waiting for Operator Query Inspector after explicit Operator Search. It emitted no Operator-gap, separator, glyph, link-state, desktop/390 containment summary, or explicit PASS. |
+
+### Evidence and nine-point status
+
+- Objective item 1 is only partially rendered: Plain measured the required 16px gap; Operator did not produce a measurement. Source still gives both modes the same 1rem parent-level gap.
+- Items 2–7 retain green focused source/DOM guards for visible local Mana glyph with no visible question mark, dynamic accessible About labels, one Loom separator owner, centered gold Loom Open geometry, and normal/visited/hover/focus-visible/active rules. The repaired witness did not reach their required rendered assertions.
+- Item 8 retains prior/static containment guards, but this exact candidate did not emit the requested desktop/390 rendered completion evidence.
+- Item 9 remains green at the proportional contract layer: product files are unchanged from the blocked candidate; focused search, mode/draft, query, HTML, syntax, and diff checks pass. Plain/Operator query-first flow, Loom builder-first order/completion, exact query/actions/results/context/tabs/drafts/dossier/reduced-motion/helper auto-execution, and the Slice-2 boundary show no changed-risk regression.
+
+### Blocking finding and harness debt
+
+- **BLOCKER — the repaired witness still does not complete the explicitly required objective rendered coverage.** It proves only the Plain 16px gap before timing out in the Operator setup.
+- The bounded causal read identifies the timeout at the witness's new Operator `waitForFunction` immediately after its scripted Search. Product CSS/markup/runtime did not change in this candidate, and the focused mode/query/search contracts remain green, so this is suspected witness/setup debt rather than a confirmed product defect. It was not rerun, weakened, or expanded into broader diagnostics.
+- Because the failed harness remains the only rendered coverage for the changed gap/separator/glyph/link-state/containment acceptance criteria, RobQA cannot convert the partial measurement and static checks into PASS.
+
+### Skipped checks and OWNER-VISUAL boundary
+
+- Full npm, parser/placement/semantic/generated-data, historical browser, mutation, synthetic, enumeration, and screenshot suites were skipped as disproportionate.
+- Owner alone judges whether the spacing, glyph, etched transition, and gold action look coherent and polished. No aesthetic claim is made.
+- After the focused witness completes, the shortest Owner route remains desktop plus about 390px: compare Plain/Operator breathing room; open/dismiss each mode's About control; inspect the one Loom rail-to-Colors separator and bottom Open across pointer and keyboard states.
+
+### Governing verdict
+
+**RobQAPass BLOCKED / engineering FAIL** for exact candidate `4de7134cc346cbca77adda0f1c17ebc5c5fe882b`.
+
+No product defect is confirmed, but the exact candidate cannot enter Owner Review because its required rendered witness still lacks an explicit PASS and leaves material objective criteria unverified. No integration or Slice-2 authority is granted.

@@ -508,3 +508,9 @@ Protected boundaries: no runtime JavaScript, query ownership, mode behavior, Loo
 Independent RobQA correctly blocked exact candidate `240889622f59f50f44946cd6bf760ec351c38e2e` because the required rendered witness timed out before reaching the new assertions. The failure was test setup, not a confirmed product defect: the witness typed Plain/Operator input and then waited for Query Inspector, but the unchanged product reveals that inspector through the explicit Search/query-resolution path.
 
 The bounded witness now follows the accepted real product contract in both modes: enter the request/query, explicitly activate the canonical Search button, wait for Search completion, then measure the inspector gap. No runtime code, styling, markup, query owner, or accepted interaction changed. This new material candidate must receive fresh independent RobQA; the blocked SHA remains non-integrable history.
+
+## Fifth-correction normalized Operator witness repair — 2026-09-17
+
+Independent RobQA correctly blocked exact candidate `4de7134cc346cbca77adda0f1c17ebc5c5fe882b` after the rendered witness measured the Plain inspector gap at `16px` but timed out waiting for the Operator Query Inspector. The bounded causal check confirmed the witness used exact raw syntax (`c:r`), for which the unchanged product intentionally keeps the inspector hidden when there is no normalization, final reason, or diagnostic to show.
+
+The Operator witness now uses the established normalized raw case `c:r AND t:creature`, which exercises the visible Query Inspector through the same explicit canonical Search path without changing product behavior or weakening an assertion. Product CSS, markup, runtime JavaScript, query ownership, and interaction contracts remain byte-unchanged from the preceding material candidate. The blocked SHA remains non-integrable history; the replacement exact candidate requires fresh independent RobQA.
