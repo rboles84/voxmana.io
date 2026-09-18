@@ -217,6 +217,10 @@ test('agent model routing requires explicit focused delegation and transparent c
 
 test('native Codex routing files preserve the three role routes and a non-Astra fallback', () => {
   const config = read('.codex/config.toml');
+  const firstTable = config.search(/^\s*\[/m);
+  const rootConfig = firstTable === -1 ? config : config.slice(0, firstTable);
+  assert.doesNotMatch(rootConfig, /^model\s*=/m);
+  assert.doesNotMatch(rootConfig, /^model_reasoning_effort\s*=/m);
   assert.match(config, /^\[agents\]$/m);
   assert.match(config, /^default_subagent_model = "gpt-5\.6-terra"$/m);
   assert.match(config, /^default_subagent_reasoning_effort = "medium"$/m);

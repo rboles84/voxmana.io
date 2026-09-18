@@ -38,7 +38,7 @@ Related card: [VM-659](../kanban/in-progress/VM-659-astra-policy-cleanup.md)
 - Planning and preflight use the current coordinator/session context instead of requesting Astra/xhigh.
 - Generic Terra/medium child defaults and named Terra/Sol role files remain unchanged.
 - The stale Astra inheritance comment now describes parent-coordinator inheritance generically.
-- Governance assertions now require model-neutral coordination, preserve exact child routes, and reject Astra/xhigh in the active planning, preflight, and project-config surfaces.
+- Governance assertions now require model-neutral coordination, prohibit top-level root model/effort pins, preserve exact child routes, and reject Astra/xhigh in the active planning, preflight, and project-config surfaces.
 - The intentional negative prohibition against silently falling back to Astra remains intact.
 
 ## Why it changed
