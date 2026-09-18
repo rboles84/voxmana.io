@@ -1,4 +1,4 @@
-<!-- task-view-sha256:27d8e6a1686182eeb72c3784d2cd53dcfb2ce38223e75d0bfaf8e53d34542049 -->
+<!-- task-view-sha256:c27f01e916d1fa3646e9481532c01d3394d403c8df6ffc81d170a0b0f950aa0a -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -39,6 +39,7 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 
 | ID | Card | Declared status | Diagnostics |
 |---|---|---|---|
+| VM-659 | [Astra Policy Cleanup](in-progress/VM-659-astra-policy-cleanup.md) | In Progress |  |
 
 ## Owner Review
 
