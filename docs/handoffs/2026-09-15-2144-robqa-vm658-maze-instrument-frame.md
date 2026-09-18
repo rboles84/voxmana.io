@@ -474,3 +474,66 @@ Shortest Owner review: open `/maze/index.html` at an ordinary desktop width; com
 **RobQAPass PASS** for exact candidate `ad00249087ae60a3c2ce38ed72cde39110971244`.
 
 The exact candidate may enter Owner Review. This is not Owner acceptance, visual certification, integration approval, deployment evidence, or authority to begin VM-659/Slice 2.
+
+---
+
+## Fifth Owner-correction QA cycle — 2026-09-17
+
+Task: VM-658
+Candidate: 240889622f59f50f44946cd6bf760ec351c38e2e
+RobQA: BLOCKED
+Execution: SEPARATE
+Reviewer: /root/robqa_vm658
+Implementer: /root/robdev_vm658
+
+This append governs the exact fifth Owner-correction candidate. The Owner-rejected `ad00249087ae60a3c2ce38ed72cde39110971244` PASS and all earlier candidates remain history only.
+
+### Binding and risk classification
+
+- `HEAD` and the named candidate resolved to `240889622f59f50f44946cd6bf760ec351c38e2e` on `codex/vm-658-maze-instrument-frame`; merge-base with admission baseline resolved to `6b57d5dc7fa77f51ddc0f27c69dc834dcf12a595`. The worktree was clean at binding.
+- This reviewer did not implement the material correction. Execution is SEPARATE.
+- QA tier is QA-1 presentation with targeted disclosure/link interaction evidence. The material delta from the rejected fourth candidate is limited to route markup/CSS plus focused tests/witness and governance records; runtime JavaScript did not change.
+- Objective rendered spacing, separator count, glyph visibility, link geometry/color states, and narrow containment were explicitly required and cannot be certified solely from source assertions. One focused browser run was therefore selected; broad suites remained disproportionate.
+
+### Checks and outcomes
+
+| Check | Outcome |
+|---|---|
+| `node tests/maze/maze-results-layout-tests.js` | PASS — focused layout/hover source guards passed. |
+| `node tests/maze/maze-search-tests.js` | PASS — Maze search metadata/helper cases passed. |
+| `node tests/maze/research-mode-tests.js` | PASS — 14 mode and 14 leakage cases. |
+| `node tests/maze/maze-query-contract-tests.js` | PASS. |
+| `node --check assets/js/maze/research-init.js` | PASS. |
+| `node --check scripts/vm616-maze-context-recovery-browser.mjs` | PASS. |
+| `npm.cmd run lint:html` | PASS. |
+| `git diff --check 6b57d5dc7fa77f51ddc0f27c69dc834dcf12a595..240889622f59f50f44946cd6bf760ec351c38e2e` | PASS. |
+| `node scripts/vm616-maze-context-recovery-browser.mjs --vm658-frame` | FAIL before the fifth-correction assertions: Puppeteer timed out after 30 seconds at line 209 waiting for Query Inspector to become visible after `page.type`. No explicit product-assertion PASS or new geometry/color measurements were emitted. |
+
+### Deterministic evidence and protected contracts
+
+- Source shows one parent-level `.maze-primary-workbench { display:grid; gap:1rem; }` owner for the Plain/Operator action-row-to-inspector gap.
+- Markup replaces the visible question mark with `<i class="ms ms-ability-collect-evidence" aria-hidden="true">` while retaining visible `About`; the existing controller still supplies `About Plain Reading`, `About Operator's Hand`, and `About The Loom`. Existing native-details/default-closed/Escape/outside-click logic and tab semantics were not changed.
+- Source leaves the mode rail's one 1px bottom border and sets both `.builder-panel` and `.builder-compose-grid` top borders to zero, with no matching builder pseudo-element separator.
+- The Loom Open rule specifies inline-flex centering, 60px height, matching padding, Maze gold for normal/visited, and gold-family hover/focus-visible/active states. The rule remains secondary rather than primary.
+- Focused search/mode/query tests preserve Plain/Operator query-first behavior, Loom builder-first order and one bottom completion, exact query/Search/Copy/Open/Finds/Reset ownership, result totals, tabs/drafts, dossier/persistence, no-auto-scroll, reduced motion, helper auto-execution, and the Slice-2 boundary.
+
+### Blocking finding and harness classification
+
+- **BLOCKER — required rendered evidence is absent.** The focused witness never reached its new inspector-gap, Loom-separator, glyph, Open-link geometry/color, desktop, or narrow assertions.
+- The one-attempt causal check found a witness setup defect: `page.type("#search-input", ...)` dispatches input and records a draft, but Query Inspector is rendered by query resolution/search; typing alone does not remove its `hidden` class. The new unconditional `waitForFunction` is therefore not evidence of a product regression. Runtime JS is unchanged in this candidate.
+- An alternate browser surface was attempted but unavailable in the environment. Under the RobQA rule for a failing harness that is the only coverage for changed objective behavior, this remains a coverage gap and blocks PASS. It is harness debt, not a confirmed product defect; the failed harness was not repeatedly rerun or weakened.
+
+### Skipped checks
+
+- Full `npm test`, broad parser/placement/semantic/generated-data, mutation, synthetic, enumeration, historical browser, and screenshot suites were skipped as disproportionate to this QA-1 correction.
+- No subjective optical or aesthetic claim is made.
+
+### OWNER-VISUAL boundary and shortest eventual Owner route
+
+Owner alone judges whether the new breathing room, evidence glyph, single etched transition, and gold Loom Open treatment feel coherent, legible, calm, and distinctly Vox Mana. After the focused witness is repaired and objective assertions pass, the shortest Owner route is: open direct `/maze/index.html` at desktop and about 390px; compare Plain and Operator action-to-inspector breathing room; open/dismiss each mode's About disclosure; then inspect Loom's rail-to-Colors transition and bottom Open control across pointer and keyboard states.
+
+### Governing verdict
+
+**RobQAPass BLOCKED / engineering FAIL** for exact candidate `240889622f59f50f44946cd6bf760ec351c38e2e`.
+
+No product defect is confirmed, but the exact candidate cannot enter Owner Review with its explicitly required objective rendered evidence unverified. This is not Owner acceptance, integration approval, deployment evidence, or Slice-2 authority.

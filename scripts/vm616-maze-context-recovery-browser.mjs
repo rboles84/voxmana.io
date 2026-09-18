@@ -206,7 +206,9 @@ try {
     await page.keyboard.press("Escape");
     await page.click("#mode-ai");
     await page.type("#search-input", "vampires that sacrifice creatures");
+    await page.click("#search-btn");
     await page.waitForFunction(() => !document.getElementById("query-inspector")?.classList.contains("hidden"));
+    await page.waitForFunction(() => document.getElementById("search-btn")?.disabled === false);
     const inspectorGap = () => page.$eval("#query-inspector", inspector => {
       const row = document.querySelector(".search-input-row")?.getBoundingClientRect();
       const inspectorRect = inspector.getBoundingClientRect();
@@ -216,8 +218,14 @@ try {
     console.log(`VM-658 inspector gaps: Plain ${plainInspectorGap}px`);
     expect(plainInspectorGap >= 16, "Plain Reading must keep a spacing-scale gap between its action row and query inspector");
     await page.click("#mode-raw");
-    await page.type("#search-input", " c:r");
+    await page.click("#search-input");
+    await page.keyboard.down("Control");
+    await page.keyboard.press("A");
+    await page.keyboard.up("Control");
+    await page.type("#search-input", "c:r");
+    await page.click("#search-btn");
     await page.waitForFunction(() => !document.getElementById("query-inspector")?.classList.contains("hidden"));
+    await page.waitForFunction(() => document.getElementById("search-btn")?.disabled === false);
     const rawInspectorGap = await inspectorGap();
     console.log(`VM-658 inspector gaps: Operator ${rawInspectorGap}px`);
     expect(rawInspectorGap >= 16, "Operator's Hand must keep the same parent-level inspector gap");
