@@ -575,3 +575,13 @@ Owner: ACCEPT
 Decision reference: Current Codex task Owner message dated 2026-09-17 beginning `OWNER ACCEPT — VM-658 Maze Instrument Frame`.
 
 Owner completed visual review and accepted the exact RobQA-passed material candidate. The final Slice-1 instrument frame, Plain/Operator inspector separation, Collect Evidence About treatment, single Loom-to-Colors separator, bottom Loom Open alignment and gold interaction treatment, desktop/390px coherence, and accepted query-first/builder-first flows are approved. The recorded browser-harness timing/state anomalies are accepted as non-blocking test debt because independent RobQA found no corresponding product defect. Authorization is limited to normal VM-658 integration and closeout; VM-659 and Slice 2 must not begin automatically.
+
+## Integration and closeout — 2026-09-17
+
+Task: VM-658
+Candidate: 71a26b683fd5fde594e717a9aea6a565fd7f0891
+Owner: ACCEPT
+Integration: PR #52 expected-head guarded squash merge `4c15cbd0442783aef9587efc89c3346a3ed8c8ff`
+Boundaries: PASS
+
+The integration gate passed against evidence head `b6c18dccbcd8ea8eefcc75e952cbcda0fde99d8a`, exact PR scope, green Deterministic Validation, and the connector's atomic expected-head merge capability. The squash commit has sole parent `6b57d5dc7fa77f51ddc0f27c69dc834dcf12a595` and tree `61b1c83f3f4930cda5ef490dbf635bd5f0516517`, identical to the accepted evidence head. Local `main` was fast-forwarded to the verified merge, GitHub had already removed the remote feature branch, and the local feature and stale remote-tracking refs were removed. The only registered worktree is the clean repository root on `main`. VM-658 is complete; VM-659 and Slice 2 remain unstarted.

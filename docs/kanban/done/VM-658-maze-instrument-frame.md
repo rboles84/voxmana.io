@@ -2,7 +2,7 @@
 
 ID: VM-658
 Title: Maze Instrument Frame
-Status: Accepted
+Status: Done
 Type: Production implementation
 Area: Maze presentation and interaction frame
 Priority: High
@@ -144,7 +144,7 @@ Admission baseline: 6b57d5dc7fa77f51ddc0f27c69dc834dcf12a595
 Candidate: 71a26b683fd5fde594e717a9aea6a565fd7f0891
 RobQA: PASS at 71a26b683fd5fde594e717a9aea6a565fd7f0891 — SEPARATE execution by /root/robqa_vm658
 Owner: ACCEPTED at 71a26b683fd5fde594e717a9aea6a565fd7f0891 — current Codex task Owner decision dated 2026-09-17
-Integration: PENDING
+Integration: INTEGRATED via PR #52 expected-head guarded squash merge `4c15cbd0442783aef9587efc89c3346a3ed8c8ff`; closeout recorded in docs/handoffs/2026-09-17-2327-codex-vm658-closeout.md
 Dependencies: None
 Decisions: Implement accepted VM-657 Slice 1 only; preserve existing semantic/query/search/dossier/persistence behavior; stop at Owner Review and do not proceed into Slice 2. Scope amendment: include the existing focused VM-616 Maze context-recovery browser harness because its mode-selection assertions must follow the authorized button-to-tab semantic change and it supplies the bounded dossier entry/return evidence requested for VM-658. Scope amendment: update the existing route-specific frontend HTML assertion from the retired Maze module revision to `vm658` so the changed controller is not served under a stale production cache key. Second Owner correction: preserve the accepted mobile/mode direction while fixing the escaped hidden context, query/ribbon duplication, active-mode help attachment/dismissal, Loom intro duplication, shared-shell consistency, and deep-Loom Search reachability without changing execution semantics or entering Slice 2. Third Owner correction: remove the Slice-1 ribbon and floating dock, reserve non-overlapping active-tab help space, keep one authoritative shared query shell, and provide an in-flow bottom Loom Search action with truthful executed-query follow-up only; retain all prior semantic/runtime boundaries and defer the 37-dossier/provenance architecture to Slice 2. Fourth Owner correction: preserve the accepted common instrument shell while making Loom builder-first, moving its single generated query/action ownership to a bottom completion region, removing Loom View results/status duplication, normalizing Plain/Operator action alignment, and evaluating the local Mana help glyph without changing protected behavior or entering Slice 2. Fifth Owner correction: retain the accepted architecture and make only the four specified visual repairs—inspector spacing, required Collect Evidence help glyph, one Loom-to-Colors rule, and bottom Open action alignment/color—before returning to Owner Review.
 Evidence: [RobDev implementation handoff](../../handoffs/2026-09-15-2144-codex-vm658-maze-instrument-frame.md); [independent RobQA handoff](../../handoffs/2026-09-15-2144-robqa-vm658-maze-instrument-frame.md)
