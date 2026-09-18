@@ -323,3 +323,83 @@ Shortest Owner review: open `/maze/index.html` directly at an ordinary desktop w
 **RobQAPass PASS** for exact material candidate `dbed6dc9f8ae1ecb4b8a2fb6dc305c9c0337c641`.
 
 The candidate may enter Owner Review. This is not Owner acceptance, visual certification, integration approval, deployment evidence, or authority to begin Slice 2.
+
+---
+
+## Third Owner-correction QA cycle — 2026-09-17
+
+Task: VM-658
+Candidate: fd4212e129b44e42f370ad2dbddc5beebe0cf808
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: /root/robqa_vm658
+Implementer: /root/robdev_vm658
+
+This cycle governs the exact third Owner-correction material candidate above. The Owner-rejected `dbed6dc9f8ae1ecb4b8a2fb6dc305c9c0337c641` PASS and all earlier candidate decisions remain historical only.
+
+### Candidate binding, independence, and classification
+
+- `HEAD` and the named candidate resolved to `fd4212e129b44e42f370ad2dbddc5beebe0cf808` on `codex/vm-658-maze-instrument-frame`; merge-base with the admission baseline resolved to `6b57d5dc7fa77f51ddc0f27c69dc834dcf12a595`.
+- The worktree was clean at candidate binding. This reviewer did not implement the material correction and used SEPARATE execution because accessible disclosure/tabs, query/action ownership, executed-versus-edited state, responsive interaction, and dossier return are shared behavioral contracts.
+- QA tier: QA-2 component interaction with the bounded QA-3 dossier detach/restore/return edge. CPU-heavy validation: **NOT REQUIRED**.
+- Changed behavior reviewed: complete ribbon and floating dock removal; singular canonical query/Copy/Open ownership; reserved in-flow active-tab help; identical shared shell; bottom in-flow Loom Search; exact-executed-query follow-up invalidation.
+- Protected behavior intentionally untouched: parser/compiler meaning, query/API bytes, Scryfall execution/order/paging, result-set totals, dossier source/return meaning, Reading Finds persistence, generated semantic data, placement/CECOS, retired account systems, and all Slice-2 provenance/history/ledger work.
+
+### Selected checks and outcomes
+
+| Check | Reason | Outcome |
+|---|---|---|
+| `node tests/maze/maze-search-tests.js` | Tabs/focus/drafts, canonical Copy/Open, Loom same-action search, executed-query follow-up invalidation, dossier/controller and helper auto-execution regressions | PASS — `Maze search metadata helper cases passed.` |
+| `node tests/maze/maze-results-layout-tests.js` | Ribbon/dock absence, query-inspector action singularity, help reserved-space rules, shared shell, bottom action order, standalone hidden rule, no-auto-scroll/reduced-motion guards | PASS — focused layout/hover checks passed. |
+| `node tests/maze/research-mode-tests.js` | Plain/Operator first-entry conversion and Loom round-trip preservation | PASS — 14 mode and 14 leakage cases. |
+| `node tests/maze/maze-query-contract-tests.js` | Exact executable query/API contracts | PASS. |
+| `node --check assets/js/maze/research-init.js` | Changed controller syntax | PASS. |
+| `node --check scripts/vm616-maze-context-recovery-browser.mjs` | Changed focused witness syntax | PASS. |
+| `npm.cmd run lint:html` | Route structure and HTML/landmark contract | PASS. |
+| `npm.cmd run task -- indexes --check` | Generated coordination-view freshness | PASS — fresh, 698 cards and 1106 handoffs before this append. |
+| `git diff --check 6b57d5dc7fa77f51ddc0f27c69dc834dcf12a595..fd4212e129b44e42f370ad2dbddc5beebe0cf808` | Exact candidate whitespace/error guard | PASS. |
+| `node scripts/vm616-maze-context-recovery-browser.mjs --vm658-frame` | Objective standalone layout, help geometry/dismissal, shell equivalence, ribbon/dock removal, in-flow Search, 390px/200%-equivalent containment | Product assertions PASS; the script printed `VM-658 focused rendered frame checks passed.` after all assertions. The parallel command wrapper did not supply a final exit code within its bounded wait; see harness note below. |
+
+### Objective behavior and browser evidence
+
+- Ribbon removal is complete across Plain, Operator, and Loom: no `maze-state-ribbon`/`maze-ribbon-*` DOM, styling, or controller owner remains. No replacement persistent origin/status/query surface was introduced.
+- Floating dock/observer removal is complete: no `loom-search-dock`, `updateLoomSearchDock`, or `IntersectionObserver` machinery remains. The sole extra Loom execution affordance is the in-flow `#loom-search-btn` after Printing & artwork, using the existing `data-action="search"` path.
+- The shared row owns the only Copy and Open in Scryfall actions. Query Inspector retains Plain interpretation/compiled-query content but its duplicate Copy/Open action block and Scryfall link are absent. One `#search-input`, one `#search-copy-btn`, and one `#search-scryfall-link` remain authoritative.
+- Direct `/maze/index.html` standalone entry retained one context node with `hidden`, computed `display:none`, and a zero rectangle; no absence banner consumes layout. The correction does not change contextual/independent disclosure logic, and the focused search/dossier cases remain green for source, detach, restore, and return contracts.
+- At 390px the focused browser measured Plain frame/input/body landmarks at 745/451/761px and Loom at 2359/443/2375px, with builder 665–2346px, in-flow completion top 2169px, and zero horizontal overflow. The shared query/action row had identical 352px width, zero padding, no border, and transparent background in Plain and Loom.
+- The Loom live query had `scrollHeight <= clientHeight + 1` in the 720×500 200%-equivalent witness, rejecting a nested query scroll trap. The bottom action remains inside the builder flow after all control groups rather than covering focused controls or browser chrome.
+- Mode help begins closed. Real browser checks opened it by native control, dismissed it with Escape and outside click, kept its disclosure contained at 390px, and kept its trigger entirely inside the selected tab to the right of the title in Plain, Operator, and Loom at 390px and 1440px. CSS gives every tab explicit right padding and shares one grid track with the in-flow help slot, reserving the same unobstructed content space for the kicker/title.
+- Plain and Loom produced identical computed shared-row box treatment; source contains no builder-specific shared-row rule. Existing real tab activation plus focused mode tests preserve roving tabindex, panel labelling, keyboard focus, edited Plain/Operator drafts, first-entry conversion, and Loom round trips.
+- The bottom Loom action caused a fresh intercepted search request through the existing action owner. Query-contract tests pin exact request/API bytes, and source inspection confirms pre-existing `runQuickSearch` still transitions directly through loading to `triggerSearch`.
+- Successful Loom execution binds `loomWeaveResultQuery` and count to `currentQuery`. Focused controller evidence shows the follow-up and Current Weave count only for that exact live query; editing a Loom filter immediately hides the follow-up and returns Current Weave to `Ready to search`. Result totals remain in the result set, and ordinary search still does not auto-scroll.
+- The removal adds no animation or fixed/sticky control. Existing system and explicit reduced-motion guards for the active tab remain, and explicit View results continues to choose reduced-motion scrolling behavior.
+
+### Harness/debt note
+
+- The focused browser script emitted its complete 390px measurements and explicit PASS after all product assertions, but the parallel command wrapper returned no final exit-code field inside the bounded collection window. No product assertion, page error, or browser output indicated failure. This is recorded as a non-blocking runner/cleanup anomaly; the browser command was not retried.
+- The broader historical onboarding harness was intentionally not run. Its prior Guide Beacon timeout remains historical harness debt and is unrelated to the dedicated third-correction witness.
+
+### Findings by severity
+
+- BLOCKER: none.
+- MAJOR: none.
+- MINOR: none from objective engineering review.
+- NOTE / PRODUCT CHOICE: final visual restraint, spacing, hierarchy, and whether the bottom Loom completion feels appropriately calm remain Owner-only judgments.
+
+### Intentionally skipped checks
+
+- Full `npm test`, broad parser/placement/CECOS/generated-data/semantic certification, synthetic, mutation, enumeration, and historical browser certification were skipped because their protected owners did not change and they are disproportionate to this QA-2 removal-first correction.
+- Broad frontend JS lint was not selected: changed JS syntax and focused route/controller contracts are directly covered, while the previous cycle recorded the broad lint runner's delayed completion. No current changed risk justified repeating that broader wait.
+- Screenshot matrices, image comparison, animation-fidelity waits, and aesthetic interpretation were skipped under OWNER-VISUAL MODE.
+
+### Owner-only boundary and shortest Owner route
+
+RobQA does not certify whether the ribbon-free frame, in-tab `?`, shared work surface, Loom vertical rhythm, or bottom completion action looks polished, calm, intuitive, or distinctly Vox Mana.
+
+Shortest Owner review: open direct standalone `/maze/index.html` at desktop width; switch Plain → Operator → Loom and confirm the absence of any ribbon, the in-tab help spacing, and the single shared query/actions. Scroll to the end of Loom and judge the in-flow Search/follow-up. Repeat once around 390px and judge only visual calm, hierarchy, and comfort. Engineering QA already covers objective absence, action singularity, help keyboard/dismissal/containment, shell equivalence, exact-current follow-up, query bytes, no-auto-scroll, reduced motion, and dossier return.
+
+### Governing verdict
+
+**RobQAPass PASS** for exact material candidate `fd4212e129b44e42f370ad2dbddc5beebe0cf808`.
+
+The candidate may enter Owner Review. This is not Owner acceptance, visual certification, integration approval, deployment evidence, or authority to begin Slice 2.

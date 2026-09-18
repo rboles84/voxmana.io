@@ -2,7 +2,7 @@
 
 ID: VM-658
 Title: Maze Instrument Frame
-Status: In Progress
+Status: Owner Review
 Type: Production implementation
 Area: Maze presentation and interaction frame
 Priority: High
@@ -99,14 +99,14 @@ Owner rejected exact candidate `7eae53f61f1b875bd508c4034232993d48712c1c` after 
 
 Owner rejected exact candidate `dbed6dc9f8ae1ecb4b8a2fb6dc305c9c0337c641` after final visual review while retaining the overall instrument-frame direction, direct standalone-context fix, mobile gains, unified modes, and authoritative shared query surface. This correction remains VM-658 Slice 1 and is removal-first; do not integrate the rejected candidate, begin Slice 2, or create VM-659.
 
-- [ ] Remove the Slice-1 state ribbon from Plain Reading, Operator's Hand, and The Loom without replacing it with another persistent origin/status/query surface; existing mode, canonical query, search/result, and meaningful dossier-context regions own those facts.
-- [ ] Keep the shared Live Scryfall query region as the sole exact-query/Copy/Open surface and use one authoritative outer-shell rule, spacing, border, radius, and hierarchy across all three modes.
-- [ ] Give active-mode help reserved in-tab space to the right of unobstructed mode kicker/title content at desktop and approximately 390px while preserving closed-by-default, keyboard/click, Escape, outside-click, compact attachment, and focus behavior.
-- [ ] Remove the floating/conditional deep-Loom Search dock and its viewport-observer machinery; add one in-flow bottom Loom completion action after Printing & artwork that invokes the existing canonical Search path without duplicating query, Copy, Open, parser, or semantic state.
-- [ ] Keep result totals with the result set by default. Any Loom-specific completion count/View results follow-up must represent the exact currently executed query and must disappear or cease claiming currency after Loom filters change, without introducing search history.
-- [ ] Keep the permanent Loom introduction removed; preserve Reset Loom, all existing filter groups/controls, and genuinely necessary filter-specific explanations without adding a replacement hero or heading.
-- [ ] Focused real-browser evidence proves no ribbon or floating dock, reserved non-overlapping mode help, one canonical query surface, one shared shell, bottom in-flow same-action Search, truthful executed-versus-edited Loom result state, direct standalone computed absence, and 390px containment/no nested scroll trap.
-- [ ] Existing tab semantics, keyboard/focus, Plain/Operator drafts, Loom round trips, first-entry conversion, no-auto-scroll, query/API bytes, dossier detach/restore/return, reduced motion, persistence, result contracts, generated data, parser/compiler semantics, and pre-existing Discovery/Helper auto-execution remain unchanged.
+- [x] Remove the Slice-1 state ribbon from Plain Reading, Operator's Hand, and The Loom without replacing it with another persistent origin/status/query surface; existing mode, canonical query, search/result, and meaningful dossier-context regions own those facts.
+- [x] Keep the shared Live Scryfall query region as the sole exact-query/Copy/Open surface and use one authoritative outer-shell rule, spacing, border, radius, and hierarchy across all three modes.
+- [x] Give active-mode help reserved in-tab space to the right of unobstructed mode kicker/title content at desktop and approximately 390px while preserving closed-by-default, keyboard/click, Escape, outside-click, compact attachment, and focus behavior.
+- [x] Remove the floating/conditional deep-Loom Search dock and its viewport-observer machinery; add one in-flow bottom Loom completion action after Printing & artwork that invokes the existing canonical Search path without duplicating query, Copy, Open, parser, or semantic state.
+- [x] Keep result totals with the result set by default. Any Loom-specific completion count/View results follow-up must represent the exact currently executed query and must disappear or cease claiming currency after Loom filters change, without introducing search history.
+- [x] Keep the permanent Loom introduction removed; preserve Reset Loom, all existing filter groups/controls, and genuinely necessary filter-specific explanations without adding a replacement hero or heading.
+- [x] Focused real-browser evidence proves no ribbon or floating dock, reserved non-overlapping mode help, one canonical query surface, one shared shell, bottom in-flow same-action Search, truthful executed-versus-edited Loom result state, direct standalone computed absence, and 390px containment/no nested scroll trap.
+- [x] Existing tab semantics, keyboard/focus, Plain/Operator drafts, Loom round trips, first-entry conversion, no-auto-scroll, query/API bytes, dossier detach/restore/return, reduced motion, persistence, result contracts, generated data, parser/compiler semantics, and pre-existing Discovery/Helper auto-execution remain unchanged.
 
 Future Slice-2 requirements remain mandatory but out of scope here: prepare-before-explicit-Search behavior for Discovery/Helper paths; progressive dossier/source/provenance hierarchy; and the actual-state audit of all 37 dossier identities. VM-658 must not silently repair semantic/query/source-authority findings from that future work.
 
@@ -115,8 +115,8 @@ Future Slice-2 requirements remain mandatory but out of scope here: prepare-befo
 Record version: 1
 Branch: codex/vm-658-maze-instrument-frame
 Admission baseline: 6b57d5dc7fa77f51ddc0f27c69dc834dcf12a595
-Candidate: PENDING
-RobQA: PENDING
+Candidate: fd4212e129b44e42f370ad2dbddc5beebe0cf808
+RobQA: PASS at fd4212e129b44e42f370ad2dbddc5beebe0cf808 — SEPARATE
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
