@@ -44,8 +44,8 @@ Current Owner instruction dated 2026-09-18: proceed with the VM-657 + VM-660 Maz
 ## Files Likely Impacted
 
 - `docs/kanban/in-progress/VM-661-maze-modernization-spec.md`
-- `docs/handoffs/2026-09-18-*-codex-vm661-maze-modernization-spec.md`
-- `docs/handoffs/2026-09-18-*-robqa-vm661-maze-modernization-spec.md`
+- `docs/handoffs/2026-09-18-2300-codex-vm661-maze-modernization-spec.md`
+- `docs/handoffs/2026-09-18-2310-robqa-vm661-maze-modernization-spec.md`
 - `docs/kanban/board.md`
 - `docs/handoffs/HANDOFF_INDEX.md`
 
