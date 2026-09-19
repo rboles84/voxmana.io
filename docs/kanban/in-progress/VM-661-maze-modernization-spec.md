@@ -2,7 +2,7 @@
 
 ID: VM-661
 Title: Maze Modernization Implementation Specification
-Status: In Progress
+Status: Owner Review
 Type: Planning and implementation specification
 Area: Maze modernization
 Priority: High
