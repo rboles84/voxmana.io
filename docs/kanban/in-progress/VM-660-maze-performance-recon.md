@@ -31,10 +31,10 @@ Current Owner request. VM-657 is a completed product-direction dependency; VM-65
 
 ## Acceptance Criteria
 
-- [ ] The current Maze runtime ownership chain is verified against repository code, with material differences from VM-657 noted.
-- [ ] The recon provides bounded direct evidence for required scenarios, request behavior, interpretation/execution behavior, result rendering, wildcard behavior, narrow viewport, and degraded states.
-- [ ] Findings classify confirmed bottlenecks, likely risks, minor/non-concerns, and unavailable measurements, with evidence and current owners.
-- [ ] The handoff supplies actionable but non-implementing guardrails and explicitly identifies what should be left alone.
+- [x] The current Maze runtime ownership chain is verified against repository code, with material differences from VM-657 noted.
+- [x] The recon provides bounded direct evidence for required scenarios, request behavior, interpretation/execution behavior, result rendering, wildcard behavior, narrow viewport, and degraded states.
+- [x] Findings classify confirmed bottlenecks, likely risks, minor/non-concerns, and unavailable measurements, with evidence and current owners.
+- [x] The handoff supplies actionable but non-implementing guardrails and explicitly identifies what should be left alone.
 - [ ] The documentation-only candidate receives proportional RobQA evidence and stops at Owner Review.
 
 ## Files Likely Impacted
@@ -61,7 +61,7 @@ Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Decisions: Recon/documentation only. Do not modify production runtime or test contracts. Stop at Owner Review.
-Evidence: PENDING
+Evidence: [VM-660 performance recon](../../handoffs/2026-09-18-1853-codex-vm660-maze-performance-recon.md); [RobQA QA-0 plan](../../handoffs/2026-09-18-1853-robqa-vm660-maze-performance-recon.md)
 
 ## Admission Scope
 
