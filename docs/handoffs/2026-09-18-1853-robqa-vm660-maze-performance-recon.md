@@ -23,3 +23,18 @@ QA-0 documentation/recon only. The candidate changes no production, parser/compi
 ## Owner review boundary
 
 Owner review should assess only whether this recon is useful and appropriately bounded for later VM-657 synthesis. It does not approve a Maze UI implementation, cache policy, parser change, wildcard-gating behavior, or a production optimization.
+
+## Candidate decision
+
+Task: VM-660
+Candidate: 8f0da0f7f7b7a09e034851d26c17e7e9819b71ea
+RobQA: PASS
+Execution: SAME-AGENT DISTINCT PHASE
+Reviewer: Codex `/root`
+Implementer: Codex `/root`
+Independence required: no
+Execution reason: QA-0 recon/documentation candidate only; no runtime, test, data, policy, security, migration, or protected behavioral change is in scope.
+
+Candidate inspection: `git diff --check` passed after correction; the baseline-to-candidate material paths are exactly the VM-660 card, primary recon, QA handoff, and required generated board/index views. `npm.cmd run task -- indexes --check` passed. The selected focused unchanged-runtime checks all passed: `test:maze-results-layout`, `test:maze-finds`, `test:parser`, and `test:mode`.
+
+Verdict: PASS. The exact documentation candidate is sufficiently evidenced for Owner Review. Owner remains PENDING.
