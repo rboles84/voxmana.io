@@ -2,7 +2,7 @@
 
 ID: VM-660
 Title: Maze Performance Recon
-Status: Owner Review
+Status: Accepted
 Type: Technical reconnaissance and performance evidence
 Area: Maze runtime and UI-modernization constraints
 Priority: High
@@ -57,7 +57,7 @@ Branch: codex/vm-660-maze-performance-recon
 Admission baseline: b48a1357a0c9076b38ae0b7d058c4ea213db4aaa
 Candidate: 8f0da0f7f7b7a09e034851d26c17e7e9819b71ea
 RobQA: PASS at 8f0da0f7f7b7a09e034851d26c17e7e9819b71ea — SAME-AGENT DISTINCT PHASE QA-0 by Codex `/root`
-Owner: PENDING
+Owner: ACCEPTED at 8f0da0f7f7b7a09e034851d26c17e7e9819b71ea — Owner decision supplied 2026-09-18
 Integration: PENDING
 Dependencies: None
 Decisions: Recon/documentation only. Do not modify production runtime or test contracts. Stop at Owner Review.

@@ -188,3 +188,12 @@ The current route uses one DOM tree with mode-specific `hidden`/class visibility
 Material candidate: `8f0da0f7f7b7a09e034851d26c17e7e9819b71ea`.
 
 RobQA classified the candidate QA-0 and passed it in a same-agent distinct phase: no runtime, test-contract, data, policy, security, migration, or protected behavioral path changed. The exact candidate diff passed whitespace and generated-view checks; selected unchanged Maze baseline tests passed. Owner decision remains PENDING. This task now stops at Owner Review.
+
+## Owner acceptance
+
+Task: VM-660
+Candidate: 8f0da0f7f7b7a09e034851d26c17e7e9819b71ea
+Owner: ACCEPT
+Decision reference: Owner decision supplied 2026-09-18 in the current Codex task: `Owner decision for VM-660: ACCEPTED.` It names this exact material candidate and evidence head `aa0cce444f490473f6b2673385cf588caf75a09f`, and authorizes normal integration/closeout only.
+
+No material or production/runtime change is authorized by the acceptance. Proceed only through the governed VM-660 lifecycle evidence, PR integration, and closeout.
