@@ -160,3 +160,12 @@ PASS if the objective behavior remains as recorded and the visual/product experi
 - Follow-up recommendations: commit this evidence without altering the material candidate, bind VM-662's card/generated views to candidate `a0506ac4` and this PASS, then stop at Owner Review. Do not repair the VM-616 route harness within VM-662.
 - Next suggested agent: Owner.
 - Related records: VM-662 card; VM-661 implementation specification candidate `4136616a2559f23133147421737a3bc07f0c1c4c`; VM-660 accepted performance handoff; VM-662 preflight and admission reconciliation.
+
+## Strict candidate binding
+
+Task: VM-662
+Candidate: a0506ac44a4602910fd33841ec5fbf8cf8242214
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: Codex `/root/vm662_robqa`
+Implementer: Codex `/root`
