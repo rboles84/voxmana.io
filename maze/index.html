@@ -98,8 +98,15 @@
 <section class="r-search-zone maze-command-deck" aria-labelledby="maze-page-title">
   <div class="maze-command-copy">
     <span class="maze-eyebrow">The Implicit Maze</span>
-    <h1 id="maze-page-title">A card-search instrument.</h1>
-    <p>Follow a dossier thread, describe a texture, write exact syntax, or shape a query.</p>
+    <h1 id="maze-page-title">A semantic search instrument.</h1>
+    <p>Describe a card texture, inspect how Maze reads it, then choose when to search.</p>
+    <ol class="maze-workflow-sequence" aria-label="Maze search sequence">
+      <li><span>01</span>Request</li>
+      <li><span>02</span>Interpret</li>
+      <li><span>03</span>Exact query</li>
+      <li><span>04</span>Search</li>
+      <li><span>05</span>Results</li>
+    </ol>
   </div>
 
   <div class="maze-console-panel">
@@ -124,37 +131,57 @@
         <button class="maze-reading-context-action hidden" id="maze-reading-context-action" type="button" data-action="search-independently">Search independently</button>
       </div>
 
-      <div class="maze-primary-workbench">
-      <div class="search-input-row">
-        <div class="search-wrap">
-          <label class="search-input-label" id="search-input-label" for="search-input">Search query</label>
-          <span class="search-icon" id="search-icon">*</span>
-          <textarea class="s-input" id="search-input" rows="2"
-            aria-label="Maze search query"
-            placeholder="e.g. red and black orcs, green haste, blue removal"></textarea>
+      <section class="maze-primary-workbench" aria-labelledby="maze-request-bench-title">
+        <div class="maze-bench-heading">
+          <div>
+            <span class="maze-step-mark">01 · Player request</span>
+            <h2 id="maze-request-bench-title">Name the card texture you want to find.</h2>
+          </div>
+          <span class="maze-bench-mode" id="maze-bench-mode" aria-hidden="true">Plain Reading</span>
         </div>
-        <button class="btn-search" id="search-btn" type="button" data-action="search">Search</button>
-        <button class="btn-clear" id="clear-search-btn" type="button" data-action="clear-search">Clear</button>
-        <button class="query-action-btn search-copy-btn is-disabled" id="search-copy-btn" type="button" data-action="copy-query" disabled>Copy</button>
-        <a class="query-action-btn search-scryfall-link is-disabled" id="search-scryfall-link" href="#" target="_blank" rel="noopener" aria-disabled="true" tabindex="-1">Open in Scryfall</a>
-        <button class="query-action-btn stash-drawer-toggle" id="stash-drawer-toggle" type="button" data-action="toggle-stash-drawer" aria-controls="stash-panel" aria-expanded="false">
-          <span>Reading Finds</span>
-          <span class="stash-drawer-count" data-stash-toggle-count>0</span>
-        </button>
-      </div>
+        <div class="search-input-row">
+          <div class="search-wrap">
+            <label class="search-input-label" id="search-input-label" for="search-input">Search query</label>
+            <span class="search-icon" id="search-icon">*</span>
+            <textarea class="s-input" id="search-input" rows="2"
+              aria-label="Maze search query"
+              placeholder="e.g. red and black orcs, green haste, blue removal"></textarea>
+          </div>
+          <button class="btn-clear" id="clear-search-btn" type="button" data-action="clear-search">Clear</button>
+          <button class="query-action-btn search-copy-btn is-disabled" id="search-copy-btn" type="button" data-action="copy-query" disabled>Copy</button>
+          <a class="query-action-btn search-scryfall-link is-disabled" id="search-scryfall-link" href="#" target="_blank" rel="noopener" aria-disabled="true" tabindex="-1">Open in Scryfall</a>
+          <button class="query-action-btn stash-drawer-toggle" id="stash-drawer-toggle" type="button" data-action="toggle-stash-drawer" aria-controls="stash-panel" aria-expanded="false">
+            <span>Reading Finds</span>
+            <span class="stash-drawer-count" data-stash-toggle-count>0</span>
+          </button>
+        </div>
 
-      <div class="query-inspector hidden" id="query-inspector" aria-live="polite">
-        <div class="qi-input-wrap hidden" id="qi-input-wrap">
-          <span class="qi-label" id="qi-input-label">You wrote</span>
-          <span class="qi-input" id="qi-input"></span>
+        <div class="query-inspector hidden" id="query-inspector" aria-live="polite">
+          <div class="qi-ledger-head">
+            <div>
+              <span class="maze-step-mark">02 · Maze interpretation</span>
+              <strong class="qi-state" id="qi-state">Clear</strong>
+            </div>
+            <span class="qi-execution-state" id="qi-execution-state"></span>
+          </div>
+          <div class="qi-input-wrap hidden" id="qi-input-wrap">
+            <span class="qi-label" id="qi-input-label">You wrote</span>
+            <span class="qi-input" id="qi-input"></span>
+          </div>
+          <div class="qi-primary">
+            <span class="qi-label" id="qi-label">03 · Exact Scryfall query</span>
+            <span class="qi-query" id="qi-query"></span>
+          </div>
+          <span class="qi-reason hidden" id="qi-reason"></span>
         </div>
-        <div class="qi-primary">
-          <span class="qi-label" id="qi-label">Maze translated</span>
-          <span class="qi-query" id="qi-query"></span>
+        <div class="maze-execution-row">
+          <div class="maze-execution-copy">
+            <span class="maze-step-mark">04 · Execute</span>
+            <span>Search sends the exact query to Scryfall.</span>
+          </div>
+          <button class="btn-search" id="search-btn" type="button" data-action="search">Search</button>
         </div>
-        <span class="qi-reason hidden" id="qi-reason"></span>
-      </div>
-      </div>
+      </section>
 
       <!-- The Loom (shown only in builder mode) -->
       <div class="builder-panel hidden" id="builder-panel">
@@ -404,6 +431,11 @@
     </div>
     <div class="err-msg hidden" id="err-msg"></div>
     <div class="results-header hidden" id="results-header" tabindex="-1">
+      <div class="results-query-context">
+        <span class="maze-step-mark">05 · Results</span>
+        <code id="results-query"></code>
+        <span class="results-interpretation-state" id="results-interpretation-state"></span>
+      </div>
       <span class="res-count" id="res-count" role="status" aria-live="polite" aria-atomic="true"></span>
       <select class="res-order" id="res-order">
         <option value="name">A-Z</option>

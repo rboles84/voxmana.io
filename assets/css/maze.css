@@ -3664,3 +3664,495 @@ body.vm-maze-route .stash-export-fallback textarea {
   .mode-card { transition: none !important; }
 }
 [data-reduce-motion="true"] .mode-card { transition: none !important; }
+
+/* VM-662 semantic workbench presentation. Existing query, search, result, and
+   persistence owners remain unchanged; these rules only compose their output. */
+body.vm-maze-route {
+  --maze-instrument-line: rgba(247, 215, 132, 0.34);
+  --maze-instrument-line-soft: rgba(247, 215, 132, 0.14);
+  --maze-review: #efbb67;
+  --maze-warning: #ff9e80;
+  --maze-clear: #8bd9c9;
+}
+
+.maze-command-deck {
+  grid-template-columns: minmax(13rem, 0.34fr) minmax(0, 1.66fr);
+  border-block: 1px solid var(--maze-instrument-line-soft);
+  border-inline: 0;
+  border-radius: 0;
+  background: linear-gradient(90deg, rgba(247, 215, 132, 0.035), transparent 42%);
+  box-shadow: none;
+}
+
+.maze-command-copy {
+  position: sticky;
+  top: calc(var(--vm-topbar-h, 92px) + 1rem);
+}
+
+.maze-command-copy h1 {
+  max-width: 13ch;
+  font-size: clamp(1.55rem, 2.2vw, 2.2rem);
+}
+
+.maze-workflow-sequence {
+  display: grid;
+  gap: 0;
+  margin: 0.85rem 0 0;
+  padding: 0;
+  list-style: none;
+  border-block: 1px solid var(--maze-instrument-line-soft);
+}
+
+.maze-workflow-sequence li {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  gap: 0.55rem;
+  align-items: center;
+  min-height: 2.05rem;
+  color: var(--maze-faint);
+  font-family: var(--font-ui, system-ui, sans-serif);
+  font-size: 0.7rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.maze-workflow-sequence li + li {
+  border-top: 1px solid rgba(255, 255, 255, 0.055);
+}
+
+.maze-workflow-sequence span,
+.maze-step-mark {
+  color: var(--maze-gold-2);
+  font-family: var(--font-mono, "IBM Plex Mono", monospace);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.maze-primary-workbench {
+  gap: 0.8rem;
+  padding-block: 0.25rem;
+}
+
+.maze-bench-heading,
+.maze-execution-row,
+.qi-ledger-head,
+.results-query-context {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 0;
+}
+
+.maze-bench-heading h2 {
+  margin: 0.18rem 0 0;
+  color: var(--maze-ink);
+  font-family: var(--font-text, Georgia, serif);
+  font-size: clamp(1rem, 1.45vw, 1.22rem);
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.maze-bench-mode {
+  flex: 0 0 auto;
+  padding-inline-start: 0.75rem;
+  border-inline-start: 1px solid var(--maze-instrument-line);
+  color: var(--maze-muted);
+  font-family: var(--font-ui, system-ui, sans-serif);
+  font-size: 0.68rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.search-input-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) repeat(4, auto);
+  align-items: stretch;
+}
+
+.search-wrap {
+  flex-basis: auto;
+}
+
+.search-input-row > .btn-clear,
+.search-input-row > .query-action-btn {
+  height: auto !important;
+  min-height: 48px !important;
+}
+
+.maze-execution-row {
+  padding: 0.7rem 0 0;
+  border-top: 1px solid var(--maze-instrument-line-soft);
+}
+
+.maze-execution-copy {
+  display: grid;
+  gap: 0.2rem;
+  color: var(--maze-faint);
+  font-size: 0.78rem;
+}
+
+.maze-execution-row .btn-search {
+  width: min(12rem, 100%);
+  height: 52px;
+}
+
+.query-inspector {
+  grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+  border-color: var(--maze-instrument-line);
+  border-radius: 0;
+  border-inline-width: 0 0;
+  background: rgba(8, 11, 18, 0.28);
+  box-shadow: inset 3px 0 0 var(--maze-clear);
+}
+
+.qi-ledger-head,
+.qi-diagnostics {
+  grid-column: 1 / -1;
+}
+
+.qi-ledger-head > div {
+  display: flex;
+  gap: 0.65rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.qi-state,
+.qi-execution-state,
+.results-interpretation-state {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.75rem;
+  color: var(--maze-clear);
+  font-family: var(--font-ui, system-ui, sans-serif);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.qi-state::before,
+.results-interpretation-state::before {
+  content: "";
+  width: 0.42rem;
+  height: 0.42rem;
+  margin-inline-end: 0.42rem;
+  border: 1px solid currentColor;
+  transform: rotate(45deg);
+}
+
+.qi-execution-state {
+  color: var(--maze-muted);
+  text-align: end;
+}
+
+.query-inspector[data-execution-state="pending"] {
+  box-shadow: inset 3px 0 0 var(--maze-gold-2);
+}
+
+.query-inspector[data-interpretation-state="review"] .qi-state,
+.results-interpretation-state[data-state="review"] {
+  color: var(--maze-review);
+}
+
+.query-inspector[data-interpretation-state="needs-meaning"],
+.query-inspector[data-interpretation-state="blocked"] {
+  border-color: rgba(255, 158, 128, 0.5);
+  box-shadow: inset 3px 0 0 var(--maze-warning);
+}
+
+.query-inspector[data-interpretation-state="needs-meaning"] .qi-state,
+.query-inspector[data-interpretation-state="blocked"] .qi-state,
+.results-interpretation-state[data-state="needs-meaning"],
+.results-interpretation-state[data-state="blocked"] {
+  color: var(--maze-warning);
+}
+
+.qi-input-wrap,
+.qi-primary,
+.qi-reason {
+  border-radius: 0;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.qi-primary::before {
+  content: "03 · Exact Scryfall query";
+  display: block;
+  margin-block-end: 0.3rem;
+  color: var(--maze-gold-2);
+  font-family: var(--font-mono, "IBM Plex Mono", monospace);
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.qi-diagnostics {
+  display: grid;
+  gap: 0.65rem;
+  padding: 0;
+}
+
+.qi-critical {
+  display: grid;
+  gap: 0.55rem;
+  padding: 0.8rem 0.9rem;
+  border-inline-start: 2px solid var(--maze-warning);
+  background: rgba(255, 107, 85, 0.075);
+}
+
+.qi-critical > strong {
+  color: #ffd0c5;
+  font-family: var(--font-text, Georgia, serif);
+  font-size: 0.92rem;
+}
+
+.qi-details {
+  border-top: 1px solid var(--maze-line-soft);
+}
+
+.qi-details > summary {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 44px;
+  color: var(--maze-muted);
+  font-family: var(--font-ui, system-ui, sans-serif);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.qi-details > summary .qi-confidence {
+  margin-inline-start: auto;
+  padding: 0;
+  border: 0;
+  color: var(--maze-muted);
+  font-size: 0.66rem;
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
+
+.qi-details-body {
+  display: grid;
+  gap: 0.7rem;
+  padding-block-end: 0.25rem;
+}
+
+.qi-chip,
+.qi-confidence {
+  border-radius: 3px;
+  background: transparent;
+}
+
+.r-sidebar,
+.r-main,
+.stash-panel {
+  border-radius: 0;
+  background: rgba(8, 9, 12, 0.68);
+  box-shadow: none;
+}
+
+.sb-section {
+  border-inline: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.sb-btn[data-action="inspect-suggested-search"]::after {
+  content: "Inspect";
+  align-self: center;
+  color: var(--maze-gold-2);
+  font-family: var(--font-mono, "IBM Plex Mono", monospace);
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.results-header {
+  align-items: stretch;
+  border-bottom-color: var(--maze-instrument-line-soft);
+}
+
+.results-query-context {
+  flex: 1 1 100%;
+  justify-content: flex-start;
+  padding-block-end: 0.7rem;
+  border-bottom: 1px solid var(--maze-line-soft);
+}
+
+.results-query-context code {
+  min-width: 0;
+  color: var(--maze-text);
+  font-size: 0.74rem;
+  overflow-wrap: anywhere;
+}
+
+.results-interpretation-state {
+  margin-inline-start: auto;
+}
+
+@media (min-width: 1400px) {
+  body.vm-maze-route[data-stash-open="true"] .r-body {
+    grid-template-columns: minmax(210px, 250px) minmax(0, 1fr) minmax(300px, 340px);
+  }
+
+  body.vm-maze-route[data-stash-open="false"] .stash-rail {
+    display: none;
+  }
+
+  .stash-rail {
+    position: sticky;
+    z-index: 2;
+    grid-column: 3;
+    top: calc(var(--vm-topbar-h, 92px) + 1rem) !important;
+    right: auto !important;
+    left: auto !important;
+    width: 100%;
+    max-height: calc(100vh - var(--vm-topbar-h, 92px) - 2rem);
+  }
+
+  .stash-head { cursor: default; }
+
+  .stash-panel {
+    max-height: calc(100vh - var(--vm-topbar-h, 92px) - 2rem);
+    -webkit-backdrop-filter: none;
+            backdrop-filter: none;
+  }
+}
+
+@media (max-width: 1180px) {
+  .maze-command-deck {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .maze-command-copy {
+    position: static;
+  }
+
+  .maze-command-copy h1 {
+    max-width: 20ch;
+  }
+
+  .maze-workflow-sequence {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .maze-workflow-sequence li {
+    display: flex;
+    gap: 0.35rem;
+    justify-content: center;
+    padding-inline: 0.25rem;
+  }
+
+  .maze-workflow-sequence li + li {
+    border-top: 0;
+    border-inline-start: 1px solid rgba(255, 255, 255, 0.055);
+  }
+}
+
+@media (max-width: 1050px) {
+  .search-input-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .search-input-row .search-wrap {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 820px) {
+  .maze-command-deck {
+    border-radius: 0;
+  }
+
+  .search-input-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .search-input-row .search-wrap {
+    grid-column: 1;
+  }
+
+  .query-inspector {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .query-inspector[data-mode="raw"],
+  .query-inspector[data-mode="builder"] {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .qi-ledger-head,
+  .maze-execution-row,
+  .results-query-context {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .qi-execution-state,
+  .results-interpretation-state {
+    margin-inline-start: 0;
+    text-align: start;
+  }
+
+  .maze-execution-row .btn-search {
+    width: 100%;
+  }
+
+  .stash-rail {
+    position: static;
+    z-index: auto;
+    grid-column: 1;
+    width: 100%;
+    max-height: none;
+  }
+
+  .stash-panel {
+    max-height: none;
+    -webkit-backdrop-filter: none;
+            backdrop-filter: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .maze-command-copy h1 {
+    max-width: none;
+  }
+
+  .maze-workflow-sequence {
+    grid-template-columns: 1fr;
+  }
+
+  .maze-workflow-sequence li {
+    justify-content: flex-start;
+  }
+
+  .maze-workflow-sequence li + li {
+    border-inline-start: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.055);
+  }
+
+  .maze-bench-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .maze-bench-mode {
+    padding-inline-start: 0;
+    border-inline-start: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .qi-state::before,
+  .results-interpretation-state::before {
+    transform: none;
+  }
+}
+
+[data-reduce-motion="true"] .qi-state::before,
+[data-reduce-motion="true"] .results-interpretation-state::before {
+  transform: none;
+}

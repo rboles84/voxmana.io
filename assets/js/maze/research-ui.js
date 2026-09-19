@@ -8,6 +8,7 @@
  * @param {string} [details.inputValue] - Original user input before translation/normalization.
  * @param {boolean} [details.normalized] - Whether the displayed query differs from the input.
  * @param {boolean} [details.blocked] - Whether execution is blocked pending user choice.
+ * @param {boolean} [details.pending] - Whether a prepared suggestion awaits explicit Search.
  */
 export function renderQueryInspector({
   query,
@@ -16,7 +17,8 @@ export function renderQueryInspector({
   api = null,
   inputValue = "",
   normalized = false,
-  blocked = false
+  blocked = false,
+  pending = false
 }) {
   const inspector = document.getElementById("query-inspector");
   if (!inspector) return;
@@ -24,7 +26,11 @@ export function renderQueryInspector({
   const searchApi = api || {};
   const hasDiagnostics = diagnosticList.length > 0;
   const mode = document.body?.dataset?.mazeMode || "ai";
+  const groups = groupDiagnosticsForInspector(diagnosticList);
+  const interpretationState = classifyInterpretationState(groups, { mode, blocked });
   inspector.dataset.mode = mode;
+  inspector.dataset.interpretationState = interpretationState.key;
+  inspector.dataset.executionState = pending ? "pending" : blocked ? "blocked" : "executed";
   inspector.classList.toggle("is-compact", mode === "raw" && !normalized);
   inspector.classList.toggle("is-secondary", mode === "builder");
 
@@ -34,6 +40,15 @@ export function renderQueryInspector({
   const inputLabel = document.getElementById("qi-input-label");
   const inputText = document.getElementById("qi-input");
   const queryText = document.getElementById("qi-query");
+  const stateText = document.getElementById("qi-state");
+  const executionText = document.getElementById("qi-execution-state");
+  if (stateText) stateText.textContent = interpretationState.label;
+  if (executionText) {
+    executionText.textContent = pending
+      ? "Selection loaded · Search when ready"
+      : blocked ? "Search unavailable" : "Search requested";
+  }
+  if (!pending) updateResultsQueryContext(query, interpretationState);
   const finalReason = reason;
   const scryfallLink = document.getElementById("qi-scryfall");
   if (scryfallLink) {
@@ -82,7 +97,7 @@ export function renderQueryInspector({
     reasonEl.classList.add("hidden");
   }
 
-  renderDiagnostics(inspector, diagnosticList, searchApi);
+  renderDiagnostics(inspector, groups, searchApi);
   inspector.classList.remove("hidden");
 }
 
@@ -107,7 +122,7 @@ export function buildScryfallWebSearchUrl(query, api = {}) {
  * @param {object[]} diagnosticsList - Contract diagnostics to display.
  * @param {object} api - Search API/display metadata.
  */
-function renderDiagnostics(inspector, diagnosticsList = [], api = {}) {
+function renderDiagnostics(inspector, groups, api = {}) {
   let diagnostics = document.getElementById("qi-diagnostics");
   if (!diagnostics) {
     diagnostics = document.createElement("div");
@@ -117,7 +132,6 @@ function renderDiagnostics(inspector, diagnosticsList = [], api = {}) {
   }
 
   const apiItems = formatApiMetadata(api);
-  const groups = groupDiagnosticsForInspector(diagnosticsList);
   if (!groups.hasDiagnostics && !apiItems.length) {
     diagnostics.innerHTML = "";
     diagnostics.classList.add("hidden");
@@ -125,16 +139,21 @@ function renderDiagnostics(inspector, diagnosticsList = [], api = {}) {
   }
 
   diagnostics.innerHTML = `
-    ${renderConfidence(groups.confidence)}
-    ${renderChipGroup("API", apiItems)}
-    ${renderChipGroup("Recognized", groups.recognized)}
-    ${renderChipGroup("Ignored", groups.ignored)}
-    ${renderChipGroup("Applied defaults", groups.appliedDefaults)}
-    ${renderChipGroup("Assumptions", groups.assumptions)}
-    ${renderChipGroup("Warnings", groups.warnings, "warn")}
-    ${renderChipGroup("Unresolved", groups.unresolved, "warn")}
-    ${renderAlternatives(groups.alternatives)}
-    ${renderRecoveryGuidance(groups)}
+    ${renderCriticalDiagnostics(groups)}
+    <details class="qi-details">
+      <summary>
+        <span>Interpretation details</span>
+        ${renderConfidenceSummary(groups.confidence)}
+      </summary>
+      <div class="qi-details-body">
+        ${renderChipGroup("API", apiItems)}
+        ${renderChipGroup("Recognized", groups.recognized)}
+        ${renderChipGroup("Ignored", groups.ignored)}
+        ${renderChipGroup("Applied defaults", groups.appliedDefaults)}
+        ${renderChipGroup("Assumptions", groups.assumptions)}
+        ${renderAlternatives(groups.alternatives)}
+      </div>
+    </details>
     <a class="qi-guide-link vm-guide-beacon vm-guide-beacon--maze" href="../guide/maze/?guided=maze-search" data-guide-beacon-id="maze-search-help">
       <span class="qi-guide-mark vm-guide-beacon__mark" aria-hidden="true">✦</span>
       <span class="qi-guide-copy vm-guide-beacon__copy">
@@ -145,6 +164,44 @@ function renderDiagnostics(inspector, diagnosticsList = [], api = {}) {
   `;
   bindAlternativeButtons();
   diagnostics.classList.remove("hidden");
+}
+
+function renderCriticalDiagnostics(groups = {}) {
+  if (!groups.unresolved?.length && !groups.warnings?.length) return "";
+  const title = groups.unresolved?.length
+    ? "Maze needs meaning before this reads as precise."
+    : "Review this interpretation before relying on the result set.";
+  return `
+    <div class="qi-critical" role="note">
+      <strong>${escapeHtml(title)}</strong>
+      ${renderChipGroup("Unresolved", groups.unresolved, "warn")}
+      ${renderChipGroup("Warnings", groups.warnings, "warn")}
+      ${renderRecoveryGuidance(groups)}
+    </div>
+  `;
+}
+
+function classifyInterpretationState(groups = {}, { mode = "ai", blocked = false } = {}) {
+  if (blocked) return { key: "blocked", label: "Blocked" };
+  if (groups.unresolved?.length) return { key: "needs-meaning", label: "Needs meaning" };
+  if (
+    groups.warnings?.length
+    || groups.appliedDefaults?.length
+    || groups.assumptions?.length
+    || groups.alternatives?.length
+  ) return { key: "review", label: "Review" };
+  if (mode === "raw" || mode === "builder") return { key: "exact", label: "Exact" };
+  return { key: "clear", label: "Clear" };
+}
+
+function updateResultsQueryContext(query, interpretationState) {
+  const queryText = document.getElementById("results-query");
+  const stateText = document.getElementById("results-interpretation-state");
+  if (queryText) queryText.textContent = query || "";
+  if (stateText) {
+    stateText.textContent = interpretationState.label;
+    stateText.dataset.state = interpretationState.key;
+  }
 }
 
 /**
@@ -210,15 +267,13 @@ function groupDiagnosticsForInspector(diagnostics = []) {
 }
 
 /**
- * Renders confidence as a compact status chip.
- * @param {number} confidence - Confidence score from 0 to 1.
- * @returns {string} HTML string.
+ * Preserves the parser's existing confidence evidence as diagnostic detail.
+ * The categorical ledger state remains the primary player-facing cue.
  */
-function renderConfidence(confidence) {
+function renderConfidenceSummary(confidence) {
   if (!Number.isFinite(confidence)) return "";
   const pct = Math.round((confidence || 0) * 100);
-  const tone = pct >= 80 ? "high" : pct >= 65 ? "medium" : "low";
-  return `<div class="qi-confidence ${tone}">Confidence ${pct}%</div>`;
+  return `<span class="qi-confidence">Confidence ${pct}%</span>`;
 }
 
 /**

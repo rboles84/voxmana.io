@@ -1127,12 +1127,14 @@ function updateModeContent(mode) {
   const helpSummary = document.getElementById("maze-mode-help-summary");
   const helpCopy = document.getElementById("maze-mode-help-copy");
   const help = document.getElementById("maze-mode-help");
+  const benchMode = document.getElementById("maze-bench-mode");
   if (helpSummary) helpSummary.setAttribute("aria-label", `About ${content.label.replace(/ open$/i, "")}`);
   if (helpCopy) helpCopy.textContent = content.copy;
   if (help) {
     help.dataset.mode = mode;
     help.open = false;
   }
+  if (benchMode) benchMode.textContent = content.label.replace(/ open$/i, "");
   MODE_IDS.forEach((id) => document.getElementById(`mode-${id}`)?.removeAttribute("aria-describedby"));
   document.getElementById(`mode-${mode}`)?.setAttribute("aria-describedby", "maze-mode-help-copy");
 }
@@ -2604,11 +2606,12 @@ function buildQuickSearches() {
     const button = createActionButton({
       className: "sb-btn",
       text: quickSearch.label,
-      action: "quick-search",
+      action: "inspect-suggested-search",
       dataset: { query: quickSearch.q, origin: "maze" }
     });
     const hint = document.createElement("span");
     hint.textContent = quickSearch.hint;
+    button.setAttribute("aria-label", `Inspect ${quickSearch.label}`);
     button.appendChild(hint);
     el.appendChild(button);
   });
@@ -2625,11 +2628,12 @@ function buildDiscoveryPaths() {
     const button = createActionButton({
       className: "sb-btn",
       text: path.label,
-      action: "quick-search",
+      action: "inspect-suggested-search",
       dataset: { query: path.q, origin: "maze" }
     });
     const hint = document.createElement("span");
     hint.textContent = path.hint;
+    button.setAttribute("aria-label", `Inspect ${path.label}`);
     button.appendChild(hint);
     el.appendChild(button);
   });
@@ -3400,6 +3404,53 @@ function runQuickSearch(query, opts = {}) {
 }
 
 /**
+ * Loads a Discovery or Helper suggestion into the existing query and
+ * interpretation workflow without executing Scryfall. Search/Enter remain the
+ * sole execution boundary for this prepared request.
+ * @param {string} query - Suggested raw Scryfall query.
+ * @param {object} opts - Existing route-query adapter options.
+ */
+function inspectSuggestedSearch(query, opts = {}) {
+  const queryResult = resolveMazeRouteQuery(query, {
+    mode: "raw",
+    origin: opts.origin || "maze",
+    order: opts.order || "name",
+    unique: opts.unique || "cards",
+    dir: normalizeSortDirection(opts.dir),
+    useFormatDefault: opts.useFormatDefault !== false
+  });
+  const finalQuery = queryResult.query;
+  const diagnostics = queryResult.diagnostics || [];
+  const input = document.getElementById("search-input");
+
+  if (queryResult.executionBlocked) {
+    if (input) input.value = query;
+    setMode(queryResult.detectedMode === "plain_reading" ? "ai" : "raw");
+    handleBlockedQueryResult(queryResult, {
+      reason: queryResult.reason || "",
+      diagnostics,
+      inputValue: query,
+      normalized: queryResult.normalized || queryResult.detectedMode === "plain_reading"
+    });
+    return;
+  }
+
+  if (input) input.value = finalQuery;
+  selectAutoFilledInputOnFocus = true;
+  lastSmartInput = "";
+  lastSmartQuery = "";
+  setMode("raw");
+  updateSearchActions(finalQuery, queryResult.api || {});
+  clearError();
+  showQueryInspector(finalQuery, queryResult.reason || "", diagnostics, queryResult.api || {}, {
+    inputValue: query,
+    normalized: true,
+    pending: true
+  });
+  document.getElementById("query-inspector")?.scrollIntoView?.({ block: "nearest" });
+}
+
+/**
  * Runs a parser alternative, preserving any attached search metadata.
  * @param {string} query - Alternative query.
  * @param {object} api - Optional alternative API metadata.
@@ -3489,7 +3540,8 @@ function showQueryInspector(query, reason, diagnostics = [], api = null, ui = {}
     api,
     inputValue: ui.inputValue || "",
     normalized: Boolean(ui.normalized),
-    blocked: Boolean(ui.blocked)
+    blocked: Boolean(ui.blocked),
+    pending: Boolean(ui.pending)
   });
 }
 
@@ -3525,6 +3577,7 @@ function updateSearchActions(query = currentQuery, api = currentSearchApi) {
  */
 function copyQuery() {
   const inputValue = normalizeSearchInputValue(document.getElementById("search-input")?.value || "");
+  const preparedSuggestion = document.getElementById("query-inspector")?.dataset.executionState === "pending";
   if (currentMode === "builder") {
     const validation = validateVisualBuilderFilters(bFilters);
     if (!validation.valid) {
@@ -3534,7 +3587,7 @@ function copyQuery() {
   }
   const copyText = currentMode === "builder"
     ? inputValue
-    : currentQuery || inputValue || lastSmartInput;
+    : preparedSuggestion ? inputValue : currentQuery || inputValue || lastSmartInput;
   copyTextToClipboard(copyText, "Query copied");
 }
 
@@ -4499,6 +4552,14 @@ function handleMazeActionClick(event) {
         unique: actionNode.dataset.unique || undefined,
         dir: actionNode.dataset.dir || undefined,
         plainReadingQuery: actionNode.dataset.plainReadingQuery || undefined,
+        origin: actionNode.dataset.origin || "maze"
+      });
+      return;
+    case "inspect-suggested-search":
+      inspectSuggestedSearch(actionNode.dataset.query || "", {
+        order: actionNode.dataset.order || undefined,
+        unique: actionNode.dataset.unique || undefined,
+        dir: actionNode.dataset.dir || undefined,
         origin: actionNode.dataset.origin || "maze"
       });
       return;
