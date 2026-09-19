@@ -69,7 +69,7 @@ Dependencies: VM-660
 Dependency head: 119b13cd26623e92e1d72d2a2023dd6bfdda7b22
 Owner authorization: Owner request 2026-09-19: VM-660 accepted dependency head authorizes VM-662 admission while VM-660 integration remains pending.
 Planning inputs: VM-657 accepted UX direction; VM-661 accepted material candidate 4136616a2559f23133147421737a3bc07f0c1c4c and evidence head d8248833385c705b4b08c295f00fe642542e9f8b; [VM-662 documentation-only preflight](../../handoffs/2026-09-19-0910-codex-vm662-maze-modernization-preflight.md).
-Decisions: VM-662 is presentation-bounded except that only Discovery Paths and Helper Searches become inspect-first. Stop and report before changing any other search initiator, protected owner, query/compiler semantic, route/storage contract, generated data, dependency, result engine, semantic/state owner, or responsive application tree.
+Decisions: VM-662 is presentation-bounded except that only Discovery Paths and Helper Searches become inspect-first. Stop and report before changing any other search initiator, protected owner, query/compiler semantic, route/storage contract, generated data, dependency, result engine, semantic/state owner, or responsive application tree. Scope amendment: add the exact RobDev implementation handoff and independent RobQA handoff required for candidate and Owner Review evidence; no runtime, data, test, or protected owner was added.
 Evidence: [VM-662 preflight](../../handoffs/2026-09-19-0910-codex-vm662-maze-modernization-preflight.md); [VM-662 admission reconciliation](../../handoffs/2026-09-19-0955-codex-vm662-admission-reconciliation.md).
 
 ## Admission Scope
@@ -82,3 +82,5 @@ Evidence: [VM-662 preflight](../../handoffs/2026-09-19-0910-codex-vm662-maze-mod
 - `docs/kanban/board.md`
 - `docs/handoffs/HANDOFF_INDEX.md`
 - `docs/handoffs/2026-09-19-0955-codex-vm662-admission-reconciliation.md`
+- `docs/handoffs/2026-09-19-0751-codex-vm662-maze-modernization.md`
+- `docs/handoffs/2026-09-19-0751-robqa-vm662-maze-modernization.md`
