@@ -1,4 +1,4 @@
-<!-- task-view-sha256:e2b0ddd06273d7a2283f872c747752e9da189a33fdb68eda5d0deff18c2eb402 -->
+<!-- task-view-sha256:0bbb65d11d0ef4671847aa3f0541032a442a1fa8bc8c9bc7d534ab2d41beae59 -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -13,6 +13,7 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 | 2026-09-18T00:00:00Z (authored) | Codex `/root` | [VM-660 — Maze Performance Recon](2026-09-18-1853-codex-vm660-maze-performance-recon.md) | VM-660 | Identity displayed from heading; not admission metadata. |
 | 2026-09-18T00:00:00Z (authored) | Unknown | [VM-660 — RobQA QA-0 Handoff](2026-09-18-1853-robqa-vm660-maze-performance-recon.md) | VM-660 | Identity displayed from heading; not admission metadata. |
 | 2026-09-18T00:00:00Z (authored) | Codex `/root` | [VM-661 — Maze Modernization Implementation Specification](2026-09-18-2300-codex-vm661-maze-modernization-spec.md) | VM-661 | Identity displayed from heading; not admission metadata. |
+| 2026-09-18T00:00:00Z (authored) | Unknown | [VM-661 — RobQA QA-0 Handoff](2026-09-18-2310-robqa-vm661-maze-modernization-spec.md) | VM-661 | Identity displayed from heading; not admission metadata. |
 | 2026-09-17T00:00:00Z (authored) | Unknown | [VM-658 — Integration and closeout](2026-09-17-2327-codex-vm658-closeout.md) | VM-658 | Identity displayed from heading; not admission metadata. |
 | 2026-09-17T00:00:00Z (authored) | Unknown | [VM-658 — Closeout blocker](2026-09-17-2336-codex-vm658-closeout-blocked.md) | VM-658 | Identity displayed from heading; not admission metadata. |
 | 2026-09-15T21:44:00Z (filename) | Unknown | [VM-658 RobDev Implementation Handoff — Maze Instrument Frame](2026-09-15-2144-codex-vm658-maze-instrument-frame.md) | VM-658 | Identity displayed from heading; not admission metadata. |

@@ -65,15 +65,15 @@ Use VM-657 as the accepted semantic-search-workbench design direction and VM-660
 Record version: 1
 Branch: codex/vm-661-maze-modernization-spec
 Admission baseline: b48a1357a0c9076b38ae0b7d058c4ea213db4aaa
-Candidate: PENDING
-RobQA: PENDING
+Candidate: 4136616a2559f23133147421737a3bc07f0c1c4c
+RobQA: PASS at 4136616a2559f23133147421737a3bc07f0c1c4c — SAME-AGENT DISTINCT PHASE QA-0 by Codex `/root`
 Owner: PENDING
 Integration: PENDING — planning task is admitted from accepted VM-660 evidence under explicit Owner dependency authorization; VM-660 integration remains separately pending because authenticated PR creation is unavailable.
 Dependencies: VM-660
 Dependency head: 119b13cd26623e92e1d72d2a2023dd6bfdda7b22
 Owner authorization: Current Owner instruction 2026-09-18: treat accepted VM-660 evidence `119b13cd26623e92e1d72d2a2023dd6bfdda7b22` as a valid planning dependency; do not block planning on VM-660 PR/integration closeout.
 Decisions: Planning/specification only. VM-657 is the intended UX/product direction; VM-660 is the performance/architecture constraint layer. No production Maze behavior is authorized. Stop at Owner Review. Scope amendment: replace invalid wildcard handoff entries with the two exact planned handoff paths required by admission validation.
-Evidence: PENDING
+Evidence: [Implementation specification](../../handoffs/2026-09-18-2300-codex-vm661-maze-modernization-spec.md); [RobQA QA-0](../../handoffs/2026-09-18-2310-robqa-vm661-maze-modernization-spec.md)
 
 ## Admission Scope
 
