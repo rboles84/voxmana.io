@@ -63,7 +63,7 @@ Branch: codex/vm-662-maze-modernization
 Admission baseline: b48a1357a0c9076b38ae0b7d058c4ea213db4aaa
 Candidate: 159d23c9c6f7e988af1f1bdc4e74ae1731161519
 RobQA: PASS at 159d23c9c6f7e988af1f1bdc4e74ae1731161519 — SEPARATE execution by `/root/vm662_robqa`; [replacement-candidate evidence](../../handoffs/2026-09-19-2145-robqa-vm662-owner-remediation.md)
-Owner: PENDING — REJECTED a0506ac44a4602910fd33841ec5fbf8cf8242214 on 2026-09-19; corrected replacement candidate is ready for review
+Owner: PENDING
 Integration: PENDING
 Dependencies: VM-660
 Dependency head: 119b13cd26623e92e1d72d2a2023dd6bfdda7b22
