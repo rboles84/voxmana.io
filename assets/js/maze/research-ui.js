@@ -9,6 +9,7 @@
  * @param {boolean} [details.normalized] - Whether the displayed query differs from the input.
  * @param {boolean} [details.blocked] - Whether execution is blocked pending user choice.
  * @param {boolean} [details.pending] - Whether a prepared suggestion awaits explicit Search.
+ * @param {boolean} [details.suppressReason] - Whether route-authored suggestion UI already supplies meaning.
  */
 export function renderQueryInspector({
   query,
@@ -18,13 +19,13 @@ export function renderQueryInspector({
   inputValue = "",
   normalized = false,
   blocked = false,
-  pending = false
+  pending = false,
+  suppressReason = false
 }) {
   const inspector = document.getElementById("query-inspector");
   if (!inspector) return;
   const diagnosticList = Array.isArray(diagnostics) ? diagnostics : [];
   const searchApi = api || {};
-  const hasDiagnostics = diagnosticList.length > 0;
   const mode = document.body?.dataset?.mazeMode || "ai";
   const groups = groupDiagnosticsForInspector(diagnosticList);
   const interpretationState = classifyInterpretationState(groups, { mode, blocked });
@@ -34,62 +35,16 @@ export function renderQueryInspector({
   inspector.classList.toggle("is-compact", mode === "raw" && !normalized);
   inspector.classList.toggle("is-secondary", mode === "builder");
 
-  const labelEl = document.getElementById("qi-label")
-    || (typeof inspector.querySelector === "function" ? inspector.querySelector(".qi-label") : null);
-  const inputWrap = document.getElementById("qi-input-wrap");
-  const inputLabel = document.getElementById("qi-input-label");
-  const inputText = document.getElementById("qi-input");
-  const queryText = document.getElementById("qi-query");
   const stateText = document.getElementById("qi-state");
-  const executionText = document.getElementById("qi-execution-state");
   if (stateText) stateText.textContent = interpretationState.label;
-  if (executionText) {
-    executionText.textContent = pending
-      ? "Selection loaded · Search when ready"
-      : blocked ? "Search unavailable" : "Search requested";
-  }
-  if (!pending) updateResultsQueryContext(query, interpretationState);
-  const finalReason = reason;
-  const scryfallLink = document.getElementById("qi-scryfall");
-  if (scryfallLink) {
-    const canOpen = Boolean(query && !blocked);
-    scryfallLink.href = canOpen ? buildScryfallWebSearchUrl(query, searchApi) : "#";
-    scryfallLink.setAttribute("aria-disabled", canOpen ? "false" : "true");
-    scryfallLink.tabIndex = canOpen ? 0 : -1;
-  }
-
-  const redundantRaw = mode === "raw" && !normalized && !finalReason && !hasDiagnostics;
-  const redundantBuilder = mode === "builder" && !finalReason && !hasDiagnostics;
-  if (redundantRaw || redundantBuilder) {
-    inputWrap?.classList.add("hidden");
-    document.getElementById("qi-reason")?.classList.add("hidden");
-    const diagnostics = document.getElementById("qi-diagnostics");
-    if (diagnostics) {
-      diagnostics.innerHTML = "";
-      diagnostics.classList.add("hidden");
-    }
-    inspector.classList.add("hidden");
-    return;
-  }
-
-  if (mode === "ai") {
-    if (labelEl) labelEl.textContent = "Maze translated";
-    if (inputLabel) inputLabel.textContent = "You wrote";
-    if (inputText) inputText.textContent = inputValue || "Plain reading input";
-    inputWrap?.classList.toggle("hidden", !inputValue);
-    if (queryText) queryText.textContent = query;
-  } else if (mode === "raw") {
-    inputWrap?.classList.add("hidden");
-    if (labelEl) labelEl.textContent = normalized ? "Normalized syntax" : "Syntax active";
-    if (queryText) queryText.textContent = normalized ? query : "Using the query in the search field.";
-  } else {
-    inputWrap?.classList.add("hidden");
-    if (labelEl) labelEl.textContent = "Visual filters searched";
-    if (queryText) queryText.textContent = query;
-  }
+  renderExactQuery({ query, api: searchApi, pending, blocked });
+  if (!pending) updateResultsInterpretationState(interpretationState);
+  const finalReason = suppressReason ? "" : reason;
 
   const reasonEl = document.getElementById("qi-reason");
-  const builderFallback = mode === "builder" ? "Generated from the active Loom filters." : "";
+  const builderFallback = mode === "builder" && !pending && !suppressReason
+    ? "Generated from the active Loom filters."
+    : "";
   if (finalReason || builderFallback) {
     reasonEl.textContent = finalReason || builderFallback;
     reasonEl.classList.remove("hidden");
@@ -99,6 +54,37 @@ export function renderQueryInspector({
 
   renderDiagnostics(inspector, groups, searchApi);
   inspector.classList.remove("hidden");
+}
+
+/**
+ * Updates the single executable-query region without creating another query owner.
+ * @param {object} details - Exact-query presentation details.
+ * @param {string} details.query - Existing resolved Scryfall query.
+ * @param {object} [details.api] - Existing search API metadata.
+ * @param {boolean} [details.pending] - Whether Search has not been activated yet.
+ * @param {boolean} [details.blocked] - Whether execution is unavailable.
+ * @param {string} [details.status] - Optional concise presentation status.
+ */
+export function renderExactQuery({
+  query,
+  api = null,
+  pending = false,
+  blocked = false,
+  status = ""
+}) {
+  const panel = document.getElementById("exact-query-panel");
+  const queryText = document.getElementById("qi-query");
+  const executionText = document.getElementById("qi-execution-state");
+  const cleanQuery = String(query || "").trim();
+  if (!panel) return;
+  panel.classList.toggle("hidden", !cleanQuery);
+  panel.dataset.executionState = pending ? "pending" : blocked ? "blocked" : "executed";
+  if (queryText) queryText.textContent = cleanQuery;
+  if (executionText) {
+    executionText.textContent = status || (pending
+      ? "Ready · Search when ready"
+      : blocked ? "Search unavailable" : "Executed query");
+  }
 }
 
 /**
@@ -144,6 +130,7 @@ function renderDiagnostics(inspector, groups, api = {}) {
       <summary>
         <span>Interpretation details</span>
         ${renderConfidenceSummary(groups.confidence)}
+        <span class="qi-details-caret" aria-hidden="true">›</span>
       </summary>
       <div class="qi-details-body">
         ${renderChipGroup("API", apiItems)}
@@ -154,11 +141,11 @@ function renderDiagnostics(inspector, groups, api = {}) {
         ${renderAlternatives(groups.alternatives)}
       </div>
     </details>
-    <a class="qi-guide-link vm-guide-beacon vm-guide-beacon--maze" href="../guide/maze/?guided=maze-search" data-guide-beacon-id="maze-search-help">
+    <a class="qi-guide-link vm-guide-beacon vm-guide-beacon--maze" href="../guide/maze/?guided=maze-search" data-guide-beacon-id="maze-search-help" data-action="open-maze-guide">
       <span class="qi-guide-mark vm-guide-beacon__mark" aria-hidden="true">✦</span>
       <span class="qi-guide-copy vm-guide-beacon__copy">
         <span class="qi-guide-eyebrow vm-guide-beacon__eyebrow">Field Guide</span>
-        <span class="qi-guide-action vm-guide-beacon__action">Walk me through this search <span aria-hidden="true">→</span></span>
+        <span class="qi-guide-action vm-guide-beacon__action">Open the Maze guide <span aria-hidden="true">→</span></span>
       </span>
     </a>
   `;
@@ -194,10 +181,8 @@ function classifyInterpretationState(groups = {}, { mode = "ai", blocked = false
   return { key: "clear", label: "Clear" };
 }
 
-function updateResultsQueryContext(query, interpretationState) {
-  const queryText = document.getElementById("results-query");
+function updateResultsInterpretationState(interpretationState) {
   const stateText = document.getElementById("results-interpretation-state");
-  if (queryText) queryText.textContent = query || "";
   if (stateText) {
     stateText.textContent = interpretationState.label;
     stateText.dataset.state = interpretationState.key;

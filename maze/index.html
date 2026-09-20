@@ -29,8 +29,9 @@
 <link rel="stylesheet" href="../assets/vendor/mana/css/mana.min.css">
 <link rel="stylesheet" href="../assets/css/guide-beacon.css?v=vm620">
 <link rel="stylesheet" href="../assets/css/maze.css?v=vm658">
+<link rel="stylesheet" href="../assets/css/site-skin.css?v=vm652">
 </head>
-<body class="vm-maze-route" data-page="maze" data-vm-current="maze" data-bg="medium" data-vm-atmosphere="rich" data-maze-mode="ai" data-stash-open="false">
+<body class="vm-site-skin vm-maze-route" data-page="maze" data-vm-current="maze" data-bg="medium" data-vm-atmosphere="rich" data-maze-mode="ai" data-stash-open="false" data-pending-suggestion="false">
 
 <div class="vm-bg" aria-hidden="true">
   <!-- VM-635: black backdrop; painted image assets preserved for rollback. -->
@@ -39,7 +40,7 @@
 </div>
 
 <!-- -- HEADER --- -->
-<header class="vm-topbar" role="banner" data-maze-modal-background>
+<header class="vm-topbar" role="banner" data-maze-modal-background style="background:#0c0c0b;border-bottom:1px solid var(--site-rule)">
   <a class="vm-brand" href="../index.html" aria-label="Vox Mana home">
     <span class="vm-brand-mark" aria-hidden="true">
     <img src="../assets/img/vox-mana-header-logo.svg" alt="" width="44" height="44" decoding="async" fetchpriority="high">
@@ -116,17 +117,23 @@
         <button class="mode-btn mode-card" id="mode-raw" type="button" role="tab" data-action="set-mode" data-mode="raw" aria-selected="false" aria-controls="maze-workbench-panel" tabindex="-1"><span class="mode-card-kicker">Scryfall syntax</span><span class="mode-card-title">Operator's Hand</span></button>
         <button class="mode-btn mode-card" id="mode-builder" type="button" role="tab" data-action="set-mode" data-mode="builder" aria-selected="false" aria-controls="maze-workbench-panel" tabindex="-1"><span class="mode-card-kicker">Visual query</span><span class="mode-card-title">The Loom</span></button>
       </div>
-      <details class="maze-mode-help" id="maze-mode-help">
-        <summary id="maze-mode-help-summary" aria-label="About Plain Reading"><i class="ms ms-ability-collect-evidence" aria-hidden="true"></i><span>About</span></summary>
-        <p id="maze-mode-help-copy">Describe the card you want in human language. Maze will translate the intent into Scryfall syntax before searching.</p>
-      </details>
+      <div class="maze-console-utilities">
+        <details class="maze-mode-help" id="maze-mode-help">
+          <summary id="maze-mode-help-summary" aria-label="About Plain Reading"><i class="ms ms-ability-collect-evidence" aria-hidden="true"></i><span>About</span></summary>
+          <p id="maze-mode-help-copy">Describe the card you want in human language. Maze will translate the intent into Scryfall syntax before searching.</p>
+        </details>
+        <button class="query-action-btn stash-drawer-toggle" id="stash-drawer-toggle" type="button" data-action="toggle-stash-drawer" aria-controls="stash-panel" aria-expanded="false">
+          <span>Reading Finds</span>
+          <span class="stash-drawer-count" data-stash-toggle-count>0</span>
+        </button>
+      </div>
     </div>
 
     <div class="maze-search-shell" id="maze-workbench-panel" role="tabpanel" aria-labelledby="mode-ai" tabindex="-1">
       <div class="maze-reading-context" id="maze-reading-context" tabindex="-1" hidden>
         <div class="maze-reading-context-copy" role="status" aria-live="polite" aria-atomic="true">
-          <span id="maze-reading-context-label">Standalone search</span>
-          <p id="maze-reading-context-detail">No reading is changing this query.</p>
+          <span id="maze-reading-context-label"></span>
+          <a class="maze-reading-context-return" id="maze-reading-context-return" href="../archscry/index.html"></a>
         </div>
         <button class="maze-reading-context-action hidden" id="maze-reading-context-action" type="button" data-action="search-independently">Search independently</button>
       </div>
@@ -134,10 +141,9 @@
       <section class="maze-primary-workbench" aria-labelledby="maze-request-bench-title">
         <div class="maze-bench-heading">
           <div>
-            <span class="maze-step-mark">01 · Player request</span>
+            <span class="maze-section-label">Player request</span>
             <h2 id="maze-request-bench-title">Name the card texture you want to find.</h2>
           </div>
-          <span class="maze-bench-mode" id="maze-bench-mode" aria-hidden="true">Plain Reading</span>
         </div>
         <div class="search-input-row">
           <div class="search-wrap">
@@ -148,38 +154,6 @@
               placeholder="e.g. red and black orcs, green haste, blue removal"></textarea>
           </div>
           <button class="btn-clear" id="clear-search-btn" type="button" data-action="clear-search">Clear</button>
-          <button class="query-action-btn search-copy-btn is-disabled" id="search-copy-btn" type="button" data-action="copy-query" disabled>Copy</button>
-          <a class="query-action-btn search-scryfall-link is-disabled" id="search-scryfall-link" href="#" target="_blank" rel="noopener" aria-disabled="true" tabindex="-1">Open in Scryfall</a>
-          <button class="query-action-btn stash-drawer-toggle" id="stash-drawer-toggle" type="button" data-action="toggle-stash-drawer" aria-controls="stash-panel" aria-expanded="false">
-            <span>Reading Finds</span>
-            <span class="stash-drawer-count" data-stash-toggle-count>0</span>
-          </button>
-        </div>
-
-        <div class="query-inspector hidden" id="query-inspector" aria-live="polite">
-          <div class="qi-ledger-head">
-            <div>
-              <span class="maze-step-mark">02 · Maze interpretation</span>
-              <strong class="qi-state" id="qi-state">Clear</strong>
-            </div>
-            <span class="qi-execution-state" id="qi-execution-state"></span>
-          </div>
-          <div class="qi-input-wrap hidden" id="qi-input-wrap">
-            <span class="qi-label" id="qi-input-label">You wrote</span>
-            <span class="qi-input" id="qi-input"></span>
-          </div>
-          <div class="qi-primary">
-            <span class="qi-label" id="qi-label">03 · Exact Scryfall query</span>
-            <span class="qi-query" id="qi-query"></span>
-          </div>
-          <span class="qi-reason hidden" id="qi-reason"></span>
-        </div>
-        <div class="maze-execution-row">
-          <div class="maze-execution-copy">
-            <span class="maze-step-mark">04 · Execute</span>
-            <span>Search sends the exact query to Scryfall.</span>
-          </div>
-          <button class="btn-search" id="search-btn" type="button" data-action="search">Search</button>
         </div>
       </section>
 
@@ -321,19 +295,39 @@
         </fieldset>
 
         <div class="loom-completion">
-          <div class="builder-output" aria-live="polite">
-            <span>Generated Scryfall query</span>
-            <code id="loom-query-output"></code>
-          </div>
           <div class="loom-completion-actions">
             <button class="btn-search loom-completion-search" id="loom-search-btn" type="button" data-action="search">Search these Loom filters</button>
-            <button class="query-action-btn is-disabled" id="loom-copy-btn" type="button" data-action="copy-query" disabled>Copy</button>
-            <a class="query-action-btn is-disabled" id="loom-scryfall-link" href="#" target="_blank" rel="noopener" aria-disabled="true" tabindex="-1">Open in Scryfall</a>
-            <button class="query-action-btn stash-drawer-toggle" id="loom-stash-drawer-toggle" type="button" data-action="toggle-stash-drawer" aria-controls="stash-panel" aria-expanded="false"><span>Reading Finds</span><span class="stash-drawer-count" data-stash-toggle-count>0</span></button>
             <button class="query-action-btn" id="loom-reset-btn" type="button" data-action="reset-builder">Reset Loom</button>
           </div>
         </div>
         <p class="visually-hidden" id="builder-summary" aria-live="polite">Commander format is ready. Add filters or search as-is.</p>
+      </div>
+
+      <section class="query-inspector hidden" id="query-inspector" aria-labelledby="qi-region-label" aria-live="polite">
+        <div class="qi-ledger-head">
+          <div>
+            <span class="maze-section-label" id="qi-region-label">Maze interpretation</span>
+            <strong class="qi-state" id="qi-state">Clear</strong>
+          </div>
+        </div>
+        <span class="qi-reason hidden" id="qi-reason"></span>
+      </section>
+
+      <section class="exact-query-panel hidden" id="exact-query-panel" aria-labelledby="exact-query-title" aria-live="polite">
+        <div class="exact-query-head">
+          <span class="maze-section-label" id="exact-query-title">Exact Scryfall query</span>
+          <span class="qi-execution-state" id="qi-execution-state"></span>
+        </div>
+        <code class="qi-query" id="qi-query"></code>
+        <div class="exact-query-actions">
+          <button class="query-action-btn search-copy-btn is-disabled" id="search-copy-btn" type="button" data-action="copy-query" disabled>Copy</button>
+          <a class="query-action-btn search-scryfall-link is-disabled" id="search-scryfall-link" href="#" target="_blank" rel="noopener" aria-disabled="true" tabindex="-1">Open in Scryfall</a>
+        </div>
+      </section>
+
+      <div class="maze-execution-row">
+        <span>Search sends the exact query to Scryfall.</span>
+        <button class="btn-search" id="search-btn" type="button" data-action="search">Search</button>
       </div>
     </div>
 </div>
@@ -410,13 +404,6 @@
       <div class="dossier-thread-grid" id="dossier-thread-grid"></div>
       <p class="dossier-stretch-boundary hidden" id="dossier-stretch-boundary"></p>
     </section>
-    <div class="maze-return-banner" id="maze-return-banner">
-      <div class="maze-return-copy" id="maze-return-copy"></div>
-      <div class="maze-return-actions">
-        <a class="maze-return-link" id="maze-return-link" href="../archscry/index.html">Return to Dossier with Finds</a>
-        <button class="maze-return-dismiss" id="maze-return-dismiss" type="button" aria-label="Dismiss return banner">&times;</button>
-      </div>
-    </div>
     <div class="state-panel" id="state-panel">
       <svg width="48" height="48" viewBox="0 0 48 48" fill="none" style="opacity:.2">
         <circle cx="24" cy="24" r="18" stroke="#b8954a" stroke-width="0.8" stroke-dasharray="4 3"/>
@@ -432,8 +419,7 @@
     <div class="err-msg hidden" id="err-msg"></div>
     <div class="results-header hidden" id="results-header" tabindex="-1">
       <div class="results-query-context">
-        <span class="maze-step-mark">05 · Results</span>
-        <code id="results-query"></code>
+        <span class="results-heading">Results</span>
         <span class="results-interpretation-state" id="results-interpretation-state"></span>
       </div>
       <span class="res-count" id="res-count" role="status" aria-live="polite" aria-atomic="true"></span>

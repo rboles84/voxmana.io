@@ -11,7 +11,7 @@ import { setScryfallSyntaxDisplayLookup } from "./research-syntax-language.js?v=
 import { applyMazeFormatToQuery, resolveMazeQueryRequest } from "./maze-query-core.js?v=vm636";
 import { resolveModeInputValue } from "./research-mode.js?v=vm627";
 import * as ResearchSearch from "./research-search.js";
-import { buildScryfallWebSearchUrl, renderQueryInspector } from "./research-ui.js?v=vm620";
+import { buildScryfallWebSearchUrl, renderExactQuery, renderQueryInspector } from "./research-ui.js?v=vm620";
 import {
   buildDossierMazePathEntries,
   isMazeOperatorQuery,
@@ -65,10 +65,13 @@ let activeModalCard = null;
 let modalReturnFocusEl = null;
 let stashDragState = null;
 let activeKeywordSuggestionIndex = -1;
+let pendingSuggestedSearch = null;
+let lastInspectorState = null;
 
 const PAGE_SIZE = 24;
 const DEFAULT_FORMAT = "commander";
 const ARCHSCRY_MAZE_HANDOFF_KEY = "vm_archscry_maze_handoff_v1";
+const MAZE_GUIDE_RETURN_STATE_KEY = "vm_maze_guide_return_ui_v1";
 const DOSSIER_REVIEW_CONTEXT_MODE = "dossier-review";
 const IDENTITY_EXPLORE_CONTEXT_MODE = "identity-explore";
 let transientArchscryMazeHandoff = null;
@@ -950,6 +953,7 @@ async function initializeResearchArchives() {
   bindSearchInputSelectOnFocus();
   setMode("ai");
   updateSearchActions();
+  if (restoreMazeGuideReturnState()) return;
 
   const launch = resolveMazeLaunchState(urlParams, readActiveArchscryMazeHandoff() || {});
   if (launch.from === "archscry" && launch.operatorQuery) {
@@ -1092,7 +1096,7 @@ function setMode(mode) {
     icon.style.color = "";
     document.getElementById("mode-builder").classList.add("teal-mode");
     builder.classList.remove("hidden");
-    rebuildFromFilters();
+    rebuildFromFilters({ preservePending: true });
   }
 
   syncInputForModeSwitch(input, previousMode, mode);
@@ -1102,6 +1106,7 @@ function setMode(mode) {
   sizeLoomQueryInput(input);
   updateLoomSidebarVisibility(mode);
   updateReadingContextDisclosure();
+  refreshExactQueryForMode(mode);
   refreshInitialStateForMode();
 }
 
@@ -1127,14 +1132,12 @@ function updateModeContent(mode) {
   const helpSummary = document.getElementById("maze-mode-help-summary");
   const helpCopy = document.getElementById("maze-mode-help-copy");
   const help = document.getElementById("maze-mode-help");
-  const benchMode = document.getElementById("maze-bench-mode");
   if (helpSummary) helpSummary.setAttribute("aria-label", `About ${content.label.replace(/ open$/i, "")}`);
   if (helpCopy) helpCopy.textContent = content.copy;
   if (help) {
     help.dataset.mode = mode;
     help.open = false;
   }
-  if (benchMode) benchMode.textContent = content.label.replace(/ open$/i, "");
   MODE_IDS.forEach((id) => document.getElementById(`mode-${id}`)?.removeAttribute("aria-describedby"));
   document.getElementById(`mode-${mode}`)?.setAttribute("aria-describedby", "maze-mode-help-copy");
 }
@@ -1142,52 +1145,53 @@ function updateModeContent(mode) {
 function updateReadingContextDisclosure() {
   const context = document.getElementById("maze-reading-context");
   const label = document.getElementById("maze-reading-context-label");
-  const detail = document.getElementById("maze-reading-context-detail");
+  const returnLink = document.getElementById("maze-reading-context-return");
   const action = document.getElementById("maze-reading-context-action");
-  if (!context || !label || !detail || !action) return;
+  if (!context || !label || !returnLink || !action) return;
+  if (currentMode === "builder") {
+    context.hidden = true;
+    return;
+  }
   const retainedHandoff = readArchscryMazeHandoff();
   const independent = isIndependentSearch();
-  const handoff = independent ? null : retainedHandoff;
   const retainedDossierKey = resolveDossierActiveKey(retainedHandoff?.fit || retainedHandoff?.guild || "");
   const retainedFactionName = String(
     retainedHandoff?.factionName || DOSSIER_DISPLAY_NAMES.get(retainedDossierKey) || retainedHandoff?.fit || retainedHandoff?.guild || ""
   ).trim();
-  const dossierKey = resolveDossierActiveKey(handoff?.fit || handoff?.guild || "");
-  const factionName = String(
-    handoff?.factionName || DOSSIER_DISPLAY_NAMES.get(dossierKey) || handoff?.fit || handoff?.guild || ""
-  ).trim();
-  const launchedFromDossier = new URLSearchParams(location.search).get("from") === "archscry";
-  const explorationContext = handoff?.contextMode === IDENTITY_EXPLORE_CONTEXT_MODE;
   const retainedExplorationContext = retainedHandoff?.contextMode === IDENTITY_EXPLORE_CONTEXT_MODE;
-  action.dataset.action = "search-independently";
-  action.textContent = "Search independently";
-  if (independent && retainedFactionName) {
-    context.dataset.state = "independent";
-    label.textContent = "Searching independently";
-    detail.textContent = retainedExplorationContext
-      ? `This search is not using the retained ${retainedFactionName} dossier context.`
-      : "This search is not using the retained reading. New Finds will not be attached to that reading; the reading and its existing Finds remain unchanged.";
-    action.dataset.action = "restore-reading-context";
-    action.textContent = retainedExplorationContext ? "Restore dossier context" : "Restore reading context";
-  } else if (factionName && launchedFromDossier) {
-    context.dataset.state = "dossier-thread";
-    label.textContent = `${factionName} dossier thread`;
-    detail.textContent = explorationContext
-      ? `This query came from the ${factionName} dossier. No reading was created or changed.`
-      : "This query came from your dossier. No extra reading filters are being added.";
-  } else if (factionName) {
-    context.dataset.state = explorationContext ? "dossier-available" : "reading-available";
-    label.textContent = explorationContext ? `${factionName} dossier available` : `${factionName} reading available`;
-    detail.textContent = explorationContext
-      ? "It keeps the return path to the browsed dossier without creating a reading."
-      : "It keeps the return path and new Reading Finds association, but it is not changing this query.";
-  } else {
-    context.dataset.state = "standalone";
-    label.textContent = "Standalone search";
-    detail.textContent = "No reading is changing this query.";
+  const associatesFinds = Boolean(retainedHandoff?.readingId) && !retainedExplorationContext;
+  const pathLabel = ARCHSCRY_PATH_LABELS[retainedHandoff?.pathType] || "";
+  const returnUrl = dossierReturnUrlForHandoff(retainedHandoff);
+
+  if (!retainedFactionName) {
+    context.hidden = true;
+    return;
   }
-  context.hidden = !(independent ? retainedFactionName : factionName);
-  action.classList.toggle("hidden", independent ? !retainedFactionName : !factionName);
+
+  returnLink.href = returnUrl || retainedHandoff?.returnUrl || "../archscry/";
+  returnLink.textContent = `Return to ${retainedFactionName} dossier`;
+  returnLink.classList.toggle("hidden", !returnUrl && !retainedHandoff?.returnUrl);
+  action.classList.add("hidden");
+
+  if (retainedExplorationContext) {
+    context.dataset.state = "dossier";
+    label.textContent = `From ${retainedFactionName} dossier${pathLabel ? ` · ${pathLabel}` : ""}`;
+  } else if (independent && associatesFinds) {
+    context.dataset.state = "independent";
+    label.textContent = `From ${retainedFactionName} reading · New Finds are standalone`;
+    action.dataset.action = "restore-reading-context";
+    action.textContent = `Attach new Finds to ${retainedFactionName}`;
+    action.classList.remove("hidden");
+  } else {
+    context.dataset.state = "reading";
+    label.textContent = `From ${retainedFactionName} reading${pathLabel ? ` · ${pathLabel}` : ""} · New Finds stay with this reading`;
+    if (associatesFinds) {
+      action.dataset.action = "search-independently";
+      action.textContent = "Save new Finds separately";
+      action.classList.remove("hidden");
+    }
+  }
+  context.hidden = false;
 }
 
 function isIndependentSearch() {
@@ -1223,20 +1227,55 @@ function restoreReadingContext() {
 
 function refreshReadingContextPresentation() {
   updateReadingContextDisclosure();
-  const banner = document.getElementById("maze-return-banner");
-  const handoff = readActiveArchscryMazeHandoff();
-  if (handoff?.returnUrl && !handoff.returnBannerDismissed) renderArchscryReturnBanner(handoff);
-  else banner?.classList.remove("is-visible");
   buildReadingPaths();
   updateScratchpadReturnLink();
 }
 
 function updateLoomSidebarVisibility(mode = currentMode) {
   const shouldHide = mode === "builder";
-  ["sidebar-color-section", "sidebar-format-section"].forEach((id) => {
+  ["sidebar-color-section", "sidebar-format-section", "reading-path-section", "dossier-discovery-panel"].forEach((id) => {
     const section = document.getElementById(id);
     if (section) section.hidden = shouldHide;
   });
+}
+
+function refreshExactQueryForMode(mode = currentMode) {
+  if (pendingSuggestedSearch) {
+    updateSearchActions(pendingSuggestedSearch.query, pendingSuggestedSearch.api);
+    renderExactQuery({
+      query: pendingSuggestedSearch.query,
+      api: pendingSuggestedSearch.api,
+      pending: true,
+      blocked: pendingSuggestedSearch.executionBlocked
+    });
+    return;
+  }
+  if (mode === "builder") {
+    const query = buildFilterQuery();
+    const validation = validateVisualBuilderFilters(bFilters);
+    updateSearchActions(validation.valid ? query : "", {});
+    renderExactQuery({
+      query: validation.valid ? query : "",
+      pending: true,
+      blocked: !validation.valid,
+      status: validation.valid ? "Loom query ready · Search when ready" : "Loom query needs attention"
+    });
+    return;
+  }
+  if (currentQuery) {
+    updateSearchActions(currentQuery, currentSearchApi);
+    renderExactQuery({ query: currentQuery, api: currentSearchApi });
+    return;
+  }
+  updateSearchActions("", {});
+  document.getElementById("exact-query-panel")?.classList.add("hidden");
+}
+
+function clearPendingSuggestedSearch({ restorePresentation = true } = {}) {
+  if (!pendingSuggestedSearch) return;
+  pendingSuggestedSearch = null;
+  document.body.dataset.pendingSuggestion = "false";
+  if (restorePresentation) refreshExactQueryForMode(currentMode);
 }
 
 /**
@@ -1279,6 +1318,7 @@ function bindSearchInputSelectOnFocus() {
 
   input.addEventListener("input", () => {
     selectAutoFilledInputOnFocus = false;
+    clearPendingSuggestedSearch();
     rememberModeDraftInput({ target: input });
   });
 }
@@ -1288,6 +1328,37 @@ function bindSearchInputSelectOnFocus() {
  * Runs the active search mode through the Maze query contract adapter.
  */
 async function doSearch() {
+  if (pendingSuggestedSearch) {
+    const prepared = pendingSuggestedSearch;
+    renderCurrentWeave();
+    setLoading(true);
+    clearError();
+    displayPage = 0;
+    allResults = [];
+    clearPendingSuggestedSearch({ restorePresentation: false });
+    try {
+      if (prepared.executionBlocked) {
+        handleBlockedQueryResult(prepared.queryResult, {
+          diagnostics: prepared.diagnostics,
+          inputValue: prepared.inputValue,
+          normalized: true
+        });
+        return;
+      }
+      await triggerSearch(prepared.query, {
+        api: prepared.api,
+        diagnostics: prepared.diagnostics,
+        inputValue: prepared.inputValue,
+        normalized: true,
+        suppressReason: true
+      });
+    } catch (error) {
+      showError(`Search failed: ${error.message}`);
+    } finally {
+      setLoading(false);
+    }
+    return;
+  }
   const rawInput = normalizeSearchInputValue(document.getElementById("search-input")?.value || "");
   if (!rawInput && currentMode !== "builder") return;
 
@@ -1435,11 +1506,13 @@ async function triggerSearch(query, opts = {}) {
     api = null,
     diagnostics = [],
     inputValue = "",
-    normalized = false
+    normalized = false,
+    suppressReason = false
   } = opts;
   const searchOrder = api?.order || order || "name";
   const searchUnique = api?.unique || unique || "cards";
   const searchDir = normalizeSortDirection(api?.dir || dir);
+  clearPendingSuggestedSearch({ restorePresentation: false });
   const searchApi = { endpoint: "/cards/search", unique: searchUnique, order: searchOrder };
   if (searchDir) searchApi.dir = searchDir;
   currentQuery = query;
@@ -1449,13 +1522,13 @@ async function triggerSearch(query, opts = {}) {
   currentSearchApi = searchApi;
   updateSearchActions(query, searchApi);
   addRecent(query);
-  showQueryInspector(query, reason, diagnostics, searchApi, { inputValue, normalized });
+  showQueryInspector(query, reason, diagnostics, searchApi, { inputValue, normalized, suppressReason });
 
   const data = await ResearchSearch.scryfallSearch(query, { order: searchOrder, unique: searchUnique, dir: searchDir });
   if (data.object === "error") {
     if (isNoResultsResponse(data)) {
       const responseDiagnostics = buildSearchResponseDiagnostics(diagnostics, { totalCards: 0 });
-      showQueryInspector(query, reason, responseDiagnostics, searchApi, { inputValue, normalized });
+      showQueryInspector(query, reason, responseDiagnostics, searchApi, { inputValue, normalized, suppressReason });
       await showNoResultsState(query, diagnostics);
       return;
     }
@@ -1469,7 +1542,7 @@ async function triggerSearch(query, opts = {}) {
   nextPageUrl = data.next_page || null;
   if (totalCards === 0) {
     const responseDiagnostics = buildSearchResponseDiagnostics(diagnostics, { totalCards });
-    showQueryInspector(query, reason, responseDiagnostics, searchApi, { inputValue, normalized });
+    showQueryInspector(query, reason, responseDiagnostics, searchApi, { inputValue, normalized, suppressReason });
   }
   renderResults();
 }
@@ -2073,7 +2146,8 @@ function toggleRarity(value, label = document.getElementById(`cb-rar-${value}`))
 /**
  * Rebuilds the raw query field from Visual Builder state.
  */
-function rebuildFromFilters() {
+function rebuildFromFilters(options = {}) {
+  if (!options.preservePending) clearPendingSuggestedSearch({ restorePresentation: false });
   bFilters.colorOp = document.getElementById("color-op")?.value || "id";
   bFilters.format = document.getElementById("bld-format")?.value || "";
   bFilters.cmcMin = document.getElementById("cmc-min")?.value || "";
@@ -2093,7 +2167,15 @@ function rebuildFromFilters() {
   updateBuilderOutput(validation);
   updateBuilderValidation(validation);
   renderCurrentWeave({ query, validation });
-  if (currentMode === "builder") updateSearchActions(validation.valid ? query : "", {});
+  if (currentMode === "builder") {
+    updateSearchActions(validation.valid ? query : "", {});
+    renderExactQuery({
+      query: validation.valid ? query : "",
+      pending: true,
+      blocked: !validation.valid,
+      status: validation.valid ? "Loom query ready · Search when ready" : "Loom query needs attention"
+    });
+  }
 }
 
 function toggleAbility(keyword) {
@@ -2196,6 +2278,7 @@ function focusInvalidBuilderControl(validation) {
 }
 
 function resetBuilderFilters() {
+  clearPendingSuggestedSearch({ restorePresentation: false });
   bFilters.colors = [];
   bFilters.colorOp = "id";
   bFilters.types = [];
@@ -2706,7 +2789,7 @@ function initializeArchscryMazeHandoff(urlParams) {
   if (urlParams.get("from") !== "archscry") {
     const existing = readArchscryMazeHandoff();
     if (existing?.returnUrl && !existing.returnBannerDismissed) {
-      renderArchscryReturnBanner(existing);
+      updateReadingContextDisclosure();
     }
     return;
   }
@@ -2859,7 +2942,7 @@ function initializeArchscryMazeHandoff(urlParams) {
   }
   writeArchscryMazeHandoff(handoff);
   if (!handoff.returnBannerDismissed) {
-    renderArchscryReturnBanner(handoff);
+    updateReadingContextDisclosure();
   }
 }
 
@@ -2876,56 +2959,6 @@ function stableLocalReadingId(parts = {}) {
     hash >>>= 0;
   }
   return `local-reading-${hash.toString(36)}`;
-}
-
-function renderArchscryReturnBanner(handoff) {
-  const banner = document.getElementById("maze-return-banner");
-  const copy = document.getElementById("maze-return-copy");
-  const link = document.getElementById("maze-return-link");
-  if (!banner || !copy || !link || !handoff?.returnUrl) return;
-
-  const title = handoff.readingTitle || "your Vox Mana reading";
-  const fit = handoff.fit || handoff.guild || "";
-  const factionName = handoff.factionName || handoff.guild || "your reading";
-  const pathLabel = ARCHSCRY_PATH_LABELS[handoff.pathType] || "";
-  const returnUrl = appendReturnUrlParams(handoff.returnUrl, {
-    from: "maze",
-    view: fit,
-    readingId: handoff.readingId || "",
-    mazeReturnUrl: `${location.pathname}${location.search}`
-  });
-
-  clearNode(copy);
-  const strong = document.createElement("strong");
-  strong.textContent = factionName;
-  if (handoff.contextMode === IDENTITY_EXPLORE_CONTEXT_MODE) {
-    appendContent(copy, "Exploring ");
-    copy.appendChild(strong);
-    if (pathLabel) appendContent(copy, ` through ${pathLabel}`);
-    appendContent(copy, ".");
-  } else {
-    appendContent(copy, "Following ");
-    copy.appendChild(strong);
-    appendContent(copy, ` from ${title}`);
-    if (pathLabel) appendContent(copy, ` through ${pathLabel}`);
-    appendContent(copy, ".");
-  }
-  link.href = returnUrl;
-  link.textContent = handoff.contextMode === IDENTITY_EXPLORE_CONTEXT_MODE
-    ? `Return to ${factionName} dossier`
-    : "Return to Dossier with Finds";
-  banner.classList.add("is-visible");
-}
-
-function dismissArchscryReturnBanner() {
-  const handoff = readArchscryMazeHandoff();
-  if (handoff) {
-    writeArchscryMazeHandoff({
-      ...handoff,
-      returnBannerDismissed: true
-    });
-  }
-  document.getElementById("maze-return-banner")?.classList.remove("is-visible");
 }
 
 function appendReturnUrlParams(url, params) {
@@ -3350,6 +3383,7 @@ function buildColorGrid() {
  * @param {string} query - Raw query.
  */
 function runQuickSearch(query, opts = {}) {
+  clearPendingSuggestedSearch({ restorePresentation: false });
   currentMode = "raw";
   const queryResult = resolveMazeRouteQuery(query, {
     mode: "raw",
@@ -3421,31 +3455,22 @@ function inspectSuggestedSearch(query, opts = {}) {
   });
   const finalQuery = queryResult.query;
   const diagnostics = queryResult.diagnostics || [];
-  const input = document.getElementById("search-input");
-
-  if (queryResult.executionBlocked) {
-    if (input) input.value = query;
-    setMode(queryResult.detectedMode === "plain_reading" ? "ai" : "raw");
-    handleBlockedQueryResult(queryResult, {
-      reason: queryResult.reason || "",
-      diagnostics,
-      inputValue: query,
-      normalized: queryResult.normalized || queryResult.detectedMode === "plain_reading"
-    });
-    return;
-  }
-
-  if (input) input.value = finalQuery;
-  selectAutoFilledInputOnFocus = true;
-  lastSmartInput = "";
-  lastSmartQuery = "";
-  setMode("raw");
+  pendingSuggestedSearch = {
+    query: finalQuery,
+    api: queryResult.api || {},
+    diagnostics,
+    inputValue: query,
+    executionBlocked: Boolean(queryResult.executionBlocked),
+    queryResult
+  };
+  document.body.dataset.pendingSuggestion = "true";
   updateSearchActions(finalQuery, queryResult.api || {});
   clearError();
-  showQueryInspector(finalQuery, queryResult.reason || "", diagnostics, queryResult.api || {}, {
+  showQueryInspector(finalQuery, "", diagnostics, queryResult.api || {}, {
     inputValue: query,
     normalized: true,
-    pending: true
+    pending: true,
+    blocked: queryResult.executionBlocked
   });
   document.getElementById("query-inspector")?.scrollIntoView?.({ block: "nearest" });
 }
@@ -3533,6 +3558,17 @@ function addRecent(query) {
  * @param {object[]} diagnostics - Contract diagnostics.
  */
 function showQueryInspector(query, reason, diagnostics = [], api = null, ui = {}) {
+  lastInspectorState = {
+    query,
+    reason,
+    diagnostics,
+    api: api || {},
+    inputValue: ui.inputValue || "",
+    normalized: Boolean(ui.normalized),
+    blocked: Boolean(ui.blocked),
+    pending: Boolean(ui.pending),
+    suppressReason: Boolean(ui.suppressReason)
+  };
   renderQueryInspector({
     query,
     reason,
@@ -3541,7 +3577,8 @@ function showQueryInspector(query, reason, diagnostics = [], api = null, ui = {}
     inputValue: ui.inputValue || "",
     normalized: Boolean(ui.normalized),
     blocked: Boolean(ui.blocked),
-    pending: Boolean(ui.pending)
+    pending: Boolean(ui.pending),
+    suppressReason: Boolean(ui.suppressReason)
   });
 }
 
@@ -3553,9 +3590,8 @@ function showQueryInspector(query, reason, diagnostics = [], api = null, ui = {}
 function updateSearchActions(query = currentQuery, api = currentSearchApi) {
   const cleanQuery = String(query || "").trim();
   const hasQuery = Boolean(cleanQuery);
-  const copyButtons = ["search-copy-btn", "loom-copy-btn"].map((id) => document.getElementById(id)).filter(Boolean);
-  const scryfallLinks = ["search-scryfall-link", "loom-scryfall-link"].map((id) => document.getElementById(id)).filter(Boolean);
-  const loomQueryOutput = document.getElementById("loom-query-output");
+  const copyButtons = ["search-copy-btn"].map((id) => document.getElementById(id)).filter(Boolean);
+  const scryfallLinks = ["search-scryfall-link"].map((id) => document.getElementById(id)).filter(Boolean);
   const href = hasQuery ? buildScryfallWebSearchUrl(cleanQuery, api || {}) : "#";
 
   copyButtons.forEach((copyButton) => {
@@ -3569,7 +3605,6 @@ function updateSearchActions(query = currentQuery, api = currentSearchApi) {
     scryfallLink.setAttribute("aria-disabled", hasQuery ? "false" : "true");
     scryfallLink.tabIndex = hasQuery ? 0 : -1;
   });
-  if (loomQueryOutput) loomQueryOutput.textContent = cleanQuery;
 }
 
 /**
@@ -3577,7 +3612,7 @@ function updateSearchActions(query = currentQuery, api = currentSearchApi) {
  */
 function copyQuery() {
   const inputValue = normalizeSearchInputValue(document.getElementById("search-input")?.value || "");
-  const preparedSuggestion = document.getElementById("query-inspector")?.dataset.executionState === "pending";
+  const presentedQuery = normalizeSearchInputValue(document.getElementById("qi-query")?.textContent || "");
   if (currentMode === "builder") {
     const validation = validateVisualBuilderFilters(bFilters);
     if (!validation.valid) {
@@ -3586,8 +3621,8 @@ function copyQuery() {
     }
   }
   const copyText = currentMode === "builder"
-    ? inputValue
-    : preparedSuggestion ? inputValue : currentQuery || inputValue || lastSmartInput;
+    ? presentedQuery || inputValue
+    : presentedQuery || currentQuery || inputValue || lastSmartInput;
   copyTextToClipboard(copyText, "Query copied");
 }
 
@@ -3618,12 +3653,153 @@ function clearSearchInput() {
   }
 
   selectAutoFilledInputOnFocus = false;
+  clearPendingSuggestedSearch({ restorePresentation: false });
   lastSmartInput = "";
   lastSmartQuery = "";
   setMode(currentMode);
   clearError();
   resetSearchResults();
   document.getElementById("query-inspector")?.classList.add("hidden");
+  document.getElementById("exact-query-panel")?.classList.add("hidden");
+}
+
+function preserveMazeGuideReturnState() {
+  const input = document.getElementById("search-input");
+  const exactPanel = document.getElementById("exact-query-panel");
+  const exactQuery = exactPanel && !exactPanel.classList.contains("hidden")
+    ? normalizeSearchInputValue(document.getElementById("qi-query")?.textContent || "")
+    : "";
+  const record = {
+    version: 1,
+    savedAt: Date.now(),
+    mode: currentMode,
+    input: input?.value || "",
+    drafts: { ...modeDraftValues },
+    draftEdited: { ...modeDraftEdited },
+    builderFilters: {
+      ...bFilters,
+      colors: [...bFilters.colors],
+      types: [...bFilters.types],
+      keywords: [...bFilters.keywords],
+      rarities: [...bFilters.rarities]
+    },
+    pendingSuggestion: pendingSuggestedSearch ? {
+      query: pendingSuggestedSearch.query,
+      api: pendingSuggestedSearch.api,
+      diagnostics: pendingSuggestedSearch.diagnostics,
+      inputValue: pendingSuggestedSearch.inputValue,
+      executionBlocked: pendingSuggestedSearch.executionBlocked,
+      queryResult: pendingSuggestedSearch.queryResult
+    } : null,
+    inspector: lastInspectorState,
+    exactQuery
+  };
+  try {
+    sessionStorage.setItem(MAZE_GUIDE_RETURN_STATE_KEY, JSON.stringify(record));
+    history.replaceState({ ...(history.state || {}), mazeGuideReturnState: 1 }, "", location.href);
+  } catch (_) {
+    // The guide still opens when ephemeral storage is unavailable.
+  }
+}
+
+function restoreMazeGuideReturnState() {
+  let record = null;
+  try {
+    record = JSON.parse(sessionStorage.getItem(MAZE_GUIDE_RETURN_STATE_KEY) || "null");
+    sessionStorage.removeItem(MAZE_GUIDE_RETURN_STATE_KEY);
+  } catch (_) {
+    return false;
+  }
+  if (
+    record?.version !== 1
+    || !Number.isFinite(record.savedAt)
+    || Date.now() - record.savedAt > 2 * 60 * 60 * 1000
+    || !MODE_IDS.includes(record.mode)
+  ) return false;
+
+  restoreBuilderFilters(record.builderFilters);
+  Object.assign(modeDraftValues, record.drafts || {});
+  Object.assign(modeDraftEdited, record.draftEdited || {});
+  setMode(record.mode);
+  const input = document.getElementById("search-input");
+  if (input) input.value = String(record.input || "");
+
+  const prepared = record.pendingSuggestion || (
+    record.inspector?.query && record.inspector?.api?.endpoint !== "/cards/named"
+      ? {
+          query: record.inspector.query,
+          api: record.inspector.api || {},
+          diagnostics: record.inspector.diagnostics || [],
+          inputValue: record.inspector.inputValue || record.input || "",
+          executionBlocked: Boolean(record.inspector.blocked),
+          queryResult: {
+            query: record.inspector.query,
+            api: record.inspector.api || {},
+            diagnostics: record.inspector.diagnostics || [],
+            executionBlocked: Boolean(record.inspector.blocked)
+          }
+        }
+      : null
+  );
+
+  if (prepared?.query) {
+    pendingSuggestedSearch = prepared;
+    document.body.dataset.pendingSuggestion = "true";
+    updateSearchActions(prepared.query, prepared.api || {});
+    showQueryInspector(prepared.query, "", prepared.diagnostics || [], prepared.api || {}, {
+      inputValue: prepared.inputValue || "",
+      normalized: true,
+      blocked: prepared.executionBlocked,
+      pending: true
+    });
+  } else if (record.exactQuery) {
+    updateSearchActions(record.exactQuery, {});
+    renderExactQuery({
+      query: record.exactQuery,
+      pending: true,
+      status: "Restored · Search when ready"
+    });
+  } else {
+    refreshExactQueryForMode(record.mode);
+  }
+  refreshReadingContextPresentation();
+  return true;
+}
+
+function restoreBuilderFilters(saved = {}) {
+  if (!saved || typeof saved !== "object") return;
+  bFilters.colors = Array.isArray(saved.colors) ? [...saved.colors] : [];
+  bFilters.colorOp = Object.hasOwn(BUILDER_COLOR_RELATION_LABELS, saved.colorOp) ? saved.colorOp : "id";
+  bFilters.types = Array.isArray(saved.types) ? [...saved.types] : [];
+  bFilters.format = String(saved.format || DEFAULT_FORMAT);
+  bFilters.keywords = Array.isArray(saved.keywords) ? [...saved.keywords] : [];
+  bFilters.cmcMin = String(saved.cmcMin || "");
+  bFilters.cmcMax = String(saved.cmcMax || "");
+  bFilters.releaseYear = String(saved.releaseYear || "");
+  bFilters.printingScope = String(saved.printingScope || "any");
+  bFilters.rarities = Array.isArray(saved.rarities) ? [...saved.rarities] : [];
+  bFilters.excludeColorless = Boolean(saved.excludeColorless);
+
+  const values = {
+    "color-op": bFilters.colorOp,
+    "bld-format": bFilters.format,
+    "cmc-min": bFilters.cmcMin,
+    "cmc-max": bFilters.cmcMax,
+    "release-year": bFilters.releaseYear,
+    "printing-scope": bFilters.printingScope
+  };
+  Object.entries(values).forEach(([id, value]) => {
+    const control = document.getElementById(id);
+    if (control) control.value = value;
+  });
+  const exclusion = document.getElementById("exclude-colorless");
+  if (exclusion) exclusion.checked = bFilters.excludeColorless;
+  syncBuilderColorControls();
+  syncBuilderColorRelationControl();
+  buildTypeChecks();
+  buildAbilityChecks();
+  buildRarityChecks();
+  renderKwChips();
 }
 
 /**
@@ -3635,6 +3811,7 @@ function resetSearchResults() {
   currentUnique = "cards";
   currentDir = undefined;
   currentSearchApi = {};
+  lastInspectorState = null;
   updateSearchActions("", {});
   allResults = [];
   displayPage = 0;
@@ -4220,7 +4397,10 @@ function updateScratchpadReturnLink(forceHidden = false) {
 }
 
 function currentDossierReturnUrl() {
-  const handoff = readActiveArchscryMazeHandoff();
+  return dossierReturnUrlForHandoff(readActiveArchscryMazeHandoff());
+}
+
+function dossierReturnUrlForHandoff(handoff) {
   if (!handoff?.returnUrl) return "";
   const fit = handoff.fit || handoff.guild || "";
   return appendReturnUrlParams(handoff.returnUrl, {
@@ -4445,7 +4625,6 @@ function bindMazeControls() {
   document.getElementById("res-order")?.addEventListener("change", (event) => {
     changeOrder(event.target.value, event.target.selectedOptions[0]?.dataset.dir);
   });
-  document.getElementById("maze-return-dismiss")?.addEventListener("click", dismissArchscryReturnBanner);
   window.addEventListener("popstate", refreshReadingContextPresentation);
   document.getElementById("scratchpad-title-input")?.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
@@ -4511,6 +4690,9 @@ function handleMazeActionClick(event) {
       return;
     case "copy-query":
       copyQuery();
+      return;
+    case "open-maze-guide":
+      preserveMazeGuideReturnState();
       return;
     case "toggle-stash-drawer":
       toggleStashDrawer();
