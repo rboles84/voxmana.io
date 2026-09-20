@@ -1,4 +1,4 @@
-<!-- task-view-sha256:290e9e1621a9f517eceab37046a1ddd86b537da923d44e716f597acfe4915667 -->
+<!-- task-view-sha256:39d97043f4968beb9447ddc0bbeee3603df704eb90d687a2a36566ff10cd02f4 -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -11,6 +11,8 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 | 2026-09-19T00:00:00Z (authored) | Codex `/root` | [VM-662 — Maze Modernization Implementation](2026-09-19-0751-codex-vm662-maze-modernization.md) | VM-662 | Identity displayed from heading; not admission metadata. |
 | 2026-09-19T00:00:00Z (authored) | Codex `/root/vm662_robqa` | [VM-662 — Independent RobQA](2026-09-19-0751-robqa-vm662-maze-modernization.md) | VM-662 | Identity displayed from heading; not admission metadata. |
 | 2026-09-19T00:00:00Z (authored) | Codex `/root` | [VM-662 — Admission Reconciliation](2026-09-19-0955-codex-vm662-admission-reconciliation.md) | VM-662 | Identity displayed from heading; not admission metadata. |
+| 2026-09-19T00:00:00Z (authored) | Unknown | [VM-662 — Owner-rejection bounded remediation](2026-09-19-2145-codex-vm662-owner-remediation.md) | VM-662 | Identity displayed from heading; not admission metadata. |
+| 2026-09-19T00:00:00Z (authored) | Codex `/root/vm662_robqa` | [VM-662 — Owner-Remediation Independent RobQA](2026-09-19-2145-robqa-vm662-owner-remediation.md) | VM-662 | Identity displayed from heading; not admission metadata. |
 | 2026-09-18T10:59:00Z (filename) | Codex `/root` | [VM-659 Astra Policy Cleanup — RobDev Handoff](2026-09-18-1059-codex-vm659-astra-policy-cleanup.md) | VM-659 | Identity displayed from heading; not admission metadata. |
 | 2026-09-18T10:59:00Z (filename) | Codex `/root/robqa_vm659`, independent RobQA reviewer | [VM-659 Independent RobQA — Astra Policy Cleanup](2026-09-18-1059-robqa-vm659-astra-policy-cleanup.md) | VM-659 | Identity displayed from heading; not admission metadata. |
 | 2026-09-18T00:00:00Z (authored) | Codex `/root` | [VM-660 — Maze Performance Recon](2026-09-18-1853-codex-vm660-maze-performance-recon.md) | VM-660 | Identity displayed from heading; not admission metadata. |
