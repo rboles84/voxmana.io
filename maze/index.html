@@ -101,13 +101,6 @@
     <span class="maze-eyebrow">The Implicit Maze</span>
     <h1 id="maze-page-title">A semantic search instrument.</h1>
     <p>Describe a card texture, inspect how Maze reads it, then choose when to search.</p>
-    <ol class="maze-workflow-sequence" aria-label="Maze search sequence">
-      <li><span>01</span>Request</li>
-      <li><span>02</span>Interpret</li>
-      <li><span>03</span>Exact query</li>
-      <li><span>04</span>Search</li>
-      <li><span>05</span>Results</li>
-    </ol>
   </div>
 
   <div class="maze-console-panel">
@@ -294,13 +287,15 @@
           </div>
         </fieldset>
 
-        <div class="loom-completion">
-          <div class="loom-completion-actions">
-            <button class="btn-search loom-completion-search" id="loom-search-btn" type="button" data-action="search">Search these Loom filters</button>
-            <button class="query-action-btn" id="loom-reset-btn" type="button" data-action="reset-builder">Reset Loom</button>
-          </div>
-        </div>
         <p class="visually-hidden" id="builder-summary" aria-live="polite">Commander format is ready. Add filters or search as-is.</p>
+      </div>
+
+      <div class="maze-selected-search" id="maze-selected-search" role="status" tabindex="-1" hidden>
+        <span class="maze-selected-search-source" id="maze-selected-search-source"></span>
+        <strong id="maze-selected-search-label"></strong>
+        <span id="maze-selected-search-hint"></span>
+        <span class="maze-selected-search-loom" id="maze-selected-search-loom" hidden>Loom filters are unchanged; Search will use this selection.</span>
+        <button class="query-action-btn" type="button" data-action="restore-suggestion-draft">Return to draft</button>
       </div>
 
       <section class="query-inspector hidden" id="query-inspector" aria-labelledby="qi-region-label" aria-live="polite">
@@ -325,8 +320,14 @@
         </div>
       </section>
 
+      <div class="loom-completion">
+        <div class="loom-completion-actions">
+          <button class="btn-search loom-completion-search" id="loom-search-btn" type="button" data-action="search">Search these Loom filters</button>
+          <button class="query-action-btn" id="loom-reset-btn" type="button" data-action="reset-builder">Reset Loom</button>
+        </div>
+      </div>
+
       <div class="maze-execution-row">
-        <span>Search sends the exact query to Scryfall.</span>
         <button class="btn-search" id="search-btn" type="button" data-action="search">Search</button>
       </div>
     </div>
@@ -388,15 +389,6 @@
         <span>The reading</span>
         <p id="dossier-discovery-reading"></p>
       </div>
-      <div class="dossier-discovery-lane">
-        <span>Active search lane</span>
-        <h3 id="dossier-discovery-lane-title"></h3>
-        <p id="dossier-discovery-lane-copy"></p>
-        <details class="dossier-query-details" id="dossier-discovery-lane-query">
-          <summary>Inspect the Scryfall query</summary>
-          <code id="dossier-discovery-lane-code"></code>
-        </details>
-      </div>
       <div class="dossier-thread-heading">
         <span>Identity-specific threads</span>
         <p>Choose a meaning first. Operator syntax stays available for inspection.</p>
@@ -423,16 +415,18 @@
         <span class="results-interpretation-state" id="results-interpretation-state"></span>
       </div>
       <span class="res-count" id="res-count" role="status" aria-live="polite" aria-atomic="true"></span>
-      <select class="res-order" id="res-order">
-        <option value="name">A-Z</option>
-        <option value="edhrec">EDHREC popularity</option>
-        <option value="usd">Price (low)</option>
-        <option value="usd" data-dir="desc">Price (high)</option>
-        <option value="cmc">Mana value</option>
-        <option value="rarity">Rarity</option>
-        <option value="power">Power</option>
-        <option value="set">Set</option>
-      </select>
+      <div class="results-sort">
+        <label for="res-order">Sort</label>
+        <select class="res-order" id="res-order">
+          <option value="name">Name A–Z</option>
+          <option value="cmc">Mana value</option>
+          <option value="usd">Price: low first</option>
+          <option value="usd" data-dir="desc">Price: high first</option>
+          <option value="rarity">Rarity</option>
+          <option value="power">Power</option>
+          <option value="set">Set</option>
+        </select>
+      </div>
     </div>
     <div class="card-grid hidden" id="card-grid"></div>
     <div class="results-footer hidden" id="results-footer">
@@ -447,12 +441,11 @@
         <div class="stash-title-block">
           <h2 class="stash-title" id="maze-stash-title">Reading Finds</h2>
           <label class="visually-hidden" for="scratchpad-title-input">Reading Finds title</label>
-          <input class="stash-title-input" id="scratchpad-title-input" type="text" value="Reading Finds" data-action="rename-scratchpad" aria-describedby="scratchpad-title-help">
+          <input class="stash-title-input" id="scratchpad-title-input" type="text" value="Reading Finds" data-action="rename-scratchpad">
         </div>
         <div class="stash-count" id="stash-count" aria-label="Cards in Reading Finds">0</div>
         <button class="stash-drawer-close" type="button" data-action="close-stash-drawer" aria-label="Collapse Reading Finds">&times;</button>
       </div>
-      <p class="stash-sub" id="scratchpad-title-help">Set aside cards from this search, then sort the finds you want to revisit. Finds saved with a reading stay linked to it; standalone Finds remain standalone.</p>
       <div class="stash-body" id="stash-body"></div>
       <div class="stash-actions">
         <button class="stash-copy" id="scratchpad-copy-finds" type="button" data-action="copy-scratchpad-export" disabled>Copy finds</button>

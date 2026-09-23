@@ -66,6 +66,7 @@ let modalReturnFocusEl = null;
 let stashDragState = null;
 let activeKeywordSuggestionIndex = -1;
 let pendingSuggestedSearch = null;
+let selectedSuggestionView = null;
 let lastInspectorState = null;
 
 const PAGE_SIZE = 24;
@@ -1099,10 +1100,16 @@ function setMode(mode) {
     rebuildFromFilters({ preservePending: true });
   }
 
-  syncInputForModeSwitch(input, previousMode, mode);
-  if (previousMode !== mode && modeDraftEdited[mode] && modeDraftValues[mode]) {
-    input.value = modeDraftValues[mode];
+  if (selectedSuggestionView) {
+    if (mode === "ai") input.value = selectedSuggestionView.label;
+    if (mode === "raw") input.value = pendingSuggestedSearch?.query || currentQuery;
+  } else {
+    syncInputForModeSwitch(input, previousMode, mode);
+    if (previousMode !== mode && modeDraftEdited[mode] && modeDraftValues[mode]) {
+      input.value = modeDraftValues[mode];
+    }
   }
+  renderSelectedSuggestionView();
   sizeLoomQueryInput(input);
   updateLoomSidebarVisibility(mode);
   updateReadingContextDisclosure();
@@ -1271,11 +1278,48 @@ function refreshExactQueryForMode(mode = currentMode) {
   document.getElementById("exact-query-panel")?.classList.add("hidden");
 }
 
-function clearPendingSuggestedSearch({ restorePresentation = true } = {}) {
-  if (!pendingSuggestedSearch) return;
+function clearPendingSuggestedSearch({ restorePresentation = true, preserveView = false } = {}) {
+  const hadPending = Boolean(pendingSuggestedSearch);
   pendingSuggestedSearch = null;
   document.body.dataset.pendingSuggestion = "false";
-  if (restorePresentation) refreshExactQueryForMode(currentMode);
+  if (!preserveView) selectedSuggestionView = null;
+  renderSelectedSuggestionView();
+  if (restorePresentation && hadPending) refreshExactQueryForMode(currentMode);
+}
+
+function renderSelectedSuggestionView() {
+  const panel = document.getElementById("maze-selected-search");
+  if (!panel) return;
+  const resultsHeading = document.querySelector(".results-heading");
+  if (resultsHeading) resultsHeading.textContent = pendingSuggestedSearch ? "Previous results" : "Results";
+  const loomSearchButton = document.getElementById("loom-search-btn");
+  if (loomSearchButton) loomSearchButton.textContent = selectedSuggestionView ? "Search selected query" : "Search these Loom filters";
+  panel.hidden = !selectedSuggestionView;
+  if (!selectedSuggestionView) return;
+  document.getElementById("maze-selected-search-source").textContent = selectedSuggestionView.kind;
+  document.getElementById("maze-selected-search-label").textContent = selectedSuggestionView.label;
+  document.getElementById("maze-selected-search-hint").textContent = selectedSuggestionView.hint;
+  const loomNote = document.getElementById("maze-selected-search-loom");
+  loomNote.hidden = currentMode !== "builder";
+  loomNote.textContent = pendingSuggestedSearch
+    ? "Loom filters are unchanged; Search will use this selection."
+    : "Showing this search; Loom filters remain unchanged.";
+  panel.querySelector('[data-action="restore-suggestion-draft"]').textContent = currentMode === "builder"
+    ? "Return to Loom filters" : "Return to draft";
+}
+
+function restoreSuggestionDraft() {
+  clearPendingSuggestedSearch({ restorePresentation: false });
+  const input = document.getElementById("search-input");
+  if (currentMode === "builder") {
+    rebuildFromFilters({ preservePending: true });
+    document.getElementById("loom-search-btn")?.focus();
+  } else if (input) {
+    input.value = modeDraftValues[currentMode] || "";
+    input.focus();
+  }
+  document.getElementById("query-inspector")?.classList.add("hidden");
+  refreshExactQueryForMode(currentMode);
 }
 
 /**
@@ -1328,14 +1372,20 @@ function bindSearchInputSelectOnFocus() {
  * Runs the active search mode through the Maze query contract adapter.
  */
 async function doSearch() {
-  if (pendingSuggestedSearch) {
-    const prepared = pendingSuggestedSearch;
+  if (pendingSuggestedSearch || (selectedSuggestionView && currentQuery)) {
+    const prepared = pendingSuggestedSearch || {
+      query: currentQuery,
+      api: currentSearchApi,
+      diagnostics: lastInspectorState?.diagnostics || [],
+      inputValue: selectedSuggestionView.label,
+      executionBlocked: false
+    };
     renderCurrentWeave();
     setLoading(true);
     clearError();
     displayPage = 0;
     allResults = [];
-    clearPendingSuggestedSearch({ restorePresentation: false });
+    clearPendingSuggestedSearch({ restorePresentation: false, preserveView: true });
     try {
       if (prepared.executionBlocked) {
         handleBlockedQueryResult(prepared.queryResult, {
@@ -1350,7 +1400,8 @@ async function doSearch() {
         diagnostics: prepared.diagnostics,
         inputValue: prepared.inputValue,
         normalized: true,
-        suppressReason: true
+        suppressReason: true,
+        preserveSuggestionView: true
       });
     } catch (error) {
       showError(`Search failed: ${error.message}`);
@@ -1507,12 +1558,17 @@ async function triggerSearch(query, opts = {}) {
     diagnostics = [],
     inputValue = "",
     normalized = false,
-    suppressReason = false
+    suppressReason = false,
+    preserveSuggestionView = false,
+    preserveInspector = false,
+    preservePendingInspection = false
   } = opts;
   const searchOrder = api?.order || order || "name";
   const searchUnique = api?.unique || unique || "cards";
   const searchDir = normalizeSortDirection(api?.dir || dir);
-  clearPendingSuggestedSearch({ restorePresentation: false });
+  if (!preservePendingInspection) {
+    clearPendingSuggestedSearch({ restorePresentation: false, preserveView: preserveSuggestionView });
+  }
   const searchApi = { endpoint: "/cards/search", unique: searchUnique, order: searchOrder };
   if (searchDir) searchApi.dir = searchDir;
   currentQuery = query;
@@ -1520,15 +1576,15 @@ async function triggerSearch(query, opts = {}) {
   currentUnique = searchUnique;
   currentDir = searchDir;
   currentSearchApi = searchApi;
-  updateSearchActions(query, searchApi);
+  if (!preservePendingInspection) updateSearchActions(query, searchApi);
   addRecent(query);
-  showQueryInspector(query, reason, diagnostics, searchApi, { inputValue, normalized, suppressReason });
+  if (!preserveInspector) showQueryInspector(query, reason, diagnostics, searchApi, { inputValue, normalized, suppressReason });
 
   const data = await ResearchSearch.scryfallSearch(query, { order: searchOrder, unique: searchUnique, dir: searchDir });
   if (data.object === "error") {
     if (isNoResultsResponse(data)) {
       const responseDiagnostics = buildSearchResponseDiagnostics(diagnostics, { totalCards: 0 });
-      showQueryInspector(query, reason, responseDiagnostics, searchApi, { inputValue, normalized, suppressReason });
+      if (!preserveInspector) showQueryInspector(query, reason, responseDiagnostics, searchApi, { inputValue, normalized, suppressReason });
       await showNoResultsState(query, diagnostics);
       return;
     }
@@ -1542,7 +1598,7 @@ async function triggerSearch(query, opts = {}) {
   nextPageUrl = data.next_page || null;
   if (totalCards === 0) {
     const responseDiagnostics = buildSearchResponseDiagnostics(diagnostics, { totalCards });
-    showQueryInspector(query, reason, responseDiagnostics, searchApi, { inputValue, normalized, suppressReason });
+    if (!preserveInspector) showQueryInspector(query, reason, responseDiagnostics, searchApi, { inputValue, normalized, suppressReason });
   }
   renderResults();
 }
@@ -1895,18 +1951,14 @@ function openModal(card, opener = document.activeElement) {
       rel: "noopener"
     }));
   }
-  detailCol.appendChild(actions);
-
-  const stashActions = document.createElement("div");
-  stashActions.className = "m-stash-actions";
-  stashActions.appendChild(createActionButton({
+  actions.appendChild(createActionButton({
     className: "m-btn m-btn-teal",
     text: "Set aside",
     action: "modal-scratchpad-add",
     dataset: { section: READING_FIND_SECTION_IDS.finds },
     ariaLabel: `Set aside ${displayName} in Reading Finds`
   }));
-  detailCol.appendChild(stashActions);
+  detailCol.appendChild(actions);
 
   appendContent(inner, imageCol, detailCol);
   backdrop.classList.remove("hidden");
@@ -2690,7 +2742,7 @@ function buildQuickSearches() {
       className: "sb-btn",
       text: quickSearch.label,
       action: "inspect-suggested-search",
-      dataset: { query: quickSearch.q, origin: "maze" }
+      dataset: { query: quickSearch.q, origin: "maze", label: quickSearch.label, hint: quickSearch.hint, kind: "Helper search" }
     });
     const hint = document.createElement("span");
     hint.textContent = quickSearch.hint;
@@ -2712,7 +2764,7 @@ function buildDiscoveryPaths() {
       className: "sb-btn",
       text: path.label,
       action: "inspect-suggested-search",
-      dataset: { query: path.q, origin: "maze" }
+      dataset: { query: path.q, origin: "maze", label: path.label, hint: path.hint, kind: "Discovery path" }
     });
     const hint = document.createElement("span");
     hint.textContent = path.hint;
@@ -3050,9 +3102,6 @@ function renderDossierDiscoveryPanel(paths = [], requestedPathType = "") {
   document.getElementById("dossier-discovery-title").textContent = `${activePath.profileName} discovery`;
   document.getElementById("dossier-discovery-identity").textContent = `${String(activePath.profileColorIdentity || "").toUpperCase()} reading`;
   document.getElementById("dossier-discovery-reading").textContent = activePath.readingSummary || "";
-  document.getElementById("dossier-discovery-lane-title").textContent = activePath.label;
-  document.getElementById("dossier-discovery-lane-copy").textContent = activePath.description || activePath.plainReadingQuery || "";
-  document.getElementById("dossier-discovery-lane-code").textContent = activePath.query || "";
 
   document.querySelectorAll("#reading-path-list [data-dossier-path='true']").forEach((button) => {
     const selected = button.dataset.pathType === activePath.pathType;
@@ -3455,6 +3504,16 @@ function inspectSuggestedSearch(query, opts = {}) {
   });
   const finalQuery = queryResult.query;
   const diagnostics = queryResult.diagnostics || [];
+  const label = String(opts.label || query).trim();
+  if (!selectedSuggestionView && Object.hasOwn(modeDraftValues, currentMode)) {
+    modeDraftValues[currentMode] = document.getElementById("search-input")?.value || "";
+    modeDraftEdited[currentMode] = true;
+  }
+  selectedSuggestionView = {
+    kind: opts.kind || "Suggested search",
+    label,
+    hint: String(opts.hint || "").trim()
+  };
   pendingSuggestedSearch = {
     query: finalQuery,
     api: queryResult.api || {},
@@ -3464,6 +3523,9 @@ function inspectSuggestedSearch(query, opts = {}) {
     queryResult
   };
   document.body.dataset.pendingSuggestion = "true";
+  const input = document.getElementById("search-input");
+  if (input && currentMode !== "builder") input.value = currentMode === "raw" ? finalQuery : label;
+  renderSelectedSuggestionView();
   updateSearchActions(finalQuery, queryResult.api || {});
   clearError();
   showQueryInspector(finalQuery, "", diagnostics, queryResult.api || {}, {
@@ -3472,7 +3534,9 @@ function inspectSuggestedSearch(query, opts = {}) {
     pending: true,
     blocked: queryResult.executionBlocked
   });
-  document.getElementById("query-inspector")?.scrollIntoView?.({ block: "nearest" });
+  const selected = document.getElementById("maze-selected-search");
+  selected?.scrollIntoView?.({ block: "nearest" });
+  selected?.focus?.({ preventScroll: true });
 }
 
 /**
@@ -3517,10 +3581,12 @@ function changeOrder(order, dir = undefined) {
     setLoading(true);
     clearError();
     triggerSearch(currentQuery, {
-      reason: "Updated result sorting.",
       order: currentOrder,
       unique: currentUnique,
-      dir: currentDir
+      dir: currentDir,
+      preserveInspector: true,
+      preservePendingInspection: Boolean(pendingSuggestedSearch),
+      preserveSuggestionView: Boolean(selectedSuggestionView)
     }).then(() => setLoading(false));
   }
 }
@@ -3676,6 +3742,7 @@ function preserveMazeGuideReturnState() {
     input: input?.value || "",
     drafts: { ...modeDraftValues },
     draftEdited: { ...modeDraftEdited },
+    selectedSuggestionView,
     builderFilters: {
       ...bFilters,
       colors: [...bFilters.colors],
@@ -3723,6 +3790,7 @@ function restoreMazeGuideReturnState() {
   setMode(record.mode);
   const input = document.getElementById("search-input");
   if (input) input.value = String(record.input || "");
+  selectedSuggestionView = record.selectedSuggestionView || null;
 
   const prepared = record.pendingSuggestion || (
     record.inspector?.query && record.inspector?.api?.endpoint !== "/cards/named"
@@ -3745,6 +3813,7 @@ function restoreMazeGuideReturnState() {
   if (prepared?.query) {
     pendingSuggestedSearch = prepared;
     document.body.dataset.pendingSuggestion = "true";
+    renderSelectedSuggestionView();
     updateSearchActions(prepared.query, prepared.api || {});
     showQueryInspector(prepared.query, "", prepared.diagnostics || [], prepared.api || {}, {
       inputValue: prepared.inputValue || "",
@@ -3753,6 +3822,7 @@ function restoreMazeGuideReturnState() {
       pending: true
     });
   } else if (record.exactQuery) {
+    renderSelectedSuggestionView();
     updateSearchActions(record.exactQuery, {});
     renderExactQuery({
       query: record.exactQuery,
@@ -3760,6 +3830,7 @@ function restoreMazeGuideReturnState() {
       status: "Restored · Search when ready"
     });
   } else {
+    renderSelectedSuggestionView();
     refreshExactQueryForMode(record.mode);
   }
   refreshReadingContextPresentation();
@@ -4305,7 +4376,7 @@ function createScratchpadRow(row, section, index) {
     createMoveControl(row, section.id, key, index),
     createActionButton({
       className: "stash-remove",
-      text: "x",
+      text: "×",
       action: "scratchpad-remove-card",
       dataset: { scratchpadKey: key, section: section.id },
       ariaLabel: `Remove ${row.name || "card"} from ${section.label}`
@@ -4352,12 +4423,13 @@ function createMoveControl(row, sectionId, key, index) {
   wrap.className = "stash-move";
   const selectId = `scratchpad-move-${sectionId}-${index}`;
   const label = document.createElement("label");
-  label.className = "visually-hidden";
+  label.className = "stash-move-label";
   label.setAttribute("for", selectId);
-  label.textContent = `Move ${row.name || "card"} to section`;
+  label.textContent = "Move";
   const select = document.createElement("select");
   select.id = selectId;
   select.className = "stash-move-select";
+  select.setAttribute("aria-label", `Move ${row.name || "card"} to section`);
   select.dataset.action = "scratchpad-move-card";
   select.dataset.scratchpadKey = key;
   select.dataset.section = sectionId;
@@ -4424,14 +4496,18 @@ function updateStashDrawerCount(count = getScratchpadTotalQuantity()) {
 }
 
 function setStashDrawerOpen(open) {
+  const focusWasInside = document.activeElement?.closest?.("#stash-panel");
   document.body.dataset.stashOpen = open ? "true" : "false";
   document.querySelectorAll('[data-action="toggle-stash-drawer"]').forEach((toggle) => {
     toggle.setAttribute("aria-expanded", open ? "true" : "false");
   });
+  if (!open && focusWasInside) document.getElementById("stash-drawer-toggle")?.focus();
 }
 
 function toggleStashDrawer() {
-  setStashDrawerOpen(document.body.dataset.stashOpen !== "true");
+  const open = document.body.dataset.stashOpen !== "true";
+  setStashDrawerOpen(open);
+  if (open) document.querySelector(".stash-drawer-close")?.focus();
 }
 
 function beginStashDrag(event) {
@@ -4742,8 +4818,14 @@ function handleMazeActionClick(event) {
         order: actionNode.dataset.order || undefined,
         unique: actionNode.dataset.unique || undefined,
         dir: actionNode.dataset.dir || undefined,
-        origin: actionNode.dataset.origin || "maze"
+        origin: actionNode.dataset.origin || "maze",
+        label: actionNode.dataset.label,
+        hint: actionNode.dataset.hint,
+        kind: actionNode.dataset.kind
       });
+      return;
+    case "restore-suggestion-draft":
+      restoreSuggestionDraft();
       return;
     case "load-more":
       loadMore();

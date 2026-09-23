@@ -2,7 +2,7 @@
 
 ID: VM-662
 Title: Maze Modernization Implementation
-Status: Owner Review
+Status: In Progress
 Type: Bounded presentation and interaction implementation
 Area: Maze
 Priority: High
@@ -31,16 +31,16 @@ Current Owner request dated 2026-09-19. VM-657 provides accepted UX direction; V
 
 ## Acceptance Criteria
 
-- [x] Maze reads as a semantic-search workbench, with Player request -> interpretation -> exact query -> Search -> results visibly coherent and no dashboard/hero treatment.
-- [x] Typing, Plain/Operators switching, help/disclosure, and Loom editing remain local; explicit Search and Enter retain one current execution path.
-- [x] Discovery Paths and Helper Searches load inspectable existing request/query/interpretation state without Scryfall; explicit Search is required to execute.
-- [x] All other pathways listed in Explicitly Out Of Scope preserve their current execution semantics.
-- [x] Existing diagnostics drive the interpretation ledger; no new interpretation engine, confidence score, or unsupported mapped-count copy is introduced.
-- [x] Wildcard/unresolved state remains visibly associated with query/results without changing compiler behavior.
-- [x] Results retain 24-card initial paging, lazy media, Load More, sort, modal/card behavior, and a single count/state relationship.
-- [x] Reading context and one Reading Finds store remain subordinate, accessible, and non-obscuring on desktop and approximately 390px narrow layouts.
-- [x] Focus-visible, keyboard tabs, Enter, disclosures, modal/Finds focus, non-color warning cues, and reduced motion remain correct.
-- [x] No runtime dependency, boot data artifact, loader/cache rewrite, duplicate parse/query execution, inspection request, duplicate mobile DOM, or continuous pointer/layout loop is introduced.
+- [ ] Maze reads as a semantic-search workbench, with Player request -> interpretation -> exact query -> Search -> results visibly coherent and no dashboard/hero treatment.
+- [ ] Typing, Plain/Operators switching, help/disclosure, and Loom editing remain local; explicit Search and Enter retain one current execution path.
+- [ ] Discovery Paths and Helper Searches load inspectable existing request/query/interpretation state without Scryfall; explicit Search is required to execute.
+- [ ] All other pathways listed in Explicitly Out Of Scope preserve their current execution semantics.
+- [ ] Existing diagnostics drive the interpretation ledger; no new interpretation engine, confidence score, or unsupported mapped-count copy is introduced.
+- [ ] Wildcard/unresolved state remains visibly associated with query/results without changing compiler behavior.
+- [ ] Results retain 24-card initial paging, lazy media, Load More, sort, modal/card behavior, and a single count/state relationship.
+- [ ] Reading context and one Reading Finds store remain subordinate, accessible, and non-obscuring on desktop and approximately 390px narrow layouts.
+- [ ] Focus-visible, keyboard tabs, Enter, disclosures, modal/Finds focus, non-color warning cues, and reduced motion remain correct.
+- [ ] No runtime dependency, boot data artifact, loader/cache rewrite, duplicate parse/query execution, inspection request, duplicate mobile DOM, or continuous pointer/layout loop is introduced.
 
 ## Files Likely Impacted
 
@@ -61,9 +61,9 @@ Current Owner request dated 2026-09-19. VM-657 provides accepted UX direction; V
 Record version: 1
 Branch: codex/vm-662-maze-modernization
 Admission baseline: b48a1357a0c9076b38ae0b7d058c4ea213db4aaa
-Candidate: 159d23c9c6f7e988af1f1bdc4e74ae1731161519
-RobQA: PASS at 159d23c9c6f7e988af1f1bdc4e74ae1731161519 — SEPARATE execution by `/root/vm662_robqa`; [replacement-candidate evidence](../../handoffs/2026-09-19-2145-robqa-vm662-owner-remediation.md)
-Owner: PENDING
+Candidate: PENDING — prior rejected candidate `159d23c9c6f7e988af1f1bdc4e74ae1731161519` remains immutable history
+RobQA: PENDING — prior PASS applied only to rejected candidate `159d23c9c6f7e988af1f1bdc4e74ae1731161519`
+Owner: REJECTED at `159d23c9c6f7e988af1f1bdc4e74ae1731161519`; 2026-09-22 Owner manual-test report and follow-up screenshots; new candidate review PENDING
 Integration: PENDING
 Dependencies: VM-660
 Dependency head: 119b13cd26623e92e1d72d2a2023dd6bfdda7b22

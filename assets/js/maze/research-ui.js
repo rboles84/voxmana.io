@@ -34,19 +34,18 @@ export function renderQueryInspector({
   inspector.dataset.executionState = pending ? "pending" : blocked ? "blocked" : "executed";
   inspector.classList.toggle("is-compact", mode === "raw" && !normalized);
   inspector.classList.toggle("is-secondary", mode === "builder");
+  inspector.classList.toggle("has-critical", Boolean(groups.unresolved.length || groups.warnings.length));
 
   const stateText = document.getElementById("qi-state");
   if (stateText) stateText.textContent = interpretationState.label;
   renderExactQuery({ query, api: searchApi, pending, blocked });
   if (!pending) updateResultsInterpretationState(interpretationState);
-  const finalReason = suppressReason ? "" : reason;
+  const processReason = /^(Grounded Plain Reading compiled typed spans|Applied Commander format\.)/.test(reason);
+  const finalReason = suppressReason || processReason ? "" : reason;
 
   const reasonEl = document.getElementById("qi-reason");
-  const builderFallback = mode === "builder" && !pending && !suppressReason
-    ? "Generated from the active Loom filters."
-    : "";
-  if (finalReason || builderFallback) {
-    reasonEl.textContent = finalReason || builderFallback;
+  if (finalReason) {
+    reasonEl.textContent = finalReason;
     reasonEl.classList.remove("hidden");
   } else {
     reasonEl.classList.add("hidden");
@@ -129,7 +128,6 @@ function renderDiagnostics(inspector, groups, api = {}) {
     <details class="qi-details">
       <summary>
         <span>Interpretation details</span>
-        ${renderConfidenceSummary(groups.confidence)}
         <span class="qi-details-caret" aria-hidden="true">›</span>
       </summary>
       <div class="qi-details-body">
