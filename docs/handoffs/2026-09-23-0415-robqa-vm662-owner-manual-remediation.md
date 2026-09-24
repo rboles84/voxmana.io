@@ -451,3 +451,58 @@ At 1440px and 1100px, enlarge two different result cards and move naturally to S
 - Reviewer-authored change: this appended exact-candidate section in `docs/handoffs/2026-09-23-0415-robqa-vm662-owner-manual-remediation.md` only.
 - Not changed: production, tests, card, board/generated views, implementer handoff, Owner state, integration state, or stash state.
 - Reviewer output remains unstaged and uncommitted, per assignment.
+
+## 2026-09-24 vm662r8 replay — exact-candidate RobQA
+
+Task: VM-662
+Candidate: 7b0e5c461a3d55de97d9dbd77fd7f7d492f31628
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: Codex `/root/vm662_corner_sections_robqa`
+Implementer: Codex `/root`
+
+### Candidate-bound decision
+
+Exact material candidate `7b0e5c461a3d55de97d9dbd77fd7f7d492f31628` passes independent RobQA and may return to Owner Review. Before execution, the checked-out branch was `codex/vm-662-maze-modernization`, `HEAD` resolved to that exact SHA, and the worktree was clean. The actual `051de14d03077cd387c3778bf9d9341e02a1e421..7b0e5c461a3d55de97d9dbd77fd7f7d492f31628` replay delta and its append-only/lifecycle rationale were reviewed directly. The named stash `preserve deferred workbench edit before VM-662 narrow remediation` was observed and was not applied or dropped.
+
+The replay changes the paired Maze route cache key from `vm662r7` to `vm662r8` and carries pre-candidate lifecycle/evidence bookkeeping. The enlarged-corner CSS, controller, frontend validator, focused browser fixture, and transform-contract test are byte-identical to independently passed candidate `051de14d`. Both Maze CSS and controller references use `vm662r8`; no one-sided stale asset key remains. This PASS is bound only to `7b0e5c461a3d55de97d9dbd77fd7f7d492f31628` and does not constitute Owner acceptance or integration authorization.
+
+### Selected exact-candidate evidence
+
+`node tests/maze/maze-modernization-remediation-tests.js` with `VM662_CAPTURE_SCREENSHOTS=1` and fresh output `C:\Users\obake\AppData\Local\Temp\vm662-robqa-r8-causal-3412014df18e4aafb40efc94ba774fab` — **PASS** on the single bounded causal rerun.
+
+- The first fresh attempt reached the changed corner evidence, then failed later at unchanged Reading-association line 662 because the expected second stored row was absent. Product/test bytes at that seam are identical to `051de14d`; one fresh causal rerun passed the complete fixture. Classification: **Automated first attempt: FAIL / suspected transient harness-state debt; bounded rerun: PASS; non-blocking**. No repeated retry or broader diagnostic investigation was performed.
+- At 1440px/five columns, cards 1 and 4 each measured `top: 10px`, `right: 10px`, `44 x 44px` against fully enlarged media. At 1100px/four columns, card 7 measured the same.
+- Real 20-step pointer travel retained hover and Save hit ownership, kept Save stationary at the enlarged upper-right corner, added exactly the intended card, and did not open the modal. Keyboard focus and Enter passed; Save remains outside the modal-opening button.
+- Fresh `save-corner-1440-1.png`, `save-corner-1440-4.png`, and `save-corner-1100-7.png` visibly agree with the measured enlarged-corner placement.
+- Frozen empty-section behavior remained green: desktop and mobile section IDs were exactly `["finds"]`, with no per-section empty prose; protected request, paging, modal, Finds-store, Results/Sort, Copy/Open, desktop-panel, mobile-containment, and semantic behavior remained covered or unchanged.
+
+Focused supporting checks:
+
+| Check | Changed risk protected | Result |
+| --- | --- | --- |
+| Byte comparison against `051de14d` | Enlarged-corner production/test/validator replay integrity | PASS; identical except route HTML cache key/bookkeeping |
+| `npm.cmd run lint:js` | Route controller integrity | PASS, 37 files |
+| `npm.cmd run lint:html` | Paired `vm662r8` route assets and public HTML contract | PASS |
+| `npm.cmd run test:maze-transform` | Save/media/modal sibling ownership and non-nesting | PASS |
+| `npm.cmd run test:maze-finds` | Frozen Finds/Sparks/Anchors store compatibility | PASS |
+| `npm.cmd run test:frontend-smoke` | Maze remains in the public frontend route set | PASS |
+| `git diff --check 051de14d03077cd387c3778bf9d9341e02a1e421..7b0e5c461a3d55de97d9dbd77fd7f7d492f31628` | Exact replay-range formatting | PASS |
+
+### Findings and proportionality
+
+- BLOCKER / MAJOR / MINOR product findings: none.
+- Harness NOTE: one transient late Reading-association failure occurred as disclosed above; the single bounded causal rerun passed and there is no causal byte or behavioral link to the cache-key replay.
+- NOTE / OWNER JUDGMENT: final optical prominence and aesthetic treatment of Save/check remain Owner judgment.
+- CPU-heavy validation: **NOT REQUIRED**. No parser, compiler, placement, semantic engine, storage, migration, generated-data, or result-engine owner changed.
+- Intentionally skipped: broad mode/builder/semantic suites; exhaustive parser/search, synthetic journey, mutation, recovery, network/cache, generated-data, and performance suites; known stale presentation harnesses; animation-fidelity and broad viewport matrices. Direct changed-risk evidence is green.
+
+### Shortest Owner recheck
+
+At 1440px and 1100px, enlarge two different result cards and move naturally to Save. PASS if Save/check visibly occupies and remains at each enlarged card's actual upper-right corner. Exact offsets, 44px target, pointer hit ownership, exact-card addition, no-modal behavior, keyboard activation, control independence, fresh asset pairing, and frozen empty-section behavior are already machine-verified.
+
+### Reviewer scope
+
+- Reviewer-authored change: this appended exact-candidate section in `docs/handoffs/2026-09-23-0415-robqa-vm662-owner-manual-remediation.md` only.
+- Not changed: production, tests, card, board/generated views, implementer handoff, Owner state, integration state, or stash state.
+- Reviewer output remains unstaged and uncommitted, per assignment.
