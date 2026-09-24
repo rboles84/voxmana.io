@@ -62,7 +62,7 @@ Record version: 1
 Branch: codex/vm-662-maze-modernization
 Admission baseline: b48a1357a0c9076b38ae0b7d058c4ea213db4aaa
 Candidate: 1af56c7625d485f3d483cf9a301b698a29761342
-RobQA: PASS at `1af56c7625d485f3d483cf9a301b698a29761342` — SEPARATE review by Codex `/root/vm662_final_bounded_robqa`. Earlier passes at `3b0f460e51c859270c59bc62fdfc6da23b4283fc` and `039928c75b78da8f0def344cb6f7d307b0107d35` remain historical and were superseded by Owner rejection.
+RobQA: PASS at 1af56c7625d485f3d483cf9a301b698a29761342 — SEPARATE review by Codex `/root/vm662_final_bounded_robqa`. Earlier passes at `3b0f460e51c859270c59bc62fdfc6da23b4283fc` and `039928c75b78da8f0def344cb6f7d307b0107d35` remain historical and were superseded by Owner rejection.
 Owner: PENDING
 Integration: PENDING
 Dependencies: VM-660
