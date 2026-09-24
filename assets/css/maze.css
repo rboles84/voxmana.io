@@ -4704,7 +4704,7 @@ body.vm-maze-route[data-maze-mode="builder"] #loom-search-btn {
 .card-item .card-stash-btn {
   position: absolute;
   top: 10px;
-  right: 10px;
+  right: -22px;
   z-index: 6;
   display: inline-grid;
   place-items: center;
@@ -4725,21 +4725,29 @@ body.vm-maze-route[data-maze-mode="builder"] #loom-search-btn {
   min-width: 36px;
   height: 34px;
   padding-inline: 0.45rem;
-  border: 1px solid var(--maze-teal-line);
+  border: 1px solid rgba(255, 236, 178, 0.96);
   border-radius: 4px;
-  background: rgba(8, 11, 18, 0.92);
-  color: var(--maze-teal);
+  background: var(--maze-gold);
+  color: #0a0906;
   font: 0.62rem var(--font-ui, system-ui, sans-serif);
+  font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+  box-shadow:
+    0 0 0 2px rgba(8, 11, 18, 0.94),
+    0 0 16px rgba(247, 215, 132, 0.62),
+    0 6px 18px rgba(0, 0, 0, 0.66);
 }
 
 .card-item .card-stash-btn:is(:hover, :focus-visible)::before,
 .card-item .card-stash-btn.on::before {
-  border-color: rgba(247, 215, 132, 0.62);
-  background: rgba(247, 215, 132, 0.16);
-  color: var(--maze-text);
+  border-color: #fff4cf;
+  background: var(--maze-gold-2);
+  color: #050403;
+  box-shadow:
+    0 0 0 2px rgba(8, 11, 18, 0.96),
+    0 0 22px rgba(247, 215, 132, 0.82),
+    0 7px 20px rgba(0, 0, 0, 0.72);
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -4763,7 +4771,7 @@ body.vm-maze-route[data-maze-mode="builder"] #loom-search-btn {
 
   .card-item:hover .card-stash-btn {
     top: 5px;
-    right: 5px;
+    right: -11px;
     transform: scale(0.5);
   }
 }

@@ -45,7 +45,7 @@ const mazeCssVersion = html.match(/assets\/css\/maze\.css\?v=([^"']+)/)?.[1] || 
 const mazeInitVersion = html.match(/assets\/js\/maze\/research-init\.js\?v=([^"']+)/)?.[1] || "";
 assert.ok(mazeCssVersion && mazeCssVersion !== "vm658", "Maze CSS must use a fresh cache key for the corrected card-shell action");
 assert.equal(mazeInitVersion, mazeCssVersion, "Maze CSS and route controller must ship under the same fresh asset version");
-assert.match(css, /\.card-item \.card-stash-btn\s*\{[\s\S]*?position:\s*absolute;[\s\S]*?top:\s*10px;[\s\S]*?right:\s*10px;[\s\S]*?z-index:\s*6/);
+assert.match(css, /\.card-item \.card-stash-btn\s*\{[\s\S]*?position:\s*absolute;[\s\S]*?top:\s*10px;[\s\S]*?right:\s*-22px;[\s\S]*?z-index:\s*6/);
 assert.match(css, /\.qi-details-caret/);
 assert.match(css, /data-maze-mode="builder"[\s\S]*?\.maze-reading-context/);
 assert.match(initSource, /const PAGE_SIZE = 24;/);
@@ -54,7 +54,7 @@ assert.match(initSource, /const MAZE_GUIDE_RETURN_STATE_KEY = "vm_maze_guide_ret
 assert.match(initSource, /pendingSuggestedSearch/);
 assert.match(initSource, /media\.appendChild\(stashButton\)/);
 assert.match(initSource, /wrap\.append\(media, name\)/);
-assert.match(css, /\.card-item:hover \.card-stash-btn\s*\{[\s\S]*?top:\s*5px;[\s\S]*?right:\s*5px;[\s\S]*?transform:\s*scale\(0\.5\)/);
+assert.match(css, /\.card-item:hover \.card-stash-btn\s*\{[\s\S]*?top:\s*5px;[\s\S]*?right:\s*-11px;[\s\S]*?transform:\s*scale\(0\.5\)/);
 assert.match(uiSource, /Open the Maze guide/);
 assert.doesNotMatch(uiSource, /Walk me through this search/);
 
@@ -367,22 +367,35 @@ try {
       const from = approachName === "lower-left"
         ? { x: media.left + media.width * 0.28, y: media.top + media.height * 0.72 }
         : { x: media.left + media.width / 2, y: media.top + media.height / 2 };
+      const chrome = getComputedStyle(card.querySelector(".card-stash-btn"), "::before");
       return {
         from,
         to: { x: button.left + button.width / 2, y: button.top + button.height / 2 },
         button: { left: button.left, top: button.top, width: button.width, height: button.height },
+        viewport: { width: innerWidth, height: innerHeight },
+        chrome: {
+          backgroundColor: chrome.backgroundColor,
+          borderColor: chrome.borderColor,
+          boxShadow: chrome.boxShadow,
+          color: chrome.color,
+        },
         buttonRelative: {
           left: button.left - media.left,
           top: button.top - media.top,
           right: media.right - button.right,
+          centerToRightEdge: button.left + button.width / 2 - media.right,
           width: button.width,
           height: button.height
         },
       };
     }, approach);
     assert.ok(pointerTargets.buttonRelative.top >= 8 && pointerTargets.buttonRelative.top <= 12, `Save must sit 8-12px from the enlarged card top edge: ${JSON.stringify(pointerTargets.buttonRelative)}`);
-    assert.ok(pointerTargets.buttonRelative.right >= 8 && pointerTargets.buttonRelative.right <= 12, `Save must sit 8-12px from the enlarged card right edge: ${JSON.stringify(pointerTargets.buttonRelative)}`);
+    assert.ok(Math.abs(pointerTargets.buttonRelative.centerToRightEdge) <= 1, `Save must straddle the enlarged card right border: ${JSON.stringify(pointerTargets.buttonRelative)}`);
     assert.ok(pointerTargets.button.width >= 40 && pointerTargets.button.height >= 40, `Reading Finds save target is too small: ${JSON.stringify(pointerTargets.button)}`);
+    assert.ok(pointerTargets.button.left >= 0 && pointerTargets.button.top >= 0 && pointerTargets.button.left + pointerTargets.button.width <= pointerTargets.viewport.width && pointerTargets.button.top + pointerTargets.button.height <= pointerTargets.viewport.height, `border-locked Save must remain fully inside the viewport: ${JSON.stringify(pointerTargets)}`);
+    assert.notEqual(pointerTargets.chrome.boxShadow, "none", `Save chrome must carry a visible glow: ${JSON.stringify(pointerTargets.chrome)}`);
+    assert.notEqual(pointerTargets.chrome.backgroundColor, "rgba(0, 0, 0, 0)", `Save chrome must not be transparent: ${JSON.stringify(pointerTargets.chrome)}`);
+    assert.notEqual(pointerTargets.chrome.borderColor, "rgba(0, 0, 0, 0)", `Save chrome must retain a visible border: ${JSON.stringify(pointerTargets.chrome)}`);
     saveCornerMetrics.push({ viewportWidth: await page.evaluate(() => innerWidth), cardIndex, ...pointerTargets.buttonRelative });
     await page.mouse.move(pointerTargets.from.x, pointerTargets.from.y);
     await page.mouse.move(pointerTargets.to.x, pointerTargets.to.y, { steps: 20 });
@@ -396,6 +409,7 @@ try {
         left: rect.left - media.left,
         top: rect.top - media.top,
         right: media.right - rect.right,
+        centerToRightEdge: rect.left + rect.width / 2 - media.right,
         width: rect.width,
         height: rect.height
       };
@@ -411,9 +425,9 @@ try {
   assert.equal(await page.$eval("[data-stash-toggle-count]", node => node.textContent.trim()), "1");
   assert.equal(await page.$eval(".stash-item .stash-name", node => node.textContent.trim()), "VM-662 Fixture 01");
   assert.equal(await page.$eval("#modal-bg", node => node.classList.contains("hidden")), true);
-  await clickFindsThroughRenderedHover(4, "lower-left");
+  await clickFindsThroughRenderedHover(5, "lower-left");
   assert.equal(await page.$eval("[data-stash-toggle-count]", node => node.textContent.trim()), "2");
-  assert.equal(await page.$$eval(".stash-item .stash-name", nodes => nodes.some(node => node.textContent.trim() === "VM-662 Fixture 04")), true);
+  assert.equal(await page.$$eval(".stash-item .stash-name", nodes => nodes.some(node => node.textContent.trim() === "VM-662 Fixture 05")), true);
   assert.equal(await page.$eval("#modal-bg", node => node.classList.contains("hidden")), true);
   await page.focus("#card-grid .card-item:nth-child(2) .card-stash-btn");
   await page.waitForFunction(() => Number.parseFloat(getComputedStyle(document.querySelector("#card-grid .card-item:nth-child(2) .card-stash-btn")).opacity) >= 0.99);
@@ -421,7 +435,7 @@ try {
   await page.keyboard.press("Enter");
   assert.equal(await page.$eval("[data-stash-toggle-count]", node => node.textContent.trim()), "3");
   await page.setViewport({ width: 1100, height: 1000, deviceScaleFactor: 1 });
-  await clickFindsThroughRenderedHover(7);
+  await clickFindsThroughRenderedHover(8);
   assert.equal(await page.$eval("[data-stash-toggle-count]", node => node.textContent.trim()), "4", "the 4-column desktop layout must keep save pointer-reachable");
   assert.equal(await page.$eval("#modal-bg", node => node.classList.contains("hidden")), true);
   await page.setViewport({ width: 1440, height: 1200, deviceScaleFactor: 1 });

@@ -198,3 +198,17 @@ The first evidence binding after `051de14d03077cd387c3778bf9d9341e02a1e421` rewr
 ### vm662r8 exact-candidate result
 
 The exact replayed material candidate is `7b0e5c461a3d55de97d9dbd77fd7f7d492f31628`. Candidate-bound verification measured Save at exactly `10px` top/right and `44 x 44px` against fully enlarged media on 1440px cards 1 and 4 and 1100px card 7, with real pointer travel, exact-card add, no modal, keyboard activation, and `['finds']`-only empty-section behavior passing. The controlled run observed DOMContentLoaded/load `48.0/79.9 ms`, `45` resources, boot/24/48 DOM `499/660/804`, Search-to-first-24 `15.1 ms`, and no observed Long Tasks. Independent [RobQA evidence](2026-09-23-0415-robqa-vm662-owner-manual-remediation.md) records **PASS** on the exact replay SHA with SEPARATE execution and no product finding; it discloses one non-causal transient late Reading-association harness failure followed by one bounded full PASS. Owner recheck remains one visual action only. No PR or integration action is authorized.
+
+## 2026-09-24 border-lock and prominence refinement
+
+Owner judgment on `7b0e5c461a3d55de97d9dbd77fd7f7d492f31628`: the enlarged-preview corner ownership is correct, but the inset dark Save badge is too quiet. The authorized correction is limited to locking the same stationary action across the enlarged card's upper-right border and making it visually discoverable with restrained Vox Mana gold contrast and glow.
+
+### RobDev compact implementation packet
+
+- Existing ownership is unchanged: `research-init.js` still creates one independent `add-card-to-scratchpad` button inside `.transform-card-media`, alongside rather than inside the modal opener. Only route-local CSS placement/presentation and its focused regression change.
+- At rest, the 44px action uses `right: -22px`. Under the existing `scale(2)` media hover it counter-scales to `0.5` with `right: -11px`; this keeps the rendered 44px action's center exactly on the enlarged media's right border and retains the measured 10px top inset.
+- The visible badge uses the existing Maze gold variables, a light etched border, dark text, and a bounded gold halo. Hover, focus, and saved state brighten the same badge without adding animation or a second control.
+- The focused live-browser regression now samples the true rightmost card at both existing desktop grid widths, proves exact border-center geometry, full viewport containment, a non-transparent bordered/glowing badge, stationary real pointer travel, correct exact-card add, no modal, and keyboard activation.
+- Frozen behavior remains untouched: empty Sparks/Anchors omission, one Reading Finds store/tree, result and exact-query presentation, Discovery/Helper execution semantics, parser/compiler/query/search owners, paging, lazy media, modal ownership, responsive layout, and all other accepted VM-662 contracts.
+
+The focused fixture first failed against the prior inset geometry, then passed after the correction. The pre-candidate controlled run measured border-center delta `0px`, top `10px`, and target `44 x 44px` on 1440px cards 1 and 5 and 1100px card 8. Real 20-step pointer travel retained Save hit ownership and did not open the modal. The run observed DOMContentLoaded/load `46/66 ms`, `45` resources, boot/24/48 DOM `499/660/804`, Search-to-first-24 `67.7 ms`, and no observed Long Tasks. These are raw local observations, not field or causal performance claims. Exact candidate freeze and independent RobQA remain pending; no PR or integration action is authorized.
