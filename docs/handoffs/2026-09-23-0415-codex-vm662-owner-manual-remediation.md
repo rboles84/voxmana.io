@@ -103,3 +103,27 @@ The controlled run observed DOMContentLoaded `62.5 ms`, load `78.8 ms`, `45` res
 Independent [RobQA evidence](2026-09-23-0415-robqa-vm662-owner-manual-remediation.md) records **PASS** on the exact SHA with SEPARATE execution. The reviewer reran the focused live-browser fixture, `lint:js`, `lint:html`, `test:builder`, `test:mode`, `test:maze-finds`, `test:maze-transform`, and exact-range `git diff --check`; no correctness finding remains. The known stale broad Confidence/Finds-placement harness debt was not rerun. Subjective visual balance remains Owner judgment.
 
 Owner review route: `http://127.0.0.1:8000/maze/index.html`. Recheck only Plain pending then Search; normal Loom then one Helper and Reset; artwork-to-`+` on two cards plus Finds drag/close/reopen; Results count/Sort balance; and the same Finds controls near 390px. No PR or integration action is authorized.
+
+## 2026-09-24 final bounded Owner remediation
+
+Owner decision: candidate `3b0f460e51c859270c59bc62fdfc6da23b4283fc` is rejected. The correction remains on the same branch and is limited to four concrete defects: decouple the result-card save action from transformed artwork, remove visible per-row Move, resolve the unsupported Copy finds surface, and correct rendered Results-count and Exact Query action alignment. The later mode-owned Plain/Operator/Loom workbench redesign is explicitly deferred and untouched.
+
+### RobDev implementation packet
+
+- Product outcome: artwork hover keeps its optional preview while a compact `Save`/check action appears at the stable card-shell upper-right; card click still opens details and save activation adds only that card without opening the modal.
+- Owning layer and existing machinery: `research-init.js` continues to create the existing `add-card-to-scratchpad` action and use the one scratchpad store; route-local `maze.css` owns shell placement, reveal, stacking, result-count typography, exact-query button alignment, and one responsive Finds presentation. No query, search, modal, result, or storage owner changes.
+- Finds rows: normal saved-card rows now render card name, quantity, and remove only. `maze-scratchpad-store.js` is unchanged; Finds / Sparks / Anchors and `moveCard` remain in the existing storage API, while the normal Maze row has no move selector. Desktop drag/close/reopen and the same mobile tree remain unchanged.
+- Copy trace: the removed control called `scratchpadStore.exportReadingFinds()`, producing only a clipboard string headed `Reading Finds` with non-empty Finds/Sparks/Anchors sections and `N Card Name` lines. Repository inspection found no supported import, share destination, or downstream consumer for that text. The visible control, clipboard fallback, and route handler were removed; saved data and the store's compatibility export method remain unchanged.
+- Results/actions: the count is rendered as five explicitly spaced parts with one accessible full label; Sort remains in the same Results header. Copy and Open in Scryfall now share a forced 40px inline-flex geometry with centered labels.
+- Protected behavior: Discovery/Helper remain inspect-first; all other execution semantics, parser/compiler/query owners, Scryfall request/cache/dedupe, `PAGE_SIZE = 24`, lazy images, Load More, sort, modal, Reading/Dossier, storage/migrations, generated data, and one responsive Finds DOM/store remain unchanged.
+- Stop conditions: no Exact Query, Search/Clear, mode ownership, Helper/Loom placement, broader execution hierarchy, or request/interpretation ordering redesign was attempted. No protected-owner pressure was encountered.
+
+### Changed journey and developer evidence
+
+The focused live-browser regression first failed the rejected product for the visible Copy control, then exposed the link's real top-aligned label despite matching outer heights. The corrected fixture uses real 20-step pointer movement after allowing artwork enlargement, on multiple cards and at 1440px/five-column and 1100px/four-column layouts. It verifies the save control's card-relative rectangle never moves, the enlarged artwork remains independent, the intended card alone is added, the modal remains closed, and keyboard focus reveals and activates the same control.
+
+The same fixture verifies rendered gaps between all five result-count parts, equal 40px Copy/Open heights with measured label centers, no visible Move or Copy finds, name/quantity/remove rows, one draggable and position-retaining desktop panel, one solid contained approximately 390px sheet, 44px mobile quantity/remove targets, focus return, no duplicate tree, no horizontal overflow, and the existing protected search/paging/modal/Reading states.
+
+Pre-candidate checks passed: focused browser fixture; `lint:js`; `lint:html`; `test:mode`; `test:builder`; `test:maze-finds`; `test:maze-transform`; `test:maze-semantic-state`; `test:frontend-smoke`; `test:route-metadata`; and `git diff --check`. The pre-candidate controlled run observed DOMContentLoaded/load `41.1/56.2 ms`, `45` resources, boot/24/48 DOM `517/678/822`, Search→first 24 `12.3 ms`, and no observed Long Tasks. These are raw local observations, not field or causal performance claims.
+
+Exact replacement material SHA, candidate-bound rerun, independent RobQA, lifecycle evidence, and Owner Review remain pending. No PR or integration action is authorized.

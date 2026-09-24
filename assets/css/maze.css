@@ -2913,8 +2913,7 @@ body.vm-maze-route[data-stash-open="false"] .stash-panel {
 }
 
 .stash-item-controls,
-.stash-qty,
-.stash-move {
+.stash-qty {
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
@@ -2945,15 +2944,6 @@ body.vm-maze-route[data-stash-open="false"] .stash-panel {
   text-transform: uppercase;
 }
 
-.stash-move-select {
-  min-height: 44px;
-  max-width: 100%;
-  border: 1px solid var(--maze-line-soft);
-  border-radius: var(--maze-radius-sm);
-  background: rgba(8, 11, 18, 0.30);
-  color: var(--maze-text);
-}
-
 .stash-section-empty {
   color: var(--maze-faint);
   font-size: 0.82rem;
@@ -2979,38 +2969,6 @@ body.vm-maze-route[data-stash-open="false"] .stash-panel {
   align-items: center;
   justify-content: center;
   text-decoration: none;
-}
-
-.stash-copy:disabled {
-  cursor: not-allowed;
-  opacity: 0.52;
-}
-
-.stash-export-fallback {
-  display: grid;
-  gap: 0.45rem;
-  padding: 0 1rem 1rem;
-}
-
-.stash-export-fallback label {
-  color: var(--maze-gold-2);
-  font-family: var(--font-mono, "IBM Plex Mono", monospace);
-  font-size: 0.64rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-
-.stash-export-fallback textarea {
-  width: 100%;
-  min-height: 10rem;
-  padding: 0.7rem;
-  border: 1px solid var(--maze-line-soft);
-  border-radius: var(--maze-radius-sm);
-  background: rgba(8, 11, 18, 0.36);
-  color: var(--maze-text);
-  font-family: var(--font-mono, "IBM Plex Mono", monospace);
-  font-size: 0.78rem;
-  resize: vertical;
 }
 
 .maze-toast {
@@ -3619,7 +3577,6 @@ body.vm-maze-route textarea,
 .empty-card-artist,
 .m-meta-k,
 .m-price,
-.stash-export-fallback label,
 .maze-toast {
   font-family: var(--font-ui);
 }
@@ -3640,8 +3597,7 @@ body.vm-maze-route .s-prefix,
 body.vm-maze-route .s-input.mono,
 body.vm-maze-route .qi-query,
 body.vm-maze-route .builder-output code,
-body.vm-maze-route .recent-item,
-body.vm-maze-route .stash-export-fallback textarea {
+body.vm-maze-route .recent-item {
   font-family: var(--font-mono);
 }
 
@@ -4389,14 +4345,6 @@ body.vm-maze-route[data-stash-open="false"] .stash-rail { display: none; }
   background: transparent;
 }
 .stash-qty-value { min-width: 0; letter-spacing: 0; }
-.stash-move { display: grid; gap: 0.1rem; min-width: 0; }
-.stash-move-label {
-  color: var(--maze-faint);
-  font: 0.58rem var(--font-ui, system-ui, sans-serif);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-.stash-move-select { min-height: 36px; max-width: 84px; font-size: 0.72rem; }
 .stash-remove { width: 36px; height: 36px; border-radius: 4px; }
 
 body.vm-maze-route .btn-clear,
@@ -4732,10 +4680,16 @@ body.vm-maze-route[data-maze-mode="builder"] #loom-search-btn {
 
 .res-count {
   flex: 0 1 auto;
+  display: inline-flex;
+  flex-wrap: nowrap;
+  gap: 0.28rem;
+  align-items: baseline;
   min-width: 0;
   font-size: 0.96rem;
-  white-space: normal;
+  white-space: nowrap;
 }
+
+.res-count-part { flex: 0 0 auto; }
 
 .results-sort {
   justify-self: end;
@@ -4748,12 +4702,14 @@ body.vm-maze-route[data-maze-mode="builder"] #loom-search-btn {
 }
 
 .card-item .card-stash-btn {
-  position: relative;
+  position: absolute;
+  inset-block-start: 0.65rem;
+  inset-inline-end: 0.65rem;
   z-index: 6;
-  display: grid;
+  display: inline-grid;
   place-items: center;
-  width: 56px;
-  height: 56px;
+  width: 44px;
+  height: 44px;
   padding: 0;
   border: 0;
   background: transparent;
@@ -4765,13 +4721,16 @@ body.vm-maze-route[data-maze-mode="builder"] #loom-search-btn {
   content: attr(data-mark);
   display: grid;
   place-items: center;
-  width: 40px;
-  height: 40px;
+  min-width: 36px;
+  height: 34px;
+  padding-inline: 0.45rem;
   border: 1px solid var(--maze-teal-line);
-  border-radius: 50%;
+  border-radius: 4px;
   background: rgba(8, 11, 18, 0.92);
   color: var(--maze-teal);
-  font: 0.78rem var(--font-mono, "IBM Plex Mono", monospace);
+  font: 0.62rem var(--font-ui, system-ui, sans-serif);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
 }
 
@@ -4783,16 +4742,36 @@ body.vm-maze-route[data-maze-mode="builder"] #loom-search-btn {
 }
 
 @media (hover: hover) and (pointer: fine) {
+  .card-item .card-stash-btn {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.14s ease;
+  }
+
+  .card-item:is(:hover, :focus-within) .card-stash-btn,
+  .card-item .card-stash-btn:focus-visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
   .card-item:hover .transform-card-media {
     z-index: 3;
     transform: scale(2);
     filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.82));
   }
+}
 
-  .card-item:has(.card-stash-btn:is(:hover, :focus-visible)) .transform-card-media {
-    transform: none;
-    filter: none;
-  }
+.card-item { grid-template-columns: minmax(0, 1fr); }
+
+.exact-query-actions .query-action-btn {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  min-height: 40px;
+  padding-block: 0;
+  line-height: 1;
 }
 
 .stash-rail {
@@ -4826,7 +4805,7 @@ body.vm-maze-route[data-maze-mode="builder"] #loom-search-btn {
 }
 
 .stash-item-controls {
-  grid-template-columns: minmax(7.5rem, 1fr) minmax(6.5rem, auto) 40px;
+  grid-template-columns: minmax(7.5rem, 1fr) 40px;
   gap: 0.45rem;
 }
 
@@ -4837,12 +4816,6 @@ body.vm-maze-route[data-maze-mode="builder"] #loom-search-btn {
 .stash-qty-btn {
   width: 38px;
   height: 38px;
-}
-
-.stash-move-select {
-  width: 100%;
-  max-width: 9rem;
-  min-height: 40px;
 }
 
 .stash-remove {
@@ -4926,13 +4899,4 @@ body.vm-maze-route[data-maze-mode="builder"] #loom-search-btn {
     height: 44px;
   }
 
-  .stash-move {
-    min-width: 0;
-  }
-
-  .stash-move-select {
-    width: 100%;
-    max-width: none;
-    min-height: 44px;
-  }
 }

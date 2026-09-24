@@ -38,9 +38,10 @@ assert.doesNotMatch(html, /class="loom-completion"/);
 assert.doesNotMatch(html, /id="maze-bench-mode"|id="qi-input-wrap"|id="results-query"/);
 assert.equal((html.match(/id="stash-panel"/g) || []).length, 1);
 assert.equal((html.match(/id="stash-drawer-toggle"/g) || []).length, 1);
+assert.doesNotMatch(html, /id="scratchpad-copy-finds"|data-action="copy-scratchpad-export"/);
 assert.match(html, /class="vm-site-skin vm-maze-route"/);
 assert.match(html, /assets\/css\/maze\.css[\s\S]*?assets\/css\/site-skin\.css/);
-assert.match(css, /\.card-stash-btn\s*\{[\s\S]*?position:\s*relative;[\s\S]*?z-index:\s*5/);
+assert.match(css, /\.card-item \.card-stash-btn\s*\{[\s\S]*?position:\s*absolute;[\s\S]*?inset-block-start:[\s\S]*?z-index:\s*6/);
 assert.match(css, /\.qi-details-caret/);
 assert.match(css, /data-maze-mode="builder"[\s\S]*?\.maze-reading-context/);
 assert.match(initSource, /const PAGE_SIZE = 24;/);
@@ -295,9 +296,41 @@ try {
     assert.ok(Math.abs(discoveryPendingGeometry.search[key] - discoverySearchedGeometry.search[key]) <= 1, `Discovery Search moved after execution: ${JSON.stringify({ discoveryPendingGeometry, discoverySearchedGeometry })}`);
   }
   assert.deepEqual(discoverySearchedGeometry.execution, discoveryPendingGeometry.execution, "Discovery pending and searched states must share one execution frame");
-  assert.equal(await page.$eval("#res-count", node => node.textContent.replace(/\s+/g, " ").trim()), "Showing 24 of 48 cards");
+  assert.equal(await page.$eval("#res-count", node => node.getAttribute("aria-label")), "Showing 24 of 48 cards");
+  const countTypography = await page.$eval("#res-count", node => {
+    const parts = [...node.querySelectorAll(".res-count-part")].map(part => {
+      const rect = part.getBoundingClientRect();
+      return { text: part.textContent, left: rect.left, right: rect.right, top: rect.top, bottom: rect.bottom };
+    });
+    return { parts, rendered: parts.map(part => part.text).join(" ") };
+  });
+  assert.equal(countTypography.rendered, "Showing 24 of 48 cards");
+  assert.equal(countTypography.parts.length, 5);
+  assert.ok(countTypography.parts.slice(1).every((part, index) => part.left - countTypography.parts[index].right >= 2), `Result-count words are visually collapsed: ${JSON.stringify(countTypography)}`);
   assert.equal(await page.$eval(".results-summary", node => node.contains(document.querySelector("#res-count"))), true);
   assert.equal(await page.$eval(".results-sort", node => node.closest("#results-header")?.id), "results-header");
+  const exactActionAlignment = await page.evaluate(() => {
+    const controls = [document.querySelector("#search-copy-btn"), document.querySelector("#search-scryfall-link")];
+    return controls.map(control => {
+      const bounds = control.getBoundingClientRect();
+      const style = getComputedStyle(control);
+      const range = document.createRange();
+      range.selectNodeContents(control);
+      const label = range.getBoundingClientRect();
+      return {
+        height: bounds.height,
+        controlCenter: bounds.top + bounds.height / 2,
+        labelCenter: label.top + label.height / 2,
+        display: style.display,
+        alignItems: style.alignItems,
+        justifyContent: style.justifyContent,
+        lineHeight: style.lineHeight,
+        paddingBlock: `${style.paddingTop} ${style.paddingBottom}`,
+      };
+    });
+  });
+  assert.ok(Math.abs(exactActionAlignment[0].height - exactActionAlignment[1].height) <= 1, JSON.stringify(exactActionAlignment));
+  assert.ok(exactActionAlignment.every(control => Math.abs(control.controlCenter - control.labelCenter) <= 1.5), `Exact-query action labels are not vertically centered: ${JSON.stringify(exactActionAlignment)}`);
   const domCount24 = await page.$$eval("*", nodes => nodes.length);
   await page.click("#btn-more");
   await page.waitForSelector("#card-grid .card-item:nth-child(48)");
@@ -311,25 +344,17 @@ try {
     features: [{ name: "hover", value: "hover" }, { name: "pointer", value: "fine" }],
   });
   assert.equal(await page.evaluate(() => matchMedia("(hover: hover) and (pointer: fine)").matches), true);
-  for (let hoveredIndex = 0; hoveredIndex < 5; hoveredIndex += 1) {
-    await page.hover(`#card-grid .card-item:nth-child(${hoveredIndex + 1}) .transform-card-media`);
-    const neighboringAddTargets = await page.evaluate(() => [...document.querySelectorAll("#card-grid .card-item")].slice(0, 5).map((card, index) => {
-      const button = card.querySelector(".card-stash-btn");
-      const rect = button.getBoundingClientRect();
-      const x = rect.left + rect.width / 2;
-      const y = rect.top + rect.height / 2;
-      const hit = document.elementFromPoint(x, y);
-      return { index, hit: hit?.closest?.("[data-action]")?.dataset.action || hit?.tagName || null };
-    }));
-    assert.ok(neighboringAddTargets.every(target => target.hit === "add-card-to-scratchpad"), JSON.stringify({ hoveredIndex, neighboringAddTargets }));
-  }
-  await page.hover("#card-grid .card-item:first-child .card-stash-btn");
-  await page.waitForFunction(() => getComputedStyle(document.querySelector("#card-grid .card-item:first-child .transform-card-media")).transform === "none");
-  assert.equal(await page.$eval("#card-grid .card-item:first-child .transform-card-media", node => getComputedStyle(node).transform), "none", "the artwork preview must retract when the pointer reaches +");
-
   async function clickFindsThroughRenderedHover(cardIndex, approach = "center") {
     const selector = `#card-grid .card-item:nth-child(${cardIndex})`;
+    await page.$eval(selector, card => card.scrollIntoView({ block: "center", inline: "nearest" }));
+    await page.mouse.move(2, 2);
+    const initialButton = await page.$eval(selector, card => {
+      const cardRect = card.getBoundingClientRect();
+      const rect = card.querySelector(".card-stash-btn").getBoundingClientRect();
+      return { left: rect.left - cardRect.left, top: rect.top - cardRect.top, width: rect.width, height: rect.height };
+    });
     await page.hover(`${selector} .transform-card-media`);
+    await page.waitForFunction(cardSelector => getComputedStyle(document.querySelector(`${cardSelector} .transform-card-media`)).transform !== "none", {}, selector);
     const pointerTargets = await page.$eval(selector, (card, approachName) => {
       const media = card.querySelector(".transform-card-media").getBoundingClientRect();
       const button = card.querySelector(".card-stash-btn").getBoundingClientRect();
@@ -340,32 +365,40 @@ try {
         from,
         to: { x: button.left + button.width / 2, y: button.top + button.height / 2 },
         button: { left: button.left, top: button.top, width: button.width, height: button.height },
+        buttonRelative: { left: button.left - card.getBoundingClientRect().left, top: button.top - card.getBoundingClientRect().top, width: button.width, height: button.height },
       };
     }, approach);
-    assert.ok(pointerTargets.button.width >= 52 && pointerTargets.button.height >= 52, `Reading Finds + hit target is too small: ${JSON.stringify(pointerTargets.button)}`);
+    assert.deepEqual(pointerTargets.buttonRelative, initialButton, "the shell-owned save control moved relative to its card when artwork enlarged");
+    assert.ok(pointerTargets.button.width >= 40 && pointerTargets.button.height >= 40, `Reading Finds save target is too small: ${JSON.stringify(pointerTargets.button)}`);
     await page.mouse.move(pointerTargets.from.x, pointerTargets.from.y);
     await page.mouse.move(pointerTargets.to.x, pointerTargets.to.y, { steps: 20 });
     assert.equal(await page.evaluate(({ x, y }) => document.elementFromPoint(x, y)?.closest?.("[data-action]")?.dataset.action, pointerTargets.to), "add-card-to-scratchpad");
-    assert.equal(await page.$eval(selector, card => card.matches(":hover")), true, "card hover ownership must persist while the artwork preview retracts for +");
-    const settledButton = await page.$eval(`${selector} .card-stash-btn`, button => {
-      const rect = button.getBoundingClientRect();
-      return { left: rect.left, top: rect.top, width: rect.width, height: rect.height };
+    assert.equal(await page.$eval(selector, card => card.matches(":hover")), true, "card hover ownership must persist while moving to save");
+    assert.notEqual(await page.$eval(`${selector} .transform-card-media`, node => getComputedStyle(node).transform), "none", "save must not require retracting or chasing transformed artwork");
+    const settledButton = await page.$eval(selector, card => {
+      const cardRect = card.getBoundingClientRect();
+      const rect = card.querySelector(".card-stash-btn").getBoundingClientRect();
+      return { left: rect.left - cardRect.left, top: rect.top - cardRect.top, width: rect.width, height: rect.height };
     });
-    assert.deepEqual(settledButton, pointerTargets.button, "the Reading Finds + hit target must not move while the artwork retracts");
+    assert.deepEqual(settledButton, pointerTargets.buttonRelative, "the Reading Finds save target must remain stationary relative to the untransformed card shell throughout pointer travel");
     await page.mouse.click(pointerTargets.to.x, pointerTargets.to.y);
   }
   await clickFindsThroughRenderedHover(1);
   assert.equal(await page.$eval("[data-stash-toggle-count]", node => node.textContent.trim()), "1");
+  assert.equal(await page.$eval(".stash-item .stash-name", node => node.textContent.trim()), "VM-662 Fixture 01");
   assert.equal(await page.$eval("#modal-bg", node => node.classList.contains("hidden")), true);
   await clickFindsThroughRenderedHover(4, "lower-left");
   assert.equal(await page.$eval("[data-stash-toggle-count]", node => node.textContent.trim()), "2");
+  assert.equal(await page.$$eval(".stash-item .stash-name", nodes => nodes.some(node => node.textContent.trim() === "VM-662 Fixture 04")), true);
   assert.equal(await page.$eval("#modal-bg", node => node.classList.contains("hidden")), true);
   await page.focus("#card-grid .card-item:nth-child(2) .card-stash-btn");
+  await page.waitForFunction(() => Number.parseFloat(getComputedStyle(document.querySelector("#card-grid .card-item:nth-child(2) .card-stash-btn")).opacity) >= 0.99);
+  assert.ok(await page.$eval("#card-grid .card-item:nth-child(2) .card-stash-btn", node => Number.parseFloat(getComputedStyle(node).opacity)) >= 0.99, "keyboard focus must reveal the same save control");
   await page.keyboard.press("Enter");
   assert.equal(await page.$eval("[data-stash-toggle-count]", node => node.textContent.trim()), "3");
   await page.setViewport({ width: 1100, height: 1000, deviceScaleFactor: 1 });
-  await clickFindsThroughRenderedHover(3);
-  assert.equal(await page.$eval("[data-stash-toggle-count]", node => node.textContent.trim()), "4", "the 4-column desktop layout must keep + pointer-reachable");
+  await clickFindsThroughRenderedHover(7);
+  assert.equal(await page.$eval("[data-stash-toggle-count]", node => node.textContent.trim()), "4", "the 4-column desktop layout must keep save pointer-reachable");
   assert.equal(await page.$eval("#modal-bg", node => node.classList.contains("hidden")), true);
   await page.setViewport({ width: 1440, height: 1200, deviceScaleFactor: 1 });
   await page.click("#stash-drawer-toggle");
@@ -388,6 +421,9 @@ try {
   assert.equal(desktopFinds.open, "true");
   assert.equal(desktopFinds.trees, 1);
   assert.notEqual(desktopFinds.grip, "none", "desktop Reading Finds must expose its drag grip");
+  assert.equal(await page.$("#scratchpad-copy-finds"), null, "plain-text Copy finds has no supported player destination and must not remain visible");
+  assert.equal(await page.$(".stash-item [data-action='scratchpad-move-card']"), null, "normal saved-card rows must not expose Move");
+  assert.equal(await page.$$eval(".stash-item", nodes => nodes.every(node => node.querySelector(".stash-qty") && node.querySelector(".stash-remove"))), true);
   const overlapWidth = Math.max(0, Math.min(desktopFinds.rail.right, desktopFinds.grid.right) - Math.max(desktopFinds.rail.left, desktopFinds.grid.left));
   const overlapHeight = Math.max(0, Math.min(desktopFinds.rail.bottom, desktopFinds.grid.bottom) - Math.max(desktopFinds.rail.top, desktopFinds.grid.top));
   assert.ok(overlapWidth * overlapHeight <= desktopFinds.rail.width * desktopFinds.rail.height * 0.25, `Reading Finds obscured too much of the result grid by default: ${JSON.stringify(desktopFinds)}`);
@@ -656,7 +692,7 @@ try {
     const rail = document.querySelector(".stash-rail");
     const bounds = rail.getBoundingClientRect();
     const panelStyle = getComputedStyle(document.querySelector(".stash-panel"));
-    const touchTargets = [...document.querySelectorAll(".stash-qty-btn, .stash-move-select, .stash-remove")].map(node => {
+    const touchTargets = [...document.querySelectorAll(".stash-qty-btn, .stash-remove")].map(node => {
       const rect = node.getBoundingClientRect();
       return { width: rect.width, height: rect.height };
     });
@@ -680,6 +716,8 @@ try {
   assert.match(mobileFinds.backgroundColor, /^rgb\(/, `mobile Reading Finds must use a solid background: ${JSON.stringify(mobileFinds)}`);
   assert.equal(mobileFinds.gripDisplay, "none");
   assert.ok(mobileFinds.touchTargets.length > 0 && mobileFinds.touchTargets.every(target => target.width >= 44 && target.height >= 44), JSON.stringify(mobileFinds.touchTargets));
+  assert.equal(await page.$(".stash-item [data-action='scratchpad-move-card']"), null);
+  assert.equal(await page.$("#scratchpad-copy-finds"), null);
   assert.equal(await page.$$eval("#stash-panel", nodes => nodes.length), 1, "mobile must reuse the single Reading Finds tree");
   await page.keyboard.press("Escape");
   assert.equal(await page.$eval("#stash-drawer-toggle", node => node === document.activeElement), true);

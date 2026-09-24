@@ -1723,15 +1723,22 @@ function renderResults(append = false) {
 
   const count = document.getElementById("res-count");
   clearNode(count);
-  appendContent(count, "Showing ");
-  const showingStrong = document.createElement("strong");
-  showingStrong.textContent = String(Math.min((displayPage + 1) * PAGE_SIZE, allResults.length));
-  count.appendChild(showingStrong);
-  appendContent(count, " of ");
-  const totalStrong = document.createElement("strong");
-  totalStrong.textContent = totalCards.toLocaleString();
-  count.appendChild(totalStrong);
-  appendContent(count, " cards");
+  const showingValue = String(Math.min((displayPage + 1) * PAGE_SIZE, allResults.length));
+  const totalValue = totalCards.toLocaleString();
+  count.setAttribute("aria-label", `Showing ${showingValue} of ${totalValue} cards`);
+  [
+    ["span", "Showing"],
+    ["strong", showingValue],
+    ["span", "of"],
+    ["strong", totalValue],
+    ["span", "cards"],
+  ].forEach(([tagName, text], index) => {
+    if (index) count.appendChild(document.createTextNode(" "));
+    const part = document.createElement(tagName);
+    part.className = "res-count-part";
+    part.textContent = text;
+    count.appendChild(part);
+  });
 
   pageCards.forEach((card) => grid.appendChild(makeCardEl(card)));
 
@@ -1782,13 +1789,13 @@ function makeCardEl(card) {
   const stashed = isCardInScratchpad(card);
   const stashButton = createActionButton({
     className: `card-stash-btn${stashed ? " on" : ""}`,
-    text: stashed ? "+1" : "+",
+    text: stashed ? "Saved" : "Save",
     action: "add-card-to-scratchpad",
     title: stashed ? `Set aside another ${card.name || "card"} in Reading Finds` : `Set aside ${card.name || "card"} in Reading Finds`,
     ariaLabel: stashed ? `Set aside another ${card.name || "card"} in Reading Finds` : `Set aside ${card.name || "card"} in Reading Finds`
   });
   stashButton.dataset.cardName = card.name || "card";
-  stashButton.dataset.mark = stashed ? "+1" : "+";
+  stashButton.dataset.mark = stashed ? "✓" : "Save";
   stashButton.__cardData = card;
   const media = document.createElement("div");
   media.className = "transform-card-media";
@@ -4262,7 +4269,6 @@ function removeScratchpadCard(key, sectionId) {
 function clearScratchpad() {
   if (!scratchpadStore) return;
   scratchpadStore.clearSection("all");
-  hideExportFallback();
   showToast("Reading Finds cleared");
 }
 
@@ -4299,7 +4305,6 @@ function renderScratchpad() {
     body.appendChild(createScratchpadSection(section));
   });
 
-  updateScratchpadCopyControls();
   updateScratchpadReturnLink();
 }
 
@@ -4316,7 +4321,6 @@ function renderScratchpadUnavailable() {
   empty.className = "stash-empty";
   empty.textContent = "Reading Finds is unavailable. Maze search, card results, and card details still work.";
   body.appendChild(empty);
-  updateScratchpadCopyControls(true);
   updateScratchpadReturnLink(true);
 }
 
@@ -4347,14 +4351,14 @@ function createScratchpadSection(section) {
     empty.textContent = `No cards in ${section.label} yet.`;
     list.appendChild(empty);
   } else {
-    rows.forEach((row, index) => list.appendChild(createScratchpadRow(row, section, index)));
+    rows.forEach((row) => list.appendChild(createScratchpadRow(row, section)));
   }
 
   group.appendChild(list);
   return group;
 }
 
-function createScratchpadRow(row, section, index) {
+function createScratchpadRow(row, section) {
   const key = scratchpadCardKey(row);
   const item = document.createElement("li");
   item.className = "stash-item";
@@ -4374,7 +4378,6 @@ function createScratchpadRow(row, section, index) {
   appendContent(
     controls,
     createQuantityControls(row, section.id, key),
-    createMoveControl(row, section.id, key, index),
     createActionButton({
       className: "stash-remove",
       text: "×",
@@ -4419,41 +4422,9 @@ function createQuantityControls(row, sectionId, key) {
   return wrap;
 }
 
-function createMoveControl(row, sectionId, key, index) {
-  const wrap = document.createElement("div");
-  wrap.className = "stash-move";
-  const selectId = `scratchpad-move-${sectionId}-${index}`;
-  const label = document.createElement("label");
-  label.className = "stash-move-label";
-  label.setAttribute("for", selectId);
-  label.textContent = "Move";
-  const select = document.createElement("select");
-  select.id = selectId;
-  select.className = "stash-move-select";
-  select.setAttribute("aria-label", `Move ${row.name || "card"} to section`);
-  select.dataset.action = "scratchpad-move-card";
-  select.dataset.scratchpadKey = key;
-  select.dataset.section = sectionId;
-  STASH_SECTIONS.forEach((section) => {
-    const option = document.createElement("option");
-    option.value = section.id;
-    option.textContent = section.label;
-    if (section.id === sectionId) option.selected = true;
-    select.appendChild(option);
-  });
-  appendContent(wrap, label, select);
-  return wrap;
-}
-
 function scratchpadCardHref(row) {
   if (row.scryfallUri) return row.scryfallUri;
   return `https://scryfall.com/search?q=${encodeURIComponent(`!"${row.name || ""}"`)}`;
-}
-
-function updateScratchpadCopyControls(forceDisabled = false) {
-  const copyFinds = document.getElementById("scratchpad-copy-finds");
-  const hasFinds = Boolean(scratchpadStore?.hasExportableCards?.());
-  updateScratchpadCopyButton(copyFinds, forceDisabled || !hasFinds, "Set aside cards before copying finds.");
 }
 
 function updateScratchpadReturnLink(forceHidden = false) {
@@ -4482,12 +4453,6 @@ function dossierReturnUrlForHandoff(handoff) {
     readingId: handoff.readingId || "",
     mazeReturnUrl: `${location.pathname}${location.search}`
   });
-}
-
-function updateScratchpadCopyButton(button, disabled, disabledTitle) {
-  if (!button || !("disabled" in button)) return;
-  button.disabled = disabled;
-  button.title = disabled ? disabledTitle : "";
 }
 
 function updateStashDrawerCount(count = getScratchpadTotalQuantity()) {
@@ -4620,41 +4585,11 @@ function refreshScratchpadButtons() {
     const cardName = button.dataset.cardName || "card";
     const label = saved ? `Set aside another ${cardName} in Reading Finds` : `Set aside ${cardName} in Reading Finds`;
     button.classList.toggle("on", saved);
-    button.textContent = saved ? "+1" : "+";
-    button.dataset.mark = saved ? "+1" : "+";
+    button.textContent = saved ? "Saved" : "Save";
+    button.dataset.mark = saved ? "✓" : "Save";
     button.title = label;
     button.setAttribute("aria-label", label);
   });
-}
-
-function copyScratchpadExport() {
-  if (!scratchpadStore) {
-    showToast("Reading Finds is unavailable");
-    return;
-  }
-  const text = scratchpadStore.exportReadingFinds();
-  if (!text) {
-    showToast("No Maze finds set aside yet");
-    return;
-  }
-  hideExportFallback();
-  copyTextToClipboard(text, "Reading Finds copied", {
-    onFallback: () => showExportFallback(text)
-  });
-}
-
-function showExportFallback(text) {
-  const fallback = document.getElementById("stash-export-fallback");
-  const textarea = document.getElementById("stash-export-text");
-  if (!fallback || !textarea || !("value" in textarea)) return;
-  textarea.value = text;
-  fallback.classList.remove("hidden");
-  textarea.focus?.();
-  textarea.select?.();
-}
-
-function hideExportFallback() {
-  document.getElementById("stash-export-fallback")?.classList.add("hidden");
 }
 
 function escapeSelectorValue(value) {
@@ -4880,13 +4815,6 @@ function handleMazeActionClick(event) {
       return;
     case "load-more":
       loadMore();
-      return;
-    case "copy-stash-export":
-    case "copy-scratchpad-export":
-      copyScratchpadExport();
-      return;
-    case "copy-scratchpad-export-maybeboard":
-      copyScratchpadExport();
       return;
     case "clear-stash":
       clearScratchpad();
