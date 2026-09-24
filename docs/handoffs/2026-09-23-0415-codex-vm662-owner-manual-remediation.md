@@ -222,3 +222,30 @@ The controlled candidate run observed DOMContentLoaded/load `56.4/67.5 ms`, `45`
 Independent [RobQA evidence](2026-09-23-0415-robqa-vm662-owner-manual-remediation.md) records **PASS** on this exact candidate with SEPARATE execution. The reviewer repeated screenshot-enabled pointer evidence on the two true edge columns, inspected the images, and found the dark Save label readable, the gold halo bounded, and no clipping. `lint:js`, `lint:html`, `test:maze-transform`, `test:maze-finds`, `test:frontend-smoke`, and exact-range `git diff --check` also passed. No blocker, major, or minor finding remains.
 
 Owner recheck is one visual judgment only: enlarge a true right-edge card and confirm the gold Save/check badge visibly straddles the card's upper-right border with the desired prominence. Empty Sparks/Anchors and every other accepted VM-662 area remain frozen. No PR or integration action is authorized.
+
+## 2026-09-24 Owner acceptance and visual-learning handoff
+
+The Owner accepted VM-662 at exact material candidate `27968d9c1d64a3ac6ff50e1cc8dd5330de5827b2` after confirming that the final Save/check treatment works. The accepted action visibly straddles the enlarged card's upper-right border, uses restrained gold contrast and glow, stays stationary through real pointer travel, adds the intended card without opening the modal, and retains keyboard activation. The previously accepted omission of zero-card Sparks and Anchors remains part of the accepted candidate.
+
+The Owner also required the repeated visual-review loop to become a durable learning rather than normal practice. The learning below records the correction: transformed UI must be measured against the rendered visual boundary; geometry, prominence, pointer acquisition, edge-column containment, and empty content must all be verified before Owner review. Owner review should confirm one prepared candidate, not supply iterative positioning and contrast debugging.
+
+Material remains frozen at `27968d9c1d64a3ac6ff50e1cc8dd5330de5827b2`. This append-only acceptance record and the learning note are evidence-only. Integration is now authorized through the repository's post-ACCEPT PR and guarded merge flow; final PR, merge, Done-state, and branch-accounting facts remain to be appended after they exist.
+
+### Durable UI learning
+
+Several iterations were technically correct against the wrong reference or incomplete visual criteria. Stable contracts passed while Owner-visible geometry still shifted; Save was first measured against the original result tile while the player saw transformed artwork; the next position reached the visual corner but lacked sufficient salience; and empty Sparks/Anchors presentation preserved the model while consuming attention without value. The Owner had to supply repeated screenshots and rechecks that implementation and QA should have resolved earlier.
+
+The accepted presentation clarifies the Owner preference: actions should visibly belong to their physical chrome, use purposeful high contrast, remain readily acquirable through the real pointer path, and preserve useful capability. Empty structure should not consume attention. A presentation fix should not remove quantity, remove, persistence, movement, populated sections, or the single responsive store merely to simplify layout.
+
+For transformed or layered UI, implementation must identify the stable owner, rendered visual boundary after transforms settle, pointer and keyboard target, viewport/stacking constraints, and required visual prominence before editing. A mathematically correct rectangle is insufficient if the action is visually misplaced, too quiet, clipped, or loses hit ownership.
+
+Future bounded visual corrections should use one short candidate-bound proof before Owner review:
+
+- reproduce the Owner's real state, including transforms and true edge columns;
+- measure against the rendered visual element, not a convenient untransformed ancestor;
+- exercise ordinary multi-step pointer travel, click ownership, focus, and Enter;
+- test objective geometry and perceptual salience separately, inspecting the intended viewport after assertions pass;
+- cover both empty and populated content where conditional presentation is involved; and
+- freeze already-passing areas so the Owner recheck is the smallest visual judgment automation cannot make.
+
+The intended outcome is that Owner review confirms a prepared candidate instead of discovering basic positioning, contrast, acquisition, or empty-state defects through repeated back-and-forth. This is retrospective evidence, not authorization for a new UI system, state owner, dependency, or broad redesign.
