@@ -506,3 +506,56 @@ At 1440px and 1100px, enlarge two different result cards and move naturally to S
 - Reviewer-authored change: this appended exact-candidate section in `docs/handoffs/2026-09-23-0415-robqa-vm662-owner-manual-remediation.md` only.
 - Not changed: production, tests, card, board/generated views, implementer handoff, Owner state, integration state, or stash state.
 - Reviewer output remains unstaged and uncommitted, per assignment.
+
+## 2026-09-24 border-lock and prominence — exact-candidate RobQA
+
+Task: VM-662
+Candidate: 27968d9c1d64a3ac6ff50e1cc8dd5330de5827b2
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: Codex `/root/vm662_corner_sections_robqa`
+Implementer: Codex `/root`
+
+### Candidate-bound decision
+
+Exact material candidate `27968d9c1d64a3ac6ff50e1cc8dd5330de5827b2` passes independent RobQA and may return to Owner Review. Before execution, the checked-out branch was `codex/vm-662-maze-modernization`, `HEAD` resolved to that exact SHA, and the worktree was clean. The actual `5dd2c63007f83940fb11371828937710ce3ee6b5..27968d9c1d64a3ac6ff50e1cc8dd5330de5827b2` delta, current card, and implementer packet were reviewed directly. The named stash `preserve deferred workbench edit before VM-662 narrow remediation` was observed and was not applied or dropped.
+
+The authorized runtime change is confined to route-local CSS: the existing independent 44px Save/check target is centered on the fully enlarged card's upper-right border and receives a restrained Vox Mana gold fill, etched border, dark label, and bounded glow. Both Maze route assets advance together to `vm662r9`; the focused regression now samples true right-edge cards. The controller, modal/store ownership, empty-section implementation, and all other accepted behavior remain unchanged. This PASS is bound only to the exact candidate above and does not constitute Owner acceptance or integration authorization.
+
+### Selected exact-candidate evidence
+
+`node tests/maze/maze-modernization-remediation-tests.js` with `VM662_CAPTURE_SCREENSHOTS=1` and unique output `C:\Users\obake\AppData\Local\Temp\vm662-robqa-border-6e7e17fea42e462da6d87de927a3b306` — **PASS**.
+
+- 1440px/five columns: cards 1 and true right-edge card 5 each measured `centerToRightEdge: 0px`, `top: 10px`, and `44 x 44px` against fully enlarged media.
+- 1100px/four columns: true right-edge card 8 measured the same `0px` border-center delta, `10px` top inset, and `44 x 44px` target.
+- All three targets remained fully contained within the viewport. Real 20-step pointer travel retained hover and Save hit ownership, kept the target stationary, added exactly the intended card, and did not open the modal. Keyboard focus and Enter passed; Save remains outside the modal-opening button.
+- Computed chrome assertions proved a non-transparent background, visible border, and non-`none` glow. Independent inspection of `save-corner-1440-1.png`, `save-corner-1440-5.png`, and `save-corner-1100-8.png` found the dark `SAVE` label readable on the gold badge, the glow visible but bounded, and no badge clipping at either true viewport edge.
+- Frozen empty-section behavior remained green in the same run: desktop and mobile section IDs were exactly `["finds"]`, with no per-section empty prose. Protected request, paging, modal, Finds-store, Results/Sort, Copy/Open, desktop-panel, mobile-containment, and semantic behavior remained covered or unchanged.
+
+Focused supporting checks:
+
+| Check | Changed risk protected | Result |
+| --- | --- | --- |
+| `npm.cmd run lint:js` | Unchanged controller integrity | PASS, 37 files |
+| `npm.cmd run lint:html` | Paired `vm662r9` route assets and public HTML contract | PASS |
+| `npm.cmd run test:maze-transform` | Save/media/modal independence remains intact | PASS |
+| `npm.cmd run test:maze-finds` | Frozen Finds/Sparks/Anchors store compatibility | PASS |
+| `npm.cmd run test:frontend-smoke` | Maze remains in the public frontend route set | PASS |
+| `git diff --check 5dd2c63007f83940fb11371828937710ce3ee6b5..27968d9c1d64a3ac6ff50e1cc8dd5330de5827b2` | Exact candidate-range formatting | PASS |
+
+### Findings and proportionality
+
+- BLOCKER / MAJOR / MINOR findings: none.
+- NOTE / OWNER JUDGMENT: final aesthetic preference for badge prominence and glow strength remains Owner judgment; objective contrast, readability, containment, and geometry pass.
+- CPU-heavy validation: **NOT REQUIRED**. No parser, compiler, placement, semantic engine, storage, migration, generated-data, or result-engine owner changed.
+- Intentionally skipped: broad mode/builder/semantic suites; exhaustive parser/search, synthetic journey, mutation, recovery, network/cache, generated-data, and performance suites; known stale presentation harnesses; animation-fidelity and broad viewport matrices. Direct geometry, screenshot, interaction, store, and frozen-section evidence is green.
+
+### Shortest Owner recheck
+
+At 1440px and 1100px, enlarge a true right-edge result card. PASS if the gold Save/check badge visibly straddles the card's upper-right border, remains fully onscreen and readable, and has the desired prominence without feeling excessive. Border-center geometry, top inset, target size, pointer/keyboard behavior, exact-card addition, no-modal behavior, control independence, fresh asset pairing, and frozen empty-section behavior are already machine-verified.
+
+### Reviewer scope
+
+- Reviewer-authored change: this appended exact-candidate section in `docs/handoffs/2026-09-23-0415-robqa-vm662-owner-manual-remediation.md` only.
+- Not changed: production, tests, card, board/generated views, implementer handoff, Owner state, integration state, or stash state.
+- Reviewer output remains unstaged and uncommitted, per assignment.
