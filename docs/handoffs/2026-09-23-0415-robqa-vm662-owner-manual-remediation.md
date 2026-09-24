@@ -188,3 +188,91 @@ Open `/maze/index.html` on the Owner's running local server at exact candidate `
 - Reviewer-authored change: this exact-candidate section in `docs/handoffs/2026-09-23-0415-robqa-vm662-owner-manual-remediation.md` only.
 - Not changed: production, tests, card, generated views, Owner state, or integration state.
 - Reviewer output remains unstaged and uncommitted, per assignment.
+
+## Material candidate
+
+- Baseline: `3b0f460e51c859270c59bc62fdfc6da23b4283fc`
+- Candidate: `1af56c7625d485f3d483cf9a301b698a29761342`
+- Changed paths: `7`
+
+## Files changed
+
+- `assets/css/maze.css`
+- `assets/js/maze/research-init.js`
+- `docs/handoffs/2026-09-23-0415-codex-vm662-owner-manual-remediation.md`
+- `docs/handoffs/2026-09-23-0415-robqa-vm662-owner-manual-remediation.md`
+- `docs/kanban/in-progress/VM-662-maze-modernization-implementation.md`
+- `maze/index.html`
+- `tests/maze/maze-modernization-remediation-tests.js`
+
+## 2026-09-24 final bounded Owner remediation — exact-candidate RobQA
+
+Task: VM-662
+Candidate: 1af56c7625d485f3d483cf9a301b698a29761342
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: Codex `/root/vm662_final_bounded_robqa`
+Implementer: Codex `/root`
+
+### Candidate-bound decision
+
+Exact material candidate `1af56c7625d485f3d483cf9a301b698a29761342` passes independent RobQA and may return to Owner Review. Before execution, the checked-out branch was `codex/vm-662-maze-modernization`, `HEAD` resolved to the exact candidate, and the worktree was clean. The actual Owner-rejected `3b0f460e51c859270c59bc62fdfc6da23b4283fc..1af56c7625d485f3d483cf9a301b698a29761342` delta, current VM-662 card, and the implementer handoff's `2026-09-24 final bounded Owner remediation` section were reviewed directly.
+
+This is QA-2 component-interaction evidence with QA-1 rendered geometry coverage. SEPARATE execution is required because the remaining correction depends on real pointer travel through transformed artwork, hit ownership, keyboard modality, draggable responsive state, and exact rendered alignment. This engineering PASS is bound only to the candidate above; it is not Owner acceptance, integration authorization, or certification of subjective appearance.
+
+### Exact delta and protected boundaries
+
+- Candidate delta: `assets/css/maze.css`, `assets/js/maze/research-init.js`, `maze/index.html`, `tests/maze/maze-modernization-remediation-tests.js`, the VM-662 card, and the two admitted handoffs.
+- Changed behavior: a stationary shell-owned `Save`/check action is decoupled from enlarged artwork; normal Reading Finds rows no longer expose Move; unsupported Copy finds UI/fallback is removed; result-count parts have rendered gaps; and Copy/Open in Scryfall share centered 40px geometry.
+- Protected behavior intentionally untouched: the Reading Finds storage owner and migration, Finds/Sparks/Anchors, `moveCard`, `exportReadingFinds`, quantity/remove storage behavior, parser/compiler/query/search/cache/result owners, paging/lazy media, routes, generated data, and every execution semantic except the already admitted Discovery/Helper inspect-first behavior.
+- The later mode-owned Plain/Operator/Loom redesign remains explicitly deferred. The candidate does not broaden into it or the separately deferred Azorius repeat-Search contract.
+
+### Selected exact-candidate evidence
+
+`node tests/maze/maze-modernization-remediation-tests.js` with `VM662_OUTPUT_DIR` set to a unique system-temp directory and `VM662_CAPTURE_SCREENSHOTS=0` — **PASS**. The browser was required because source assertions cannot prove human-like traversal across live transformed geometry, a stationary reachable hit target, focus modality, drag retention, responsive containment, or rendered text-label centering. No screenshots or aesthetic automation were produced.
+
+The focused fixture independently verified:
+
+- Discovery and Helper remain inspect-first: inspection sends zero requests and the existing explicit Search sends exactly one; ordinary Reading/Dossier, sort, paging, warning, zero-result, modal, and route-launch semantics retain their bounded fixture coverage.
+- Real 20-step pointer movement travels from enlarged artwork to the live shell-owned Save control on multiple cards and approaches at 1440px/five columns and 1100px/four columns. The control remains stationary relative to the card shell, stays the hit target, adds exactly the intended card, and does not open the modal. The enlarged artwork remains independent rather than becoming the action owner.
+- Keyboard focus reveals the same Save control and Enter activates it.
+- The result count exposes the accessible label `Showing 24 of 48 cards`, renders five parts with a measured gap of at least 2px between every adjacent part, and remains in the Results summary while the explicitly labeled Sort control remains associated with the same Results header.
+- Copy and Open in Scryfall have equal measured height and their rendered label centers are within 1.5px of their control centers.
+- Normal saved-card rows expose name, quantity, and remove, but no Move selector; Copy finds is absent.
+- Desktop Reading Finds remains one fixed tree/store with a visible grip, real bounded drag, close/Escape focus return, and retained position after reopen.
+- Near 390px, the same one tree is fixed and viewport-contained with a solid computed background, no horizontal overflow, no Move or Copy finds, and quantity/remove targets at least 44px. Escape returns focus to the Finds trigger.
+- The controlled run recorded 45 resources, DOM `517/678/822` at boot/24/48 cards, Search-to-first-24 `51.9 ms`, no observed Long Tasks, and one Discovery inspect-to-Search request. These are raw local observations, not field or causal performance claims.
+
+Focused non-browser checks:
+
+| Check | Changed risk protected | Result |
+| --- | --- | --- |
+| `npm.cmd run lint:js` | Route controller and renderer integrity | PASS, 37 files |
+| `npm.cmd run lint:html` | Removed controls and remaining semantic associations | PASS |
+| `npm.cmd run test:builder` | Loom query ownership remains unchanged | PASS, 14 cases |
+| `npm.cmd run test:mode` | Mode/draft continuity and leakage guard | PASS, 14 mode and 14 leakage cases |
+| `npm.cmd run test:maze-finds` | Unchanged store compatibility: Finds/Sparks/Anchors, Move, export, quantity, and remove | PASS |
+| `npm.cmd run test:maze-transform` | Result-card/modal transform contract | PASS |
+| `git diff --check 3b0f460e..1af56c76` | Exact rejected-to-candidate range formatting | PASS |
+
+### Findings and disposition
+
+- BLOCKER / MAJOR / MINOR findings: none.
+- NOTE / OWNER JUDGMENT: visual balance, hover feel, Save/check prominence, result-header composition, saved-row density, and responsive comfort remain Owner judgment under OWNER-VISUAL mode.
+- Deferred by boundary: the mode-owned workbench redesign, Azorius repeat-Search contract, Quick Reading refinement loop, and cross-page guide/shared-navigation concerns remain outside this correction. No evidence here claims they are fixed.
+- Known stale `maze-search-tests.js` and `test:maze-results-layout` presentation harness debt was not rerun, as directed. Their superseded Confidence/Finds-placement assertions are unchanged and the directly relevant focused live-DOM fixture is green.
+
+### Proportionality
+
+- CPU-heavy validation: **NOT REQUIRED**. No parser, compiler, placement, semantic engine, cache, migration, generated-data, or result-engine owner changed.
+- Intentionally skipped: exhaustive parser/search, synthetic journey, mutation, recovery, network/cache, generated-data, screenshot, visual-regression, animation-fidelity, broad viewport, and heavy performance suites. They do not protect a changed owner or would replace bounded Owner visual judgment.
+
+### Shortest Owner recheck
+
+Open `/maze/index.html` at exact candidate `1af56c7625d485f3d483cf9a301b698a29761342`. On desktop, run one result search, let artwork enlarge, then travel to Save on two cards; confirm the Save/check treatment feels right, the count/Sort row and Copy/Open labels look aligned, and Finds has no visible Move or Copy finds while drag/close/reopen feels usable. Resize near 390px and confirm the same Finds tree, quantity, and remove controls feel usable. Deterministic hit ownership, exact adds, no-modal behavior, keyboard activation, spacing, geometry, storage compatibility, drag retention, focus return, and containment are already machine-verified.
+
+### Reviewer scope
+
+- Reviewer-authored change: this exact-candidate section in `docs/handoffs/2026-09-23-0415-robqa-vm662-owner-manual-remediation.md` only.
+- Not changed: production, tests, card, implementer handoff, generated views, Owner state, or integration state.
+- Reviewer output remains unstaged and uncommitted, per assignment.
