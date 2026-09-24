@@ -185,4 +185,8 @@ Owner decision: candidate `3a918a2204ca5e118dea144477499ce386ff49f5` is rejected
 
 Pre-candidate checks passed: the focused controlled browser fixture with and without screenshot capture; `lint:js`; `lint:html`; `test:maze-finds`; corrected `test:maze-transform`; `test:frontend-smoke`; and `git diff --check`. The controlled no-screenshot run observed DOMContentLoaded/load `45.5/64.3 ms`, `45` resources, boot/24/48 DOM `499/660/804`, Search-to-first-24 `13.5 ms`, and no observed Long Tasks. These are raw local observations, not field or causal performance claims.
 
+The exact material candidate and independent RobQA remain pending. Owner recheck after engineering PASS is one visual action only: enlarge two cards and confirm Save/check visibly occupies and remains at each enlarged card's actual upper-right corner. No PR or integration action is authorized.
+
+### Enlarged-preview corner exact-candidate result
+
 The exact material candidate is `051de14d03077cd387c3778bf9d9341e02a1e421`. Candidate-bound verification observed DOMContentLoaded/load `44.1/50.6 ms`, `45` resources, boot/24/48 DOM `499/660/804`, Search-to-first-24 `14.6 ms`, and no observed Long Tasks; geometry remained exactly `10px` top/right and `44 x 44px` on all three enlarged-card samples. Independent [RobQA evidence](2026-09-23-0415-robqa-vm662-owner-manual-remediation.md) records **PASS** on that exact SHA with SEPARATE execution and no blocker, major, or minor finding. Owner recheck is one visual action only: enlarge two cards and confirm Save/check visibly occupies and remains at each enlarged card's actual upper-right corner. No PR or integration action is authorized.
