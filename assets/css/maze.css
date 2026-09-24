@@ -4703,8 +4703,8 @@ body.vm-maze-route[data-maze-mode="builder"] #loom-search-btn {
 
 .card-item .card-stash-btn {
   position: absolute;
-  inset-block-start: 0.65rem;
-  inset-inline-end: 0.65rem;
+  top: 10px;
+  right: 10px;
   z-index: 6;
   display: inline-grid;
   place-items: center;

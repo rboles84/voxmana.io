@@ -599,7 +599,7 @@ expect(
 );
 
 expect(
-  sources.maze.includes('src="../assets/js/maze/research-init.js?v=vm658"'),
+  /src="\.\.\/assets\/js\/maze\/research-init\.js\?v=[a-z0-9-]+"/.test(sources.maze),
   "maze/index.html should load the module from a relative file-safe path"
 );
 const archscryModuleFiles = await collectFiles("assets/js/archscry", [".js"]);

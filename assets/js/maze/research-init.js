@@ -4301,7 +4301,7 @@ function renderScratchpad() {
     body.appendChild(empty);
   }
 
-  STASH_SECTIONS.forEach((section) => {
+  STASH_SECTIONS.filter((section) => getScratchpadRows(section.id).length > 0).forEach((section) => {
     body.appendChild(createScratchpadSection(section));
   });
 
@@ -4345,14 +4345,7 @@ function createScratchpadSection(section) {
   const list = document.createElement("ul");
   list.className = "stash-list";
 
-  if (!rows.length) {
-    const empty = document.createElement("li");
-    empty.className = "stash-section-empty";
-    empty.textContent = `No cards in ${section.label} yet.`;
-    list.appendChild(empty);
-  } else {
-    rows.forEach((row) => list.appendChild(createScratchpadRow(row, section)));
-  }
+  rows.forEach((row) => list.appendChild(createScratchpadRow(row, section)));
 
   group.appendChild(list);
   return group;
