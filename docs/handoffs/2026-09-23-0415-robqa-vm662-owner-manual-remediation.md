@@ -276,3 +276,63 @@ Open `/maze/index.html` at exact candidate `1af56c7625d485f3d483cf9a301b698a2976
 - Reviewer-authored change: this exact-candidate section in `docs/handoffs/2026-09-23-0415-robqa-vm662-owner-manual-remediation.md` only.
 - Not changed: production, tests, card, implementer handoff, generated views, Owner state, or integration state.
 - Reviewer output remains unstaged and uncommitted, per assignment.
+
+## 2026-09-24 final two-defect correction — exact-candidate RobQA
+
+Task: VM-662
+Candidate: e6fd60f4bf3c3189a8f7c6d17129355175de5aa0
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: Codex `/root/vm662_corner_sections_robqa`
+Implementer: Codex `/root`
+
+### Candidate-bound decision
+
+Exact material candidate `e6fd60f4bf3c3189a8f7c6d17129355175de5aa0` passes independent RobQA and may return to Owner Review. Before execution, the checked-out branch was `codex/vm-662-maze-modernization`, `HEAD` resolved to that exact SHA, and the worktree was clean. The actual Owner-rejected `1af56c7625d485f3d483cf9a301b698a29761342..e6fd60f4bf3c3189a8f7c6d17129355175de5aa0` range, current VM-662 card, and the implementer handoff's `2026-09-24 final two-defect Owner correction` packet were reviewed directly. The named stash `preserve deferred workbench edit before VM-662 narrow remediation` was observed and was not applied or dropped.
+
+This is QA-2 component-interaction evidence with QA-1 conditional-presentation and rendered-geometry coverage. SEPARATE execution is required because the correction must prove real pointer travel against live card geometry, keyboard activation, exact card/store effects, and the same conditional Reading Finds DOM across responsive layouts. This PASS is bound only to the candidate above; it does not constitute Owner acceptance, authorize integration, or certify subjective appearance.
+
+### Exact delta and protected boundaries
+
+- Changed behavior: the existing shell-owned Save/check control ships under a fresh paired route asset key and uses explicit physical `top: 10px` / `right: 10px`; the existing Reading Finds renderer omits zero-card section markup and per-section empty prose while retaining its one overall empty state.
+- Cache and validator review: `maze/index.html` pairs Maze CSS and controller at `vm662r6`. The generalized frontend validator still requires the exact relative `../assets/js/maze/research-init.js?v=` path and a nonempty lowercase alphanumeric/hyphen cache key; it removes only the stale `vm658` literal. The focused fixture independently requires CSS and controller keys to match and rejects `vm658`.
+- Populated compatibility: source inspection confirms nonempty entries still flow through the unchanged `createScratchpadSection()` heading, count, and row construction. The unchanged store test exercises populated Finds, Sparks, and Anchors, section independence, move/merge, quantity, remove, clear, persistence-compatible state, and export behavior.
+- Protected behavior intentionally untouched: passed Results/Sort and Copy/Open composition; artwork preview and card-modal ownership; desktop Finds drag/close/reopen/retention; mobile sheet geometry/containment; one responsive tree/store; parser/compiler/query/search/cache/result owners; paging/lazy media; routes; generated data; and the deferred workbench and Azorius repeat-Search contracts.
+
+### Selected exact-candidate evidence
+
+`node tests/maze/maze-modernization-remediation-tests.js` with `VM662_CAPTURE_SCREENSHOTS=0` and unique output `C:\Users\obake\AppData\Local\Temp\vm662-robqa-a4405a97c62b4164b9f35bf95fcdc07e` — **PASS**. A browser was required because lower layers cannot prove stationary placement through real pointer travel, live hit ownership, focus modality, exact-card activation, or responsive DOM identity. No screenshots or aesthetic automation were produced.
+
+- At 1440px/five columns, cards 1 and 4 each measured `top: 11px`, `right: 11px`, `44 x 44px`; at 1100px/four columns, card 7 measured `top: 11px`, `right: 11px`, `44 x 44px`. All are within the required 8–12px shell inset; the one-pixel computed difference from the authored 10px offset is the card border coordinate.
+- Real multi-step pointer travel began after artwork enlargement. The Save target remained stationary relative to the card, retained hit ownership, added exactly the intended card, and did not open the modal. Keyboard focus exposed the same control and Enter activated it.
+- With only saved Finds cards, desktop section IDs were exactly `["finds"]`; Sparks and Anchors headings, counts, prose, and section space were absent. The same mobile tree also reported exactly `["finds"]`, with no `.stash-section-empty` node.
+- The fixture retained its bounded coverage for one desktop Finds tree with drag/close/reopen position retention, one contained mobile tree, focus return, protected search/request behavior, paging, modal behavior, Results/Sort, and Copy/Open alignment.
+
+Focused supporting checks:
+
+| Check | Changed risk protected | Result |
+| --- | --- | --- |
+| `npm.cmd run lint:js` | Route controller syntax and renderer integrity | PASS, 37 files |
+| `npm.cmd run lint:html` | Fresh relative module key and public route HTML contract | PASS |
+| `npm.cmd run test:maze-finds` | Populated Finds/Sparks/Anchors store compatibility | PASS |
+| `npm.cmd run test:maze-transform` | Existing card artwork/modal transform contract | PASS |
+| `npm.cmd run test:frontend-smoke` | Maze remains in the public frontend route set after cache-key correction | PASS |
+| `git diff --check 1af56c7625d485f3d483cf9a301b698a29761342..e6fd60f4bf3c3189a8f7c6d17129355175de5aa0` | Exact rejected-to-candidate range formatting | PASS |
+
+### Findings and proportionality
+
+- BLOCKER / MAJOR / MINOR findings: none.
+- NOTE / OWNER JUDGMENT: final Save/check prominence and corner appearance remain Owner judgment under OWNER-VISUAL mode.
+- CPU-heavy validation: **NOT REQUIRED**. No parser, compiler, placement, semantic engine, cache implementation, migration, generated-data, or result-engine owner changed.
+- Intentionally skipped: broad mode/builder/semantic suites; exhaustive parser/search, synthetic journey, mutation, recovery, network/cache, generated-data, and performance suites; the known stale presentation harnesses; screenshots, visual regression, animation-fidelity, and a broad viewport matrix. The two changed risks have direct focused evidence, frozen contracts were not reopened, and those runs would be disproportionate or substitute for Owner visual judgment.
+
+### Shortest two-check Owner recheck
+
+1. At 1440px and 1100px, run one result search, enlarge artwork, then travel naturally to Save and activate it once by pointer and once by keyboard. PASS if Save/check visibly stays in the card's upper-right corner throughout, the intended card alone is saved, and no modal opens.
+2. Open Reading Finds on desktop and near 390px with Finds populated but Sparks/Anchors empty. PASS if only Finds is present—no empty Sparks/Anchors headings, counts, prose, or reserved space—and the existing desktop/mobile panel still feels correct.
+
+### Reviewer scope
+
+- Reviewer-authored change: this exact-candidate section in `docs/handoffs/2026-09-23-0415-robqa-vm662-owner-manual-remediation.md` only.
+- Not changed: production, tests, card, board/generated views, implementer handoff, Owner state, integration state, or stash state.
+- Reviewer output remains unstaged and uncommitted, per assignment.

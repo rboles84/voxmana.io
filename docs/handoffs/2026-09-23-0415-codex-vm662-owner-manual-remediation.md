@@ -153,3 +153,15 @@ Owner decision: candidate `1af56c7625d485f3d483cf9a301b698a29761342` is rejected
 - Stop conditions: no need arose to change card/modal ownership, scratchpad storage/migration, populated section structure, responsive Finds geometry, search/query owners, or any frozen passed area.
 
 The strengthened fixture failed first on the stale `vm658` cache key. After correction it passed real pointer travel, exact add/no modal, keyboard activation, the 10px shell offsets at five- and four-column desktop widths, and one visible `finds` section with no per-section empty prose on desktop or near 390px. Candidate freeze, candidate-bound rerun, independent RobQA, and lifecycle binding remain pending. No PR or integration action is authorized.
+
+### Exact-candidate result
+
+The exact replacement material candidate is `e6fd60f4bf3c3189a8f7c6d17129355175de5aa0`. Its candidate-bound focused browser run passed with screenshots disabled. Cards 1 and 4 at 1440px/five columns and card 7 at 1100px/four columns each measured `11px` from the stable shell top and right edges with a `44 x 44px` action. Real 20-step travel after enlargement left the control stationary, added the intended card only, and did not open the modal; focus and Enter used the same action.
+
+With only Finds populated, the desktop and approximately 390px presentations each exposed section IDs exactly `['finds']`, with no `.stash-section-empty` markup. The existing store tests retained populated Finds/Sparks/Anchors, section independence, move/merge, quantity, remove, persistence, and export compatibility. The one desktop panel still dragged, closed, reopened, and retained position; the one mobile tree remained solid, contained, and free of horizontal overflow.
+
+The controlled candidate run observed DOMContentLoaded/load `43.7/48.4 ms`, `45` resources, boot/24/48 DOM `499/660/804`, Search-to-first-24 `60.5 ms`, and no observed Long Tasks. Compared with rejected `1af56c76` (`42.8/47.8 ms`, `45` resources, `517/678/822`, `11.9 ms`, no Long Tasks), the conditional omission removes 18 DOM nodes in the measured Finds-only state; timing variance is reported without causal or field-performance claims.
+
+Candidate-bound checks passed: focused browser fixture; `lint:js`; `lint:html`; `test:maze-finds`; `test:maze-transform`; `test:frontend-smoke`; `test:maze-semantic-state`; and exact-range `git diff --check`. Independent [RobQA evidence](2026-09-23-0415-robqa-vm662-owner-manual-remediation.md) records **PASS** on the exact SHA with SEPARATE execution and no blocker, major, or minor finding. CPU-heavy, broad stale presentation, screenshot, and visual-regression suites were not required. No protected-owner pressure was encountered.
+
+Owner review route: `http://127.0.0.1:8000/maze/index.html`. Recheck only: (1) enlarge two cards and judge whether Save/check visibly occupies the actual upper-right corner; (2) open Reading Finds on desktop and near 390px and confirm empty Sparks/Anchors content and space are absent. No PR or integration action is authorized.
