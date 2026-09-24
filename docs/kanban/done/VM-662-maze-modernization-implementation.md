@@ -2,7 +2,7 @@
 
 ID: VM-662
 Title: Maze Modernization Implementation
-Status: Accepted
+Status: Done
 Type: Bounded presentation and interaction implementation
 Area: Maze
 Priority: High
@@ -64,7 +64,7 @@ Admission baseline: b48a1357a0c9076b38ae0b7d058c4ea213db4aaa
 Candidate: 27968d9c1d64a3ac6ff50e1cc8dd5330de5827b2
 RobQA: PASS at 27968d9c1d64a3ac6ff50e1cc8dd5330de5827b2 — SEPARATE review by Codex `/root/vm662_corner_sections_robqa`; no blocker, major, or minor finding. Earlier candidate passes remain historical.
 Owner: ACCEPTED at 27968d9c1d64a3ac6ff50e1cc8dd5330de5827b2 — Owner conversation 2026-09-24; final border-locked gold Save/check presentation confirmed working.
-Integration: PENDING
+Integration: INTEGRATED via PR #54 — squash merge `def2b0740c8b03cb41e9d574fa21f33410e0eb55` on 2026-09-24; expected PR head `f00f717fd5816401e6bb9031337c3aecbcb8c233`.
 Dependencies: VM-660
 Dependency head: 119b13cd26623e92e1d72d2a2023dd6bfdda7b22
 Owner authorization: Owner request 2026-09-19: VM-660 accepted dependency head authorizes VM-662 admission while VM-660 integration remains pending.

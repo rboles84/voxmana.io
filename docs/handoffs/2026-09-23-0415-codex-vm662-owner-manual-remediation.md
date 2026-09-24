@@ -249,3 +249,11 @@ Future bounded visual corrections should use one short candidate-bound proof bef
 - freeze already-passing areas so the Owner recheck is the smallest visual judgment automation cannot make.
 
 The intended outcome is that Owner review confirms a prepared candidate instead of discovering basic positioning, contrast, acquisition, or empty-state defects through repeated back-and-forth. This is retrospective evidence, not authorization for a new UI system, state owner, dependency, or broad redesign.
+
+## 2026-09-24 integration closeout
+
+VM-662 was integrated through [PR #54](https://github.com/rboles84/voxmana.io/pull/54) with an expected-head guarded squash merge. Exact material candidate `27968d9c1d64a3ac6ff50e1cc8dd5330de5827b2` retained SEPARATE RobQA PASS and genuine Owner acceptance; exact PR evidence head `f00f717fd5816401e6bb9031337c3aecbcb8c233` passed GitHub `Deterministic Validation`; final main merge is `def2b0740c8b03cb41e9d574fa21f33410e0eb55`.
+
+Production changed only the admitted Maze presentation/controller envelope: `maze/index.html`, `assets/css/maze.css`, `assets/js/maze/research-ui.js`, presentation-bounded `assets/js/maze/research-init.js`, and the frontend validator contract. The focused Maze remediation and transform fixtures, admitted task/evidence records, generated coordination views, and authorized VM-660 dependency evidence account for the remaining branch paths. No parser, compiler, query core, search/cache owner, paging contract, Reading Finds store/migration, generated discovery data, runtime dependency, or separate mobile implementation was introduced.
+
+The accepted UI result and future guardrail are explicit: measure transformed interfaces against the rendered element the player sees; verify real pointer travel, keyboard use, viewport-edge containment, and perceptual prominence; remove empty presentation without deleting capability; and present the Owner with one focused visual confirmation after candidate-bound proof. The named deferred-work stash remains untouched and is not part of VM-662.
