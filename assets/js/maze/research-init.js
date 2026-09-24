@@ -11,7 +11,7 @@ import { setScryfallSyntaxDisplayLookup } from "./research-syntax-language.js?v=
 import { applyMazeFormatToQuery, resolveMazeQueryRequest } from "./maze-query-core.js?v=vm636";
 import { resolveModeInputValue } from "./research-mode.js?v=vm627";
 import * as ResearchSearch from "./research-search.js";
-import { buildScryfallWebSearchUrl, renderQueryInspector } from "./research-ui.js?v=vm620";
+import { buildScryfallWebSearchUrl, renderExactQuery, renderQueryInspector } from "./research-ui.js?v=vm620";
 import {
   buildDossierMazePathEntries,
   isMazeOperatorQuery,
@@ -65,10 +65,14 @@ let activeModalCard = null;
 let modalReturnFocusEl = null;
 let stashDragState = null;
 let activeKeywordSuggestionIndex = -1;
+let pendingSuggestedSearch = null;
+let selectedSuggestionView = null;
+let lastInspectorState = null;
 
 const PAGE_SIZE = 24;
 const DEFAULT_FORMAT = "commander";
 const ARCHSCRY_MAZE_HANDOFF_KEY = "vm_archscry_maze_handoff_v1";
+const MAZE_GUIDE_RETURN_STATE_KEY = "vm_maze_guide_return_ui_v1";
 const DOSSIER_REVIEW_CONTEXT_MODE = "dossier-review";
 const IDENTITY_EXPLORE_CONTEXT_MODE = "identity-explore";
 let transientArchscryMazeHandoff = null;
@@ -950,6 +954,7 @@ async function initializeResearchArchives() {
   bindSearchInputSelectOnFocus();
   setMode("ai");
   updateSearchActions();
+  if (restoreMazeGuideReturnState()) return;
 
   const launch = resolveMazeLaunchState(urlParams, readActiveArchscryMazeHandoff() || {});
   if (launch.from === "archscry" && launch.operatorQuery) {
@@ -1092,16 +1097,23 @@ function setMode(mode) {
     icon.style.color = "";
     document.getElementById("mode-builder").classList.add("teal-mode");
     builder.classList.remove("hidden");
-    rebuildFromFilters();
+    rebuildFromFilters({ preservePending: true });
   }
 
-  syncInputForModeSwitch(input, previousMode, mode);
-  if (previousMode !== mode && modeDraftEdited[mode] && modeDraftValues[mode]) {
-    input.value = modeDraftValues[mode];
+  if (selectedSuggestionView) {
+    if (mode === "ai") input.value = selectedSuggestionView.label;
+    if (mode === "raw") input.value = pendingSuggestedSearch?.query || currentQuery;
+  } else {
+    syncInputForModeSwitch(input, previousMode, mode);
+    if (previousMode !== mode && modeDraftEdited[mode] && modeDraftValues[mode]) {
+      input.value = modeDraftValues[mode];
+    }
   }
+  renderSelectedSuggestionView();
   sizeLoomQueryInput(input);
   updateLoomSidebarVisibility(mode);
   updateReadingContextDisclosure();
+  refreshExactQueryForMode(mode);
   refreshInitialStateForMode();
 }
 
@@ -1140,52 +1152,53 @@ function updateModeContent(mode) {
 function updateReadingContextDisclosure() {
   const context = document.getElementById("maze-reading-context");
   const label = document.getElementById("maze-reading-context-label");
-  const detail = document.getElementById("maze-reading-context-detail");
+  const returnLink = document.getElementById("maze-reading-context-return");
   const action = document.getElementById("maze-reading-context-action");
-  if (!context || !label || !detail || !action) return;
+  if (!context || !label || !returnLink || !action) return;
+  if (currentMode === "builder") {
+    context.hidden = true;
+    return;
+  }
   const retainedHandoff = readArchscryMazeHandoff();
   const independent = isIndependentSearch();
-  const handoff = independent ? null : retainedHandoff;
   const retainedDossierKey = resolveDossierActiveKey(retainedHandoff?.fit || retainedHandoff?.guild || "");
   const retainedFactionName = String(
     retainedHandoff?.factionName || DOSSIER_DISPLAY_NAMES.get(retainedDossierKey) || retainedHandoff?.fit || retainedHandoff?.guild || ""
   ).trim();
-  const dossierKey = resolveDossierActiveKey(handoff?.fit || handoff?.guild || "");
-  const factionName = String(
-    handoff?.factionName || DOSSIER_DISPLAY_NAMES.get(dossierKey) || handoff?.fit || handoff?.guild || ""
-  ).trim();
-  const launchedFromDossier = new URLSearchParams(location.search).get("from") === "archscry";
-  const explorationContext = handoff?.contextMode === IDENTITY_EXPLORE_CONTEXT_MODE;
   const retainedExplorationContext = retainedHandoff?.contextMode === IDENTITY_EXPLORE_CONTEXT_MODE;
-  action.dataset.action = "search-independently";
-  action.textContent = "Search independently";
-  if (independent && retainedFactionName) {
-    context.dataset.state = "independent";
-    label.textContent = "Searching independently";
-    detail.textContent = retainedExplorationContext
-      ? `This search is not using the retained ${retainedFactionName} dossier context.`
-      : "This search is not using the retained reading. New Finds will not be attached to that reading; the reading and its existing Finds remain unchanged.";
-    action.dataset.action = "restore-reading-context";
-    action.textContent = retainedExplorationContext ? "Restore dossier context" : "Restore reading context";
-  } else if (factionName && launchedFromDossier) {
-    context.dataset.state = "dossier-thread";
-    label.textContent = `${factionName} dossier thread`;
-    detail.textContent = explorationContext
-      ? `This query came from the ${factionName} dossier. No reading was created or changed.`
-      : "This query came from your dossier. No extra reading filters are being added.";
-  } else if (factionName) {
-    context.dataset.state = explorationContext ? "dossier-available" : "reading-available";
-    label.textContent = explorationContext ? `${factionName} dossier available` : `${factionName} reading available`;
-    detail.textContent = explorationContext
-      ? "It keeps the return path to the browsed dossier without creating a reading."
-      : "It keeps the return path and new Reading Finds association, but it is not changing this query.";
-  } else {
-    context.dataset.state = "standalone";
-    label.textContent = "Standalone search";
-    detail.textContent = "No reading is changing this query.";
+  const associatesFinds = Boolean(retainedHandoff?.readingId) && !retainedExplorationContext;
+  const pathLabel = ARCHSCRY_PATH_LABELS[retainedHandoff?.pathType] || "";
+  const returnUrl = dossierReturnUrlForHandoff(retainedHandoff);
+
+  if (!retainedFactionName) {
+    context.hidden = true;
+    return;
   }
-  context.hidden = !(independent ? retainedFactionName : factionName);
-  action.classList.toggle("hidden", independent ? !retainedFactionName : !factionName);
+
+  returnLink.href = returnUrl || retainedHandoff?.returnUrl || "../archscry/";
+  returnLink.textContent = `Return to ${retainedFactionName} dossier`;
+  returnLink.classList.toggle("hidden", !returnUrl && !retainedHandoff?.returnUrl);
+  action.classList.add("hidden");
+
+  if (retainedExplorationContext) {
+    context.dataset.state = "dossier";
+    label.textContent = `From ${retainedFactionName} dossier${pathLabel ? ` · ${pathLabel}` : ""}`;
+  } else if (independent && associatesFinds) {
+    context.dataset.state = "independent";
+    label.textContent = `From ${retainedFactionName} reading · New Finds are standalone`;
+    action.dataset.action = "restore-reading-context";
+    action.textContent = `Attach new Finds to ${retainedFactionName}`;
+    action.classList.remove("hidden");
+  } else {
+    context.dataset.state = "reading";
+    label.textContent = `From ${retainedFactionName} reading${pathLabel ? ` · ${pathLabel}` : ""} · New Finds stay with this reading`;
+    if (associatesFinds) {
+      action.dataset.action = "search-independently";
+      action.textContent = "Save new Finds separately";
+      action.classList.remove("hidden");
+    }
+  }
+  context.hidden = false;
 }
 
 function isIndependentSearch() {
@@ -1221,20 +1234,92 @@ function restoreReadingContext() {
 
 function refreshReadingContextPresentation() {
   updateReadingContextDisclosure();
-  const banner = document.getElementById("maze-return-banner");
-  const handoff = readActiveArchscryMazeHandoff();
-  if (handoff?.returnUrl && !handoff.returnBannerDismissed) renderArchscryReturnBanner(handoff);
-  else banner?.classList.remove("is-visible");
   buildReadingPaths();
   updateScratchpadReturnLink();
 }
 
 function updateLoomSidebarVisibility(mode = currentMode) {
   const shouldHide = mode === "builder";
-  ["sidebar-color-section", "sidebar-format-section"].forEach((id) => {
+  ["sidebar-color-section", "sidebar-format-section", "reading-path-section", "dossier-discovery-panel"].forEach((id) => {
     const section = document.getElementById(id);
     if (section) section.hidden = shouldHide;
   });
+}
+
+function refreshExactQueryForMode(mode = currentMode) {
+  if (pendingSuggestedSearch) {
+    updateSearchActions(pendingSuggestedSearch.query, pendingSuggestedSearch.api);
+    renderExactQuery({
+      query: pendingSuggestedSearch.query,
+      api: pendingSuggestedSearch.api,
+      pending: true,
+      blocked: pendingSuggestedSearch.executionBlocked
+    });
+    return;
+  }
+  if (mode === "builder") {
+    const query = buildFilterQuery();
+    const validation = validateVisualBuilderFilters(bFilters);
+    updateSearchActions(validation.valid ? query : "", {});
+    renderExactQuery({
+      query: validation.valid ? query : "",
+      pending: true,
+      blocked: !validation.valid,
+      status: validation.valid ? "Loom query ready · Search when ready" : "Loom query needs attention"
+    });
+    return;
+  }
+  if (currentQuery) {
+    updateSearchActions(currentQuery, currentSearchApi);
+    renderExactQuery({ query: currentQuery, api: currentSearchApi });
+    return;
+  }
+  updateSearchActions("", {});
+  document.getElementById("exact-query-panel")?.classList.add("hidden");
+}
+
+function clearPendingSuggestedSearch({ restorePresentation = true, preserveView = false } = {}) {
+  const hadPending = Boolean(pendingSuggestedSearch);
+  pendingSuggestedSearch = null;
+  document.body.dataset.pendingSuggestion = "false";
+  if (!preserveView) selectedSuggestionView = null;
+  renderSelectedSuggestionView();
+  if (restorePresentation && hadPending) refreshExactQueryForMode(currentMode);
+}
+
+function renderSelectedSuggestionView() {
+  const panel = document.getElementById("maze-selected-search");
+  if (!panel) return;
+  const resultsHeading = document.querySelector(".results-heading");
+  if (resultsHeading) resultsHeading.textContent = pendingSuggestedSearch ? "Previous results" : "Results";
+  const loomSearchButton = document.getElementById("loom-search-btn");
+  if (loomSearchButton) loomSearchButton.textContent = selectedSuggestionView ? "Search selected query" : "Search these Loom filters";
+  panel.hidden = !selectedSuggestionView;
+  if (!selectedSuggestionView) return;
+  document.getElementById("maze-selected-search-source").textContent = selectedSuggestionView.kind;
+  document.getElementById("maze-selected-search-label").textContent = selectedSuggestionView.label;
+  document.getElementById("maze-selected-search-hint").textContent = selectedSuggestionView.hint;
+  const loomNote = document.getElementById("maze-selected-search-loom");
+  loomNote.hidden = currentMode !== "builder";
+  loomNote.textContent = pendingSuggestedSearch
+    ? "Loom filters are unchanged; Search will use this selection."
+    : "Showing this search; Loom filters remain unchanged.";
+  panel.querySelector('[data-action="restore-suggestion-draft"]').textContent = currentMode === "builder"
+    ? "Return to Loom filters" : "Return to draft";
+}
+
+function restoreSuggestionDraft() {
+  clearPendingSuggestedSearch({ restorePresentation: false });
+  const input = document.getElementById("search-input");
+  if (currentMode === "builder") {
+    rebuildFromFilters({ preservePending: true });
+    document.getElementById("loom-search-btn")?.focus();
+  } else if (input) {
+    input.value = modeDraftValues[currentMode] || "";
+    input.focus();
+  }
+  document.getElementById("query-inspector")?.classList.add("hidden");
+  refreshExactQueryForMode(currentMode);
 }
 
 /**
@@ -1277,6 +1362,7 @@ function bindSearchInputSelectOnFocus() {
 
   input.addEventListener("input", () => {
     selectAutoFilledInputOnFocus = false;
+    clearPendingSuggestedSearch();
     rememberModeDraftInput({ target: input });
   });
 }
@@ -1286,6 +1372,44 @@ function bindSearchInputSelectOnFocus() {
  * Runs the active search mode through the Maze query contract adapter.
  */
 async function doSearch() {
+  if (pendingSuggestedSearch || (selectedSuggestionView && currentQuery)) {
+    const prepared = pendingSuggestedSearch || {
+      query: currentQuery,
+      api: currentSearchApi,
+      diagnostics: lastInspectorState?.diagnostics || [],
+      inputValue: selectedSuggestionView.label,
+      executionBlocked: false
+    };
+    renderCurrentWeave();
+    setLoading(true);
+    clearError();
+    displayPage = 0;
+    allResults = [];
+    clearPendingSuggestedSearch({ restorePresentation: false, preserveView: true });
+    try {
+      if (prepared.executionBlocked) {
+        handleBlockedQueryResult(prepared.queryResult, {
+          diagnostics: prepared.diagnostics,
+          inputValue: prepared.inputValue,
+          normalized: true
+        });
+        return;
+      }
+      await triggerSearch(prepared.query, {
+        api: prepared.api,
+        diagnostics: prepared.diagnostics,
+        inputValue: prepared.inputValue,
+        normalized: true,
+        suppressReason: true,
+        preserveSuggestionView: true
+      });
+    } catch (error) {
+      showError(`Search failed: ${error.message}`);
+    } finally {
+      setLoading(false);
+    }
+    return;
+  }
   const rawInput = normalizeSearchInputValue(document.getElementById("search-input")?.value || "");
   if (!rawInput && currentMode !== "builder") return;
 
@@ -1433,11 +1557,18 @@ async function triggerSearch(query, opts = {}) {
     api = null,
     diagnostics = [],
     inputValue = "",
-    normalized = false
+    normalized = false,
+    suppressReason = false,
+    preserveSuggestionView = false,
+    preserveInspector = false,
+    preservePendingInspection = false
   } = opts;
   const searchOrder = api?.order || order || "name";
   const searchUnique = api?.unique || unique || "cards";
   const searchDir = normalizeSortDirection(api?.dir || dir);
+  if (!preservePendingInspection) {
+    clearPendingSuggestedSearch({ restorePresentation: false, preserveView: preserveSuggestionView });
+  }
   const searchApi = { endpoint: "/cards/search", unique: searchUnique, order: searchOrder };
   if (searchDir) searchApi.dir = searchDir;
   currentQuery = query;
@@ -1445,15 +1576,15 @@ async function triggerSearch(query, opts = {}) {
   currentUnique = searchUnique;
   currentDir = searchDir;
   currentSearchApi = searchApi;
-  updateSearchActions(query, searchApi);
+  if (!preservePendingInspection) updateSearchActions(query, searchApi);
   addRecent(query);
-  showQueryInspector(query, reason, diagnostics, searchApi, { inputValue, normalized });
+  if (!preserveInspector) showQueryInspector(query, reason, diagnostics, searchApi, { inputValue, normalized, suppressReason });
 
   const data = await ResearchSearch.scryfallSearch(query, { order: searchOrder, unique: searchUnique, dir: searchDir });
   if (data.object === "error") {
     if (isNoResultsResponse(data)) {
       const responseDiagnostics = buildSearchResponseDiagnostics(diagnostics, { totalCards: 0 });
-      showQueryInspector(query, reason, responseDiagnostics, searchApi, { inputValue, normalized });
+      if (!preserveInspector) showQueryInspector(query, reason, responseDiagnostics, searchApi, { inputValue, normalized, suppressReason });
       await showNoResultsState(query, diagnostics);
       return;
     }
@@ -1467,7 +1598,7 @@ async function triggerSearch(query, opts = {}) {
   nextPageUrl = data.next_page || null;
   if (totalCards === 0) {
     const responseDiagnostics = buildSearchResponseDiagnostics(diagnostics, { totalCards });
-    showQueryInspector(query, reason, responseDiagnostics, searchApi, { inputValue, normalized });
+    if (!preserveInspector) showQueryInspector(query, reason, responseDiagnostics, searchApi, { inputValue, normalized, suppressReason });
   }
   renderResults();
 }
@@ -1592,15 +1723,22 @@ function renderResults(append = false) {
 
   const count = document.getElementById("res-count");
   clearNode(count);
-  appendContent(count, "Showing ");
-  const showingStrong = document.createElement("strong");
-  showingStrong.textContent = String(Math.min((displayPage + 1) * PAGE_SIZE, allResults.length));
-  count.appendChild(showingStrong);
-  appendContent(count, " of ");
-  const totalStrong = document.createElement("strong");
-  totalStrong.textContent = totalCards.toLocaleString();
-  count.appendChild(totalStrong);
-  appendContent(count, " cards");
+  const showingValue = String(Math.min((displayPage + 1) * PAGE_SIZE, allResults.length));
+  const totalValue = totalCards.toLocaleString();
+  count.setAttribute("aria-label", `Showing ${showingValue} of ${totalValue} cards`);
+  [
+    ["span", "Showing"],
+    ["strong", showingValue],
+    ["span", "of"],
+    ["strong", totalValue],
+    ["span", "cards"],
+  ].forEach(([tagName, text], index) => {
+    if (index) count.appendChild(document.createTextNode(" "));
+    const part = document.createElement(tagName);
+    part.className = "res-count-part";
+    part.textContent = text;
+    count.appendChild(part);
+  });
 
   pageCards.forEach((card) => grid.appendChild(makeCardEl(card)));
 
@@ -1651,12 +1789,13 @@ function makeCardEl(card) {
   const stashed = isCardInScratchpad(card);
   const stashButton = createActionButton({
     className: `card-stash-btn${stashed ? " on" : ""}`,
-    text: stashed ? "+1" : "+",
+    text: stashed ? "Saved" : "Save",
     action: "add-card-to-scratchpad",
     title: stashed ? `Set aside another ${card.name || "card"} in Reading Finds` : `Set aside ${card.name || "card"} in Reading Finds`,
     ariaLabel: stashed ? `Set aside another ${card.name || "card"} in Reading Finds` : `Set aside ${card.name || "card"} in Reading Finds`
   });
   stashButton.dataset.cardName = card.name || "card";
+  stashButton.dataset.mark = stashed ? "✓" : "Save";
   stashButton.__cardData = card;
   const media = document.createElement("div");
   media.className = "transform-card-media";
@@ -1699,7 +1838,8 @@ function makeCardEl(card) {
     };
     media.appendChild(flipButton);
   }
-  wrap.append(media, name, stashButton);
+  media.appendChild(stashButton);
+  wrap.append(media, name);
   return wrap;
 }
 
@@ -1820,18 +1960,14 @@ function openModal(card, opener = document.activeElement) {
       rel: "noopener"
     }));
   }
-  detailCol.appendChild(actions);
-
-  const stashActions = document.createElement("div");
-  stashActions.className = "m-stash-actions";
-  stashActions.appendChild(createActionButton({
+  actions.appendChild(createActionButton({
     className: "m-btn m-btn-teal",
     text: "Set aside",
     action: "modal-scratchpad-add",
     dataset: { section: READING_FIND_SECTION_IDS.finds },
     ariaLabel: `Set aside ${displayName} in Reading Finds`
   }));
-  detailCol.appendChild(stashActions);
+  detailCol.appendChild(actions);
 
   appendContent(inner, imageCol, detailCol);
   backdrop.classList.remove("hidden");
@@ -2071,7 +2207,8 @@ function toggleRarity(value, label = document.getElementById(`cb-rar-${value}`))
 /**
  * Rebuilds the raw query field from Visual Builder state.
  */
-function rebuildFromFilters() {
+function rebuildFromFilters(options = {}) {
+  if (!options.preservePending) clearPendingSuggestedSearch({ restorePresentation: false });
   bFilters.colorOp = document.getElementById("color-op")?.value || "id";
   bFilters.format = document.getElementById("bld-format")?.value || "";
   bFilters.cmcMin = document.getElementById("cmc-min")?.value || "";
@@ -2091,7 +2228,15 @@ function rebuildFromFilters() {
   updateBuilderOutput(validation);
   updateBuilderValidation(validation);
   renderCurrentWeave({ query, validation });
-  if (currentMode === "builder") updateSearchActions(validation.valid ? query : "", {});
+  if (currentMode === "builder") {
+    updateSearchActions(validation.valid ? query : "", {});
+    renderExactQuery({
+      query: validation.valid ? query : "",
+      pending: true,
+      blocked: !validation.valid,
+      status: validation.valid ? "Loom query ready · Search when ready" : "Loom query needs attention"
+    });
+  }
 }
 
 function toggleAbility(keyword) {
@@ -2194,6 +2339,7 @@ function focusInvalidBuilderControl(validation) {
 }
 
 function resetBuilderFilters() {
+  clearPendingSuggestedSearch({ restorePresentation: false });
   bFilters.colors = [];
   bFilters.colorOp = "id";
   bFilters.types = [];
@@ -2604,11 +2750,12 @@ function buildQuickSearches() {
     const button = createActionButton({
       className: "sb-btn",
       text: quickSearch.label,
-      action: "quick-search",
-      dataset: { query: quickSearch.q, origin: "maze" }
+      action: "inspect-suggested-search",
+      dataset: { query: quickSearch.q, origin: "maze", label: quickSearch.label, hint: quickSearch.hint, kind: "Helper search" }
     });
     const hint = document.createElement("span");
     hint.textContent = quickSearch.hint;
+    button.setAttribute("aria-label", `Inspect ${quickSearch.label}`);
     button.appendChild(hint);
     el.appendChild(button);
   });
@@ -2625,11 +2772,12 @@ function buildDiscoveryPaths() {
     const button = createActionButton({
       className: "sb-btn",
       text: path.label,
-      action: "quick-search",
-      dataset: { query: path.q, origin: "maze" }
+      action: "inspect-suggested-search",
+      dataset: { query: path.q, origin: "maze", label: path.label, hint: path.hint, kind: "Discovery path" }
     });
     const hint = document.createElement("span");
     hint.textContent = path.hint;
+    button.setAttribute("aria-label", `Inspect ${path.label}`);
     button.appendChild(hint);
     el.appendChild(button);
   });
@@ -2702,7 +2850,7 @@ function initializeArchscryMazeHandoff(urlParams) {
   if (urlParams.get("from") !== "archscry") {
     const existing = readArchscryMazeHandoff();
     if (existing?.returnUrl && !existing.returnBannerDismissed) {
-      renderArchscryReturnBanner(existing);
+      updateReadingContextDisclosure();
     }
     return;
   }
@@ -2855,7 +3003,7 @@ function initializeArchscryMazeHandoff(urlParams) {
   }
   writeArchscryMazeHandoff(handoff);
   if (!handoff.returnBannerDismissed) {
-    renderArchscryReturnBanner(handoff);
+    updateReadingContextDisclosure();
   }
 }
 
@@ -2872,56 +3020,6 @@ function stableLocalReadingId(parts = {}) {
     hash >>>= 0;
   }
   return `local-reading-${hash.toString(36)}`;
-}
-
-function renderArchscryReturnBanner(handoff) {
-  const banner = document.getElementById("maze-return-banner");
-  const copy = document.getElementById("maze-return-copy");
-  const link = document.getElementById("maze-return-link");
-  if (!banner || !copy || !link || !handoff?.returnUrl) return;
-
-  const title = handoff.readingTitle || "your Vox Mana reading";
-  const fit = handoff.fit || handoff.guild || "";
-  const factionName = handoff.factionName || handoff.guild || "your reading";
-  const pathLabel = ARCHSCRY_PATH_LABELS[handoff.pathType] || "";
-  const returnUrl = appendReturnUrlParams(handoff.returnUrl, {
-    from: "maze",
-    view: fit,
-    readingId: handoff.readingId || "",
-    mazeReturnUrl: `${location.pathname}${location.search}`
-  });
-
-  clearNode(copy);
-  const strong = document.createElement("strong");
-  strong.textContent = factionName;
-  if (handoff.contextMode === IDENTITY_EXPLORE_CONTEXT_MODE) {
-    appendContent(copy, "Exploring ");
-    copy.appendChild(strong);
-    if (pathLabel) appendContent(copy, ` through ${pathLabel}`);
-    appendContent(copy, ".");
-  } else {
-    appendContent(copy, "Following ");
-    copy.appendChild(strong);
-    appendContent(copy, ` from ${title}`);
-    if (pathLabel) appendContent(copy, ` through ${pathLabel}`);
-    appendContent(copy, ".");
-  }
-  link.href = returnUrl;
-  link.textContent = handoff.contextMode === IDENTITY_EXPLORE_CONTEXT_MODE
-    ? `Return to ${factionName} dossier`
-    : "Return to Dossier with Finds";
-  banner.classList.add("is-visible");
-}
-
-function dismissArchscryReturnBanner() {
-  const handoff = readArchscryMazeHandoff();
-  if (handoff) {
-    writeArchscryMazeHandoff({
-      ...handoff,
-      returnBannerDismissed: true
-    });
-  }
-  document.getElementById("maze-return-banner")?.classList.remove("is-visible");
 }
 
 function appendReturnUrlParams(url, params) {
@@ -3013,9 +3111,6 @@ function renderDossierDiscoveryPanel(paths = [], requestedPathType = "") {
   document.getElementById("dossier-discovery-title").textContent = `${activePath.profileName} discovery`;
   document.getElementById("dossier-discovery-identity").textContent = `${String(activePath.profileColorIdentity || "").toUpperCase()} reading`;
   document.getElementById("dossier-discovery-reading").textContent = activePath.readingSummary || "";
-  document.getElementById("dossier-discovery-lane-title").textContent = activePath.label;
-  document.getElementById("dossier-discovery-lane-copy").textContent = activePath.description || activePath.plainReadingQuery || "";
-  document.getElementById("dossier-discovery-lane-code").textContent = activePath.query || "";
 
   document.querySelectorAll("#reading-path-list [data-dossier-path='true']").forEach((button) => {
     const selected = button.dataset.pathType === activePath.pathType;
@@ -3346,6 +3441,7 @@ function buildColorGrid() {
  * @param {string} query - Raw query.
  */
 function runQuickSearch(query, opts = {}) {
+  clearPendingSuggestedSearch({ restorePresentation: false });
   currentMode = "raw";
   const queryResult = resolveMazeRouteQuery(query, {
     mode: "raw",
@@ -3400,6 +3496,59 @@ function runQuickSearch(query, opts = {}) {
 }
 
 /**
+ * Loads a Discovery or Helper suggestion into the existing query and
+ * interpretation workflow without executing Scryfall. Search/Enter remain the
+ * sole execution boundary for this prepared request.
+ * @param {string} query - Suggested raw Scryfall query.
+ * @param {object} opts - Existing route-query adapter options.
+ */
+function inspectSuggestedSearch(query, opts = {}) {
+  const queryResult = resolveMazeRouteQuery(query, {
+    mode: "raw",
+    origin: opts.origin || "maze",
+    order: opts.order || "name",
+    unique: opts.unique || "cards",
+    dir: normalizeSortDirection(opts.dir),
+    useFormatDefault: opts.useFormatDefault !== false
+  });
+  const finalQuery = queryResult.query;
+  const diagnostics = queryResult.diagnostics || [];
+  const label = String(opts.label || query).trim();
+  if (!selectedSuggestionView && Object.hasOwn(modeDraftValues, currentMode)) {
+    modeDraftValues[currentMode] = document.getElementById("search-input")?.value || "";
+    modeDraftEdited[currentMode] = true;
+  }
+  selectedSuggestionView = {
+    kind: opts.kind || "Suggested search",
+    label,
+    hint: String(opts.hint || "").trim()
+  };
+  pendingSuggestedSearch = {
+    query: finalQuery,
+    api: queryResult.api || {},
+    diagnostics,
+    inputValue: query,
+    executionBlocked: Boolean(queryResult.executionBlocked),
+    queryResult
+  };
+  document.body.dataset.pendingSuggestion = "true";
+  const input = document.getElementById("search-input");
+  if (input && currentMode !== "builder") input.value = currentMode === "raw" ? finalQuery : label;
+  renderSelectedSuggestionView();
+  updateSearchActions(finalQuery, queryResult.api || {});
+  clearError();
+  showQueryInspector(finalQuery, "", diagnostics, queryResult.api || {}, {
+    inputValue: query,
+    normalized: true,
+    pending: true,
+    blocked: queryResult.executionBlocked
+  });
+  const selected = document.getElementById("maze-selected-search");
+  selected?.scrollIntoView?.({ block: "nearest" });
+  selected?.focus?.({ preventScroll: true });
+}
+
+/**
  * Runs a parser alternative, preserving any attached search metadata.
  * @param {string} query - Alternative query.
  * @param {object} api - Optional alternative API metadata.
@@ -3441,10 +3590,12 @@ function changeOrder(order, dir = undefined) {
     setLoading(true);
     clearError();
     triggerSearch(currentQuery, {
-      reason: "Updated result sorting.",
       order: currentOrder,
       unique: currentUnique,
-      dir: currentDir
+      dir: currentDir,
+      preserveInspector: true,
+      preservePendingInspection: Boolean(pendingSuggestedSearch),
+      preserveSuggestionView: Boolean(selectedSuggestionView)
     }).then(() => setLoading(false));
   }
 }
@@ -3482,6 +3633,17 @@ function addRecent(query) {
  * @param {object[]} diagnostics - Contract diagnostics.
  */
 function showQueryInspector(query, reason, diagnostics = [], api = null, ui = {}) {
+  lastInspectorState = {
+    query,
+    reason,
+    diagnostics,
+    api: api || {},
+    inputValue: ui.inputValue || "",
+    normalized: Boolean(ui.normalized),
+    blocked: Boolean(ui.blocked),
+    pending: Boolean(ui.pending),
+    suppressReason: Boolean(ui.suppressReason)
+  };
   renderQueryInspector({
     query,
     reason,
@@ -3489,7 +3651,9 @@ function showQueryInspector(query, reason, diagnostics = [], api = null, ui = {}
     api,
     inputValue: ui.inputValue || "",
     normalized: Boolean(ui.normalized),
-    blocked: Boolean(ui.blocked)
+    blocked: Boolean(ui.blocked),
+    pending: Boolean(ui.pending),
+    suppressReason: Boolean(ui.suppressReason)
   });
 }
 
@@ -3501,9 +3665,8 @@ function showQueryInspector(query, reason, diagnostics = [], api = null, ui = {}
 function updateSearchActions(query = currentQuery, api = currentSearchApi) {
   const cleanQuery = String(query || "").trim();
   const hasQuery = Boolean(cleanQuery);
-  const copyButtons = ["search-copy-btn", "loom-copy-btn"].map((id) => document.getElementById(id)).filter(Boolean);
-  const scryfallLinks = ["search-scryfall-link", "loom-scryfall-link"].map((id) => document.getElementById(id)).filter(Boolean);
-  const loomQueryOutput = document.getElementById("loom-query-output");
+  const copyButtons = ["search-copy-btn"].map((id) => document.getElementById(id)).filter(Boolean);
+  const scryfallLinks = ["search-scryfall-link"].map((id) => document.getElementById(id)).filter(Boolean);
   const href = hasQuery ? buildScryfallWebSearchUrl(cleanQuery, api || {}) : "#";
 
   copyButtons.forEach((copyButton) => {
@@ -3517,7 +3680,6 @@ function updateSearchActions(query = currentQuery, api = currentSearchApi) {
     scryfallLink.setAttribute("aria-disabled", hasQuery ? "false" : "true");
     scryfallLink.tabIndex = hasQuery ? 0 : -1;
   });
-  if (loomQueryOutput) loomQueryOutput.textContent = cleanQuery;
 }
 
 /**
@@ -3525,6 +3687,7 @@ function updateSearchActions(query = currentQuery, api = currentSearchApi) {
  */
 function copyQuery() {
   const inputValue = normalizeSearchInputValue(document.getElementById("search-input")?.value || "");
+  const presentedQuery = normalizeSearchInputValue(document.getElementById("qi-query")?.textContent || "");
   if (currentMode === "builder") {
     const validation = validateVisualBuilderFilters(bFilters);
     if (!validation.valid) {
@@ -3533,8 +3696,8 @@ function copyQuery() {
     }
   }
   const copyText = currentMode === "builder"
-    ? inputValue
-    : currentQuery || inputValue || lastSmartInput;
+    ? presentedQuery || inputValue
+    : presentedQuery || currentQuery || inputValue || lastSmartInput;
   copyTextToClipboard(copyText, "Query copied");
 }
 
@@ -3565,12 +3728,158 @@ function clearSearchInput() {
   }
 
   selectAutoFilledInputOnFocus = false;
+  clearPendingSuggestedSearch({ restorePresentation: false });
   lastSmartInput = "";
   lastSmartQuery = "";
   setMode(currentMode);
   clearError();
   resetSearchResults();
   document.getElementById("query-inspector")?.classList.add("hidden");
+  document.getElementById("exact-query-panel")?.classList.add("hidden");
+}
+
+function preserveMazeGuideReturnState() {
+  const input = document.getElementById("search-input");
+  const exactPanel = document.getElementById("exact-query-panel");
+  const exactQuery = exactPanel && !exactPanel.classList.contains("hidden")
+    ? normalizeSearchInputValue(document.getElementById("qi-query")?.textContent || "")
+    : "";
+  const record = {
+    version: 1,
+    savedAt: Date.now(),
+    mode: currentMode,
+    input: input?.value || "",
+    drafts: { ...modeDraftValues },
+    draftEdited: { ...modeDraftEdited },
+    selectedSuggestionView,
+    builderFilters: {
+      ...bFilters,
+      colors: [...bFilters.colors],
+      types: [...bFilters.types],
+      keywords: [...bFilters.keywords],
+      rarities: [...bFilters.rarities]
+    },
+    pendingSuggestion: pendingSuggestedSearch ? {
+      query: pendingSuggestedSearch.query,
+      api: pendingSuggestedSearch.api,
+      diagnostics: pendingSuggestedSearch.diagnostics,
+      inputValue: pendingSuggestedSearch.inputValue,
+      executionBlocked: pendingSuggestedSearch.executionBlocked,
+      queryResult: pendingSuggestedSearch.queryResult
+    } : null,
+    inspector: lastInspectorState,
+    exactQuery
+  };
+  try {
+    sessionStorage.setItem(MAZE_GUIDE_RETURN_STATE_KEY, JSON.stringify(record));
+    history.replaceState({ ...(history.state || {}), mazeGuideReturnState: 1 }, "", location.href);
+  } catch (_) {
+    // The guide still opens when ephemeral storage is unavailable.
+  }
+}
+
+function restoreMazeGuideReturnState() {
+  let record = null;
+  try {
+    record = JSON.parse(sessionStorage.getItem(MAZE_GUIDE_RETURN_STATE_KEY) || "null");
+    sessionStorage.removeItem(MAZE_GUIDE_RETURN_STATE_KEY);
+  } catch (_) {
+    return false;
+  }
+  if (
+    record?.version !== 1
+    || !Number.isFinite(record.savedAt)
+    || Date.now() - record.savedAt > 2 * 60 * 60 * 1000
+    || !MODE_IDS.includes(record.mode)
+  ) return false;
+
+  restoreBuilderFilters(record.builderFilters);
+  Object.assign(modeDraftValues, record.drafts || {});
+  Object.assign(modeDraftEdited, record.draftEdited || {});
+  setMode(record.mode);
+  const input = document.getElementById("search-input");
+  if (input) input.value = String(record.input || "");
+  selectedSuggestionView = record.selectedSuggestionView || null;
+
+  const prepared = record.pendingSuggestion || (
+    record.inspector?.query && record.inspector?.api?.endpoint !== "/cards/named"
+      ? {
+          query: record.inspector.query,
+          api: record.inspector.api || {},
+          diagnostics: record.inspector.diagnostics || [],
+          inputValue: record.inspector.inputValue || record.input || "",
+          executionBlocked: Boolean(record.inspector.blocked),
+          queryResult: {
+            query: record.inspector.query,
+            api: record.inspector.api || {},
+            diagnostics: record.inspector.diagnostics || [],
+            executionBlocked: Boolean(record.inspector.blocked)
+          }
+        }
+      : null
+  );
+
+  if (prepared?.query) {
+    pendingSuggestedSearch = prepared;
+    document.body.dataset.pendingSuggestion = "true";
+    renderSelectedSuggestionView();
+    updateSearchActions(prepared.query, prepared.api || {});
+    showQueryInspector(prepared.query, "", prepared.diagnostics || [], prepared.api || {}, {
+      inputValue: prepared.inputValue || "",
+      normalized: true,
+      blocked: prepared.executionBlocked,
+      pending: true
+    });
+  } else if (record.exactQuery) {
+    renderSelectedSuggestionView();
+    updateSearchActions(record.exactQuery, {});
+    renderExactQuery({
+      query: record.exactQuery,
+      pending: true,
+      status: "Restored · Search when ready"
+    });
+  } else {
+    renderSelectedSuggestionView();
+    refreshExactQueryForMode(record.mode);
+  }
+  refreshReadingContextPresentation();
+  return true;
+}
+
+function restoreBuilderFilters(saved = {}) {
+  if (!saved || typeof saved !== "object") return;
+  bFilters.colors = Array.isArray(saved.colors) ? [...saved.colors] : [];
+  bFilters.colorOp = Object.hasOwn(BUILDER_COLOR_RELATION_LABELS, saved.colorOp) ? saved.colorOp : "id";
+  bFilters.types = Array.isArray(saved.types) ? [...saved.types] : [];
+  bFilters.format = String(saved.format || DEFAULT_FORMAT);
+  bFilters.keywords = Array.isArray(saved.keywords) ? [...saved.keywords] : [];
+  bFilters.cmcMin = String(saved.cmcMin || "");
+  bFilters.cmcMax = String(saved.cmcMax || "");
+  bFilters.releaseYear = String(saved.releaseYear || "");
+  bFilters.printingScope = String(saved.printingScope || "any");
+  bFilters.rarities = Array.isArray(saved.rarities) ? [...saved.rarities] : [];
+  bFilters.excludeColorless = Boolean(saved.excludeColorless);
+
+  const values = {
+    "color-op": bFilters.colorOp,
+    "bld-format": bFilters.format,
+    "cmc-min": bFilters.cmcMin,
+    "cmc-max": bFilters.cmcMax,
+    "release-year": bFilters.releaseYear,
+    "printing-scope": bFilters.printingScope
+  };
+  Object.entries(values).forEach(([id, value]) => {
+    const control = document.getElementById(id);
+    if (control) control.value = value;
+  });
+  const exclusion = document.getElementById("exclude-colorless");
+  if (exclusion) exclusion.checked = bFilters.excludeColorless;
+  syncBuilderColorControls();
+  syncBuilderColorRelationControl();
+  buildTypeChecks();
+  buildAbilityChecks();
+  buildRarityChecks();
+  renderKwChips();
 }
 
 /**
@@ -3582,6 +3891,7 @@ function resetSearchResults() {
   currentUnique = "cards";
   currentDir = undefined;
   currentSearchApi = {};
+  lastInspectorState = null;
   updateSearchActions("", {});
   allResults = [];
   displayPage = 0;
@@ -3960,7 +4270,6 @@ function removeScratchpadCard(key, sectionId) {
 function clearScratchpad() {
   if (!scratchpadStore) return;
   scratchpadStore.clearSection("all");
-  hideExportFallback();
   showToast("Reading Finds cleared");
 }
 
@@ -3993,11 +4302,10 @@ function renderScratchpad() {
     body.appendChild(empty);
   }
 
-  STASH_SECTIONS.forEach((section) => {
+  STASH_SECTIONS.filter((section) => getScratchpadRows(section.id).length > 0).forEach((section) => {
     body.appendChild(createScratchpadSection(section));
   });
 
-  updateScratchpadCopyControls();
   updateScratchpadReturnLink();
 }
 
@@ -4014,7 +4322,6 @@ function renderScratchpadUnavailable() {
   empty.className = "stash-empty";
   empty.textContent = "Reading Finds is unavailable. Maze search, card results, and card details still work.";
   body.appendChild(empty);
-  updateScratchpadCopyControls(true);
   updateScratchpadReturnLink(true);
 }
 
@@ -4039,20 +4346,13 @@ function createScratchpadSection(section) {
   const list = document.createElement("ul");
   list.className = "stash-list";
 
-  if (!rows.length) {
-    const empty = document.createElement("li");
-    empty.className = "stash-section-empty";
-    empty.textContent = `No cards in ${section.label} yet.`;
-    list.appendChild(empty);
-  } else {
-    rows.forEach((row, index) => list.appendChild(createScratchpadRow(row, section, index)));
-  }
+  rows.forEach((row) => list.appendChild(createScratchpadRow(row, section)));
 
   group.appendChild(list);
   return group;
 }
 
-function createScratchpadRow(row, section, index) {
+function createScratchpadRow(row, section) {
   const key = scratchpadCardKey(row);
   const item = document.createElement("li");
   item.className = "stash-item";
@@ -4072,10 +4372,9 @@ function createScratchpadRow(row, section, index) {
   appendContent(
     controls,
     createQuantityControls(row, section.id, key),
-    createMoveControl(row, section.id, key, index),
     createActionButton({
       className: "stash-remove",
-      text: "x",
+      text: "×",
       action: "scratchpad-remove-card",
       dataset: { scratchpadKey: key, section: section.id },
       ariaLabel: `Remove ${row.name || "card"} from ${section.label}`
@@ -4117,40 +4416,9 @@ function createQuantityControls(row, sectionId, key) {
   return wrap;
 }
 
-function createMoveControl(row, sectionId, key, index) {
-  const wrap = document.createElement("div");
-  wrap.className = "stash-move";
-  const selectId = `scratchpad-move-${sectionId}-${index}`;
-  const label = document.createElement("label");
-  label.className = "visually-hidden";
-  label.setAttribute("for", selectId);
-  label.textContent = `Move ${row.name || "card"} to section`;
-  const select = document.createElement("select");
-  select.id = selectId;
-  select.className = "stash-move-select";
-  select.dataset.action = "scratchpad-move-card";
-  select.dataset.scratchpadKey = key;
-  select.dataset.section = sectionId;
-  STASH_SECTIONS.forEach((section) => {
-    const option = document.createElement("option");
-    option.value = section.id;
-    option.textContent = section.label;
-    if (section.id === sectionId) option.selected = true;
-    select.appendChild(option);
-  });
-  appendContent(wrap, label, select);
-  return wrap;
-}
-
 function scratchpadCardHref(row) {
   if (row.scryfallUri) return row.scryfallUri;
   return `https://scryfall.com/search?q=${encodeURIComponent(`!"${row.name || ""}"`)}`;
-}
-
-function updateScratchpadCopyControls(forceDisabled = false) {
-  const copyFinds = document.getElementById("scratchpad-copy-finds");
-  const hasFinds = Boolean(scratchpadStore?.hasExportableCards?.());
-  updateScratchpadCopyButton(copyFinds, forceDisabled || !hasFinds, "Set aside cards before copying finds.");
 }
 
 function updateScratchpadReturnLink(forceHidden = false) {
@@ -4167,7 +4435,10 @@ function updateScratchpadReturnLink(forceHidden = false) {
 }
 
 function currentDossierReturnUrl() {
-  const handoff = readActiveArchscryMazeHandoff();
+  return dossierReturnUrlForHandoff(readActiveArchscryMazeHandoff());
+}
+
+function dossierReturnUrlForHandoff(handoff) {
   if (!handoff?.returnUrl) return "";
   const fit = handoff.fit || handoff.guild || "";
   return appendReturnUrlParams(handoff.returnUrl, {
@@ -4178,12 +4449,6 @@ function currentDossierReturnUrl() {
   });
 }
 
-function updateScratchpadCopyButton(button, disabled, disabledTitle) {
-  if (!button || !("disabled" in button)) return;
-  button.disabled = disabled;
-  button.title = disabled ? disabledTitle : "";
-}
-
 function updateStashDrawerCount(count = getScratchpadTotalQuantity()) {
   document.querySelectorAll("[data-stash-toggle-count]").forEach((node) => {
     node.textContent = String(count);
@@ -4191,14 +4456,57 @@ function updateStashDrawerCount(count = getScratchpadTotalQuantity()) {
 }
 
 function setStashDrawerOpen(open) {
+  const focusWasInside = document.activeElement?.closest?.("#stash-panel");
   document.body.dataset.stashOpen = open ? "true" : "false";
   document.querySelectorAll('[data-action="toggle-stash-drawer"]').forEach((toggle) => {
     toggle.setAttribute("aria-expanded", open ? "true" : "false");
   });
+  if (!open && focusWasInside) document.getElementById("stash-drawer-toggle")?.focus();
 }
 
 function toggleStashDrawer() {
-  setStashDrawerOpen(document.body.dataset.stashOpen !== "true");
+  const open = document.body.dataset.stashOpen !== "true";
+  setStashDrawerOpen(open);
+  if (open) {
+    placeStashDrawerOnOpen();
+    document.querySelector(".stash-drawer-close")?.focus();
+  }
+}
+
+function placeStashDrawerOnOpen() {
+  if (!window.matchMedia("(min-width: 821px) and (pointer: fine)").matches) return;
+  const rail = document.querySelector(".stash-rail");
+  if (!(rail instanceof HTMLElement) || rail.style.left) return;
+  const panel = rail.getBoundingClientRect();
+  const resultGrid = document.querySelector("#card-grid:not(.hidden)");
+  const protectedSurface = resultGrid instanceof HTMLElement
+    ? resultGrid.getBoundingClientRect()
+    : document.querySelector(".r-main")?.getBoundingClientRect();
+  const viewportWidth = document.documentElement.clientWidth;
+  const viewportHeight = document.documentElement.clientHeight;
+  const margin = 12;
+  const width = panel.width;
+  const height = panel.height;
+  const maxLeft = Math.max(margin, viewportWidth - width - margin);
+  const maxTop = Math.max(margin, viewportHeight - height - margin);
+  const topbarBottom = document.querySelector(".vm-topbar")?.getBoundingClientRect().bottom || 0;
+  const preferredTop = Math.max(protectedSurface?.top || 0, topbarBottom + margin);
+  const top = Math.min(Math.max(margin, preferredTop), maxTop);
+  const candidates = [maxLeft, margin]
+    .concat(protectedSurface ? [protectedSurface.right + margin, protectedSurface.left - width - margin] : [])
+    .map(left => Math.min(Math.max(margin, left), maxLeft))
+    .filter((left, index, values) => values.indexOf(left) === index);
+  const overlapArea = left => {
+    if (!protectedSurface) return 0;
+    const overlapWidth = Math.max(0, Math.min(left + width, protectedSurface.right) - Math.max(left, protectedSurface.left));
+    const overlapHeight = Math.max(0, Math.min(top + height, protectedSurface.bottom) - Math.max(top, protectedSurface.top));
+    return overlapWidth * overlapHeight;
+  };
+  const left = candidates.reduce((best, candidate) => overlapArea(candidate) < overlapArea(best) ? candidate : best, candidates[0]);
+  rail.style.left = `${Math.round(left)}px`;
+  rail.style.top = `${Math.round(top)}px`;
+  rail.style.right = "auto";
+  rail.dataset.stashPlacement = "default";
 }
 
 function beginStashDrag(event) {
@@ -4215,6 +4523,7 @@ function beginStashDrag(event) {
   rail.style.left = `${Math.round(rect.left)}px`;
   rail.style.top = `${Math.round(rect.top)}px`;
   rail.style.right = "auto";
+  rail.dataset.stashPlacement = "user";
   rail.classList.add("is-dragging");
   event.currentTarget.setPointerCapture?.(event.pointerId);
   event.preventDefault();
@@ -4242,14 +4551,23 @@ function endStashDrag(event) {
 }
 
 function resetStashDragForMobile() {
-  if (window.innerWidth > 820) return;
   const rail = document.querySelector(".stash-rail");
   if (!(rail instanceof HTMLElement)) return;
-  rail.style.removeProperty("left");
-  rail.style.removeProperty("top");
-  rail.style.removeProperty("right");
-  rail.classList.remove("is-dragging");
-  stashDragState = null;
+  if (window.innerWidth <= 820) {
+    rail.style.removeProperty("left");
+    rail.style.removeProperty("top");
+    rail.style.removeProperty("right");
+    delete rail.dataset.stashPlacement;
+    rail.classList.remove("is-dragging");
+    stashDragState = null;
+    return;
+  }
+  if (!rail.style.left || document.body.dataset.stashOpen !== "true") return;
+  const margin = 8;
+  const maxLeft = Math.max(margin, document.documentElement.clientWidth - rail.offsetWidth - margin);
+  const maxTop = Math.max(margin, document.documentElement.clientHeight - rail.offsetHeight - margin);
+  rail.style.left = `${Math.round(Math.min(Math.max(margin, Number.parseFloat(rail.style.left) || margin), maxLeft))}px`;
+  rail.style.top = `${Math.round(Math.min(Math.max(margin, Number.parseFloat(rail.style.top) || margin), maxTop))}px`;
 }
 
 function refreshScratchpadButtons() {
@@ -4261,40 +4579,11 @@ function refreshScratchpadButtons() {
     const cardName = button.dataset.cardName || "card";
     const label = saved ? `Set aside another ${cardName} in Reading Finds` : `Set aside ${cardName} in Reading Finds`;
     button.classList.toggle("on", saved);
-    button.textContent = saved ? "+1" : "+";
+    button.textContent = saved ? "Saved" : "Save";
+    button.dataset.mark = saved ? "✓" : "Save";
     button.title = label;
     button.setAttribute("aria-label", label);
   });
-}
-
-function copyScratchpadExport() {
-  if (!scratchpadStore) {
-    showToast("Reading Finds is unavailable");
-    return;
-  }
-  const text = scratchpadStore.exportReadingFinds();
-  if (!text) {
-    showToast("No Maze finds set aside yet");
-    return;
-  }
-  hideExportFallback();
-  copyTextToClipboard(text, "Reading Finds copied", {
-    onFallback: () => showExportFallback(text)
-  });
-}
-
-function showExportFallback(text) {
-  const fallback = document.getElementById("stash-export-fallback");
-  const textarea = document.getElementById("stash-export-text");
-  if (!fallback || !textarea || !("value" in textarea)) return;
-  textarea.value = text;
-  fallback.classList.remove("hidden");
-  textarea.focus?.();
-  textarea.select?.();
-}
-
-function hideExportFallback() {
-  document.getElementById("stash-export-fallback")?.classList.add("hidden");
 }
 
 function escapeSelectorValue(value) {
@@ -4392,7 +4681,6 @@ function bindMazeControls() {
   document.getElementById("res-order")?.addEventListener("change", (event) => {
     changeOrder(event.target.value, event.target.selectedOptions[0]?.dataset.dir);
   });
-  document.getElementById("maze-return-dismiss")?.addEventListener("click", dismissArchscryReturnBanner);
   window.addEventListener("popstate", refreshReadingContextPresentation);
   document.getElementById("scratchpad-title-input")?.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
@@ -4459,6 +4747,9 @@ function handleMazeActionClick(event) {
     case "copy-query":
       copyQuery();
       return;
+    case "open-maze-guide":
+      preserveMazeGuideReturnState();
+      return;
     case "toggle-stash-drawer":
       toggleStashDrawer();
       return;
@@ -4502,15 +4793,22 @@ function handleMazeActionClick(event) {
         origin: actionNode.dataset.origin || "maze"
       });
       return;
+    case "inspect-suggested-search":
+      inspectSuggestedSearch(actionNode.dataset.query || "", {
+        order: actionNode.dataset.order || undefined,
+        unique: actionNode.dataset.unique || undefined,
+        dir: actionNode.dataset.dir || undefined,
+        origin: actionNode.dataset.origin || "maze",
+        label: actionNode.dataset.label,
+        hint: actionNode.dataset.hint,
+        kind: actionNode.dataset.kind
+      });
+      return;
+    case "restore-suggestion-draft":
+      restoreSuggestionDraft();
+      return;
     case "load-more":
       loadMore();
-      return;
-    case "copy-stash-export":
-    case "copy-scratchpad-export":
-      copyScratchpadExport();
-      return;
-    case "copy-scratchpad-export-maybeboard":
-      copyScratchpadExport();
       return;
     case "clear-stash":
       clearScratchpad();
