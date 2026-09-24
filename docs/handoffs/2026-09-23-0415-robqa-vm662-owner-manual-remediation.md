@@ -336,3 +336,58 @@ Focused supporting checks:
 - Reviewer-authored change: this exact-candidate section in `docs/handoffs/2026-09-23-0415-robqa-vm662-owner-manual-remediation.md` only.
 - Not changed: production, tests, card, board/generated views, implementer handoff, Owner state, integration state, or stash state.
 - Reviewer output remains unstaged and uncommitted, per assignment.
+
+## 2026-09-24 replayed exact-candidate correction — RobQA rebind
+
+Task: VM-662
+Candidate: 3a918a2204ca5e118dea144477499ce386ff49f5
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: Codex `/root/vm662_corner_sections_robqa`
+Implementer: Codex `/root`
+
+### Candidate-bound decision
+
+Exact material candidate `3a918a2204ca5e118dea144477499ce386ff49f5` passes independent RobQA and may return to Owner Review. The checked-out branch was `codex/vm-662-maze-modernization`; current evidence head `949d98196041bbf545847d0ddbd97e34a3108ef5` had a clean worktree before execution. The actual Owner-rejected `1af56c7625d485f3d483cf9a301b698a29761342..3a918a2204ca5e118dea144477499ce386ff49f5` range was reviewed directly after the dedicated validator scope-amendment commit and successful admission continuation. The named stash `preserve deferred workbench edit before VM-662 narrow remediation` was observed and was not applied or dropped.
+
+The current `3a918a22..949d9819` delta was proven evidence-only before tests ran: it changes only the two admitted handoffs, VM-662 lifecycle fields, and the generated board. It changes no production, test, validator, policy, scope, or acceptance bytes. The Maze CSS, controller, route HTML, frontend validator, and focused fixture blobs at `3a918a22` are byte-identical to previously reviewed `e6fd60f4`; the candidate differs from that superseded SHA only through the card's prior scope-amendment and admission metadata. The previous `e6fd60f4` evidence remains preserved as historical review rather than being overwritten.
+
+This remains QA-2 component-interaction evidence with QA-1 conditional-presentation and rendered-geometry coverage. SEPARATE execution is required because real pointer travel, keyboard activation, exact card/store effects, and responsive DOM identity are material. This PASS is bound only to `3a918a2204ca5e118dea144477499ce386ff49f5`; it does not constitute Owner acceptance, authorize integration, or certify subjective appearance.
+
+### Selected exact-candidate evidence
+
+`node tests/maze/maze-modernization-remediation-tests.js` with `VM662_CAPTURE_SCREENSHOTS=0` and unique output `C:\Users\obake\AppData\Local\Temp\vm662-robqa-rebind-841d138818284d6592ae8bfb2a16ee7c` — **PASS** on the current tree after the evidence-only proof above.
+
+- At 1440px/five columns, cards 1 and 4 each measured `top: 11px`, `right: 11px`, `44 x 44px`; at 1100px/four columns, card 7 measured `top: 11px`, `right: 11px`, `44 x 44px`. All remain within the required 8–12px shell inset.
+- Real multi-step pointer travel after artwork enlargement left the Save/check target stationary relative to its card, retained hit ownership, added exactly the intended card, and did not open the modal. Keyboard focus and Enter exercised the same action.
+- With only Finds populated, desktop and mobile section IDs were each exactly `["finds"]`; Sparks/Anchors headings, counts, prose, and section space were absent, and no `.stash-section-empty` node existed.
+- The focused fixture retained bounded coverage for one draggable and position-retaining desktop Finds tree, one contained mobile tree, focus return, protected request/paging/modal behavior, Results/Sort, and Copy/Open alignment.
+
+Focused supporting checks:
+
+| Check | Changed risk protected | Result |
+| --- | --- | --- |
+| `npm.cmd run lint:js` | Route controller syntax and renderer integrity | PASS, 37 files |
+| `npm.cmd run lint:html` | Admitted generalized relative-module cache-key validator | PASS |
+| `npm.cmd run test:maze-finds` | Populated Finds/Sparks/Anchors store compatibility | PASS |
+| `npm.cmd run test:maze-transform` | Existing artwork/modal transform contract | PASS |
+| `npm.cmd run test:frontend-smoke` | Maze remains in the public frontend route set | PASS |
+| `git diff --check 1af56c7625d485f3d483cf9a301b698a29761342..3a918a2204ca5e118dea144477499ce386ff49f5` | Exact rejected-to-candidate range formatting | PASS |
+
+### Findings and proportionality
+
+- BLOCKER / MAJOR / MINOR findings: none.
+- NOTE / OWNER JUDGMENT: final Save/check prominence and corner appearance remain Owner judgment under OWNER-VISUAL mode.
+- CPU-heavy validation: **NOT REQUIRED**. No parser, compiler, placement, semantic engine, cache implementation, migration, generated-data, or result-engine owner changed.
+- Intentionally skipped: broad mode/builder/semantic suites; exhaustive parser/search, synthetic journey, mutation, recovery, network/cache, generated-data, performance, screenshot, visual-regression, animation-fidelity, and broad viewport suites; and known stale presentation harnesses. The two changed risks have direct focused evidence and the frozen contracts were not reopened.
+
+### Shortest two-check Owner recheck
+
+1. At 1440px and 1100px, run one result search, enlarge artwork, then travel naturally to Save and activate it once by pointer and once by keyboard. PASS if Save/check visibly remains in the card's upper-right corner, the intended card alone is saved, and no modal opens.
+2. Open Reading Finds on desktop and near 390px with Finds populated but Sparks/Anchors empty. PASS if only Finds is present—without empty Sparks/Anchors headings, counts, prose, or reserved space—and the existing desktop/mobile panel still feels correct.
+
+### Reviewer scope
+
+- Reviewer-authored change: this appended rebind section in `docs/handoffs/2026-09-23-0415-robqa-vm662-owner-manual-remediation.md` only.
+- Not changed: production, tests, validator, card, board/generated views, implementer handoff, Owner state, integration state, or stash state.
+- Reviewer output remains unstaged and uncommitted, per assignment.
