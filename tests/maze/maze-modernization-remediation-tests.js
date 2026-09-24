@@ -52,7 +52,9 @@ assert.match(initSource, /const PAGE_SIZE = 24;/);
 assert.match(initSource, /image\.loading = "lazy";/);
 assert.match(initSource, /const MAZE_GUIDE_RETURN_STATE_KEY = "vm_maze_guide_return_ui_v1";/);
 assert.match(initSource, /pendingSuggestedSearch/);
-assert.match(initSource, /wrap\.append\(media, name, stashButton\)/);
+assert.match(initSource, /media\.appendChild\(stashButton\)/);
+assert.match(initSource, /wrap\.append\(media, name\)/);
+assert.match(css, /\.card-item:hover \.card-stash-btn\s*\{[\s\S]*?top:\s*5px;[\s\S]*?right:\s*5px;[\s\S]*?transform:\s*scale\(0\.5\)/);
 assert.match(uiSource, /Open the Maze guide/);
 assert.doesNotMatch(uiSource, /Walk me through this search/);
 
@@ -353,22 +355,12 @@ try {
     const selector = `#card-grid .card-item:nth-child(${cardIndex})`;
     await page.$eval(selector, card => card.scrollIntoView({ block: "center", inline: "nearest" }));
     await page.mouse.move(2, 2);
-    const initialButton = await page.$eval(selector, card => {
-      const cardRect = card.getBoundingClientRect();
-      const rect = card.querySelector(".card-stash-btn").getBoundingClientRect();
-      return {
-        left: rect.left - cardRect.left,
-        top: rect.top - cardRect.top,
-        right: cardRect.right - rect.right,
-        width: rect.width,
-        height: rect.height
-      };
-    });
-    assert.ok(initialButton.top >= 8 && initialButton.top <= 12, `Save must sit 8-12px from the stable card-shell top edge: ${JSON.stringify(initialButton)}`);
-    assert.ok(initialButton.right >= 8 && initialButton.right <= 12, `Save must sit 8-12px from the stable card-shell right edge: ${JSON.stringify(initialButton)}`);
-    saveCornerMetrics.push({ viewportWidth: await page.evaluate(() => innerWidth), cardIndex, ...initialButton });
     await page.hover(`${selector} .transform-card-media`);
-    await page.waitForFunction(cardSelector => getComputedStyle(document.querySelector(`${cardSelector} .transform-card-media`)).transform !== "none", {}, selector);
+    await page.waitForFunction(cardSelector => {
+      const transform = getComputedStyle(document.querySelector(`${cardSelector} .transform-card-media`)).transform;
+      if (transform === "none") return false;
+      return new DOMMatrixReadOnly(transform).a >= 1.999;
+    }, {}, selector);
     const pointerTargets = await page.$eval(selector, (card, approachName) => {
       const media = card.querySelector(".transform-card-media").getBoundingClientRect();
       const button = card.querySelector(".card-stash-btn").getBoundingClientRect();
@@ -380,33 +372,39 @@ try {
         to: { x: button.left + button.width / 2, y: button.top + button.height / 2 },
         button: { left: button.left, top: button.top, width: button.width, height: button.height },
         buttonRelative: {
-          left: button.left - card.getBoundingClientRect().left,
-          top: button.top - card.getBoundingClientRect().top,
-          right: card.getBoundingClientRect().right - button.right,
+          left: button.left - media.left,
+          top: button.top - media.top,
+          right: media.right - button.right,
           width: button.width,
           height: button.height
         },
       };
     }, approach);
-    assert.deepEqual(pointerTargets.buttonRelative, initialButton, "the shell-owned save control moved relative to its card when artwork enlarged");
+    assert.ok(pointerTargets.buttonRelative.top >= 8 && pointerTargets.buttonRelative.top <= 12, `Save must sit 8-12px from the enlarged card top edge: ${JSON.stringify(pointerTargets.buttonRelative)}`);
+    assert.ok(pointerTargets.buttonRelative.right >= 8 && pointerTargets.buttonRelative.right <= 12, `Save must sit 8-12px from the enlarged card right edge: ${JSON.stringify(pointerTargets.buttonRelative)}`);
     assert.ok(pointerTargets.button.width >= 40 && pointerTargets.button.height >= 40, `Reading Finds save target is too small: ${JSON.stringify(pointerTargets.button)}`);
+    saveCornerMetrics.push({ viewportWidth: await page.evaluate(() => innerWidth), cardIndex, ...pointerTargets.buttonRelative });
     await page.mouse.move(pointerTargets.from.x, pointerTargets.from.y);
     await page.mouse.move(pointerTargets.to.x, pointerTargets.to.y, { steps: 20 });
     assert.equal(await page.evaluate(({ x, y }) => document.elementFromPoint(x, y)?.closest?.("[data-action]")?.dataset.action, pointerTargets.to), "add-card-to-scratchpad");
     assert.equal(await page.$eval(selector, card => card.matches(":hover")), true, "card hover ownership must persist while moving to save");
     assert.notEqual(await page.$eval(`${selector} .transform-card-media`, node => getComputedStyle(node).transform), "none", "save must not require retracting or chasing transformed artwork");
     const settledButton = await page.$eval(selector, card => {
-      const cardRect = card.getBoundingClientRect();
+      const media = card.querySelector(".transform-card-media").getBoundingClientRect();
       const rect = card.querySelector(".card-stash-btn").getBoundingClientRect();
       return {
-        left: rect.left - cardRect.left,
-        top: rect.top - cardRect.top,
-        right: cardRect.right - rect.right,
+        left: rect.left - media.left,
+        top: rect.top - media.top,
+        right: media.right - rect.right,
         width: rect.width,
         height: rect.height
       };
     });
-    assert.deepEqual(settledButton, pointerTargets.buttonRelative, "the Reading Finds save target must remain stationary relative to the untransformed card shell throughout pointer travel");
+    assert.deepEqual(settledButton, pointerTargets.buttonRelative, "the Reading Finds save target must remain stationary at the enlarged card corner throughout pointer travel");
+    if (process.env.VM662_CAPTURE_SCREENSHOTS === "1") {
+      const viewportWidth = await page.evaluate(() => innerWidth);
+      await page.screenshot({ path: path.join(outputDirectory, `save-corner-${viewportWidth}-${cardIndex}.png`), fullPage: false });
+    }
     await page.mouse.click(pointerTargets.to.x, pointerTargets.to.y);
   }
   await clickFindsThroughRenderedHover(1);
@@ -652,12 +650,14 @@ try {
   await page.click("#quick-search-list [data-action='inspect-suggested-search']");
   await page.click("#search-btn");
   await page.waitForSelector("#card-grid .card-item:nth-child(24)");
-  await page.click("#card-grid .card-item:first-child .card-stash-btn");
+  await page.focus("#card-grid .card-item:first-child .card-stash-btn");
+  await page.keyboard.press("Enter");
   const independentRow = await page.evaluate(() => JSON.parse(localStorage.getItem("vm_maze_reading_finds_v1")).sections.finds[0]);
   assert.equal(independentRow.sourceContext?.readingId || "", "", "standalone Finds must not acquire the retained reading id");
   await page.click("#maze-reading-context-action");
   assert.match(await page.$eval("#maze-reading-context-label", node => node.textContent), /New Finds stay with this reading/);
-  await page.click("#card-grid .card-item:nth-child(2) .card-stash-btn");
+  await page.focus("#card-grid .card-item:nth-child(2) .card-stash-btn");
+  await page.keyboard.press("Enter");
   const associatedRow = await page.evaluate(() => JSON.parse(localStorage.getItem("vm_maze_reading_finds_v1")).sections.finds[1]);
   assert.equal(associatedRow.sourceContext?.readingId, "vm662-reading", "reattached Finds must retain the reading id");
 

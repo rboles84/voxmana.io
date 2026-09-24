@@ -2,7 +2,7 @@
 
 ID: VM-662
 Title: Maze Modernization Implementation
-Status: Owner Review
+Status: In Progress
 Type: Bounded presentation and interaction implementation
 Area: Maze
 Priority: High
@@ -61,8 +61,8 @@ Current Owner request dated 2026-09-19. VM-657 provides accepted UX direction; V
 Record version: 1
 Branch: codex/vm-662-maze-modernization
 Admission baseline: b48a1357a0c9076b38ae0b7d058c4ea213db4aaa
-Candidate: 3a918a2204ca5e118dea144477499ce386ff49f5
-RobQA: PASS at 3a918a2204ca5e118dea144477499ce386ff49f5 — SEPARATE review by Codex `/root/vm662_corner_sections_robqa`. Earlier passes remain historical and were superseded by Owner rejection.
+Candidate: PENDING
+RobQA: PENDING — Owner rejected the prior exact candidate; a new independent review is required on the corrected material candidate.
 Owner: PENDING
 Integration: PENDING
 Dependencies: VM-660

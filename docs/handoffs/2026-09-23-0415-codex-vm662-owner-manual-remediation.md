@@ -169,3 +169,20 @@ Owner review route: `http://127.0.0.1:8000/maze/index.html`. Recheck only: (1) e
 ### Governed exact-candidate rebind
 
 The committed testing-scope declaration had to precede the material change as a dedicated card-only admission amendment. The unchanged material was replayed after that amendment, producing final exact candidate `3a918a2204ca5e118dea144477499ce386ff49f5`; admission continuation then passed. The route CSS, controller, HTML, frontend validator, and focused fixture blobs are byte-identical to the earlier reviewed material SHA, and the candidate differs only in admitted card metadata. Independent RobQA reran the focused browser and proportional checks and records PASS on `3a918a2204ca5e118dea144477499ce386ff49f5`. This SHA supersedes `e6fd60f4bf3c3189a8f7c6d17129355175de5aa0` as the reviewable material candidate; the earlier record remains preserved as historical evidence.
+
+## 2026-09-24 enlarged-preview corner correction
+
+Owner decision: candidate `3a918a2204ca5e118dea144477499ce386ff49f5` is rejected because Save still appeared over the visual middle of the enlarged card. The empty Sparks/Anchors correction passed and is frozen; no repeat check or change to that behavior is requested.
+
+### RobDev compact implementation packet
+
+- Root cause: the prior implementation and test both used `.card-item`, the original untransformed grid tile, as the Save reference box. That produced an internally correct 10px shell measurement while the separately scaled artwork grew around it, leaving Save visibly centered over the enlarged card. The earlier cache diagnosis and PASS were therefore wrong for the Owner's actual visual requirement.
+- Corrected ownership: the existing `add-card-to-scratchpad` button remains independent from `.transform-card-open`, but now shares `.transform-card-media`'s coordinate space. On fine-pointer hover the media scales to `2`; Save uses a 5px local top/right inset and `scale(0.5)` from the top-right origin, yielding a visual 10px inset and stable `44 x 44px` target on the enlarged preview.
+- Preserved interaction: the modal opener remains a separate sibling button; Save still adds exactly its card, stops click propagation, exposes focus/Enter, and does not open the modal. No result, modal, search, scratchpad, or storage owner changes.
+- Corrected regression: the focused browser test now waits for the full media transform, measures Save against the enlarged `.transform-card-media` rectangle rather than the original grid tile, then performs real 20-step pointer travel before activation. The focused transform contract also requires Save to remain outside the modal-opening button.
+- Visual evidence: at 1440px cards 1 and 4, and at 1100px card 7, Save measured exactly `top: 10px`, `right: 10px`, `44 x 44px` against the fully enlarged media. Candidate-bound screenshots show the control visibly occupying the enlarged preview's upper-right corner at both grid widths.
+- Frozen PASS: desktop and mobile Reading Finds still render section IDs exactly `['finds']` when Sparks/Anchors are empty. No production or test change reopens that presentation, the one responsive DOM/store, panel geometry, or any other previously passed VM-662 area.
+
+Pre-candidate checks passed: the focused controlled browser fixture with and without screenshot capture; `lint:js`; `lint:html`; `test:maze-finds`; corrected `test:maze-transform`; `test:frontend-smoke`; and `git diff --check`. The controlled no-screenshot run observed DOMContentLoaded/load `45.5/64.3 ms`, `45` resources, boot/24/48 DOM `499/660/804`, Search-to-first-24 `13.5 ms`, and no observed Long Tasks. These are raw local observations, not field or causal performance claims.
+
+The exact material candidate and independent RobQA remain pending. Owner recheck after engineering PASS is one visual action only: enlarge two cards and confirm Save/check visibly occupies and remains at each enlarged card's actual upper-right corner. No PR or integration action is authorized.

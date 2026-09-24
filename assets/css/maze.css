@@ -4715,6 +4715,7 @@ body.vm-maze-route[data-maze-mode="builder"] #loom-search-btn {
   background: transparent;
   color: transparent;
   font-size: 0;
+  transform-origin: top right;
 }
 
 .card-item .card-stash-btn::before {
@@ -4758,6 +4759,12 @@ body.vm-maze-route[data-maze-mode="builder"] #loom-search-btn {
     z-index: 3;
     transform: scale(2);
     filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.82));
+  }
+
+  .card-item:hover .card-stash-btn {
+    top: 5px;
+    right: 5px;
+    transform: scale(0.5);
   }
 }
 

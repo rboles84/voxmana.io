@@ -8,7 +8,8 @@ assert.match(source, /let faceState = createScryfallResultFaceState\(card\)/, "r
 assert.match(source, /wrap\.classList\.add\("is-flippable-card"\)/);
 assert.match(source, /media\.appendChild\(detailsButton\)/, "details must own the result artwork");
 assert.match(source, /media\.appendChild\(flipButton\)/, "details and transform must be semantic siblings on the card media");
-assert.match(source, /wrap\.append\(media, name, stashButton\)/, "the media and Set Aside controls must remain siblings");
+assert.match(source, /media\.appendChild\(stashButton\)/, "Set Aside must share the transformed media coordinate space so it remains at the enlarged card corner");
+assert.match(source, /wrap\.append\(media, name\)/, "the result name must remain outside the transformed media");
 assert.match(source, /function createTransformIconButton[\s\S]*?transform-card-glyph[\s\S]*?\\u21bb/, "Maze must use a familiar circular transform icon");
 assert.match(source, /case "flip-result-card":[\s\S]*?event\.stopPropagation\(\);[\s\S]*?__flipCardFace/, "result flip must not open the modal");
 assert.match(source, /openModal\(actionNode\.__cardData, actionNode\)/, "details must open the full card record independently from result face state");
@@ -23,5 +24,6 @@ assert.match(css, /\.modal-img-dfc \{[\s\S]*?display: grid;/, "multiface modal i
 assert.doesNotMatch(source, /wrap\.setAttribute\("role", "button"\)/, "result containers must not be interactive parents");
 assert.doesNotMatch(source, /wrap\.tabIndex/, "result containers must not enter the tab order");
 assert.doesNotMatch(source, /detailsButton\.appendChild\(flipButton\)/, "the Flip button must never be nested in the details button");
+assert.doesNotMatch(source, /detailsButton\.appendChild\(stashButton\)/, "Set Aside must remain independent from the modal-opening details button");
 
 console.log("Focused Maze transform interaction contract tests passed.");

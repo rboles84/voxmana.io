@@ -1838,7 +1838,8 @@ function makeCardEl(card) {
     };
     media.appendChild(flipButton);
   }
-  wrap.append(media, name, stashButton);
+  media.appendChild(stashButton);
+  wrap.append(media, name);
   return wrap;
 }
 
