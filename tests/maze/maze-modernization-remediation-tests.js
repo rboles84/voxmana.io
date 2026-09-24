@@ -7,7 +7,7 @@ import * as ChromeLauncher from "chrome-launcher";
 import puppeteer from "puppeteer-core";
 
 const root = process.cwd();
-const outputDirectory = path.join(root, "outputs", "vm662-owner-remediation");
+const outputDirectory = process.env.VM662_OUTPUT_DIR || path.join(root, "outputs", "vm662-owner-remediation");
 const chromeProfileDirectory = path.join(outputDirectory, `chrome-profile-${process.pid}`);
 const browserCandidates = [
   process.env.LIGHTHOUSE_CHROME_PATH,
@@ -32,6 +32,9 @@ assert.doesNotMatch(html, /01 · Player request|04 · Execute/);
 assert.doesNotMatch(inputRow, /search-copy-btn|search-scryfall-link|stash-drawer-toggle/);
 assert.match(inputRow, /id="clear-search-btn"/);
 assert.match(exactRegion, /id="qi-query"[\s\S]*?id="search-copy-btn"[\s\S]*?id="search-scryfall-link"/);
+assert.match(html, /class="builder-edit-actions"[\s\S]*?id="loom-reset-btn"[\s\S]*?id="builder-summary"/);
+assert.match(html, /class="maze-query-execution"[\s\S]*?id="exact-query-panel"[\s\S]*?id="search-btn"[\s\S]*?id="loom-search-btn"/);
+assert.doesNotMatch(html, /class="loom-completion"/);
 assert.doesNotMatch(html, /id="maze-bench-mode"|id="qi-input-wrap"|id="results-query"/);
 assert.equal((html.match(/id="stash-panel"/g) || []).length, 1);
 assert.equal((html.match(/id="stash-drawer-toggle"/g) || []).length, 1);
@@ -44,6 +47,7 @@ assert.match(initSource, /const PAGE_SIZE = 24;/);
 assert.match(initSource, /image\.loading = "lazy";/);
 assert.match(initSource, /const MAZE_GUIDE_RETURN_STATE_KEY = "vm_maze_guide_return_ui_v1";/);
 assert.match(initSource, /pendingSuggestedSearch/);
+assert.match(initSource, /wrap\.append\(media, name, stashButton\)/);
 assert.match(uiSource, /Open the Maze guide/);
 assert.doesNotMatch(uiSource, /Walk me through this search/);
 
@@ -258,6 +262,16 @@ try {
   assert.equal(await page.$eval("#exact-query-panel", node => node.dataset.executionState), "pending");
   assert.ok(await page.$eval("#qi-query", node => node.textContent.trim()));
   assert.equal(await page.$eval("#qi-reason", node => node.classList.contains("hidden")), true);
+  const discoveryPendingGeometry = await page.evaluate(() => {
+    const exact = document.querySelector("#exact-query-panel").getBoundingClientRect();
+    const search = document.querySelector("#search-btn").getBoundingClientRect();
+    const execution = document.querySelector(".maze-query-execution").getBoundingClientRect();
+    return {
+      exact: { left: exact.left, top: exact.top, right: exact.right, width: exact.width },
+      search: { left: search.left, top: search.top, right: search.right, width: search.width },
+      execution: { left: execution.left, right: execution.right, width: execution.width },
+    };
+  });
   const beforeFirstSearch = performance.now();
   await page.$eval("#search-btn", button => button.click());
   await page.waitForSelector("#card-grid .card-item:nth-child(24)");
@@ -266,6 +280,24 @@ try {
   assert.equal(await page.$$eval("#card-grid .card-item", nodes => nodes.length), 24);
   assert.equal(await page.$$eval("#card-grid img", nodes => nodes.every(node => node.loading === "lazy")), true);
   assert.equal(await page.$("#results-query"), null, "Results must not duplicate exact syntax");
+  const discoverySearchedGeometry = await page.evaluate(() => {
+    const exact = document.querySelector("#exact-query-panel").getBoundingClientRect();
+    const search = document.querySelector("#search-btn").getBoundingClientRect();
+    const execution = document.querySelector(".maze-query-execution").getBoundingClientRect();
+    return {
+      exact: { left: exact.left, top: exact.top, right: exact.right, width: exact.width },
+      search: { left: search.left, top: search.top, right: search.right, width: search.width },
+      execution: { left: execution.left, right: execution.right, width: execution.width },
+    };
+  });
+  for (const key of ["left", "top", "right", "width"]) {
+    assert.ok(Math.abs(discoveryPendingGeometry.exact[key] - discoverySearchedGeometry.exact[key]) <= 1, `Discovery Exact Query moved after Search: ${JSON.stringify({ discoveryPendingGeometry, discoverySearchedGeometry })}`);
+    assert.ok(Math.abs(discoveryPendingGeometry.search[key] - discoverySearchedGeometry.search[key]) <= 1, `Discovery Search moved after execution: ${JSON.stringify({ discoveryPendingGeometry, discoverySearchedGeometry })}`);
+  }
+  assert.deepEqual(discoverySearchedGeometry.execution, discoveryPendingGeometry.execution, "Discovery pending and searched states must share one execution frame");
+  assert.equal(await page.$eval("#res-count", node => node.textContent.replace(/\s+/g, " ").trim()), "Showing 24 of 48 cards");
+  assert.equal(await page.$eval(".results-summary", node => node.contains(document.querySelector("#res-count"))), true);
+  assert.equal(await page.$eval(".results-sort", node => node.closest("#results-header")?.id), "results-header");
   const domCount24 = await page.$$eval("*", nodes => nodes.length);
   await page.click("#btn-more");
   await page.waitForSelector("#card-grid .card-item:nth-child(48)");
@@ -295,32 +327,45 @@ try {
   await page.waitForFunction(() => getComputedStyle(document.querySelector("#card-grid .card-item:first-child .transform-card-media")).transform === "none");
   assert.equal(await page.$eval("#card-grid .card-item:first-child .transform-card-media", node => getComputedStyle(node).transform), "none", "the artwork preview must retract when the pointer reaches +");
 
-  async function clickFindsThroughRenderedHover(cardIndex) {
+  async function clickFindsThroughRenderedHover(cardIndex, approach = "center") {
     const selector = `#card-grid .card-item:nth-child(${cardIndex})`;
     await page.hover(`${selector} .transform-card-media`);
-    const pointerTargets = await page.$eval(selector, card => {
+    const pointerTargets = await page.$eval(selector, (card, approachName) => {
       const media = card.querySelector(".transform-card-media").getBoundingClientRect();
       const button = card.querySelector(".card-stash-btn").getBoundingClientRect();
+      const from = approachName === "lower-left"
+        ? { x: media.left + media.width * 0.28, y: media.top + media.height * 0.72 }
+        : { x: media.left + media.width / 2, y: media.top + media.height / 2 };
       return {
-        from: { x: media.left + media.width / 2, y: media.top + media.height / 2 },
+        from,
         to: { x: button.left + button.width / 2, y: button.top + button.height / 2 },
+        button: { left: button.left, top: button.top, width: button.width, height: button.height },
       };
-    });
+    }, approach);
+    assert.ok(pointerTargets.button.width >= 52 && pointerTargets.button.height >= 52, `Reading Finds + hit target is too small: ${JSON.stringify(pointerTargets.button)}`);
     await page.mouse.move(pointerTargets.from.x, pointerTargets.from.y);
-    await page.mouse.move(pointerTargets.to.x, pointerTargets.to.y, { steps: 16 });
+    await page.mouse.move(pointerTargets.to.x, pointerTargets.to.y, { steps: 20 });
     assert.equal(await page.evaluate(({ x, y }) => document.elementFromPoint(x, y)?.closest?.("[data-action]")?.dataset.action, pointerTargets.to), "add-card-to-scratchpad");
     assert.equal(await page.$eval(selector, card => card.matches(":hover")), true, "card hover ownership must persist while the artwork preview retracts for +");
+    const settledButton = await page.$eval(`${selector} .card-stash-btn`, button => {
+      const rect = button.getBoundingClientRect();
+      return { left: rect.left, top: rect.top, width: rect.width, height: rect.height };
+    });
+    assert.deepEqual(settledButton, pointerTargets.button, "the Reading Finds + hit target must not move while the artwork retracts");
     await page.mouse.click(pointerTargets.to.x, pointerTargets.to.y);
   }
   await clickFindsThroughRenderedHover(1);
   assert.equal(await page.$eval("[data-stash-toggle-count]", node => node.textContent.trim()), "1");
   assert.equal(await page.$eval("#modal-bg", node => node.classList.contains("hidden")), true);
+  await clickFindsThroughRenderedHover(4, "lower-left");
+  assert.equal(await page.$eval("[data-stash-toggle-count]", node => node.textContent.trim()), "2");
+  assert.equal(await page.$eval("#modal-bg", node => node.classList.contains("hidden")), true);
   await page.focus("#card-grid .card-item:nth-child(2) .card-stash-btn");
   await page.keyboard.press("Enter");
-  assert.equal(await page.$eval("[data-stash-toggle-count]", node => node.textContent.trim()), "2");
+  assert.equal(await page.$eval("[data-stash-toggle-count]", node => node.textContent.trim()), "3");
   await page.setViewport({ width: 1100, height: 1000, deviceScaleFactor: 1 });
   await clickFindsThroughRenderedHover(3);
-  assert.equal(await page.$eval("[data-stash-toggle-count]", node => node.textContent.trim()), "3", "the 4-column desktop layout must keep + pointer-reachable");
+  assert.equal(await page.$eval("[data-stash-toggle-count]", node => node.textContent.trim()), "4", "the 4-column desktop layout must keep + pointer-reachable");
   assert.equal(await page.$eval("#modal-bg", node => node.classList.contains("hidden")), true);
   await page.setViewport({ width: 1440, height: 1200, deviceScaleFactor: 1 });
   await page.click("#stash-drawer-toggle");
@@ -329,13 +374,50 @@ try {
     open: document.body.dataset.stashOpen,
     focused: document.activeElement?.className,
     trees: document.querySelectorAll("#stash-panel").length,
+    grip: getComputedStyle(document.querySelector(".stash-drag-grip")).display,
+    rail: (() => {
+      const rect = document.querySelector(".stash-rail").getBoundingClientRect();
+      return { left: rect.left, top: rect.top, right: rect.right, bottom: rect.bottom, width: rect.width, height: rect.height };
+    })(),
+    grid: (() => {
+      const rect = document.querySelector("#card-grid").getBoundingClientRect();
+      return { left: rect.left, top: rect.top, right: rect.right, bottom: rect.bottom };
+    })(),
   }));
   assert.equal(desktopFinds.position, "fixed", JSON.stringify(desktopFinds));
   assert.equal(desktopFinds.open, "true");
   assert.equal(desktopFinds.trees, 1);
+  assert.notEqual(desktopFinds.grip, "none", "desktop Reading Finds must expose its drag grip");
+  const overlapWidth = Math.max(0, Math.min(desktopFinds.rail.right, desktopFinds.grid.right) - Math.max(desktopFinds.rail.left, desktopFinds.grid.left));
+  const overlapHeight = Math.max(0, Math.min(desktopFinds.rail.bottom, desktopFinds.grid.bottom) - Math.max(desktopFinds.rail.top, desktopFinds.grid.top));
+  assert.ok(overlapWidth * overlapHeight <= desktopFinds.rail.width * desktopFinds.rail.height * 0.25, `Reading Finds obscured too much of the result grid by default: ${JSON.stringify(desktopFinds)}`);
   assert.match(String(desktopFinds.focused), /stash-drawer-close/);
+  const dragStart = await page.$eval(".stash-drag-grip", node => {
+    const rect = node.getBoundingClientRect();
+    return { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 };
+  });
+  assert.equal(await page.evaluate(({ x, y }) => document.elementFromPoint(x, y)?.closest?.(".stash-head")?.className || "", dragStart), "stash-head");
+  const dragDeltaX = desktopFinds.rail.left < 720 ? 72 : -72;
+  await page.mouse.move(dragStart.x, dragStart.y);
+  await page.mouse.down();
+  await page.mouse.move(dragStart.x + dragDeltaX, dragStart.y + 54, { steps: 12 });
+  await page.mouse.up();
+  const movedFinds = await page.$eval(".stash-rail", node => {
+    const rect = node.getBoundingClientRect();
+    return { left: rect.left, top: rect.top, right: rect.right, bottom: rect.bottom, width: rect.width, height: rect.height, placement: node.dataset.stashPlacement };
+  });
+  assert.ok(Math.abs(movedFinds.left - desktopFinds.rail.left) >= 60 && Math.abs(movedFinds.top - desktopFinds.rail.top) >= 40, JSON.stringify({ desktopFinds, movedFinds }));
+  assert.ok(movedFinds.left >= 0 && movedFinds.top >= 0 && movedFinds.right <= 1440 && movedFinds.bottom <= 1200, JSON.stringify(movedFinds));
+  assert.equal(movedFinds.placement, "user");
   await page.keyboard.press("Escape");
   assert.equal(await page.$eval("#stash-drawer-toggle", node => node === document.activeElement), true);
+  await page.click("#stash-drawer-toggle");
+  const reopenedFinds = await page.$eval(".stash-rail", node => {
+    const rect = node.getBoundingClientRect();
+    return { left: rect.left, top: rect.top };
+  });
+  assert.ok(Math.abs(reopenedFinds.left - movedFinds.left) <= 1 && Math.abs(reopenedFinds.top - movedFinds.top) <= 1, JSON.stringify({ movedFinds, reopenedFinds }));
+  await page.keyboard.press("Escape");
 
   await page.click("#card-grid .card-item:nth-child(3) .transform-card-open");
   const modalActionMetrics = await page.$$eval(".m-actions .m-btn, .m-stash-actions .m-btn", nodes => nodes.map(node => {
@@ -360,6 +442,21 @@ try {
   await page.click("#mode-builder");
   await page.click("[data-action='toggle-color'][data-color='R']");
   const loomDraft = await page.$eval("#search-input", node => node.value);
+  const normalLoomGeometry = await page.evaluate(() => {
+    const exact = document.querySelector("#exact-query-panel").getBoundingClientRect();
+    const search = document.querySelector("#loom-search-btn").getBoundingClientRect();
+    const reset = document.querySelector("#loom-reset-btn").getBoundingClientRect();
+    const builder = document.querySelector("#builder-panel").getBoundingClientRect();
+    return {
+      exact: { left: exact.left, right: exact.right, width: exact.width, top: exact.top },
+      search: { left: search.left, right: search.right, width: search.width, top: search.top },
+      relativeTop: search.top - exact.top,
+      resetInsideBuilder: reset.left >= builder.left && reset.right <= builder.right && reset.top >= builder.top && reset.bottom <= builder.bottom,
+      resetParent: document.querySelector("#loom-reset-btn")?.closest(".builder-edit-actions")?.className || "",
+    };
+  });
+  assert.equal(normalLoomGeometry.resetInsideBuilder, true, JSON.stringify(normalLoomGeometry));
+  assert.match(normalLoomGeometry.resetParent, /builder-edit-actions/);
   const beforeLoomHelper = scryfallRequests;
   await page.click("#quick-search-list [data-action='inspect-suggested-search']");
   assert.equal(scryfallRequests, beforeLoomHelper);
@@ -369,6 +466,20 @@ try {
   assert.equal(await page.$eval("#loom-search-btn", node => node.textContent.trim()), "Search selected query");
   assert.equal(await page.$eval("#query-inspector", node => getComputedStyle(node).display), "none");
   assert.equal(await page.$eval("[data-action='toggle-color'][data-color='R']", node => node.getAttribute("aria-pressed")), "true");
+  const helperLoomGeometry = await page.evaluate(() => {
+    const exact = document.querySelector("#exact-query-panel").getBoundingClientRect();
+    const search = document.querySelector("#loom-search-btn").getBoundingClientRect();
+    return {
+      exact: { left: exact.left, right: exact.right, width: exact.width, top: exact.top },
+      search: { left: search.left, right: search.right, width: search.width, top: search.top },
+      relativeTop: search.top - exact.top,
+    };
+  });
+  for (const key of ["left", "right", "width"]) {
+    assert.ok(Math.abs(normalLoomGeometry.exact[key] - helperLoomGeometry.exact[key]) <= 1, `Loom Exact Query geometry changed for Helper inspection: ${JSON.stringify({ normalLoomGeometry, helperLoomGeometry })}`);
+    assert.ok(Math.abs(normalLoomGeometry.search[key] - helperLoomGeometry.search[key]) <= 1, `Loom Search geometry changed for Helper inspection: ${JSON.stringify({ normalLoomGeometry, helperLoomGeometry })}`);
+  }
+  assert.ok(Math.abs(normalLoomGeometry.relativeTop - helperLoomGeometry.relativeTop) <= 1, JSON.stringify({ normalLoomGeometry, helperLoomGeometry }));
   await page.click("#maze-selected-search [data-action='restore-suggestion-draft']");
   assert.equal(await page.$eval("#loom-search-btn", node => node.textContent.trim()), "Search these Loom filters");
   assert.equal(await page.$eval("#search-input", node => node.value), loomDraft);
@@ -544,12 +655,35 @@ try {
   const mobileFinds = await page.evaluate(() => {
     const rail = document.querySelector(".stash-rail");
     const bounds = rail.getBoundingClientRect();
-    return { position: getComputedStyle(rail).position, top: bounds.top, bottom: bounds.bottom, height: bounds.height, viewportHeight: innerHeight };
+    const panelStyle = getComputedStyle(document.querySelector(".stash-panel"));
+    const touchTargets = [...document.querySelectorAll(".stash-qty-btn, .stash-move-select, .stash-remove")].map(node => {
+      const rect = node.getBoundingClientRect();
+      return { width: rect.width, height: rect.height };
+    });
+    return {
+      position: getComputedStyle(rail).position,
+      top: bounds.top,
+      right: bounds.right,
+      bottom: bounds.bottom,
+      left: bounds.left,
+      width: bounds.width,
+      height: bounds.height,
+      viewportHeight: innerHeight,
+      viewportWidth: innerWidth,
+      backgroundColor: panelStyle.backgroundColor,
+      gripDisplay: getComputedStyle(document.querySelector(".stash-drag-grip")).display,
+      touchTargets,
+    };
   });
   assert.equal(mobileFinds.position, "fixed", JSON.stringify(mobileFinds));
-  assert.ok(mobileFinds.bottom <= mobileFinds.viewportHeight && mobileFinds.top >= 0 && mobileFinds.height <= mobileFinds.viewportHeight * 0.75, JSON.stringify(mobileFinds));
+  assert.ok(mobileFinds.bottom <= mobileFinds.viewportHeight && mobileFinds.top >= 0 && mobileFinds.left >= 7 && mobileFinds.right <= mobileFinds.viewportWidth - 7, JSON.stringify(mobileFinds));
+  assert.match(mobileFinds.backgroundColor, /^rgb\(/, `mobile Reading Finds must use a solid background: ${JSON.stringify(mobileFinds)}`);
+  assert.equal(mobileFinds.gripDisplay, "none");
+  assert.ok(mobileFinds.touchTargets.length > 0 && mobileFinds.touchTargets.every(target => target.width >= 44 && target.height >= 44), JSON.stringify(mobileFinds.touchTargets));
+  assert.equal(await page.$$eval("#stash-panel", nodes => nodes.length), 1, "mobile must reuse the single Reading Finds tree");
   await page.keyboard.press("Escape");
   assert.equal(await page.$eval("#stash-drawer-toggle", node => node === document.activeElement), true);
+  assert.ok(await page.$eval("body", node => Number.parseFloat(getComputedStyle(node).paddingBottom)) >= 64, "the closed mobile Finds trigger must reserve page space");
   await page.emulateMediaFeatures([{ name: "prefers-reduced-motion", value: "reduce" }]);
   const reducedMotion = await page.evaluate(() => ({
     modeTransition: getComputedStyle(document.querySelector(".mode-card")).transitionDuration,
@@ -582,6 +716,9 @@ try {
     searchToFirst24Ms: Math.round(searchToFirst24 * 10) / 10,
     longTasks: controlledLongTasks,
     discoveryInspectToSearchRequests: 1,
+    discoveryGeometry: { pending: discoveryPendingGeometry, searched: discoverySearchedGeometry },
+    loomGeometry: { normal: normalLoomGeometry, helper: helperLoomGeometry },
+    readingFindsDesktop: { opened: desktopFinds, moved: movedFinds, reopened: reopenedFinds },
     modalActionMetrics,
     mobileLayout,
     topbar: { maze: mazeTopbar, archscry: archscryTopbar }

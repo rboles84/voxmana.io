@@ -1788,6 +1788,7 @@ function makeCardEl(card) {
     ariaLabel: stashed ? `Set aside another ${card.name || "card"} in Reading Finds` : `Set aside ${card.name || "card"} in Reading Finds`
   });
   stashButton.dataset.cardName = card.name || "card";
+  stashButton.dataset.mark = stashed ? "+1" : "+";
   stashButton.__cardData = card;
   const media = document.createElement("div");
   media.className = "transform-card-media";
@@ -4507,7 +4508,46 @@ function setStashDrawerOpen(open) {
 function toggleStashDrawer() {
   const open = document.body.dataset.stashOpen !== "true";
   setStashDrawerOpen(open);
-  if (open) document.querySelector(".stash-drawer-close")?.focus();
+  if (open) {
+    placeStashDrawerOnOpen();
+    document.querySelector(".stash-drawer-close")?.focus();
+  }
+}
+
+function placeStashDrawerOnOpen() {
+  if (!window.matchMedia("(min-width: 821px) and (pointer: fine)").matches) return;
+  const rail = document.querySelector(".stash-rail");
+  if (!(rail instanceof HTMLElement) || rail.style.left) return;
+  const panel = rail.getBoundingClientRect();
+  const resultGrid = document.querySelector("#card-grid:not(.hidden)");
+  const protectedSurface = resultGrid instanceof HTMLElement
+    ? resultGrid.getBoundingClientRect()
+    : document.querySelector(".r-main")?.getBoundingClientRect();
+  const viewportWidth = document.documentElement.clientWidth;
+  const viewportHeight = document.documentElement.clientHeight;
+  const margin = 12;
+  const width = panel.width;
+  const height = panel.height;
+  const maxLeft = Math.max(margin, viewportWidth - width - margin);
+  const maxTop = Math.max(margin, viewportHeight - height - margin);
+  const topbarBottom = document.querySelector(".vm-topbar")?.getBoundingClientRect().bottom || 0;
+  const preferredTop = Math.max(protectedSurface?.top || 0, topbarBottom + margin);
+  const top = Math.min(Math.max(margin, preferredTop), maxTop);
+  const candidates = [maxLeft, margin]
+    .concat(protectedSurface ? [protectedSurface.right + margin, protectedSurface.left - width - margin] : [])
+    .map(left => Math.min(Math.max(margin, left), maxLeft))
+    .filter((left, index, values) => values.indexOf(left) === index);
+  const overlapArea = left => {
+    if (!protectedSurface) return 0;
+    const overlapWidth = Math.max(0, Math.min(left + width, protectedSurface.right) - Math.max(left, protectedSurface.left));
+    const overlapHeight = Math.max(0, Math.min(top + height, protectedSurface.bottom) - Math.max(top, protectedSurface.top));
+    return overlapWidth * overlapHeight;
+  };
+  const left = candidates.reduce((best, candidate) => overlapArea(candidate) < overlapArea(best) ? candidate : best, candidates[0]);
+  rail.style.left = `${Math.round(left)}px`;
+  rail.style.top = `${Math.round(top)}px`;
+  rail.style.right = "auto";
+  rail.dataset.stashPlacement = "default";
 }
 
 function beginStashDrag(event) {
@@ -4524,6 +4564,7 @@ function beginStashDrag(event) {
   rail.style.left = `${Math.round(rect.left)}px`;
   rail.style.top = `${Math.round(rect.top)}px`;
   rail.style.right = "auto";
+  rail.dataset.stashPlacement = "user";
   rail.classList.add("is-dragging");
   event.currentTarget.setPointerCapture?.(event.pointerId);
   event.preventDefault();
@@ -4551,14 +4592,23 @@ function endStashDrag(event) {
 }
 
 function resetStashDragForMobile() {
-  if (window.innerWidth > 820) return;
   const rail = document.querySelector(".stash-rail");
   if (!(rail instanceof HTMLElement)) return;
-  rail.style.removeProperty("left");
-  rail.style.removeProperty("top");
-  rail.style.removeProperty("right");
-  rail.classList.remove("is-dragging");
-  stashDragState = null;
+  if (window.innerWidth <= 820) {
+    rail.style.removeProperty("left");
+    rail.style.removeProperty("top");
+    rail.style.removeProperty("right");
+    delete rail.dataset.stashPlacement;
+    rail.classList.remove("is-dragging");
+    stashDragState = null;
+    return;
+  }
+  if (!rail.style.left || document.body.dataset.stashOpen !== "true") return;
+  const margin = 8;
+  const maxLeft = Math.max(margin, document.documentElement.clientWidth - rail.offsetWidth - margin);
+  const maxTop = Math.max(margin, document.documentElement.clientHeight - rail.offsetHeight - margin);
+  rail.style.left = `${Math.round(Math.min(Math.max(margin, Number.parseFloat(rail.style.left) || margin), maxLeft))}px`;
+  rail.style.top = `${Math.round(Math.min(Math.max(margin, Number.parseFloat(rail.style.top) || margin), maxTop))}px`;
 }
 
 function refreshScratchpadButtons() {
@@ -4571,6 +4621,7 @@ function refreshScratchpadButtons() {
     const label = saved ? `Set aside another ${cardName} in Reading Finds` : `Set aside ${cardName} in Reading Finds`;
     button.classList.toggle("on", saved);
     button.textContent = saved ? "+1" : "+";
+    button.dataset.mark = saved ? "+1" : "+";
     button.title = label;
     button.setAttribute("aria-label", label);
   });

@@ -287,6 +287,10 @@
           </div>
         </fieldset>
 
+        <div class="builder-edit-actions">
+          <button class="query-action-btn" id="loom-reset-btn" type="button" data-action="reset-builder">Reset Loom</button>
+        </div>
+
         <p class="visually-hidden" id="builder-summary" aria-live="polite">Commander format is ready. Add filters or search as-is.</p>
       </div>
 
@@ -308,27 +312,23 @@
         <span class="qi-reason hidden" id="qi-reason"></span>
       </section>
 
-      <section class="exact-query-panel hidden" id="exact-query-panel" aria-labelledby="exact-query-title" aria-live="polite">
-        <div class="exact-query-head">
-          <span class="maze-section-label" id="exact-query-title">Exact Scryfall query</span>
-          <span class="qi-execution-state" id="qi-execution-state"></span>
-        </div>
-        <code class="qi-query" id="qi-query"></code>
-        <div class="exact-query-actions">
-          <button class="query-action-btn search-copy-btn is-disabled" id="search-copy-btn" type="button" data-action="copy-query" disabled>Copy</button>
-          <a class="query-action-btn search-scryfall-link is-disabled" id="search-scryfall-link" href="#" target="_blank" rel="noopener" aria-disabled="true" tabindex="-1">Open in Scryfall</a>
-        </div>
-      </section>
+      <div class="maze-query-execution">
+        <section class="exact-query-panel hidden" id="exact-query-panel" aria-labelledby="exact-query-title" aria-live="polite">
+          <div class="exact-query-head">
+            <span class="maze-section-label" id="exact-query-title">Exact Scryfall query</span>
+            <span class="qi-execution-state" id="qi-execution-state"></span>
+          </div>
+          <code class="qi-query" id="qi-query"></code>
+          <div class="exact-query-actions">
+            <button class="query-action-btn search-copy-btn is-disabled" id="search-copy-btn" type="button" data-action="copy-query" disabled>Copy</button>
+            <a class="query-action-btn search-scryfall-link is-disabled" id="search-scryfall-link" href="#" target="_blank" rel="noopener" aria-disabled="true" tabindex="-1">Open in Scryfall</a>
+          </div>
+        </section>
 
-      <div class="loom-completion">
-        <div class="loom-completion-actions">
-          <button class="btn-search loom-completion-search" id="loom-search-btn" type="button" data-action="search">Search these Loom filters</button>
-          <button class="query-action-btn" id="loom-reset-btn" type="button" data-action="reset-builder">Reset Loom</button>
+        <div class="maze-execution-row">
+          <button class="btn-search" id="search-btn" type="button" data-action="search">Search</button>
+          <button class="btn-search" id="loom-search-btn" type="button" data-action="search">Search these Loom filters</button>
         </div>
-      </div>
-
-      <div class="maze-execution-row">
-        <button class="btn-search" id="search-btn" type="button" data-action="search">Search</button>
       </div>
     </div>
 </div>
@@ -410,11 +410,13 @@
     </div>
     <div class="err-msg hidden" id="err-msg"></div>
     <div class="results-header hidden" id="results-header" tabindex="-1">
-      <div class="results-query-context">
-        <span class="results-heading">Results</span>
-        <span class="results-interpretation-state" id="results-interpretation-state"></span>
+      <div class="results-summary">
+        <div class="results-query-context">
+          <span class="results-heading">Results</span>
+          <span class="results-interpretation-state" id="results-interpretation-state"></span>
+        </div>
+        <span class="res-count" id="res-count" role="status" aria-live="polite" aria-atomic="true"></span>
       </div>
-      <span class="res-count" id="res-count" role="status" aria-live="polite" aria-atomic="true"></span>
       <div class="results-sort">
         <label for="res-order">Sort</label>
         <select class="res-order" id="res-order">
@@ -438,6 +440,7 @@
   <aside class="stash-rail" aria-labelledby="maze-stash-title">
     <section class="stash-panel" id="stash-panel" aria-labelledby="maze-stash-title">
       <div class="stash-head">
+        <span class="stash-drag-grip" aria-hidden="true"></span>
         <div class="stash-title-block">
           <h2 class="stash-title" id="maze-stash-title">Reading Finds</h2>
           <label class="visually-hidden" for="scratchpad-title-input">Reading Finds title</label>
