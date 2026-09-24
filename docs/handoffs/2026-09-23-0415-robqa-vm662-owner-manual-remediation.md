@@ -111,3 +111,80 @@ Open `/maze/index.html` on the Owner's running local server (for example, `http:
 - Not changed: production, tests, card, board/index, implementer handoff, parser/compiler/query/search/cache/storage/generated-data owners, or integration state.
 - Reviewer output was not staged or committed, per assignment.
 - Next step: preserve this exact-SHA evidence, refresh required coordination records, and stop at Owner Review.
+
+## Exact-candidate review after bounded Owner layout remediation
+
+Task: VM-662
+Candidate: 3b0f460e51c859270c59bc62fdfc6da23b4283fc
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: Codex `/root/vm662_final_robqa`
+Implementer: Codex `/root`
+
+- Date: 2026-09-23 (America/Denver)
+- Role: independent RobQA
+- Branch: `codex/vm-662-maze-modernization`
+- Prior Owner-rejected candidate: `039928c75b78da8f0def344cb6f7d307b0107d35`
+- Exact material candidate: `3b0f460e51c859270c59bc62fdfc6da23b4283fc`
+- Verdict: **PASS**
+- Execution: **SEPARATE**
+- Reviewer: Codex `/root/vm662_final_robqa`; did not implement this candidate
+- Configured route: `robqa` / `gpt-5.6-sol` / `medium`; backend identity unverified because it was not exposed
+
+### Candidate-bound decision
+
+Exact material candidate `3b0f460e51c859270c59bc62fdfc6da23b4283fc` passes independent RobQA and may return to Owner Review. The checked-out branch and `HEAD` both resolved to that exact SHA before testing, and the worktree was clean. The actual `039928c7..3b0f460e` delta was reviewed rather than relying on the implementation summary.
+
+This is QA-2 component-interaction evidence with QA-1 presentation/geometry coverage. SEPARATE review is required because the remediation changes the primary workbench execution composition, real pointer hit ownership, and the draggable responsive Reading Finds surface. The engineering PASS is bound only to `3b0f460e51c859270c59bc62fdfc6da23b4283fc`; it does not certify subjective appearance, constitute Owner acceptance, authorize integration, or reopen the deferred Azorius repeat-Search contract.
+
+### Exact delta and protected boundaries
+
+- Material runtime/test delta: `assets/css/maze.css`, `assets/js/maze/research-init.js`, `maze/index.html`, and `tests/maze/maze-modernization-remediation-tests.js`, plus admitted lifecycle records.
+- Changed behavior: one stable Exact Query/Search frame for Plain pending/executed and Loom normal/Helper states; Reset Loom inside the builder; one Results summary/count with Sort in the same header; a larger stable result-card add hit target; and default placement, visible grip, bounded drag, close/reopen position retention, saved-row sizing, and a solid narrow sheet for the existing Reading Finds tree.
+- Protected behavior intentionally untouched: parser/compiler/query/search/cache/dedupe/result owners; `PAGE_SIZE = 24`; lazy media; Load More; sort and modal execution behavior; storage/migrations; route state; generated data; all non-Discovery/Helper execution semantics; and the single responsive DOM/state owner.
+- Source/diff inspection found no second query, search, storage, result, or mobile owner. `research-init.js` only adds display-state mirroring for the existing add control and bounded placement around the existing Finds drag owner.
+
+### Selected candidate-bound evidence
+
+`node tests/maze/maze-modernization-remediation-tests.js` with `VM662_OUTPUT_DIR` directed to a temporary directory — **PASS**. Browser evidence was necessary because source assertions cannot prove real pointer traversal, live hit ownership, drag bounds/retention, focus restoration, or rendered narrow-sheet containment. No screenshot or aesthetic review was performed.
+
+The focused fixture objectively verified:
+
+- Discovery pending and searched states retained identical Exact Query, Search, and shared execution-frame rectangles.
+- Normal Loom and Helper-inspection Loom retained identical Exact Query and Search left/right/width geometry and identical Search-to-query vertical alignment; Reset Loom remained inside `.builder-edit-actions` and the builder bounds.
+- Discovery/Helper remained inspect-first with zero inspection requests and one request only after explicit Search; ordinary protected execution, 24-to-48 paging, lazy images, warning/zero-result, Reading/Dossier, sort, and modal contracts remained covered by the same bounded fixture.
+- `Showing 24 of 48 cards` remained the single live count, nested in `.results-summary`, while Sort remained in `#results-header`.
+- Real rendered pointer movement used 20 intermediate steps from live artwork geometry to the add target on multiple cards and approaches at 1440px/five columns and 1100px/four columns. Each target measured at least 52px (implemented as 56px), did not move while the preview retracted, retained card hover ownership, added exactly the intended card, and left the modal closed. Keyboard Enter was exercised separately.
+- Reading Finds remained one DOM tree/store. Its desktop panel opened in a measured low-obstruction position, exposed a visible drag grip, moved through real pointer drag, stayed within the viewport, and retained its moved position after close/reopen. Escape returned focus.
+- At approximately 390px, the same one Finds tree was a fixed viewport-contained sheet with a solid computed background; quantity, Move, and remove targets were at least 44px; the grip was hidden; no duplicate inspector/tree or horizontal overflow appeared.
+- Finds / Sparks / Anchors, quantity, Move, remove, modal action behavior, reduced motion, and the existing association/store contract remained present in the focused fixture or unchanged store owner.
+
+Focused non-browser checks:
+
+| Check | Reason | Result |
+| --- | --- | --- |
+| `npm.cmd run lint:js` | Changed route controller behavior | PASS, 37 files |
+| `npm.cmd run lint:html` | Changed semantic grouping and controls | PASS |
+| `npm.cmd run test:builder` | Reset/search placement did not alter Loom query ownership | PASS, 14 cases |
+| `npm.cmd run test:mode` | Mode and authored-draft continuity remained intact | PASS, 14 mode and 14 leakage cases |
+| `npm.cmd run test:maze-finds` | One Reading Finds store and association owner remained intact | PASS |
+| `npm.cmd run test:maze-transform` | Existing result-card/modal transform contract remained intact | PASS |
+| `git diff --check 039928c7..3b0f460e` | Exact material range formatting | PASS |
+
+The known stale `maze-search-tests.js` and `test:maze-results-layout` presentation-contract debt was not rerun or rediagnosed. This candidate does not edit those harnesses or causally reopen their already classified superseded Confidence/Finds-placement expectations, and the directly relevant live-DOM fixture is green.
+
+### Proportionality and remaining Owner judgment
+
+- CPU-heavy validation: **NOT REQUIRED**. No parser, compiler, semantic, placement, cache, generated-data, migration, or result-engine owner changed.
+- Intentionally skipped: exhaustive parser/search, synthetic journey, mutation, recovery, network/cache, generated-data, screenshot, visual-regression, animation-fidelity, and broad viewport suites. They do not protect a changed owner or would replace Owner visual judgment.
+- Remaining Owner judgment: whether the stable execution composition, desktop panel placement, saved-row density, Results header balance, and solid narrow sheet look and feel right. Engineering evidence does not certify those aesthetic/product judgments.
+
+### Bounded Owner recheck
+
+Open `/maze/index.html` on the Owner's running local server at exact candidate `3b0f460e51c859270c59bc62fdfc6da23b4283fc`. Check only: Plain pending then Search; normal Loom then one Helper and Reset Loom; artwork-to-`+` on two cards and the dragged Finds close/reopen position; Results count/Sort balance; and the same Finds controls near 390px. PASS if the composition remains visually stable, the add control is naturally reachable without opening the modal, the desktop panel is unobtrusive and movable, and the narrow sheet and saved rows feel usable. Deterministic geometry, request counts, hit ownership, store/DOM singularity, drag bounds/retention, paging, focus, reduced motion, and containment are already machine-verified.
+
+### Reviewer scope
+
+- Reviewer-authored change: this exact-candidate section in `docs/handoffs/2026-09-23-0415-robqa-vm662-owner-manual-remediation.md` only.
+- Not changed: production, tests, card, generated views, Owner state, or integration state.
+- Reviewer output remains unstaged and uncommitted, per assignment.
