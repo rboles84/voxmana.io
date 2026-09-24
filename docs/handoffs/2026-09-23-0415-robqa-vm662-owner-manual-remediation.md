@@ -391,3 +391,63 @@ Focused supporting checks:
 - Reviewer-authored change: this appended rebind section in `docs/handoffs/2026-09-23-0415-robqa-vm662-owner-manual-remediation.md` only.
 - Not changed: production, tests, validator, card, board/generated views, implementer handoff, Owner state, integration state, or stash state.
 - Reviewer output remains unstaged and uncommitted, per assignment.
+
+## 2026-09-24 enlarged-preview Save correction — exact-candidate RobQA
+
+Task: VM-662
+Candidate: 051de14d03077cd387c3778bf9d9341e02a1e421
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: Codex `/root/vm662_corner_sections_robqa`
+Implementer: Codex `/root`
+
+### Candidate-bound decision
+
+Exact material candidate `051de14d03077cd387c3778bf9d9341e02a1e421` passes independent RobQA and may return to Owner Review. Before execution, the checked-out branch was `codex/vm-662-maze-modernization`, `HEAD` resolved to that exact SHA, and the worktree was clean. The actual Owner-rejected `3a918a2204ca5e118dea144477499ce386ff49f5..051de14d03077cd387c3778bf9d9341e02a1e421` range, the dedicated transformed-Save test admission, current card, and implementer packet were reviewed directly. The named stash `preserve deferred workbench edit before VM-662 narrow remediation` was observed and was not applied or dropped.
+
+This is QA-2 component-interaction evidence with QA-1 rendered-geometry and visual-witness coverage. SEPARATE execution is required because the prior QA measured the wrong reference box and the corrected contract materially depends on live transformed geometry, real pointer travel, hit ownership, keyboard modality, and control nesting. Candidate-bound screenshots are justified here by the Owner-reported visible defect and confirm the measured control is the one visibly occupying the enlarged preview corner. This PASS is not Owner acceptance, integration authorization, or a judgment about broader aesthetics.
+
+### Exact correction and regression invariant
+
+- Root cause confirmed: rejected candidate `3a918a22` positioned and measured Save against the original `.card-item` tile while `.transform-card-media` enlarged separately, so the passing shell-relative assertion did not protect the visible enlarged-card corner.
+- Corrected ownership: the existing `add-card-to-scratchpad` button is now an independent child of `.transform-card-media`; the modal-opening `.transform-card-open` remains a separate sibling. Under the media's 2× fine-pointer transform, Save uses a 5px local top/right inset and 0.5 counter-scale from the top-right origin, producing a 10px visible inset and 44px target.
+- Corrected invariant: wait for the full media transform, measure Save against the enlarged media rectangle, traverse real intermediate pointer coordinates, verify the same target remains at the enlarged corner, then verify exact-card addition without modal activation. Keyboard focus/Enter and non-nesting under the modal opener remain separate assertions.
+- Frozen behavior: the empty Sparks/Anchors correction is unchanged. The same fixture still reports desktop and mobile section IDs exactly `["finds"]` with no `.stash-section-empty`; protected request, paging, modal, Finds-store, Results/Sort, Copy/Open, desktop panel, mobile containment, and semantic owners remain covered or unchanged.
+
+### Selected exact-candidate evidence
+
+`node tests/maze/maze-modernization-remediation-tests.js` with `VM662_CAPTURE_SCREENSHOTS=1` and unique output `C:\Users\obake\AppData\Local\Temp\vm662-robqa-enlarged-save-e2c96673588941c0a35a331acf732dea` — **PASS**.
+
+- At 1440px/five columns, cards 1 and 4 each measured `top: 10px`, `right: 10px`, `44 x 44px` against the fully enlarged media. At 1100px/four columns, card 7 measured the same. All satisfy the required 8–12px offsets and 44px target.
+- Real 20-step pointer travel after full artwork enlargement on multiple cards retained card hover and Save hit ownership, left Save stationary at the enlarged corner, added exactly the intended card, and did not open the modal.
+- Keyboard focus and Enter activated the independent Save control. Source/contract inspection and `test:maze-transform` confirm Save is inside the transformed media coordinate space but outside the modal-opening button.
+- Candidate-bound screenshots `save-corner-1440-1.png`, `save-corner-1440-4.png`, and `save-corner-1100-7.png` visibly show Save at the enlarged preview's upper-right corner; they agree with the DOM geometry rather than substituting for it.
+- Frozen empty-section evidence remained green on the same run: desktop and mobile each contained only the populated `finds` section and no per-section empty prose.
+
+Focused supporting checks:
+
+| Check | Changed risk protected | Result |
+| --- | --- | --- |
+| `npm.cmd run lint:js` | Corrected route controller structure | PASS, 37 files |
+| `npm.cmd run lint:html` | Fresh paired `vm662r7` route assets and public HTML contract | PASS |
+| `npm.cmd run test:maze-transform` | Save/media/modal sibling ownership and non-nesting | PASS |
+| `npm.cmd run test:maze-finds` | Frozen populated Finds/Sparks/Anchors store compatibility | PASS |
+| `npm.cmd run test:frontend-smoke` | Maze remains in the public frontend route set | PASS |
+| `git diff --check 3a918a2204ca5e118dea144477499ce386ff49f5..051de14d03077cd387c3778bf9d9341e02a1e421` | Exact rejected-to-candidate range formatting | PASS |
+
+### Findings and proportionality
+
+- BLOCKER / MAJOR / MINOR findings: none.
+- NOTE / OWNER JUDGMENT: final optical prominence and aesthetic treatment of the Save/check control remain Owner judgment.
+- CPU-heavy validation: **NOT REQUIRED**. No parser, compiler, placement, semantic engine, cache implementation, migration, generated-data, storage, or result-engine owner changed.
+- Intentionally skipped: broad mode/builder/semantic suites; exhaustive parser/search, synthetic journey, mutation, recovery, network/cache, generated-data, and performance suites; known stale presentation harnesses; animation-fidelity and broad viewport matrices. The directly relevant live interaction, geometry, screenshots, store compatibility, and frozen-section assertions are green.
+
+### Shortest Owner recheck
+
+At 1440px and 1100px, enlarge two different result cards and move naturally to Save. PASS if Save/check visibly occupies and remains at each enlarged card's actual upper-right corner rather than the original tile center. Exact offsets, target size, hit ownership, exact-card addition, no-modal behavior, keyboard activation, control independence, and frozen empty-section behavior are already machine-verified.
+
+### Reviewer scope
+
+- Reviewer-authored change: this appended exact-candidate section in `docs/handoffs/2026-09-23-0415-robqa-vm662-owner-manual-remediation.md` only.
+- Not changed: production, tests, card, board/generated views, implementer handoff, Owner state, integration state, or stash state.
+- Reviewer output remains unstaged and uncommitted, per assignment.
