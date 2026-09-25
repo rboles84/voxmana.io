@@ -2,7 +2,7 @@
 
 ID: VM-663
 Title: Maze Mode-Owned Workbench Layout
-Status: Accepted
+Status: Done
 Type: Bounded Maze presentation and state-view routing
 Area: Maze
 Priority: High
@@ -86,11 +86,11 @@ Admission baseline: 67c097598ec441fb78e015c9d2b8fa97bebba8f1
 Candidate: 2fd4f0a0eb4102e66d7f40b555d16b23c878353f
 RobQA: PASS at 2fd4f0a0eb4102e66d7f40b555d16b23c878353f — SEPARATE independent clean-history review; [RobQA handoff](../../handoffs/2026-09-24-2026-robqa-vm663-mode-owned-workbench.md).
 Owner: ACCEPTED at 2fd4f0a0eb4102e66d7f40b555d16b23c878353f — current Codex task, Owner direction to proceed until VM-663 is merged, done, and wrapped up, reaffirmed after the reconciliation status update on 2026-09-24.
-Integration: PENDING — exact clean-history candidate is authorized for the governed PR and integration path.
+Integration: INTEGRATED via PR #56 at a281fb6f765c60d241c1a5112ff24a54a20df467; expected-head guarded squash merge verified, with lifecycle-only closeout recorded on main.
 Dependencies: None
 Predecessor: VM-662
 Decisions: VM-663 is the single cohesive post-VM-662/final Maze completion task; do not create VM-664. Admission start was ELIGIBLE for branch `codex/vm-663-maze-mode-owned-workbench-layout` on synchronized current main, and the Owner authorized implementation on 2026-09-24. VM-662 is already integrated in the required baseline and is predecessor evidence, not an admission dependency. Direct Owner clarification dated 2026-09-24 supersedes the retained reference document's conflicting Loom Helper sections: Discovery/Helper remains supported and inspect-first in Plain and Operator, but is completely unavailable in Loom. The Owner rejected candidate `2992fa19973cb9bbd3e3bcdff86dd882c8fb3c4e` and locked the replacement correction to a full-width workbench matching Results, Search above Clear, gold secondary controls, the full Open in Scryfall label, and Loom/Results width alignment. After accepting replacement candidate `a87135159b6e91e6837d944070b6349871369573`, the Owner authorized one final CSS surface correction before integration: remove solid fills from the outer workbench, Results/sidebar and structural subpanels; keep the input, result cards and overlays bounded/solid; and retain Current Weave as a lighter focal panel. The six accepted layout/behavior checks are frozen and must not be reopened by this correction. The Owner then rejected final-surface candidate `5df5eb2775591d99bc43cf3864dd03f772eef00f` after checklist review because Current Weave disappeared at approximately 390px, Maze-owned guide and dossier-origin discovery structure still used opaque fills, and duplicate sidebar By Color/Format sections remained. Reading Finds, card detail, guided popovers, menus, and overlays are explicitly accepted as solid and remain protected. The Loom's broader visual character is a future note, not part of this correction. Preserve VM-662 accepted behavior except the expressly scoped mode-level visibility/pathway availability changes. Stop before any protected-owner, query-semantics, execution-contract, PR, or integration change. Scope amendment: add the Maze-owned guide presentation files and focused Maze search regression contract required by the Owner-rejected final-surface correction.
-Evidence: [VM-662 accepted predecessor card](../done/VM-662-maze-modernization-implementation.md); [VM-662 final Owner/manual-remediation handoff](../../handoffs/2026-09-23-0415-codex-vm662-owner-manual-remediation.md); [VM-663 Kanban intake handoff](../../handoffs/2026-09-24-1617-kanban-steward-vm663-maze-mode-owned-workbench-layout.md); [VM-663 independent RobQA PASS, including replacement candidate](../../handoffs/2026-09-24-2026-robqa-vm663-mode-owned-workbench.md).
+Evidence: [VM-662 accepted predecessor card](VM-662-maze-modernization-implementation.md); [VM-662 final Owner/manual-remediation handoff](../../handoffs/2026-09-23-0415-codex-vm662-owner-manual-remediation.md); [VM-663 Kanban intake handoff](../../handoffs/2026-09-24-1617-kanban-steward-vm663-maze-mode-owned-workbench-layout.md); [VM-663 independent RobQA PASS, including replacement candidate](../../handoffs/2026-09-24-2026-robqa-vm663-mode-owned-workbench.md); [verified integration and closeout](../../handoffs/2026-09-25-codex-vm663-closeout.md).
 
 ## Admission Scope
 

@@ -1,4 +1,4 @@
-<!-- task-view-sha256:c9d7e3bd5f671111d41d2f9e1e0c4222a39670478d15b25186590a111b88e6fc -->
+<!-- task-view-sha256:259c3104e6cd57f86d3da936ba74d69a3c3a7a384a498235357e60867ded42a3 -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -8,6 +8,7 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 
 | Authored / filename date | Agent | Handoff | Related task references | Diagnostics |
 |---|---|---|---|---|
+| 2026-09-25T00:00:00Z (authored) | Unknown | [VM-663 — Integration And Closeout](2026-09-25-codex-vm663-closeout.md) | VM-663 | Identity displayed from heading; not admission metadata. |
 | 2026-09-25T00:00:00Z (authored) | Unknown | [VM-664 — Integration And Closeout](2026-09-25-codex-vm664-closeout.md) | VM-664 | Identity displayed from heading; not admission metadata. |
 | 2026-09-24T20:26:00Z (filename) | Unknown | [VM-663 — Maze mode-owned workbench implementation](2026-09-24-2026-codex-vm663-mode-owned-workbench.md) | VM-663 | Identity displayed from heading; not admission metadata. Invalid authored date; filename fallback or undated ordering used. |
 | 2026-09-24T20:26:00Z (filename) | Unknown | [VM-663 — Independent RobQA: mode-owned workbench](2026-09-24-2026-robqa-vm663-mode-owned-workbench.md) | VM-663 | Identity displayed from heading; not admission metadata. Invalid authored date; filename fallback or undated ordering used. |
