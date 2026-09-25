@@ -2,7 +2,7 @@
 
 ID: VM-664
 Title: Archscry Mixed-Reading Expansion Polish
-Status: Accepted
+Status: Owner Review
 Type: Production presentation and interaction polish
 Area: Archscry placement mixed-result shell
 Priority: High
@@ -66,13 +66,13 @@ At the time of admission, unrelated VM-663 Maze work was active in a different w
 Record version: 1
 Branch: codex/vm-664-archscry-mixed-reading-polish
 Admission baseline: 53cd82ae7acb04990d787169e5e117ae3c782dbc
-Candidate: 25d4bff718af7136109a5cc7922f0e886fb02aec
-RobQA: PASS at 25d4bff718af7136109a5cc7922f0e886fb02aec — SEPARATE execution by /root/vm664_robqa; corrected-candidate evidence head fc7a163bcc91a16d9580c1134a695afeb69d948a; prior PASS at b3c4c0f8fcffa2534b91898caa6b5598d0627861 is stale
-Owner: ACCEPTED at 25d4bff718af7136109a5cc7922f0e886fb02aec — current-task Owner decision: `good, this is approved push it Im good on it.`
-Integration: AUTHORIZED — normal PR, CI, expected-head guarded squash merge, and closeout are authorized and pending coordinator host operations; no host operation is claimed by this record.
+Candidate: 78f78d6ac49f4ba391a5fda6225c504b1367ff02
+RobQA: PASS at 78f78d6ac49f4ba391a5fda6225c504b1367ff02 — SEPARATE execution by /root/vm664_robqa; delivery-evidence rebind retains byte-identical corrected product evidence from 25d4bff718af7136109a5cc7922f0e886fb02aec
+Owner: PENDING
+Integration: PENDING
 Dependencies: None
 Decisions: Owner authorized isolated parallel execution under `conversation-2026-09-24-archscry-maze-parallel-exception`; retain existing Archscry placement semantics. Owner rejection of b3c4c0f8 was limited to centering the two mixed-reading Explore pills; card/text alignment, grid geometry, selected state, detail panel, and all protected owners remained locked. The Owner accepted corrected material candidate 25d4bff718af7136109a5cc7922f0e886fb02aec. The Owner then authorized normal integration only if it would not break active VM-663 work; the coordinator compared full paths and observed Archscry-only VM-664 product paths, Maze/Guide-only VM-663 product paths, only generated board/handoff-index overlap, and a clean VM-663 worktree. That condition is satisfied, so normal PR/CI/expected-head guarded squash merge and closeout are authorized.
-Evidence: [RobDev implementation and correction handoff](../../handoffs/2026-09-24-robdev-vm664-archscry-mixed-reading-polish.md); [independent RobQA handoff with corrected-candidate cycle and Owner decision](../../handoffs/2026-09-24-robqa-vm664-archscry-mixed-reading-polish.md); corrected Owner-requested screenshot `C:\Users\obake\.codex\visualizations\2026\09\25\01a0d695-232e-7272-89d7-0c0965cd9deb\vm664-robqa-expanded-mixed-reading.png` (SHA-256 `773ec5b57af95c6a6d594b6089c2c1cc1cdd3799eca93f492f28e3de8e137ad5`).
+Evidence: [RobDev implementation and correction handoff](../../handoffs/2026-09-24-robdev-vm664-archscry-mixed-reading-polish.md); [independent RobQA handoff with delivery-evidence rebind cycle](../../handoffs/2026-09-24-robqa-vm664-archscry-mixed-reading-polish.md); retained corrected Owner-requested screenshot `C:\Users\obake\.codex\visualizations\2026\09\25\01a0d695-232e-7272-89d7-0c0965cd9deb\vm664-robqa-expanded-mixed-reading.png` (SHA-256 `773ec5b57af95c6a6d594b6089c2c1cc1cdd3799eca93f492f28e3de8e137ad5`); coordinator-supplied PR #55 `Deterministic Validation` PASS on exact head 78f78d6ac49f4ba391a5fda6225c504b1367ff02.
 
 ## Admission Scope
 

@@ -228,3 +228,55 @@ This acceptance record is an evidence-only lifecycle delta under the workflow's 
 ### Evidence-only delta review
 
 This append records an Owner integration authorization and a bounded overlap evaluation only. It changes no material candidate, product/runtime/test bytes, RobQA decision, or acceptance criteria. The resulting records-only delta is limited to this handoff, the VM-664 card's Integration/Decision fields, and any faithfully generated board/index projections.
+
+---
+
+## Delivery-evidence rebind QA — 2026-09-25
+
+Task: VM-664
+Candidate: 78f78d6ac49f4ba391a5fda6225c504b1367ff02
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: /root/vm664_robqa
+Implementer: /root/vm664_robdev
+
+This section is a new append-only exact-candidate decision. No prior byte in this handoff was changed during this rebind cycle.
+
+### Why a new material candidate is required
+
+The integration gate found that historical evidence commit `fc7a163bcc91a16d9580c1134a695afeb69d948a` had rewritten the existing handoff's top candidate/report fields while adding the corrected QA cycle. That made the prior post-candidate history ineligible for the workflow's append-only evidence exception. This is a delivery-record classification issue, not a product finding.
+
+Candidate `78f78d6ac49f4ba391a5fda6225c504b1367ff02` therefore becomes the new material boundary. It includes the already reviewed Archscry implementation plus the historical lifecycle/QA/Owner records as material bytes. This rebind does not retroactively label the old rewritten commit append-only.
+
+### Exact delta and product-byte proof
+
+- `git diff --name-status --find-renames 25d4bff718af7136109a5cc7922f0e886fb02aec..78f78d6ac49f4ba391a5fda6225c504b1367ff02` reports only:
+  - `docs/handoffs/2026-09-24-robqa-vm664-archscry-mixed-reading-polish.md`
+  - `docs/kanban/board.md`
+  - `docs/kanban/in-progress/VM-664-archscry-mixed-reading-expansion-polish.md`
+- The Archscry stylesheet blob is identical at both candidates: `1e44d44d0f0960bdc69f87bcf6aa3a657463629c`.
+- The mixed-result renderer blob is identical at both candidates: `7bca5513b96d83ec29a73a667606b1531dc0d1b1`.
+- The focused VM-664 browser-regression blob is identical at both candidates: `9a7882413034812dc7192460148164214f930c54`.
+- No product runtime, test, fixture, data, policy, tool, shared component, Maze, placement, identity, or generated product byte changed from the independently QA-passed corrected candidate.
+
+### Classification and evidence selected
+
+- Review classification: **QA-0 delivery-evidence rebind**, retaining the completed independent QA-2 product evidence because the relevant product/test blobs are byte-identical.
+- Execution: **SEPARATE**. This reviewer did not implement the product candidate or author the intervening lifecycle records.
+- CPU-heavy validation: **NOT REQUIRED**.
+- `npm.cmd run task -- indexes --check`: PASS before this appended rebind record; both projections were fresh.
+- `git diff --check 53cd82ae7acb04990d787169e5e117ae3c782dbc..78f78d6ac49f4ba391a5fda6225c504b1367ff02`: PASS.
+- Branch/head/tracking verification: clean worktree at `78f78d6ac49f4ba391a5fda6225c504b1367ff02`, with `origin/codex/vm-664-archscry-mixed-reading-polish` resolving to the same SHA.
+- Coordinator-supplied PR #55 host evidence: `Deterministic Validation` completed successfully on exact head `78f78d6ac49f4ba391a5fda6225c504b1367ff02`.
+- Focused browser, lint, integrity, smoke, and geometry checks were not rerun: their product/test inputs are byte-identical to `25d4bff718af7136109a5cc7922f0e886fb02aec`, where separate RobQA already passed them. Repeating them would add no changed-risk evidence.
+- Placement/recovery, mutation, all-37, generated-data, and visual-matrix suites remain intentionally skipped for the same unchanged-owner reasons already recorded.
+
+### Retained product evidence and verdict
+
+The corrected product behavior remains the independently measured result recorded above: both mixed Explore controls are centered within 1px at 1440, 820, and 390 widths before and after pointer/keyboard state changes; the sole expanded state, ARIA relationship, shared-panel replacement, containment, no-overflow, and console-clean contracts pass. The existing 1830×732 screenshot hash remains `773ec5b57af95c6a6d594b6089c2c1cc1cdd3799eca93f492f28e3de8e137ad5`; it is not recaptured because rendered product bytes did not change.
+
+No blocker, major, or minor product or evidence-rebind finding remains.
+
+**RobQAPass PASS** for exact material candidate `78f78d6ac49f4ba391a5fda6225c504b1367ff02`.
+
+VM-664 returns to Owner Review with Owner PENDING and Integration PENDING. Earlier Owner decisions remain truthful history for candidate `25d4bff718af7136109a5cc7922f0e886fb02aec`, but they do not bind this new exact material candidate. This decision authorizes no push, PR mutation, merge, integration, deployment, or Maze work.
