@@ -7,7 +7,7 @@ Agent: Codex `/root/vm664_robqa` (repository `robqa` role)
 Task requested: Independently inspect and proportionately validate the exact VM-664 Archscry mixed-reading polish candidate, capture the one Owner-requested expanded-state screenshot, and issue a candidate-bound engineering decision.
 
 Task: VM-664
-Candidate: b3c4c0f8fcffa2534b91898caa6b5598d0627861
+Candidate: 25d4bff718af7136109a5cc7922f0e886fb02aec
 RobQA: PASS
 Execution: SEPARATE
 Reviewer: /root/vm664_robqa
@@ -101,14 +101,15 @@ VM-664 may enter Owner Review with Owner PENDING. Do not push, open a PR, merge,
 ## Material candidate
 
 - Baseline: `53cd82ae7acb04990d787169e5e117ae3c782dbc`
-- Candidate: `b3c4c0f8fcffa2534b91898caa6b5598d0627861`
-- Changed paths: `7`
+- Candidate: `25d4bff718af7136109a5cc7922f0e886fb02aec`
+- Changed paths: `8`
 
 ## Files changed
 
 - `assets/css/archscry.css`
 - `assets/js/archscry/runtime/dossier-view.js`
 - `docs/handoffs/2026-09-24-robdev-vm664-archscry-mixed-reading-polish.md`
+- `docs/handoffs/2026-09-24-robqa-vm664-archscry-mixed-reading-polish.md`
 - `docs/handoffs/HANDOFF_INDEX.md`
 - `docs/kanban/board.md`
 - `docs/kanban/in-progress/VM-664-archscry-mixed-reading-expansion-polish.md`
@@ -116,15 +117,14 @@ VM-664 may enter Owner Review with Owner PENDING. Do not push, open a PR, merge,
 
 ## Evidence delta
 
-- Material candidate: `b3c4c0f8fcffa2534b91898caa6b5598d0627861`
+- Material candidate: `25d4bff718af7136109a5cc7922f0e886fb02aec`
 - Evidence head: `HEAD`
-- Additional evidence-only paths: `4`
+- Additional evidence-only paths: `3`
 - This evidence-only delta is not the full task diff.
 
 ## Evidence-only paths
 
 - `docs/handoffs/2026-09-24-robqa-vm664-archscry-mixed-reading-polish.md`
-- `docs/handoffs/HANDOFF_INDEX.md`
 - `docs/kanban/board.md`
 - `docs/kanban/in-progress/VM-664-archscry-mixed-reading-expansion-polish.md`
 
@@ -195,3 +195,22 @@ The screenshot was overwritten only after the corrected candidate passed the obj
 **RobQAPass PASS** for exact material candidate `25d4bff718af7136109a5cc7922f0e886fb02aec`.
 
 VM-664 may return to Owner Review with Owner PENDING. No push, PR, merge, integration, Maze work, or additional product change is authorized by this decision.
+
+---
+
+## Owner acceptance decision — 2026-09-24
+
+- Current-task Owner decision: `good, this is approved push it Im good on it.`
+- Accepted material candidate: `25d4bff718af7136109a5cc7922f0e886fb02aec`.
+- Engineering evidence binding retained: separate RobQA **PASS** for that exact candidate; corrected-candidate QA evidence head `fc7a163bcc91a16d9580c1134a695afeb69d948a`.
+- Lifecycle disposition: the card moves from **Owner Review** to **Accepted**. This authentic Owner decision does not rewrite or expand the preceding independent RobQA evidence.
+- Authorized next action: push the existing branch only. The coordinator explicitly stops after push; no PR creation, merge, integration, deployment, or Maze work is authorized without a separate explicit Owner integration request.
+
+### Evidence-only delta review
+
+This acceptance record is an evidence-only lifecycle delta under the workflow's candidate-and-evidence exception. It changes only the VM-664 card's Owner/Integration/decision fields, this append-only durable decision record, and faithfully generated board/index projections. It does not change the accepted material candidate, product/runtime/test bytes, RobQA verdict, or acceptance criteria.
+
+- Material candidate: `25d4bff718af7136109a5cc7922f0e886fb02aec`.
+- Pre-acceptance evidence head: `fc7a163bcc91a16d9580c1134a695afeb69d948a`.
+- Evidence review: exact candidate and RobQA binding verified from the card and this handoff; Owner wording is preserved verbatim; no material paths are included in the acceptance delta.
+- Required records: `docs/kanban/in-progress/VM-664-archscry-mixed-reading-expansion-polish.md`, this handoff, `docs/kanban/board.md`, and `docs/handoffs/HANDOFF_INDEX.md`.
