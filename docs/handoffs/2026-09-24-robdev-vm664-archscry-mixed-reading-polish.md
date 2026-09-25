@@ -6,6 +6,12 @@ Agent: Codex `/root/vm664_robdev` (repository `robdev` role)
 
 Status: Material candidate prepared; independent RobQA required before Owner Review.
 
+## Owner rejection and correction boundary
+
+The Owner rejected material candidate `b3c4c0f8fcffa2534b91898caa6b5598d0627861` for one visual finding: center the `Explore Azorius Senate` and `Explore White` pills horizontally within their mixed-reading direction cards. Its RobQA PASS is stale for the correction candidate.
+
+The correction is limited to a mixed-shell-only control alignment rule and a focused geometry assertion. It must not alter card or copy alignment, the responsive grid, selected state, detail panel, ordinary result shells, global buttons/cards, placement, identity, data, Maze, or shared behavior.
+
 ## Delivery identity
 
 - Task: VM-664
