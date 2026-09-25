@@ -2,7 +2,7 @@
 
 ID: VM-665
 Title: Apocrypha Open-Surface Convergence
-Status: In Progress
+Status: Owner Review
 Type: Bounded public-route presentation
 Area: Apocrypha
 Priority: High
@@ -37,19 +37,19 @@ Adopt the accepted Home, Archscry, and Maze open, rule-led visual family on Apoc
 
 ## Acceptance Criteria
 
-- [ ] `apocrypha.css?v=vm635` remains unchanged and precedes new `site-skin.css?v=vm665`; body adds exactly the site-skin and Apocrypha route classes while retaining existing data attributes.
-- [ ] Every selector added by the VM-665 adapter, including media-query selectors, is rooted at `body.vm-site-skin.vm-apocrypha-route`; no other route receives a new matching rule.
-- [ ] `.apoc-page` has the intended 1280px maximum family width and reaches it within normal subpixel tolerance on a sufficiently wide desktop viewport; it is centered and retains the approximately 24px desktop / 20px narrow gutter contract.
-- [ ] Desktop hero is a two-column opening and stacks at the existing 980px threshold without DOM reordering or a new breakpoint.
-- [ ] Structural owners use transparent computed background color, no background image, no box shadow, and no backdrop filter, including relevant pseudo-surfaces: hero copy/signal, signal items, rail, source tomes, library groups, subgroup shelves, and `.apoc-use-note`.
-- [ ] Topbar, menu/return surfaces, compact charcoal `.apoc-section__head`, source/reference cards, actions, badges/counts, and naturally reachable status surfaces remain solid, bounded, legible, and authority-differentiated.
-- [ ] Desktop `.apoc-rail` retains its intended sticky computed positioning. At approximately 390px, the source compass remains internally horizontally usable without document overflow, and activating its far-end item opens the intended group/current state.
-- [ ] Compass, exactly-one-open group, hash activation, disclosure behavior, scroll anchoring, and source-link/action behavior remain intact.
-- [ ] Keyboard traversal reaches a library disclosure and a source link/action, and focus produces a measurable visual difference from each element's unfocused state using the existing focus implementation rather than requiring a specific CSS property.
-- [ ] The focused browser harness visits `/library/` and deterministically proves its existing redirect/fallback resolves to the expected Apocrypha document.
-- [ ] Rendering/source/fallback validators remain green. The stale pre-VM-645 Apocrypha visual comparator is neither run nor regenerated.
-- [ ] Before handoff, the candidate material diff contains only the four expected implementation/test paths unless a documented stop condition was triggered. Lifecycle card/handoff/generated-view records are accounted separately.
-- [ ] Independent RobQA reviews the exact candidate. Objective behavior is agent-verified; final visual hierarchy, density, readability, and family fit remain Owner judgment.
+- [x] `apocrypha.css?v=vm635` remains unchanged and precedes new `site-skin.css?v=vm665`; body adds exactly the site-skin and Apocrypha route classes while retaining existing data attributes.
+- [x] Every selector added by the VM-665 adapter, including media-query selectors, is rooted at `body.vm-site-skin.vm-apocrypha-route`; no other route receives a new matching rule.
+- [x] `.apoc-page` has the intended 1280px maximum family width and reaches it within normal subpixel tolerance on a sufficiently wide desktop viewport; it is centered and retains the approximately 24px desktop / 20px narrow gutter contract.
+- [x] Desktop hero is a two-column opening and stacks at the existing 980px threshold without DOM reordering or a new breakpoint.
+- [x] Structural owners use transparent computed background color, no background image, no box shadow, and no backdrop filter, including relevant pseudo-surfaces: hero copy/signal, signal items, rail, source tomes, library groups, subgroup shelves, and `.apoc-use-note`.
+- [x] Topbar, menu/return surfaces, compact charcoal `.apoc-section__head`, source/reference cards, actions, badges/counts, and naturally reachable status surfaces remain solid, bounded, legible, and authority-differentiated.
+- [x] Desktop `.apoc-rail` retains its intended sticky computed positioning. At approximately 390px, the source compass remains internally horizontally usable without document overflow, and activating its far-end item opens the intended group/current state.
+- [x] Compass, exactly-one-open group, hash activation, disclosure behavior, scroll anchoring, and source-link/action behavior remain intact.
+- [x] Keyboard traversal reaches a library disclosure and a source link/action, and focus produces a measurable visual difference from each element's unfocused state using the existing focus implementation rather than requiring a specific CSS property.
+- [x] The focused browser harness visits `/library/` and deterministically proves its existing redirect/fallback resolves to the expected Apocrypha document.
+- [x] Rendering/source/fallback validators remain green. The stale pre-VM-645 Apocrypha visual comparator is neither run nor regenerated.
+- [x] Before handoff, the candidate material diff contains only the four expected implementation/test paths unless a documented stop condition was triggered. Lifecycle card/handoff/generated-view records are accounted separately.
+- [x] Independent RobQA reviews the exact candidate. Objective behavior is agent-verified; final visual hierarchy, density, readability, and family fit remain Owner judgment.
 
 ## Files Likely Impacted
 
@@ -76,13 +76,13 @@ Follow the Owner-approved prompt in the current task and the linked reconnaissan
 Record version: 1
 Branch: codex/vm-665-apocrypha-open-surface-convergence
 Admission baseline: 3245dd4ddd9930fc5cf20e5f9f1d04f53b2ea7fb
-Candidate: PENDING
-RobQA: PENDING
+Candidate: 7547c69cee9e218f6658bd4ed4961353f825be3e
+RobQA: PASS at 7547c69cee9e218f6658bd4ed4961353f825be3e — SEPARATE review by `/root/vm665_robqa`; implementation by `/root`
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Decisions: Owner authorized implementation after reviewing and refining the deep reconnaissance and execution prompt. Expected material implementation/test scope is exactly four paths. Keep `assets/css/apocrypha.css` protected unless a demonstrated selector conflict triggers an explicit stop and scope decision. Use the existing 980px responsive threshold, property-complete computed-style evidence, sticky/compass/focus/alias checks, no new dependencies, and no manufactured runtime failure states. OWNER-VISUAL remains active.
-Evidence: [Planning reconnaissance](../../handoffs/2026-09-25-0650-planning-architect-apocrypha-open-surface-recon.md).
+Evidence: [Planning reconnaissance](../../handoffs/2026-09-25-0650-planning-architect-apocrypha-open-surface-recon.md); [RobDev handoff](../../handoffs/2026-09-25-robdev-vm665-apocrypha-open-surface.md); [independent RobQA PASS](../../handoffs/2026-09-25-robqa-vm665-apocrypha-open-surface.md).
 
 ## Admission Scope
 

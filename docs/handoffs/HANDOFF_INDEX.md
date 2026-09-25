@@ -1,4 +1,4 @@
-<!-- task-view-sha256:2987e19eda773774ac34ccee51f22b9c990472a9eed537bbcb186ee91cda5f10 -->
+<!-- task-view-sha256:6ea31733ea2fb85a637844f617b1f45917b1524b2952c314140ea3897591d3ab -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -12,6 +12,7 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 | 2026-09-25T00:00:00Z (authored) | Unknown | [VM-663 — Integration And Closeout](2026-09-25-codex-vm663-closeout.md) | VM-663 | Identity displayed from heading; not admission metadata. |
 | 2026-09-25T00:00:00Z (authored) | Unknown | [VM-664 — Integration And Closeout](2026-09-25-codex-vm664-closeout.md) | VM-664 | Identity displayed from heading; not admission metadata. |
 | 2026-09-25T00:00:00Z (authored) | Codex `/root` (repository `robdev` role) | [VM-665 — Apocrypha Open-Surface Convergence: RobDev Handoff](2026-09-25-robdev-vm665-apocrypha-open-surface.md) | VM-665 | Identity displayed from heading; not admission metadata. |
+| 2026-09-25T00:00:00Z (authored) | Codex `/root/vm665_robqa` (repository `robqa` role; separate from implementation) | [VM-665 — Apocrypha Open-Surface Convergence: Independent RobQA PASS](2026-09-25-robqa-vm665-apocrypha-open-surface.md) | VM-665 | Identity displayed from heading; not admission metadata. |
 | 2026-09-24T20:26:00Z (filename) | Unknown | [VM-663 — Maze mode-owned workbench implementation](2026-09-24-2026-codex-vm663-mode-owned-workbench.md) | VM-663 | Identity displayed from heading; not admission metadata. Invalid authored date; filename fallback or undated ordering used. |
 | 2026-09-24T20:26:00Z (filename) | Unknown | [VM-663 — Independent RobQA: mode-owned workbench](2026-09-24-2026-robqa-vm663-mode-owned-workbench.md) | VM-663 | Identity displayed from heading; not admission metadata. Invalid authored date; filename fallback or undated ordering used. |
 | 2026-09-24T00:00:00Z (authored) | Kanban Steward subagent `/root/kanban_steward` | [VM-663 — Kanban intake: Maze Mode-Owned Workbench Layout](2026-09-24-1617-kanban-steward-vm663-maze-mode-owned-workbench-layout.md) | VM-663, VM-662 | Identity displayed from heading; not admission metadata. |
