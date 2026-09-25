@@ -28,7 +28,7 @@
 <link rel="stylesheet" href="../assets/css/components.css?v=vm612">
 <link rel="stylesheet" href="../assets/vendor/mana/css/mana.min.css">
 <link rel="stylesheet" href="../assets/css/guide-beacon.css?v=vm620">
-<link rel="stylesheet" href="../assets/css/maze.css?v=vm662r9">
+<link rel="stylesheet" href="../assets/css/maze.css?v=vm663r4">
 <link rel="stylesheet" href="../assets/css/site-skin.css?v=vm652">
 </head>
 <body class="vm-site-skin vm-maze-route" data-page="maze" data-vm-current="maze" data-bg="medium" data-vm-atmosphere="rich" data-maze-mode="ai" data-stash-open="false" data-pending-suggestion="false">
@@ -146,7 +146,12 @@
               aria-label="Maze search query"
               placeholder="e.g. red and black orcs, green haste, blue removal"></textarea>
           </div>
-          <button class="btn-clear" id="clear-search-btn" type="button" data-action="clear-search">Clear</button>
+          <div class="search-primary-actions" aria-label="Search controls">
+            <button class="btn-search" id="search-btn" type="button" data-action="search">Search</button>
+            <button class="btn-clear" id="clear-search-btn" type="button" data-action="clear-search">Clear</button>
+            <button class="query-action-btn operator-query-action search-copy-btn is-disabled" id="search-copy-btn" type="button" data-action="copy-query" disabled>Copy</button>
+            <a class="query-action-btn operator-query-action search-scryfall-link is-disabled" id="search-scryfall-link" href="#" target="_blank" rel="noopener" aria-disabled="true" tabindex="-1">Open in Scryfall</a>
+          </div>
         </div>
       </section>
 
@@ -289,6 +294,7 @@
 
         <div class="builder-edit-actions">
           <button class="query-action-btn" id="loom-reset-btn" type="button" data-action="reset-builder">Reset Loom</button>
+          <button class="btn-search" id="loom-search-btn" type="button" data-action="search">Search these Loom filters</button>
         </div>
 
         <p class="visually-hidden" id="builder-summary" aria-live="polite">Commander format is ready. Add filters or search as-is.</p>
@@ -298,7 +304,6 @@
         <span class="maze-selected-search-source" id="maze-selected-search-source"></span>
         <strong id="maze-selected-search-label"></strong>
         <span id="maze-selected-search-hint"></span>
-        <span class="maze-selected-search-loom" id="maze-selected-search-loom" hidden>Loom filters are unchanged; Search will use this selection.</span>
         <button class="query-action-btn" type="button" data-action="restore-suggestion-draft">Return to draft</button>
       </div>
 
@@ -312,24 +317,8 @@
         <span class="qi-reason hidden" id="qi-reason"></span>
       </section>
 
-      <div class="maze-query-execution">
-        <section class="exact-query-panel hidden" id="exact-query-panel" aria-labelledby="exact-query-title" aria-live="polite">
-          <div class="exact-query-head">
-            <span class="maze-section-label" id="exact-query-title">Exact Scryfall query</span>
-            <span class="qi-execution-state" id="qi-execution-state"></span>
-          </div>
-          <code class="qi-query" id="qi-query"></code>
-          <div class="exact-query-actions">
-            <button class="query-action-btn search-copy-btn is-disabled" id="search-copy-btn" type="button" data-action="copy-query" disabled>Copy</button>
-            <a class="query-action-btn search-scryfall-link is-disabled" id="search-scryfall-link" href="#" target="_blank" rel="noopener" aria-disabled="true" tabindex="-1">Open in Scryfall</a>
-          </div>
-        </section>
-
-        <div class="maze-execution-row">
-          <button class="btn-search" id="search-btn" type="button" data-action="search">Search</button>
-          <button class="btn-search" id="loom-search-btn" type="button" data-action="search">Search these Loom filters</button>
-        </div>
-      </div>
+      <output id="qi-query" hidden></output>
+      <span id="qi-execution-state" hidden></span>
     </div>
 </div>
 </section>
@@ -343,7 +332,7 @@
       <div class="sb-label">From Your Dossier</div>
       <div id="reading-path-list"></div>
     </div>
-    <div class="sb-section">
+    <div class="sb-section" id="maze-discovery-section">
       <div class="sb-label">Discovery Paths</div>
       <div id="discovery-path-list"></div>
     </div>
@@ -351,27 +340,10 @@
       <summary class="sb-summary"><span class="sb-label">Recent Searches</span></summary>
       <div class="recent-list" id="recent-list"></div>
     </details>
-    <details class="sb-section sb-section-helper">
+    <details class="sb-section sb-section-helper" id="maze-helper-section">
       <summary class="sb-summary"><span class="sb-label">Helper Searches</span></summary>
       <div id="quick-search-list"></div>
     </details>
-    <details class="sb-section sb-section-color" id="sidebar-color-section">
-      <summary class="sb-summary"><span class="sb-label">By Color</span></summary>
-      <div class="color-grid" id="color-grid"></div>
-    </details>
-    <div class="sb-section" id="sidebar-format-section">
-      <div class="sb-label">Format</div>
-      <select class="sb-select" id="sb-format">
-        <option value="">Any format</option>
-        <option value="commander" selected>Commander</option>
-        <option value="modern">Modern</option>
-        <option value="pioneer">Pioneer</option>
-        <option value="standard">Standard</option>
-        <option value="legacy">Legacy</option>
-        <option value="pauper">Pauper</option>
-        <option value="vintage">Vintage</option>
-      </select>
-    </div>
   </aside>
 
   <!-- Results -->
@@ -472,7 +444,7 @@
   </div>
 </div>
 <div class="maze-toast" id="toast" role="status" aria-live="polite"></div>
-<script type="module" src="../assets/js/maze/research-init.js?v=vm662r9"></script>
+<script type="module" src="../assets/js/maze/research-init.js?v=vm663r4"></script>
 <script src="../assets/js/shared/vm-rich-atmosphere.js" defer></script>
 <script src="../assets/js/shared/reduce-motion.js" defer></script>
 <script src="../assets/js/shared/guide-beacon.js?v=vm620" defer></script>
