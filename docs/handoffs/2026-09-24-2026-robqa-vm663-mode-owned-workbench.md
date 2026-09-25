@@ -446,3 +446,43 @@ This PASS binds only the corrected full candidate SHA above. The earlier supplie
 - Intentionally skipped: VM-664's already governed exhaustive QA, stale `test:maze-onboarding`, stale `test:vm619-guided-reading`, historical stale `test:maze-results-layout`, broad engine/journey suites, mutation/performance/network suites, screenshots, visual regression, animation fidelity, and viewport matrices. Exact byte identity plus the fresh focused contract gives stronger causal evidence for this reconciliation than reopening unrelated owners or known harness debt.
 
 BLOCKER / MAJOR / MINOR findings: none. Lifecycle and Owner disposition remain governed by the authoritative VM-663 card; this record changes neither.
+
+## Append-only clean-history admission binding — exact-candidate RobQA
+
+Task: VM-663
+Candidate: 2fd4f0a0eb4102e66d7f40b555d16b23c878353f
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: Codex /root/vm663_independent_robqa
+Implementer: Codex /root
+
+### Candidate-bound decision
+
+Exact clean-history material candidate `2fd4f0a0eb4102e66d7f40b555d16b23c878353f` passes SEPARATE independent RobQA. Its direct parent is isolated admission commit `b91ee59ed2c09726a856b7a1c25ef9845ef3c47d`, whose direct parent is accepted VM-664 main baseline `67c097598ec441fb78e015c9d2b8fa97bebba8f1`. The worktree was clean and `HEAD` resolved to the exact candidate before review.
+
+This engineering PASS binds only this exact material SHA. It does not replace Owner judgment, authorize integration, or revive any earlier candidate binding.
+
+### Clean-history and byte-identity evidence
+
+- Git ancestry — **PASS**: `67c097598ec441fb78e015c9d2b8fa97bebba8f1` → `b91ee59ed2c09726a856b7a1c25ef9845ef3c47d` → `2fd4f0a0eb4102e66d7f40b555d16b23c878353f`.
+- Exact blob comparison against previously passed reconciled candidate `2897907e63bdc06f720ae6b900418e147defa111` — **PASS** for `assets/css/guide-maze.css`, `assets/css/maze.css`, `assets/js/maze/research-init.js`, `assets/js/maze/research-ui.js`, `guide/maze/index.html`, `maze/index.html`, and `tests/maze/maze-modernization-remediation-tests.js`.
+- Range inspection — **PASS**. The isolated admission contains only the truthful VM-663 card plus generated board state; the material commit replays the admitted VM-663 runtime, tests, and durable handoffs without introducing an unrelated product owner. The card records baseline `67c097598ec441fb78e015c9d2b8fa97bebba8f1` with Candidate, RobQA, Owner, and Integration pending before this QA decision.
+
+### Fresh selected evidence
+
+- `npm.cmd run lint:html` — **PASS**.
+- `npm.cmd run lint:js` — **PASS** for 37 frontend files.
+- `npm.cmd run test:mode` — **PASS**, 14 mode-continuity and 14 syntax-leakage cases.
+- `npm.cmd run test:builder` — **PASS**, 14 builder cases including Commander-first defaults.
+- `npm.cmd run test:maze-finds` — **PASS**.
+- `node tests/maze/maze-modernization-remediation-tests.js` — **PASS**, screenshots disabled. The real-browser fixture preserved the accepted workbench/Results geometry, Search/action ownership, exact Operator controls, Loom filter continuity, zero-request mode switching, one-request execution paths, transparent guide/dossier structure, solid guided-popover and Reading Finds surfaces, 24-to-48 Results, modal behavior, and one responsive Reading Finds tree. At 390px the document measured 375px and Current Weave remained displayed, non-zero, and contained.
+- `git diff --check 67c097598ec441fb78e015c9d2b8fa97bebba8f1..2fd4f0a0eb4102e66d7f40b555d16b23c878353f` — **PASS**.
+
+### Proportionality and remaining judgment
+
+- QA tier: **QA-2**, retained because the contract includes objective responsive visibility, containment, rendered surface ownership, and request/state transitions.
+- CPU-heavy validation: **NOT REQUIRED**. The clean-history replay changed no parser/compiler, request, search, result, placement, generated-data, cache, storage, or migration owner beyond the already passed VM-663 material.
+- Intentionally skipped: stale `test:maze-onboarding`, stale `test:vm619-guided-reading`, historical stale `test:maze-results-layout`, VM-664's already governed suites, broad engine/journey and mutation/performance/network suites, screenshots, visual regression, animation fidelity, and viewport matrices. Exact blob identity plus the fresh focused checks are the strongest causal evidence for this replay.
+- Browser automation was justified only for objective rendered geometry, computed surfaces, responsive containment, and real state/request transitions; it did not certify aesthetics.
+
+BLOCKER / MAJOR / MINOR findings: none. Owner remains **PENDING** on this exact clean-history candidate; Integration remains **PENDING**.
