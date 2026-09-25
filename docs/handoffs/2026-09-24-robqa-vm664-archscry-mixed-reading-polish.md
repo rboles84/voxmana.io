@@ -214,3 +214,17 @@ This acceptance record is an evidence-only lifecycle delta under the workflow's 
 - Pre-acceptance evidence head: `fc7a163bcc91a16d9580c1134a695afeb69d948a`.
 - Evidence review: exact candidate and RobQA binding verified from the card and this handoff; Owner wording is preserved verbatim; no material paths are included in the acceptance delta.
 - Required records: `docs/kanban/in-progress/VM-664-archscry-mixed-reading-expansion-polish.md`, this handoff, `docs/kanban/board.md`, and `docs/handoffs/HANDOFF_INDEX.md`.
+
+---
+
+## Owner integration authorization — 2026-09-24
+
+- Current-task Owner follow-up: `go ahead and merge if it wont break anything Im doing in 663 else I will have ot merge both together after both are done.`
+- Condition evaluation supplied by the coordinator: VM-664 product paths are Archscry-only; active VM-663 product paths are Maze/Guide-only; the only overlap is generated `docs/kanban/board.md` and `docs/handoffs/HANDOFF_INDEX.md`; the VM-663 worktree was clean at observation.
+- Decision: the stated condition is satisfied. Normal VM-664 PR, CI, expected-head guarded squash merge, and closeout are now authorized.
+- Preserved binding: accepted material candidate `25d4bff718af7136109a5cc7922f0e886fb02aec`; separate RobQA PASS and corrected-candidate evidence remain unchanged.
+- Truthful current state: this record authorizes subsequent host operations but does not claim a push, PR, CI result, merge, integration, deployment, or closeout has happened.
+
+### Evidence-only delta review
+
+This append records an Owner integration authorization and a bounded overlap evaluation only. It changes no material candidate, product/runtime/test bytes, RobQA decision, or acceptance criteria. The resulting records-only delta is limited to this handoff, the VM-664 card's Integration/Decision fields, and any faithfully generated board/index projections.
