@@ -2,7 +2,7 @@
 
 ID: VM-664
 Title: Archscry Mixed-Reading Expansion Polish
-Status: In Progress
+Status: Owner Review
 Type: Production presentation and interaction polish
 Area: Archscry placement mixed-result shell
 Priority: High
@@ -31,12 +31,12 @@ Current Owner request and supplied screenshots. The Owner explicitly authorized 
 
 ## Acceptance Criteria
 
-- [ ] Expanding either direction leaves the mixed reading spatially coherent: the selected direction and its shared detail are visibly related, contained, and intentionally spaced.
-- [ ] Exactly one selected direction is exposed at a time; switching directions replaces rather than accumulates detail, while existing Explore and Restart behavior remains unchanged.
-- [ ] The existing mixed-result grid remains responsive and does not gain horizontal overflow at representative desktop and narrow widths.
-- [ ] The scoped control/detail relationship exposes truthful expanded state without changing placement or identity semantics.
-- [ ] No unscoped shared-card or Maze styling changes are introduced.
-- [ ] Separate RobDev implementation and independent RobQA pass for the exact material candidate are recorded; RobQA supplies one representative expanded mixed-reading screenshot for the Owner.
+- [x] Expanding either direction leaves the mixed reading spatially coherent: the selected direction and its shared detail are visibly related, contained, and intentionally spaced.
+- [x] Exactly one selected direction is exposed at a time; switching directions replaces rather than accumulates detail, while existing Explore and Restart behavior remains unchanged.
+- [x] The existing mixed-result grid remains responsive and does not gain horizontal overflow at representative desktop and narrow widths.
+- [x] The scoped control/detail relationship exposes truthful expanded state without changing placement or identity semantics.
+- [x] No unscoped shared-card or Maze styling changes are introduced.
+- [x] Separate RobDev implementation and independent RobQA pass for the exact material candidate are recorded; RobQA supplies one representative expanded mixed-reading screenshot for the Owner.
 
 ## Files Likely Impacted
 
@@ -66,13 +66,13 @@ At the time of admission, unrelated VM-663 Maze work was active in a different w
 Record version: 1
 Branch: codex/vm-664-archscry-mixed-reading-polish
 Admission baseline: 53cd82ae7acb04990d787169e5e117ae3c782dbc
-Candidate: PENDING
-RobQA: PENDING
+Candidate: b3c4c0f8fcffa2534b91898caa6b5598d0627861
+RobQA: PASS at b3c4c0f8fcffa2534b91898caa6b5598d0627861 — SEPARATE execution by /root/vm664_robqa
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Decisions: Owner authorized isolated parallel execution under `conversation-2026-09-24-archscry-maze-parallel-exception`; retain existing Archscry placement semantics and stop at Owner Review after separate RobDev and independent RobQA evidence.
-Evidence: PENDING — expected RobDev and independent RobQA handoffs below.
+Evidence: [RobDev implementation handoff](../../handoffs/2026-09-24-robdev-vm664-archscry-mixed-reading-polish.md); [independent RobQA handoff](../../handoffs/2026-09-24-robqa-vm664-archscry-mixed-reading-polish.md); Owner-requested screenshot `C:\Users\obake\.codex\visualizations\2026\09\25\01a0d695-232e-7272-89d7-0c0965cd9deb\vm664-robqa-expanded-mixed-reading.png`.
 
 ## Admission Scope
 
