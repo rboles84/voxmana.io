@@ -341,3 +341,18 @@ No blocker, major, or minor product or record-rebind finding remains.
 **RobQAPass PASS** for exact material candidate `1c714d53b56b071162b6584b3756a95089659792`.
 
 VM-664 returns to Owner Review with Owner PENDING and Integration PENDING. Earlier Owner decisions remain preserved as history for their exact candidates but do not bind this new material boundary. This QA decision authorizes no push, PR mutation, merge, integration, deployment, or VM-663 work.
+
+---
+
+## Owner acceptance of decisions-field material boundary — 2026-09-25
+
+Task: VM-664
+Candidate: 1c714d53b56b071162b6584b3756a95089659792
+Owner: ACCEPT
+Decision reference: Current Codex task Owner messages: `good, this is approved push it Im good on it.` and `go ahead and merge if it wont break anything Im doing in 663 else I will have ot merge both together after both are done.`
+
+This section newly binds the authentic Owner acceptance and conditional integration authorization to the exact independently RobQA-PASSed material boundary `1c714d53b56b071162b6584b3756a95089659792`. The material-boundary change after the prior accepted candidate is limited to delivery records; the accepted Archscry CSS, renderer, browser test, and screenshot remain byte-identical.
+
+The merge condition was refreshed immediately before this record: the VM-663 worktree is clean, its product scope is Maze/Guide-only, VM-664 product scope is Archscry-only, and the only shared paths are generated `docs/kanban/board.md` and `docs/handoffs/HANDOFF_INDEX.md`. VM-664 therefore does not incorporate, overwrite, or block VM-663 product work.
+
+Authorization: push this evidence-only binding, update PR #55 to the exact branch head, require exact-head Deterministic Validation, then use the expected-head guarded squash merge and governed closeout. This record does not claim that any of those host operations has already occurred.

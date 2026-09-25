@@ -2,7 +2,7 @@
 
 ID: VM-664
 Title: Archscry Mixed-Reading Expansion Polish
-Status: Owner Review
+Status: Accepted
 Type: Production presentation and interaction polish
 Area: Archscry placement mixed-result shell
 Priority: High
@@ -68,8 +68,8 @@ Branch: codex/vm-664-archscry-mixed-reading-polish
 Admission baseline: 53cd82ae7acb04990d787169e5e117ae3c782dbc
 Candidate: 1c714d53b56b071162b6584b3756a95089659792
 RobQA: PASS at 1c714d53b56b071162b6584b3756a95089659792 — SEPARATE execution by /root/vm664_robqa; record-boundary rebind retains byte-identical corrected product evidence
-Owner: PENDING
-Integration: PENDING
+Owner: ACCEPTED at 1c714d53b56b071162b6584b3756a95089659792 — current-task Owner acceptance and conditional merge authorization are bound in the appended RobQA handoff record.
+Integration: AUTHORIZED — normal PR, CI, expected-head guarded squash merge, and closeout are authorized and pending coordinator host operations; no host operation is claimed by this record.
 Dependencies: None
 Decisions: Owner authorized isolated parallel execution under `conversation-2026-09-24-archscry-maze-parallel-exception`; retain existing Archscry placement semantics. Owner rejection of b3c4c0f8 was limited to centering the two mixed-reading Explore pills; card/text alignment, grid geometry, selected state, detail panel, and all protected owners remained locked. The Owner accepted corrected material candidate 25d4bff718af7136109a5cc7922f0e886fb02aec. The Owner then authorized normal integration only if it would not break active VM-663 work; the coordinator compared full paths and observed Archscry-only VM-664 product paths, Maze/Guide-only VM-663 product paths, only generated board/handoff-index overlap, and a clean VM-663 worktree. That condition is satisfied. The exact-candidate rebind is delivery-record-only and independently RobQA-PASSed at 78f78d6ac49f4ba391a5fda6225c504b1367ff02; the same authentic Owner decisions are newly bound to that candidate in the append-only handoff section, so normal PR/CI/expected-head guarded squash merge and closeout are authorized.
 Evidence: [RobDev implementation and correction handoff](../../handoffs/2026-09-24-robdev-vm664-archscry-mixed-reading-polish.md); [independent RobQA handoff with decisions-field material-boundary QA](../../handoffs/2026-09-24-robqa-vm664-archscry-mixed-reading-polish.md); retained corrected Owner-requested screenshot `C:\Users\obake\.codex\visualizations\2026\09\25\01a0d695-232e-7272-89d7-0c0965cd9deb\vm664-robqa-expanded-mixed-reading.png` (SHA-256 `773ec5b57af95c6a6d594b6089c2c1cc1cdd3799eca93f492f28e3de8e137ad5`).
