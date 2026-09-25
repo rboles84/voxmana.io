@@ -17,8 +17,14 @@ const viewports = {
 const viewportEntries = requestedViewport === "all"
   ? Object.entries(viewports)
   : [[requestedViewport, viewports[requestedViewport]]];
+const archscryStyles = await readFile(path.join(root, "assets", "css", "archscry.css"), "utf8");
 
 assert.ok(viewportEntries.every(([, viewport]) => viewport), `Unknown viewport ${requestedViewport}`);
+assert.match(
+  archscryStyles,
+  /\.bounded-result-shell\[data-result-state="mixed"\]\s+\.bounded-direction-card\s*>\s*\[data-bounded-direction-control\]\s*\{[^}]*\balign-self:\s*center;/s,
+  "VM-664 must center direction controls only through the mixed-result shell selector"
+);
 
 const mixedResultFixture = {
   version: "vm664-browser-fixture",
@@ -112,6 +118,10 @@ function assertState(state, { selectedIdentity, detailTitle, viewportName }) {
   assert.equal(state.documentOverflow, false, `${viewportName}: mixed reading introduced horizontal document overflow`);
   assert.equal(state.detailContained, true, `${viewportName}: expanded detail escaped the mixed-result shell`);
   assert.equal(state.detailPanelCount, 1, `${viewportName}: direction switching accumulated detail panels`);
+  assert.ok(
+    state.directionControlGeometry.every((control) => control.centerDelta <= 1 && control.inMixedShell),
+    `${viewportName}: each Explore control must be centered inside its own mixed-reading direction card`
+  );
   assert.equal(state.selectedCards.length, 1, `${viewportName}: exactly one direction card must be selected`);
   assert.equal(state.selectedCards[0], selectedIdentity, `${viewportName}: wrong direction card is selected`);
   assert.equal(state.expandedControls.length, 1, `${viewportName}: exactly one direction control must be expanded`);
@@ -151,6 +161,19 @@ async function captureState(page) {
           controls: control.getAttribute("aria-controls"),
           expanded: control.getAttribute("aria-expanded"),
         })),
+      directionControlGeometry: [...shell?.querySelectorAll("[data-bounded-direction-control]") || []]
+        .map((control) => {
+          const card = control.closest("[data-bounded-direction-card]");
+          const controlRect = rect(control);
+          const cardRect = rect(card);
+          return {
+            identity: control.dataset.viewKey,
+            centerDelta: controlRect && cardRect
+              ? Math.abs((controlRect.left + controlRect.right) / 2 - (cardRect.left + cardRect.right) / 2)
+              : Number.POSITIVE_INFINITY,
+            inMixedShell: Boolean(card?.closest('.bounded-result-shell[data-result-state="mixed"]')),
+          };
+        }),
       limitationPresent: Boolean(shell?.querySelector(".bounded-result-limitation")),
       restartPresent: Boolean(shell?.querySelector('[data-action="start-quick-flow"]')),
     };
@@ -177,6 +200,10 @@ async function verifyViewport(browser, origin, viewportName, viewport) {
     assert.equal(initial.initialControlState.length, 2, `${viewportName}: fixture directions did not render`);
     assert.deepEqual(initial.initialControlState.map((control) => control.expanded), ["false", "false"], `${viewportName}: direction controls must begin collapsed`);
     assert.deepEqual(initial.initialControlState.map((control) => control.controls), ["bounded-direction-detail", "bounded-direction-detail"], `${viewportName}: direction controls must point to the single shared detail region`);
+    assert.ok(
+      initial.directionControlGeometry.every((control) => control.centerDelta <= 1 && control.inMixedShell),
+      `${viewportName}: each initial Explore control must be centered inside its own mixed-reading direction card`
+    );
     assert.equal(initial.limitationPresent, true, `${viewportName}: no-discriminator note changed unexpectedly`);
     assert.equal(initial.restartPresent, true, `${viewportName}: Restart action changed unexpectedly`);
 

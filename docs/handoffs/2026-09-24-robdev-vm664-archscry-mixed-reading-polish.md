@@ -12,6 +12,17 @@ The Owner rejected material candidate `b3c4c0f8fcffa2534b91898caa6b5598d0627861`
 
 The correction is limited to a mixed-shell-only control alignment rule and a focused geometry assertion. It must not alter card or copy alignment, the responsive grid, selected state, detail panel, ordinary result shells, global buttons/cards, placement, identity, data, Maze, or shared behavior.
 
+The correction uses `.bounded-result-shell[data-result-state="mixed"] .bounded-direction-card > [data-bounded-direction-control] { align-self: center; }`. The regression asserts this exact narrow selector in source and measures every mixed-direction control's horizontal center against its containing card at desktop, intermediate, and mobile widths, before and after direction switching.
+
+Correction developer evidence passed:
+
+- `npm.cmd run lint:js`
+- `node scripts/vm664-archscry-mixed-reading-browser.mjs --viewport=all`
+- `npm.cmd run lint:html`
+- `npm.cmd run test:vm551-dossier-integrity`
+- `npm.cmd run test:frontend-smoke`
+- `git diff --check`
+
 ## Delivery identity
 
 - Task: VM-664

@@ -4321,6 +4321,10 @@ body.vm-archscry-route .precon-provider-links{
   transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
 }
 
+.bounded-result-shell[data-result-state="mixed"] .bounded-direction-card > [data-bounded-direction-control] {
+  align-self: center;
+}
+
 .bounded-result-shell[data-result-state="mixed"] .bounded-direction-card[data-selected="true"] {
   border-color: rgba(216, 185, 106, 0.58);
   background:
