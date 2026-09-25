@@ -280,3 +280,20 @@ No blocker, major, or minor product or evidence-rebind finding remains.
 **RobQAPass PASS** for exact material candidate `78f78d6ac49f4ba391a5fda6225c504b1367ff02`.
 
 VM-664 returns to Owner Review with Owner PENDING and Integration PENDING. Earlier Owner decisions remain truthful history for candidate `25d4bff718af7136109a5cc7922f0e886fb02aec`, but they do not bind this new exact material candidate. This decision authorizes no push, PR mutation, merge, integration, deployment, or Maze work.
+
+---
+
+## Owner exact-candidate acceptance and integration authorization — 2026-09-25
+
+This is a new append-only Owner-decision binding for the independently RobQA-PASSed remediated exact candidate. No prior byte in this handoff was changed.
+
+- Exact candidate newly accepted: `78f78d6ac49f4ba391a5fda6225c504b1367ff02`.
+- Independent RobQA binding: **PASS** for that exact candidate; current rebind-QA evidence head `f808cd85a8c6a23813e5fb963272c33a23039339`.
+- Authentic Owner acceptance, now bound to this exact candidate: `good, this is approved push it Im good on it.`
+- Authentic Owner conditional integration authorization, now bound to this exact candidate: `go ahead and merge if it wont break anything Im doing in 663 else I will have ot merge both together after both are done.`
+- Condition evaluation retained: VM-664 product paths are Archscry-only; VM-663 product paths are Maze/Guide-only; overlap is limited to generated `docs/kanban/board.md` and `docs/handoffs/HANDOFF_INDEX.md`; VM-663 was clean at observation. The condition is satisfied.
+- Authorization: normal PR, CI, expected-head guarded squash merge, and closeout are authorized and pending coordinator host operations. This record does not claim that a push, PR, CI result, merge, integration, deployment, or closeout has occurred.
+
+### Evidence-only binding review
+
+The `25d4bff7..78f78d6a` delta contains only the stated lifecycle/QA/Owner/generated-record paths, while Archscry product/runtime/test blobs are unchanged. This section binds unchanged authentic Owner decisions to the independently passed new material boundary; it does not alter product behavior, test bytes, the RobQA verdict, acceptance criteria, or integration facts. The corresponding records-only delta is limited to this append, the card lifecycle fields, and faithfully generated projections.
