@@ -297,3 +297,47 @@ This is a new append-only Owner-decision binding for the independently RobQA-PAS
 ### Evidence-only binding review
 
 The `25d4bff7..78f78d6a` delta contains only the stated lifecycle/QA/Owner/generated-record paths, while Archscry product/runtime/test blobs are unchanged. This section binds unchanged authentic Owner decisions to the independently passed new material boundary; it does not alter product behavior, test bytes, the RobQA verdict, acceptance criteria, or integration facts. The corresponding records-only delta is limited to this append, the card lifecycle fields, and faithfully generated projections.
+
+---
+
+## Decisions-field material-boundary QA — 2026-09-25
+
+Task: VM-664
+Candidate: 1c714d53b56b071162b6584b3756a95089659792
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: /root/vm664_robqa
+Implementer: /root/vm664_robdev
+
+This section is appended to the handoff at exact candidate `1c714d53b56b071162b6584b3756a95089659792`. No prior handoff byte is modified by this QA cycle.
+
+### Material-boundary reason and exact delta
+
+The deterministic integration checker identified that commit `1c714d53b56b071162b6584b3756a95089659792` changed the task card's protected `Decisions` field after candidate `78f78d6ac49f4ba391a5fda6225c504b1367ff02`. That change cannot use the lifecycle evidence exception, so `1c714d53b56b071162b6584b3756a95089659792` is the new material candidate. This is a repository-record classification correction, not a product defect.
+
+- `git diff --name-status --find-renames 78f78d6ac49f4ba391a5fda6225c504b1367ff02..1c714d53b56b071162b6584b3756a95089659792` reports only the existing RobQA handoff and VM-664 card.
+- The Archscry stylesheet blob remains `1e44d44d0f0960bdc69f87bcf6aa3a657463629c`, identical to the separately QA-passed corrected candidate.
+- The mixed-result renderer blob remains `7bca5513b96d83ec29a73a667606b1531dc0d1b1`.
+- The focused VM-664 browser-regression blob remains `9a7882413034812dc7192460148164214f930c54`.
+- `git diff --name-only 53cd82ae7acb04990d787169e5e117ae3c782dbc..1c714d53b56b071162b6584b3756a95089659792 -- maze assets/js/maze assets/css/maze.css` returned no paths.
+- No product, runtime, test, fixture, data, policy, tool, shared component, Maze, placement, or identity byte changed after the independently validated correction.
+
+### Proportional evidence
+
+- Classification: **QA-0 record-boundary rebind**, retaining the completed independent QA-2 product evidence because every affected product/test blob is identical.
+- Execution: **SEPARATE**; this reviewer did not implement the product or author candidate `1c714d53b56b071162b6584b3756a95089659792`.
+- `npm.cmd run task -- indexes --check`: PASS before this append; generated views fresh.
+- `git diff --check 53cd82ae7acb04990d787169e5e117ae3c782dbc..1c714d53b56b071162b6584b3756a95089659792`: PASS.
+- Branch/head/tracking verification: clean worktree at `1c714d53b56b071162b6584b3756a95089659792`; the remote feature ref resolved to the same SHA.
+- The focused browser, geometry, lint, integrity, and smoke checks were not rerun because their inputs are byte-identical to the already independently passed corrected product candidate. CPU-heavy validation remains **NOT REQUIRED**.
+- Placement/recovery, mutation, all-37, generated-data, visual-matrix, and Maze suites remain intentionally skipped because none of their owners changed.
+
+### Retained product evidence and verdict
+
+The corrected mixed-reading result retains the prior independent evidence: both Explore controls are centered within 1px at 1440, 820, and 390 widths through initial, pointer, and keyboard-switched states; the single selected/expanded state, ARIA relationship, panel replacement, containment, no-overflow, and console-clean contracts pass. The existing 1830×732 screenshot remains applicable because rendered product bytes are identical.
+
+No blocker, major, or minor product or record-rebind finding remains.
+
+**RobQAPass PASS** for exact material candidate `1c714d53b56b071162b6584b3756a95089659792`.
+
+VM-664 returns to Owner Review with Owner PENDING and Integration PENDING. Earlier Owner decisions remain preserved as history for their exact candidates but do not bind this new material boundary. This QA decision authorizes no push, PR mutation, merge, integration, deployment, or VM-663 work.
