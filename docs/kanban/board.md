@@ -1,4 +1,4 @@
-<!-- task-view-sha256:9856da65b0bb9e1e85f14e977b9e154b4b053be384e42d7f375e0375714a9d74 -->
+<!-- task-view-sha256:39149508c5941d9daa424a57ea47e9c27f494e7aa8b9b07af9105f670e973793 -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -50,7 +50,6 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | ID | Card | Declared status | Diagnostics |
 |---|---|---|---|
 | VM-660 | [Maze Performance Recon](in-progress/VM-660-maze-performance-recon.md) | Accepted |  |
-| VM-664 | [Archscry Mixed-Reading Expansion Polish](in-progress/VM-664-archscry-mixed-reading-expansion-polish.md) | Accepted |  |
 
 ## Integrated
 
@@ -679,6 +678,7 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | VM-657 | [Maze Modernization Recon](done/VM-657-maze-modernization-recon.md) | Done |  |
 | VM-659 | [Astra Policy Cleanup](done/VM-659-astra-policy-cleanup.md) | Done |  |
 | VM-662 | [Maze Modernization Implementation](done/VM-662-maze-modernization-implementation.md) | Done |  |
+| VM-664 | [Archscry Mixed-Reading Expansion Polish](done/VM-664-archscry-mixed-reading-expansion-polish.md) | Done |  |
 
 ## Unresolved
 
