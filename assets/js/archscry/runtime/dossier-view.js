@@ -1646,17 +1646,17 @@ export function renderBoundedResultShell(result, state) {
         const reason = answerGroundedDirectionReason(result, match.faction);
         const orientation = content?.test_the_fit?.positive_self_check || "";
         return faction ? `
-          <div class="starter-card bounded-direction-card" data-direction-identity="${escapeAttributeValue(match.faction)}">
+          <div class="starter-card bounded-direction-card" data-bounded-direction-card data-direction-identity="${escapeAttributeValue(match.faction)}">
             <div class="starter-title">${escapeHtml(faction.name)}</div>
             ${reason ? `<p class="starter-copy" data-direction-reason>${renderPlayerCopy(reason)}</p>` : ""}
             ${orientation ? `<p class="starter-copy" data-direction-orientation>${renderPlayerCopy(orientation)}</p>` : ""}
-            <button class="btn-secondary" type="button" ${buildActionAttrs("show-bounded-direction", { viewKey: match.faction })}>Explore ${escapeHtml(faction.name)}</button>
+            <button class="btn-secondary" type="button" data-bounded-direction-control aria-controls="bounded-direction-detail" aria-expanded="false" ${buildActionAttrs("show-bounded-direction", { viewKey: match.faction })}>Explore ${escapeHtml(faction.name)}</button>
           </div>` : "";
       }).join("")}
     </div>
-    <div class="bounded-direction-detail" data-bounded-direction-detail aria-live="polite"></div>` : "";
+    <div class="bounded-direction-detail" id="bounded-direction-detail" data-bounded-direction-detail aria-live="polite" aria-atomic="true" aria-label="Selected reading direction"></div>` : "";
   const noDiscriminatorCopy = refinement.kind === "no_approved_discriminator"
-    ? `<p>${escapeHtml(refinement.limitation || "The approved instrument cannot responsibly separate the remaining directions with another available question.")}</p>`
+    ? `<p class="result-limitation-notice bounded-result-limitation">${escapeHtml(refinement.limitation || "The approved instrument cannot responsibly separate the remaining directions with another available question.")}</p>`
     : "";
   const returnToPreviousReadingAction = buildReturnToPreviousReadingAction();
   document.getElementById("result-inner").innerHTML = `
@@ -1697,13 +1697,25 @@ export function answerGroundedDirectionReason(result, identityKey) {
 export function showBoundedDirection(identityKey) {
   const faction = getFaction(identityKey);
   const content = dossierContentForFaction(identityKey);
-  const detail = document.querySelector("[data-bounded-direction-detail]");
+  const shell = document.querySelector('.bounded-result-shell[data-result-state="mixed"]');
+  const detail = shell?.querySelector("[data-bounded-direction-detail]");
   if (!faction || !content || !detail) return;
+  const normalizedKey = String(identityKey || "").trim().toUpperCase();
+  const directionCards = [...shell.querySelectorAll("[data-bounded-direction-card]")];
+  const directionControls = [...shell.querySelectorAll("[data-bounded-direction-control]")];
+  directionCards.forEach((card) => {
+    card.dataset.selected = String(card.dataset.directionIdentity || "").toUpperCase() === normalizedKey ? "true" : "false";
+  });
+  directionControls.forEach((control) => {
+    const isSelected = String(control.dataset.viewKey || "").toUpperCase() === normalizedKey;
+    control.dataset.selected = String(isSelected);
+    control.setAttribute("aria-expanded", String(isSelected));
+  });
   detail.innerHTML = `
-    <div class="starter-card bounded-direction-card">
-      <div class="starter-title">${escapeHtml(faction.name)}</div>
+    <section class="bounded-direction-detail-panel" data-bounded-direction-detail-panel>
+      <h3 class="starter-title">${escapeHtml(faction.name)}</h3>
       <div class="starter-copy">${renderPlayerCopy(content.test_the_fit.certified_boundary_self_check)}</div>
-    </div>`;
+    </section>`;
 }
 
 /**

@@ -1,4 +1,4 @@
-<!-- task-view-sha256:734412359977fa7d139a9335457e9a1f881989f1ff1893ce5faaaa5700210063 -->
+<!-- task-view-sha256:6be2a734d73c697202ff1cc54a634c553ec480181590e9ff2955bc0d88c5dece -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -8,6 +8,7 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 
 | Authored / filename date | Agent | Handoff | Related task references | Diagnostics |
 |---|---|---|---|---|
+| 2026-09-24T00:00:00Z (authored) | Codex `/root/vm664_robdev` (repository `robdev` role) | [VM-664 — Archscry Mixed-Reading Expansion Polish: RobDev Handoff](2026-09-24-robdev-vm664-archscry-mixed-reading-polish.md) | VM-664 | Identity displayed from heading; not admission metadata. |
 | 2026-09-23T04:15:00Z (filename) | Unknown | [VM-662 — Owner manual-test bounded remediation](2026-09-23-0415-codex-vm662-owner-manual-remediation.md) | VM-662 | Identity displayed from heading; not admission metadata. Invalid authored date; filename fallback or undated ordering used. |
 | 2026-09-23T04:15:00Z (filename) | Unknown | [VM-662 — Independent RobQA for Owner manual-test remediation](2026-09-23-0415-robqa-vm662-owner-manual-remediation.md) | VM-662 | Identity displayed from heading; not admission metadata. Invalid authored date; filename fallback or undated ordering used. |
 | 2026-09-19T00:00:00Z (authored) | Codex `/root` | [VM-662 — Maze Modernization Implementation](2026-09-19-0751-codex-vm662-maze-modernization.md) | VM-662 | Identity displayed from heading; not admission metadata. |
