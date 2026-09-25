@@ -1,4 +1,4 @@
-<!-- task-view-sha256:25adc8a9324a44f4dd8c41851ba81aec5f3b074731521cdf799efc43e272d099 -->
+<!-- task-view-sha256:c9d7e3bd5f671111d41d2f9e1e0c4222a39670478d15b25186590a111b88e6fc -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -9,6 +9,9 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 | Authored / filename date | Agent | Handoff | Related task references | Diagnostics |
 |---|---|---|---|---|
 | 2026-09-25T00:00:00Z (authored) | Unknown | [VM-664 — Integration And Closeout](2026-09-25-codex-vm664-closeout.md) | VM-664 | Identity displayed from heading; not admission metadata. |
+| 2026-09-24T20:26:00Z (filename) | Unknown | [VM-663 — Maze mode-owned workbench implementation](2026-09-24-2026-codex-vm663-mode-owned-workbench.md) | VM-663 | Identity displayed from heading; not admission metadata. Invalid authored date; filename fallback or undated ordering used. |
+| 2026-09-24T20:26:00Z (filename) | Unknown | [VM-663 — Independent RobQA: mode-owned workbench](2026-09-24-2026-robqa-vm663-mode-owned-workbench.md) | VM-663 | Identity displayed from heading; not admission metadata. Invalid authored date; filename fallback or undated ordering used. |
+| 2026-09-24T00:00:00Z (authored) | Kanban Steward subagent `/root/kanban_steward` | [VM-663 — Kanban intake: Maze Mode-Owned Workbench Layout](2026-09-24-1617-kanban-steward-vm663-maze-mode-owned-workbench-layout.md) | VM-663, VM-662 | Identity displayed from heading; not admission metadata. |
 | 2026-09-24T00:00:00Z (authored) | Codex `/root/vm664_robdev` (repository `robdev` role) | [VM-664 — Archscry Mixed-Reading Expansion Polish: RobDev Handoff](2026-09-24-robdev-vm664-archscry-mixed-reading-polish.md) | VM-664 | Identity displayed from heading; not admission metadata. |
 | 2026-09-24T00:00:00Z (authored) | Codex `/root/vm664_robqa` (repository `robqa` role) | [VM-664 — Independent RobQA Handoff](2026-09-24-robqa-vm664-archscry-mixed-reading-polish.md) | VM-664 | Identity displayed from heading; not admission metadata. |
 | 2026-09-23T04:15:00Z (filename) | Unknown | [VM-662 — Owner manual-test bounded remediation](2026-09-23-0415-codex-vm662-owner-manual-remediation.md) | VM-662 | Identity displayed from heading; not admission metadata. Invalid authored date; filename fallback or undated ordering used. |

@@ -347,7 +347,7 @@ const MODE_CONTENT = {
   },
   builder: {
     label: "The Loom",
-    copy: "Shape a Commander-first card search with visual controls, then inspect the real Scryfall query before you search, copy, or open it."
+    copy: "Shape a Commander-first card search with visual controls. Search always uses the filters visible in the Loom; switch to Operator's Hand to inspect the syntax."
   }
 };
 
@@ -1051,6 +1051,9 @@ function setMode(mode) {
   const inputLabel = document.getElementById("search-input-label");
   const clearButton = document.getElementById("clear-search-btn");
   if (!input || !icon || !builder) return;
+  if (mode === "builder" && pendingSuggestedSearch) {
+    clearPendingSuggestedSearch({ restorePresentation: false });
+  }
   updateModeContent(mode);
   document.querySelector(".maze-primary-workbench")?.classList.toggle("hidden", mode === "builder");
   if (mode === "ai") {
@@ -1097,7 +1100,7 @@ function setMode(mode) {
     icon.style.color = "";
     document.getElementById("mode-builder").classList.add("teal-mode");
     builder.classList.remove("hidden");
-    rebuildFromFilters({ preservePending: true });
+    rebuildFromFilters();
   }
 
   if (selectedSuggestionView) {
@@ -1105,7 +1108,9 @@ function setMode(mode) {
     if (mode === "raw") input.value = pendingSuggestedSearch?.query || currentQuery;
   } else {
     syncInputForModeSwitch(input, previousMode, mode);
-    if (previousMode !== mode && modeDraftEdited[mode] && modeDraftValues[mode]) {
+    if (previousMode === "builder" && mode === "raw") {
+      input.value = buildFilterQuery();
+    } else if (previousMode !== mode && modeDraftEdited[mode] && modeDraftValues[mode]) {
       input.value = modeDraftValues[mode];
     }
   }
@@ -1240,23 +1245,21 @@ function refreshReadingContextPresentation() {
 
 function updateLoomSidebarVisibility(mode = currentMode) {
   const shouldHide = mode === "builder";
-  ["sidebar-color-section", "sidebar-format-section", "reading-path-section", "dossier-discovery-panel"].forEach((id) => {
+  [
+    "maze-discovery-section",
+    "maze-helper-section",
+    "recent-section",
+    "sidebar-color-section",
+    "sidebar-format-section",
+    "reading-path-section",
+    "dossier-discovery-panel"
+  ].forEach((id) => {
     const section = document.getElementById(id);
     if (section) section.hidden = shouldHide;
   });
 }
 
 function refreshExactQueryForMode(mode = currentMode) {
-  if (pendingSuggestedSearch) {
-    updateSearchActions(pendingSuggestedSearch.query, pendingSuggestedSearch.api);
-    renderExactQuery({
-      query: pendingSuggestedSearch.query,
-      api: pendingSuggestedSearch.api,
-      pending: true,
-      blocked: pendingSuggestedSearch.executionBlocked
-    });
-    return;
-  }
   if (mode === "builder") {
     const query = buildFilterQuery();
     const validation = validateVisualBuilderFilters(bFilters);
@@ -1269,13 +1272,22 @@ function refreshExactQueryForMode(mode = currentMode) {
     });
     return;
   }
-  if (currentQuery) {
-    updateSearchActions(currentQuery, currentSearchApi);
-    renderExactQuery({ query: currentQuery, api: currentSearchApi });
+  if (pendingSuggestedSearch) {
+    updateSearchActions(pendingSuggestedSearch.query, pendingSuggestedSearch.api);
+    renderExactQuery({
+      query: pendingSuggestedSearch.query,
+      api: pendingSuggestedSearch.api,
+      pending: true,
+      blocked: pendingSuggestedSearch.executionBlocked
+    });
     return;
   }
-  updateSearchActions("", {});
-  document.getElementById("exact-query-panel")?.classList.add("hidden");
+  const inputQuery = mode === "raw"
+    ? normalizeSearchInputValue(document.getElementById("search-input")?.value || "")
+    : "";
+  const activeQuery = inputQuery || currentQuery;
+  updateSearchActions(mode === "raw" ? activeQuery : "", currentSearchApi);
+  renderExactQuery({ query: activeQuery, api: currentSearchApi });
 }
 
 function clearPendingSuggestedSearch({ restorePresentation = true, preserveView = false } = {}) {
@@ -1293,28 +1305,19 @@ function renderSelectedSuggestionView() {
   const resultsHeading = document.querySelector(".results-heading");
   if (resultsHeading) resultsHeading.textContent = pendingSuggestedSearch ? "Previous results" : "Results";
   const loomSearchButton = document.getElementById("loom-search-btn");
-  if (loomSearchButton) loomSearchButton.textContent = selectedSuggestionView ? "Search selected query" : "Search these Loom filters";
-  panel.hidden = !selectedSuggestionView;
+  if (loomSearchButton) loomSearchButton.textContent = "Search these Loom filters";
+  panel.hidden = currentMode === "builder" || !selectedSuggestionView;
   if (!selectedSuggestionView) return;
   document.getElementById("maze-selected-search-source").textContent = selectedSuggestionView.kind;
   document.getElementById("maze-selected-search-label").textContent = selectedSuggestionView.label;
   document.getElementById("maze-selected-search-hint").textContent = selectedSuggestionView.hint;
-  const loomNote = document.getElementById("maze-selected-search-loom");
-  loomNote.hidden = currentMode !== "builder";
-  loomNote.textContent = pendingSuggestedSearch
-    ? "Loom filters are unchanged; Search will use this selection."
-    : "Showing this search; Loom filters remain unchanged.";
-  panel.querySelector('[data-action="restore-suggestion-draft"]').textContent = currentMode === "builder"
-    ? "Return to Loom filters" : "Return to draft";
+  panel.querySelector('[data-action="restore-suggestion-draft"]').textContent = "Return to draft";
 }
 
 function restoreSuggestionDraft() {
   clearPendingSuggestedSearch({ restorePresentation: false });
   const input = document.getElementById("search-input");
-  if (currentMode === "builder") {
-    rebuildFromFilters({ preservePending: true });
-    document.getElementById("loom-search-btn")?.focus();
-  } else if (input) {
+  if (input) {
     input.value = modeDraftValues[currentMode] || "";
     input.focus();
   }
@@ -1364,6 +1367,7 @@ function bindSearchInputSelectOnFocus() {
     selectAutoFilledInputOnFocus = false;
     clearPendingSuggestedSearch();
     rememberModeDraftInput({ target: input });
+    if (currentMode === "raw") refreshExactQueryForMode("raw");
   });
 }
 
@@ -1372,7 +1376,7 @@ function bindSearchInputSelectOnFocus() {
  * Runs the active search mode through the Maze query contract adapter.
  */
 async function doSearch() {
-  if (pendingSuggestedSearch || (selectedSuggestionView && currentQuery)) {
+  if (currentMode !== "builder" && (pendingSuggestedSearch || (selectedSuggestionView && currentQuery))) {
     const prepared = pendingSuggestedSearch || {
       query: currentQuery,
       api: currentSearchApi,
@@ -2084,7 +2088,8 @@ function stripFormatFilter(query) {
 }
 
 function getActiveFormatFilter() {
-  return document.getElementById("sb-format")?.value || "";
+  const sidebarFormat = document.getElementById("sb-format");
+  return sidebarFormat ? sidebarFormat.value : DEFAULT_FORMAT;
 }
 
 /**
@@ -3503,6 +3508,7 @@ function runQuickSearch(query, opts = {}) {
  * @param {object} opts - Existing route-query adapter options.
  */
 function inspectSuggestedSearch(query, opts = {}) {
+  if (currentMode === "builder") return;
   const queryResult = resolveMazeRouteQuery(query, {
     mode: "raw",
     origin: opts.origin || "maze",

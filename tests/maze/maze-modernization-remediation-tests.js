@@ -7,7 +7,8 @@ import * as ChromeLauncher from "chrome-launcher";
 import puppeteer from "puppeteer-core";
 
 const root = process.cwd();
-const outputDirectory = process.env.VM662_OUTPUT_DIR || path.join(root, "outputs", "vm662-owner-remediation");
+const outputDirectory = process.env.VM663_OUTPUT_DIR || process.env.VM662_OUTPUT_DIR || path.join(root, "outputs", "vm663-owner-review");
+const captureScreenshots = process.env.VM663_CAPTURE_SCREENSHOTS === "1" || process.env.VM662_CAPTURE_SCREENSHOTS === "1";
 const chromeProfileDirectory = path.join(outputDirectory, `chrome-profile-${process.pid}`);
 const browserCandidates = [
   process.env.LIGHTHOUSE_CHROME_PATH,
@@ -18,6 +19,8 @@ const browserCandidates = [
 
 const html = await readFile(path.join(root, "maze", "index.html"), "utf8");
 const css = await readFile(path.join(root, "assets", "css", "maze.css"), "utf8");
+const guideHtml = await readFile(path.join(root, "guide", "maze", "index.html"), "utf8");
+const guideCss = await readFile(path.join(root, "assets", "css", "guide-maze.css"), "utf8");
 const initSource = await readFile(path.join(root, "assets", "js", "maze", "research-init.js"), "utf8");
 const uiSource = await readFile(path.join(root, "assets", "js", "maze", "research-ui.js"), "utf8");
 
@@ -25,15 +28,17 @@ const inputRow = html.slice(
   html.indexOf('<div class="search-input-row">'),
   html.indexOf('<!-- The Loom')
 );
-const exactRegion = html.match(/<section class="exact-query-panel[\s\S]*?<\/section>/)?.[0] || "";
 assert.doesNotMatch(html, /<ol class="maze-workflow-sequence"/);
-assert.match(html, /id="maze-page-title"[\s\S]*?id="maze-workbench-panel"[\s\S]*?id="exact-query-panel"[\s\S]*?id="search-btn"/);
+assert.match(html, /id="maze-page-title"[\s\S]*?id="maze-workbench-panel"[\s\S]*?id="search-input"[\s\S]*?id="search-btn"[\s\S]*?id="clear-search-btn"/);
 assert.doesNotMatch(html, /01 · Player request|04 · Execute/);
-assert.doesNotMatch(inputRow, /search-copy-btn|search-scryfall-link|stash-drawer-toggle/);
-assert.match(inputRow, /id="clear-search-btn"/);
-assert.match(exactRegion, /id="qi-query"[\s\S]*?id="search-copy-btn"[\s\S]*?id="search-scryfall-link"/);
-assert.match(html, /class="builder-edit-actions"[\s\S]*?id="loom-reset-btn"[\s\S]*?id="builder-summary"/);
-assert.match(html, /class="maze-query-execution"[\s\S]*?id="exact-query-panel"[\s\S]*?id="search-btn"[\s\S]*?id="loom-search-btn"/);
+assert.doesNotMatch(inputRow, /stash-drawer-toggle/);
+assert.match(inputRow, /id="search-btn"[\s\S]*?id="clear-search-btn"[\s\S]*?id="search-copy-btn"[\s\S]*?id="search-scryfall-link"/);
+assert.match(inputRow, /id="search-scryfall-link"[\s\S]*?>Open in Scryfall<\/a>/);
+assert.match(html, /class="builder-edit-actions"[\s\S]*?id="loom-reset-btn"[\s\S]*?id="loom-search-btn"[\s\S]*?id="builder-summary"/);
+assert.doesNotMatch(html, /id="exact-query-panel"|class="maze-query-execution"|id="maze-selected-search-loom"/);
+assert.match(html, /id="qi-query" hidden/);
+assert.match(html, /id="maze-discovery-section"[\s\S]*?id="maze-helper-section"/);
+assert.doesNotMatch(html, /id="(?:sidebar-color-section|color-grid|sidebar-format-section|sb-format)"/, "Plain and Operator must not expose duplicate sidebar color or format controls");
 assert.doesNotMatch(html, /class="loom-completion"/);
 assert.doesNotMatch(html, /id="maze-bench-mode"|id="qi-input-wrap"|id="results-query"/);
 assert.equal((html.match(/id="stash-panel"/g) || []).length, 1);
@@ -48,7 +53,15 @@ assert.equal(mazeInitVersion, mazeCssVersion, "Maze CSS and route controller mus
 assert.match(css, /\.card-item \.card-stash-btn\s*\{[\s\S]*?position:\s*absolute;[\s\S]*?top:\s*10px;[\s\S]*?right:\s*-22px;[\s\S]*?z-index:\s*6/);
 assert.match(css, /\.qi-details-caret/);
 assert.match(css, /data-maze-mode="builder"[\s\S]*?\.maze-reading-context/);
+assert.match(css, /data-maze-mode="builder"\] \.r-sidebar\s*\{[\s\S]*?display:\s*none !important/);
+assert.match(css, /linear-gradient\(165deg, rgba\(13, 17, 27, 0\.52\), rgba\(7, 10, 17, 0\.46\)\) padding-box/);
+assert.match(css, /main#maze-page-shell > section\.maze-command-deck\s*\{[\s\S]*?background:\s*transparent/);
+assert.match(css, /\.r-body > #r-main\.r-main[\s\S]*?background:\s*transparent/);
+assert.match(css, /#dossier-discovery-panel\.dossier-discovery-panel[\s\S]*?#dossier-discovery-panel \.dossier-thread-card[\s\S]*?background:\s*transparent/);
+assert.match(guideHtml, /assets\/css\/guide-maze\.css\?v=vm663r1/);
+assert.match(guideCss, /body\.vm-guide-maze-route :is\([\s\S]*?\.maze-guide-hero\.maze-command-deck[\s\S]*?\.maze-recovery-card[\s\S]*?background:\s*transparent/);
 assert.match(initSource, /const PAGE_SIZE = 24;/);
+assert.match(initSource, /const sidebarFormat = document\.getElementById\("sb-format"\);[\s\S]*?return sidebarFormat \? sidebarFormat\.value : DEFAULT_FORMAT;/, "retiring the sidebar Format control must preserve the implicit Commander default");
 assert.match(initSource, /image\.loading = "lazy";/);
 assert.match(initSource, /const MAZE_GUIDE_RETURN_STATE_KEY = "vm_maze_guide_return_ui_v1";/);
 assert.match(initSource, /pendingSuggestedSearch/);
@@ -235,8 +248,32 @@ try {
   const resourceEntries = await page.evaluate(() => performance.getEntriesByType("resource").length);
   assert.equal(scryfallRequests, 0, "clean boot must not search");
   assert.equal(await page.$eval("#mode-ai", node => node.getAttribute("aria-selected")), "true");
-  assert.equal(await page.$eval("#exact-query-panel", node => node.classList.contains("hidden")), true);
+  assert.equal(await page.$("#exact-query-panel"), null);
+  assert.equal(await page.$eval("#search-copy-btn", node => getComputedStyle(node).display), "none");
+  assert.equal(await page.$eval("#search-scryfall-link", node => getComputedStyle(node).display), "none");
   assert.deepEqual(await page.$$eval("#res-order option", nodes => nodes.map(node => node.value)), ["name", "cmc", "usd", "usd", "rarity", "power", "set"], "Owner-requested EDHREC removal must not erase the other existing sort choices");
+  const bootSurfaces = await page.evaluate(() => {
+    const background = selector => getComputedStyle(document.querySelector(selector)).backgroundColor;
+    return {
+      workbench: background("section.maze-command-deck"),
+      results: background("#r-main"),
+      sidebar: background(".r-sidebar"),
+      activeMode: background("#mode-ai"),
+      builder: background("#builder-panel"),
+      interpretation: background("#query-inspector"),
+      resultsHeader: background("#results-header"),
+      statePanel: background("#state-panel"),
+      searchInput: background("#search-input"),
+      readingFinds: background("#stash-panel"),
+      modal: background("#modal-wrap"),
+    };
+  });
+  for (const key of ["workbench", "results", "sidebar", "activeMode", "builder", "interpretation", "resultsHeader", "statePanel"]) {
+    assert.equal(bootSurfaces[key], "rgba(0, 0, 0, 0)", `${key} must expose the atmospheric Maze canvas: ${JSON.stringify(bootSurfaces)}`);
+  }
+  for (const key of ["searchInput", "readingFinds", "modal"]) {
+    assert.match(bootSurfaces[key], /^rgb\(/, `${key} must retain a solid legibility surface: ${JSON.stringify(bootSurfaces)}`);
+  }
   const bootFrame = await page.evaluate(() => {
     const deck = document.querySelector(".maze-command-deck").getBoundingClientRect();
     const body = document.querySelector(".r-body").getBoundingClientRect();
@@ -244,9 +281,9 @@ try {
     const plain = document.querySelector("#mode-ai").getBoundingClientRect();
     return { deckWidth: deck.width, bodyWidth: body.width, helpCenter: help.left + help.width / 2, plainRight: plain.right, plainLeft: plain.left };
   });
-  assert.ok(Math.abs(bootFrame.deckWidth - bootFrame.bodyWidth) <= 2, `workbench/result widths diverged: ${JSON.stringify(bootFrame)}`);
+  assert.ok(Math.abs(bootFrame.deckWidth - bootFrame.bodyWidth) <= 1, `workbench and Results must share one full-width frame: ${JSON.stringify(bootFrame)}`);
   assert.ok(bootFrame.helpCenter >= bootFrame.plainLeft && bootFrame.helpCenter <= bootFrame.plainRight, `About moved away from its mode: ${JSON.stringify(bootFrame)}`);
-  if (process.env.VM662_CAPTURE_SCREENSHOTS === "1") await page.screenshot({ path: path.join(outputDirectory, "01-clean-maze-desktop.png"), fullPage: true });
+  if (captureScreenshots) await page.screenshot({ path: path.join(outputDirectory, "01-clean-maze-desktop.png"), fullPage: true });
 
   await setInput(page, "Red Cats Only");
   assert.equal(scryfallRequests, 0, "plain typing must not search");
@@ -266,19 +303,21 @@ try {
   assert.equal(await page.$eval("#search-input", node => node.value), "Red Cats Only");
   assert.equal(scryfallRequests, 0, "restoring the draft must not search");
   await page.click("#discovery-path-list [data-action='inspect-suggested-search']");
-  assert.equal(await page.$eval("#exact-query-panel", node => node.dataset.executionState), "pending");
   assert.ok(await page.$eval("#qi-query", node => node.textContent.trim()));
+  assert.equal(await page.$eval("#search-copy-btn", node => getComputedStyle(node).display), "none");
+  assert.equal(await page.$eval("#search-scryfall-link", node => getComputedStyle(node).display), "none");
   assert.equal(await page.$eval("#qi-reason", node => node.classList.contains("hidden")), true);
   const discoveryPendingGeometry = await page.evaluate(() => {
-    const exact = document.querySelector("#exact-query-panel").getBoundingClientRect();
     const search = document.querySelector("#search-btn").getBoundingClientRect();
-    const execution = document.querySelector(".maze-query-execution").getBoundingClientRect();
+    const clear = document.querySelector("#clear-search-btn").getBoundingClientRect();
+    const controls = document.querySelector(".search-primary-actions").getBoundingClientRect();
     return {
-      exact: { left: exact.left, top: exact.top, right: exact.right, width: exact.width },
-      search: { left: search.left, top: search.top, right: search.right, width: search.width },
-      execution: { left: execution.left, right: execution.right, width: execution.width },
+      search: { left: search.left, top: search.top, right: search.right, bottom: search.bottom, width: search.width },
+      clear: { left: clear.left, top: clear.top, right: clear.right, bottom: clear.bottom, width: clear.width },
+      controls: { left: controls.left, top: controls.top, right: controls.right, width: controls.width },
     };
   });
+  assert.ok(discoveryPendingGeometry.search.bottom < discoveryPendingGeometry.clear.top, `Plain Search must sit above Clear: ${JSON.stringify(discoveryPendingGeometry)}`);
   const beforeFirstSearch = performance.now();
   await page.$eval("#search-btn", button => button.click());
   await page.waitForSelector("#card-grid .card-item:nth-child(24)");
@@ -286,22 +325,27 @@ try {
   assert.equal(scryfallRequests, 1, "Discovery Search must execute exactly once");
   assert.equal(await page.$$eval("#card-grid .card-item", nodes => nodes.length), 24);
   assert.equal(await page.$$eval("#card-grid img", nodes => nodes.every(node => node.loading === "lazy")), true);
+  const resultCardSurface = await page.$eval("#card-grid .card-item", node => {
+    const style = getComputedStyle(node);
+    return { backgroundColor: style.backgroundColor, borderStyle: style.borderStyle, borderWidth: style.borderWidth };
+  });
+  assert.notEqual(resultCardSurface.borderStyle, "none", `result cards must remain individually bounded: ${JSON.stringify(resultCardSurface)}`);
+  assert.notEqual(resultCardSurface.borderWidth, "0px", `result cards must retain their boundary: ${JSON.stringify(resultCardSurface)}`);
   assert.equal(await page.$("#results-query"), null, "Results must not duplicate exact syntax");
   const discoverySearchedGeometry = await page.evaluate(() => {
-    const exact = document.querySelector("#exact-query-panel").getBoundingClientRect();
     const search = document.querySelector("#search-btn").getBoundingClientRect();
-    const execution = document.querySelector(".maze-query-execution").getBoundingClientRect();
+    const clear = document.querySelector("#clear-search-btn").getBoundingClientRect();
+    const controls = document.querySelector(".search-primary-actions").getBoundingClientRect();
     return {
-      exact: { left: exact.left, top: exact.top, right: exact.right, width: exact.width },
-      search: { left: search.left, top: search.top, right: search.right, width: search.width },
-      execution: { left: execution.left, right: execution.right, width: execution.width },
+      search: { left: search.left, top: search.top, right: search.right, bottom: search.bottom, width: search.width },
+      clear: { left: clear.left, top: clear.top, right: clear.right, bottom: clear.bottom, width: clear.width },
+      controls: { left: controls.left, top: controls.top, right: controls.right, width: controls.width },
     };
   });
-  for (const key of ["left", "top", "right", "width"]) {
-    assert.ok(Math.abs(discoveryPendingGeometry.exact[key] - discoverySearchedGeometry.exact[key]) <= 1, `Discovery Exact Query moved after Search: ${JSON.stringify({ discoveryPendingGeometry, discoverySearchedGeometry })}`);
+  for (const key of ["left", "top", "right", "bottom", "width"]) {
     assert.ok(Math.abs(discoveryPendingGeometry.search[key] - discoverySearchedGeometry.search[key]) <= 1, `Discovery Search moved after execution: ${JSON.stringify({ discoveryPendingGeometry, discoverySearchedGeometry })}`);
   }
-  assert.deepEqual(discoverySearchedGeometry.execution, discoveryPendingGeometry.execution, "Discovery pending and searched states must share one execution frame");
+  assert.deepEqual(discoverySearchedGeometry.controls, discoveryPendingGeometry.controls, "Discovery pending and searched states must share one control group");
   assert.equal(await page.$eval("#res-count", node => node.getAttribute("aria-label")), "Showing 24 of 48 cards");
   const countTypography = await page.$eval("#res-count", node => {
     const parts = [...node.querySelectorAll(".res-count-part")].map(part => {
@@ -315,6 +359,10 @@ try {
   assert.ok(countTypography.parts.slice(1).every((part, index) => part.left - countTypography.parts[index].right >= 2), `Result-count words are visually collapsed: ${JSON.stringify(countTypography)}`);
   assert.equal(await page.$eval(".results-summary", node => node.contains(document.querySelector("#res-count"))), true);
   assert.equal(await page.$eval(".results-sort", node => node.closest("#results-header")?.id), "results-header");
+  const beforeOperatorInspection = scryfallRequests;
+  await page.click("#mode-raw");
+  assert.equal(scryfallRequests, beforeOperatorInspection, "Plain to Operator must not search");
+  assert.equal(await page.$eval("#query-inspector", node => getComputedStyle(node).display), "none");
   const exactActionAlignment = await page.evaluate(() => {
     const controls = [document.querySelector("#search-copy-btn"), document.querySelector("#search-scryfall-link")];
     return controls.map(control => {
@@ -337,6 +385,25 @@ try {
   });
   assert.ok(Math.abs(exactActionAlignment[0].height - exactActionAlignment[1].height) <= 1, JSON.stringify(exactActionAlignment));
   assert.ok(exactActionAlignment.every(control => Math.abs(control.controlCenter - control.labelCenter) <= 1.5), `Exact-query action labels are not vertically centered: ${JSON.stringify(exactActionAlignment)}`);
+  const operatorControls = await page.evaluate(() => {
+    const search = document.querySelector("#search-btn").getBoundingClientRect();
+    const secondary = ["#clear-search-btn", "#search-copy-btn", "#search-scryfall-link"].map(selector => {
+      const node = document.querySelector(selector);
+      const rect = node.getBoundingClientRect();
+      return { selector, top: rect.top, bottom: rect.bottom, color: getComputedStyle(node).color };
+    });
+    const swatch = document.createElement("span");
+    swatch.style.color = getComputedStyle(document.body).getPropertyValue("--maze-gold-2");
+    document.body.append(swatch);
+    const gold = getComputedStyle(swatch).color;
+    swatch.remove();
+    return { search: { top: search.top, bottom: search.bottom }, secondary, gold, openLabel: document.querySelector("#search-scryfall-link").textContent.trim() };
+  });
+  assert.ok(operatorControls.secondary.every(control => operatorControls.search.bottom < control.top), `Operator Search must sit above its secondary controls: ${JSON.stringify(operatorControls)}`);
+  assert.ok(operatorControls.secondary.every(control => Math.abs(control.top - operatorControls.secondary[0].top) <= 1), `Operator secondary controls must share one row: ${JSON.stringify(operatorControls)}`);
+  assert.ok(operatorControls.secondary.every(control => control.color === operatorControls.gold), `Operator secondary controls must use Maze gold: ${JSON.stringify(operatorControls)}`);
+  assert.equal(operatorControls.openLabel, "Open in Scryfall");
+  await page.click("#mode-ai");
   const domCount24 = await page.$$eval("*", nodes => nodes.length);
   await page.click("#btn-more");
   await page.waitForSelector("#card-grid .card-item:nth-child(48)");
@@ -504,11 +571,14 @@ try {
   assert.ok(modalActionMetrics.every(metric => metric.height >= 43 && metric.alignItems === "center" && metric.justifyContent === "center" && metric.textAlign === "center"));
   assert.deepEqual(modalActionMetrics.map(metric => metric.label), ["View on Scryfall", "Find Similar", "TCGPlayer", "Set aside"]);
   assert.equal(new Set(modalActionMetrics.map(metric => metric.color)).size, 1, `modal action links and buttons must use the same Maze gold: ${JSON.stringify(modalActionMetrics)}`);
-  if (process.env.VM662_CAPTURE_SCREENSHOTS === "1") await page.screenshot({ path: path.join(outputDirectory, "02-card-modal-actions.png"), fullPage: false });
+  if (captureScreenshots) await page.screenshot({ path: path.join(outputDirectory, "02-card-modal-actions.png"), fullPage: false });
   await page.click("#modal-close");
 
   await page.click("#mode-raw");
   await setInput(page, "t:artifact f:commander");
+  assert.equal(await page.$eval("#search-copy-btn", node => node.disabled), false);
+  assert.equal(await page.$eval("#search-scryfall-link", node => new URL(node.href).searchParams.get("q")), "t:artifact f:commander");
+  assert.equal(await page.$eval("#qi-query", node => node.textContent.trim()), "t:artifact f:commander");
   await page.click(".sb-section-helper > summary");
   const beforeRawHelper = scryfallRequests;
   await page.click("#quick-search-list [data-action='inspect-suggested-search']:nth-child(2)");
@@ -520,56 +590,56 @@ try {
   await page.click("[data-action='toggle-color'][data-color='R']");
   const loomDraft = await page.$eval("#search-input", node => node.value);
   const normalLoomGeometry = await page.evaluate(() => {
-    const exact = document.querySelector("#exact-query-panel").getBoundingClientRect();
     const search = document.querySelector("#loom-search-btn").getBoundingClientRect();
     const reset = document.querySelector("#loom-reset-btn").getBoundingClientRect();
     const builder = document.querySelector("#builder-panel").getBoundingClientRect();
+    const deck = document.querySelector(".maze-command-deck").getBoundingClientRect();
+    const body = document.querySelector(".r-body").getBoundingClientRect();
     return {
-      exact: { left: exact.left, right: exact.right, width: exact.width, top: exact.top },
       search: { left: search.left, right: search.right, width: search.width, top: search.top },
-      relativeTop: search.top - exact.top,
       resetInsideBuilder: reset.left >= builder.left && reset.right <= builder.right && reset.top >= builder.top && reset.bottom <= builder.bottom,
+      searchInsideBuilder: search.left >= builder.left && search.right <= builder.right && search.top >= builder.top && search.bottom <= builder.bottom,
+      deckWidth: deck.width,
+      bodyWidth: body.width,
       resetParent: document.querySelector("#loom-reset-btn")?.closest(".builder-edit-actions")?.className || "",
+      searchParent: document.querySelector("#loom-search-btn")?.closest(".builder-edit-actions")?.className || "",
     };
   });
   assert.equal(normalLoomGeometry.resetInsideBuilder, true, JSON.stringify(normalLoomGeometry));
+  assert.equal(normalLoomGeometry.searchInsideBuilder, true, JSON.stringify(normalLoomGeometry));
+  assert.ok(Math.abs(normalLoomGeometry.deckWidth - normalLoomGeometry.bodyWidth) <= 1, `Loom and Results must share one full-width frame: ${JSON.stringify(normalLoomGeometry)}`);
+  const currentWeaveSurface = await page.$eval("#current-weave", node => getComputedStyle(node).backgroundImage);
+  assert.match(currentWeaveSurface, /rgba\(13, 17, 27, 0\.52\)/, `Current Weave must retain the lighter focal treatment: ${currentWeaveSurface}`);
+  assert.doesNotMatch(currentWeaveSurface, /0\.9[24]/, `Current Weave must not restore the former opaque treatment: ${currentWeaveSurface}`);
   assert.match(normalLoomGeometry.resetParent, /builder-edit-actions/);
+  assert.match(normalLoomGeometry.searchParent, /builder-edit-actions/);
   const beforeLoomHelper = scryfallRequests;
-  await page.click("#quick-search-list [data-action='inspect-suggested-search']");
+  assert.equal(await page.$eval("#maze-discovery-section", node => node.hidden && getComputedStyle(node).display === "none"), true);
+  assert.equal(await page.$eval("#maze-helper-section", node => node.hidden && getComputedStyle(node).display === "none"), true);
+  assert.equal(await page.$eval(".r-sidebar", node => getComputedStyle(node).display), "none");
+  await page.$eval("#quick-search-list [data-action='inspect-suggested-search']", node => node.click());
   assert.equal(scryfallRequests, beforeLoomHelper);
   assert.equal(await page.$eval("#mode-builder", node => node.getAttribute("aria-selected")), "true");
   assert.equal(await page.$eval("#search-input", node => node.value), loomDraft);
-  assert.equal(await page.$eval("#maze-selected-search-loom", node => node.hidden), false);
-  assert.equal(await page.$eval("#loom-search-btn", node => node.textContent.trim()), "Search selected query");
+  assert.equal(await page.$eval("#maze-selected-search", node => getComputedStyle(node).display), "none");
+  assert.equal(await page.$eval("#loom-search-btn", node => node.textContent.trim()), "Search these Loom filters");
   assert.equal(await page.$eval("#query-inspector", node => getComputedStyle(node).display), "none");
   assert.equal(await page.$eval("[data-action='toggle-color'][data-color='R']", node => node.getAttribute("aria-pressed")), "true");
-  const helperLoomGeometry = await page.evaluate(() => {
-    const exact = document.querySelector("#exact-query-panel").getBoundingClientRect();
-    const search = document.querySelector("#loom-search-btn").getBoundingClientRect();
-    return {
-      exact: { left: exact.left, right: exact.right, width: exact.width, top: exact.top },
-      search: { left: search.left, right: search.right, width: search.width, top: search.top },
-      relativeTop: search.top - exact.top,
-    };
-  });
-  for (const key of ["left", "right", "width"]) {
-    assert.ok(Math.abs(normalLoomGeometry.exact[key] - helperLoomGeometry.exact[key]) <= 1, `Loom Exact Query geometry changed for Helper inspection: ${JSON.stringify({ normalLoomGeometry, helperLoomGeometry })}`);
-    assert.ok(Math.abs(normalLoomGeometry.search[key] - helperLoomGeometry.search[key]) <= 1, `Loom Search geometry changed for Helper inspection: ${JSON.stringify({ normalLoomGeometry, helperLoomGeometry })}`);
-  }
-  assert.ok(Math.abs(normalLoomGeometry.relativeTop - helperLoomGeometry.relativeTop) <= 1, JSON.stringify({ normalLoomGeometry, helperLoomGeometry }));
-  await page.click("#maze-selected-search [data-action='restore-suggestion-draft']");
-  assert.equal(await page.$eval("#loom-search-btn", node => node.textContent.trim()), "Search these Loom filters");
+  await page.click("#mode-raw");
+  assert.equal(scryfallRequests, beforeLoomHelper, "Loom to Operator must not search");
+  assert.equal(await page.$eval("#search-input", node => node.value), loomDraft, "Operator must reveal the current Loom query");
+  await page.click("#mode-builder");
+  assert.equal(scryfallRequests, beforeLoomHelper, "Operator to Loom must not search");
   assert.equal(await page.$eval("#search-input", node => node.value), loomDraft);
-  await page.click("#quick-search-list [data-action='inspect-suggested-search']");
+  assert.equal(await page.$eval("[data-action='toggle-color'][data-color='R']", node => node.getAttribute("aria-pressed")), "true");
   assert.equal(await page.$eval("#maze-reading-context", node => getComputedStyle(node).display), "none");
-  await page.$eval("#search-btn", button => button.click());
+  await page.$eval("#loom-search-btn", button => button.click());
   await new Promise(resolve => setTimeout(resolve, 500));
   const loomExecution = await page.evaluate(() => ({
     pending: document.body.dataset.pendingSuggestion,
-    executionState: document.getElementById("exact-query-panel")?.dataset.executionState,
     query: document.getElementById("qi-query")?.textContent,
     error: document.getElementById("err-msg")?.textContent,
-    searchDisabled: document.getElementById("search-btn")?.disabled,
+    searchDisabled: document.getElementById("loom-search-btn")?.disabled,
   }));
   assert.equal(scryfallRequests, beforeLoomHelper + 1, JSON.stringify(loomExecution));
   assert.equal(await page.$eval("[data-action='toggle-color'][data-color='R']", node => node.getAttribute("aria-pressed")), "true");
@@ -580,12 +650,35 @@ try {
   const requestsBeforeGuide = scryfallRequests;
   await page.click(".qi-guide-link");
   await page.waitForSelector("#maze-guide-main");
+  await page.waitForSelector(".driver-popover.vm-guide-walkthrough-popover", { visible: true });
+  const guideSurfaces = await page.evaluate(() => [
+    ".maze-guide-hero.maze-command-deck",
+    ".maze-guide-section.r-main",
+    ".guide-specimen",
+    ".maze-query-specimen dl > div",
+    ".maze-context-states article",
+    ".maze-recovery-card",
+    ".maze-guide-next.r-sidebar",
+  ].map(selector => {
+    const node = document.querySelector(selector);
+    const style = getComputedStyle(node);
+    return { selector, backgroundColor: style.backgroundColor, backgroundImage: style.backgroundImage };
+  }));
+  assert.ok(guideSurfaces.every(surface => surface.backgroundColor === "rgba(0, 0, 0, 0)" && surface.backgroundImage === "none"), JSON.stringify(guideSurfaces));
+  const guidePopoverSurface = await page.$eval(".driver-popover.vm-guide-walkthrough-popover", node => {
+    const style = getComputedStyle(node);
+    return { backgroundColor: style.backgroundColor, backgroundImage: style.backgroundImage };
+  });
+  assert.ok(
+    guidePopoverSurface.backgroundColor !== "rgba(0, 0, 0, 0)" || guidePopoverSurface.backgroundImage !== "none",
+    JSON.stringify(guidePopoverSurface)
+  );
   const guideReturnUrl = await page.$eval(".guide-cta", link => link.href);
   await page.goto(guideReturnUrl, { waitUntil: "networkidle0" });
   assert.equal(scryfallRequests, requestsBeforeGuide, "guide return must not auto-search");
   assert.equal(await page.$eval("#search-input", node => node.value), "Legendary creatures");
   assert.equal(await page.$eval("#mode-ai", node => node.getAttribute("aria-selected")), "true");
-  assert.equal(await page.$eval("#exact-query-panel", node => node.dataset.executionState), "pending");
+  assert.ok(await page.$eval("#qi-query", node => node.textContent.trim()));
   await page.click(".qi-guide-link");
   await page.waitForSelector("#maze-guide-main");
   await page.goBack({ waitUntil: "networkidle0" });
@@ -685,12 +778,22 @@ try {
   await page.click("#reading-path-list [data-dossier-path='true'][data-path-type='support-cards']");
   await page.waitForSelector("#card-grid .card-item:nth-child(24)");
   assert.equal(scryfallRequests, beforeReadingPath + 1, "Reading-path selection must preserve auto-execution");
+  const dossierSurfaces = await page.evaluate(() => [
+    "#dossier-discovery-panel",
+    "#dossier-discovery-panel .dossier-discovery-reading",
+    "#dossier-discovery-panel .dossier-thread-card",
+  ].map(selector => {
+    const node = document.querySelector(selector);
+    const style = getComputedStyle(node);
+    return { selector, backgroundColor: style.backgroundColor, backgroundImage: style.backgroundImage };
+  }));
+  assert.ok(dossierSurfaces.every(surface => surface.backgroundColor === "rgba(0, 0, 0, 0)" && surface.backgroundImage === "none"), JSON.stringify(dossierSurfaces));
   const beforeThread = scryfallRequests;
   await page.click("#dossier-thread-grid [data-dossier-thread='true']");
   await page.waitForFunction(expected => document.querySelectorAll("#card-grid .card-item").length === expected, {}, 24);
   assert.equal(scryfallRequests, beforeThread + 1, "dossier thread must preserve auto-execution");
   assert.equal(await page.$eval(".maze-primary-workbench", node => node.classList.contains("hidden")), false);
-  assert.equal(await page.$eval("#exact-query-panel", node => node.classList.contains("hidden")), false);
+  assert.ok(await page.$eval("#qi-query", node => node.textContent.trim()));
 
   const azoriusLaunch = new URL(`${baseUrl}/maze/`);
   Object.entries({
@@ -730,6 +833,52 @@ try {
   assert.ok(mobileLayout.documentWidth <= mobileLayout.innerWidth, `390px layout overflowed: ${JSON.stringify(mobileLayout)}`);
   assert.equal(mobileLayout.stashTrees, 1);
   assert.equal(mobileLayout.inspectors, 1);
+  const mobilePlain = await page.evaluate(() => {
+    const input = document.querySelector("#search-input").getBoundingClientRect();
+    const clear = document.querySelector("#clear-search-btn").getBoundingClientRect();
+    const search = document.querySelector("#search-btn").getBoundingClientRect();
+    return {
+      inputBottom: input.bottom,
+      clearTop: clear.top,
+      searchTop: search.top,
+      copyDisplay: getComputedStyle(document.querySelector("#search-copy-btn")).display,
+      openDisplay: getComputedStyle(document.querySelector("#search-scryfall-link")).display,
+    };
+  });
+  assert.ok(mobilePlain.searchTop >= mobilePlain.inputBottom && mobilePlain.clearTop > mobilePlain.searchTop, JSON.stringify(mobilePlain));
+  assert.equal(mobilePlain.copyDisplay, "none");
+  assert.equal(mobilePlain.openDisplay, "none");
+  const requestsBeforeMobileLoom = scryfallRequests;
+  await page.click("#mode-builder");
+  const mobileLoom = await page.evaluate(() => ({
+    documentWidth: document.documentElement.scrollWidth,
+    innerWidth,
+    discoveryDisplay: getComputedStyle(document.querySelector("#maze-discovery-section")).display,
+    helperDisplay: getComputedStyle(document.querySelector("#maze-helper-section")).display,
+    sidebarDisplay: getComputedStyle(document.querySelector(".r-sidebar")).display,
+    selectedDisplay: getComputedStyle(document.querySelector("#maze-selected-search")).display,
+    resetTop: document.querySelector("#loom-reset-btn").getBoundingClientRect().top,
+    searchTop: document.querySelector("#loom-search-btn").getBoundingClientRect().top,
+    currentWeave: (() => {
+      const node = document.querySelector("#current-weave");
+      const rect = node.getBoundingClientRect();
+      const builder = document.querySelector("#builder-panel").getBoundingClientRect();
+      return {
+        display: getComputedStyle(node).display,
+        width: rect.width,
+        height: rect.height,
+        contained: rect.left >= builder.left && rect.right <= builder.right,
+      };
+    })(),
+  }));
+  assert.equal(scryfallRequests, requestsBeforeMobileLoom, "mobile mode switching must not search");
+  assert.ok(mobileLoom.documentWidth <= mobileLoom.innerWidth, `390px Loom overflowed: ${JSON.stringify(mobileLoom)}`);
+  assert.deepEqual([mobileLoom.discoveryDisplay, mobileLoom.helperDisplay, mobileLoom.sidebarDisplay, mobileLoom.selectedDisplay], ["none", "none", "none", "none"]);
+  assert.ok(Math.abs(mobileLoom.resetTop - mobileLoom.searchTop) <= 1, JSON.stringify(mobileLoom));
+  assert.notEqual(mobileLoom.currentWeave.display, "none", JSON.stringify(mobileLoom));
+  assert.ok(mobileLoom.currentWeave.width > 0 && mobileLoom.currentWeave.height > 0 && mobileLoom.currentWeave.contained, JSON.stringify(mobileLoom));
+  await page.click("#mode-ai");
+  assert.equal(scryfallRequests, requestsBeforeMobileLoom, "returning to Plain must not search");
   await page.click("#stash-drawer-toggle");
   const mobileFinds = await page.evaluate(() => {
     const rail = document.querySelector(".stash-rail");
@@ -777,7 +926,7 @@ try {
   assert.ok(Number.parseFloat(reducedMotion.cardTransition) <= 0.001, JSON.stringify(reducedMotion));
   await page.emulateMediaFeatures([{ name: "prefers-reduced-motion", value: "no-preference" }]);
   await page.evaluate(() => scrollTo(0, 0));
-  if (process.env.VM662_CAPTURE_SCREENSHOTS === "1") {
+  if (captureScreenshots) {
     await page.screenshot({ path: path.join(outputDirectory, "03-maze-390px-viewport.png"), fullPage: false });
     await page.screenshot({ path: path.join(outputDirectory, "03-maze-390px.png"), fullPage: true });
   }
@@ -791,7 +940,7 @@ try {
 
   await page.goto(`${baseUrl}/maze/`, { waitUntil: "networkidle0" });
   const measurement = {
-    run: "VM-662 Owner-remediation controlled fixture",
+    run: "VM-663 mode-owned workbench with VM-662 preservation fixture",
     navigationMs: navigation,
     resourceEntries,
     bootDomCount,
@@ -801,7 +950,7 @@ try {
     longTasks: controlledLongTasks,
     discoveryInspectToSearchRequests: 1,
     discoveryGeometry: { pending: discoveryPendingGeometry, searched: discoverySearchedGeometry },
-    loomGeometry: { normal: normalLoomGeometry, helper: helperLoomGeometry },
+    loomGeometry: normalLoomGeometry,
     saveCornerMetrics,
     readingFindsDesktop: { opened: desktopFinds, moved: movedFinds, reopened: reopenedFinds, sections: desktopFindsSections },
     readingFindsMobileSections: mobileFindsSections,
@@ -811,7 +960,7 @@ try {
   };
   await writeFile(path.join(outputDirectory, "controlled-measurement.json"), `${JSON.stringify(measurement, null, 2)}\n`);
   console.log(JSON.stringify(measurement, null, 2));
-  console.log("VM-662 remediation tests passed.");
+  console.log("VM-663 mode-owned workbench remediation tests passed.");
 } finally {
   await browser?.close().catch(() => {});
   try {

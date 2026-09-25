@@ -40,6 +40,10 @@ export function renderQueryInspector({
   if (stateText) stateText.textContent = interpretationState.label;
   renderExactQuery({ query, api: searchApi, pending, blocked });
   if (!pending) updateResultsInterpretationState(interpretationState);
+  if (mode !== "ai") {
+    inspector.classList.add("hidden");
+    return;
+  }
   const processReason = /^(Grounded Plain Reading compiled typed spans|Applied Commander format\.)/.test(reason);
   const finalReason = suppressReason || processReason ? "" : reason;
 
@@ -75,15 +79,13 @@ export function renderExactQuery({
   const queryText = document.getElementById("qi-query");
   const executionText = document.getElementById("qi-execution-state");
   const cleanQuery = String(query || "").trim();
+  if (queryText) queryText.textContent = cleanQuery;
+  if (executionText) {
+    executionText.textContent = status;
+  }
   if (!panel) return;
   panel.classList.toggle("hidden", !cleanQuery);
   panel.dataset.executionState = pending ? "pending" : blocked ? "blocked" : "executed";
-  if (queryText) queryText.textContent = cleanQuery;
-  if (executionText) {
-    executionText.textContent = status || (pending
-      ? "Ready · Search when ready"
-      : blocked ? "Search unavailable" : "Executed query");
-  }
 }
 
 /**
