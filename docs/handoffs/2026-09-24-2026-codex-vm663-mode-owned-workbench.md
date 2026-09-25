@@ -142,3 +142,12 @@ Owner: ACCEPT
 Decision reference: Current Codex task, Owner message dated 2026-09-24 supplying VM-664 final-main evidence and directing Codex to review it, proceed, and finish VM-663 merged, done, and wrapped up that night.
 
 VM-664 advanced `main` to `67c097598ec441fb78e015c9d2b8fa97bebba8f1` after the first VM-663 pull-request head was reviewed. VM-663 was replayed onto that accepted main, and independent SEPARATE RobQA confirmed exact byte identity for every VM-663 runtime, test, card, and task-handoff path against the previously accepted candidate. Only VM-664's already integrated records and their generated coordination projections differ. The Owner's explicit proceed-to-merge direction therefore binds this reconciled exact candidate and authorizes the guarded PR integration path without reopening the accepted VM-663 product surface.
+
+## Clean-history final Owner acceptance
+
+Task: VM-663
+Candidate: 2fd4f0a0eb4102e66d7f40b555d16b23c878353f
+Owner: ACCEPT
+Decision reference: Current Codex task, Owner direction dated 2026-09-24 to proceed until VM-663 is merged, done, and wrapped up, reaffirmed after Codex disclosed the VM-664 ancestry reconciliation and exact remaining steps.
+
+The repository admission gate required VM-663 to be represented as a fresh isolated admission on accepted VM-664 final main rather than as replayed pre-VM-664 history. The clean candidate preserves the approved VM-663 runtime and test bytes exactly, changes no product surface, and received a new SEPARATE exact-SHA RobQA PASS. The Owner's explicit finish authorization binds this final clean-history candidate and authorizes its guarded PR integration and closeout.
