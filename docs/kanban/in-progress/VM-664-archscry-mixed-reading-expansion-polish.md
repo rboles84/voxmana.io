@@ -1,0 +1,88 @@
+# VM-664 — Archscry Mixed-Reading Expansion Polish
+
+ID: VM-664
+Title: Archscry Mixed-Reading Expansion Polish
+Status: In Progress
+Type: Production presentation and interaction polish
+Area: Archscry placement mixed-result shell
+Priority: High
+Created: 2026-09-24
+
+## Summary
+
+Make the existing expanded direction in Archscry's placement-flow mixed reading appear intentional and visually contained. Preserve the current reading, directions, actions, and outcome semantics.
+
+## Source
+
+Current Owner request and supplied screenshots. The Owner explicitly authorized this independent Archscry-only task to proceed in an isolated worktree while unrelated VM-663 Maze work is active: `conversation-2026-09-24-archscry-maze-parallel-exception`.
+
+## Scope
+
+- Polish only the Archscry placement-flow mixed-result shell after an existing Explore action expands a supported direction.
+- Retain current direction choices, text, Explore behavior, result state, restart behavior, and the no-discriminator message.
+- Add narrowly scoped selected/expanded presentation and accessibility-state wiring only where needed for the existing shared detail surface.
+- Supply a focused deterministic/browser evidence path for this shell and an independent RobQA exact-candidate review with one representative expanded-state screenshot.
+
+## Explicitly Out Of Scope
+
+- Maze, the shared design system, global card styling, route/navigation shell, placement/scoring, identity semantics, generated/source data, schema, Identity Atlas, dossier content, questionnaire, persistence, or any change to recommendation meaning.
+- New mixed-result behavior, a new interaction model, or a broader Archscry redesign.
+- Manual Owner testing; the requested independent RobQA screenshot and PASS are the required review evidence.
+
+## Acceptance Criteria
+
+- [ ] Expanding either direction leaves the mixed reading spatially coherent: the selected direction and its shared detail are visibly related, contained, and intentionally spaced.
+- [ ] Exactly one selected direction is exposed at a time; switching directions replaces rather than accumulates detail, while existing Explore and Restart behavior remains unchanged.
+- [ ] The existing mixed-result grid remains responsive and does not gain horizontal overflow at representative desktop and narrow widths.
+- [ ] The scoped control/detail relationship exposes truthful expanded state without changing placement or identity semantics.
+- [ ] No unscoped shared-card or Maze styling changes are introduced.
+- [ ] Separate RobDev implementation and independent RobQA pass for the exact material candidate are recorded; RobQA supplies one representative expanded mixed-reading screenshot for the Owner.
+
+## Files Likely Impacted
+
+- `archscry/index.html`
+- `assets/css/archscry.css`
+- `assets/js/archscry/runtime/dossier-view.js`
+- `scripts/validate-frontend-html.mjs`
+- `scripts/vm664-archscry-mixed-reading-browser.mjs`
+- This card, the two task handoffs, and generated board/index views.
+
+## Risks
+
+- A superficially local style change can accidentally affect ordinary placement results or other routes if selectors are not bounded to the mixed-result shell.
+- Selected-state markup can drift from actual expanded detail if direction switching is not updated atomically.
+- A narrow-width correction can make the desktop grid or no-discriminator/restart rhythm worse.
+
+## Implementation Prompt
+
+Apply RobDev only to the existing Archscry placement mixed-result rendering path. Keep the shared detail region outside the direction grid, preserve all behavior/content/meaning, and scope visual selectors to the mixed-result shell. Use a separate RobQA role to select proportional tests, inspect the exact candidate, and capture the requested representative expanded-state screenshot. Stop at Owner Review.
+
+## Notes
+
+At the time of admission, unrelated VM-663 Maze work was active in a different worktree. It is neither a dependency nor inherited scope. The Owner's explicit parallel-work/isolation authorization is recorded above; this branch starts from accepted `main` and must not incorporate VM-663 work.
+
+## Delivery
+
+Record version: 1
+Branch: codex/vm-664-archscry-mixed-reading-polish
+Admission baseline: 53cd82ae7acb04990d787169e5e117ae3c782dbc
+Candidate: PENDING
+RobQA: PENDING
+Owner: PENDING
+Integration: PENDING
+Dependencies: None
+Decisions: Owner authorized isolated parallel execution under `conversation-2026-09-24-archscry-maze-parallel-exception`; retain existing Archscry placement semantics and stop at Owner Review after separate RobDev and independent RobQA evidence.
+Evidence: PENDING — expected RobDev and independent RobQA handoffs below.
+
+## Admission Scope
+
+- `archscry/index.html`
+- `assets/css/archscry.css`
+- `assets/js/archscry/runtime/dossier-view.js`
+- `scripts/validate-frontend-html.mjs`
+- `scripts/vm664-archscry-mixed-reading-browser.mjs`
+- `docs/kanban/in-progress/VM-664-archscry-mixed-reading-expansion-polish.md`
+- `docs/kanban/board.md`
+- `docs/handoffs/2026-09-24-robdev-vm664-archscry-mixed-reading-polish.md`
+- `docs/handoffs/2026-09-24-robqa-vm664-archscry-mixed-reading-polish.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
