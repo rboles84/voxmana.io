@@ -129,3 +129,69 @@ VM-664 may enter Owner Review with Owner PENDING. Do not push, open a PR, merge,
 - `docs/kanban/in-progress/VM-664-archscry-mixed-reading-expansion-polish.md`
 
 The evidence delta contains only exact-candidate QA, lifecycle fields, acceptance checkmarks, and generated projections; it does not alter material product or test bytes.
+
+---
+
+## Corrected-candidate QA cycle — 2026-09-24
+
+Task: VM-664
+Candidate: 25d4bff718af7136109a5cc7922f0e886fb02aec
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: /root/vm664_robqa
+Implementer: /root/vm664_robdev
+
+This cycle supersedes the earlier PASS for `b3c4c0f8fcffa2534b91898caa6b5598d0627861`, which became stale when the Owner rejected that candidate because both mixed-reading Explore pills were left-aligned rather than centered. The Owner finding was treated as a QA escape and converted into the narrow regression invariant below.
+
+### Binding, scope, and correction review
+
+- Exact corrected material candidate: `25d4bff718af7136109a5cc7922f0e886fb02aec` on `codex/vm-664-archscry-mixed-reading-polish`; the worktree was clean at binding and pre-QA admission continuation passed.
+- QA remains low-end QA-2 because the component's pointer/keyboard/ARIA/replacement behavior and responsive geometry remain the affected contract. Separate execution is retained by explicit Owner request; this reviewer did not implement the correction.
+- The correction adds only `.bounded-result-shell[data-result-state="mixed"] .bounded-direction-card > [data-bounded-direction-control] { align-self: center; }` and the focused geometry regression, plus append-only task evidence.
+- Source/diff inspection found no global button/card rule, no shared component or Maze change, and no change to the renderer, placement/scoring, identity meaning, data, dossier content, persistence, route, or generated product artifacts.
+- CPU-heavy validation: **NOT REQUIRED**.
+
+### Finding-to-invariant disposition
+
+- Owner finding: both mixed-reading Explore pills were not horizontally centered within their cards.
+- Defect class: contextual component alignment, not global button alignment.
+- Regression invariant: every `[data-bounded-direction-control]` in the mixed shell must have a horizontal center within 1px of its own `[data-bounded-direction-card]` center at 1440, 820, and 390 widths, before activation, after pointer activation, and after keyboard switching; the centering selector must remain limited to the direct mixed-shell card control.
+- Disposition: **RESOLVED** on the corrected candidate. Independent measured deltas were Azorius `0px` and White `0.008px` in all nine width/state combinations.
+
+### Corrected-candidate tests and objective evidence
+
+| Test | Result |
+|---|---|
+| `node scripts/vm664-archscry-mixed-reading-browser.mjs --viewport=all` | PASS at 1440, 820, and 390 widths; source selector guard, initial/selected/switched centering, pointer and keyboard activation, single selected/expanded state, replacement, containment, no overflow, retained limitation/Restart, and no browser console errors |
+| Independent Chromium geometry probe | PASS — before selection, after real `page.click()` on Azorius, and after focusing White and pressing Enter: Azorius center delta `0px`, White center delta `0.008px`, both controls remained inside the mixed shell, panel count changed `0 → 1 → 1`, no horizontal overflow, and no console/page errors at all three widths |
+| `npm.cmd run lint:js` | PASS — 37 frontend JavaScript files |
+| `npm.cmd run lint:html` | PASS |
+| `npm.cmd run test:vm551-dossier-integrity` | PASS — provider/content, card rationale, modal, tooltip, and three-item-layout contracts green |
+| `npm.cmd run test:frontend-smoke` | PASS — Guide, Home, Maze, Archscry, Library alias, Privacy, and Terms |
+| `git diff --check 53cd82ae7acb04990d787169e5e117ae3c782dbc..25d4bff718af7136109a5cc7922f0e886fb02aec` | PASS |
+| `npm.cmd run task -- indexes --check` before evidence update | PASS — generated views fresh |
+
+The existing pointer/keyboard/ARIA/replacement/containment evidence remains green on the corrected candidate. Each control begins collapsed and references the same detail region; pointer activation expands Azorius; keyboard Enter transfers the sole expanded state to White; switching replaces rather than accumulates the panel; and no tested state overflows horizontally.
+
+### Corrected Owner-requested screenshot
+
+`C:\Users\obake\.codex\visualizations\2026\09\25\01a0d695-232e-7272-89d7-0c0965cd9deb\vm664-robqa-expanded-mixed-reading.png`
+
+- Viewport: 1830×732
+- State: Azorius selected after real pointer activation; exactly one contained detail panel
+- Measured screenshot-state centers: Azorius `0px`; White `0.008px`
+- SHA-256: `773ec5b57af95c6a6d594b6089c2c1cc1cdd3799eca93f492f28e3de8e137ad5`
+
+The screenshot was overwritten only after the corrected candidate passed the objective checks. It is Owner review evidence, not a claim of subjective aesthetic acceptance.
+
+### Skips and remaining judgment
+
+- Placement/recovery, synthetic/mutation, all-37, generated-data, and visual-regression matrices remain intentionally skipped because their protected owners did not change. The previously disclosed `jund-mixed` replay mismatch was not retried under the one-attempt unrelated-harness rule.
+- No blocker, major, or minor objective finding remains.
+- Remaining Owner judgment is limited to whether the corrected centered controls and overall visual rhythm meet the desired aesthetic. Engineering PASS does not assert Owner acceptance, integration, or deployment.
+
+### Corrected-candidate verdict
+
+**RobQAPass PASS** for exact material candidate `25d4bff718af7136109a5cc7922f0e886fb02aec`.
+
+VM-664 may return to Owner Review with Owner PENDING. No push, PR, merge, integration, Maze work, or additional product change is authorized by this decision.
