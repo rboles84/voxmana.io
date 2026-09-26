@@ -1,4 +1,4 @@
-<!-- task-view-sha256:e95f021fcab092ce4d919c56610ac8948f4cc516427972d265dd9971fb782b6e -->
+<!-- task-view-sha256:088fe442f86a81fbb600d713072045c7e69950f648f95fee6ca4755212a9a383 -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -39,6 +39,7 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 
 | ID | Card | Declared status | Diagnostics |
 |---|---|---|---|
+| VM-666 | [Strategium Open-Surface Convergence](in-progress/VM-666-strategium-open-surface-convergence.md) | In Progress |  |
 
 ## Owner Review
 
