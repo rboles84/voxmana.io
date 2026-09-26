@@ -1,4 +1,4 @@
-<!-- task-view-sha256:f50e4823aaf3faab31e36274c2dbc923d47df7f630631df91d24c73037cc24db -->
+<!-- task-view-sha256:c61f93b228bf4a361c35ce43f17783073fc05ba3da69741a15bbf05a9783fa1c -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -9,7 +9,10 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 | Authored / filename date | Agent | Handoff | Related task references | Diagnostics |
 |---|---|---|---|---|
 | 2026-09-26T00:00:00Z (authored) | Unknown | [VM-665 — Integration And Closeout](2026-09-26-codex-vm665-closeout.md) | VM-665 | Identity displayed from heading; not admission metadata. |
+| 2026-09-25T23:35:00Z (filename) | Kanban Steward (`/root/vm666_clerical`), requested/configured route: clerical role, `gpt-5.6-terra` at low reasoning effort. No backend telemetry is claimed. | [Kanban Steward Handoff — VM-666 Admission](2026-09-25-2335-kanban-steward-vm666-admission.md) | VM-666 | Identity displayed from heading; not admission metadata. |
 | 2026-09-25T12:50:00Z (authored) | Planning Architect (`/root/apocrypha_recon`), requested route: session-selected planning/coordinator context; backend telemetry is not exposed. | [Apocrypha open-surface convergence — implementation-ready reconnaissance](2026-09-25-0650-planning-architect-apocrypha-open-surface-recon.md) | VM-663, VM-664, VM-645, VM-414 |  |
+| 2026-09-25T00:00:00Z (authored) | Planning Architect (`/root/strategium_recon`) | [Strategium Open-Surface Recon and VM-666 Recommendation](2026-09-25-2200-planning-architect-strategium-open-surface-recon.md) | VM-666 | Identity displayed from heading; not admission metadata. |
+| 2026-09-25T00:00:00Z (authored) | Planning Architect (`/root/vm666_redteam`), independent adversarial review | [VM-666 Strategium Open-Surface Convergence — adversarial planning review](2026-09-25-2317-planning-architect-vm666-redteam.md) | VM-666, VM-552, VM-646, VM-650, VM-663, VM-665, VM-406 | Identity displayed from heading; not admission metadata. |
 | 2026-09-25T00:00:00Z (authored) | Unknown | [VM-663 — Integration And Closeout](2026-09-25-codex-vm663-closeout.md) | VM-663 | Identity displayed from heading; not admission metadata. |
 | 2026-09-25T00:00:00Z (authored) | Unknown | [VM-664 — Integration And Closeout](2026-09-25-codex-vm664-closeout.md) | VM-664 | Identity displayed from heading; not admission metadata. |
 | 2026-09-25T00:00:00Z (authored) | Codex `/root` (repository `robdev` role) | [VM-665 — Apocrypha Open-Surface Convergence: RobDev Handoff](2026-09-25-robdev-vm665-apocrypha-open-surface.md) | VM-665 | Identity displayed from heading; not admission metadata. |
