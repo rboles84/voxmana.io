@@ -244,3 +244,20 @@ Open `/apocrypha/` on candidate `df70822eef687dade43d3a60cb7edcb1fb8eef4f`.
 PASS if the four correction findings are visually resolved without weakening the already accepted source-library treatment. FAIL if the bright primary glow, cramped signal composition, opaque summary panel, or duplicate category name remains.
 
 Product/runtime/test files changed by corrected-candidate RobQA: none. QA/lifecycle files changed: this appended handoff section, the VM-665 card, and faithfully regenerated board/handoff index views.
+
+## Owner acceptance — 2026-09-26
+
+Task: VM-665
+Candidate: df70822eef687dade43d3a60cb7edcb1fb8eef4f
+Owner: ACCEPT
+Decision reference: Current Codex task Owner message completing the bounded recheck on 2026-09-26.
+
+The Owner reviewed the corrected exact candidate and reported “Seems good” for every bounded check:
+
+1. comparison of the two hero actions and scan of the three signal items;
+2. opening and closing Official Design, Worldbuilding & Lore, and Official Archives;
+3. confirmation that summaries remain transparent and category names appear once;
+4. confirmation that count chips and colored source cards remain solid; and
+5. the accepted approximately 390px layout.
+
+This is genuine product/visual acceptance of candidate `df70822eef687dade43d3a60cb7edcb1fb8eef4f`, which already has independent RobQA PASS. Under the repository's ACCEPT workflow, it authorizes integration of that exact material candidate through the existing VM-665 branch and one guarded pull request. Integration, deployment, merge, cleanup, and closeout are not claimed by this record.
