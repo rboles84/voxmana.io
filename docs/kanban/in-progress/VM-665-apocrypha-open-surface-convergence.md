@@ -2,7 +2,7 @@
 
 ID: VM-665
 Title: Apocrypha Open-Surface Convergence
-Status: Owner Review
+Status: In Progress
 Type: Bounded public-route presentation
 Area: Apocrypha
 Priority: High
@@ -15,6 +15,7 @@ Adopt the accepted Home, Archscry, and Maze open, rule-led visual family on Apoc
 ## Source
 
 - Owner request and implementation authorization in the current task, 2026-09-25.
+- Owner manual review on 2026-09-26 returned **REMEDIATE** for candidate `7547c69cee9e218f6658bd4ed4961353f825be3e`; the accepted overall direction remains locked and the correction is limited to four presentation findings.
 - [Implementation-ready Apocrypha reconnaissance](../../handoffs/2026-09-25-0650-planning-architect-apocrypha-open-surface-recon.md).
 - Accepted precedent: VM-642 Home, VM-650 Archscry, VM-663 Maze, VM-664 Archscry mixed-reading polish, and VM-645 Apocrypha source/prose contract.
 - Current accepted-main baseline: `3245dd4ddd9930fc5cf20e5f9f1d04f53b2ea7fb`.
@@ -71,17 +72,36 @@ Adopt the accepted Home, Archscry, and Maze open, rule-led visual family on Apoc
 
 Follow the Owner-approved prompt in the current task and the linked reconnaissance. Reuse the existing site-skin adoption seam and exact Apocrypha state owners. Make the smallest complete four-path change, prove the real computed/rendered contract without screenshots, and stop on any protected-owner or scope expansion.
 
+## Owner Correction Cycle — 2026-09-26
+
+The Owner retained the overall VM-665 visual direction, source-card treatment, opaque major section anchors, rail, keyboard/focus behavior, mobile layout, and `/library/` compatibility. Correct only the rejected bright hero action, cramped three-item signal composition, opaque visible top-level summary state, and duplicated visible category name.
+
+Correction material scope is exactly:
+
+- `assets/css/site-skin.css`
+- `scripts/vm665-apocrypha-open-surface-browser.mjs`
+
+Correction acceptance:
+
+- [ ] `Browse the sources` has no gradient or decorative glow, remains readable/actionable, and is harmonized with `How sources are used` without changing global `.vm-button` behavior.
+- [ ] The desktop signal area retains three open/rule-led items with non-overlapping, unclipped text and useful spacing; the existing 980px stack and accepted mobile layout remain intact.
+- [ ] Every visible top-level `.apoc-library-summary` remains transparent/no-image/no-shadow/no-backdrop-filter with no visible pseudo-surface in both closed and open states.
+- [ ] Official Design, Worldbuilding & Lore, Official Archives, and Supplemental References each present the category name once while retaining title, description, boundary copy, count, chevron, edge color, focus, and behavior.
+- [ ] Intentional charcoal `.apoc-section__head` anchors and the accepted solid/color-treated source cards, reference cards, actions, badges, counts, and status surfaces remain unchanged.
+- [ ] No route stylesheet, HTML, runtime, registry, generated copy, dependency, breakpoint, alias, shared component, other route, or screenshot baseline changes.
+- [ ] Independent RobQA verifies the corrected exact candidate and specifically closes the visible-summary-owner coverage gap before Owner Review.
+
 ## Delivery
 
 Record version: 1
 Branch: codex/vm-665-apocrypha-open-surface-convergence
 Admission baseline: 3245dd4ddd9930fc5cf20e5f9f1d04f53b2ea7fb
-Candidate: 7547c69cee9e218f6658bd4ed4961353f825be3e
-RobQA: PASS at 7547c69cee9e218f6658bd4ed4961353f825be3e — SEPARATE review by `/root/vm665_robqa`; implementation by `/root`
+Candidate: PENDING
+RobQA: PENDING
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
-Decisions: Owner authorized implementation after reviewing and refining the deep reconnaissance and execution prompt. Expected material implementation/test scope is exactly four paths. Keep `assets/css/apocrypha.css` protected unless a demonstrated selector conflict triggers an explicit stop and scope decision. Use the existing 980px responsive threshold, property-complete computed-style evidence, sticky/compass/focus/alias checks, no new dependencies, and no manufactured runtime failure states. OWNER-VISUAL remains active.
+Decisions: Owner authorized implementation after reviewing and refining the deep reconnaissance and execution prompt. Candidate `7547c69cee9e218f6658bd4ed4961353f825be3e` passed independent RobQA but Owner review returned REMEDIATE on 2026-09-26. Preserve the accepted convergence direction and correct only the hero action, signal spacing, visible top-level summary surface, and duplicate visible category name through the existing route adapter and focused browser harness. Keep `assets/css/apocrypha.css`, HTML/runtime/data, source-card treatment, charcoal section anchors, exact 980px responsive threshold, dependencies, alias, shared surfaces, and other routes protected. OWNER-VISUAL remains active.
 Evidence: [Planning reconnaissance](../../handoffs/2026-09-25-0650-planning-architect-apocrypha-open-surface-recon.md); [RobDev handoff](../../handoffs/2026-09-25-robdev-vm665-apocrypha-open-surface.md); [independent RobQA PASS](../../handoffs/2026-09-25-robqa-vm665-apocrypha-open-surface.md).
 
 ## Admission Scope

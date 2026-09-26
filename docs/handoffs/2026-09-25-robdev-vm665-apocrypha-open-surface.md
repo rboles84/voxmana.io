@@ -85,3 +85,44 @@ Intentionally not run: `scripts/visual-regression-apocrypha.mjs`. Its comparator
 - Decisions: QA-1 presentation with a focused real-browser probe; no route-stylesheet edit; no new dependency/breakpoint; no manufactured failure state; no screenshot.
 - Risks and uncertainty: subjective appearance remains Owner-only; the stale historical visual comparator remains disclosed harness debt.
 - Next suggested agent: independent repository RobQA on the exact material candidate.
+
+---
+
+## Owner-remediation implementation cycle — 2026-09-26
+
+The Owner returned candidate `7547c69cee9e218f6658bd4ed4961353f825be3e` for four narrow presentation corrections while explicitly accepting the wider VM-665 direction. Continuation admission passed on the same branch at evidence head `f893d5e339041544a66eed322eb672c5155611b8`.
+
+### Correction contract
+
+- Outcome: remove the rejected hero-action glow, give the three signal items comfortable desktop geometry, keep the actual visible top-level summary owner open in both states, and present each top-level category name once.
+- Owning layer: the existing `body.vm-site-skin.vm-apocrypha-route` adapter and focused VM-665 browser harness.
+- Exact correction product/test scope: `assets/css/site-skin.css` and `scripts/vm665-apocrypha-open-surface-browser.mjs`.
+- Protected: charcoal `.apoc-section__head` anchors; colored solid source/reference cards; Read Source actions; badges/counts/status; rail/sticky behavior; compass/hash/one-open behavior; accepted mobile layout; source data/copy/count/order; HTML; route stylesheet; runtime/fallback; alias; shared controls/components/tokens/layout; all other routes.
+- Stop conditions: any need to edit `apocrypha.css`, HTML, runtime, registry/generated content, `/library/`, a shared unscoped owner, another route, dependencies, or responsive breakpoints.
+
+### Implementation and finding-to-invariant disposition
+
+- The route-scoped primary hero action now uses the same quiet solid background, border, and no-shadow grammar as its neighboring action, retaining a restrained gold text distinction and the existing hover/focus/geometry contract.
+- The accepted two-column hero now gives the signal side a modestly larger share, uses explicit positive gaps, and gives headings/body copy more comfortable line-height without adding a breakpoint or card surface.
+- `.apoc-library-summary` and its open state now explicitly own transparent background color, no image/shadow/backdrop filter, and no visible pseudo-surface. Category edge, chevron, count, focus, and disclosure behavior remain.
+- Only the redundant top-level summary kicker is visually suppressed; the actual title, description, Best for, Does not establish, count, and semantics remain in the unchanged DOM.
+- Regression invariant: all four top-level categories are measured in closed and open states at the visible summary owner; each must stay property-complete open and expose its category name exactly once in rendered text.
+- Regression invariant: the hero actions share quiet surface properties, the primary has no gradient/glow with sufficient computed contrast, hover and keyboard focus still change visibly, and desktop signal items remain three non-overlapping/unclipped columns with positive gaps before the unchanged 980px stack.
+
+### Developer evidence
+
+Red-before-green witness: after adding the correction assertions but before changing CSS, the focused desktop run failed because `Browse the sources` computed `background-image` was `linear-gradient(rgb(226, 199, 137), rgb(210, 179, 112))` instead of `none`.
+
+Green evidence passed:
+
+- `node scripts/validate-apocrypha-rendering.mjs`
+- `node scripts/validate-apocrypha-sources.mjs`
+- `node scripts/validate-frontend-html.mjs`
+- `npm.cmd run lint:html`
+- `npm.cmd run lint:js`
+- `node --check scripts/vm665-apocrypha-open-surface-browser.mjs`
+- `node scripts/vm665-apocrypha-open-surface-browser.mjs --viewport=all`
+- `npm.cmd run test:frontend-smoke`
+- `git diff --check`
+
+No screenshot baseline or new dependency was added. The stale pre-VM-645 `scripts/visual-regression-apocrypha.mjs` remained intentionally unrun. Final subjective balance remains Owner judgment; corrected exact-candidate SHA and independent RobQA are pending.

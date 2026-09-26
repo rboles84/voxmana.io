@@ -43,6 +43,13 @@ const pseudoSurfaceSelectors = [
   ".apoc-use-note",
 ];
 
+const libraryCategories = [
+  { id: "apoc-library-official-design", title: "Official Design" },
+  { id: "apoc-library-worldbuilding-lore", title: "Worldbuilding & Lore" },
+  { id: "apoc-library-official-archives", title: "Official Archives" },
+  { id: "apoc-library-supplemental-references", title: "Supplemental References" },
+];
+
 function delay(milliseconds) {
   return new Promise((resolve) => setTimeout(resolve, milliseconds));
 }
@@ -202,6 +209,162 @@ function assertSurfaceContract(state, label) {
   assert.equal(state.sectionHeadColor, "rgb(32, 30, 25)", `${label}: section heading band is not opaque charcoal`);
 }
 
+async function collectLibrarySummaryState(page, category) {
+  return page.evaluate(({ id, title }) => {
+    const group = document.getElementById(id);
+    const summary = group?.querySelector(":scope > .apoc-library-summary");
+    const copy = summary?.querySelector(".apoc-library-summary__copy");
+    const kicker = copy?.querySelector(":scope > .vm-card-kicker");
+    const titleNode = copy?.querySelector(":scope > .apoc-library-title");
+    const alpha = (color) => {
+      const match = color.match(/^rgba?\([^,]+,[^,]+,[^,]+(?:,\s*([\d.]+))?\)$/i);
+      return match ? Number(match[1] ?? 1) : 1;
+    };
+    const surface = (pseudo = null) => {
+      const style = summary ? getComputedStyle(summary, pseudo) : null;
+      return {
+        backgroundColor: style?.backgroundColor || "",
+        backgroundAlpha: style ? alpha(style.backgroundColor) : -1,
+        backgroundImage: style?.backgroundImage || "",
+        boxShadow: style?.boxShadow || "",
+        backdropFilter: style?.backdropFilter || style?.webkitBackdropFilter || "",
+        content: style?.content || "",
+      };
+    };
+    const visibleLines = (copy?.innerText || "").split("\n").map((line) => line.trim()).filter(Boolean);
+    return {
+      present: Boolean(group && summary && copy && kicker && titleNode),
+      open: Boolean(group?.open),
+      surface: surface(),
+      before: surface("::before"),
+      after: surface("::after"),
+      kickerDisplay: kicker ? getComputedStyle(kicker).display : "",
+      titleDisplay: titleNode ? getComputedStyle(titleNode).display : "",
+      visibleNameCount: visibleLines.filter((line) => line === title).length,
+    };
+  }, category);
+}
+
+function assertOpenLibrarySummary(state, category, expectedOpen) {
+  const label = `${category.title} ${expectedOpen ? "open" : "closed"} summary`;
+  assert.equal(state.present, true, `${label}: rendered owner is missing`);
+  assert.equal(state.open, expectedOpen, `${label}: disclosure state differs`);
+  assert.equal(state.surface.backgroundAlpha, 0, `${label}: visible summary background is opaque: ${state.surface.backgroundColor}`);
+  assert.equal(state.surface.backgroundImage, "none", `${label}: visible summary retains a background image`);
+  assert.equal(state.surface.boxShadow, "none", `${label}: visible summary retains a box shadow`);
+  assert.equal(state.surface.backdropFilter, "none", `${label}: visible summary retains a backdrop filter`);
+  for (const [name, pseudo] of [["::before", state.before], ["::after", state.after]]) {
+    assert.equal(pseudo.backgroundImage, "none", `${label}${name} retains a background image`);
+    assert.ok(pseudo.content === "none" || pseudo.backgroundAlpha === 0, `${label}${name} recreates a visible surface`);
+  }
+  assert.equal(state.kickerDisplay, "none", `${label}: redundant category kicker remains visible`);
+  assert.notEqual(state.titleDisplay, "none", `${label}: meaningful category title is hidden`);
+  assert.equal(state.visibleNameCount, 1, `${label}: category name is not presented exactly once`);
+}
+
+async function verifyLibrarySummaryStates(page) {
+  for (const category of libraryCategories) {
+    const selector = `#${category.id} > .apoc-library-summary`;
+    const initial = await collectLibrarySummaryState(page, category);
+    assertOpenLibrarySummary(initial, category, initial.open);
+
+    await page.click(selector);
+    await page.waitForFunction((id, expected) => document.getElementById(id)?.open === expected, {}, category.id, !initial.open);
+    assertOpenLibrarySummary(await collectLibrarySummaryState(page, category), category, !initial.open);
+
+    await page.click(selector);
+    await page.waitForFunction((id, expected) => document.getElementById(id)?.open === expected, {}, category.id, initial.open);
+    assertOpenLibrarySummary(await collectLibrarySummaryState(page, category), category, initial.open);
+  }
+
+  const design = libraryCategories[0];
+  if (!(await collectLibrarySummaryState(page, design)).open) {
+    await page.click(`#${design.id} > .apoc-library-summary`);
+    await page.waitForFunction((id) => document.getElementById(id)?.open === true, {}, design.id);
+  }
+}
+
+async function collectHeroCorrectionState(page) {
+  return page.evaluate(() => {
+    const primary = document.querySelector(".apoc-hero__actions .vm-button--primary");
+    const secondary = document.querySelector(".apoc-hero__actions .vm-button:not(.vm-button--primary)");
+    const list = document.querySelector(".apoc-signal-list");
+    const items = [...document.querySelectorAll(".apoc-signal-item")];
+    const rgb = (value) => {
+      const match = value.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\)$/i);
+      if (!match) return [0, 0, 0];
+      const alpha = Number(match[4] ?? 1);
+      return [Number(match[1]) * alpha, Number(match[2]) * alpha, Number(match[3]) * alpha];
+    };
+    const luminance = (value) => rgb(value).map((channel) => {
+      const normalized = channel / 255;
+      return normalized <= 0.03928 ? normalized / 12.92 : ((normalized + 0.055) / 1.055) ** 2.4;
+    }).reduce((sum, channel, index) => sum + channel * [0.2126, 0.7152, 0.0722][index], 0);
+    const contrast = (foreground, background) => {
+      const first = luminance(foreground);
+      const second = luminance(background);
+      return (Math.max(first, second) + 0.05) / (Math.min(first, second) + 0.05);
+    };
+    const signature = (node) => {
+      const style = getComputedStyle(node);
+      return {
+        backgroundColor: style.backgroundColor,
+        backgroundImage: style.backgroundImage,
+        borderTopColor: style.borderTopColor,
+        boxShadow: style.boxShadow,
+        color: style.color,
+      };
+    };
+    return {
+      primary: signature(primary),
+      secondary: signature(secondary),
+      primaryContrast: contrast(getComputedStyle(primary).color, getComputedStyle(primary).backgroundColor),
+      signalColumns: getComputedStyle(list).gridTemplateColumns.split(" ").filter(Boolean).length,
+      items: items.map((item) => {
+        const rect = item.getBoundingClientRect();
+        const heading = item.querySelector("h3").getBoundingClientRect();
+        const copy = item.querySelector("p").getBoundingClientRect();
+        return {
+          left: rect.left,
+          right: rect.right,
+          top: rect.top,
+          bottom: rect.bottom,
+          width: rect.width,
+          clippedX: item.scrollWidth - item.clientWidth,
+          clippedY: item.scrollHeight - item.clientHeight,
+          headingInside: heading.left >= rect.left - 1 && heading.right <= rect.right + 1,
+          copyInside: copy.left >= rect.left - 1 && copy.right <= rect.right + 1,
+          textSeparated: heading.bottom <= copy.top + 1,
+        };
+      }),
+    };
+  });
+}
+
+function assertHeroCorrectionState(state, label, expectedColumns) {
+  assert.equal(state.primary.backgroundImage, "none", `${label}: Browse the sources retains a gradient/glow background`);
+  assert.equal(state.primary.boxShadow, "none", `${label}: Browse the sources retains a decorative shadow/glow`);
+  for (const property of ["backgroundColor", "backgroundImage", "borderTopColor", "boxShadow"]) {
+    assert.equal(state.primary[property], state.secondary[property], `${label}: Browse the sources ${property} is not harmonized with How sources are used`);
+  }
+  assert.ok(state.primaryContrast >= 4.5, `${label}: Browse the sources contrast is only ${state.primaryContrast}`);
+  assert.equal(state.signalColumns, expectedColumns, `${label}: signal composition has ${state.signalColumns} columns`);
+  assert.equal(state.items.length, 3, `${label}: expected three signal items`);
+  for (const [index, item] of state.items.entries()) {
+    assert.ok(item.clippedX <= 1 && item.clippedY <= 1, `${label}: signal item ${index + 1} clips its content`);
+    assert.ok(item.headingInside && item.copyInside, `${label}: signal item ${index + 1} text escapes its column`);
+    assert.ok(item.textSeparated, `${label}: signal item ${index + 1} heading and body overlap`);
+  }
+  if (expectedColumns === 3) {
+    for (let index = 1; index < state.items.length; index += 1) {
+      const gap = state.items[index].left - state.items[index - 1].right;
+      assert.ok(gap >= 15, `${label}: signal item gap ${index} is only ${gap}px`);
+      assert.ok(state.items[index].left >= state.items[index - 1].right, `${label}: signal items overlap`);
+    }
+    assert.ok(state.items.every((item) => item.width >= 145), `${label}: a signal column remains too narrow`);
+  }
+}
+
 async function focusByTab(page, selector, maximumTabs) {
   const before = await page.$eval(selector, (node) => {
     const style = getComputedStyle(node);
@@ -263,6 +426,30 @@ async function verifyDesktop(browser, origin) {
     await page.setViewport({ width: 1440, height: 1000, deviceScaleFactor: 1 });
     await openApocrypha(page, origin);
     assertSurfaceContract(await collectSurfaceState(page), "desktop");
+    const heroCorrection = await collectHeroCorrectionState(page);
+    assertHeroCorrectionState(heroCorrection, "desktop", 3);
+
+    const primarySelector = ".apoc-hero__actions .vm-button--primary";
+    await page.hover(primarySelector);
+    await delay(250);
+    const hoveredPrimary = await page.$eval(primarySelector, (node) => {
+      const style = getComputedStyle(node);
+      return {
+        backgroundColor: style.backgroundColor,
+        backgroundImage: style.backgroundImage,
+        borderTopColor: style.borderTopColor,
+        boxShadow: style.boxShadow,
+        color: style.color,
+      };
+    });
+    assert.notDeepEqual(hoveredPrimary, heroCorrection.primary, "desktop: Browse the sources lost its hover treatment");
+    assert.equal(hoveredPrimary.backgroundImage, "none", "desktop: Browse the sources hover recreates a gradient");
+    assert.equal(hoveredPrimary.boxShadow, "none", "desktop: Browse the sources hover recreates a glow");
+    await page.mouse.move(1, 1);
+    await page.evaluate(() => document.activeElement?.blur());
+    await focusByTab(page, primarySelector, 20);
+
+    await verifyLibrarySummaryStates(page);
 
     const wide = await page.evaluate(() => {
       const pageNode = document.querySelector(".apoc-page");
@@ -328,6 +515,7 @@ async function verifyMobile(browser, origin) {
     await page.setViewport({ width: 390, height: 844, deviceScaleFactor: 1 });
     await openApocrypha(page, origin);
     assertSurfaceContract(await collectSurfaceState(page), "mobile");
+    assertHeroCorrectionState(await collectHeroCorrectionState(page), "mobile", 1);
 
     const initial = await page.evaluate(() => {
       const pageNode = document.querySelector(".apoc-page");

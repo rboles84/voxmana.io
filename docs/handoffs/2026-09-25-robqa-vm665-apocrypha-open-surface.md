@@ -144,3 +144,25 @@ FAIL if the page still reads as nested glass panels, structural hierarchy become
 - QA/lifecycle files changed by RobQA: this handoff, the VM-665 card, and faithfully regenerated board/handoff index views.
 - Candidate reviewed: `7547c69cee9e218f6658bd4ed4961353f825be3e` exactly.
 - Next action: Owner visual/product review. ACCEPT integrates the exact accepted candidate; REJECT returns VM-665 to correction on the same task/branch.
+
+---
+
+## Owner rejection — 2026-09-26
+
+Task: VM-665
+Candidate: 7547c69cee9e218f6658bd4ed4961353f825be3e
+Owner: REJECT
+Decision reference: Current Codex task Owner message, attached `VM-665-owner-manual-test-2026-09-26.md`, and supplied annotated screenshots; report decision `REMEDIATE`.
+
+The Owner accepted the overall open/rule-led convergence, source-library identity, rail, colored solid source/reference cards, actions/status objects, keyboard/focus behavior, approximately 390px mobile result, `/library/` compatibility, and intentional charcoal major section anchors. The rejected candidate remains immutable history; its RobQA PASS does not bind a correction.
+
+Four correction findings are authoritative:
+
+1. The `Browse the sources` primary action uses an excessively bright gradient treatment and must be harmonized with `How sources are used` while staying actionable.
+2. The three-item hero signal composition is cramped and needs more balanced column space, gaps, and readable measures without changing copy, DOM order, the two-column hero, or the 980px conversion.
+3. The visible `.apoc-library-summary`, especially its open state, recreates the old opaque panel even though the outer group is transparent. Closed and open summary owners must remain open/rule-led.
+4. Each top-level category visibly repeats its name as kicker plus title. The redundant summary kicker should be suppressed through the scoped presentation layer while the meaningful title and all descriptive/interaction content remain.
+
+This is a QA escape: the first browser contract asserted `.apoc-library-group` but not the inner summary owner that actually painted the rejected surface. The correction regression must inspect the rendered summary and its pseudo-surfaces in both disclosure states across Official Design, Worldbuilding & Lore, Official Archives, and Supplemental References.
+
+VM-665 returns to RobDev on the same branch. No new task, redesign, integration, push, PR, merge, deployment, or closeout is authorized. A corrected material candidate requires new independent RobQA and Owner review.

@@ -673,8 +673,8 @@ body.vm-site-skin.vm-apocrypha-route .apoc-hero {
 }
 
 body.vm-site-skin.vm-apocrypha-route .apoc-hero__grid {
-  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
-  gap: clamp(32px, 5vw, 72px);
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  gap: clamp(40px, 4vw, 64px);
   align-items: start;
 }
 
@@ -721,6 +721,22 @@ body.vm-site-skin.vm-apocrypha-route .apoc-hero__copy h1 {
   text-wrap: balance;
 }
 
+body.vm-site-skin.vm-apocrypha-route .apoc-hero__actions .vm-button--primary {
+  border-color: var(--border-s);
+  background-color: rgba(12, 11, 10, 0.66);
+  background-image: none;
+  color: var(--site-gold);
+  box-shadow: none;
+}
+
+body.vm-site-skin.vm-apocrypha-route .apoc-hero__actions .vm-button--primary:is(:hover, :focus-visible) {
+  border-color: var(--gold);
+  background-color: rgba(184, 149, 74, 0.1);
+  background-image: none;
+  color: var(--gold-l);
+  box-shadow: none;
+}
+
 body.vm-site-skin.vm-apocrypha-route .apoc-hero__signal {
   padding: 4px 0 4px clamp(24px, 3vw, 40px);
   border: 0;
@@ -728,18 +744,30 @@ body.vm-site-skin.vm-apocrypha-route .apoc-hero__signal {
 }
 
 body.vm-site-skin.vm-apocrypha-route .apoc-signal-list {
-  gap: 0;
+  gap: clamp(16px, 1.8vw, 24px);
 }
 
 body.vm-site-skin.vm-apocrypha-route .apoc-signal-item {
-  padding: 16px 0;
+  min-width: 0;
+  padding: 18px 0;
   border: 0;
   border-top: 1px solid var(--site-rule);
 }
 
 body.vm-site-skin.vm-apocrypha-route .apoc-signal-item:first-child {
-  padding-top: 16px;
+  padding-top: 18px;
   border-top: 1px solid var(--site-rule);
+}
+
+body.vm-site-skin.vm-apocrypha-route .apoc-signal-item h3 {
+  margin-bottom: 10px;
+  font-size: clamp(1rem, 1.2vw, 1.12rem);
+  line-height: 1.25;
+  text-wrap: balance;
+}
+
+body.vm-site-skin.vm-apocrypha-route .apoc-signal-item p {
+  line-height: 1.55;
 }
 
 body.vm-site-skin.vm-apocrypha-route .apoc-layout {
@@ -827,10 +855,31 @@ body.vm-site-skin.vm-apocrypha-route .apoc-library-group {
 body.vm-site-skin.vm-apocrypha-route .apoc-library-summary {
   padding: 18px 12px 18px 16px;
   border-left-width: 2px;
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 body.vm-site-skin.vm-apocrypha-route .apoc-library-group[open] > .apoc-library-summary {
-  background: #12110e;
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+body.vm-site-skin.vm-apocrypha-route .apoc-library-summary::before,
+body.vm-site-skin.vm-apocrypha-route .apoc-library-summary::after {
+  content: none;
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+}
+
+body.vm-site-skin.vm-apocrypha-route .apoc-library-summary__copy > .vm-card-kicker {
+  display: none;
 }
 
 body.vm-site-skin.vm-apocrypha-route .apoc-library-body {
