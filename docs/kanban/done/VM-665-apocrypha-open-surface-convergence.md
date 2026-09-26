@@ -2,7 +2,7 @@
 
 ID: VM-665
 Title: Apocrypha Open-Surface Convergence
-Status: Accepted
+Status: Done
 Type: Bounded public-route presentation
 Area: Apocrypha
 Priority: High
@@ -99,10 +99,10 @@ Admission baseline: 3245dd4ddd9930fc5cf20e5f9f1d04f53b2ea7fb
 Candidate: df70822eef687dade43d3a60cb7edcb1fb8eef4f
 RobQA: PASS at df70822eef687dade43d3a60cb7edcb1fb8eef4f — SEPARATE review by `/root/vm665_robqa`; implementation by `/root`
 Owner: ACCEPTED at df70822eef687dade43d3a60cb7edcb1fb8eef4f — current Codex task Owner bounded recheck, 2026-09-26
-Integration: PENDING
+Integration: INTEGRATED via PR #57 at e015b17fd74cea4a8849fc33eee9058d4d4f3eaa; expected-head guarded squash merge verified, with lifecycle-only closeout recorded on main.
 Dependencies: None
 Decisions: Owner authorized implementation after reviewing and refining the deep reconnaissance and execution prompt. Candidate `7547c69cee9e218f6658bd4ed4961353f825be3e` passed independent RobQA but Owner review returned REMEDIATE on 2026-09-26. Preserve the accepted convergence direction and correct only the hero action, signal spacing, visible top-level summary surface, and duplicate visible category name through the existing route adapter and focused browser harness. Keep `assets/css/apocrypha.css`, HTML/runtime/data, source-card treatment, charcoal section anchors, exact 980px responsive threshold, dependencies, alias, shared surfaces, and other routes protected. OWNER-VISUAL remains active.
-Evidence: [Planning reconnaissance](../../handoffs/2026-09-25-0650-planning-architect-apocrypha-open-surface-recon.md); [RobDev handoff](../../handoffs/2026-09-25-robdev-vm665-apocrypha-open-surface.md); [independent RobQA PASS](../../handoffs/2026-09-25-robqa-vm665-apocrypha-open-surface.md).
+Evidence: [Planning reconnaissance](../../handoffs/2026-09-25-0650-planning-architect-apocrypha-open-surface-recon.md); [RobDev handoff](../../handoffs/2026-09-25-robdev-vm665-apocrypha-open-surface.md); [independent RobQA PASS and Owner acceptance](../../handoffs/2026-09-25-robqa-vm665-apocrypha-open-surface.md); [verified integration and closeout](../../handoffs/2026-09-26-codex-vm665-closeout.md).
 
 ## Admission Scope
 

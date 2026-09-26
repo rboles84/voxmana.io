@@ -1,4 +1,4 @@
-<!-- task-view-sha256:6ea31733ea2fb85a637844f617b1f45917b1524b2952c314140ea3897591d3ab -->
+<!-- task-view-sha256:f50e4823aaf3faab31e36274c2dbc923d47df7f630631df91d24c73037cc24db -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -8,6 +8,7 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 
 | Authored / filename date | Agent | Handoff | Related task references | Diagnostics |
 |---|---|---|---|---|
+| 2026-09-26T00:00:00Z (authored) | Unknown | [VM-665 — Integration And Closeout](2026-09-26-codex-vm665-closeout.md) | VM-665 | Identity displayed from heading; not admission metadata. |
 | 2026-09-25T12:50:00Z (authored) | Planning Architect (`/root/apocrypha_recon`), requested route: session-selected planning/coordinator context; backend telemetry is not exposed. | [Apocrypha open-surface convergence — implementation-ready reconnaissance](2026-09-25-0650-planning-architect-apocrypha-open-surface-recon.md) | VM-663, VM-664, VM-645, VM-414 |  |
 | 2026-09-25T00:00:00Z (authored) | Unknown | [VM-663 — Integration And Closeout](2026-09-25-codex-vm663-closeout.md) | VM-663 | Identity displayed from heading; not admission metadata. |
 | 2026-09-25T00:00:00Z (authored) | Unknown | [VM-664 — Integration And Closeout](2026-09-25-codex-vm664-closeout.md) | VM-664 | Identity displayed from heading; not admission metadata. |

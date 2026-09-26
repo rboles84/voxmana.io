@@ -1,4 +1,4 @@
-<!-- task-view-sha256:ccd3c12b88391d99843ffeddc9fb6291586d50afdf94aefd831440c0f3048a9b -->
+<!-- task-view-sha256:e95f021fcab092ce4d919c56610ac8948f4cc516427972d265dd9971fb782b6e -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -50,7 +50,6 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | ID | Card | Declared status | Diagnostics |
 |---|---|---|---|
 | VM-660 | [Maze Performance Recon](in-progress/VM-660-maze-performance-recon.md) | Accepted |  |
-| VM-665 | [Apocrypha Open-Surface Convergence](in-progress/VM-665-apocrypha-open-surface-convergence.md) | Accepted |  |
 
 ## Integrated
 
@@ -681,6 +680,7 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | VM-662 | [Maze Modernization Implementation](done/VM-662-maze-modernization-implementation.md) | Done |  |
 | VM-663 | [Maze Mode-Owned Workbench Layout](done/VM-663-maze-mode-owned-workbench-layout.md) | Done |  |
 | VM-664 | [Archscry Mixed-Reading Expansion Polish](done/VM-664-archscry-mixed-reading-expansion-polish.md) | Done |  |
+| VM-665 | [Apocrypha Open-Surface Convergence](done/VM-665-apocrypha-open-surface-convergence.md) | Done |  |
 
 ## Unresolved
 
