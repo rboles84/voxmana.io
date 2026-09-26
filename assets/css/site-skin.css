@@ -1010,3 +1010,38 @@ body.vm-site-skin.vm-apocrypha-route .apoc-source-status[data-tone="error"] {
     border-top: 1px solid var(--site-rule);
   }
 }
+
+/* VM-666: scoped Strategium presentation adapter; route runtime remains authoritative. */
+body.vm-site-skin.vm-strategium-route .vm-shell { width: min(1280px, calc(100% - 48px)); }
+body.vm-site-skin.vm-strategium-route .vm-topbar { background: #0c0c0b; border-bottom-color: var(--site-rule); }
+
+body.vm-site-skin.vm-strategium-route :is(.vm-hero-panel, .vm-hub-choice-panel, .vm-panel, .vm-bridge-panel) {
+  border-radius: 0; background: transparent; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none;
+}
+body.vm-site-skin.vm-strategium-route :is(.vm-hero-panel, .vm-hub-choice-panel) { padding-inline: 0; border-width: 0 0 1px; }
+body.vm-site-skin.vm-strategium-route :is(.vm-status-strip, .vm-hub-section-head, .vm-console-context-return, .vm-review-toolbar) { border-bottom: 1px solid var(--site-rule); }
+body.vm-site-skin.vm-strategium-route :is(.vm-status-strip, .vm-console-context-return) { padding: 10px 0; }
+
+body.vm-site-skin.vm-strategium-route :is(.vm-card, .vm-next-card, .vm-console-preview, .vm-console-note, .vm-console-subpanel, .vm-console-script-card, .vm-archetype-card, .vm-cognitive-item, .vm-checklist-group, .vm-result-grid > section) {
+  border-radius: 2px; background: transparent; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none;
+}
+body.vm-site-skin.vm-strategium-route .vm-console-path-card { background: #14130f; border-color: var(--site-rule); }
+body.vm-site-skin.vm-strategium-route :is(.vm-hub-path, .vm-lifecycle-links a, .vm-review-option, .vm-review-action, .vm-lesson-link, .vm-bracket-number, .vm-bracket-context-option, .vm-lifecycle-copy-target, .vm-lifecycle-paths, .vm-tab, .vm-archetype-search, .vm-checklist-button, .vm-console-review-return, .vm-button, .vm-lesson-dialog-close) {
+  border-radius: 2px; border-color: var(--site-rule); background: #14130f; box-shadow: none;
+}
+body.vm-site-skin.vm-strategium-route :is(.vm-review-option:is(:hover, :focus-visible, .is-selected), .vm-review-action:is(:hover, :focus-visible), .vm-lesson-link:is(:hover, :focus-visible), .vm-bracket-number:is(:hover, :focus-visible, .is-selected), .vm-tab.active, .vm-checklist-button[aria-pressed="true"]) {
+  border-color: var(--site-gold); background: #252116; color: var(--site-ink); box-shadow: inset 0 -2px 0 var(--site-gold);
+}
+body.vm-site-skin.vm-strategium-route :is(.vm-review-panel, .vm-lifecycle-result-grid) {
+  border-radius: 2px; border-color: var(--site-rule); background: #10100e; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none;
+}
+body.vm-site-skin.vm-strategium-route .vm-result-card { border-radius: 2px; background: #10100e; }
+body.vm-site-skin.vm-strategium-route .vm-readiness-status-card { border-radius: 2px; background: #14130f; border-color: var(--site-rule); box-shadow: none; }
+body.vm-site-skin.vm-strategium-route .vm-review-nav { border-radius: 2px; border-color: var(--site-rule); background: #0c0c0a; box-shadow: none; }
+body.vm-site-skin.vm-strategium-route .vm-lesson-dialog { border-radius: 2px; border-color: var(--site-rule); background: #10100e; box-shadow: 0 12px 32px #0009; }
+body.vm-site-skin.vm-strategium-route :is(.vm-lesson-dialog-header, .vm-lesson-dialog-footer) { background: #171612; }
+body.vm-site-skin.vm-strategium-route :is(.vm-lesson-dialog-close, .vm-review-action-primary) { background: var(--site-gold); border-color: var(--site-gold); color: #10100e; }
+
+@media (max-width: 720px) {
+  body.vm-site-skin.vm-strategium-route .vm-shell { width: calc(100% - 40px); }
+}

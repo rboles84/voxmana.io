@@ -9,6 +9,9 @@ const publicPages = {
   maze: "maze/index.html",
   archscry: "archscry/index.html",
   strategium: "strategium/index.html",
+  strategiumFindTable: "strategium/find-a-table/index.html",
+  strategiumBeforeGame: "strategium/before-game/index.html",
+  strategiumDuringGame: "strategium/during-game/index.html",
   strategiumConsole: "strategium/console/index.html",
   strategiumReview: "strategium/review/index.html",
   apocrypha: "apocrypha/index.html",
@@ -600,11 +603,26 @@ expect(
   "apocrypha/index.html should preserve its route stylesheet/data contract and load one scoped vm665 site skin last"
 );
 
-const strategiumStylesheetHrefs = getStylesheetHrefs(sources.strategium);
-expect(
-  strategiumStylesheetHrefs[strategiumStylesheetHrefs.length - 1] === "../assets/css/strategium.css?v=vm635",
-  "strategium/index.html should keep strategium.css as the last stylesheet in the head"
-);
+for (const [key, routeCss, attributes] of [
+  ["strategium", "../assets/css/strategium.css?v=vm635", ["data-page=\"strategium\"", "data-vm-current=\"strategium\"", "data-bg=\"medium\""]],
+  ["strategiumFindTable", "../../assets/css/strategium.css?v=vm635", ["data-page=\"strategium-find-table\"", "data-lifecycle-route=\"find-a-table\"", "data-vm-current=\"strategium\"", "data-bg=\"medium\""]],
+  ["strategiumBeforeGame", "../../assets/css/strategium.css?v=vm635", ["data-page=\"strategium-before-game\"", "data-lifecycle-route=\"before-game\"", "data-vm-current=\"strategium\"", "data-bg=\"medium\""]],
+  ["strategiumDuringGame", "../../assets/css/strategium.css?v=vm635", ["data-page=\"strategium-during-game\"", "data-lifecycle-route=\"during-game\"", "data-vm-current=\"strategium\"", "data-bg=\"medium\""]],
+  ["strategiumReview", "../../assets/css/strategium.css?v=vm635", ["data-page=\"strategium-review\"", "data-vm-current=\"strategium\"", "data-bg=\"medium\""]],
+  ["strategiumConsole", "../../assets/css/strategium.css?v=vm635", ["data-page=\"strategium-console\"", "data-vm-current=\"strategium\"", "data-bg=\"medium\""]],
+]) {
+  const hrefs = getStylesheetHrefs(sources[key]);
+  const bodyTag = sources[key].match(/<body\b[^>]*>/i)?.[0] ?? "";
+  const classes = bodyTag.match(/\bclass="([^"]*)"/i)?.[1].split(/\s+/) ?? [];
+  expect(
+    hrefs.at(-2) === routeCss &&
+      hrefs.at(-1) === routeCss.replace("strategium.css?v=vm635", "site-skin.css?v=vm666") &&
+      hrefs.filter(href => /\/site-skin\.css(?:\?|$)/.test(href)).length === 1 &&
+      classes.includes("vm-site-skin") && classes.includes("vm-strategium-route") &&
+      attributes.every(attribute => bodyTag.includes(attribute)),
+    `${publicPages[key]} should retain its route CSS and load one scoped vm666 skin last`
+  );
+}
 
 const guideStylesheetHrefs = getStylesheetHrefs(sources.guide);
 expect(
