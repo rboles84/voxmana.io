@@ -1,4 +1,4 @@
-<!-- task-view-sha256:0621cea7f9c64f511bf00ddbdb079839a2bf9f03e2d17da3b3cf73ed32cda35e -->
+<!-- task-view-sha256:cea7dcb9271c8134ac5a7b2e67a7c6b5b6346fea3db90fe3c0b565004489e302 -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -8,6 +8,8 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 
 | Authored / filename date | Agent | Handoff | Related task references | Diagnostics |
 |---|---|---|---|---|
+| 2026-09-26T00:00:00Z (authored) | Codex `/root` (session-selected coordination context) | [VM-666 — Owner Review Handoff](2026-09-25-2335-codex-vm666-owner-review.md) | VM-666 | Identity displayed from heading; not admission metadata. |
+| 2026-09-26T00:00:00Z (authored) | Codex `/root/vm666_robqa` (repository `robqa` role; requested/configured `gpt-5.6-sol`, medium; separate from implementation) | [VM-666 — Strategium Open-Surface Convergence: Independent RobQA PASS](2026-09-25-2335-robqa-vm666-strategium-open-surface.md) | VM-666 | Identity displayed from heading; not admission metadata. |
 | 2026-09-26T00:00:00Z (authored) | Unknown | [VM-665 — Integration And Closeout](2026-09-26-codex-vm665-closeout.md) | VM-665 | Identity displayed from heading; not admission metadata. |
 | 2026-09-25T23:35:00Z (filename) | Kanban Steward (`/root/vm666_clerical`), requested/configured route: clerical role, `gpt-5.6-terra` at low reasoning effort. No backend telemetry is claimed. | [Kanban Steward Handoff — VM-666 Admission](2026-09-25-2335-kanban-steward-vm666-admission.md) | VM-666 | Identity displayed from heading; not admission metadata. |
 | 2026-09-25T23:35:00Z (filename) | `/root/vm666_robdev` (requested/configured `gpt-5.6-terra`, medium; host telemetry not exposed). Task: VM-666. Admission baseline: `249c7005b72701e1cb689521ad8df35a58610e53`. No commit, push, PR, merge, acceptance, or independent QA was performed. | [VM-666 — Strategium Open-Surface Convergence: RobDev Handoff](2026-09-25-2335-robdev-vm666-strategium-open-surface.md) | VM-666 | Identity displayed from heading; not admission metadata. |
