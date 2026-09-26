@@ -585,6 +585,21 @@ expect(
   "archscry/index.html should retain its route stylesheet and classes, followed by one opted-in visual skin"
 );
 
+const apocryphaStylesheetHrefs = getStylesheetHrefs(sources.apocrypha);
+const apocryphaBodyTag = sources.apocrypha.match(/<body\b[^>]*>/i)?.[0] ?? "";
+const apocryphaBodyClasses = apocryphaBodyTag.match(/\bclass="([^"]*)"/i)?.[1].split(/\s+/) ?? [];
+expect(
+  apocryphaStylesheetHrefs.at(-2) === '../assets/css/apocrypha.css?v=vm635' &&
+    apocryphaStylesheetHrefs.at(-1) === '../assets/css/site-skin.css?v=vm665' &&
+    apocryphaStylesheetHrefs.filter(href => /\/site-skin\.css(?:\?|$)/.test(href)).length === 1 &&
+    apocryphaBodyClasses.includes('vm-site-skin') &&
+    apocryphaBodyClasses.includes('vm-apocrypha-route') &&
+    /\bdata-page="apocrypha"/i.test(apocryphaBodyTag) &&
+    /\bdata-vm-current="apocrypha"/i.test(apocryphaBodyTag) &&
+    /\bdata-bg="medium"/i.test(apocryphaBodyTag),
+  "apocrypha/index.html should preserve its route stylesheet/data contract and load one scoped vm665 site skin last"
+);
+
 const strategiumStylesheetHrefs = getStylesheetHrefs(sources.strategium);
 expect(
   strategiumStylesheetHrefs[strategiumStylesheetHrefs.length - 1] === "../assets/css/strategium.css?v=vm635",

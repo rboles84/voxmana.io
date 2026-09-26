@@ -654,3 +654,359 @@ body.vm-site-skin.vm-archscry-route .identity-atlas-stage { min-height: 0; }
   body.vm-site-skin.vm-archscry-route .identity-atlas-grid { grid-template-columns: minmax(0, 1fr); }
   body.vm-site-skin.vm-archscry-route .land-wrap { width: 105px; }
 }
+
+/* VM-665: Apocrypha adopts the accepted open, rule-led family while its
+   source records, actions, status surfaces, and overlays remain solid. */
+body.vm-site-skin.vm-apocrypha-route .apoc-page {
+  width: calc(100% - 48px);
+  max-width: 1280px;
+}
+
+body.vm-site-skin.vm-apocrypha-route .vm-topbar {
+  border-bottom: 1px solid var(--site-rule);
+  background: #0c0c0b;
+}
+
+body.vm-site-skin.vm-apocrypha-route .apoc-hero {
+  padding: clamp(32px, 5vw, 56px) 0 32px;
+  border-bottom: 1px solid var(--site-rule);
+}
+
+body.vm-site-skin.vm-apocrypha-route .apoc-hero__grid {
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  gap: clamp(40px, 4vw, 64px);
+  align-items: start;
+}
+
+body.vm-site-skin.vm-apocrypha-route :is(
+  .apoc-hero__copy,
+  .apoc-hero__signal,
+  .apoc-signal-item,
+  .apoc-rail,
+  .apoc-source-tome,
+  .apoc-library-group,
+  .apoc-shelf,
+  .apoc-use-note
+) {
+  border-radius: 0;
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+body.vm-site-skin.vm-apocrypha-route :is(
+  .apoc-hero__copy,
+  .apoc-hero__signal,
+  .apoc-library-group,
+  .apoc-use-note
+)::after {
+  content: none;
+  background: none;
+}
+
+body.vm-site-skin.vm-apocrypha-route .apoc-hero__copy {
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  align-content: start;
+}
+
+body.vm-site-skin.vm-apocrypha-route .apoc-hero__copy h1 {
+  max-width: 15ch;
+  font-size: clamp(3rem, 5.2vw, 5rem);
+  line-height: 1.02;
+  text-shadow: none;
+  text-wrap: balance;
+}
+
+body.vm-site-skin.vm-apocrypha-route .apoc-hero__actions .vm-button--primary {
+  border-color: var(--border-s);
+  background-color: rgba(12, 11, 10, 0.66);
+  background-image: none;
+  color: var(--site-gold);
+  box-shadow: none;
+}
+
+body.vm-site-skin.vm-apocrypha-route .apoc-hero__actions .vm-button--primary:is(:hover, :focus-visible) {
+  border-color: var(--gold);
+  background-color: rgba(184, 149, 74, 0.1);
+  background-image: none;
+  color: var(--gold-l);
+  box-shadow: none;
+}
+
+body.vm-site-skin.vm-apocrypha-route .apoc-hero__signal {
+  padding: 4px 0 4px clamp(24px, 3vw, 40px);
+  border: 0;
+  border-left: 1px solid var(--site-rule);
+}
+
+body.vm-site-skin.vm-apocrypha-route .apoc-signal-list {
+  gap: clamp(16px, 1.8vw, 24px);
+}
+
+body.vm-site-skin.vm-apocrypha-route .apoc-signal-item {
+  min-width: 0;
+  padding: 18px 0;
+  border: 0;
+  border-top: 1px solid var(--site-rule);
+}
+
+body.vm-site-skin.vm-apocrypha-route .apoc-signal-item:first-child {
+  padding-top: 18px;
+  border-top: 1px solid var(--site-rule);
+}
+
+body.vm-site-skin.vm-apocrypha-route .apoc-signal-item h3 {
+  margin-bottom: 10px;
+  font-size: clamp(1rem, 1.2vw, 1.12rem);
+  line-height: 1.25;
+  text-wrap: balance;
+}
+
+body.vm-site-skin.vm-apocrypha-route .apoc-signal-item p {
+  line-height: 1.55;
+}
+
+body.vm-site-skin.vm-apocrypha-route .apoc-layout {
+  gap: clamp(32px, 4vw, 56px);
+}
+
+body.vm-site-skin.vm-apocrypha-route .apoc-rail {
+  padding: 0 24px 0 0;
+  border: 0;
+  border-right: 1px solid var(--site-rule);
+}
+
+body.vm-site-skin.vm-apocrypha-route :is(.apoc-rail__links a, .apoc-rail__deck-links a) {
+  margin: 0;
+  padding: 12px 8px;
+  border-bottom: 1px solid var(--site-rule);
+  color: var(--site-muted);
+  transform: none;
+}
+
+body.vm-site-skin.vm-apocrypha-route :is(
+  .apoc-rail__links a,
+  .apoc-rail__deck-links a
+):is(:hover, :focus-visible, [aria-current="true"]) {
+  color: var(--site-ink);
+  background: #12110e;
+  box-shadow: inset 2px 0 var(--site-gold);
+  transform: none;
+}
+
+body.vm-site-skin.vm-apocrypha-route .apoc-section__head {
+  justify-items: start;
+  margin-bottom: 24px;
+  padding: 12px 16px;
+  border: 0;
+  border-radius: 2px;
+  background-color: #201e19;
+  background-image: none;
+  box-shadow: none;
+  text-align: left;
+  text-shadow: none;
+}
+
+body.vm-site-skin.vm-apocrypha-route .apoc-section__head h2 {
+  color: var(--site-ink);
+  font-size: clamp(1.45rem, 2.4vw, 1.8rem);
+  line-height: 1.25;
+}
+
+body.vm-site-skin.vm-apocrypha-route .apoc-section__head p:last-child {
+  max-width: 74ch;
+  color: var(--site-copy);
+}
+
+body.vm-site-skin.vm-apocrypha-route .apoc-source-compass__rail {
+  gap: 0;
+  padding-bottom: 8px;
+}
+
+body.vm-site-skin.vm-apocrypha-route .apoc-source-tome {
+  min-height: 118px;
+  padding: 16px 18px 16px 22px;
+  border: 0;
+  border-bottom: 1px solid var(--site-rule);
+  transform: none;
+}
+
+body.vm-site-skin.vm-apocrypha-route .apoc-source-tome:is(:hover, :focus-visible, [aria-current="true"]) {
+  border-bottom-color: var(--site-gold);
+  color: var(--site-ink);
+  transform: none;
+}
+
+body.vm-site-skin.vm-apocrypha-route .apoc-library-grid {
+  gap: 20px;
+}
+
+body.vm-site-skin.vm-apocrypha-route .apoc-library-group {
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid var(--site-rule);
+  overflow: visible;
+}
+
+body.vm-site-skin.vm-apocrypha-route .apoc-library-summary {
+  padding: 18px 12px 18px 16px;
+  border-left-width: 2px;
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+body.vm-site-skin.vm-apocrypha-route .apoc-library-group[open] > .apoc-library-summary {
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+body.vm-site-skin.vm-apocrypha-route .apoc-library-summary::before,
+body.vm-site-skin.vm-apocrypha-route .apoc-library-summary::after {
+  content: none;
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+}
+
+body.vm-site-skin.vm-apocrypha-route .apoc-library-summary__copy > .vm-card-kicker {
+  display: none;
+}
+
+body.vm-site-skin.vm-apocrypha-route .apoc-library-body {
+  padding: 20px 0 24px;
+}
+
+body.vm-site-skin.vm-apocrypha-route .apoc-shelf-list {
+  gap: 0;
+}
+
+body.vm-site-skin.vm-apocrypha-route .apoc-shelf {
+  border: 0;
+  border-top: 1px solid var(--site-rule);
+}
+
+body.vm-site-skin.vm-apocrypha-route .apoc-shelf__bar {
+  padding: 14px 8px;
+}
+
+body.vm-site-skin.vm-apocrypha-route .apoc-shelf[open] > .apoc-shelf__bar {
+  background: #12110e;
+}
+
+body.vm-site-skin.vm-apocrypha-route .apoc-shelf__body {
+  padding: 4px 8px 20px;
+}
+
+body.vm-site-skin.vm-apocrypha-route .apoc-use-note {
+  padding: 4px 0 4px 20px;
+  border: 0;
+  border-left: 2px solid var(--site-rule);
+  overflow: visible;
+}
+
+body.vm-site-skin.vm-apocrypha-route :is(.apoc-source-card, .apoc-reference-card) {
+  border-color: var(--site-rule);
+  border-radius: 2px;
+  background-color: var(--site-surface);
+  background-image: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+body.vm-site-skin.vm-apocrypha-route .apoc-source-card[data-source-group="supplemental"] {
+  border-color: #4d3e61;
+  background-color: #121015;
+}
+
+body.vm-site-skin.vm-apocrypha-route .apoc-source-card[data-source-group="official-archives"] {
+  border-color: #315355;
+  background-color: #0e1413;
+}
+
+body.vm-site-skin.vm-apocrypha-route :is(
+  .apoc-button,
+  .apoc-source-link,
+  .apoc-return-link,
+  .apoc-badge,
+  .apoc-source-tags li,
+  .apoc-shelf__count,
+  .apoc-pill,
+  .apoc-hero__status span,
+  .apoc-registry-summary span,
+  .apoc-source-status
+) {
+  border-radius: 2px;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+body.vm-site-skin.vm-apocrypha-route .apoc-source-link {
+  border-color: #75623e;
+  background: #14130f;
+  color: var(--site-gold);
+}
+
+body.vm-site-skin.vm-apocrypha-route .apoc-source-link:is(:hover, :focus-visible) {
+  border-color: var(--site-gold);
+  background: var(--site-gold);
+  color: #10100e;
+}
+
+body.vm-site-skin.vm-apocrypha-route :is(.apoc-hero__status span, .apoc-registry-summary span) {
+  border-color: var(--site-rule);
+  background: #14130f;
+}
+
+body.vm-site-skin.vm-apocrypha-route .apoc-source-status:not([hidden]) {
+  background-color: #10100e;
+  background-image: none;
+}
+
+body.vm-site-skin.vm-apocrypha-route .apoc-source-status[data-tone="ok"] {
+  background-color: #0d1715;
+}
+
+body.vm-site-skin.vm-apocrypha-route .apoc-source-status[data-tone="notice"] {
+  background-color: #19160e;
+}
+
+body.vm-site-skin.vm-apocrypha-route .apoc-source-status[data-tone="error"] {
+  background-color: #21100e;
+}
+
+@media (max-width: 1240px) {
+  body.vm-site-skin.vm-apocrypha-route .apoc-rail {
+    padding: 0 0 20px;
+    border-right: 0;
+    border-bottom: 1px solid var(--site-rule);
+  }
+}
+
+@media (max-width: 980px) {
+  body.vm-site-skin.vm-apocrypha-route .apoc-page {
+    width: calc(100% - 40px);
+  }
+
+  body.vm-site-skin.vm-apocrypha-route .apoc-hero__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  body.vm-site-skin.vm-apocrypha-route .apoc-hero__signal {
+    padding: 24px 0 0;
+    border-left: 0;
+    border-top: 1px solid var(--site-rule);
+  }
+}
