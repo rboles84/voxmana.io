@@ -2,7 +2,7 @@
 
 ID: VM-665
 Title: Apocrypha Open-Surface Convergence
-Status: In Progress
+Status: Owner Review
 Type: Bounded public-route presentation
 Area: Apocrypha
 Priority: High
@@ -83,21 +83,21 @@ Correction material scope is exactly:
 
 Correction acceptance:
 
-- [ ] `Browse the sources` has no gradient or decorative glow, remains readable/actionable, and is harmonized with `How sources are used` without changing global `.vm-button` behavior.
-- [ ] The desktop signal area retains three open/rule-led items with non-overlapping, unclipped text and useful spacing; the existing 980px stack and accepted mobile layout remain intact.
-- [ ] Every visible top-level `.apoc-library-summary` remains transparent/no-image/no-shadow/no-backdrop-filter with no visible pseudo-surface in both closed and open states.
-- [ ] Official Design, Worldbuilding & Lore, Official Archives, and Supplemental References each present the category name once while retaining title, description, boundary copy, count, chevron, edge color, focus, and behavior.
-- [ ] Intentional charcoal `.apoc-section__head` anchors and the accepted solid/color-treated source cards, reference cards, actions, badges, counts, and status surfaces remain unchanged.
-- [ ] No route stylesheet, HTML, runtime, registry, generated copy, dependency, breakpoint, alias, shared component, other route, or screenshot baseline changes.
-- [ ] Independent RobQA verifies the corrected exact candidate and specifically closes the visible-summary-owner coverage gap before Owner Review.
+- [x] `Browse the sources` has no gradient or decorative glow, remains readable/actionable, and is harmonized with `How sources are used` without changing global `.vm-button` behavior.
+- [x] The desktop signal area retains three open/rule-led items with non-overlapping, unclipped text and useful spacing; the existing 980px stack and accepted mobile layout remain intact.
+- [x] Every visible top-level `.apoc-library-summary` remains transparent/no-image/no-shadow/no-backdrop-filter with no visible pseudo-surface in both closed and open states.
+- [x] Official Design, Worldbuilding & Lore, Official Archives, and Supplemental References each present the category name once while retaining title, description, boundary copy, count, chevron, edge color, focus, and behavior.
+- [x] Intentional charcoal `.apoc-section__head` anchors and the accepted solid/color-treated source cards, reference cards, actions, badges, counts, and status surfaces remain unchanged.
+- [x] No route stylesheet, HTML, runtime, registry, generated copy, dependency, breakpoint, alias, shared component, other route, or screenshot baseline changes.
+- [x] Independent RobQA verifies the corrected exact candidate and specifically closes the visible-summary-owner coverage gap before Owner Review.
 
 ## Delivery
 
 Record version: 1
 Branch: codex/vm-665-apocrypha-open-surface-convergence
 Admission baseline: 3245dd4ddd9930fc5cf20e5f9f1d04f53b2ea7fb
-Candidate: PENDING
-RobQA: PENDING
+Candidate: df70822eef687dade43d3a60cb7edcb1fb8eef4f
+RobQA: PASS at df70822eef687dade43d3a60cb7edcb1fb8eef4f — SEPARATE review by `/root/vm665_robqa`; implementation by `/root`
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
