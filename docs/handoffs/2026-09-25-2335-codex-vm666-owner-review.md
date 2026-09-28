@@ -122,7 +122,7 @@ Judge hierarchy, density, readability, operational clarity, and visual-family fi
 
 - Material candidate: `cd9a4efa76582b19b04f98497f16c219c8df7a06`
 - Evidence head: `HEAD`
-- Additional evidence-only paths: `4`
+- Additional evidence-only paths: `5`
 
 This evidence delta is not the full task diff. It contains only the exact-candidate RobQA record, Owner Review lifecycle binding, this coordinator handoff, and faithfully regenerated views; it changes no implementation, policy, scope, acceptance criterion, fixture, or test assertion.
 
@@ -131,6 +131,7 @@ This evidence delta is not the full task diff. It contains only the exact-candid
 - `docs/handoffs/2026-09-25-2335-codex-vm666-owner-review.md`
 - `docs/handoffs/2026-09-25-2335-robdev-vm666-strategium-open-surface.md`
 - `docs/handoffs/2026-09-25-2335-robqa-vm666-strategium-open-surface.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
 - `docs/kanban/in-progress/VM-666-strategium-open-surface-convergence.md`
 
 ## Final branch delta
@@ -139,7 +140,7 @@ This evidence delta is not the full task diff. It contains only the exact-candid
 - Head: `HEAD`
 - Unique changed paths: `20`
 
-The final branch delta is the material candidate plus the four-path evidence delta; every evidence path already exists in the material set, yielding 20 unique baseline-to-HEAD paths.
+The final branch delta is the material candidate plus the five-path evidence delta; every evidence path already exists in the material set, yielding 20 unique baseline-to-HEAD paths.
 
 ## Owner rejection — 2026-09-27
 
