@@ -96,10 +96,45 @@ try {
     await page.waitForSelector("[data-lifecycle-option]");
     assert.deepEqual(await page.$eval(".vm-review-panel", node => {
       const style = getComputedStyle(node);
-      return [style.backgroundColor, style.backgroundImage, style.borderRadius, style.borderLeftWidth, style.borderRightWidth];
-    }), ["rgba(0, 0, 0, 0)", "none", "0px", "0px", "0px"], `${route} retained an opaque outer stage shell`);
-    assert.notEqual(await page.$eval("[data-lifecycle-option]", node => getComputedStyle(node).backgroundColor), "rgba(0, 0, 0, 0)", `${route} choice lost its solid interactive owner`);
+      return [style.backgroundColor, style.backgroundImage, style.borderRadius, style.borderTopWidth, style.borderRightWidth, style.borderBottomWidth, style.borderLeftWidth];
+    }), ["rgba(0, 0, 0, 0)", "none", "0px", "0px", "0px", "0px", "0px"], `${route} retained a filled or independently ruled outer stage shell`);
+    assert.equal(await page.$eval(".vm-review-toolbar", node => getComputedStyle(node).borderBottomWidth), "0px", `${route} progress retained a redundant surrounding rule`);
+    assert.deepEqual(await page.$eval(".vm-review-option", node => {
+      const style = getComputedStyle(node);
+      return [style.backgroundColor, style.borderRadius, style.borderLeftWidth, style.borderLeftColor];
+    }), ["rgb(15, 15, 13)", "0px", "2px", "rgb(54, 50, 41)"], `${route} choice does not use the restrained solid option language`);
+    await page.hover(".vm-review-option");
+    assert.deepEqual(await page.$eval(".vm-review-option", node => { const style = getComputedStyle(node); return [style.backgroundColor, style.borderLeftColor]; }), ["rgb(29, 26, 18)", "rgb(210, 179, 112)"], `${route} choice hover state is not distinct`);
+    await page.focus(".vm-review-option");
+    assert.notEqual(await page.$eval(".vm-review-option", node => getComputedStyle(node).outlineWidth), "0px", `${route} choice keyboard focus is not visible`);
   }
+  await page.goto(`${origin}/strategium/before-game/`, { waitUntil: "domcontentloaded" });
+  await page.waitForSelector("[data-lifecycle-option]");
+  for (let guard = 0; guard < 8 && await page.$eval(".vm-lifecycle-flow", node => node.dataset.stageId) !== "surprises"; guard += 1) {
+    await page.click("[data-lifecycle-option]");
+    await delay(30);
+  }
+  assert.equal(await page.$eval(".vm-lifecycle-flow", node => node.dataset.stageId), "surprises", "Before the Game did not reach the step-5 multi-choice state");
+  assert.deepEqual(await page.$eval("[data-lifecycle-action=continue]", node => {
+    const style = getComputedStyle(node);
+    return [node.disabled, node.textContent.trim(), style.backgroundColor, style.color, style.opacity];
+  }), [true, "Continue to final check", "rgb(24, 23, 19)", "rgb(170, 163, 148)", "1"], "disabled Before the Game primary action is not readable and recognizable");
+  await page.click('[data-lifecycle-option="none"]');
+  await delay(240);
+  assert.deepEqual(await page.$eval('[data-lifecycle-option="none"]', node => { const style = getComputedStyle(node); return [node.classList.contains("is-selected"), node.getAttribute("aria-pressed"), style.backgroundColor, style.borderLeftColor]; }), [true, "true", "rgb(29, 26, 18)", "rgb(210, 179, 112)"], "Before the Game selected choice state is not distinct");
+  assert.deepEqual(await page.$eval("[data-lifecycle-action=continue]", node => {
+    const style = getComputedStyle(node);
+    return [node.disabled, style.backgroundColor, style.color];
+  }), [false, "rgb(210, 179, 112)", "rgb(16, 16, 14)"], "valid step-5 input did not enable an unmistakable primary action");
+  await page.click("[data-lifecycle-action=continue]");
+  await page.waitForFunction(() => document.querySelector(".vm-lifecycle-flow")?.dataset.stageId === "agreements");
+  await page.click('[data-lifecycle-option="none"]');
+  await delay(240);
+  assert.deepEqual(await page.$eval("[data-lifecycle-action=continue]", node => [node.disabled, node.textContent.trim(), getComputedStyle(node).backgroundColor]), [false, "Build my pregame statement", "rgb(210, 179, 112)"], "final Before the Game action did not become enabled after valid input");
+  await page.focus("[data-lifecycle-action=continue]");
+  await page.keyboard.press("Enter");
+  await page.waitForSelector(".vm-result-card");
+  assert.equal(await page.$eval(".vm-result-card", node => node.dataset.resultCategory.length > 0), true, "keyboard activation did not build the pregame result");
   await page.goto(`${origin}/strategium/during-game/`, { waitUntil: "domcontentloaded" });
   await page.waitForSelector("[data-lifecycle-option]");
   const firstStage = await page.$eval(".vm-lifecycle-flow", node => node.dataset.stageId);
@@ -110,19 +145,21 @@ try {
   assert.deepEqual(await page.$eval(".vm-result-card", node => {
     const style = getComputedStyle(node);
     return [style.backgroundColor, style.backgroundImage, style.borderRadius, style.borderTopWidth];
-  }), ["rgba(0, 0, 0, 0)", "none", "0px", "2px"], "lifecycle result retained a heavy filled shell or lost its rule-led emphasis");
+  }), ["rgba(0, 0, 0, 0)", "none", "0px", "0px"], "lifecycle result retained a heavy filled or duplicate-rule shell");
   assert.equal(await page.$eval(".vm-lifecycle-result-grid", node => getComputedStyle(node).backgroundColor), "rgba(0, 0, 0, 0)", "lifecycle result grid retained an opaque wrapper");
-  assert.notEqual(await page.$eval(".vm-lifecycle-result-grid > section", node => getComputedStyle(node).backgroundColor), "rgba(0, 0, 0, 0)", "lifecycle result detail lost its solid readable owner");
+  assert.deepEqual(await page.$$eval(".vm-lifecycle-result-grid > section", nodes => nodes.slice(0, 2).map(node => getComputedStyle(node).backgroundColor)), ["rgb(18, 17, 14)", "rgba(0, 0, 0, 0)"], "lifecycle result hierarchy does not distinguish the solid explanation from rule-led supporting detail");
+  assert.deepEqual(await page.$eval(".vm-review-nav", node => { const style = getComputedStyle(node); return [style.backgroundColor, style.borderWidth, style.padding]; }), ["rgba(0, 0, 0, 0)", "0px", "0px"], "lifecycle action area retained a nested opaque frame");
   assert.equal(await page.$eval(".vm-review-action-return", node => node.getAttribute("href")), "../", "lifecycle return target changed");
   await page.click(".vm-review-action-return"); await page.waitForFunction(() => location.pathname === "/strategium/");
   await page.goto(`${origin}/strategium/review/?path=after-game/unsure`, { waitUntil: "domcontentloaded" });
   await page.waitForSelector(".vm-result-card");
   assert.deepEqual(await page.$eval(".vm-review-panel", node => {
     const style = getComputedStyle(node);
-    return [style.backgroundColor, style.backgroundImage, style.borderRadius, style.borderLeftWidth, style.borderRightWidth];
-  }), ["rgba(0, 0, 0, 0)", "none", "0px", "0px", "0px"], "After the Game retained an opaque outer stage shell");
+    return [style.backgroundColor, style.backgroundImage, style.borderRadius, style.borderTopWidth, style.borderRightWidth, style.borderBottomWidth, style.borderLeftWidth];
+  }), ["rgba(0, 0, 0, 0)", "none", "0px", "0px", "0px", "0px", "0px"], "After the Game retained a filled or independently ruled outer stage shell");
   assert.equal(await page.$eval(".vm-result-card", node => getComputedStyle(node).backgroundColor), "rgba(0, 0, 0, 0)", "After the Game result retained an opaque outer shell");
-  assert.notEqual(await page.$eval(".vm-result-grid > section", node => getComputedStyle(node).backgroundColor), "rgba(0, 0, 0, 0)", "After the Game result detail lost its solid readable owner");
+  assert.deepEqual(await page.$$eval(".vm-result-grid > section", nodes => nodes.slice(0, 2).map(node => getComputedStyle(node).backgroundColor)), ["rgb(18, 17, 14)", "rgba(0, 0, 0, 0)"], "After the Game result hierarchy remains a grid of equal opaque blocks");
+  assert.deepEqual(await page.$eval(".vm-result-feedback", node => { const style = getComputedStyle(node); return [style.backgroundColor, style.borderRadius, style.borderLeftWidth, style.borderRightWidth, style.borderBottomWidth, style.borderTopWidth]; }), ["rgba(0, 0, 0, 0)", "0px", "0px", "0px", "0px", "1px"], "After the Game feedback retained a rounded nested frame");
   await page.waitForSelector(".vm-lesson-link"); await page.click(".vm-lesson-link"); await page.waitForSelector(".vm-lesson-dialog[open]");
   assert.deepEqual(await page.$eval(".vm-lesson-dialog-close", node => {
     const style = getComputedStyle(node);
@@ -143,8 +180,8 @@ try {
   await page.click(".vm-tab[data-topic=threat-reading]"); await page.waitForSelector("#basicsReveal .vm-console-body");
   assert.deepEqual(await page.$eval("#basicsReveal", node => {
     const style = getComputedStyle(node);
-    return [style.backgroundColor, style.backgroundImage, style.borderRadius];
-  }), ["rgb(16, 16, 14)", "none", "2px"], "full Console lesson panel does not use the Strategium solid geometry");
+    return [style.backgroundColor, style.backgroundImage, style.borderRadius, style.borderLeftWidth, style.borderRightWidth, style.borderBottomWidth, style.borderTopWidth];
+  }), ["rgb(12, 12, 10)", "none", "0px", "0px", "0px", "0px", "1px"], "full Console reading canvas is not a restrained solid rule-led surface");
   assert.ok(await page.evaluate(() => {
     const panel = document.querySelector("#basicsReveal").getBoundingClientRect();
     const context = document.querySelector(".vm-console-context-return:has(.vm-console-review-return:not([hidden]))").getBoundingClientRect();
@@ -154,13 +191,16 @@ try {
     const style = getComputedStyle(node);
     return [style.backgroundColor, style.borderRadius, node.getBoundingClientRect().height >= 44];
   }), ["rgb(20, 19, 15)", "2px", true], "contextual return lacks clear action styling");
+  assert.deepEqual(await page.$eval(".vm-console-note", node => { const style = getComputedStyle(node); return [style.backgroundColor, style.borderRadius, style.borderLeftWidth, style.borderRightWidth, style.borderBottomWidth, style.borderTopWidth]; }), ["rgba(0, 0, 0, 0)", "0px", "0px", "0px", "0px", "1px"], "Console explanatory note does not use the rule-led nested role");
   await page.click(".vm-tab[data-topic=archetype-signal]"); await page.waitForSelector("#archetypeSearch");
   const archetypesBefore = await page.$$eval(".vm-archetype-card", nodes => nodes.length);
   await page.type("#archetypeSearch", "tokens");
   assert.equal(await page.$eval(".vm-tab[data-topic=archetype-signal]", node => node.classList.contains("active") && node.getAttribute("aria-selected") === "true"), true, "Console active tab state changed");
   assert.ok(await page.$$eval(".vm-archetype-card", (nodes, before) => nodes.length > 0 && nodes.length < before && nodes.some(node => /token/i.test(node.innerText)), archetypesBefore), "Console search did not materially filter matching archetype content");
   assert.ok(await page.$eval("#archetypeResultSummary", node => /showing/i.test(node.innerText)), "Console search summary is not coherent");
-  await page.click(".vm-tab[data-topic=pod-readiness]"); await page.waitForSelector(".vm-checklist-button"); await page.click(".vm-checklist-button");
+  await page.click(".vm-tab[data-topic=pod-readiness]"); await page.waitForSelector(".vm-checklist-button");
+  assert.deepEqual(await page.$eval(".vm-console-script-card", node => { const style = getComputedStyle(node); return [style.backgroundColor, style.borderRadius]; }), ["rgb(18, 17, 14)", "2px"], "Console example card lost its intentional solid role");
+  await page.click(".vm-checklist-button");
   assert.equal(await page.$eval(".vm-checklist-button", node => node.getAttribute("aria-pressed")), "true", "checklist interaction regressed");
   assert.notEqual(await page.$eval(".vm-readiness-status-card", node => getComputedStyle(node).backgroundColor), "rgba(0, 0, 0, 0)", "readiness status lost its solid surface");
   assert.equal(await page.$eval("[data-review-return-link]", node => node.getAttribute("href")), "/strategium/review/?path=after-game/unsure", "contextual return changed");

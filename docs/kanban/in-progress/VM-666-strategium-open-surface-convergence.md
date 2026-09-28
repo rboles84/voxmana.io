@@ -2,7 +2,7 @@
 
 ID: VM-666
 Title: Strategium Open-Surface Convergence
-Status: Owner Review
+Status: In Progress
 Type: Bounded public-route presentation
 Area: Strategium/shared site skin
 Priority: High
@@ -82,13 +82,13 @@ The shared-site-skin adapter is an escape hatch, not authority to alter generic 
 Record version: 1
 Branch: codex/vm-666-strategium-open-surface-convergence
 Admission baseline: 249c7005b72701e1cb689521ad8df35a58610e53
-Candidate: cd9a4efa76582b19b04f98497f16c219c8df7a06
-RobQA: PASS at cd9a4efa76582b19b04f98497f16c219c8df7a06 — SEPARATE independent correction review by `/root/vm666_robqa`; [evidence](../../handoffs/2026-09-25-2335-robqa-vm666-strategium-open-surface.md#corrected-candidate-robqa--2026-09-27).
-Owner: PENDING
+Candidate: PENDING — second Owner-rejection remediation; do not reuse rejected candidate `cd9a4efa76582b19b04f98497f16c219c8df7a06`.
+RobQA: PENDING for the next stable exact candidate. The prior SEPARATE PASS at `cd9a4efa76582b19b04f98497f16c219c8df7a06` is preserved as historical engineering evidence only and cannot supersede the Owner rejection.
+Owner: REJECTED at `cd9a4efa76582b19b04f98497f16c219c8df7a06` — second rejection recorded from `VM-666-owner-correction-retest-2026-09-28.md`; replacement review PENDING.
 Integration: PENDING
 Dependencies: None
-Decisions: Current Owner directive; [Strategium open-surface reconnaissance](../../handoffs/2026-09-25-2200-planning-architect-strategium-open-surface-recon.md); [VM-666 red-team planning review](../../handoffs/2026-09-25-2317-planning-architect-vm666-redteam.md). Presentation-only boundary: no VM-406 bridge semantics or Strategium JS/copy/data/routes/state/metadata/dependency/breakpoint work. `assets/css/strategium.css` is an escape hatch only: measured cascade proof requires stop, a dedicated card-only Admission Scope/Decisions amendment commit, and admission continue PASS before touch. Owner REJECTED material candidate `684cffb5f6cbe36f9a0c25eb357a5948f1c61819` on 2026-09-27; preserve that exact decision and raw report/screenshot references while correcting the route-rooted adapter on this branch.
-Evidence: [Strategium open-surface reconnaissance](../../handoffs/2026-09-25-2200-planning-architect-strategium-open-surface-recon.md); [VM-666 red-team planning review](../../handoffs/2026-09-25-2317-planning-architect-vm666-redteam.md); [admission](../../handoffs/2026-09-25-2335-kanban-steward-vm666-admission.md); [RobDev correction handoff](../../handoffs/2026-09-25-2335-robdev-vm666-strategium-open-surface.md#owner-rejection-correction--2026-09-27); [corrected-candidate independent RobQA PASS](../../handoffs/2026-09-25-2335-robqa-vm666-strategium-open-surface.md#corrected-candidate-robqa--2026-09-27); [Owner rejection, raw references, preview provenance, and corrected Owner Review](../../handoffs/2026-09-25-2335-codex-vm666-owner-review.md#owner-rejection--2026-09-27).
+Decisions: Current Owner directive; [Strategium open-surface reconnaissance](../../handoffs/2026-09-25-2200-planning-architect-strategium-open-surface-recon.md); [VM-666 red-team planning review](../../handoffs/2026-09-25-2317-planning-architect-vm666-redteam.md). Presentation-only boundary: no VM-406 bridge semantics or Strategium JS/copy/data/routes/state/metadata/dependency/breakpoint work. `assets/css/strategium.css` is an escape hatch only: measured cascade proof requires stop, a dedicated card-only Admission Scope/Decisions amendment commit, and admission continue PASS before touch. Owner REJECTED material candidate `684cffb5f6cbe36f9a0c25eb357a5948f1c61819` on 2026-09-27 and corrected material candidate `cd9a4efa76582b19b04f98497f16c219c8df7a06` in the second retest. Preserve both exact decisions and raw evidence. The second remediation is limited to consolidated route-rooted adapter and focused-contract changes: one boundary per transition, restrained solid option states, hierarchical result roles, explicit primary-action states, and coherent Console roles. Preserve the accepted hub, dialog, and contextual-return treatment.
+Evidence: [Strategium open-surface reconnaissance](../../handoffs/2026-09-25-2200-planning-architect-strategium-open-surface-recon.md); [VM-666 red-team planning review](../../handoffs/2026-09-25-2317-planning-architect-vm666-redteam.md); [admission](../../handoffs/2026-09-25-2335-kanban-steward-vm666-admission.md); [RobDev correction handoff](../../handoffs/2026-09-25-2335-robdev-vm666-strategium-open-surface.md#owner-rejection-correction--2026-09-27); [corrected-candidate independent RobQA PASS](../../handoffs/2026-09-25-2335-robqa-vm666-strategium-open-surface.md#corrected-candidate-robqa--2026-09-27); [first and second Owner rejections, raw references, preview provenance, ownership trace, and replacement preparation](../../handoffs/2026-09-25-2335-codex-vm666-owner-review.md#second-owner-rejection--2026-09-28).
 
 ## Admission Scope
 

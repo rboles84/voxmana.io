@@ -6,10 +6,11 @@ Agent: Codex `/root` (session-selected coordination context)
 
 Task: VM-666
 Admission baseline: `249c7005b72701e1cb689521ad8df35a58610e53`
-Material candidate: `cd9a4efa76582b19b04f98497f16c219c8df7a06`
+Replacement material candidate: `PENDING` until the second-remediation material commit
+Previously rejected material candidate: `cd9a4efa76582b19b04f98497f16c219c8df7a06`
 Evidence head: `HEAD`
-RobQA: PASS for `cd9a4efa76582b19b04f98497f16c219c8df7a06` in SEPARATE mode
-Owner: PENDING
+RobQA: PENDING for the replacement candidate; the prior SEPARATE PASS is historical only
+Owner: REJECTED at `cd9a4efa76582b19b04f98497f16c219c8df7a06`; replacement review PENDING
 Integration: PENDING
 
 ## Task requested
@@ -220,3 +221,53 @@ Open exact candidate `cd9a4efa76582b19b04f98497f16c219c8df7a06` and recheck:
 5. Approximately 390px: hub, corrected lifecycle/Review state, dialog, and Console.
 
 ACCEPT authorizes the canonical acceptance flow for this exact SHA. REJECT returns the same VM-666 task/branch to bounded correction. No response about a different SHA applies to this candidate.
+
+## Second Owner rejection — 2026-09-28
+
+Owner decision: **REJECT** corrected material candidate `cd9a4efa76582b19b04f98497f16c219c8df7a06` on branch `codex/vm-666-strategium-open-surface-convergence`. The prior independent RobQA PASS remains historical engineering evidence only; it is not visual acceptance and does not authorize integration.
+
+The raw Owner report remains unchanged at `C:\Users\obake\Downloads\VM-666-owner-correction-retest-2026-09-28.md` with SHA-256 `1bc2fdc1a9309de83fabf554d5f2ee56b12bc587d3561f4c71d2f5201f8facfe`. It records preview root `http://127.0.0.1:8000/` and rejects repeated line stacks, filled square choices, equally heavy result tiles, unclear primary-action states, and unexplained Console surface roles. It explicitly passes the corrected hub and preserves the visible dialog close control, usable dialog scrolling, and aligned Console contextual return.
+
+Raw screenshot references, preserved exactly with raw-byte SHA-256:
+
+- `C:\Users\obake\Downloads\Strat_01_Error2_console_Opaque and look and feel.png` — `6f721aa7555473d23e7789920f85dbcbcbf5aa8ae352336fb98f357b63e40a87`
+- `C:\Users\obake\Downloads\Strat_01_Error2_Partial Translucent partial opaque end of a possible read.png` — `e8673a57177e5d4ddff6cdf8bfb39b18c7543cf2f85e1993d4ad873b8d860526`
+- `C:\Users\obake\Downloads\Strat_01_Error2_extraLinesEndofBeforeGame.png` — `5761f30a631c442240842cf14019a3c5125c3902330dfa619dc87d4b7081641c`
+- `C:\Users\obake\Downloads\Strat_01_Error2_Say what this deck is here to do isnt working end.png` — `19d75efd2a3ea47239286a07cf37a6487c8cb8e2df548f6457b7d57efa2d8a00`
+- `C:\Users\obake\Downloads\Strat_01_Error2_OpaqueStrongTooManyLines to show result Final Find A Table.png` — `7f95f75b5913f90e85cdebcba14a0b798e4000b3cf561e5523731d8f8d60d4af`
+- `C:\Users\obake\Downloads\Strat_01_Error2_SquareBoxesStrongOpaqueDoesntFitNewLayout.png` — `5439b1d88c2f6796a49e2f410b9a99bcc457e81d2972c4a7f08863ce8634bd0d`
+- `C:\Users\obake\Downloads\Strat_01_Error2_SoManyExtraLines_MidFindATable.png` — `031f0a1da32f0f170ba8f0cf616a9946f5529fd4ca90f15afdC14e71613e0674`
+- `C:\Users\obake\Downloads\Strat_01_Error2_extraLineFindATable.png` — `a7c367be64c67d47dfa50305272aedd3101748896c1e614078755fff0164fe89`
+- `C:\Users\obake\Downloads\Strat_01_Error2_extraLinesEnd.png` — `2698e22e1444deece2b7cbe4e88b532ac8f4990bdbf90445aa4ebaE008e95ad6`
+- `C:\Users\obake\AppData\Local\Temp\codex-clipboard-d05ec7f2-4a64-4267-b436-477596858d82.png` — `7f95f75b5913f90e85cdebcba14a0b798e4000b3cf561e5523731d8f8d60d4af` (byte-identical to the named final Find a Table result image)
+
+### Rejected-preview provenance
+
+Before changing CSS, `git diff --quiet cd9a4efa76582b19b04f98497f16c219c8df7a06 HEAD -- assets scripts strategium` returned zero at evidence head `45d7471de3ca2ddb10fc2c2a5bfea17f0787dea1`. The later commits were documentation/evidence-only. A Python `SimpleHTTP/0.6` / Python `3.14.4` server at `http://127.0.0.1:8000/` served `/assets/css/site-skin.css?v=vm666` with SHA-256 `b89807cb2b3c3fce41f2e7a0779158b1ba6420663acc887dd814c00860037a83`, exactly matching the clean worktree file for the rejected runtime. Therefore the observed second-retest UI came from the exact rejected candidate runtime bytes at port `8000`.
+
+The rejected before-capture and computed cascade trace are preserved under `C:\Users\obake\.codex\visualizations\2026\09\26\01a0dc33-655d-7c80-9c3d-d0f2e0d2e0f4\vm666-second-rejection-evidence\before\`. `computed-style-ownership.json` records computed values and every matching declaration in source order.
+
+### Rendered ownership table at the rejected candidate
+
+| Surface | User-facing role | Rejected computed surface / boundary | Rendered owner | Classification and correction |
+| --- | --- | --- | --- | --- |
+| Page hero boundary | Ends route orientation and starts the journey | Transparent; one 1px bottom rule; radius 0 | route-rooted `:is(.vm-hero-panel, .vm-hub-choice-panel)` | Independent structural boundary; preserve. |
+| Stage shell | Groups progress, prompt, choices, and actions | Transparent; 1px top and bottom rules; radius 0 | route-rooted `.vm-review-panel` | Both shell rules duplicated adjacent owners; remove while keeping the shell open. |
+| Progress | Communicates step/result state | 4px filled track plus a 1px toolbar bottom rule | base `.vm-review-progress` / `.vm-review-progress span`; route-rooted toolbar group | Track is semantic progress and remains; toolbar rule is decoration and is removed. |
+| Choice controls | Selects lifecycle answers | `#14130f`; full 1px border; 2px radius; hover/focus/selected `#252116` + gold | route-rooted grouped-control and grouped-state selectors | Solid role is intentional, but full tiles are too heavy; move to restrained opaque `#0f0f0d`, a 2px leading rule and subtle bottom rule. Hover/focus/selected use `#1d1a12` and gold leading rule. No lifecycle route emits a disabled choice; the defined disabled-choice selector remains conservative and visibly muted. |
+| Result shell | Holds outcome and details | Transparent; extra 2px gold top rule | route-rooted `.vm-result-card` | Duplicate decoration next to progress; remove. |
+| Result details | Explanation, question, mismatch, next action, lesson/statement | Every section `#14130f`, full 1px border, 2px radius | route-rooted `.vm-result-grid > section` | Equal weight obscures hierarchy. Keep the primary explanation and explicit lesson/statement/path roles solid `#12110e`; make supporting details open with one top rule. |
+| Feedback | Collects ephemeral result rating | Transparent full rounded fieldset | base `.vm-result-feedback` | Keep it open with one top rule; controls remain solid and interactive. |
+| Result actions | Back, reset, primary, return | Wrapper `#0c0c0a`, full 1px border, 2px radius; child actions solid | route-rooted `.vm-review-nav` and grouped control | Wrapper is a nested frame; open it and retain solid child actions. |
+| Primary action | Continue/build result | Rejected disabled and transition snapshots combined grouped `#14130f` background with primary dark text | grouped-control background plus `.vm-review-action-primary` color/state rules | Explicitly own enabled gold/dark and disabled `#181713`/muted-light states after the grouped controls; preserve opacity 1. |
+| Console tabs | Topic navigation/current state | Inactive `#14130f`; active `#252116`; 2px geometry | grouped-control selector and `.vm-tab.active` | Intentionally solid. Lower inactive tone to `#0f0f0d`; active is `#1d1a12` with gold boundary. |
+| Console lesson canvas | Long-form reading surface | `#10100e`, full 1px border, 2px radius | route-rooted `#basicsReveal` | Intentionally opaque for reading, but not a card: use `#0c0c0a` with one top rule and square/open sides. |
+| Console notes/examples | Explanatory blocks and concrete examples | Notes/subpanels transparent inside the opaque canvas; examples also forced transparent | route-rooted broad structural reset | Notes become transparent rule-led sections; concrete script/archetype/checklist examples use opaque `#12110e` 2px surfaces. |
+| Console checklist/status | Interactive preparation and operational state | Checklist buttons and status cards `#14130f` with 2px geometry | grouped-control selector and `.vm-readiness-status-card` | Intentionally solid; preserve with active/pressed clarity. |
+| Footer boundary | Ends page content | Transparent with one 1px top rule | base `.vm-footer` | Independent structural boundary; preserve. |
+
+### Red-team boundary and correction plan
+
+The correction does not interpret “open” as “transparent everywhere.” The hero/stage/result/action wrappers are structural and open; progress remains its own track; choices, action buttons, primary explanation, lessons/statements, dialog, Console reading canvas, examples, checklist controls, and operational status remain solid according to their roles. The accepted hub, solid lesson dialog, visible X, dark scroll treatment, and aligned contextual return remain unchanged. No global border removal, new breakpoint, `assets/css/strategium.css`, Strategium JavaScript, copy, data, route, state, metadata, or VM-406 change is authorized.
+
+The focused browser contract was first changed to require the corrected boundary/surface/state model and failed the rejected candidate at `.vm-review-panel` because its 1px top and bottom rules were still present. That is the expected red proof. The same contract now covers default/hover/focus/selected option states; actual disabled/enabled primary-action transitions; pointer continuation; keyboard final-action activation; result hierarchy; feedback/action wrappers; Console roles; search/checklist/status; return behavior; dialog focus; and desktop/390px containment.
