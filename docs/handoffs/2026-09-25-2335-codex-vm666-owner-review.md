@@ -1,14 +1,14 @@
 # VM-666 — Owner Review Handoff
 
-Date: 2026-09-26
+Date: 2026-09-27
 
 Agent: Codex `/root` (session-selected coordination context)
 
 Task: VM-666
 Admission baseline: `249c7005b72701e1cb689521ad8df35a58610e53`
-Material candidate: `684cffb5f6cbe36f9a0c25eb357a5948f1c61819`
+Material candidate: `cd9a4efa76582b19b04f98497f16c219c8df7a06`
 Evidence head: `HEAD`
-RobQA: PASS for `684cffb5f6cbe36f9a0c25eb357a5948f1c61819` in SEPARATE mode
+RobQA: PASS for `cd9a4efa76582b19b04f98497f16c219c8df7a06` in SEPARATE mode
 Owner: PENDING
 Integration: PENDING
 
@@ -52,7 +52,7 @@ No engineering blocker, major/minor defect, or candidate-caused harness debt rem
 - `npm.cmd run test:route-metadata` — PASS for 16 public route heads.
 - `npm.cmd run test:frontend-smoke` — PASS.
 - `npm.cmd run task -- indexes --check` — PASS after governed regeneration.
-- `git diff --check 249c7005b72701e1cb689521ad8df35a58610e53 684cffb5f6cbe36f9a0c25eb357a5948f1c61819` — PASS.
+- `git diff --check 249c7005b72701e1cb689521ad8df35a58610e53 cd9a4efa76582b19b04f98497f16c219c8df7a06` — PASS.
 - Independent RobQA repeated the exact-candidate set and issued PASS in SEPARATE mode.
 
 ## Tests intentionally not run
@@ -65,7 +65,7 @@ No screenshots, visual baselines, animation-fidelity waits, broad viewport matri
 
 ## Owner review
 
-Open exact candidate `684cffb5f6cbe36f9a0c25eb357a5948f1c61819` and:
+Open exact candidate `cd9a4efa76582b19b04f98497f16c219c8df7a06` and:
 
 1. On desktop, scan the Strategium hub.
 2. Complete one lifecycle moment through its result and return affordance.
@@ -92,8 +92,8 @@ Judge hierarchy, density, readability, operational clarity, and visual-family fi
 ## Material candidate
 
 - Baseline: `249c7005b72701e1cb689521ad8df35a58610e53`
-- Candidate: `684cffb5f6cbe36f9a0c25eb357a5948f1c61819`
-- Changed paths: `18`
+- Candidate: `cd9a4efa76582b19b04f98497f16c219c8df7a06`
+- Changed paths: `20`
 
 ## Files changed
 
@@ -102,8 +102,10 @@ Judge hierarchy, density, readability, operational clarity, and visual-family fi
 - `docs/architecture/route-ownership-matrix.md`
 - `docs/handoffs/2026-09-25-2200-planning-architect-strategium-open-surface-recon.md`
 - `docs/handoffs/2026-09-25-2317-planning-architect-vm666-redteam.md`
+- `docs/handoffs/2026-09-25-2335-codex-vm666-owner-review.md`
 - `docs/handoffs/2026-09-25-2335-kanban-steward-vm666-admission.md`
 - `docs/handoffs/2026-09-25-2335-robdev-vm666-strategium-open-surface.md`
+- `docs/handoffs/2026-09-25-2335-robqa-vm666-strategium-open-surface.md`
 - `docs/handoffs/HANDOFF_INDEX.md`
 - `docs/kanban/board.md`
 - `docs/kanban/in-progress/VM-666-strategium-open-surface-convergence.md`
@@ -118,18 +120,17 @@ Judge hierarchy, density, readability, operational clarity, and visual-family fi
 
 ## Evidence delta
 
-- Material candidate: `684cffb5f6cbe36f9a0c25eb357a5948f1c61819`
+- Material candidate: `cd9a4efa76582b19b04f98497f16c219c8df7a06`
 - Evidence head: `HEAD`
-- Additional evidence-only paths: `5`
+- Additional evidence-only paths: `4`
 
 This evidence delta is not the full task diff. It contains only the exact-candidate RobQA record, Owner Review lifecycle binding, this coordinator handoff, and faithfully regenerated views; it changes no implementation, policy, scope, acceptance criterion, fixture, or test assertion.
 
 ## Evidence-only paths
 
 - `docs/handoffs/2026-09-25-2335-codex-vm666-owner-review.md`
+- `docs/handoffs/2026-09-25-2335-robdev-vm666-strategium-open-surface.md`
 - `docs/handoffs/2026-09-25-2335-robqa-vm666-strategium-open-surface.md`
-- `docs/handoffs/HANDOFF_INDEX.md`
-- `docs/kanban/board.md`
 - `docs/kanban/in-progress/VM-666-strategium-open-surface-convergence.md`
 
 ## Final branch delta
@@ -138,7 +139,7 @@ This evidence delta is not the full task diff. It contains only the exact-candid
 - Head: `HEAD`
 - Unique changed paths: `20`
 
-The final branch delta is the material candidate plus the five-path evidence delta; three evidence paths already existed in the material set, yielding 20 unique baseline-to-HEAD paths.
+The final branch delta is the material candidate plus the four-path evidence delta; every evidence path already exists in the material set, yielding 20 unique baseline-to-HEAD paths.
 
 ## Owner rejection — 2026-09-27
 
