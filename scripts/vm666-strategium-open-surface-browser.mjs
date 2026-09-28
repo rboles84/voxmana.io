@@ -21,6 +21,37 @@ async function focusWithTab(page, selector) {
   assert.fail(`Tab navigation did not reach ${selector}`);
 }
 
+async function assertSettledAnchor(page, selector) {
+  const settled = selector => {
+    const node = document.querySelector(selector);
+    if (!node) return false;
+    const rect = node.getBoundingClientRect();
+    const scrollMargin = Number.parseFloat(getComputedStyle(node).scrollMarginTop);
+    const maxScroll = document.documentElement.scrollHeight - innerHeight;
+    return Number.isFinite(scrollMargin) && rect.top >= 0 && rect.top < innerHeight && (Math.abs(rect.top - scrollMargin) <= 12 || Math.abs(scrollY - maxScroll) <= 2) && scrollY > 0;
+  };
+  await page.waitForFunction(settled, { timeout: 5000 }, selector);
+  const position = await page.$eval(selector, node => {
+    const rect = node.getBoundingClientRect();
+    const scrollMargin = Number.parseFloat(getComputedStyle(node).scrollMarginTop);
+    return { top: rect.top, scrollMargin, viewport: innerHeight, scrollY, maxScroll: document.documentElement.scrollHeight - innerHeight };
+  });
+  assert.ok(Number.isFinite(position.scrollMargin) && position.top >= 0 && position.top < position.viewport && (Math.abs(position.top - position.scrollMargin) <= 12 || Math.abs(position.scrollY - position.maxScroll) <= 2) && position.scrollY > 0, `${selector} is absent, not in view, or not settled at its scroll margin: ${JSON.stringify(position)}`);
+}
+
+async function assertVisibleLessonHeading(page) {
+  await delay(1500);
+  const position = await page.evaluate(() => {
+    const heading = document.querySelector("#basicsReveal .vm-console-body > h3");
+    const returnLink = document.querySelector("[data-review-return-link]:not([hidden])");
+    const target = returnLink || heading;
+    const rect = target.getBoundingClientRect();
+    return { kind: returnLink ? "return" : "heading", top: rect.top, scrollMargin: Number.parseFloat(getComputedStyle(target).scrollMarginTop), viewport: innerHeight };
+  });
+  const withinOwnedPosition = position.kind === "return" ? Math.abs(position.top - position.scrollMargin) <= 12 : position.top <= position.scrollMargin + 2;
+  assert.ok(Number.isFinite(position.scrollMargin) && position.top >= 0 && withinOwnedPosition && position.top < position.viewport, `active lesson ${position.kind} is not visibly settled at its owned position: ${JSON.stringify(position)}`);
+}
+
 const skin = await readFile("assets/css/site-skin.css", "utf8");
 const marker = "/* VM-666: scoped Strategium presentation adapter; route runtime remains authoritative. */";
 const markerIndex = skin.indexOf(marker);
@@ -98,14 +129,19 @@ try {
   ], "hub path cards do not share one open default surface treatment");
   assert.deepEqual(await page.$$eval(".vm-console-preview", nodes => nodes.map(node => {
     const style = getComputedStyle(node);
-    return [style.backgroundColor, style.borderRadius, style.borderTopWidth];
-  })), Array(4).fill(["rgba(0, 0, 0, 0)", "0px", "1px"]), "Console previews should remain informational, rule-led details");
-  await page.hover(".vm-console-path-card");
+    return [node.tagName, node.getAttribute("href"), style.backgroundColor, style.borderRadius, style.borderTopWidth];
+  })), [
+    ["A", "./console/?lesson=pod-readiness#strategium", "rgba(0, 0, 0, 0)", "0px", "1px"],
+    ["A", "./console/?lesson=archetype-signal#strategium", "rgba(0, 0, 0, 0)", "0px", "1px"],
+    ["A", "./console/?lesson=threat-reading#strategium", "rgba(0, 0, 0, 0)", "0px", "1px"],
+    ["A", "./console/#color-expectations", "rgba(0, 0, 0, 0)", "0px", "1px"]
+  ], "Console previews should remain direct, informational, rule-led links");
+  await page.hover(".vm-console-preview");
   await delay(240);
-  assert.deepEqual(await page.$eval(".vm-console-path-card", node => {
+  assert.deepEqual(await page.$eval(".vm-console-preview", node => {
     const style = getComputedStyle(node);
-    return [style.backgroundColor, style.borderColor, style.boxShadow !== "none"];
-  }), ["rgb(20, 19, 15)", "rgb(210, 179, 112)", true], "Console path hover is not a clear, solid single action");
+    return [style.backgroundColor, style.borderColor, style.outlineWidth];
+  }), ["rgb(29, 26, 18)", "rgb(210, 179, 112)", "2px"], "Console preview hover is not a clear direct-link state");
   assert.deepEqual(await page.$eval(".vm-lifecycle-links a", node => { const style = getComputedStyle(node); return [style.backgroundColor !== "rgba(0, 0, 0, 0)", style.borderRadius]; }), [true, "2px"], "hub control lost its solid 2px owner");
   const lifecycleLinkBase = await page.$eval(".vm-lifecycle-links a", node => getComputedStyle(node).backgroundColor);
   await page.hover(".vm-lifecycle-links a");
@@ -113,23 +149,51 @@ try {
   await focusWithTab(page, ".vm-lifecycle-links a");
   assert.notEqual(await page.$eval(".vm-lifecycle-links a", node => getComputedStyle(node).outlineWidth), "0px", "hub lifecycle focus is not visible");
   assert.notEqual(lifecycleLinkBase, "rgb(37, 33, 22)", "hub lifecycle base owner masks its hover state");
-  await focusWithTab(page, ".vm-console-path-card");
+  await page.click('.vm-console-preview[href="./console/?lesson=pod-readiness#strategium"]');
+  await page.waitForFunction(() => document.querySelector(".vm-tab[data-topic=pod-readiness]")?.classList.contains("active"));
   await delay(240);
-  assert.deepEqual(await page.$eval(".vm-console-path-card", node => {
-    const style = getComputedStyle(node);
-    return [style.backgroundColor, style.borderColor, style.boxShadow !== "none", style.outlineWidth];
-  }), ["rgb(20, 19, 15)", "rgb(210, 179, 112)", true, "2px"], "Tab-focused Console path is not a settled, visible single action");
+  assert.equal(await page.evaluate(() => `${location.pathname}${location.search}${location.hash}`), "/strategium/console/?lesson=pod-readiness#strategium", "direct Pod Readiness link did not activate its lesson destination");
+  await page.reload({ waitUntil: "domcontentloaded" });
+  await page.waitForFunction(() => document.querySelector(".vm-tab[data-topic=pod-readiness]")?.classList.contains("active"));
+  await page.goBack({ waitUntil: "domcontentloaded" });
+  await page.waitForSelector(".vm-console-guide-link");
+  await focusWithTab(page, '.vm-console-preview[href="./console/?lesson=archetype-signal#strategium"]');
+  await delay(240);
+  assert.notEqual(await page.$eval('.vm-console-preview[href="./console/?lesson=archetype-signal#strategium"]', node => getComputedStyle(node).outlineWidth), "0px", "Archetypes preview keyboard focus is not visible");
+  await page.keyboard.press("Enter");
+  await page.waitForFunction(() => document.querySelector(".vm-tab[data-topic=archetype-signal]")?.classList.contains("active"));
+  assert.equal(await page.evaluate(() => `${location.pathname}${location.search}${location.hash}`), "/strategium/console/?lesson=archetype-signal#strategium", "real-keyboard Archetypes link did not activate its lesson destination");
+  await assertVisibleLessonHeading(page);
+  await page.reload({ waitUntil: "domcontentloaded" });
+  await page.waitForFunction(() => document.querySelector(".vm-tab[data-topic=archetype-signal]")?.classList.contains("active"));
+  await page.goBack({ waitUntil: "domcontentloaded" });
+  await page.waitForSelector(".vm-console-guide-link");
+  await focusWithTab(page, ".vm-console-guide-link");
+  await delay(240);
+  assert.notEqual(await page.$eval(".vm-console-guide-link", node => getComputedStyle(node).outlineWidth), "0px", "general Console guide keyboard focus is not visible");
   await page.keyboard.press("Enter");
   await page.waitForSelector(".vm-tab");
-  await delay(1000);
-  assert.equal(await page.evaluate(() => location.pathname), "/strategium/console/", "hub Console link destination changed");
-  assert.equal(await page.evaluate(() => location.hash), "#strategium", "hub Console link no longer lands on the existing Strategium anchor");
-  const consoleAnchorPosition = await page.$eval("#strategium", node => {
-    const rect = node.getBoundingClientRect();
-    const scrollMargin = Number.parseFloat(getComputedStyle(node).scrollMarginTop);
-    return { top: rect.top, scrollMargin, viewport: innerHeight, scrollY };
-  });
-  assert.ok(Number.isFinite(consoleAnchorPosition.scrollMargin) && consoleAnchorPosition.top >= 0 && consoleAnchorPosition.top < consoleAnchorPosition.viewport && Math.abs(consoleAnchorPosition.top - consoleAnchorPosition.scrollMargin) <= 2 && consoleAnchorPosition.scrollY > 0, `Console anchor target is absent, not in view, or not settled at its scroll margin: ${JSON.stringify(consoleAnchorPosition)}`);
+  assert.equal(await page.evaluate(() => `${location.pathname}${location.search}${location.hash}`), "/strategium/console/#strategium", "general Console guide link destination changed");
+  assert.equal(await page.$eval(".vm-tab[data-topic=command-zone]", node => node.classList.contains("active")), true, "general Console guide no longer opens the default guide topic");
+  await assertSettledAnchor(page, "#strategium");
+  assert.deepEqual(await page.$eval(".vm-console-wayfinding", node => {
+    const style = getComputedStyle(node);
+    return [node.tagName, style.position, node.querySelectorAll("nav[aria-label='Console guide'] a").length];
+  }), ["ASIDE", "sticky", 4], "desktop Console wayfinding rail is not a semantic sticky section guide");
+  await page.click('.vm-console-wayfinding-nav a[href="#strategium"]');
+  await assertSettledAnchor(page, "#strategium");
+  for (const [href, target] of [["#color-expectations", "#color-expectations"], ["#readiness-checklist", "#readiness-checklist"], ["#next-move", "#next-move"]]) {
+    await page.click(`.vm-console-wayfinding-nav a[href="${href}"]`);
+    assert.equal(await page.evaluate(() => location.hash), href, `Console wayfinding did not set ${href}`);
+    await assertSettledAnchor(page, target);
+  }
+  await page.goto(`${origin}/strategium/console/?lesson=archetype-signal&return=%2Fstrategium%2Freview%2F%3Fpath%3Dafter-game%2Funsure#strategium`, { waitUntil: "domcontentloaded" });
+  await page.waitForSelector("[data-review-return-link]:not([hidden])");
+  await assertVisibleLessonHeading(page);
+  await page.click('.vm-console-wayfinding-nav a[href="#readiness-checklist"]');
+  assert.equal(await page.evaluate(() => location.hash), "#readiness-checklist", "section-only Guide map link did not set the requested section anchor");
+  assert.equal(await page.evaluate(() => location.search), "?lesson=archetype-signal&return=%2Fstrategium%2Freview%2F%3Fpath%3Dafter-game%2Funsure", "section-only Guide map link changed the review-return query");
+  assert.equal(await page.$eval("[data-review-return-link]", node => !node.hidden && node.getAttribute("href")), "/strategium/review/?path=after-game/unsure", "section-only Guide map link hid or changed the contextual return");
   assert.deepEqual(await page.$$eval(".vm-philosophy-symbol", nodes => nodes.map(node => {
     const style = getComputedStyle(node);
     const rect = node.getBoundingClientRect();
@@ -157,6 +221,10 @@ try {
     width: 40,
     height: 40,
   })), "Console color signals are not equal-size local Mana glyphs without letter circles");
+  assert.ok(await page.$eval(".vm-philosophy-symbol.ms-b", node => {
+    const style = getComputedStyle(node);
+    return style.color === "rgb(27, 24, 22)" && style.textShadow !== "none" && /rgb\(184, 181, 173\)/.test(style.textShadow) && !/rgb\((164, 107, 234|210, 179, 112)\)/.test(style.textShadow);
+  }), "Black Mana glyph should retain its near-black fill with a neutral, non-purple/non-gold backlight");
   for (const route of ["/strategium/find-a-table/", "/strategium/before-game/", "/strategium/during-game/"]) {
     await page.goto(`${origin}${route}`, { waitUntil: "domcontentloaded" });
     await page.waitForSelector("[data-lifecycle-option]");
@@ -292,6 +360,13 @@ try {
     await page.goto(`${origin}${route}`, { waitUntil: "domcontentloaded" });
     assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), `${route} has mobile overflow`);
   }
+  assert.ok(await page.$eval(".vm-console-wayfinding", node => {
+    const rect = node.getBoundingClientRect();
+    const nav = node.querySelector(".vm-console-wayfinding-nav");
+    const style = getComputedStyle(node);
+    return style.position === "static" && rect.left >= 0 && rect.right <= innerWidth && node.scrollWidth <= node.clientWidth + 1 && nav.scrollWidth <= nav.clientWidth + 1;
+  }), "mobile Console wayfinding is not a contained readable block");
+  assert.ok(await page.$$eval(".vm-console-wayfinding-nav a", nodes => nodes.every(node => node.getBoundingClientRect().height >= 44)), "mobile Guide-map links are not minimum 44px touch targets");
   await page.goto(`${origin}/strategium/during-game/`, { waitUntil: "domcontentloaded" });
   await page.click("[data-lifecycle-option]"); await page.waitForSelector("[data-lifecycle-option]"); await page.click("[data-lifecycle-option]"); await page.waitForSelector(".vm-result-card");
   assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), "mobile lifecycle result has overflow");

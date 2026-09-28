@@ -43,11 +43,11 @@ Current Owner directive; [Strategium open-surface reconnaissance](../../handoffs
 - [x] `assets/css/strategium.css` remains excluded unless measured cascade proof triggers a stop, a dedicated card-only Admission Scope/Decisions amendment commit, and an admission continue PASS before it is touched.
 - [x] Console color signals use the repository's vendored Mana glyphs at one equal size, without literal letter-in-circle substitutes; adjacent color headings preserve accessible names.
 - [x] The black Mana glyph uses a visible near-black treatment instead of the prior purple token; other Mana colors retain their existing values.
-- [ ] Each of the four hub lifecycle links keeps its distinct pointer-hover and keyboard-focus state; each Console preview row becomes a truthful direct link to its named lesson/section; and the general Console action lands beside an always-available Console-only table of contents.
-- [ ] The Console table of contents exposes lesson and long-page section destinations without JavaScript, stays usefully sticky on desktop, becomes a contained readable block at approximately 390px, and gives pointer/keyboard users clear current interaction feedback.
-- [ ] The black Mana glyph retains its near-black fill and gains a subtle neutral-grey outline/backlight sufficient to distinguish the skull on the dark page without returning to a purple or circular treatment.
+- [x] Each of the four hub lifecycle links keeps its distinct pointer-hover and keyboard-focus state; each Console preview row becomes a truthful direct link to its named lesson/section; and the general Console action lands beside an always-available Console-only table of contents.
+- [x] The Console table of contents exposes lesson and long-page section destinations without JavaScript, stays usefully sticky on desktop, becomes a contained readable block at approximately 390px, and gives pointer/keyboard users clear current interaction feedback.
+- [x] The black Mana glyph retains its near-black fill and gains a subtle neutral-grey outline/backlight sufficient to distinguish the skull on the dark page without returning to a purple or circular treatment.
 - [x] A visible Console contextual return and its adjacent reading surface render one transition rule, not two near-parallel rules.
-- [x] A stable exact candidate receives an independent RobQA PASS and then genuine Owner Review; no push, PR, merge, or acceptance occurs without the Owner's exact-SHA response.
+- [ ] A stable exact candidate receives an independent RobQA PASS and then genuine Owner Review; no push, PR, merge, or acceptance occurs without the Owner's exact-SHA response.
 
 ## Files Likely Impacted
 

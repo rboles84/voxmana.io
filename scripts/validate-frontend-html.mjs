@@ -635,6 +635,29 @@ for (const colorClass of ["w", "u", "b", "r", "g", "c"]) {
     `strategium/console/index.html should render the local ms-${colorClass} glyph without letter fallback text`
   );
 }
+const hubConsolePreviewHrefs = [
+  "./console/?lesson=pod-readiness#strategium",
+  "./console/?lesson=archetype-signal#strategium",
+  "./console/?lesson=threat-reading#strategium",
+  "./console/#color-expectations",
+];
+expect(
+  /<article class="vm-card vm-path-card vm-console-path-card">[\s\S]*<nav class="vm-console-preview-grid" aria-label="Commander Console topics">[\s\S]*<a class="vm-console-preview" href="\.\/console\/\?lesson=pod-readiness#strategium">[\s\S]*<a class="vm-cta vm-console-guide-link" href="\.\/console\/#strategium">/.test(sources.strategium),
+  "strategium/index.html should keep Console previews as direct links inside a non-interactive Console card with a distinct guide link"
+);
+for (const href of hubConsolePreviewHrefs) {
+  expect(
+    sources.strategium.includes(`<a class="vm-console-preview" href="${href}">`),
+    `strategium/index.html should retain the direct Console preview link ${href}`
+  );
+}
+const consoleWayfinding = sources.strategiumConsole.match(/<aside class="vm-console-wayfinding"[\s\S]*?<\/aside>/)?.[0] ?? "";
+expect(
+  /<nav class="vm-console-wayfinding-nav" aria-label="Console guide">/.test(consoleWayfinding) &&
+    ["#strategium", "#color-expectations", "#readiness-checklist", "#next-move"].every(href => consoleWayfinding.includes(`href="${href}"`)) &&
+    !consoleWayfinding.includes("?lesson="),
+  "strategium/console/index.html should provide a protected-return-safe Console wayfinding nav with section-only destinations"
+);
 
 const guideStylesheetHrefs = getStylesheetHrefs(sources.guide);
 expect(
