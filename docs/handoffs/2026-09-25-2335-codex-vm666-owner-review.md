@@ -381,3 +381,29 @@ Measured cascade ownership explains each finding. `.vm-console-context-return` o
 The consolidated route-rooted correction conditionally removes only the adjacent reveal top rule when the contextual return is visible; assigns lifecycle and Console-card hover/focus states explicit gold boundaries and visible focus outlines; keeps both path-card defaults open and converts the four Console preview rows to transparent top-rule details; scopes `--mana-black` to `#1b1816` with a restrained gold-toned one-pixel shadow for dark-background visibility; and points the existing hub Console link at the existing `#strategium` anchor. The focused browser contract proves default and active roles, keyboard focus, exact pathname/hash, the near-black computed glyph color, equal Mana geometry, and the single-rule composition.
 
 A new exact material candidate and independent RobQA remain pending. No acceptance, push, PR, merge, or integration is implied by this correction.
+
+## Hub and Console follow-up candidate — Owner Review 2026-09-28
+
+- Exact material candidate: `dba19dfd2175c2c4761794c396f8401487eb45c5`
+- Independent RobQA: **PASS**, SEPARATE execution by `/root/vm666_robqa`
+- Findings: no blocker, major, minor, or remaining candidate-caused harness debt
+- Integration: PENDING; no acceptance, push, PR, or merge occurred
+
+The first follow-up candidate `dc6a0d1e4b2b68fc962dd7f52c6f4c1783fcd597` was superseded before Owner Review because its focused test checked only pathname/hash after pointer activation. The product itself passed RobQA's independent real-keyboard probe. The replacement exact candidate adds a durable real-Tab/Enter assertion and proves the existing `#strategium` target settles in view at its computed 104px scroll margin; product bytes are unchanged from the superseded candidate.
+
+Independent checks passed: frontend HTML validation and HTML lint; JavaScript lint for 37 files; route metadata for 16 public routes; frontend smoke; focused harness syntax and real-browser execution; task-index freshness for 705 cards and 1136 handoffs; exact scope/blob inspection; baseline/candidate and superseded/replacement diff checks. CPU-heavy placement, scoring, journey, mutation, recovery, certification, screenshot, visual-baseline, and broad-viewport suites were not required because their owners did not change.
+
+### Quick Owner checklist
+
+Purpose: judge the remaining visual hierarchy and optical fit; mechanics are already machine-proven.
+
+Open: `http://127.0.0.1:8000/strategium/`
+
+1. In **Choose a game moment**, move the pointer across all four lifecycle links. PASS if each link highlights independently and clearly reads as clickable. Press Tab through the same area; PASS if keyboard focus is equally obvious.
+2. Compare the two large hub cards at rest. PASS if both remain coherent open surfaces and the four Console preview rows read as information, not four separate buttons. Hover or focus **Study the table**; PASS if the outer card, not each preview row, becomes the one clear action.
+3. Activate **Study the table**. PASS if the Console lands directly at its existing topic navigation/content area instead of the page hero.
+4. In **How the pod may read your colors**, inspect Black. PASS if it is the proper same-size skull glyph, visibly near-black rather than purple, with no letter circle and enough edge contrast to read on the dark page.
+5. Open an After the Game lesson return path, then follow **Return to your game review** into the Console. PASS if there is one deliberate horizontal boundary between that return action and the lesson content, not two near-parallel lines.
+6. At approximately 390px, repeat a quick hub hover/focus/tap scan and open the Console. PASS if the same hierarchy remains understandable and there is no horizontal page scroll or clipped action.
+
+Visual hierarchy, density, optical black-glyph visibility, and family coherence with Main/Archscry/Maze remain genuine Owner judgments. ACCEPT or REJECT applies only to `dba19dfd2175c2c4761794c396f8401487eb45c5`.

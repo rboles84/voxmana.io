@@ -2,7 +2,7 @@
 
 ID: VM-666
 Title: Strategium Open-Surface Convergence
-Status: In Progress
+Status: Owner Review
 Type: Bounded public-route presentation
 Area: Strategium/shared site skin
 Priority: High
@@ -86,8 +86,8 @@ The shared-site-skin adapter is an escape hatch, not authority to alter generic 
 Record version: 1
 Branch: codex/vm-666-strategium-open-surface-convergence
 Admission baseline: 249c7005b72701e1cb689521ad8df35a58610e53
-Candidate: PENDING for the Owner-authorized hub/Console follow-up
-RobQA: PENDING for the new exact candidate; the PASS at 0742b2f73cef7d8a68998c2734a880d49ed64c4a is historical only
+Candidate: dba19dfd2175c2c4761794c396f8401487eb45c5
+RobQA: PASS at dba19dfd2175c2c4761794c396f8401487eb45c5 — SEPARATE execution by /root/vm666_robqa
 Owner: PENDING
 Integration: PENDING
 Dependencies: None

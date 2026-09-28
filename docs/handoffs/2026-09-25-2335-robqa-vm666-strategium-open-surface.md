@@ -376,3 +376,63 @@ Selected rebind checks: exact HEAD/worktree cleanliness, four-file Git blob comp
 The focused browser, HTML/source, JavaScript lint, route-metadata, frontend-smoke, local Mana asset, selector-rooting, interaction, focus, and 390px containment results recorded for `0afe923d5d3bfa4c91713be189f83c1f9a4bbd16` remain applicable because their complete product/test inputs are byte-identical. Repeating those checks would not test any changed risk. Screenshots, broad viewport matrices, exhaustive lifecycle/Review runs, placement/scoring/synthetic/mutation/recovery/certification suites, and CPU-heavy validation remain not required.
 
 No blocker, major, minor, or harness-debt finding was identified. Owner judgment remains unchanged and bounded to hierarchy, density, readability, state clarity, Mana-glyph optical fit, and Vox Mana family coherence on one lifecycle state sequence plus desktop and approximately 390px Console review. This PASS does not assert Owner acceptance or integration.
+
+## Hub and Console affordance candidate RobQA — 2026-09-28
+
+Task: VM-666
+Admission baseline: `249c7005b72701e1cb689521ad8df35a58610e53`
+Candidate: `dba19dfd2175c2c4761794c396f8401487eb45c5`
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: `/root/vm666_robqa`
+Implementer: Codex `/root`
+Classification: QA-1 presentation with focused QA-2 hover/focus and QA-3 fragment-destination protection
+
+This exact replacement earns RobQAPass PASS. No blocker, major, minor, or remaining candidate-caused harness-debt finding was identified. It supersedes `dc6a0d1e4b2b68fc962dd7f52c6f4c1783fcd597`, whose product behavior worked but whose committed contract used synthetic focus and URL/hash alone instead of proving real keyboard modality and the settled fragment destination.
+
+### Changed and protected contracts
+
+- Changed behavior: one visible rule separates the Console contextual return from its adjacent lesson; lifecycle links have distinct pointer-hover and keyboard-focus states; both hub path cards are open by default; the Console card alone becomes a solid focal action on hover/focus while its four previews remain transparent rule-led information; the black `ms-b` glyph computes to near-black `#1b1816` with a restrained visibility shadow; and the hub Console link reaches the existing `/strategium/console/#strategium` destination.
+- Protected behavior: Strategium JavaScript, copy, data, route/state/metadata owners, lifecycle/review behavior, other Mana colors, dialog behavior, `assets/css/strategium.css`, the generic pre-adapter site skin, other-route product files, dependencies, breakpoints, and the absence of a sidebar/TOC.
+- Replacement scope: product bytes are identical to `dc6a0d1e4b2b68fc962dd7f52c6f4c1783fcd597`. The replacement changes only `scripts/vm666-strategium-open-surface-browser.mjs` plus its RobDev evidence record. Exact candidate/tree/worktree blob comparisons passed.
+
+### Tests selected
+
+- `node scripts/validate-frontend-html.mjs` — PASS. Protects the six public Strategium source/stylesheet/body contracts and local Mana markup contract.
+- `npm.cmd run lint:html` — PASS. Canonical HTML/source guard.
+- `npm.cmd run lint:js` — PASS for 37 files. Protects the revised focused contract and unchanged frontend JavaScript boundary.
+- `npm.cmd run test:route-metadata` — PASS for 16 public route heads.
+- `npm.cmd run test:frontend-smoke` — PASS for Guide, Home, Maze, Archscry, Library alias, Privacy, and Terms; bounded protection for shared-site consumers.
+- `node --check scripts/vm666-strategium-open-surface-browser.mjs` — PASS.
+- `node scripts/vm666-strategium-open-surface-browser.mjs` — PASS: `VM-666 Strategium open-surface browser contract passed.` Browser execution was required because real pointer hover, keyboard focus modality, transition-settled computed cascade, fragment scrolling, rendered boundary ownership, glyph geometry, and horizontal containment cannot be protected reliably below the browser.
+- `npm.cmd run task -- indexes --check` — PASS; 705 cards and 1136 handoffs were fresh before this evidence-only append.
+- `git diff --check 249c7005b72701e1cb689521ad8df35a58610e53 dba19dfd2175c2c4761794c396f8401487eb45c5` — PASS.
+- `git diff --check dc6a0d1e4b2b68fc962dd7f52c6f4c1783fcd597 dba19dfd2175c2c4761794c396f8401487eb45c5` — PASS.
+- Exact diff/path inspection, product-blob comparison, selector-root/prefix protection, excluded-path inspection, and clean branch/worktree facts — PASS.
+
+### Objective browser evidence
+
+- Pointer and keyboard modality are separate. `page.hover` proves the lifecycle and Console hover owners. Real repeated `Tab` keystrokes reach the lifecycle link and Console link; after the declared 240ms transition the Console card is solid `rgb(20, 19, 15)`, gold-bordered, inset-gold owned, and has a 2px focus outline. PASS.
+- Real keyboard `Enter` activates the focused Console card. The settled destination has pathname `/strategium/console/`, hash `#strategium`, an existing `#strategium` target, positive scroll offset, target top inside the viewport, and target top within two pixels of its computed `scroll-margin-top`. PASS.
+- The visible contextual-return boundary remains 1px while the adjacent lesson top boundary is 0px, yielding one rendered transition rule. PASS.
+- The black Mana glyph computes to `rgb(27, 24, 22)` while all six glyphs retain equal 40×40 geometry, the local Mana font, empty fallback text, transparent background, and zero circle border/radius. Other glyph colors remain exact. PASS.
+- Existing route boot, lifecycle pointer/keyboard/result/return, Review dialog focus restoration, Console tab/search/checklist/status/contextual-return behavior, mobile menu/reduced motion, protected route consumers, and approximately 390px horizontal containment remain green. PASS.
+
+### Manual finding converted to invariant
+
+- Finding: the superseded harness asserted programmatic focus and URL/hash but did not prove keyboard traversal, the settled focus fill, or that the fragment target was actually in view.
+- Defect class: directly relevant interaction/navigation regression-coverage gap.
+- Regression invariant: use real Tab traversal and Enter activation; await transition/scroll settlement; assert the complete focus surface plus pathname, hash, target existence, positive scroll, viewport inclusion, and target-top agreement with computed scroll margin. The replacement harness now owns this invariant. PASS.
+
+### Tests intentionally skipped
+
+- Screenshots, visual baselines, animation-fidelity review, and broad viewport matrices were not required. All selected rendered checks are objective; subjective visual fit remains OWNER-VISUAL.
+- Exhaustive lifecycle/Review enumeration was not required because their JavaScript, copy, data, route, and state owners did not change; the focused real paths cover the changed interaction and destination risks.
+- Placement, identity, scoring, synthetic, journey, mutation, recovery, certification, and generated-data suites were not required because no decision or data owner changed.
+- CPU-heavy validation: **NOT REQUIRED**.
+
+### Remaining Owner judgment and bounded route
+
+Review exact candidate `dba19dfd2175c2c4761794c396f8401487eb45c5` on desktop: compare a lifecycle link at rest/hover/focus, the open Console card and its informational rows at rest, the outer Console-card hover/focus treatment, the six Mana glyphs, and the single contextual-return/lesson boundary after following the hub Console link. Then scan the same hub/Console composition at approximately 390px. Judge hierarchy, density, readability, state clarity, black-glyph optical visibility, and Vox Mana family coherence. RobQA makes no subjective visual-acceptance claim.
+
+RobQA changed no product/runtime/test or lifecycle-card file. This appended section is the only review edit.
