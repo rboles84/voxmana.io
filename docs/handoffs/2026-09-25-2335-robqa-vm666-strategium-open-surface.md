@@ -357,3 +357,22 @@ This exact candidate earns RobQAPass PASS. No blocker, major, minor, or candidat
 Review exact candidate `0afe923d5d3bfa4c91713be189f83c1f9a4bbd16`: on desktop, scan one lifecycle default/hover/selected sequence, the Console inactive/current tabs, lesson canvas, archetype directory, color-signal glyph row, and readiness/status surfaces; then scan the lifecycle choices and Console at approximately 390px. Judge only hierarchy, density, readability, state clarity, glyph optical fit, and Vox Mana family coherence. RobQA makes no subjective visual-acceptance claim.
 
 RobQA changed no product/runtime/test or lifecycle-card file. This appended handoff section is the only review edit.
+
+## Exact-candidate rebind RobQA — 2026-09-27
+
+Task: VM-666
+Admission baseline: `249c7005b72701e1cb689521ad8df35a58610e53`
+Candidate: `0742b2f73cef7d8a68998c2734a880d49ed64c4a`
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: `/root/vm666_robqa`
+Implementer: Codex `/root`
+Classification: QA-1 presentation with bounded QA-2 interactive-state protection
+
+This rebind receives RobQAPass PASS for the exact current candidate. The four runtime/test blobs (`assets/css/site-skin.css`, `strategium/console/index.html`, `scripts/validate-frontend-html.mjs`, and `scripts/vm666-strategium-open-surface-browser.mjs`) match the previously passed material candidate `0afe923d5d3bfa4c91713be189f83c1f9a4bbd16` and the clean worktree exactly. The intervening commits contain only VM-666 lifecycle/evidence records and field-format corrections; independent content review found no acceptance-criteria, product-contract, or runtime expansion.
+
+Selected rebind checks: exact HEAD/worktree cleanliness, four-file Git blob comparison across both candidates and the worktree, per-commit path audit, current card/acceptance-criteria review, evidence-document delta review, `git diff --check` for both baseline-to-candidate and prior-material-to-candidate ranges, and `npm.cmd run task -- indexes --check`. All passed; generated views were fresh at 705 cards and 1136 handoffs.
+
+The focused browser, HTML/source, JavaScript lint, route-metadata, frontend-smoke, local Mana asset, selector-rooting, interaction, focus, and 390px containment results recorded for `0afe923d5d3bfa4c91713be189f83c1f9a4bbd16` remain applicable because their complete product/test inputs are byte-identical. Repeating those checks would not test any changed risk. Screenshots, broad viewport matrices, exhaustive lifecycle/Review runs, placement/scoring/synthetic/mutation/recovery/certification suites, and CPU-heavy validation remain not required.
+
+No blocker, major, minor, or harness-debt finding was identified. Owner judgment remains unchanged and bounded to hierarchy, density, readability, state clarity, Mana-glyph optical fit, and Vox Mana family coherence on one lifecycle state sequence plus desktop and approximately 390px Console review. This PASS does not assert Owner acceptance or integration.

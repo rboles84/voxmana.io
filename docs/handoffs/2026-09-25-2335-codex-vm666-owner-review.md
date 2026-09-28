@@ -349,3 +349,15 @@ Bounded Owner review does not require screenshots of every page. At `http://127.
 4. At approximately 390px, scan one lifecycle choice state and the Console for visual comfort. Objective horizontal containment and touch behavior already pass.
 
 Judge hierarchy, density, readability, state clarity, glyph optical fit, and coherence with Main/Archscry/Maze. ACCEPT or REJECT applies only to `0afe923d5d3bfa4c91713be189f83c1f9a4bbd16`.
+
+## Evidence-consolidated exact candidate — 2026-09-27
+
+- Exact candidate: `0742b2f73cef7d8a68998c2734a880d49ed64c4a`
+- Independent RobQA: **PASS**, SEPARATE execution by `/root/vm666_robqa`
+- Runtime/test relationship: the four corrected product/test blobs are byte-identical to independently passed material commit `0afe923d5d3bfa4c91713be189f83c1f9a4bbd16`; the intervening delta contains VM-666 lifecycle/evidence records only
+- Findings: no blocker, major, minor, or candidate-caused harness debt
+- Integration: not authorized; no push, PR, merge, or acceptance occurred
+
+This exact candidate supersedes `0afe923d5d3bfa4c91713be189f83c1f9a4bbd16` only to consolidate the immutable evidence chain. The product and bounded Owner route are unchanged: one lifecycle default/hover/selected sequence; Console inactive/current tabs, lesson canvas, archetype/color-signal directory, intentional focal/status surfaces, and the six true Mana glyphs; then one approximately 390px lifecycle and Console scan. Screenshots of every page are not required.
+
+Judge hierarchy, density, readability, state clarity, glyph optical fit, and coherence with Main/Archscry/Maze. ACCEPT or REJECT applies only to `0742b2f73cef7d8a68998c2734a880d49ed64c4a`.

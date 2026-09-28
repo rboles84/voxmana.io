@@ -83,8 +83,8 @@ The shared-site-skin adapter is an escape hatch, not authority to alter generic 
 Record version: 1
 Branch: codex/vm-666-strategium-open-surface-convergence
 Admission baseline: 249c7005b72701e1cb689521ad8df35a58610e53
-Candidate: 0afe923d5d3bfa4c91713be189f83c1f9a4bbd16
-RobQA: PASS at 0afe923d5d3bfa4c91713be189f83c1f9a4bbd16 — SEPARATE execution by /root/vm666_robqa
+Candidate: 0742b2f73cef7d8a68998c2734a880d49ed64c4a
+RobQA: PASS at 0742b2f73cef7d8a68998c2734a880d49ed64c4a — SEPARATE execution by /root/vm666_robqa
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
