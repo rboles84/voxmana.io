@@ -91,6 +91,31 @@ try {
   await page.click(".vm-console-path-card");
   await page.waitForSelector(".vm-tab");
   assert.equal(await page.evaluate(() => location.pathname), "/strategium/console/", "hub Console link destination changed");
+  assert.deepEqual(await page.$$eval(".vm-philosophy-symbol", nodes => nodes.map(node => {
+    const style = getComputedStyle(node);
+    const rect = node.getBoundingClientRect();
+    return {
+      classes: [...node.classList],
+      text: node.textContent.trim(),
+      hidden: node.getAttribute("aria-hidden"),
+      font: style.fontFamily,
+      background: style.backgroundColor,
+      border: style.borderWidth,
+      radius: style.borderRadius,
+      width: rect.width,
+      height: rect.height,
+    };
+  })), ["w", "u", "b", "r", "g", "c"].map(color => ({
+    classes: ["vm-philosophy-symbol", "ms", `ms-${color}`],
+    text: "",
+    hidden: "true",
+    font: "Mana",
+    background: "rgba(0, 0, 0, 0)",
+    border: "0px",
+    radius: "0px",
+    width: 40,
+    height: 40,
+  })), "Console color signals are not equal-size local Mana glyphs without letter circles");
   for (const route of ["/strategium/find-a-table/", "/strategium/before-game/", "/strategium/during-game/"]) {
     await page.goto(`${origin}${route}`, { waitUntil: "domcontentloaded" });
     await page.waitForSelector("[data-lifecycle-option]");
@@ -102,7 +127,7 @@ try {
     assert.deepEqual(await page.$eval(".vm-review-option", node => {
       const style = getComputedStyle(node);
       return [style.backgroundColor, style.borderRadius, style.borderLeftWidth, style.borderLeftColor];
-    }), ["rgb(15, 15, 13)", "0px", "2px", "rgb(54, 50, 41)"], `${route} choice does not use the restrained solid option language`);
+    }), ["rgba(0, 0, 0, 0)", "0px", "2px", "rgb(54, 50, 41)"], `${route} default choice does not use the open, ruled reference-page language`);
     await page.hover(".vm-review-option");
     assert.deepEqual(await page.$eval(".vm-review-option", node => { const style = getComputedStyle(node); return [style.backgroundColor, style.borderLeftColor]; }), ["rgb(29, 26, 18)", "rgb(210, 179, 112)"], `${route} choice hover state is not distinct`);
     await page.focus(".vm-review-option");
@@ -181,7 +206,7 @@ try {
   assert.deepEqual(await page.$eval("#basicsReveal", node => {
     const style = getComputedStyle(node);
     return [style.backgroundColor, style.backgroundImage, style.borderRadius, style.borderLeftWidth, style.borderRightWidth, style.borderBottomWidth, style.borderTopWidth];
-  }), ["rgb(12, 12, 10)", "none", "0px", "0px", "0px", "0px", "1px"], "full Console reading canvas is not a restrained solid rule-led surface");
+  }), ["rgba(0, 0, 0, 0)", "none", "0px", "0px", "0px", "0px", "1px"], "full Console reading canvas is not an open, rule-led reference-page surface");
   assert.ok(await page.evaluate(() => {
     const panel = document.querySelector("#basicsReveal").getBoundingClientRect();
     const context = document.querySelector(".vm-console-context-return:has(.vm-console-review-return:not([hidden]))").getBoundingClientRect();
@@ -193,6 +218,19 @@ try {
   }), ["rgb(20, 19, 15)", "2px", true], "contextual return lacks clear action styling");
   assert.deepEqual(await page.$eval(".vm-console-note", node => { const style = getComputedStyle(node); return [style.backgroundColor, style.borderRadius, style.borderLeftWidth, style.borderRightWidth, style.borderBottomWidth, style.borderTopWidth]; }), ["rgba(0, 0, 0, 0)", "0px", "0px", "0px", "0px", "1px"], "Console explanatory note does not use the rule-led nested role");
   await page.click(".vm-tab[data-topic=archetype-signal]"); await page.waitForSelector("#archetypeSearch");
+  await delay(240);
+  assert.deepEqual(await page.$$eval(".vm-tab", nodes => nodes.slice(0, 2).map(node => {
+    const style = getComputedStyle(node);
+    return [node.classList.contains("active"), style.backgroundColor, style.borderRadius];
+  })), [[false, "rgba(0, 0, 0, 0)", "0px"], [false, "rgba(0, 0, 0, 0)", "0px"]], "inactive Console tabs should remain open and rule-led");
+  assert.deepEqual(await page.$eval(".vm-tab[data-topic=archetype-signal]", node => {
+    const style = getComputedStyle(node);
+    return [node.classList.contains("active"), style.backgroundColor, style.borderBottomColor];
+  }), [true, "rgb(29, 26, 18)", "rgb(210, 179, 112)"], "active Console tab lost its intentional focal surface");
+  assert.deepEqual(await page.$eval(".vm-archetype-card", node => {
+    const style = getComputedStyle(node);
+    return [style.backgroundColor, style.borderRadius, style.borderLeftWidth, style.borderTopWidth];
+  }), ["rgba(0, 0, 0, 0)", "0px", "0px", "1px"], "Console directory entries should remain open and rule-led");
   const archetypesBefore = await page.$$eval(".vm-archetype-card", nodes => nodes.length);
   await page.type("#archetypeSearch", "tokens");
   assert.equal(await page.$eval(".vm-tab[data-topic=archetype-signal]", node => node.classList.contains("active") && node.getAttribute("aria-selected") === "true"), true, "Console active tab state changed");

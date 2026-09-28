@@ -624,6 +624,18 @@ for (const [key, routeCss, attributes] of [
   );
 }
 
+const strategiumConsoleStylesheetHrefs = getStylesheetHrefs(sources.strategiumConsole);
+expect(
+  strategiumConsoleStylesheetHrefs.filter(href => href === "../../assets/vendor/mana/css/mana.min.css").length === 1,
+  "strategium/console/index.html should load the local Mana glyph stylesheet exactly once"
+);
+for (const colorClass of ["w", "u", "b", "r", "g", "c"]) {
+  expect(
+    new RegExp(`<span class="vm-philosophy-symbol ms ms-${colorClass}"[^>]*aria-hidden="true"[^>]*><\\/span>`).test(sources.strategiumConsole),
+    `strategium/console/index.html should render the local ms-${colorClass} glyph without letter fallback text`
+  );
+}
+
 const guideStylesheetHrefs = getStylesheetHrefs(sources.guide);
 expect(
   guideStylesheetHrefs.at(-2) === "../assets/css/maze.css?v=vm635" &&

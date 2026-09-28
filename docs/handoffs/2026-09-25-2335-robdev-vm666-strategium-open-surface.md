@@ -67,3 +67,15 @@ RobDev checks passed: `node scripts/validate-frontend-html.mjs`; `npm.cmd run li
 Before/after desktop and approximately 390px evidence plus computed cascade ownership are preserved under `C:\Users\obake\.codex\visualizations\2026\09\26\01a0dc33-655d-7c80-9c3d-d0f2e0d2e0f4\vm666-second-rejection-evidence`. Independent RobQA remains required on one stable exact candidate; this RobDev record is not RobQA or Owner acceptance.
 
 The stable replacement material candidate is `a63b1271077f4dfbe432a3b2c1d876d5dd803c5e`. Its final material delta additionally assigns the Console readiness gauge and readiness summary explicit solid Strategium roles and extends the focused computed-style assertions for them. Independent SEPARATE RobQA passed this exact SHA with no findings. Remaining work is genuine Owner visual judgment; no acceptance, push, PR, merge, or integration has occurred.
+
+---
+
+## Owner-authorized surface-role and Mana-glyph follow-up — 2026-09-27
+
+The Owner clarified that Main, Archscry, and Maze are the cross-site visual model: large reading/directory/default surfaces should be open, with opacity reserved for a small number of focus, current/selected, action, status, example, and dialog roles. The Owner also explicitly authorized proper MTG mana glyphs in the Console. Candidate `a63b1271077f4dfbe432a3b2c1d876d5dd803c5e` remains unaccepted and is stale for this new material work; no formal Owner decision is invented.
+
+Measured source ownership showed that the prior adapter itself still painted default choices, every Console tab, and the full lesson canvas. The correction consolidates those same route-rooted declarations: default choices and inactive tabs are transparent with visible rule ownership; interaction/current states remain solid; the lesson canvas and directory-like archetype/cognitive/philosophy entries become open and rule-led; focal results, primary actions, examples, readiness/status, contextual return, and the solid dialog remain opaque by role.
+
+The Console's color signals were literal letters styled as circles, not failed glyphs. The admitted Console HTML now loads the already-vendored Mana font used elsewhere on the site and replaces the six letter spans with `ms-w`, `ms-u`, `ms-b`, `ms-r`, `ms-g`, and `ms-c`. The route-rooted adapter removes the old circle geometry and gives every glyph the same 40px rendered box. Adjacent color headings retain accessible names; no runtime, content, data, remote asset, or excluded stylesheet changed.
+
+Focused checks currently pass: `npm.cmd run lint:html`; `npm.cmd run lint:js`; `node --check scripts/vm666-strategium-open-surface-browser.mjs`; and `node scripts/vm666-strategium-open-surface-browser.mjs`. The browser contract now covers open default/solid interaction states, open Console reading/directory roles, active-tab emphasis, exact local Mana font/classes, equal dimensions, and absence of the old letter-circle presentation. A stable material commit and independent RobQA remain required.

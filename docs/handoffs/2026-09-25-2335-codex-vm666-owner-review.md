@@ -310,3 +310,23 @@ Review exact candidate `a63b1271077f4dfbe432a3b2c1d876d5dd803c5e` and judge the 
 5. Rejected/corrected computed line-stack comparison.
 
 ACCEPT applies only to this exact SHA and authorizes the repository's separate acceptance flow. REJECT returns VM-666 to the same branch for bounded correction. This handoff does not accept, push, open a PR, merge, or integrate the candidate.
+
+## Owner clarification and authorized follow-up — 2026-09-27
+
+The Owner withheld acceptance of `a63b1271077f4dfbe432a3b2c1d876d5dd803c5e` and authorized another bounded material correction. This is not recorded as an invented formal REJECT command; it makes the prior candidate stale and unaccepted for the current work.
+
+The governing visual intent is now explicit: Main, Archscry, and Maze are the goal model. Page structure, long-form reading, directories, default choices, and inactive navigation should normally remain open and rule-led. A small number of solid surfaces may draw the eye when they own a clear user-facing role: hover/focus/selected/current state, primary actions, focal result explanations, concrete examples, operational status, or dialogs. The Owner does not need to provide a screenshot of every page. Review should cover one representative instance of each shared role plus each visually unique composition and approximately 390px containment.
+
+### Why opacity remained after three passes
+
+The second-rejection adapter still explicitly assigned opaque backgrounds to default lifecycle choices (`#0f0f0d`), all Console tabs (`#0f0f0d`), the full Console lesson canvas (`#0c0c0a`), concrete examples, readiness/status surfaces, and selected result details. The outer wrapper correction therefore succeeded while too many child surfaces remained permanently solid. The defect was not an unclear browser artifact: those were winning route-rooted declarations in `assets/css/site-skin.css`.
+
+The authorized correction gives those fills distinct jobs. Default choices and inactive tabs become transparent but keep visible rules and hit areas; hover/focus/selected/current states become solid. The full Console reading canvas and directory/checklist reading items become open and rule-led. Focal result details, primary actions, concrete examples, readiness/status surfaces, contextual return, and the lesson dialog remain solid.
+
+### Mana-symbol diagnosis and correction
+
+The missing-symbol evidence is now directly visible in the Owner's supplied Console screenshot. `strategium/console/index.html` authored literal `W`, `U`, `B`, `R`, `G`, and `C` text inside `.vm-philosophy-symbol`; `assets/css/strategium.css` supplied the circle. This was authored presentation markup, not missing mana data, JavaScript, or a font-loading failure.
+
+The Owner explicitly authorized the MTG-like correction. The Console now loads the repository's existing local `assets/vendor/mana/css/mana.min.css` asset, already used by Main, Archscry, and Maze, and renders `ms-w`, `ms-u`, `ms-b`, `ms-r`, `ms-g`, and `ms-c` glyphs in equal 40px boxes without the letter circle. The decorative glyphs are hidden from assistive technology because the adjacent White/Blue/Black/Red/Green/Colorless headings remain the accessible names. No remote dependency, data, copy, JavaScript, or `assets/css/strategium.css` change is involved.
+
+The static and focused browser contracts now prove the single local Mana stylesheet link, exact six glyph classes, absence of fallback letter text, Mana font ownership, equal rendered dimensions, open background, zero circle border/radius, and existing desktop/mobile behavior. A new exact candidate and independent RobQA remain pending; no acceptance, push, PR, merge, or integration is implied.
