@@ -361,3 +361,23 @@ Judge hierarchy, density, readability, state clarity, glyph optical fit, and coh
 This exact candidate supersedes `0afe923d5d3bfa4c91713be189f83c1f9a4bbd16` only to consolidate the immutable evidence chain. The product and bounded Owner route are unchanged: one lifecycle default/hover/selected sequence; Console inactive/current tabs, lesson canvas, archetype/color-signal directory, intentional focal/status surfaces, and the six true Mana glyphs; then one approximately 390px lifecycle and Console scan. Screenshots of every page are not required.
 
 Judge hierarchy, density, readability, state clarity, glyph optical fit, and coherence with Main/Archscry/Maze. ACCEPT or REJECT applies only to `0742b2f73cef7d8a68998c2734a880d49ed64c4a`.
+
+## Owner-authorized hub and Console follow-up — 2026-09-28
+
+The Owner withheld acceptance of `0742b2f73cef7d8a68998c2734a880d49ed64c4a` and authorized one more bounded correction. This is not recorded as an invented formal REJECT command; the prior candidate is stale and unaccepted for the current material work.
+
+Raw Owner screenshots are preserved by path and SHA-256:
+
+- `C:\Users\obake\AppData\Local\Temp\codex-clipboard-ae8e2b34-3b94-47ed-b4cd-df71098dced5.png` — `a29b02d3c68d6abfc350e673310187b6e41fe1bef73ce190de482db1b04fbfe1`
+- `C:\Users\obake\AppData\Local\Temp\codex-clipboard-f2d4681b-14c4-48df-bb9d-f7b585425345.png` — `069e926ab551dd0dee31c2d81bb7dad77f80fffe850874b2982b77f07cba666b`
+- `C:\Users\obake\AppData\Local\Temp\codex-clipboard-bb05d998-441a-44b8-aa10-34621aadd277.png` — `774c6e6cfc5e0fe0849e8b76de51225a6c6d795435d50a02fe44b9d0cd9b7955`
+
+The first image identifies the duplicate rule below the visible contextual review return. The second proves that the proper Mana skull is present but still inherits the purple `--mana-black` token. The third shows the four real lifecycle links without sufficiently distinct hover feedback and the adjacent Console preview rows reading like separate controls even though their outer card is one link.
+
+The Owner approved this interpretation before coding: preserve both hub path cards as coherent open defaults; give each lifecycle link its own solid hover/focus state; make the Console card itself the single highlighted hover/focus action while its four preview rows become transparent rule-led information; change only the black Mana token to a visible near-black treatment; keep one boundary between the visible contextual return and lesson reading surface; and change the hub Console destination only to `./console/#strategium`, reusing the existing section and its existing scroll margin. A new sidebar, table of contents, copy, JavaScript, route, or state owner is not part of this correction.
+
+Measured cascade ownership explains each finding. `.vm-console-context-return` owned a bottom rule while its adjacent `#basicsReveal` owned a top rule. The route adapter's solid base declaration came after Strategium's lifecycle hover declaration and masked its fill change. `.vm-console-preview` remained an opaque tile even though it is non-interactive content inside `.vm-console-path-card`. The inline black glyph token resolved through the inherited project `--mana-black: #a46bea` value.
+
+The consolidated route-rooted correction conditionally removes only the adjacent reveal top rule when the contextual return is visible; assigns lifecycle and Console-card hover/focus states explicit gold boundaries and visible focus outlines; keeps both path-card defaults open and converts the four Console preview rows to transparent top-rule details; scopes `--mana-black` to `#1b1816` with a restrained gold-toned one-pixel shadow for dark-background visibility; and points the existing hub Console link at the existing `#strategium` anchor. The focused browser contract proves default and active roles, keyboard focus, exact pathname/hash, the near-black computed glyph color, equal Mana geometry, and the single-rule composition.
+
+A new exact material candidate and independent RobQA remain pending. No acceptance, push, PR, merge, or integration is implied by this correction.

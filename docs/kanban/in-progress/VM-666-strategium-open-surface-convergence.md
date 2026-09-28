@@ -2,7 +2,7 @@
 
 ID: VM-666
 Title: Strategium Open-Surface Convergence
-Status: Owner Review
+Status: In Progress
 Type: Bounded public-route presentation
 Area: Strategium/shared site skin
 Priority: High
@@ -31,7 +31,7 @@ Current Owner directive; [Strategium open-surface reconnaissance](../../handoffs
 ## Acceptance Criteria
 
 - [x] The six Strategium HTML documents retain `strategium.css?v=vm635` and load exactly one correctly relative `site-skin.css?v=vm666` immediately after it.
-- [x] Their bodies add `vm-site-skin` and `vm-strategium-route`, while every existing body data attribute, metadata, canonical, script, DOM/state tree, and relative URL remains unchanged.
+- [x] Their bodies add `vm-site-skin` and `vm-strategium-route`, while every existing body data attribute, metadata, canonical, script, and DOM/state tree remains unchanged; the Owner-authorized hub Console link adds only the existing `#strategium` destination fragment.
 - [x] `assets/css/site-skin.css` receives an append-only Strategium adapter; every adapter selector, including selectors in media queries, is rooted at `body.vm-site-skin.vm-strategium-route`, with no generic or other-route adapter edits.
 - [x] The accepted 1280px frame, approximately 24px desktop/20px narrow gutters, opaque charcoal topbar, restrained 2px geometry, open/rule-led structural shells, and compact charcoal scan anchors are present.
 - [x] Lifecycle choices and Console tabs use open default states with solid hover/focus/selected/current states; primary actions, focal result details, status surfaces, inputs/menus, the Review dialog, search/checklist controls, and contextual returns remain solid and unambiguous.
@@ -41,6 +41,9 @@ Current Owner directive; [Strategium open-surface reconnaissance](../../handoffs
 - [x] No Strategium JS, copy, data, routes, state, metadata, dependency, or breakpoint changes occur; no screenshots/baselines, VM-406 work, or exhaustive lifecycle/review suite is added absent evidence.
 - [x] `assets/css/strategium.css` remains excluded unless measured cascade proof triggers a stop, a dedicated card-only Admission Scope/Decisions amendment commit, and an admission continue PASS before it is touched.
 - [x] Console color signals use the repository's vendored Mana glyphs at one equal size, without literal letter-in-circle substitutes; adjacent color headings preserve accessible names.
+- [x] The black Mana glyph uses a visible near-black treatment instead of the prior purple token; other Mana colors retain their existing values.
+- [x] Each of the four hub lifecycle links has a distinct pointer-hover and keyboard-focus state, while the single Console card keeps informational preview rows and lands at its existing `#strategium` navigation/content anchor.
+- [x] A visible Console contextual return and its adjacent reading surface render one transition rule, not two near-parallel rules.
 - [x] A stable exact candidate receives an independent RobQA PASS and then genuine Owner Review; no push, PR, merge, or acceptance occurs without the Owner's exact-SHA response.
 
 ## Files Likely Impacted
@@ -83,12 +86,12 @@ The shared-site-skin adapter is an escape hatch, not authority to alter generic 
 Record version: 1
 Branch: codex/vm-666-strategium-open-surface-convergence
 Admission baseline: 249c7005b72701e1cb689521ad8df35a58610e53
-Candidate: 0742b2f73cef7d8a68998c2734a880d49ed64c4a
-RobQA: PASS at 0742b2f73cef7d8a68998c2734a880d49ed64c4a — SEPARATE execution by /root/vm666_robqa
+Candidate: PENDING for the Owner-authorized hub/Console follow-up
+RobQA: PENDING for the new exact candidate; the PASS at 0742b2f73cef7d8a68998c2734a880d49ed64c4a is historical only
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
-Decisions: Current Owner directive; [Strategium open-surface reconnaissance](../../handoffs/2026-09-25-2200-planning-architect-strategium-open-surface-recon.md); [VM-666 red-team planning review](../../handoffs/2026-09-25-2317-planning-architect-vm666-redteam.md). Presentation-only boundary: no VM-406 bridge semantics or Strategium JS/copy/data/routes/state/metadata/dependency/breakpoint work. `assets/css/strategium.css` is an escape hatch only: measured cascade proof requires stop, a dedicated card-only Admission Scope/Decisions amendment commit, and admission continue PASS before touch. Owner REJECTED material candidate `684cffb5f6cbe36f9a0c25eb357a5948f1c61819` on 2026-09-27 and corrected material candidate `cd9a4efa76582b19b04f98497f16c219c8df7a06` in the second retest. Preserve both exact decisions and raw evidence. The second remediation is limited to consolidated route-rooted adapter and focused-contract changes: one boundary per transition, restrained interactive states, hierarchical result roles, explicit primary-action states, and coherent Console roles. Preserve the accepted hub, dialog, and contextual-return treatment. On 2026-09-27 the Owner clarified the cross-site visual authority: Main, Archscry, and Maze are the goal model; large reading, directory, and default-choice surfaces stay open, while a small number of opaque focal, current/selected, action, status, example, and dialog surfaces may draw attention. The Owner also explicitly authorized replacing Console letter circles with the existing local MTG Mana glyphs at equal size. Representative unique states are sufficient for review; the Owner is not required to supply a screenshot of every page.
+Decisions: Current Owner directive; [Strategium open-surface reconnaissance](../../handoffs/2026-09-25-2200-planning-architect-strategium-open-surface-recon.md); [VM-666 red-team planning review](../../handoffs/2026-09-25-2317-planning-architect-vm666-redteam.md). Presentation-only boundary: no VM-406 bridge semantics or Strategium JS/copy/data/routes/state/metadata/dependency/breakpoint work. `assets/css/strategium.css` is an escape hatch only: measured cascade proof requires stop, a dedicated card-only Admission Scope/Decisions amendment commit, and admission continue PASS before touch. Owner REJECTED material candidate `684cffb5f6cbe36f9a0c25eb357a5948f1c61819` on 2026-09-27 and corrected material candidate `cd9a4efa76582b19b04f98497f16c219c8df7a06` in the second retest. Preserve both exact decisions and raw evidence. The second remediation is limited to consolidated route-rooted adapter and focused-contract changes: one boundary per transition, restrained interactive states, hierarchical result roles, explicit primary-action states, and coherent Console roles. Preserve the accepted hub, dialog, and contextual-return treatment. On 2026-09-27 the Owner clarified the cross-site visual authority: Main, Archscry, and Maze are the goal model; large reading, directory, and default-choice surfaces stay open, while a small number of opaque focal, current/selected, action, status, example, and dialog surfaces may draw attention. The Owner also explicitly authorized replacing Console letter circles with the existing local MTG Mana glyphs at equal size. Representative unique states are sufficient for review; the Owner is not required to supply a screenshot of every page. On 2026-09-28 the Owner authorized a final bounded follow-up: remove the remaining duplicated Console return/lesson rule, make the black Mana glyph near-black rather than purple, give the four real lifecycle links distinct hover/focus feedback, make the Console previews read as information within one link, and add only the existing `#strategium` fragment so the Console entry lands at its local navigation/content anchor. This fragment-only destination refinement is the sole authorized relative-URL exception; no route, state, JavaScript, or new sidebar/TOC is added.
 Evidence: [Strategium open-surface reconnaissance](../../handoffs/2026-09-25-2200-planning-architect-strategium-open-surface-recon.md); [VM-666 red-team planning review](../../handoffs/2026-09-25-2317-planning-architect-vm666-redteam.md); [admission](../../handoffs/2026-09-25-2335-kanban-steward-vm666-admission.md); [second-rejection RobDev handoff](../../handoffs/2026-09-25-2335-robdev-vm666-strategium-open-surface.md#second-owner-rejection-remediation--2026-09-28); [replacement-candidate independent RobQA PASS](../../handoffs/2026-09-25-2335-robqa-vm666-strategium-open-surface.md#second-rejection-replacement-robqa--2026-09-28); [first and second Owner rejections, raw references, preview provenance, ownership trace, correction, and replacement Owner route](../../handoffs/2026-09-25-2335-codex-vm666-owner-review.md#replacement-candidate--owner-review-2026-09-28).
 
 ## Admission Scope

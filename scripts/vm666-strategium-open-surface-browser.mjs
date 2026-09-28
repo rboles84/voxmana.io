@@ -86,11 +86,30 @@ try {
   })), [
     ["rgba(0, 0, 0, 0)", "none", "2px"],
     ["rgba(0, 0, 0, 0)", "none", "2px"]
-  ], "hub path cards do not share one open surface treatment");
+  ], "hub path cards do not share one open default surface treatment");
+  assert.deepEqual(await page.$$eval(".vm-console-preview", nodes => nodes.map(node => {
+    const style = getComputedStyle(node);
+    return [style.backgroundColor, style.borderRadius, style.borderTopWidth];
+  })), Array(4).fill(["rgba(0, 0, 0, 0)", "0px", "1px"]), "Console previews should remain informational, rule-led details");
+  await page.hover(".vm-console-path-card");
+  await delay(240);
+  assert.deepEqual(await page.$eval(".vm-console-path-card", node => {
+    const style = getComputedStyle(node);
+    return [style.backgroundColor, style.borderColor, style.boxShadow !== "none"];
+  }), ["rgb(20, 19, 15)", "rgb(210, 179, 112)", true], "Console path hover is not a clear, solid single action");
+  await page.focus(".vm-console-path-card");
+  assert.notEqual(await page.$eval(".vm-console-path-card", node => getComputedStyle(node).outlineWidth), "0px", "Console path keyboard focus is not visible");
   assert.deepEqual(await page.$eval(".vm-lifecycle-links a", node => { const style = getComputedStyle(node); return [style.backgroundColor !== "rgba(0, 0, 0, 0)", style.borderRadius]; }), [true, "2px"], "hub control lost its solid 2px owner");
+  const lifecycleLinkBase = await page.$eval(".vm-lifecycle-links a", node => getComputedStyle(node).backgroundColor);
+  await page.hover(".vm-lifecycle-links a");
+  assert.equal(await page.$eval(".vm-lifecycle-links a", node => getComputedStyle(node).backgroundColor), "rgb(37, 33, 22)", "hub lifecycle hover is not distinct");
+  await page.focus(".vm-lifecycle-links a");
+  assert.notEqual(await page.$eval(".vm-lifecycle-links a", node => getComputedStyle(node).outlineWidth), "0px", "hub lifecycle focus is not visible");
+  assert.notEqual(lifecycleLinkBase, "rgb(37, 33, 22)", "hub lifecycle base owner masks its hover state");
   await page.click(".vm-console-path-card");
   await page.waitForSelector(".vm-tab");
   assert.equal(await page.evaluate(() => location.pathname), "/strategium/console/", "hub Console link destination changed");
+  assert.equal(await page.evaluate(() => location.hash), "#strategium", "hub Console link no longer lands on the existing Strategium anchor");
   assert.deepEqual(await page.$$eval(".vm-philosophy-symbol", nodes => nodes.map(node => {
     const style = getComputedStyle(node);
     const rect = node.getBoundingClientRect();
@@ -102,10 +121,11 @@ try {
       background: style.backgroundColor,
       border: style.borderWidth,
       radius: style.borderRadius,
+      color: style.color,
       width: rect.width,
       height: rect.height,
     };
-  })), ["w", "u", "b", "r", "g", "c"].map(color => ({
+  })), [["w", "rgb(247, 240, 208)"], ["u", "rgb(88, 184, 255)"], ["b", "rgb(27, 24, 22)"], ["r", "rgb(255, 107, 85)"], ["g", "rgb(99, 229, 141)"], ["c", "rgb(168, 171, 178)"]].map(([color, glyphColor]) => ({
     classes: ["vm-philosophy-symbol", "ms", `ms-${color}`],
     text: "",
     hidden: "true",
@@ -113,6 +133,7 @@ try {
     background: "rgba(0, 0, 0, 0)",
     border: "0px",
     radius: "0px",
+    color: glyphColor,
     width: 40,
     height: 40,
   })), "Console color signals are not equal-size local Mana glyphs without letter circles");
@@ -206,7 +227,8 @@ try {
   assert.deepEqual(await page.$eval("#basicsReveal", node => {
     const style = getComputedStyle(node);
     return [style.backgroundColor, style.backgroundImage, style.borderRadius, style.borderLeftWidth, style.borderRightWidth, style.borderBottomWidth, style.borderTopWidth];
-  }), ["rgba(0, 0, 0, 0)", "none", "0px", "0px", "0px", "0px", "1px"], "full Console reading canvas is not an open, rule-led reference-page surface");
+  }), ["rgba(0, 0, 0, 0)", "none", "0px", "0px", "0px", "0px", "0px"], "visible contextual return should own the only rule above the Console reading canvas");
+  assert.equal(await page.$eval(".vm-console-context-return", node => getComputedStyle(node).borderBottomWidth), "1px", "visible contextual return lost its separating rule");
   assert.ok(await page.evaluate(() => {
     const panel = document.querySelector("#basicsReveal").getBoundingClientRect();
     const context = document.querySelector(".vm-console-context-return:has(.vm-console-review-return:not([hidden]))").getBoundingClientRect();
