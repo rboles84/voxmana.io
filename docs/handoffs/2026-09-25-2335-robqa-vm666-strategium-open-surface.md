@@ -143,3 +143,100 @@ FAIL if structural hierarchy becomes unclear, interactive/result state loses vis
 - QA/lifecycle files changed by RobQA: this handoff and the VM-666 card. Required board/handoff index regeneration was attempted but left unchanged after the host `EPERM` described above.
 - Candidate reviewed: `684cffb5f6cbe36f9a0c25eb357a5948f1c61819` exactly.
 - Next action: genuine Owner visual/product review. ACCEPT integrates the exact accepted candidate; REJECT returns VM-666 to correction on the same task/branch.
+
+---
+
+## Corrected-candidate RobQA — 2026-09-27
+
+Task: VM-666
+Admission baseline: `249c7005b72701e1cb689521ad8df35a58610e53`
+Rejected candidate: `684cffb5f6cbe36f9a0c25eb357a5948f1c61819`
+Corrected candidate: `cd9a4efa76582b19b04f98497f16c219c8df7a06`
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: `/root/vm666_robqa`
+
+The corrected exact candidate receives **RobQAPass PASS**. This engineering verdict supersedes the first candidate's PASS for current readiness and returns VM-666 to Owner Review. It does not erase the Owner's rejection of `684cffb5f6cbe36f9a0c25eb357a5948f1c61819` and does not assert Owner acceptance, integration, deployment, push, PR, or merge.
+
+### Change classification and independent scope review
+
+- QA tier: **QA-1 presentation/styling**, with targeted QA-2 component and QA-3 navigation/state preservation.
+- Execution remains **SEPARATE** because the correction changes a shared stylesheet adapter across six public routes and closes an Owner-found rendered-owner coverage escape. This reviewer did not implement the corrected candidate.
+- Correction material from evidence head `e763f055449d140f1836cfe518acabaa2efe8e0c` is limited to `assets/css/site-skin.css` and `scripts/vm666-strategium-open-surface-browser.mjs`. The card reset and Owner rejection record are lifecycle evidence, not product implementation.
+- Baseline-to-candidate product/test/architecture scope remains the originally admitted VM-666 scope. `assets/css/strategium.css`, Strategium HTML/JavaScript/copy/data/routes/state/metadata, package manifests, generic pre-adapter declarations, other-route runtime files, validator, and architecture records have no correction-cycle diff.
+- The normalized pre-adapter stylesheet prefix remains bound by the harness. Every corrected/new adapter selector, including pseudo-element and media-query selectors, is rooted at `body.vm-site-skin.vm-strategium-route`; the only adapter breakpoint remains the existing `720px` threshold.
+- Exact candidate integrity is confirmed: the clean worktree is at `cd9a4efa76582b19b04f98497f16c219c8df7a06`, and the worktree `site-skin.css` blob hash matches the candidate tree blob (`0b275e2fc39cd10bfe0ba0ac18043d7548e868c2`).
+
+No blocker, major, minor, or candidate-caused harness-debt finding was identified.
+
+### Owner findings converted to invariants
+
+- Finding: duplicate hub rule and gradient residue, with incoherent left/right path treatment.
+  - Defect class: visible structural decoration and sibling-owner inconsistency escaped the first computed-style check.
+  - Regression invariant: the rendered hub hero has transparent/no-image ownership and no visible pseudo-surface; the status strip adds no duplicate bottom rule; both path cards share transparent, image-free, 2px geometry while nested lifecycle controls remain solid.
+  - Result: PASS.
+- Finding: Finding a Table and After the Game stage/result compositions remained opaque.
+  - Defect class: the first harness asserted result solidity but did not distinguish open outer structure from solid inner choices/details.
+  - Regression invariant: all three lifecycle outer stage shells and the After the Game stage/result shells are transparent, square, and laterally open; choices and result-detail sections remain solid; the result uses a rule-led top emphasis.
+  - Result: PASS.
+- Finding: the Review lesson dialog close control, scrollbar, and presentation ownership were unclear.
+  - Defect class: dialog open/close mechanics passed while visible control/scroll ownership was under-specified.
+  - Regression invariant: the solid dialog has a 44×44 default-visible 2px close control, distinct hover and keyboard-focus states, a deliberate dark scrollbar track/thumb, mobile containment, and at least a 44×44 mobile close target; both dismissal paths still restore focus.
+  - Result: PASS.
+- Finding: the full Console lesson and contextual return did not align with Strategium geometry.
+  - Defect class: contextual navigation and revealed lesson ownership were functionally correct but visually/geometrically under-protected.
+  - Regression invariant: the full Console lesson is a solid 2px panel, the visible contextual-return frame aligns to it within one pixel, the return action is solid and at least 44px high, and the mobile lesson/return path has no document overflow.
+  - Result: PASS.
+- Finding: mobile opaque treatment and containment concerns.
+  - Defect class: desktop-only owner assertions did not prove corrected narrow-state ownership.
+  - Regression invariant: the correction harness repeats document/dialog/full-Console containment at 390px and proves the corrected dialog close and contextual-return targets meet the 44px minimum.
+  - Result: PASS.
+
+The reported but unsupplied mana-symbol screenshot remains unverified and outside this presentation-only correction. No semantic, copy, data, or source-authority conclusion was inferred from missing evidence.
+
+### Tests selected
+
+- `node scripts/validate-frontend-html.mjs` — PASS. Protects exact six-route stylesheet/body contracts.
+- `npm.cmd run lint:html` — PASS. Canonical HTML/source validation.
+- `npm.cmd run lint:js` — PASS for 37 files. Protects the corrected harness and frontend JS lint contract.
+- `node --check scripts/vm666-strategium-open-surface-browser.mjs` — PASS. Syntax-checks the corrected focused harness.
+- `node scripts/vm666-strategium-open-surface-browser.mjs` — PASS: `VM-666 Strategium open-surface browser contract passed.` This real-browser run is justified by computed surface ownership, pseudo-surface state, dialog hover/focus/scrollbar behavior, Console route/interaction state, rendered alignment, 390px containment, and touch-target geometry that source inspection cannot prove reliably.
+- `npm.cmd run test:route-metadata` — PASS for 16 public route heads. Protects unchanged metadata/canonical contracts.
+- `npm.cmd run test:frontend-smoke` — PASS for Guide, Home, Maze, Archscry, Library alias, Privacy, and Terms. Bounded shared-frontend protection after the shared stylesheet correction.
+- `git diff --check 249c7005b72701e1cb689521ad8df35a58610e53 cd9a4efa76582b19b04f98497f16c219c8df7a06` — PASS. Exact corrected-candidate patch hygiene.
+- `git diff --check e763f055449d140f1836cfe518acabaa2efe8e0c cd9a4efa76582b19b04f98497f16c219c8df7a06` — PASS. Correction-cycle patch hygiene.
+- Exact baseline/correction scope and content inspection — PASS. All 20 baseline-to-candidate paths are accounted; only the scoped CSS adapter and focused harness changed materially after the Owner rejection/evidence head.
+- Before/after evidence metadata verification — PASS. `after/metadata.json` names the exact corrected candidate and rejected predecessor; its served stylesheet SHA-256 `b89807cb2b3c3fce41f2e7a0779158b1ba6420663acc887dd814c00860037a83` matches the candidate worktree; all 14 before and 14 after record files exist.
+- `npm.cmd run task -- indexes --check` — FAIL before this appended QA record: `docs/kanban/board.md` was stale with 705 cards and 1136 handoffs. This is generated lifecycle-view debt, not product/candidate behavior; the coordinating agent must regenerate views after binding the new card state. No generated view was hand-edited by RobQA.
+
+### Focused objective evidence
+
+- Desktop Console: real tab activation retains `active` plus `aria-selected="true"`; archetype search materially filters results and emits a coherent summary; checklist activation sets `aria-pressed="true"`; readiness status stays solid; the contextual return preserves the exact Review URL and solid action ownership. PASS.
+- Corrected full Console lesson: `#basicsReveal` computes to solid `rgb(16, 16, 14)`, no background image, and 2px geometry; the contextual-return frame aligns to the lesson panel within one pixel and the link is at least 44px high. PASS.
+- 390px: hub, Review, Console, lifecycle result, opened dialog, and full Console lesson have no document overflow; the dialog remains within viewport bounds; dialog close and contextual return meet the 44px target minimum. PASS.
+- Protected behavior: all six Strategium routes boot; hub navigation, lifecycle stage/result/return, Review dialog Escape/button focus restoration, mobile menu/reduced-motion state, and Archscry/Maze/Apocrypha route/topbar consumers remain green. PASS.
+- Evidence provenance: before metadata remains bound to the rejected candidate evidence head; after metadata is bound to the exact corrected candidate and matching CSS bytes. Screenshots were not interpreted as aesthetic proof during RobQA.
+
+### Tests intentionally skipped
+
+- Screenshots, image comparison, visual baselines, animation-fidelity waits, and broader viewport matrices: OWNER-VISUAL remains active; the supplied images are Owner evidence, while RobQA proves only deterministic ownership, interaction, geometry, and containment.
+- Exhaustive lifecycle enumeration and the full Review suite: JavaScript, content, state, and data owners remain unchanged; the focused real lifecycle and Review paths cover the correction risk.
+- Placement, identity, scoring, mutation, recovery, certification, generated-data, Maze journey, and Archscry journey suites: their owners did not change and they cannot answer the scoped adapter correction.
+
+CPU-heavy validation: **NOT REQUIRED**. The corrected risk is bounded presentation and focused interaction preservation; no decision engine, data producer, scoring, qualification, or generated-artifact owner changed.
+
+### Remaining Owner judgment and bounded recheck
+
+The Owner judges whether the corrected hub lines/path balance, open lifecycle and After the Game composition, dialog close/scrollbar treatment, Console lesson/context-return geometry, mobile presentation, and overall hierarchy/readability/family fit now satisfy the rejected visual findings. RobQA makes no aesthetic claim.
+
+Open exact candidate `cd9a4efa76582b19b04f98497f16c219c8df7a06` and recheck only:
+
+1. Desktop hub: duplicate rule/gradient residue and balance of the two paths.
+2. Finding a Table choice/result and After the Game choice/result: open outer composition with clear solid inner controls/details.
+3. Review lesson dialog: solid dialog, unmistakable close control, deliberate scrollbar, and focus behavior.
+4. Full Console lesson: aligned contextual return and coherent Strategium geometry.
+5. Approximately 390px: hub, one corrected lifecycle/Review state, dialog, and Console return.
+
+PASS if the rejected visual defects are resolved without weakening interaction/state clarity. FAIL if a duplicate/decorative hub surface, opaque outer shell, unclear dialog control/scrollbar, misaligned Console return, or narrow overflow remains.
+
+Product/runtime/test files changed by corrected-candidate RobQA: none. QA evidence changed: this appended handoff section only. Next action: bind the exact corrected PASS in the card, regenerate task views, and return the candidate to genuine Owner review.

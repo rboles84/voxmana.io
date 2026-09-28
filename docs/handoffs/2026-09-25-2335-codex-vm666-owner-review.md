@@ -177,3 +177,44 @@ The report names `ExplorError_Table_Signals_Error_NeedsRightManaSymbols.png`, bu
 ### Correction contract
 
 Return VM-666 to RobDev on this same branch. Correct only the route-rooted shared-skin presentation: remove the duplicate hub rule and gradient residue; make the two hub paths coherent; open the lifecycle and After the Game outer stage/result shells while preserving solid choices, results, progress, and actions; retain a solid dialog with an unmistakable close control and deliberate dark scrollbar; align the full Console lesson and contextual return with Strategium geometry; and preserve desktop/390px containment and touch targets. `assets/css/strategium.css`, Strategium JavaScript, copy, data, routes, state, metadata, VM-406, push, PR, merge, and acceptance remain untouched.
+
+## Corrected candidate — Owner Review
+
+Exact material candidate: `cd9a4efa76582b19b04f98497f16c219c8df7a06`
+
+Independent RobQA: **PASS**, SEPARATE, exact candidate. No blocker, major, minor, or candidate-caused harness debt remains. This supersedes the first candidate's engineering readiness only; the Owner's rejection of `684cffb5f6cbe36f9a0c25eb357a5948f1c61819` remains part of the record, and the corrected candidate is not accepted or integrated.
+
+### Correction result
+
+- Hub: one rule remains below the hero; hero background/pseudos are explicitly open; both path cards share the same open 2px treatment while their nested options/previews remain solid scan anchors.
+- Lifecycle and After the Game: stage and result wrappers are transparent, square, and laterally open; progress, choices, result-detail blocks, lesson links, feedback controls, and return actions remain solid and legible.
+- Lesson dialog: the dialog remains solid; the close control is a visible 44px square in default, hover, and keyboard-focus states; the scroll area has an explicit dark track/thumb treatment; both close paths still restore focus.
+- Full Console lesson: the Threat Reading reveal uses a neutral solid 2px panel; the visible contextual return aligns to that frame and is styled as a 44px-minimum action.
+- 390px: hub, lifecycle/Review, opened dialog, and full Console remain contained without horizontal overflow; dialog-close and contextual-return targets meet the 44px minimum.
+
+The final after-capture set is indexed at `C:\Users\obake\.codex\visualizations\2026\09\26\01a0dc33-655d-7c80-9c3d-d0f2e0d2e0f4\vm666-correction-evidence\after\metadata.json`. It records exact candidate `cd9a4efa76582b19b04f98497f16c219c8df7a06`, preview root `http://127.0.0.1:8000`, Python `SimpleHTTP/0.6`, served stylesheet SHA-256 `b89807cb2b3c3fce41f2e7a0779158b1ba6420663acc887dd814c00860037a83`, and 14 desktop/390px image records. The sibling `before/metadata.json` preserves the rejected presentation evidence. The raw Owner report and original supplied screenshot references/hashes remain unchanged above.
+
+### Engineering evidence
+
+- `node scripts/validate-frontend-html.mjs` — PASS.
+- `npm.cmd run lint:html` — PASS.
+- `npm.cmd run lint:js` — PASS for 37 files.
+- `node --check scripts/vm666-strategium-open-surface-browser.mjs` — PASS.
+- `node scripts/vm666-strategium-open-surface-browser.mjs` — PASS.
+- `npm.cmd run test:route-metadata` — PASS for 16 public route heads.
+- `npm.cmd run test:frontend-smoke` — PASS.
+- Independent RobQA repeated the exact-candidate checks and issued PASS in SEPARATE mode.
+
+Not changed: `assets/css/strategium.css`; Strategium HTML/JavaScript/copy/data/routes/state/metadata; VM-406; package manifests; other-route product code; push, PR, merge, or acceptance state.
+
+### Bounded genuine Owner recheck
+
+Open exact candidate `cd9a4efa76582b19b04f98497f16c219c8df7a06` and recheck:
+
+1. Desktop hub: single hero rule, open hero atmosphere, and balanced path-card treatment.
+2. Finding a Table choice/result and After the Game choice/result: open surrounding composition with clear solid inner controls/details.
+3. Review lesson dialog: solid readable shell, unmistakable X, deliberate dark scrollbar, and keyboard focus.
+4. Desktop Console: Threat Reading panel/contextual return plus the previously unrated active tab, search, checklist/status, and return behavior.
+5. Approximately 390px: hub, corrected lifecycle/Review state, dialog, and Console.
+
+ACCEPT authorizes the canonical acceptance flow for this exact SHA. REJECT returns the same VM-666 task/branch to bounded correction. No response about a different SHA applies to this candidate.

@@ -27,3 +27,21 @@ The mobile reduce-motion probe follows the existing topbar smoke timing: after m
 PASS: `node scripts/validate-frontend-html.mjs`; `npm.cmd run lint:html`; `npm.cmd run lint:js`; `npm.cmd run test:route-metadata`; `npm.cmd run test:frontend-smoke`; `node --check scripts/vm666-strategium-open-surface-browser.mjs`; `node scripts/vm666-strategium-open-surface-browser.mjs`; `npm.cmd run task -- indexes --check`; `git diff --check`.
 
 Files reviewed: task card/planning handoffs, route matrix/atlas, six HTML shells, Strategium/site-skin CSS, validator, lifecycle/review/Console owners, and VM-665 browser pattern. Files changed: admitted implementation/docs paths listed by Git plus this handoff. Next agent: independent RobQA; do not treat this as RobQA, Owner acceptance, or integration.
+
+---
+
+## Owner-rejection correction — 2026-09-27
+
+Coordinator `/root` applied the RobDev full authority to the Owner's rejection of `684cffb5f6cbe36f9a0c25eb357a5948f1c61819` on the existing branch. The bounded corrected material candidate is `cd9a4efa76582b19b04f98497f16c219c8df7a06`.
+
+The rejected browser was proven before CSS work: port `4173` was not listening; Python `SimpleHTTP/0.6` on port `8000` served the rejected candidate's exact Strategium HTML and `site-skin.css` bytes. The original Owner report and all nine supplied screenshot paths and hashes remain preserved in the Owner-review handoff. The named mana-symbol screenshot was not found and no semantic/data diagnosis was inferred.
+
+The correction remained inside the existing `body.vm-site-skin.vm-strategium-route` adapter. It removes the duplicate status-strip rule and explicitly excludes hero gradient/pseudo ownership; gives both hub path cards the same open surface while retaining solid nested choices/previews; opens lifecycle and Review outer panels/result grids while keeping choices, result details, progress, and actions solid; gives result cards rule-led emphasis; strengthens the solid lesson dialog with a visible 44px square close control and dark owned scrollbar; and aligns a neutral 2px full-Console lesson panel and solid contextual return to the same 980px frame. `assets/css/strategium.css` did not require the scope-amendment escape hatch.
+
+The Owner-found escape was converted to a red contract before correction: `node scripts/vm666-strategium-open-surface-browser.mjs` failed because `.vm-status-strip` computed a duplicate `1px` bottom rule. The corrected candidate then passed the expanded contract, including all three lifecycle stage shells, lifecycle/Review result ownership, dialog default/hover/focus/scrollbar behavior, Console lesson/return alignment, existing Console tab/search/checklist/status state, and 390px containment plus 44px touch targets.
+
+RobDev checks passed: `node scripts/validate-frontend-html.mjs`; `npm.cmd run lint:html`; `npm.cmd run lint:js` (37 files); `node --check scripts/vm666-strategium-open-surface-browser.mjs`; `node scripts/vm666-strategium-open-surface-browser.mjs`; `npm.cmd run test:route-metadata` (16 heads); `npm.cmd run test:frontend-smoke`; and `git diff --check`.
+
+Before/after desktop and 390px evidence for hub, Finding a Table choice/result, After the Game choice/result, lesson dialog, and full Console lesson is indexed under `C:\Users\obake\.codex\visualizations\2026\09\26\01a0dc33-655d-7c80-9c3d-d0f2e0d2e0f4\vm666-correction-evidence`. The final `after/metadata.json` names exact candidate `cd9a4efa76582b19b04f98497f16c219c8df7a06`, Python port `8000`, and served stylesheet SHA-256 `b89807cb2b3c3fce41f2e7a0779158b1ba6420663acc887dd814c00860037a83`.
+
+Fresh SEPARATE RobQA independently passed that exact candidate with no blocker, major, minor, or candidate-caused harness debt. Remaining judgment is genuine OWNER-VISUAL review; this handoff asserts neither acceptance nor integration.
