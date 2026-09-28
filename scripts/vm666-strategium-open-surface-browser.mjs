@@ -200,6 +200,8 @@ try {
   assert.ok(await page.$eval("#archetypeResultSummary", node => /showing/i.test(node.innerText)), "Console search summary is not coherent");
   await page.click(".vm-tab[data-topic=pod-readiness]"); await page.waitForSelector(".vm-checklist-button");
   assert.deepEqual(await page.$eval(".vm-console-script-card", node => { const style = getComputedStyle(node); return [style.backgroundColor, style.borderRadius]; }), ["rgb(18, 17, 14)", "2px"], "Console example card lost its intentional solid role");
+  assert.deepEqual(await page.$eval(".vm-readiness-gauge", node => { const style = getComputedStyle(node); return [style.backgroundColor, style.backgroundImage, style.borderColor, style.borderRadius]; }), ["rgb(12, 12, 10)", "none", "rgb(54, 50, 41)", "2px"], "Console readiness gauge retained legacy glass/blue geometry");
+  assert.deepEqual(await page.$eval(".vm-readiness-summary", node => { const style = getComputedStyle(node); return [style.backgroundColor, style.borderColor, style.borderRadius]; }), ["rgb(20, 19, 15)", "rgb(54, 50, 41)", "2px"], "Console readiness summary retained legacy rounded geometry");
   await page.click(".vm-checklist-button");
   assert.equal(await page.$eval(".vm-checklist-button", node => node.getAttribute("aria-pressed")), "true", "checklist interaction regressed");
   assert.notEqual(await page.$eval(".vm-readiness-status-card", node => getComputedStyle(node).backgroundColor), "rgba(0, 0, 0, 0)", "readiness status lost its solid surface");

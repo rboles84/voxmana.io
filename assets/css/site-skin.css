@@ -1086,6 +1086,8 @@ body.vm-site-skin.vm-strategium-route .vm-console-review-return:is(:hover, :focu
 body.vm-site-skin.vm-strategium-route #basicsReveal { border-width: 1px 0 0; border-color: var(--site-rule); border-radius: 0; background-color: #0c0c0a; background-image: none; box-shadow: none; }
 body.vm-site-skin.vm-strategium-route :is(.vm-console-note, .vm-console-subpanel, .vm-checklist-group) { border-width: 1px 0 0; border-color: var(--site-rule); border-radius: 0; background: transparent; box-shadow: none; }
 body.vm-site-skin.vm-strategium-route :is(.vm-console-script-card, .vm-archetype-card, .vm-cognitive-item) { border: 1px solid var(--site-rule); border-radius: 2px; background: #12110e; box-shadow: none; }
+body.vm-site-skin.vm-strategium-route .vm-readiness-gauge { border: 1px solid var(--site-rule); border-radius: 2px; background: #0c0c0a; box-shadow: none; }
+body.vm-site-skin.vm-strategium-route .vm-readiness-summary { border: 1px solid var(--site-rule); border-radius: 2px; background: #14130f; box-shadow: none; }
 body.vm-site-skin.vm-strategium-route .vm-tab { border-color: var(--site-rule); background: #0f0f0d; }
 body.vm-site-skin.vm-strategium-route .vm-tab.active { border-color: var(--site-gold); background: #1d1a12; box-shadow: inset 0 -2px 0 var(--site-gold); }
 
