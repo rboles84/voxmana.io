@@ -47,7 +47,7 @@ Current Owner directive; [Strategium open-surface reconnaissance](../../handoffs
 - [x] The Console table of contents exposes lesson and long-page section destinations without JavaScript, stays usefully sticky on desktop, becomes a contained readable block at approximately 390px, and gives pointer/keyboard users clear current interaction feedback.
 - [x] The black Mana glyph retains its near-black fill and gains a subtle neutral-grey outline/backlight sufficient to distinguish the skull on the dark page without returning to a purple or circular treatment.
 - [x] A visible Console contextual return and its adjacent reading surface render one transition rule, not two near-parallel rules.
-- [ ] A stable exact candidate receives an independent RobQA PASS and then genuine Owner Review; no push, PR, merge, or acceptance occurs without the Owner's exact-SHA response.
+- [x] A stable exact candidate receives an independent RobQA PASS and then genuine Owner Review; no push, PR, merge, or acceptance occurs without the Owner's exact-SHA response.
 
 ## Files Likely Impacted
 
@@ -89,8 +89,8 @@ The shared-site-skin adapter is an escape hatch, not authority to alter generic 
 Record version: 1
 Branch: codex/vm-666-strategium-open-surface-convergence
 Admission baseline: 249c7005b72701e1cb689521ad8df35a58610e53
-Candidate: PENDING for the Owner-authorized Console navigation correction
-RobQA: PENDING for the new exact candidate; the PASS at dba19dfd2175c2c4761794c396f8401487eb45c5 is historical only
+Candidate: df71b301a60a1020a45840c47a73c0d936266765
+RobQA: PASS at df71b301a60a1020a45840c47a73c0d936266765 — SEPARATE execution by `/root/vm666_robqa`; implementer `/root/vm666_robdev`; no findings
 Owner: PENDING
 Integration: PENDING
 Dependencies: None

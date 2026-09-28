@@ -407,3 +407,29 @@ Open: `http://127.0.0.1:8000/strategium/`
 6. At approximately 390px, repeat a quick hub hover/focus/tap scan and open the Console. PASS if the same hierarchy remains understandable and there is no horizontal page scroll or clipped action.
 
 Visual hierarchy, density, optical black-glyph visibility, and family coherence with Main/Archscry/Maze remain genuine Owner judgments. ACCEPT or REJECT applies only to `dba19dfd2175c2c4761794c396f8401487eb45c5`.
+
+## Console wayfinding candidate — Owner Review 2026-09-28
+
+The Owner did not accept `dba19dfd2175c2c4761794c396f8401487eb45c5`. The Owner's manual review confirmed the lifecycle hover, tab behavior, prior Console-card hover, contextual-rule correction, and mobile containment, but found that the general Console jump still did not provide named topic navigation or a persistent long-page guide. The Owner also requested a subtle neutral-grey lift for the still-hard-to-read near-black Mana skull.
+
+Raw Owner evidence is preserved at `C:\Users\obake\AppData\Local\Temp\codex-clipboard-ff87e8b7-9bcd-49e5-87e9-d45ca82af932.png` with SHA-256 `8dab8b490ba68d5944bc31c1a60149b67ad5a5e6d9625c02a2a635ddc83e977e`. It shows the proper skull glyph present but optically lost against the dark page.
+
+Exact material candidate: `df71b301a60a1020a45840c47a73c0d936266765`
+
+Independent RobQA: **PASS**, SEPARATE execution by `/root/vm666_robqa` with implementer `/root/vm666_robdev`. There are no blocker, major, minor, or candidate-caused harness-debt findings. This is objective engineering evidence, not Owner visual acceptance.
+
+The hub Console card is now a navigation group rather than one misleading giant link. Each named preview is a real destination: Pod Readiness, Archetypes, and Threat & Pressure activate their matching lesson; Color Expectations lands on its page section. A separate `Open the Console` action enters the general guide. The Console adds a solid, compact Guide map as an intentional navigation-focus surface: sticky beside the long guide on desktop and a contained two-column block at approximately 390px. Its section-only anchors preserve any live `return=` query and contextual review action. Black remains the equal-size near-black Mana glyph, now with a neutral-grey outline/backlight rather than purple, gold, or a letter circle.
+
+Preview provenance: `http://127.0.0.1:8000/`, Python `SimpleHTTP/0.6` / Python `3.14.4`. The served hub HTML, Console HTML, and shared skin were byte-identical to the clean exact candidate. SHA-256: hub `1a9c5ba0d6cd66970594fa976c28cfe6932b29c5beadaf17a46a327c75bb36b1`; Console `35a763ed40326e18459cac308c26fcff79c4a45594dc1a590e3111447d477b5d`; skin `e0a974ba17603bf613504a0edd313db689fc654505f48fc37c8a7d8464ce49d8`.
+
+### Quick Owner checklist
+
+1. At `http://127.0.0.1:8000/strategium/`, hover and click **Archetypes** inside Study the table. PASS if that row highlights, the Console opens with **Archetype Signal** active, and its lesson is already in view. Use Back once and confirm the hub returns.
+2. Activate **Open the Console**. PASS if the general Console opens beside a **Guide map**. Scroll down: on desktop the map should remain usefully sticky. Activate Color Expectations, Readiness Checklist, and Next Move; each should jump to the named long-page section.
+3. Open the previously supplied review-return Console URL, then use a Guide-map section link. PASS if **Return to your game review** remains visible and still points to the same review; the Guide map must not discard the `return=` query.
+4. Inspect the Black symbol under Color Expectations. PASS if it remains a real, equal-size, near-black skull whose edge is readable through a subtle neutral-grey lift, with no purple/gold fill or letter circle.
+5. At approximately 390px, open the Console. PASS if the Guide map becomes a readable two-column block, its targets remain comfortable to tap, and the page has no horizontal scroll.
+
+The named preview rows and the separate general action now own their destinations; the blank card area is intentionally not a fifth ambiguous link. Existing lifecycle hover/focus, single contextual transition rule, Console interactions, and earlier accepted open-surface corrections remain protected. No Strategium JavaScript, `assets/css/strategium.css`, data, state, route owner, dependency, breakpoint, push, PR, merge, acceptance, or integration change occurred.
+
+ACCEPT or REJECT applies only to `df71b301a60a1020a45840c47a73c0d936266765`.

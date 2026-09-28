@@ -436,3 +436,72 @@ This exact replacement earns RobQAPass PASS. No blocker, major, minor, or remain
 Review exact candidate `dba19dfd2175c2c4761794c396f8401487eb45c5` on desktop: compare a lifecycle link at rest/hover/focus, the open Console card and its informational rows at rest, the outer Console-card hover/focus treatment, the six Mana glyphs, and the single contextual-return/lesson boundary after following the hub Console link. Then scan the same hub/Console composition at approximately 390px. Judge hierarchy, density, readability, state clarity, black-glyph optical visibility, and Vox Mana family coherence. RobQA makes no subjective visual-acceptance claim.
 
 RobQA changed no product/runtime/test or lifecycle-card file. This appended section is the only review edit.
+
+## Console wayfinding candidate RobQA — 2026-09-28
+
+Task: VM-666
+Admission baseline: `249c7005b72701e1cb689521ad8df35a58610e53`
+Candidate: `df71b301a60a1020a45840c47a73c0d936266765`
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: `/root/vm666_robqa`
+Implementer: `/root/vm666_robdev`
+Classification: QA-1 presentation with focused QA-2 wayfinding interaction and QA-3 query/fragment/history protection
+
+This exact candidate earns RobQAPass PASS. No blocker, major, minor, or candidate-caused harness-debt finding was identified. This engineering verdict does not claim Owner visual acceptance, integration, deployment, push, PR, or merge.
+
+### Changed and protected contracts
+
+- Changed behavior: the hub Console card is a non-interactive article containing four truthful direct links plus a separate general-guide link; the Console adds a semantic section-only Guide map; two existing long-page sections receive stable IDs; and the black Mana glyph keeps its near-black fill/equal geometry with a neutral-grey backlight.
+- Protected behavior: Strategium JavaScript, lesson/product copy outside the authorized local wayfinding labels, data, state, route owners, metadata, dependencies, breakpoints, `assets/css/strategium.css`, generic pre-adapter site-skin bytes, other public routes, lifecycle/review behavior, dialog behavior, other Mana colors, duplicate-line correction, and established interactions.
+- Exact candidate scope and blobs passed. Relative to the prior reviewed product, admitted material is confined to route-rooted `site-skin.css`, the Strategium hub/Console HTML, the static validator, and focused browser contract plus authorized card/RobDev evidence. Excluded JS/data/state/route/dependency/architecture/other-lifecycle product paths are unchanged.
+
+### Tests selected
+
+- `node scripts/validate-frontend-html.mjs` — PASS. Proves semantic non-interactive hub ownership, exact direct links, Console Guide-map anchors, and the source-level route/Mana contracts.
+- `npm.cmd run lint:html` — PASS. Canonical HTML/source validation.
+- `npm.cmd run lint:js` — PASS for 37 files. Protects the expanded focused harness and unchanged frontend JavaScript boundary.
+- `npm.cmd run test:route-metadata` — PASS for 16 public route heads.
+- `npm.cmd run test:frontend-smoke` — PASS for Guide, Home, Maze, Archscry, Library alias, Privacy, and Terms; bounded shared-skin consumer protection.
+- `node --check scripts/vm666-strategium-open-surface-browser.mjs` — PASS.
+- `node scripts/vm666-strategium-open-surface-browser.mjs` — PASS: `VM-666 Strategium open-surface browser contract passed.` A real browser was required for keyboard modality, lesson activation and rendered landing, reload/history behavior, fragment scrolling, sticky/contained geometry, target size, computed Mana ownership, query preservation, and responsive overflow.
+- Independent desktop/390px rendered probe — PASS. After navigating to Readiness, the desktop Guide map remained pinned at `104px` with `scrollY=4171`, ended at `319.4375px` inside a 900px viewport, stayed left of content, and had no overflow. At 390px it became static, occupied `20px..355px`, had equal 335px scroll/client widths, four 44px links, and no horizontal overflow.
+- `npm.cmd run task -- indexes --check` — PASS; 705 cards and 1136 handoffs were fresh before this evidence-only append.
+- `git diff --check 249c7005b72701e1cb689521ad8df35a58610e53 df71b301a60a1020a45840c47a73c0d936266765` — PASS.
+- `git diff --check dba19dfd2175c2c4761794c396f8401487eb45c5 df71b301a60a1020a45840c47a73c0d936266765` and exact material-commit `git diff --check` — PASS.
+- Exact diff/path inspection, candidate/tree/worktree blob comparison, selector-root/prefix protection, and excluded-owner inspection — PASS.
+
+### Objective browser evidence
+
+- Hub ownership: `.vm-console-path-card` is an `ARTICLE`, not a link; it contains four exact topic/section anchors and one separate general-guide anchor. Pointer Pod Readiness activates `pod-readiness`. PASS.
+- Archetypes: real Tab traversal reaches the exact Archetypes link, focus is visible, Enter opens `/strategium/console/?lesson=archetype-signal#strategium`, the `archetype-signal` tab is active, and the rendered lesson heading is visibly settled at its owned position. Reload preserves the active lesson; Back returns to the hub wayfinding controls. PASS.
+- General guide and long page: real keyboard activation opens the default command-zone guide. The Guide map is a semantic `ASIDE` with `nav[aria-label="Console guide"]`, is actually sticky during desktop scrolling, and all four section anchors settle in view with the existing topbar offsets or valid end-of-page constraint. PASS.
+- Review context: from a live `lesson=archetype-signal&return=...#strategium` URL, a section-only Guide-map link changes only the hash, preserves the exact lesson/return query, and leaves the contextual return visible with `/strategium/review/?path=after-game/unsure`. PASS.
+- Mobile: at 390×844 the Guide map is a contained static block, each target is at least 44px high, and the page has no horizontal overflow. Existing lifecycle result, Review/dialog, and Console containment checks remain green. PASS.
+- Mana: all glyphs retain the local Mana font, empty fallback text, equal 40×40 geometry, transparent background, and zero circle border/radius. Black remains `rgb(27, 24, 22)` and its backlight contains neutral `rgb(184, 181, 173)` with neither purple nor gold. PASS.
+- Protected behavior: lifecycle link hover/focus, real Before Game pointer/keyboard progression, result/return, single contextual-return boundary, Review dialog focus restoration, Console tab/search/checklist/status, mobile menu/reduced motion, and Archscry/Maze/Apocrypha focused protection all pass. PASS.
+
+### Manual findings converted to invariants
+
+- Finding: a named hub preview previously opened only a general Console position rather than its named topic.
+  - Defect class: truthful-link/destination mismatch.
+  - Regression invariant: each preview is its own semantic link; Archetypes must be reached by real Tab+Enter, activate `archetype-signal`, render the lesson in view, survive reload, and support Back. PASS.
+- Finding: the long Console lacked persistent local orientation and section access.
+  - Defect class: long-page wayfinding and responsive containment gap.
+  - Regression invariant: a semantic section-only map owns every named anchor, remains genuinely sticky on desktop, is contained with 44px targets at 390px, and preserves live review-return query state. PASS.
+- Finding: black Mana visibility treatment must not reintroduce purple, gold, or circle ownership.
+  - Defect class: glyph contrast treatment leaked semantic color.
+  - Regression invariant: exact near-black fill/equal geometry plus a computed neutral-grey, non-purple/non-gold backlight. PASS.
+
+### Tests intentionally skipped
+
+- Screenshots, visual baselines, animation-fidelity review, and broad viewport matrices were not required. Objective rendered geometry and interaction are covered; hierarchy, comfort, readability, and visual family fit remain OWNER-VISUAL.
+- Exhaustive lifecycle/Review enumeration was not required because those runtime owners did not change; their focused preserved paths remain green.
+- Placement, identity, scoring, synthetic, journey, mutation, recovery, certification, and generated-data suites were not required because no decision/data owner changed.
+- CPU-heavy validation: **NOT REQUIRED**.
+
+### Remaining Owner judgment and bounded route
+
+Review exact candidate `df71b301a60a1020a45840c47a73c0d936266765`: on desktop, use the hub Archetypes link, scan the non-interactive Console card/direct links/general-guide action, then scroll the Console with the sticky Guide map through lessons, Color Expectations, Readiness Checklist, and Next Move; inspect the black Mana skull. At approximately 390px, scan the Guide map and one direct-link destination. Judge only hierarchy, label clarity, readability, sticky-map comfort, black-glyph optical visibility, and Vox Mana family coherence. RobQA makes no subjective acceptance claim.
+
+RobQA changed no product/runtime/test or lifecycle-card file. This appended section is the only review edit.
