@@ -329,4 +329,23 @@ The missing-symbol evidence is now directly visible in the Owner's supplied Cons
 
 The Owner explicitly authorized the MTG-like correction. The Console now loads the repository's existing local `assets/vendor/mana/css/mana.min.css` asset, already used by Main, Archscry, and Maze, and renders `ms-w`, `ms-u`, `ms-b`, `ms-r`, `ms-g`, and `ms-c` glyphs in equal 40px boxes without the letter circle. The decorative glyphs are hidden from assistive technology because the adjacent White/Blue/Black/Red/Green/Colorless headings remain the accessible names. No remote dependency, data, copy, JavaScript, or `assets/css/strategium.css` change is involved.
 
-The static and focused browser contracts now prove the single local Mana stylesheet link, exact six glyph classes, absence of fallback letter text, Mana font ownership, equal rendered dimensions, open background, zero circle border/radius, and existing desktop/mobile behavior. A new exact candidate and independent RobQA remain pending; no acceptance, push, PR, merge, or integration is implied.
+The static and focused browser contracts now prove the single local Mana stylesheet link, exact six glyph classes, absence of fallback letter text, Mana font ownership, equal rendered dimensions, open background, zero circle border/radius, and existing desktop/mobile behavior. The resulting exact candidate and independent RobQA verdict are recorded below; no acceptance, push, PR, merge, or integration is implied.
+
+### New exact candidate for Owner Review
+
+- Material candidate: `0afe923d5d3bfa4c91713be189f83c1f9a4bbd16`
+- Independent RobQA: **PASS**, SEPARATE execution by `/root/vm666_robqa`
+- Findings: no blocker, major, minor, or candidate-caused harness debt
+- CPU-heavy validation: not required for this presentation/state correction
+- Integration: not authorized; no push, PR, merge, or acceptance occurred
+
+The prior candidate `a63b1271077f4dfbe432a3b2c1d876d5dd803c5e` remains unaccepted and stale for current review. Automated PASS proves the objective font, markup, cascade-role, state, interaction, accessibility, and containment contracts; it does not assert that the new balance looks right.
+
+Bounded Owner review does not require screenshots of every page. At `http://127.0.0.1:8000/`, review the exact candidate with this short route:
+
+1. Open one lifecycle route and compare a default choice with hover/focus/selected state. The default should be open and ruled; the active state should become the focal solid surface.
+2. Open Console and compare inactive/current tabs, the open lesson canvas, open archetype/color-signal directory, and intentionally solid example/readiness/status surfaces.
+3. Inspect the six White/Blue/Black/Red/Green/Colorless marks. They should be actual same-size Mana glyphs without the former letter circles.
+4. At approximately 390px, scan one lifecycle choice state and the Console for visual comfort. Objective horizontal containment and touch behavior already pass.
+
+Judge hierarchy, density, readability, state clarity, glyph optical fit, and coherence with Main/Archscry/Maze. ACCEPT or REJECT applies only to `0afe923d5d3bfa4c91713be189f83c1f9a4bbd16`.

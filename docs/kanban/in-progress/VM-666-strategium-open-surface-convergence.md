@@ -2,7 +2,7 @@
 
 ID: VM-666
 Title: Strategium Open-Surface Convergence
-Status: In Progress
+Status: Owner Review
 Type: Bounded public-route presentation
 Area: Strategium/shared site skin
 Priority: High
@@ -41,7 +41,7 @@ Current Owner directive; [Strategium open-surface reconnaissance](../../handoffs
 - [x] No Strategium JS, copy, data, routes, state, metadata, dependency, or breakpoint changes occur; no screenshots/baselines, VM-406 work, or exhaustive lifecycle/review suite is added absent evidence.
 - [x] `assets/css/strategium.css` remains excluded unless measured cascade proof triggers a stop, a dedicated card-only Admission Scope/Decisions amendment commit, and an admission continue PASS before it is touched.
 - [x] Console color signals use the repository's vendored Mana glyphs at one equal size, without literal letter-in-circle substitutes; adjacent color headings preserve accessible names.
-- [ ] A stable exact candidate receives an independent RobQA PASS and then genuine Owner Review; no push, PR, merge, or acceptance occurs without the Owner's exact-SHA response.
+- [x] A stable exact candidate receives an independent RobQA PASS and then genuine Owner Review; no push, PR, merge, or acceptance occurs without the Owner's exact-SHA response.
 
 ## Files Likely Impacted
 
@@ -83,8 +83,8 @@ The shared-site-skin adapter is an escape hatch, not authority to alter generic 
 Record version: 1
 Branch: codex/vm-666-strategium-open-surface-convergence
 Admission baseline: 249c7005b72701e1cb689521ad8df35a58610e53
-Candidate: PENDING — Owner-authorized surface-role and Mana-glyph correction; prior `a63b1271077f4dfbe432a3b2c1d876d5dd803c5e` remains unaccepted and is stale for the current work
-RobQA: PENDING for the next exact candidate; prior PASS at `a63b1271077f4dfbe432a3b2c1d876d5dd803c5e` remains historical engineering evidence only
+Candidate: 0afe923d5d3bfa4c91713be189f83c1f9a4bbd16
+RobQA: PASS at 0afe923d5d3bfa4c91713be189f83c1f9a4bbd16 — SEPARATE execution by /root/vm666_robqa
 Owner: PENDING
 Integration: PENDING
 Dependencies: None

@@ -300,3 +300,59 @@ This exact replacement earns RobQAPass PASS. No blocker, major, minor, or candid
 Owner should review exact candidate `a63b1271077f4dfbe432a3b2c1d876d5dd803c5e` on desktop at the hub, one lifecycle choice/result/return, the Before Game disabled/enabled/final action sequence, the Review result/dialog, and Console tabs/search/readiness/checklist/status/contextual return; then scan hub and Console at approximately 390px. Judge hierarchy, density, readability, operational clarity, and Vox Mana family fit. RobQA makes no subjective acceptance claim.
 
 RobQA changed no product/runtime/test file. This section is the only QA evidence change from this review. The coordinating agent should bind the exact PASS to lifecycle records and regenerate generated views as required.
+
+---
+
+## Open-role and Mana-glyph candidate RobQA — 2026-09-27
+
+- Task: VM-666
+- Admission baseline: `249c7005b72701e1cb689521ad8df35a58610e53`
+- Exact candidate: `0afe923d5d3bfa4c91713be189f83c1f9a4bbd16`
+- RobQA: **PASS**
+- Execution: **SEPARATE**
+- Reviewer: `/root/vm666_robqa`
+- Classification: QA-1 presentation with bounded QA-2 interactive-state protection
+
+This exact candidate earns RobQAPass PASS. No blocker, major, minor, or candidate-caused harness-debt finding was identified. This engineering verdict does not replace Owner visual judgment or claim acceptance, integration, deployment, push, PR, or merge.
+
+### Changed and protected contracts
+
+- Changed behavior: default lifecycle choices, inactive Console tabs, the lesson canvas, and directory entries use open rule-led roles; hover/focus/selected/current states and intentional primary, focal-result, status, input, example, contextual-return, and dialog surfaces remain solid. Console literal letter circles are replaced by equal-size glyphs from the repository's vendored Mana font.
+- Protected behavior intentionally untouched: Strategium JavaScript, data, authored prose beyond the intentional removal of decorative W/U/B/R/G/C fallback letters, routes, state, metadata, dependencies, and breakpoints; `assets/css/strategium.css`; other-route product files; and the accepted hub, result, Review dialog, contextual-return, and primary-action behavior.
+- Exact diff inspection confirmed the correction material is limited to `assets/css/site-skin.css`, `strategium/console/index.html`, `scripts/validate-frontend-html.mjs`, and `scripts/vm666-strategium-open-surface-browser.mjs`, plus authorized lifecycle evidence. The Console adds the existing local Mana stylesheet before the unchanged route and site-skin owners. Adjacent color headings retain accessible names while decorative glyph spans are empty and `aria-hidden="true"`.
+- The focused harness binds the unchanged normalized pre-adapter CSS prefix and rejects unrooted adapter selectors. Every changed adapter selector is rooted at `body.vm-site-skin.vm-strategium-route`; no breakpoint changed. Exact worktree blobs for all four material/test files matched candidate `0afe923d5d3bfa4c91713be189f83c1f9a4bbd16`.
+
+### Tests selected
+
+- `node scripts/validate-frontend-html.mjs` — PASS. Lowest-layer guard for the six route contracts and the Console-local Mana stylesheet plus all six empty, decorative `ms-w/u/b/r/g/c` glyph elements.
+- `npm.cmd run lint:html` — PASS. Canonical HTML/source validation.
+- `npm.cmd run lint:js` — PASS for 37 files. Protects the revised focused harness and unchanged frontend JavaScript contract.
+- `node --check scripts/vm666-strategium-open-surface-browser.mjs` — PASS.
+- `node scripts/vm666-strategium-open-surface-browser.mjs` — PASS: `VM-666 Strategium open-surface browser contract passed.` Browser use was justified because the actual vendored font family, equal 40×40 rendered glyph boxes, computed transparent/solid ownership, hover/focus/current states, pointer/keyboard behavior, focus restoration, alignment, and 390px containment cannot be proved reliably from source alone.
+- `npm.cmd run test:route-metadata` — PASS for 16 public route heads.
+- `npm.cmd run test:frontend-smoke` — PASS for Guide, Home, Maze, Archscry, Library alias, Privacy, and Terms. This is bounded protection for shared stylesheet consumers.
+- `npm.cmd run task -- indexes --check` — PASS; 705 cards and 1136 handoffs were fresh before the evidence-only append.
+- `git diff --check 249c7005b72701e1cb689521ad8df35a58610e53 0afe923d5d3bfa4c91713be189f83c1f9a4bbd16` — PASS.
+- `git diff --check a63b1271077f4dfbe432a3b2c1d876d5dd803c5e 0afe923d5d3bfa4c91713be189f83c1f9a4bbd16` — PASS.
+- Exact scope/path inspection, candidate-tree blob comparison, local Mana URL/file resolution, CSS prefix/rooting checks, and protected-owner inspection — PASS.
+
+### Objective evidence and converted invariants
+
+- Local glyph contract: all six color signals render with `font-family: Mana`, empty text, `aria-hidden="true"`, no circle background/border/radius, and equal 40×40 geometry. Adjacent headings preserve the accessible color names. PASS.
+- Surface-role contract: lifecycle choices are transparent by default and solid with gold-leading emphasis on hover/focus/selection; inactive tabs are transparent and square while the current tab remains solid/gold; lesson canvas and directory entries are open/rule-led; example, readiness, status, dialog, result-focus, primary-action, and contextual-return surfaces remain solid. PASS.
+- Interaction contract: real pointer progression and selection, keyboard Build action, lifecycle result/return, Review dialog Escape/X focus restoration, Console tabs/search/checklist/status/contextual return, mobile menu, and reduced-motion state remain operational. PASS.
+- Responsive contract: the hub, lifecycle result, Review/dialog, and Console remain horizontally contained at 390px; required touch targets remain usable. PASS.
+- Shared-consumer contract: Archscry, Maze, and Apocrypha retain route markers, boot, and opaque topbar ownership. PASS.
+
+### Tests intentionally skipped and limitations
+
+- Screenshots, visual baselines, animation-fidelity review, and broad viewport matrices were not required. The changed objective rendering and narrow containment are covered by computed browser assertions; subjective hierarchy, density, readability, balance, and family fit remain OWNER-VISUAL.
+- Exhaustive lifecycle enumeration and the full Review suite were not required because their JavaScript, copy, data, route, and state owners did not change; the focused real lifecycle, Review, and Console paths cover the changed presentation/interaction risk.
+- Placement, identity, scoring, synthetic, journey, mutation, recovery, certification, and generated-data suites were not required because no decision or data owner changed.
+- CPU-heavy validation: **NOT REQUIRED**.
+
+### Bounded Owner route
+
+Review exact candidate `0afe923d5d3bfa4c91713be189f83c1f9a4bbd16`: on desktop, scan one lifecycle default/hover/selected sequence, the Console inactive/current tabs, lesson canvas, archetype directory, color-signal glyph row, and readiness/status surfaces; then scan the lifecycle choices and Console at approximately 390px. Judge only hierarchy, density, readability, state clarity, glyph optical fit, and Vox Mana family coherence. RobQA makes no subjective visual-acceptance claim.
+
+RobQA changed no product/runtime/test or lifecycle-card file. This appended handoff section is the only review edit.
