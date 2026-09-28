@@ -75,10 +75,31 @@ try {
   assert.ok(ordinaryGutters.every(gutter => Math.abs(gutter - 24) <= 1), `ordinary shell gutters are not approximately 24px: ${ordinaryGutters}`);
   await page.setViewport({ width: 1440, height: 900, deviceScaleFactor: 1 });
   assert.equal(await page.$eval(".vm-hub-choice-panel", node => getComputedStyle(node).backgroundColor), "rgba(0, 0, 0, 0)", "hub structure is not open");
+  assert.deepEqual(await page.$eval(".vm-hub-hero", node => {
+    const style = getComputedStyle(node);
+    return [style.backgroundColor, style.backgroundImage, getComputedStyle(node, "::before").content, getComputedStyle(node, "::after").content];
+  }), ["rgba(0, 0, 0, 0)", "none", "none", "none"], "hub hero retained a filled or decorative gradient surface");
+  assert.equal(await page.$eval(".vm-status-strip", node => getComputedStyle(node).borderBottomWidth), "0px", "hub hero/status boundary renders a duplicate horizontal rule");
+  assert.deepEqual(await page.$$eval(".vm-path-card", nodes => nodes.map(node => {
+    const style = getComputedStyle(node);
+    return [style.backgroundColor, style.backgroundImage, style.borderRadius];
+  })), [
+    ["rgba(0, 0, 0, 0)", "none", "2px"],
+    ["rgba(0, 0, 0, 0)", "none", "2px"]
+  ], "hub path cards do not share one open surface treatment");
   assert.deepEqual(await page.$eval(".vm-lifecycle-links a", node => { const style = getComputedStyle(node); return [style.backgroundColor !== "rgba(0, 0, 0, 0)", style.borderRadius]; }), [true, "2px"], "hub control lost its solid 2px owner");
   await page.click(".vm-console-path-card");
   await page.waitForSelector(".vm-tab");
   assert.equal(await page.evaluate(() => location.pathname), "/strategium/console/", "hub Console link destination changed");
+  for (const route of ["/strategium/find-a-table/", "/strategium/before-game/", "/strategium/during-game/"]) {
+    await page.goto(`${origin}${route}`, { waitUntil: "domcontentloaded" });
+    await page.waitForSelector("[data-lifecycle-option]");
+    assert.deepEqual(await page.$eval(".vm-review-panel", node => {
+      const style = getComputedStyle(node);
+      return [style.backgroundColor, style.backgroundImage, style.borderRadius, style.borderLeftWidth, style.borderRightWidth];
+    }), ["rgba(0, 0, 0, 0)", "none", "0px", "0px", "0px"], `${route} retained an opaque outer stage shell`);
+    assert.notEqual(await page.$eval("[data-lifecycle-option]", node => getComputedStyle(node).backgroundColor), "rgba(0, 0, 0, 0)", `${route} choice lost its solid interactive owner`);
+  }
   await page.goto(`${origin}/strategium/during-game/`, { waitUntil: "domcontentloaded" });
   await page.waitForSelector("[data-lifecycle-option]");
   const firstStage = await page.$eval(".vm-lifecycle-flow", node => node.dataset.stageId);
@@ -86,17 +107,53 @@ try {
   const secondStage = await page.$eval(".vm-lifecycle-flow", node => node.dataset.stageId);
   await page.click("[data-lifecycle-option]"); await page.waitForSelector(".vm-result-card");
   assert.notEqual(secondStage, firstStage, "lifecycle current stage did not advance");
-  assert.notEqual(await page.$eval(".vm-result-card", node => getComputedStyle(node).backgroundColor), "rgba(0, 0, 0, 0)", "lifecycle result lost solid surface");
+  assert.deepEqual(await page.$eval(".vm-result-card", node => {
+    const style = getComputedStyle(node);
+    return [style.backgroundColor, style.backgroundImage, style.borderRadius, style.borderTopWidth];
+  }), ["rgba(0, 0, 0, 0)", "none", "0px", "2px"], "lifecycle result retained a heavy filled shell or lost its rule-led emphasis");
+  assert.equal(await page.$eval(".vm-lifecycle-result-grid", node => getComputedStyle(node).backgroundColor), "rgba(0, 0, 0, 0)", "lifecycle result grid retained an opaque wrapper");
+  assert.notEqual(await page.$eval(".vm-lifecycle-result-grid > section", node => getComputedStyle(node).backgroundColor), "rgba(0, 0, 0, 0)", "lifecycle result detail lost its solid readable owner");
   assert.equal(await page.$eval(".vm-review-action-return", node => node.getAttribute("href")), "../", "lifecycle return target changed");
   await page.click(".vm-review-action-return"); await page.waitForFunction(() => location.pathname === "/strategium/");
   await page.goto(`${origin}/strategium/review/?path=after-game/unsure`, { waitUntil: "domcontentloaded" });
+  await page.waitForSelector(".vm-result-card");
+  assert.deepEqual(await page.$eval(".vm-review-panel", node => {
+    const style = getComputedStyle(node);
+    return [style.backgroundColor, style.backgroundImage, style.borderRadius, style.borderLeftWidth, style.borderRightWidth];
+  }), ["rgba(0, 0, 0, 0)", "none", "0px", "0px", "0px"], "After the Game retained an opaque outer stage shell");
+  assert.equal(await page.$eval(".vm-result-card", node => getComputedStyle(node).backgroundColor), "rgba(0, 0, 0, 0)", "After the Game result retained an opaque outer shell");
+  assert.notEqual(await page.$eval(".vm-result-grid > section", node => getComputedStyle(node).backgroundColor), "rgba(0, 0, 0, 0)", "After the Game result detail lost its solid readable owner");
   await page.waitForSelector(".vm-lesson-link"); await page.click(".vm-lesson-link"); await page.waitForSelector(".vm-lesson-dialog[open]");
+  assert.deepEqual(await page.$eval(".vm-lesson-dialog-close", node => {
+    const style = getComputedStyle(node);
+    return [style.backgroundColor, style.color, style.borderRadius, node.getBoundingClientRect().width, node.getBoundingClientRect().height];
+  }), ["rgb(210, 179, 112)", "rgb(16, 16, 14)", "2px", 44, 44], "lesson close control is not plainly visible by default");
+  assert.notEqual(await page.$eval(".vm-lesson-dialog-body", node => getComputedStyle(node).scrollbarColor), "auto", "lesson scroll area lacks a deliberate scrollbar treatment");
+  assert.notEqual(await page.$eval(".vm-lesson-dialog-body", node => getComputedStyle(node, "::-webkit-scrollbar-thumb").backgroundColor), "rgba(0, 0, 0, 0)", "lesson scrollbar thumb is not visibly owned");
+  await page.hover(".vm-lesson-dialog-close");
+  assert.notEqual(await page.$eval(".vm-lesson-dialog-close", node => getComputedStyle(node).backgroundColor), "rgb(210, 179, 112)", "lesson close hover state is not distinct");
+  await page.focus(".vm-lesson-dialog-close");
+  assert.notEqual(await page.$eval(".vm-lesson-dialog-close", node => getComputedStyle(node).outlineWidth), "0px", "lesson close focus state is not plainly visible");
   await page.keyboard.press("Escape"); await page.waitForFunction(() => !document.querySelector(".vm-lesson-dialog")?.open);
   assert.equal(await page.$eval(".vm-lesson-link", node => document.activeElement === node), true, "lesson close did not restore focus");
   await page.click(".vm-lesson-link"); await page.waitForSelector(".vm-lesson-dialog[open]"); await page.click(".vm-lesson-dialog-close"); await page.waitForFunction(() => !document.querySelector(".vm-lesson-dialog")?.open);
   assert.equal(await page.$eval(".vm-lesson-link", node => document.activeElement === node), true, "lesson close button did not restore focus");
   await page.goto(`${origin}/strategium/console/?lesson=pod-readiness&return=%2Fstrategium%2Freview%2F%3Fpath%3Dafter-game%2Funsure`, { waitUntil: "domcontentloaded" });
   await page.waitForSelector("[data-review-return-link]:not([hidden])");
+  await page.click(".vm-tab[data-topic=threat-reading]"); await page.waitForSelector("#basicsReveal .vm-console-body");
+  assert.deepEqual(await page.$eval("#basicsReveal", node => {
+    const style = getComputedStyle(node);
+    return [style.backgroundColor, style.backgroundImage, style.borderRadius];
+  }), ["rgb(16, 16, 14)", "none", "2px"], "full Console lesson panel does not use the Strategium solid geometry");
+  assert.ok(await page.evaluate(() => {
+    const panel = document.querySelector("#basicsReveal").getBoundingClientRect();
+    const context = document.querySelector(".vm-console-context-return:has(.vm-console-review-return:not([hidden]))").getBoundingClientRect();
+    return Math.abs(panel.left - context.left) <= 1 && Math.abs(panel.right - context.right) <= 1;
+  }), "contextual return is not aligned to the full Console lesson frame");
+  assert.deepEqual(await page.$eval("[data-review-return-link]", node => {
+    const style = getComputedStyle(node);
+    return [style.backgroundColor, style.borderRadius, node.getBoundingClientRect().height >= 44];
+  }), ["rgb(20, 19, 15)", "2px", true], "contextual return lacks clear action styling");
   await page.click(".vm-tab[data-topic=archetype-signal]"); await page.waitForSelector("#archetypeSearch");
   const archetypesBefore = await page.$$eval(".vm-archetype-card", nodes => nodes.length);
   await page.type("#archetypeSearch", "tokens");
@@ -130,6 +187,11 @@ try {
   await page.click(".vm-lesson-link"); await page.waitForSelector(".vm-lesson-dialog[open]");
   assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), "opened Review dialog has mobile overflow");
   assert.ok(await page.$eval(".vm-lesson-dialog", node => { const rect = node.getBoundingClientRect(); return rect.left >= 0 && rect.right <= innerWidth && rect.width <= innerWidth + 1 && node.scrollWidth <= node.clientWidth + 1; }), "opened Review dialog escapes its mobile bounds");
+  assert.ok(await page.$eval(".vm-lesson-dialog-close", node => { const rect = node.getBoundingClientRect(); return rect.width >= 44 && rect.height >= 44; }), "mobile lesson close control is not a usable touch target");
+  await page.goto(`${origin}/strategium/console/?lesson=threat-reading&return=%2Fstrategium%2Freview%2F%3Fpath%3Dafter-game%2Funsure`, { waitUntil: "domcontentloaded" });
+  await page.waitForSelector("[data-review-return-link]:not([hidden])");
+  assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), "mobile full Console lesson has overflow");
+  assert.ok(await page.$eval("[data-review-return-link]", node => node.getBoundingClientRect().height >= 44), "mobile contextual return is not a usable touch target");
   assert.deepEqual(errors, [], `browser console errors: ${errors.join(" | ")}`);
   console.log("VM-666 Strategium open-surface browser contract passed.");
 } finally {
