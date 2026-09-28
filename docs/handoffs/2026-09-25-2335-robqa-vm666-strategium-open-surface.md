@@ -240,3 +240,63 @@ Open exact candidate `cd9a4efa76582b19b04f98497f16c219c8df7a06` and recheck only
 PASS if the rejected visual defects are resolved without weakening interaction/state clarity. FAIL if a duplicate/decorative hub surface, opaque outer shell, unclear dialog control/scrollbar, misaligned Console return, or narrow overflow remains.
 
 Product/runtime/test files changed by corrected-candidate RobQA: none. QA evidence changed: this appended handoff section only. Next action: bind the exact corrected PASS in the card, regenerate task views, and return the candidate to genuine Owner review.
+
+---
+
+## Second-rejection replacement RobQA — 2026-09-28
+
+Task: VM-666
+Admission baseline: `249c7005b72701e1cb689521ad8df35a58610e53`
+Rejected candidate: `cd9a4efa76582b19b04f98497f16c219c8df7a06`
+Candidate: `a63b1271077f4dfbe432a3b2c1d876d5dd803c5e`
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: `/root/vm666_robqa`
+Implementer: Codex `/root`
+
+This exact replacement earns RobQAPass PASS. No blocker, major, minor, or candidate-caused harness-debt finding was identified. This is an engineering QA decision only; it does not replace Owner visual judgment or claim acceptance, integration, deployment, push, PR, or merge.
+
+### Independent scope and integrity
+
+- Classification: QA-1 presentation with targeted QA-2/QA-3 interaction, return, and containment preservation.
+- From the rejected candidate to this replacement, material changes are limited to the route-rooted VM-666 adapter in `assets/css/site-skin.css` and its focused contract in `scripts/vm666-strategium-open-surface-browser.mjs`, plus authorized lifecycle/evidence records. The final delta adds only the Console readiness-gauge and readiness-summary surface roles and their computed-style assertions.
+- The correction does not change `assets/css/strategium.css`, Strategium JavaScript/copy/data/routes/state/metadata, package manifests, validator, architecture records, or other-route runtime owners. The normalized pre-adapter CSS prefix remains bound by the focused harness. Every adapter selector is rooted at `body.vm-site-skin.vm-strategium-route`, including the selector inside the existing `720px` media query; no breakpoint was added.
+- Exact worktree/candidate integrity passed: HEAD was `a63b1271077f4dfbe432a3b2c1d876d5dd803c5e`; worktree blob hashes matched the candidate tree for both material files. SHA-256 values matched the replacement evidence manifest: CSS `c57be16c3a3448c017261eefeb5892779e3f06756db63213d711787b37936730`; harness `306fbc4d066bbb5833c46a68bb807cef66dbccd91635530872c46b05bc43740a`.
+- The rejected/corrected evidence README binds `cd9a4efa76582b19b04f98497f16c219c8df7a06` to the before set and `a63b1271077f4dfbe432a3b2c1d876d5dd803c5e` to the after set. The after cascade record contains the corrected Console gauge/summary ownership. Supporting screenshots were inspected only for the requested bounded states; they were not used as aesthetic acceptance evidence.
+
+### Owner findings converted to objective invariants
+
+- Stacked panel/toolbar/result/nav rules: outer review/result/action structure must be open and border-free where specified while the progress track and intentional section boundaries remain. PASS.
+- Heavy square options and equal-weight result blocks: choices use a restrained leading/bottom rule and state treatment; the primary result block is solid while supporting result sections remain open/rule-led. PASS.
+- Primary-action clarity and behavior: the Before Game final-check action begins disabled with the explicit muted surface, selecting the real `None of these` option via pointer enables it, pointer continuation reaches the final question, and keyboard Enter on `Build my pregame statement` emits the result. PASS.
+- Console role coherence: tabs, reading canvas, note, examples, readiness gauge, readiness summary, checklist/status, search summary, and contextual return have distinct asserted roles while tab/search/checklist/status behavior remains operational. PASS.
+- Accepted corrections: hub structure, Review dialog close/scroll/focus restoration, and contextual-return alignment remain protected. PASS.
+- Narrow behavior: hub, lifecycle result, Review/dialog, and Console remain horizontally contained at 390px; the dialog close and contextual return retain usable touch geometry. PASS.
+- Shared stylesheet consumers: Archscry, Maze, and Apocrypha retain route markers, boot, and opaque topbar ownership. PASS.
+
+### Commands and results
+
+- `node scripts/validate-frontend-html.mjs` — PASS.
+- `npm.cmd run lint:html` — PASS.
+- `npm.cmd run lint:js` — PASS for 37 files.
+- `node --check scripts/vm666-strategium-open-surface-browser.mjs` — PASS.
+- `node scripts/vm666-strategium-open-surface-browser.mjs` — PASS: `VM-666 Strategium open-surface browser contract passed.` Real browser evidence was proportionate because computed cascade ownership, pointer/keyboard transitions, focus restoration, rendered alignment, and viewport containment cannot be established reliably from source alone.
+- `npm.cmd run test:route-metadata` — PASS for 16 public route heads.
+- `npm.cmd run test:frontend-smoke` — PASS for Guide, Home, Maze, Archscry, Library alias, Privacy, and Terms.
+- `npm.cmd run task -- indexes --check` — PASS; 705 cards and 1136 handoffs were fresh before this evidence-only append.
+- `git diff --check 249c7005b72701e1cb689521ad8df35a58610e53 a63b1271077f4dfbe432a3b2c1d876d5dd803c5e` — PASS.
+- `git diff --check cd9a4efa76582b19b04f98497f16c219c8df7a06 a63b1271077f4dfbe432a3b2c1d876d5dd803c5e` — PASS.
+- Exact candidate/diff inspection, protected-owner inspection, worktree/tree blob comparison, replacement SHA-256 comparison, and evidence-manifest/cascade inspection — PASS.
+
+### Skipped suites and limitations
+
+- Broad screenshot comparison, visual baselines, animation-fidelity review, and additional viewport matrices were not required. The requested bounded screenshots support provenance and state coverage only; hierarchy, density, readability, operational clarity, and family fit remain OWNER-VISUAL.
+- Exhaustive lifecycle enumeration and the full Review suite were not required because lifecycle/review JavaScript, copy, data, and state owners did not change. One real lifecycle plus the focused Review/Console paths cover the correction risk.
+- Placement, identity, scoring, mutation, recovery, certification, generated-data, Maze journey, and Archscry journey suites were not required because their owners did not change and they cannot answer this presentation adapter risk.
+- CPU-heavy validation: **NOT REQUIRED**. No decision engine, data producer, scoring, ranking, qualification, or generated-artifact owner changed.
+
+### Remaining Owner judgment and bounded route
+
+Owner should review exact candidate `a63b1271077f4dfbe432a3b2c1d876d5dd803c5e` on desktop at the hub, one lifecycle choice/result/return, the Before Game disabled/enabled/final action sequence, the Review result/dialog, and Console tabs/search/readiness/checklist/status/contextual return; then scan hub and Console at approximately 390px. Judge hierarchy, density, readability, operational clarity, and Vox Mana family fit. RobQA makes no subjective acceptance claim.
+
+RobQA changed no product/runtime/test file. This section is the only QA evidence change from this review. The coordinating agent should bind the exact PASS to lifecycle records and regenerate generated views as required.

@@ -271,3 +271,42 @@ The rejected before-capture and computed cascade trace are preserved under `C:\U
 The correction does not interpret “open” as “transparent everywhere.” The hero/stage/result/action wrappers are structural and open; progress remains its own track; choices, action buttons, primary explanation, lessons/statements, dialog, Console reading canvas, examples, checklist controls, and operational status remain solid according to their roles. The accepted hub, solid lesson dialog, visible X, dark scroll treatment, and aligned contextual return remain unchanged. No global border removal, new breakpoint, `assets/css/strategium.css`, Strategium JavaScript, copy, data, route, state, metadata, or VM-406 change is authorized.
 
 The focused browser contract was first changed to require the corrected boundary/surface/state model and failed the rejected candidate at `.vm-review-panel` because its 1px top and bottom rules were still present. That is the expected red proof. The same contract now covers default/hover/focus/selected option states; actual disabled/enabled primary-action transitions; pointer continuation; keyboard final-action activation; result hierarchy; feedback/action wrappers; Console roles; search/checklist/status; return behavior; dialog focus; and desktop/390px containment.
+
+## Replacement candidate — Owner Review 2026-09-28
+
+Exact material candidate: `a63b1271077f4dfbe432a3b2c1d876d5dd803c5e`
+
+Independent RobQA: **PASS**, SEPARATE execution by `/root/vm666_robqa`. No blocker, major, minor, or candidate-caused harness-debt finding. This is engineering evidence, not visual acceptance.
+
+Preview provenance remains `http://127.0.0.1:8000/`, served by Python `SimpleHTTP/0.6` / Python `3.14.4`. The rejected preview was proven against exact candidate `cd9a4efa76582b19b04f98497f16c219c8df7a06` before correction. Replacement evidence is indexed at `C:\Users\obake\.codex\visualizations\2026\09\26\01a0dc33-655d-7c80-9c3d-d0f2e0d2e0f4\vm666-second-rejection-evidence\README.md`; it binds the replacement CSS SHA-256 `c57be16c3a3448c017261eefeb5892779e3f06756db63213d711787b37936730` and focused-harness SHA-256 `306fbc4d066bbb5833c46a68bb807cef66dbccd91635530872c46b05bc43740a` to this exact candidate. Its `before/` and `after/` directories preserve the rejected/corrected line-stack comparison, computed cascade owners, and desktop/approximately-390px screenshots requested for the hub, all lifecycle routes, Review/dialog, and Console.
+
+### Intentional surface roles
+
+- Open: route stage shell, result shell, action wrapper, supporting result details, explanatory Console notes, and structural toolbar space. These organize content without creating another enclosing card.
+- Solid: choices, individual actions, the primary result explanation, lesson/statement/path details, the readable lesson dialog, Console tabs, reading canvas, concrete examples, readiness gauge/summary, checklist controls, and operational status. These carry interaction, sustained reading, or state.
+- Rules retained: one hero boundary, the semantic progress track, deliberate section separators, restrained choice leading/bottom rules, feedback top rule, and one footer boundary. Adjacent shell/toolbar/result decorations that produced the rejected line stack are removed.
+
+### Objective interaction and containment proof
+
+- Before the Game step 5 starts with `Continue to final check` disabled but readable. Pointer selection of the real `None of these` option enables the gold primary action; pointer activation reaches the final question; keyboard Enter on enabled `Build my pregame statement` produces the result.
+- Lifecycle return, Review dialog Escape/X focus restoration, Console tab/search/checklist/status/readiness behavior, and contextual return pass in the real browser.
+- Hub, lifecycle result, Review/dialog, and Console remain contained at approximately 390px with no horizontal page overflow; protected touch targets remain usable.
+- The accepted hub correction, dialog close/scroll treatment, and aligned Console contextual return remain intact.
+
+### Deterministic checks
+
+PASS: `node scripts/validate-frontend-html.mjs`; `npm.cmd run lint:html`; `npm.cmd run lint:js` (37 files); `node --check scripts/vm666-strategium-open-surface-browser.mjs`; `node scripts/vm666-strategium-open-surface-browser.mjs`; `npm.cmd run test:route-metadata` (16 route heads); `npm.cmd run test:frontend-smoke`; `npm.cmd run task -- indexes --check`; baseline-to-candidate and rejected-to-candidate `git diff --check`; exact blob/SHA/evidence provenance inspection.
+
+No Strategium JavaScript, copy, data, routes, state, metadata, dependency, breakpoint, VM-406 bridge, or `assets/css/strategium.css` owner changed in this correction.
+
+### Genuine Owner recheck
+
+Review exact candidate `a63b1271077f4dfbe432a3b2c1d876d5dd803c5e` and judge the remaining OWNER-VISUAL concerns: hierarchy, density, readability, operational clarity, and Vox Mana family fit. The bounded evidence map provides:
+
+1. Hub desktop/mobile, proving the accepted treatment remains intact.
+2. Find a Table first/intermediate/selected/result/return states and Before the Game disabled/enabled/final/result states.
+3. During the Game representative choice/result and After the Game result/feedback/dialog/return.
+4. Console active/inactive tabs, search, lesson, readiness/checklist/status, contextual return, and mobile containment.
+5. Rejected/corrected computed line-stack comparison.
+
+ACCEPT applies only to this exact SHA and authorizes the repository's separate acceptance flow. REJECT returns VM-666 to the same branch for bounded correction. This handoff does not accept, push, open a PR, merge, or integrate the candidate.
