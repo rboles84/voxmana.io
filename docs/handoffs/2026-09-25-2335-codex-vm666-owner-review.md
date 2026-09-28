@@ -329,7 +329,7 @@ The missing-symbol evidence is now directly visible in the Owner's supplied Cons
 
 The Owner explicitly authorized the MTG-like correction. The Console now loads the repository's existing local `assets/vendor/mana/css/mana.min.css` asset, already used by Main, Archscry, and Maze, and renders `ms-w`, `ms-u`, `ms-b`, `ms-r`, `ms-g`, and `ms-c` glyphs in equal 40px boxes without the letter circle. The decorative glyphs are hidden from assistive technology because the adjacent White/Blue/Black/Red/Green/Colorless headings remain the accessible names. No remote dependency, data, copy, JavaScript, or `assets/css/strategium.css` change is involved.
 
-The static and focused browser contracts now prove the single local Mana stylesheet link, exact six glyph classes, absence of fallback letter text, Mana font ownership, equal rendered dimensions, open background, zero circle border/radius, and existing desktop/mobile behavior. The resulting exact candidate and independent RobQA verdict are recorded below; no acceptance, push, PR, merge, or integration is implied.
+The static and focused browser contracts now prove the single local Mana stylesheet link, exact six glyph classes, absence of fallback letter text, Mana font ownership, equal rendered dimensions, open background, zero circle border/radius, and existing desktop/mobile behavior. A new exact candidate and independent RobQA remain pending; no acceptance, push, PR, merge, or integration is implied.
 
 ### New exact candidate for Owner Review
 
