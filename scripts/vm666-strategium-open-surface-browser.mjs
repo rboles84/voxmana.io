@@ -12,6 +12,15 @@ const routes = ["/strategium/", "/strategium/find-a-table/", "/strategium/before
 const types = { ".css": "text/css", ".html": "text/html", ".js": "application/javascript", ".svg": "image/svg+xml", ".woff2": "font/woff2" };
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
+async function focusWithTab(page, selector) {
+  await page.evaluate(() => document.activeElement?.blur());
+  for (let count = 0; count < 64; count += 1) {
+    await page.keyboard.press("Tab");
+    if (await page.$eval(selector, node => document.activeElement === node)) return;
+  }
+  assert.fail(`Tab navigation did not reach ${selector}`);
+}
+
 const skin = await readFile("assets/css/site-skin.css", "utf8");
 const marker = "/* VM-666: scoped Strategium presentation adapter; route runtime remains authoritative. */";
 const markerIndex = skin.indexOf(marker);
@@ -97,19 +106,30 @@ try {
     const style = getComputedStyle(node);
     return [style.backgroundColor, style.borderColor, style.boxShadow !== "none"];
   }), ["rgb(20, 19, 15)", "rgb(210, 179, 112)", true], "Console path hover is not a clear, solid single action");
-  await page.focus(".vm-console-path-card");
-  assert.notEqual(await page.$eval(".vm-console-path-card", node => getComputedStyle(node).outlineWidth), "0px", "Console path keyboard focus is not visible");
   assert.deepEqual(await page.$eval(".vm-lifecycle-links a", node => { const style = getComputedStyle(node); return [style.backgroundColor !== "rgba(0, 0, 0, 0)", style.borderRadius]; }), [true, "2px"], "hub control lost its solid 2px owner");
   const lifecycleLinkBase = await page.$eval(".vm-lifecycle-links a", node => getComputedStyle(node).backgroundColor);
   await page.hover(".vm-lifecycle-links a");
   assert.equal(await page.$eval(".vm-lifecycle-links a", node => getComputedStyle(node).backgroundColor), "rgb(37, 33, 22)", "hub lifecycle hover is not distinct");
-  await page.focus(".vm-lifecycle-links a");
+  await focusWithTab(page, ".vm-lifecycle-links a");
   assert.notEqual(await page.$eval(".vm-lifecycle-links a", node => getComputedStyle(node).outlineWidth), "0px", "hub lifecycle focus is not visible");
   assert.notEqual(lifecycleLinkBase, "rgb(37, 33, 22)", "hub lifecycle base owner masks its hover state");
-  await page.click(".vm-console-path-card");
+  await focusWithTab(page, ".vm-console-path-card");
+  await delay(240);
+  assert.deepEqual(await page.$eval(".vm-console-path-card", node => {
+    const style = getComputedStyle(node);
+    return [style.backgroundColor, style.borderColor, style.boxShadow !== "none", style.outlineWidth];
+  }), ["rgb(20, 19, 15)", "rgb(210, 179, 112)", true, "2px"], "Tab-focused Console path is not a settled, visible single action");
+  await page.keyboard.press("Enter");
   await page.waitForSelector(".vm-tab");
+  await delay(1000);
   assert.equal(await page.evaluate(() => location.pathname), "/strategium/console/", "hub Console link destination changed");
   assert.equal(await page.evaluate(() => location.hash), "#strategium", "hub Console link no longer lands on the existing Strategium anchor");
+  const consoleAnchorPosition = await page.$eval("#strategium", node => {
+    const rect = node.getBoundingClientRect();
+    const scrollMargin = Number.parseFloat(getComputedStyle(node).scrollMarginTop);
+    return { top: rect.top, scrollMargin, viewport: innerHeight, scrollY };
+  });
+  assert.ok(Number.isFinite(consoleAnchorPosition.scrollMargin) && consoleAnchorPosition.top >= 0 && consoleAnchorPosition.top < consoleAnchorPosition.viewport && Math.abs(consoleAnchorPosition.top - consoleAnchorPosition.scrollMargin) <= 2 && consoleAnchorPosition.scrollY > 0, `Console anchor target is absent, not in view, or not settled at its scroll margin: ${JSON.stringify(consoleAnchorPosition)}`);
   assert.deepEqual(await page.$$eval(".vm-philosophy-symbol", nodes => nodes.map(node => {
     const style = getComputedStyle(node);
     const rect = node.getBoundingClientRect();
