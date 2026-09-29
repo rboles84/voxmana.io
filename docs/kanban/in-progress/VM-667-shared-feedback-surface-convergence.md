@@ -32,13 +32,13 @@ Current Owner implementation request. The existing shared Feedback owner introdu
 
 ## Acceptance Criteria
 
-- [ ] Shared Feedback uses solid black/warm-black reading and form surfaces with restrained gold-neutral structure, low-radius geometry, minimal glow, and no blue-glass/teal presentation.
-- [ ] The overlay and dialog remain visually distinct from every representative page while dialog, fields, context summary, and status output remain deliberately solid and readable.
-- [ ] Primary, secondary, disabled, sending, focus, success, failure, and copy-fallback states are clear and legible without unrelated neon styling.
-- [ ] Home and at least one current `vm-site-skin` route consume the same owning correction without route-specific background assumptions or late override stacking.
-- [ ] At approximately 390px, the dialog remains contained without horizontal overflow and preserves usable touch targets.
-- [ ] Focused deterministic checks protect one dialog instance, semantics, accessible names, focus entry/trapping/restoration, Escape, close/Cancel/overlay dismissal, and relevant action/status states.
-- [ ] All protected Feedback JavaScript, submission, copy, routing, context, accessibility, scroll, metadata, data, and navigation behavior remains unchanged.
+- [x] Shared Feedback uses solid black/warm-black reading and form surfaces with restrained gold-neutral structure, low-radius geometry, minimal glow, and no blue-glass/teal presentation.
+- [x] The overlay and dialog remain visually distinct from every representative page while dialog, fields, context summary, and status output remain deliberately solid and readable.
+- [x] Primary, secondary, disabled, sending, focus, success, failure, and copy-fallback states are clear and legible without unrelated neon styling.
+- [x] Home and at least one current `vm-site-skin` route consume the same owning correction without route-specific background assumptions or late override stacking.
+- [x] At approximately 390px, the dialog remains contained without horizontal overflow and preserves usable touch targets.
+- [x] Focused deterministic checks protect one dialog instance, semantics, accessible names, focus entry/trapping/restoration, Escape, close/Cancel/overlay dismissal, and relevant action/status states.
+- [x] All protected Feedback JavaScript, submission, copy, routing, context, accessibility, scroll, metadata, data, and navigation behavior remains unchanged apart from the admitted overlay focus-restoration correction.
 - [ ] Independent exact-candidate RobQA passes and the task stops in genuine Owner Review with a bounded manual checklist.
 
 ## Files Likely Impacted
@@ -75,7 +75,7 @@ Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Decisions: Presentation-only shared-owner convergence. Preserve the complete Feedback behavior and submission contract. Scope amendment: measured overlay `mousedown` dismissal clears focus after attempted restoration; permit only the minimal event-default correction in the existing Feedback owner, with no submission or provider-semantic change. Scope amendment: replace the initially reserved handoff paths with canonical timestamp-bearing filenames before either record is created.
-Evidence: PENDING
+Evidence: [RobDev implementation handoff](../../handoffs/2026-09-29-0727-robdev-vm667-feedback-surface.md); exact-candidate RobQA PENDING
 
 ## Admission Scope
 

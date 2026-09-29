@@ -825,7 +825,10 @@
     document.body.appendChild(overlay);
 
     overlay.addEventListener("mousedown", function (event) {
-      if (event.target === overlay) closeDialog(true);
+      if (event.target === overlay) {
+        event.preventDefault();
+        closeDialog(true);
+      }
     });
     overlay.addEventListener("keydown", function (event) {
       if (event.key === "Escape") {
