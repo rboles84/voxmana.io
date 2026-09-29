@@ -32,14 +32,14 @@ Current Owner execution request. VM-667 is integrated and closed. The accepted G
 
 ## Acceptance Criteria
 
-- [ ] All three Guide routes load the current site-skin contract after their route styles and expose the correct Guide route roots.
-- [ ] The Guide root hero is open with one deliberate structural boundary; chapter transitions, relationship content, and source content use open or rule-led structure where appropriate.
-- [ ] Teaching specimens, examples, interactive controls, and selected modes remain deliberately solid and readable.
-- [ ] Blue glass, broad glow, oversized rounding, and pill-heavy treatment are replaced with restrained warm-black, gold-neutral, low-radius or square geometry without flattening every role into the same surface.
-- [ ] The shared topbar matches the current site family, and all Guide CTAs remain clearly interactive with preserved destinations, hover, and keyboard-focus states.
-- [ ] Heading and landmark structure, product order, explanatory copy, relationship navigation semantics, mode selection, hidden-panel state, pointer/keyboard activation, meaningful focus, atmosphere, and reduced motion remain intact.
-- [ ] Each Guide route remains usable without horizontal page overflow at approximately 390px, with reachable controls and preserved reading width/hierarchy.
-- [ ] Guide-specific corrections do not leak into unrelated Maze, Legal, Strategium, Archscry, Apocrypha, or Home consumers.
+- [x] All three Guide routes load the current site-skin contract after their route styles and expose the correct Guide route roots.
+- [x] The Guide root hero is open with one deliberate structural boundary; chapter transitions, relationship content, and source content use open or rule-led structure where appropriate.
+- [x] Teaching specimens, examples, interactive controls, and selected modes remain deliberately solid and readable.
+- [x] Blue glass, broad glow, oversized rounding, and pill-heavy treatment are replaced with restrained warm-black, gold-neutral, low-radius or square geometry without flattening every role into the same surface.
+- [x] The shared topbar matches the current site family, and all Guide CTAs remain clearly interactive with preserved destinations, hover, and keyboard-focus states.
+- [x] Heading and landmark structure, product order, explanatory copy, relationship navigation semantics, mode selection, hidden-panel state, pointer/keyboard activation, meaningful focus, atmosphere, and reduced motion remain intact.
+- [x] Each Guide route remains usable without horizontal page overflow at approximately 390px, with reachable controls and preserved reading width/hierarchy.
+- [x] Guide-specific corrections do not leak into unrelated Maze, Legal, Strategium, Archscry, Apocrypha, or Home consumers.
 - [ ] Independent exact-candidate RobQA passes and the task stops in genuine Owner Review with the bounded seven-step checklist.
 
 ## Files Likely Impacted
@@ -81,7 +81,7 @@ Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Decisions: Presentation-only Guide-family convergence. Preserve accepted content, ordering, routes, interaction semantics, atmosphere, accessibility, and responsive behavior. Use the existing site-skin contract with Guide-rooted declarations; do not rewrite generic Maze consumers.
-Evidence: PENDING
+Evidence: RobDev implementation complete. PASS `node scripts/vm668-guide-surface-browser.mjs --static`, `node --check scripts/vm668-guide-surface-browser.mjs`, `npm run lint:js`, `npm run test:frontend-smoke`, `git diff --check`, and generated-view `npm run task -- indexes --write` followed by `--check`. Focused in-app browser verification passed all three route roots/stylesheet order, landmarks/headings/CTA targets, computed open-versus-solid surface roles, pointer and ArrowRight mode activation with meaningful focus, rich-atmosphere preservation, 390px containment with zero horizontal overflow, and isolation from generic Maze. The dedicated Edge harness remains host-blocked before assertions (exit code 0, no stderr). Candidate/RobQA/Owner/Integration remain PENDING until the material commit and independent exact-candidate review.
 
 ## Admission Scope
 

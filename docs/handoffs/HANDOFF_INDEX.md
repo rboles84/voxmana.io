@@ -1,4 +1,4 @@
-<!-- task-view-sha256:23b4b967dacd3870272adce54499dcd9fe1b91419e9498e8ed67989990630b4e -->
+<!-- task-view-sha256:3ae6fd18bd3c190d242211dcfa8d17c877cafb4f5279702fc074b11e121f5aa5 -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -11,6 +11,7 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 | 2026-09-29T11:12:00Z (filename) | Unknown | [2026-09-29 11:12 — Codex — VM-667 Owner-Accepted Closeout](2026-09-29-1112-codex-vm667-owner-accepted-closeout.md) | VM-667 | Identity displayed from heading; not admission metadata. |
 | 2026-09-29T00:00:00Z (authored) | Codex `/root`, applying the repository-local `robdev` skill and full RobDevPass. | [2026-09-29 07:27 — RobDev — VM-667 Feedback Surface](2026-09-29-0727-robdev-vm667-feedback-surface.md) | VM-667, VM-423 | Identity displayed from heading; not admission metadata. |
 | 2026-09-29T00:00:00Z (authored) | Codex `/root/vm667_robqa`, applying the repository-local `robqa` skill and full `docs/qa/RobQAPass.md` independently from the implementation agent. | [2026-09-29 07:27 — RobQA — VM-667 Feedback Surface](2026-09-29-0727-robqa-vm667-feedback-surface.md) | VM-667 | Identity displayed from heading; not admission metadata. |
+| 2026-09-29T00:00:00Z (authored) | Codex `/root/vm668_robdev`, applying the repository-local `robdev` skill and full `RobDevPass` authority. | [2026-09-29 11:36 — RobDev — VM-668 Field Guide Surface](2026-09-29-1136-robdev-vm668-guide-surface.md) | VM-668 | Identity displayed from heading; not admission metadata. |
 | 2026-09-28T00:00:00Z (authored) | Unknown | [VM-666 — Integration And Closeout](2026-09-28-codex-vm666-closeout.md) | VM-666 | Identity displayed from heading; not admission metadata. |
 | 2026-09-27T00:00:00Z (authored) | Codex `/root` (session-selected coordination context) | [VM-666 — Owner Review Handoff](2026-09-25-2335-codex-vm666-owner-review.md) | VM-666 | Identity displayed from heading; not admission metadata. |
 | 2026-09-26T00:00:00Z (authored) | Codex `/root/vm666_robqa` (repository `robqa` role; requested/configured `gpt-5.6-sol`, medium; separate from implementation) | [VM-666 — Strategium Open-Surface Convergence: Independent RobQA PASS](2026-09-25-2335-robqa-vm666-strategium-open-surface.md) | VM-666 | Identity displayed from heading; not admission metadata. |
