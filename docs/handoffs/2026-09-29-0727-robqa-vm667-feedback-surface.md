@@ -1,0 +1,386 @@
+# 2026-09-29 07:27 — RobQA — VM-667 Feedback Surface
+
+Task: VM-667  
+Role: Independent exact-candidate RobQA  
+Date: 2026-09-29  
+Verdict: **BLOCKED**  
+Reviewed material candidate: `48757708eb94abc64b7447e590731e0d7ae509e5`  
+Admission baseline / merge-base: `6e5cdbee1cacf3e3dd365c8fe39a945a9ce47ff9`
+
+## Agent Name
+
+Codex `/root/vm667_robqa`, applying the repository-local `robqa` skill and full `docs/qa/RobQAPass.md` independently from the implementation agent.
+
+## Task Requested
+
+Independently inspect and validate the exact VM-667 material candidate. Select proportionate evidence for the shared Feedback presentation and bounded overlay focus-restoration correction without modifying the candidate, contacting the live provider, or replacing Owner visual judgment.
+
+## Change Classification
+
+- QA tier: **QA-2 — Component interaction**. The bulk of the change is QA-1 presentation, but the admitted `mousedown`/focus-restoration correction changes an actual modal interaction and requires QA-2 focus, pointer, dismissal, and responsive evidence.
+- Changed behavior: shared Feedback CSS presentation plus `event.preventDefault()` on overlay `mousedown` before the existing close-and-restore path.
+- Protected behavior intentionally untouched: copy and labels, form schema and values, optional email, provider routing and payloads, page-context capture, safe/plain text, Copy/Send semantics, focus trap, Close/Cancel/Escape behavior, ARIA/live status, scroll locking, routes, data, metadata, and navigation.
+- QA execution mode: **SEPARATE**, reviewer `/root/vm667_robqa`. Shared component behavior, accessibility/focus contracts, and two materially different consumer surfaces require independent execution.
+- Exact candidate and evidence reference: `48757708eb94abc64b7447e590731e0d7ae509e5`; this handoff is the durable QA evidence.
+
+## Files Reviewed
+
+- `.agents/skills/robqa/SKILL.md`
+- `docs/qa/RobQAPass.md`
+- `docs/reference/workflow.md`
+- `docs/kanban/in-progress/VM-667-shared-feedback-surface-convergence.md`
+- `docs/handoffs/2026-09-29-0727-robdev-vm667-feedback-surface.md`
+- Complete baseline-to-candidate Git diff
+- `assets/css/topbar.css`
+- `assets/css/home-wip.css`
+- `assets/css/site-skin.css`
+- `assets/js/shared/vm-feedback.js`
+- `scripts/vm667-feedback-surface-browser.mjs`
+- Representative rendered consumers: Home `/` and Archscry `/archscry/`
+
+## Files Changed
+
+- `docs/handoffs/2026-09-29-0727-robqa-vm667-feedback-surface.md` — evidence only.
+
+No material candidate, production, test, card, or generated-view file was modified.
+
+## What Changed
+
+Created this candidate-bound RobQA record. No implementation change was made.
+
+## Why It Changed
+
+The exact candidate is not ready for Owner Review because alternate objective browser evidence exposed a deterministic disagreement between the shipped presentation and the candidate's new focused regression contract.
+
+## Finding
+
+### QA-F1 — Candidate's own trigger assertion is false on both required representative consumers
+
+- Severity: **MAJOR evidence/acceptance failure**; the visible difference itself is presentation-level, but the exact candidate's required focused contract is demonstrably red and therefore cannot support engineering PASS.
+- Expected by the new candidate test: `assertSharedSurface()` requires `.vm-feedback-button` to compute to `border-radius: 3px` on Home and Archscry.
+- Actual on exact candidate in the working in-app browser:
+  - Home: transparent background, `border-radius: 0px`.
+  - Archscry: transparent background, `border-radius: 0px`.
+- Cause localized without modifying the candidate: later, more-specific route-family rules in `assets/css/home-wip.css` and `assets/css/site-skin.css` reset `.vm-feedback-button` to transparent, borderless, zero-radius presentation. The baseline-to-candidate CSS changes the shared base rule but does not change those later consumers.
+- Impact: if the Chromium launcher debt were removed, `node scripts/vm667-feedback-surface-browser.mjs` would fail its Home trigger assertion before it could truthfully report PASS. The current launch failure masks a candidate failure; it is not sufficient to classify the entire focused harness as harmless environment debt.
+- Required disposition: return the same task and branch to RobDev. Align the intended shared trigger contract and both representative consumers, or—if the trigger is intentionally outside the visual convergence—materially correct the test/acceptance contract. Either choice creates a new material candidate and requires proportionate exact-SHA RobQA.
+
+## Tests Selected
+
+- Test: Git identity, cleanliness, ancestry, and baseline-to-candidate path review.
+  - Reason: bind QA to the immutable candidate and independently verify scope.
+  - Result: **PASS**. Branch and `HEAD` both resolved to `48757708eb94abc64b7447e590731e0d7ae509e5`; merge-base resolved to `6e5cdbee1cacf3e3dd365c8fe39a945a9ce47ff9`; worktree was clean before evidence creation. Git reported only material paths within admission scope.
+- Test: `git diff --check 6e5cdbee1cacf3e3dd365c8fe39a945a9ce47ff9..48757708eb94abc64b7447e590731e0d7ae509e5`.
+  - Reason: focused candidate hygiene.
+  - Result: **PASS**.
+- Test: `node --check assets/js/shared/vm-feedback.js`.
+  - Reason: syntax safety for the one changed production interaction owner.
+  - Result: **PASS**.
+- Test: `node --check scripts/vm667-feedback-surface-browser.mjs`.
+  - Reason: syntax safety for the new focused contract.
+  - Result: **PASS**.
+- Test: `npm run lint:js`.
+  - Reason: proportionate source guard for changed shared JavaScript and the new browser contract.
+  - Result: **PASS**, 37 files.
+- Test: focused real-browser Home interaction and computed-style inspection in the working in-app browser.
+  - Reason: objective dialog semantics, focus, pointer dismissal, status presentation, and consumer-specific cascade cannot all be proven reliably from static source.
+  - Result: **PARTIAL PASS / finding raised**. Exactly one dialog and overlay; `role="dialog"`, `aria-modal="true"`, accessible title/description, labeled fields, and named close control; focus entered the Feedback textarea; Tab wrapped Send to Close and Shift+Tab wrapped Close to Send; Escape, Close, Cancel, and an actual pointer click on the overlay all dismissed, restored focus to `#vm-feedback-trigger`, restored body scrolling, and left one dialog instance. Empty Copy produced a solid error status; local Copy produced a solid success status. Dialog, context, inputs, status, primary, secondary, rule, focus indicator, and status tones matched the intended solid/low-radius state styling. The trigger failed the candidate's own 3px assertion and computed transparent/0px.
+- Test: focused real-browser Archscry desktop and 390-by-844 containment inspection.
+  - Reason: prove the second `vm-site-skin` consumer and the named narrow containment risk.
+  - Result: **PARTIAL PASS / same finding reproduced**. One shared dialog and overlay; focus entry succeeded; dialog was solid warm-black with no background image and 3px radius; primary and secondary actions were distinct. At 390px the 366px dialog stayed within 12px page edges, document and dialog horizontal overflow were both zero, the input remained 44px high, all three actions were approximately 106-by-44px, and Close remained reachable. The trigger again computed transparent/0px instead of the test's required 3px.
+- Test: static state-rule and fallback inspection.
+  - Reason: cover states that must not contact the live provider and could not be forced through the browser without mutating runtime configuration.
+  - Result: **PASS at source/DOM-contract layer**. Dedicated rules exist for configured-disabled (`[aria-disabled="true"]`), in-flight disabled (`:disabled`), focus, neutral, success, and error states; all retain opaque backgrounds and explicit contrast/structure. The generated manual-copy textarea is read-only, hidden until failure, uses the shared solid field rule, and is focused/selected when fallback is exposed. Browser evidence independently exercised default, focus, error, and Copy-success states. No provider request was made.
+
+## Harness-Debt Disposition
+
+- `node scripts/vm667-feedback-surface-browser.mjs`: **Automated test: FAIL / host Chromium launch debt before checks** as previously observed. It was not rerun because RobDev already performed the one allowed causal comparison and found unchanged `scripts/topbar-browser-smoke.mjs` fails at the same Edge launch boundary (exit code 0, no stderr).
+- Independent alternate objective evidence was available and therefore used. That evidence is sufficient for dialog semantics, interaction, status, and containment, but it also proves a candidate assertion would fail once the launcher works.
+- Disposition: the launch problem remains harness debt, but it no longer explains away the full VM-667 test result. The false trigger expectation/implementation mismatch is candidate-owned and blocks PASS.
+- Pre-QA admission continuation also returned `BLOCKED` only because restricted network prevented `git ls-remote origin`; local branch, exact SHA, merge-base, scope, and cleanliness were independently observed. This infrastructure limitation did not cause the candidate finding.
+
+## Tests Intentionally Skipped
+
+- `scripts/topbar-browser-smoke.mjs`: not rerun; unchanged comparator already established the common Edge startup debt, and repeated attempts are prohibited after the one causal check.
+- Live Web3Forms Send/provider contact: prohibited and unnecessary; provider routing/payload semantics are protected, not changed.
+- Frontend smoke and broad route suites: not selected; focused rendered consumers directly covered the shared component risk, and navigation/routes were unchanged.
+- Engine, placement, journey, recovery, synthetic, mutation, enumeration, semantic, screenshot, image-diff, and broad viewport suites: not required for a bounded shared component/presentation change.
+
+## CPU-Heavy Validation
+
+`NOT REQUIRED`
+
+No placement, scoring, recommendation, data, routing, or state-machine behavior changed. CPU-heavy suites could not discriminate the observed CSS/test-contract failure.
+
+## Self-QA Objective Evidence
+
+- Deterministic case: one dialog/overlay, semantics and names, focus entry/trap/restoration, all dismissal paths, scroll restoration, repeat-use instance count, solid state styling, Home plus Archscry, and 390px containment.
+- Verification layer: exact Git diff, source/DOM inspection, syntax/lint, and focused real-browser interaction/computed geometry.
+- Browser justification: real pointer default behavior, focus modality, computed cascade across two consumers, and responsive overflow cannot be reliably certified from source alone.
+- Interaction checked: keyboard open/focus/wrap/Escape, Close, Cancel, actual overlay pointer click, empty Copy error, local Copy success, and narrow containment.
+- Objective result: dialog interaction and containment evidence passed; the shared trigger contract failed on both named consumers.
+
+## Manual Findings Converted To Invariants
+
+- Finding: the candidate changed a shared base rule and asserted its computed result, while both material consumers retained later higher-specificity resets.
+- Defect class: shared-owner convergence test not reconciled with consumer cascade.
+- Regression invariant: every computed-style assertion in a focused shared-surface harness must be executed or independently evaluated on every named representative consumer; a launch failure cannot convert unexecuted assertions into evidence.
+
+## Remaining Owner Judgment
+
+Owner Review is **not yet requested** for this candidate. After a corrected candidate earns RobQA PASS, the Owner should judge only modern-family coherence, hierarchy, color balance, and polish on Home and one `vm-site-skin` route. Engineering must first resolve the deterministic trigger contract; the Owner should not be asked to adjudicate a machine-verifiable CSS/test mismatch.
+
+## Bounded Owner Checklist After A Future PASS
+
+Purpose: judge whether the corrected Feedback surface belongs to the current Vox Mana visual family.  
+Open: Home `/` and Archscry `/archscry/`; repeat Archscry near 390px.  
+Starting state: open Feedback; do not submit live feedback.  
+Do:
+1. Compare the dialog, fields, context, status area, and actions on Home and Archscry.
+2. Tab once through a field/action and inspect the focus treatment.
+3. At about 390px, confirm the action row and scrollable dialog feel usable.
+4. Trigger a safe empty Copy error, then enter non-sensitive test text and use Copy for the success state.
+
+PASS if the surface feels coherent, restrained, readable, and polished across both page families.  
+FAIL if hierarchy, balance, color, spacing, or mobile presentation feels inconsistent or unfinished.
+
+## Decisions Made
+
+- Issued **RobQAPass BLOCKED** for exact candidate `48757708eb94abc64b7447e590731e0d7ae509e5`.
+- Did not treat the trigger mismatch as Owner-subjective: the candidate itself defines an exact computed 3px contract.
+- Did not weaken, delete, or edit the failing assertion and did not modify the material candidate.
+
+## Risks / Uncertainties
+
+- The intended product decision for the topbar Feedback trigger is ambiguous between the new shared base rule and the existing Home/site-skin transparent-control language. RobDev/Owner authority must resolve intent; RobQA does not choose the design.
+- Sending/in-flight and provider-failure transitions were not exercised because live submission was prohibited and the dedicated intercepting harness cannot launch on this host. Their presentation rules and DOM/state wiring were inspected, but a future corrected candidate should execute the focused harness on a working browser host if that becomes available.
+
+## Tests Run
+
+See **Tests Selected**. No screenshot or subjective visual-certification loop was used.
+
+## Not Touched
+
+- Material candidate bytes at `48757708eb94abc64b7447e590731e0d7ae509e5`
+- Production CSS/JavaScript
+- Browser contract/test source
+- VM-667 card and acceptance criteria
+- Generated board/handoff-index views
+- Provider endpoint, payload, or live feedback data
+- Route, data, metadata, navigation, placement, identity, lore, and generated product output
+
+## Follow-Up Recommendations
+
+1. Return VM-667 on the same branch to RobDev.
+2. Resolve whether the Feedback trigger is part of convergence; make implementation and focused test agree across Home and `vm-site-skin` without late contradictory ownership.
+3. Commit a new immutable material candidate.
+4. Rerun only the focused QA-2 evidence, including both representative computed cascades and the 390px case.
+
+## Next Suggested Agent
+
+RobDev on the existing VM-667 branch, followed by a new independent exact-candidate RobQA pass.
+
+## Related Kanban Card, Docs, Or Plans
+
+- `docs/kanban/in-progress/VM-667-shared-feedback-surface-convergence.md`
+- `docs/handoffs/2026-09-29-0727-robdev-vm667-feedback-surface.md`
+- `.agents/skills/robqa/SKILL.md`
+- `docs/qa/RobQAPass.md`
+- `docs/reference/workflow.md`
+
+---
+
+# Corrected-Candidate Re-review — RobQAPass PASS
+
+The preceding BLOCKED review is preserved as historical evidence for candidate `48757708eb94abc64b7447e590731e0d7ae509e5`. This section supersedes that verdict only for the corrected immutable material candidate below.
+
+Task: VM-667
+Candidate: 83ca914b46702e5df52dc8798d469ffa4c20f131
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: /root/vm667_robqa
+Implementer: /root
+
+## Re-review Classification
+
+- QA tier: **QA-2 — Component interaction**.
+- Execution mode: **SEPARATE** because the shared dialog, accessibility/focus contract, overlay pointer correction, and multiple consumers require independent evidence.
+- Changed correction: restore the topbar Feedback launcher declarations to the accepted baseline and remove only the out-of-scope launcher-geometry assertion from the focused dialog contract.
+- Protected correction boundary: all dialog presentation rules, `assets/js/shared/vm-feedback.js`, provider/payload behavior, form and copy, focus trap, dismissal behavior, ARIA/live status, scroll locking, routes, data, navigation, and generated product output remain unchanged from the previously reviewed dialog candidate.
+- Exact candidate: `83ca914b46702e5df52dc8798d469ffa4c20f131` on `codex/vm-667-feedback-surface-convergence`.
+
+## Prior Finding Disposition
+
+QA-F1 is **RESOLVED** for the corrected candidate.
+
+- Git confirms that the launcher CSS modified in the first candidate was restored to baseline; the baseline-to-corrected-candidate `assets/css/topbar.css` diff now begins at the overlay/dialog block and contains no launcher-presentation change.
+- The focused browser contract removed exactly the computed launcher-style read and its 3px assertion. Its dialog, semantics, focus, dismissal, state, and 390px assertions are unchanged.
+- `assets/js/shared/vm-feedback.js` is byte-unchanged between the first and corrected candidates, so the independently exercised `event.preventDefault()` overlay repair is unchanged.
+- No route-specific override, selector escalation, or new launcher design was introduced. The correction reconciles the test with the admitted dialog scope rather than hiding an in-scope failure.
+
+## Corrected-Candidate Tests
+
+- Test: `npm run validate:admission -- --task=VM-667 --mode=continue` with permitted remote access.
+  - Reason: required pre-candidate-QA ownership, ancestry, remote-main, and scope validation.
+  - Result: **PASS**. Branch and head matched `83ca914b46702e5df52dc8798d469ffa4c20f131`; remote main, local main, admission baseline, and merge-base all matched `6e5cdbee1cacf3e3dd365c8fe39a945a9ce47ff9`; all reported paths were admitted.
+- Test: Git identity, cleanliness, ancestry, and complete baseline-to-candidate diff inspection.
+  - Reason: bind the verdict to the exact immutable candidate and independently inspect actual scope.
+  - Result: **PASS**. `HEAD` and the branch both resolved to the candidate; the worktree was clean before this appended evidence delta; the correction commit contains the baseline launcher restoration, focused assertion removal, and truthful historical/evidence records.
+- Test: first-candidate-to-corrected-candidate production/test diff.
+  - Reason: determine whether the prior real-browser dialog evidence remains valid for the exact corrected candidate.
+  - Result: **PASS**. The only production CSS delta is the launcher restoration outside the dialog surface; production Feedback JavaScript has no delta; the browser contract removes only two launcher-related lines. All browser-exercised dialog CSS and interaction bytes are unchanged.
+- Test: `node --check assets/js/shared/vm-feedback.js`.
+  - Reason: syntax guard for the bounded focus owner.
+  - Result: **PASS**.
+- Test: `node --check scripts/vm667-feedback-surface-browser.mjs`.
+  - Reason: syntax guard for the corrected focused contract.
+  - Result: **PASS**.
+- Test: `npm run lint:js`.
+  - Reason: proportionate source guard for shared JavaScript and the focused browser contract.
+  - Result: **PASS**, 37 files.
+- Test: corrected-candidate material/correction whitespace inspection.
+  - Reason: candidate hygiene without rewriting immutable historical evidence.
+  - Result: **PASS** for material and correction files. The complete baseline diff still reports pre-existing trailing spaces in the preserved historical BLOCKED handoff that entered the correction commit; the coordinator explicitly required those prior bytes to remain immutable. This evidence-formatting residue is disclosed and is not a product, test-contract, or runtime defect.
+- Test: focused Home dialog contract.
+  - Reason: one dialog/overlay, semantics, focus modality, dismissals, state presentation, and pointer focus restoration are objective QA-2 risks.
+  - Result: **PASS by unchanged-byte carry-forward from the independent real-browser run**. The corrected candidate retains the exact previously exercised dialog CSS and JavaScript: one dialog/overlay; `role="dialog"`; modal, title, description, field labels, and close name; focus entry; Tab and Shift+Tab containment; Escape, Close, Cancel, and actual overlay pointer dismissal; trigger-focus and scroll restoration; repeated-use singleton behavior; explicit field focus; empty-Copy error; and local Copy success.
+- Test: Archscry and approximately 390px dialog contract.
+  - Reason: second `vm-site-skin` consumer and narrow containment are explicit objective acceptance boundaries.
+  - Result: **PASS by unchanged-byte carry-forward from the independent real-browser run**. The corrected candidate retains the exact tested dialog CSS/JavaScript: the shared solid dialog and differentiated actions rendered on Archscry; at 390-by-844 the dialog remained 366px wide inside 12px edges, document and dialog horizontal overflow were zero, fields and all three actions were at least 44px high, and Close remained reachable.
+- Test: configured-disabled, in-flight-disabled, focus, neutral, success, error, and copy-fallback source/DOM contract.
+  - Reason: cover explicit presentation states without contacting the provider.
+  - Result: **PASS**. The relevant selectors and generated DOM wiring are unchanged from the prior review; opaque disabled-state rules, focus rings, solid status output, tone-specific borders, read-only manual-copy fallback, and fallback focus/selection remain present. The browser evidence exercised default, focus, error, and Copy-success states; no provider request was made.
+
+## Browser And Harness Disposition
+
+- The dedicated Node harness was not retried. Its Edge process still has the previously established host-launch debt, and RobQAPass prohibits repeated retries after the one causal comparison.
+- The in-app browser surface that supplied the prior independent real-browser evidence was unavailable during this re-review after one refresh and one clean reconnect attempt. No repeated diagnostic loop was performed.
+- This is not a coverage gap for the correction: Git proves that all previously browser-exercised dialog CSS and JavaScript are unchanged, while the only corrected browser-contract assertion concerned the restored, explicitly out-of-scope launcher. The prior objective run therefore remains directly applicable to the exact candidate's dialog/focus contract.
+- Automated test: **FAIL / known host Chromium launch debt before assertions**. Product/dialog contract: **PASS through sufficient alternate independent objective evidence**.
+
+## Tests Intentionally Skipped
+
+- Unchanged `scripts/topbar-browser-smoke.mjs`: not rerun; it already established the common launcher debt.
+- Live Web3Forms Send/provider contact: prohibited and unnecessary because provider routing and payload semantics are untouched.
+- Frontend smoke and broad route suites: not required; the corrected delta is limited to baseline restoration and test-scope alignment, while the material dialog contract has focused evidence.
+- Engine, placement, journey, recovery, synthetic, mutation, enumeration, semantic, screenshot, image-diff, and broad viewport suites: unrelated and disproportionate.
+
+## CPU-Heavy Validation
+
+`NOT REQUIRED`
+
+No placement, scoring, recommendation, data, routing, or state-machine behavior changed.
+
+## Finding-To-Invariant Outcome
+
+- Historical finding: the first candidate asserted launcher geometry outside the admitted dialog scope.
+- Correction invariant: a shared dialog contract must assert the dialog and its states across representative consumers without taking ownership of separately styled topbar launchers.
+- Result: the corrected contract preserves every in-scope dialog assertion and removes only the out-of-scope launcher assertion.
+
+## Remaining Owner Judgment
+
+Engineering PASS permits **Owner Review**; it does not assert Owner acceptance. The Owner retains judgment over visual coherence, hierarchy, balance, spacing, color, and polish.
+
+Bounded Owner check:
+
+1. Open Feedback on Home and Archscry without submitting live feedback.
+2. Compare dialog, fields, context, status area, and action hierarchy.
+3. Inspect one focus state and safe empty-Copy/error plus local Copy/success states.
+4. Repeat Archscry near 390px and judge whether the contained dialog and action row feel comfortable and coherent.
+
+PASS if the shared dialog feels restrained, readable, coherent, and finished on both page families. FAIL if hierarchy, balance, spacing, color, or narrow presentation feels inconsistent or unfinished.
+
+## Re-review Decision
+
+**RobQAPass PASS** for exact candidate `83ca914b46702e5df52dc8798d469ffa4c20f131` under QA-2, SEPARATE execution by `/root/vm667_robqa`.
+
+No blocker or major remains. The candidate may proceed to genuine Owner Review with Owner decision pending. The historical BLOCKED verdict above remains valid only for candidate `48757708eb94abc64b7447e590731e0d7ae509e5`.
+
+## Exact Candidate PASS Record
+
+Task: VM-667
+Candidate: 83ca914b46702e5df52dc8798d469ffa4c20f131
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: /root/vm667_robqa
+Implementer: /root
+
+## Owner Correction Candidate PASS Record
+
+The earlier PASS and BLOCKED records remain valid only for their named historical candidates. This record binds the independent engineering decision after Owner correction to the new immutable material candidate.
+
+Task: VM-667
+Candidate: 26e87824cbae224683d99fff1295013ace66bb99
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: /root/vm667_robqa
+Implementer: /root
+
+### Classification And Scope
+
+- QA tier: **QA-2 — Component interaction**.
+- Review mode: **SEPARATE** because a shared modal's rendered status geometry, responsive action rail, focus behavior, and multiple consumers require independent evidence selection.
+- Owner-correction behavior: empty/default status output occupies no rendered box while its `role="status"` and `aria-live="polite"` node remains in the DOM; useful neutral, error, and success content still reveals the status surface. The action accent is a one-pixel warm left-to-right fade on desktop and approximately 390px, with the existing action targets and containment preserved.
+- Protected behavior: no production JavaScript changed from evidence head `5cd0f8ed3e94b425267b886b350fb8fe07539b7b`; provider, payload, copy, focus, dismissal, ARIA, scroll, routes, data, and navigation remain untouched.
+
+### Candidate Identity And Diff Evidence
+
+- `HEAD` and `codex/vm-667-feedback-surface-convergence` resolved to `26e87824cbae224683d99fff1295013ace66bb99` with a clean worktree before this evidence append.
+- Merge-base with accepted main resolved to `6e5cdbee1cacf3e3dd365c8fe39a945a9ce47ff9`.
+- `npm run validate:admission -- --task=VM-667 --mode=continue` with remote access: **PASS**. Remote main, local main, admission baseline, and merge-base all matched the accepted baseline; every current path remained admitted.
+- Independent `5cd0f8ed3e94b425267b886b350fb8fe07539b7b..26e87824cbae224683d99fff1295013ace66bb99` inspection found the production correction only in `assets/css/topbar.css`, the corresponding focused assertions in `scripts/vm667-feedback-surface-browser.mjs`, and truthful card/handoff/generated-view records.
+- `git diff --exit-code 5cd0f8ed3e94b425267b886b350fb8fe07539b7b..26e87824cbae224683d99fff1295013ace66bb99 -- assets/js/shared/vm-feedback.js`: **PASS**, no production JavaScript delta.
+- `git diff --check 5cd0f8ed3e94b425267b886b350fb8fe07539b7b..26e87824cbae224683d99fff1295013ace66bb99`: **PASS**.
+
+### Focused Correction Evidence
+
+- Idle status source/DOM invariant: **PASS**. The existing generated `<p class="vm-feedback-status" role="status" aria-live="polite">` is unchanged. The owning stylesheet adds `.vm-feedback-status:empty { display: none; }`; CSS `display:none` deterministically removes the box, padding, border, margin, and reserved geometry only while the node has no text.
+- Meaningful status invariant: **PASS**. Neutral/sending, error, and success rules remain on the non-empty `.vm-feedback-status`; `setStatus()` is unchanged, so adding useful text removes the `:empty` match and restores the existing solid status surface. Closing and reopening still resets the same live-region node to empty.
+- Desktop accent invariant: **PASS**. The action accent remains exactly one CSS pixel high, has no animation or glow, and now owns a warm four-stop `linear-gradient` ending in transparency rather than the rejected flat fill.
+- Narrow accent/containment invariant: **PASS**. At the existing `max-width: 720px` boundary, the accent is restored as a bounded flex item with `flex: 0 0 min(42%, 9rem)`, `min-width: 4rem`, and `max-width: 9rem`; the unchanged button group retains `flex: 1 1 100%`, full width, and a three-column `minmax(0, 1fr)` grid. This forces the bounded hairline onto its own row and cannot widen the dialog or the existing action grid.
+- Exact-candidate rendered witnesses: **PASS for objective facts only**. Home default shows no empty status rectangle and retains the one-pixel fading accent; Home error shows the deliberate non-empty status surface; Archscry near 390px shows the dialog and all three actions contained without horizontal clipping, with the bounded accent above the action row. These witnesses were not used to certify aesthetics.
+- Prior QA-2 interaction evidence remains applicable: production Feedback JavaScript did not change, and the correction does not alter dialog semantics, focus entry/trapping/restoration, Escape/Close/Cancel/overlay dismissal, scroll restoration, repeat use, or Copy behavior.
+
+### Commands And Results
+
+- `node --check scripts/vm667-feedback-surface-browser.mjs`: **PASS**.
+- `npm run lint:js`: **PASS**, 37 files.
+- Focused candidate/evidence diffs and source inspection: **PASS**.
+- Local visualization witness inspection for corrected default, error, and 390px states: **PASS for objective idle-box existence and containment facts**.
+- Live provider request: **NOT RUN** by design.
+
+### Browser And Harness Debt
+
+- The dedicated Puppeteer contract remains blocked before assertions by the known host Edge exit-code-0 launch debt. RobDev performed the bounded re-invocation for this correction and obtained the same startup failure; independent RobQA did not repeat it.
+- The in-app browser inventory was unavailable during this independent turn. No repeated reconnect or diagnostic loop was performed.
+- Alternate evidence is sufficient for this correction: exact source and DOM ownership prove the empty-state box removal; bounded flex/grid rules plus exact-candidate rendered witnesses prove the responsive containment; the unchanged production JavaScript preserves the previously exercised interaction contract.
+- Automated Puppeteer result: **FAIL / known host launcher debt before assertions**. Product correction: **PASS through proportionate alternate deterministic evidence**.
+
+### Tests Intentionally Skipped
+
+- Unchanged topbar smoke and repeated VM-667 Puppeteer launch: skipped because the shared host-launch cause is already established.
+- Live Send/provider behavior: skipped because provider semantics are protected and contacting the live provider is prohibited.
+- Frontend-wide, route, engine, placement, journey, recovery, synthetic, mutation, semantic, screenshot-diff, and viewport-matrix suites: not required for two bounded shared CSS corrections.
+
+### CPU-Heavy Validation
+
+`NOT REQUIRED`
+
+No scoring, recommendation, placement, route, data, or state-machine behavior changed.
+
+### Findings And Verdict
+
+- No blocker, major, or unresolved objective correction defect remains for candidate `26e87824cbae224683d99fff1295013ace66bb99`.
+- The idle-status and accent findings are resolved at their owning shared CSS layer and protected by focused contract assertions.
+- **RobQAPass PASS** permits this exact candidate to return to Owner Review; it does not assert Owner acceptance.
+
+### OWNER-VISUAL Residual Checklist
+
+The Owner retains only subjective product judgment:
+
+1. Open Feedback on Home and one `vm-site-skin` route and confirm the idle lower area feels intentionally quiet rather than empty or unfinished.
+2. Trigger a safe validation error and local Copy success; judge whether the appearing status surface has the right hierarchy and weight.
+3. Compare the fading action accent on desktop and near 390px; judge subtlety, warmth, balance, and whether it avoids reading as a generic divider.
+4. Confirm the full dialog still feels coherent, readable, and polished across both page families.
+
+No live submission or screenshot proof is required from the Owner.
