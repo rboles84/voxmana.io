@@ -74,12 +74,13 @@ RobQA: PENDING
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
-Decisions: Presentation-only shared-owner convergence. Preserve the complete Feedback behavior and submission contract; stop and amend scope before any JavaScript or provider-semantic edit.
+Decisions: Presentation-only shared-owner convergence. Preserve the complete Feedback behavior and submission contract. Scope amendment: measured overlay `mousedown` dismissal clears focus after attempted restoration; permit only the minimal event-default correction in the existing Feedback owner, with no submission or provider-semantic change.
 Evidence: PENDING
 
 ## Admission Scope
 
 - `assets/css/topbar.css`
+- `assets/js/shared/vm-feedback.js`
 - `scripts/vm667-feedback-surface-browser.mjs`
 - `docs/kanban/in-progress/VM-667-shared-feedback-surface-convergence.md`
 - `docs/kanban/board.md`
