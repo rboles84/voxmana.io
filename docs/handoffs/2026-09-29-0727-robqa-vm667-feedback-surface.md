@@ -304,3 +304,83 @@ RobQA: PASS
 Execution: SEPARATE
 Reviewer: /root/vm667_robqa
 Implementer: /root
+
+## Owner Correction Candidate PASS Record
+
+The earlier PASS and BLOCKED records remain valid only for their named historical candidates. This record binds the independent engineering decision after Owner correction to the new immutable material candidate.
+
+Task: VM-667
+Candidate: 26e87824cbae224683d99fff1295013ace66bb99
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: /root/vm667_robqa
+Implementer: /root
+
+### Classification And Scope
+
+- QA tier: **QA-2 — Component interaction**.
+- Review mode: **SEPARATE** because a shared modal's rendered status geometry, responsive action rail, focus behavior, and multiple consumers require independent evidence selection.
+- Owner-correction behavior: empty/default status output occupies no rendered box while its `role="status"` and `aria-live="polite"` node remains in the DOM; useful neutral, error, and success content still reveals the status surface. The action accent is a one-pixel warm left-to-right fade on desktop and approximately 390px, with the existing action targets and containment preserved.
+- Protected behavior: no production JavaScript changed from evidence head `5cd0f8ed3e94b425267b886b350fb8fe07539b7b`; provider, payload, copy, focus, dismissal, ARIA, scroll, routes, data, and navigation remain untouched.
+
+### Candidate Identity And Diff Evidence
+
+- `HEAD` and `codex/vm-667-feedback-surface-convergence` resolved to `26e87824cbae224683d99fff1295013ace66bb99` with a clean worktree before this evidence append.
+- Merge-base with accepted main resolved to `6e5cdbee1cacf3e3dd365c8fe39a945a9ce47ff9`.
+- `npm run validate:admission -- --task=VM-667 --mode=continue` with remote access: **PASS**. Remote main, local main, admission baseline, and merge-base all matched the accepted baseline; every current path remained admitted.
+- Independent `5cd0f8ed3e94b425267b886b350fb8fe07539b7b..26e87824cbae224683d99fff1295013ace66bb99` inspection found the production correction only in `assets/css/topbar.css`, the corresponding focused assertions in `scripts/vm667-feedback-surface-browser.mjs`, and truthful card/handoff/generated-view records.
+- `git diff --exit-code 5cd0f8ed3e94b425267b886b350fb8fe07539b7b..26e87824cbae224683d99fff1295013ace66bb99 -- assets/js/shared/vm-feedback.js`: **PASS**, no production JavaScript delta.
+- `git diff --check 5cd0f8ed3e94b425267b886b350fb8fe07539b7b..26e87824cbae224683d99fff1295013ace66bb99`: **PASS**.
+
+### Focused Correction Evidence
+
+- Idle status source/DOM invariant: **PASS**. The existing generated `<p class="vm-feedback-status" role="status" aria-live="polite">` is unchanged. The owning stylesheet adds `.vm-feedback-status:empty { display: none; }`; CSS `display:none` deterministically removes the box, padding, border, margin, and reserved geometry only while the node has no text.
+- Meaningful status invariant: **PASS**. Neutral/sending, error, and success rules remain on the non-empty `.vm-feedback-status`; `setStatus()` is unchanged, so adding useful text removes the `:empty` match and restores the existing solid status surface. Closing and reopening still resets the same live-region node to empty.
+- Desktop accent invariant: **PASS**. The action accent remains exactly one CSS pixel high, has no animation or glow, and now owns a warm four-stop `linear-gradient` ending in transparency rather than the rejected flat fill.
+- Narrow accent/containment invariant: **PASS**. At the existing `max-width: 720px` boundary, the accent is restored as a bounded flex item with `flex: 0 0 min(42%, 9rem)`, `min-width: 4rem`, and `max-width: 9rem`; the unchanged button group retains `flex: 1 1 100%`, full width, and a three-column `minmax(0, 1fr)` grid. This forces the bounded hairline onto its own row and cannot widen the dialog or the existing action grid.
+- Exact-candidate rendered witnesses: **PASS for objective facts only**. Home default shows no empty status rectangle and retains the one-pixel fading accent; Home error shows the deliberate non-empty status surface; Archscry near 390px shows the dialog and all three actions contained without horizontal clipping, with the bounded accent above the action row. These witnesses were not used to certify aesthetics.
+- Prior QA-2 interaction evidence remains applicable: production Feedback JavaScript did not change, and the correction does not alter dialog semantics, focus entry/trapping/restoration, Escape/Close/Cancel/overlay dismissal, scroll restoration, repeat use, or Copy behavior.
+
+### Commands And Results
+
+- `node --check scripts/vm667-feedback-surface-browser.mjs`: **PASS**.
+- `npm run lint:js`: **PASS**, 37 files.
+- Focused candidate/evidence diffs and source inspection: **PASS**.
+- Local visualization witness inspection for corrected default, error, and 390px states: **PASS for objective idle-box existence and containment facts**.
+- Live provider request: **NOT RUN** by design.
+
+### Browser And Harness Debt
+
+- The dedicated Puppeteer contract remains blocked before assertions by the known host Edge exit-code-0 launch debt. RobDev performed the bounded re-invocation for this correction and obtained the same startup failure; independent RobQA did not repeat it.
+- The in-app browser inventory was unavailable during this independent turn. No repeated reconnect or diagnostic loop was performed.
+- Alternate evidence is sufficient for this correction: exact source and DOM ownership prove the empty-state box removal; bounded flex/grid rules plus exact-candidate rendered witnesses prove the responsive containment; the unchanged production JavaScript preserves the previously exercised interaction contract.
+- Automated Puppeteer result: **FAIL / known host launcher debt before assertions**. Product correction: **PASS through proportionate alternate deterministic evidence**.
+
+### Tests Intentionally Skipped
+
+- Unchanged topbar smoke and repeated VM-667 Puppeteer launch: skipped because the shared host-launch cause is already established.
+- Live Send/provider behavior: skipped because provider semantics are protected and contacting the live provider is prohibited.
+- Frontend-wide, route, engine, placement, journey, recovery, synthetic, mutation, semantic, screenshot-diff, and viewport-matrix suites: not required for two bounded shared CSS corrections.
+
+### CPU-Heavy Validation
+
+`NOT REQUIRED`
+
+No scoring, recommendation, placement, route, data, or state-machine behavior changed.
+
+### Findings And Verdict
+
+- No blocker, major, or unresolved objective correction defect remains for candidate `26e87824cbae224683d99fff1295013ace66bb99`.
+- The idle-status and accent findings are resolved at their owning shared CSS layer and protected by focused contract assertions.
+- **RobQAPass PASS** permits this exact candidate to return to Owner Review; it does not assert Owner acceptance.
+
+### OWNER-VISUAL Residual Checklist
+
+The Owner retains only subjective product judgment:
+
+1. Open Feedback on Home and one `vm-site-skin` route and confirm the idle lower area feels intentionally quiet rather than empty or unfinished.
+2. Trigger a safe validation error and local Copy success; judge whether the appearing status surface has the right hierarchy and weight.
+3. Compare the fading action accent on desktop and near 390px; judge subtlety, warmth, balance, and whether it avoids reading as a generic divider.
+4. Confirm the full dialog still feels coherent, readable, and polished across both page families.
+
+No live submission or screenshot proof is required from the Owner.
