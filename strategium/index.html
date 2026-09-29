@@ -23,8 +23,9 @@
 <link rel="stylesheet" href="../assets/css/layout.css?v=vm635" />
 <link rel="stylesheet" href="../assets/css/topbar.css?v=vm618" />
 <link rel="stylesheet" href="../assets/css/strategium.css?v=vm635" />
+<link rel="stylesheet" href="../assets/css/site-skin.css?v=vm666" />
 </head>
-<body data-page="strategium" data-vm-current="strategium" data-bg="medium">
+<body class="vm-site-skin vm-strategium-route" data-page="strategium" data-vm-current="strategium" data-bg="medium">
   <span class="vm-page-top-anchor" id="top" aria-hidden="true"></span>
   <div class="vm-bg" aria-hidden="true">
     <!-- VM-635: black backdrop; painted image assets preserved for rollback. -->
@@ -92,18 +93,18 @@
             </nav>
             <span class="vm-cta">Choose a moment -&gt;</span>
           </article>
-          <a class="vm-card vm-path-card vm-console-path-card" href="./console/">
+          <article class="vm-card vm-path-card vm-console-path-card">
             <span class="vm-path-kicker">Commander Console</span>
             <h3>Study the table</h3>
             <p>Learn pod readiness, archetypes, threat reading, table pressure, color expectations, and the readiness checklist.</p>
-            <div class="vm-console-preview-grid" aria-label="Commander Console previews">
-              <div class="vm-console-preview"><strong>Pod Readiness</strong><span>Prepare the table, not just the deck.</span></div>
-              <div class="vm-console-preview"><strong>Archetypes</strong><span>See how different decks tend to act.</span></div>
-              <div class="vm-console-preview"><strong>Threat &amp; Pressure</strong><span>Understand why attention shifts.</span></div>
-              <div class="vm-console-preview"><strong>Color Expectations</strong><span>Read what a deck may signal.</span></div>
-            </div>
-            <span class="vm-cta">Open the Console -&gt;</span>
-          </a>
+            <nav class="vm-console-preview-grid" aria-label="Commander Console topics">
+              <a class="vm-console-preview" href="./console/?lesson=pod-readiness#strategium"><strong>Pod Readiness</strong><span>Prepare the table, not just the deck.</span></a>
+              <a class="vm-console-preview" href="./console/?lesson=archetype-signal#strategium"><strong>Archetypes</strong><span>See how different decks tend to act.</span></a>
+              <a class="vm-console-preview" href="./console/?lesson=threat-reading#strategium"><strong>Threat &amp; Pressure</strong><span>Understand why attention shifts.</span></a>
+              <a class="vm-console-preview" href="./console/#color-expectations"><strong>Color Expectations</strong><span>Read what a deck may signal.</span></a>
+            </nav>
+            <a class="vm-cta vm-console-guide-link" href="./console/#strategium">Open the Console -&gt;</a>
+          </article>
         </div>
       </div>
     </section>

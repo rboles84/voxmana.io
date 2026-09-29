@@ -9,6 +9,9 @@ const publicPages = {
   maze: "maze/index.html",
   archscry: "archscry/index.html",
   strategium: "strategium/index.html",
+  strategiumFindTable: "strategium/find-a-table/index.html",
+  strategiumBeforeGame: "strategium/before-game/index.html",
+  strategiumDuringGame: "strategium/during-game/index.html",
   strategiumConsole: "strategium/console/index.html",
   strategiumReview: "strategium/review/index.html",
   apocrypha: "apocrypha/index.html",
@@ -600,10 +603,66 @@ expect(
   "apocrypha/index.html should preserve its route stylesheet/data contract and load one scoped vm665 site skin last"
 );
 
-const strategiumStylesheetHrefs = getStylesheetHrefs(sources.strategium);
+for (const [key, routeCss, attributes] of [
+  ["strategium", "../assets/css/strategium.css?v=vm635", ["data-page=\"strategium\"", "data-vm-current=\"strategium\"", "data-bg=\"medium\""]],
+  ["strategiumFindTable", "../../assets/css/strategium.css?v=vm635", ["data-page=\"strategium-find-table\"", "data-lifecycle-route=\"find-a-table\"", "data-vm-current=\"strategium\"", "data-bg=\"medium\""]],
+  ["strategiumBeforeGame", "../../assets/css/strategium.css?v=vm635", ["data-page=\"strategium-before-game\"", "data-lifecycle-route=\"before-game\"", "data-vm-current=\"strategium\"", "data-bg=\"medium\""]],
+  ["strategiumDuringGame", "../../assets/css/strategium.css?v=vm635", ["data-page=\"strategium-during-game\"", "data-lifecycle-route=\"during-game\"", "data-vm-current=\"strategium\"", "data-bg=\"medium\""]],
+  ["strategiumReview", "../../assets/css/strategium.css?v=vm635", ["data-page=\"strategium-review\"", "data-vm-current=\"strategium\"", "data-bg=\"medium\""]],
+  ["strategiumConsole", "../../assets/css/strategium.css?v=vm635", ["data-page=\"strategium-console\"", "data-vm-current=\"strategium\"", "data-bg=\"medium\""]],
+]) {
+  const hrefs = getStylesheetHrefs(sources[key]);
+  const bodyTag = sources[key].match(/<body\b[^>]*>/i)?.[0] ?? "";
+  const classes = bodyTag.match(/\bclass="([^"]*)"/i)?.[1].split(/\s+/) ?? [];
+  expect(
+    hrefs.at(-2) === routeCss &&
+      hrefs.at(-1) === routeCss.replace("strategium.css?v=vm635", "site-skin.css?v=vm666") &&
+      hrefs.filter(href => /\/site-skin\.css(?:\?|$)/.test(href)).length === 1 &&
+      classes.includes("vm-site-skin") && classes.includes("vm-strategium-route") &&
+      attributes.every(attribute => bodyTag.includes(attribute)),
+    `${publicPages[key]} should retain its route CSS and load one scoped vm666 skin last`
+  );
+}
+
+const strategiumConsoleStylesheetHrefs = getStylesheetHrefs(sources.strategiumConsole);
 expect(
-  strategiumStylesheetHrefs[strategiumStylesheetHrefs.length - 1] === "../assets/css/strategium.css?v=vm635",
-  "strategium/index.html should keep strategium.css as the last stylesheet in the head"
+  strategiumConsoleStylesheetHrefs.filter(href => href === "../../assets/vendor/mana/css/mana.min.css").length === 1,
+  "strategium/console/index.html should load the local Mana glyph stylesheet exactly once"
+);
+for (const colorClass of ["w", "u", "b", "r", "g", "c"]) {
+  expect(
+    new RegExp(`<span class="vm-philosophy-symbol ms ms-${colorClass} ms-cost ms-shadow"[^>]*aria-hidden="true"[^>]*><\\/span>`).test(sources.strategiumConsole),
+    `strategium/console/index.html should render the full local ms-${colorClass} casting-cost symbol without letter fallback text`
+  );
+}
+const hubConsolePreviewHrefs = [
+  "./console/?lesson=pod-readiness#strategium",
+  "./console/?lesson=archetype-signal#strategium",
+  "./console/?lesson=threat-reading#strategium",
+  "./console/#color-expectations",
+];
+expect(
+  /<article class="vm-card vm-path-card vm-console-path-card">[\s\S]*<nav class="vm-console-preview-grid" aria-label="Commander Console topics">[\s\S]*<a class="vm-console-preview" href="\.\/console\/\?lesson=pod-readiness#strategium">[\s\S]*<a class="vm-cta vm-console-guide-link" href="\.\/console\/#strategium">/.test(sources.strategium),
+  "strategium/index.html should keep Console previews as direct links inside a non-interactive Console card with a distinct guide link"
+);
+for (const href of hubConsolePreviewHrefs) {
+  expect(
+    sources.strategium.includes(`<a class="vm-console-preview" href="${href}">`),
+    `strategium/index.html should retain the direct Console preview link ${href}`
+  );
+}
+const consoleWayfinding = sources.strategiumConsole.match(/<aside class="vm-console-wayfinding"[\s\S]*?<\/aside>/)?.[0] ?? "";
+expect(
+  /<nav class="vm-console-wayfinding-nav" aria-label="Console guide">/.test(consoleWayfinding) &&
+    ["#strategium", "#color-expectations", "#readiness-checklist", "#next-move"].every(href => consoleWayfinding.includes(`href="${href}"`)) &&
+    !consoleWayfinding.includes("?lesson="),
+  "strategium/console/index.html should provide a protected-return-safe Console wayfinding nav with section-only destinations"
+);
+expect(
+  sources.strategiumConsole.indexOf('id="strategium-commander-title"') < sources.strategiumConsole.indexOf('class="vm-console-guide-layout"') &&
+    sources.strategiumConsole.indexOf('class="vm-console-guide-layout"') < sources.strategiumConsole.indexOf('id="strategium-entry-title"') &&
+    /<div class="vm-console-guide-content">\s*<section class="vm-section vm-section-tight" aria-labelledby="strategium-entry-title">/.test(sources.strategiumConsole),
+  "strategium/console/index.html should place the Guide map directly after the commander introduction and before the entry-point content"
 );
 
 const guideStylesheetHrefs = getStylesheetHrefs(sources.guide);
