@@ -74,7 +74,7 @@ RobQA: PENDING
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
-Decisions: Presentation-only shared-owner convergence. Preserve the complete Feedback behavior and submission contract. Scope amendment: measured overlay `mousedown` dismissal clears focus after attempted restoration; permit only the minimal event-default correction in the existing Feedback owner, with no submission or provider-semantic change.
+Decisions: Presentation-only shared-owner convergence. Preserve the complete Feedback behavior and submission contract. Scope amendment: measured overlay `mousedown` dismissal clears focus after attempted restoration; permit only the minimal event-default correction in the existing Feedback owner, with no submission or provider-semantic change. Scope amendment: replace the initially reserved handoff paths with canonical timestamp-bearing filenames before either record is created.
 Evidence: PENDING
 
 ## Admission Scope
@@ -85,5 +85,5 @@ Evidence: PENDING
 - `docs/kanban/in-progress/VM-667-shared-feedback-surface-convergence.md`
 - `docs/kanban/board.md`
 - `docs/handoffs/HANDOFF_INDEX.md`
-- `docs/handoffs/2026-09-29-robdev-vm667-feedback-surface.md`
-- `docs/handoffs/2026-09-29-robqa-vm667-feedback-surface.md`
+- `docs/handoffs/2026-09-29-0727-robdev-vm667-feedback-surface.md`
+- `docs/handoffs/2026-09-29-0727-robqa-vm667-feedback-surface.md`
