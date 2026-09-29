@@ -48,10 +48,16 @@ function fail(message) { throw new Error(`VM-668: ${message}`); }
 
 async function staticContract() {
   const guideCss = await readFile(path.join(root, "assets/css/site-skin.css"), "utf8");
+  const guideRouteCss = await readFile(path.join(root, "assets/css/guide.css"), "utf8");
   assert.match(guideCss, /body\.vm-site-skin\.vm-guide-route/, "Guide skin declarations must remain route-rooted");
   assert.match(guideCss, /\.guide-hero[\s\S]*?border-width: 0 0 1px/, "Guide hero must keep one structural boundary");
   assert.match(guideCss, /\.guide-specimen[\s\S]*?background: #14130f/, "Guide specimens must remain solid teaching surfaces");
   assert.match(guideCss, /\.guide-mode-strip > button\.is-active[\s\S]*?box-shadow: inset 0 -2px 0 var\(--site-gold\)/, "Guide mode selection must remain explicit");
+  assert.match(guideCss, /vm-guide-route \.vm-topbar[\s\S]*?background: #0c0c0b/, "Guide sticky topbar must own an opaque surface");
+  assert.match(guideCss, /\.guide-story > \.guide-chapter:first-child[\s\S]*?border-top-width: 0/, "Guide hero must be the only owner of the first chapter transition");
+  assert.doesNotMatch(guideRouteCss, /\.guide-mode-stage\s*\{\s*min-height:\s*258px/, "Guide mode stage must not reserve the old common height");
+  assert.match(guideRouteCss, /\.guide-flow-main[\s\S]*?counter-reset: guide-stage/, "Guide relationship must expose one ordered primary journey rail");
+  assert.match(guideRouteCss, /\.guide-flow-support[\s\S]*?width: 100%[\s\S]*?Parallel lenses/, "Guide parallel lenses must share one full-width band");
   for (const route of routes) {
     const file = path.join(root, route.path, "index.html");
     const html = await readFile(file, "utf8");
@@ -61,6 +67,7 @@ async function staticContract() {
     assert.match(html, new RegExp(`<main id="${route.main.slice(1)}"[\\s\\S]*?<h1 id="${route.title.slice(1)}"`), `${route.path} should retain its main landmark and H1`);
   }
   const rootHtml = await readFile(path.join(root, "guide/index.html"), "utf8");
+  assert.match(rootHtml, /href="\.\.\/assets\/css\/guide\.css\?v=vm668r3"/, "Root Guide must load its corrected stylesheet cache key");
   assert.match(rootHtml, /aria-pressed="true"[\s\S]*?data-guide-maze-mode="plain"/, "Plain Reading must remain initially selected");
   assert.match(rootHtml, /data-guide-maze-panel="operator" hidden/, "Inactive Guide mode panels must remain hidden initially");
   assert.match(rootHtml, /href="\.\.\/archscry\/index\.html"/, "Guide CTA targets must remain authored routes");
@@ -120,6 +127,35 @@ try {
   for (const route of routes) await routeContract(page, base, route);
 
   await page.goto(base + "/guide/", { waitUntil: "domcontentloaded" });
+  const scrollHeader = await page.evaluate(async () => {
+    const header = document.querySelector(".vm-topbar");
+    const ctas = [...document.querySelectorAll("[data-guide-cta]")];
+    const headerStyle = getComputedStyle(header);
+    const overlaps = [];
+    for (let y = 0; y <= document.documentElement.scrollHeight - innerHeight; y += 48) {
+      scrollTo(0, y);
+      await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+      const headerRect = header.getBoundingClientRect();
+      for (const cta of ctas) {
+        const rect = cta.getBoundingClientRect();
+        const top = Math.max(rect.top, headerRect.top);
+        const bottom = Math.min(rect.bottom, headerRect.bottom);
+        if (bottom <= top) continue;
+        const point = document.elementFromPoint(rect.left + rect.width / 2, top + (bottom - top) / 2);
+        overlaps.push(point?.closest(".vm-topbar") === header);
+      }
+    }
+    return { background: headerStyle.backgroundColor, zIndex: headerStyle.zIndex, overlaps };
+  });
+  assert.equal(scrollHeader.background, "rgb(12, 12, 11)", "Guide sticky topbar must remain opaque during real scroll");
+  assert.ok(Number(scrollHeader.zIndex) >= 100, "Guide sticky topbar must remain above chapter content");
+  assert.ok(scrollHeader.overlaps.length > 0 && scrollHeader.overlaps.every(Boolean), "Guide CTAs passing beneath the sticky header must remain visually contained by it");
+  const divider = await page.evaluate(() => ({
+    firstChapterTop: getComputedStyle(document.querySelector(".guide-story > .guide-chapter:first-child")).borderTopWidth,
+    heroBottom: getComputedStyle(document.querySelector(".guide-hero")).borderBottomWidth,
+  }));
+  assert.deepEqual(divider, { firstChapterTop: "0px", heroBottom: "1px" }, "Guide hero-to-first-chapter transition must have one rule owner");
+
   await page.click('[data-guide-maze-mode="operator"]');
   let modes = await page.evaluate(() => ({
     pressed: document.querySelector('[data-guide-maze-mode="operator"]')?.getAttribute("aria-pressed"),
@@ -136,6 +172,16 @@ try {
     focus: document.activeElement?.matches(":focus-visible"),
   }));
   assert.deepEqual(modes, { active: "loom", pressed: "true", shown: true, focus: true }, "keyboard activation should retain selected state, panel visibility, and meaningful focus");
+  const modeHeights = await page.evaluate(() => ({
+    stageMinHeight: getComputedStyle(document.querySelector(".guide-mode-stage")).minHeight,
+    loom: document.querySelector(".guide-mode-stage").getBoundingClientRect().height,
+  }));
+  await page.click('[data-guide-maze-mode="operator"]');
+  modeHeights.operator = await page.$eval(".guide-mode-stage", element => element.getBoundingClientRect().height);
+  await page.click('[data-guide-maze-mode="plain"]');
+  modeHeights.plain = await page.$eval(".guide-mode-stage", element => element.getBoundingClientRect().height);
+  assert.equal(modeHeights.stageMinHeight, "0px", "Guide mode stage must use intrinsic height");
+  assert.ok(modeHeights.operator < modeHeights.loom && modeHeights.plain < modeHeights.loom, "Guide modes must reflow instead of reserving Loom height");
 
   await page.emulateMediaFeatures([{ name: "prefers-reduced-motion", value: "reduce" }]);
   const motion = await page.evaluate(() => getComputedStyle(document.querySelector(".guide-cta")).transitionDuration);

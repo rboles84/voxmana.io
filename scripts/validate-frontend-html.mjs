@@ -415,7 +415,7 @@ expectAbsent(sources.home, /<meta\b[^>]*name="robots"[^>]*content="[^"]*noindex/
 
 expect(
   sources.guide.includes('<link rel="stylesheet" href="../assets/css/maze.css?v=vm635">') &&
-    sources.guide.includes('<link rel="stylesheet" href="../assets/css/guide.css?v=vm614r8">'),
+    sources.guide.includes('<link rel="stylesheet" href="../assets/css/guide.css?v=vm668r3">'),
   "guide/index.html should inherit the actual Maze route stylesheet before its Guide adapters"
 );
 expect(
@@ -672,7 +672,7 @@ expect(
 const guideStylesheetHrefs = getStylesheetHrefs(sources.guide);
 expect(
   guideStylesheetHrefs.at(-3) === "../assets/css/maze.css?v=vm635" &&
-    guideStylesheetHrefs.at(-2) === "../assets/css/guide.css?v=vm614r8" &&
+    guideStylesheetHrefs.at(-2) === "../assets/css/guide.css?v=vm668r3" &&
     guideStylesheetHrefs.at(-1) === "../assets/css/site-skin.css?v=vm668" &&
     guideStylesheetHrefs.filter(href => /\/site-skin\.css(?:\?|$)/.test(href)).length === 1,
   "guide/index.html should retain Guide route CSS before one scoped vm668 site skin loaded last"

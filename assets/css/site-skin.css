@@ -1132,6 +1132,14 @@ body.vm-site-skin.vm-guide-route {
   --maze-radius-md: 2px;
 }
 
+/* The shared topbar is sticky; this route explicitly owns an opaque header so
+   chapter actions never visually enter the navigation layer while scrolling. */
+body.vm-site-skin.vm-guide-route .vm-topbar {
+  z-index: var(--z-topbar, 100);
+  background: #0c0c0b;
+  border-bottom: 1px solid var(--site-rule);
+}
+
 body.vm-site-skin.vm-guide-route :is(.guide-hero, .guide-chapter, .guide-relationship, .guide-sources, .reading-guide-section, .reading-guide-next, .maze-guide-section, .maze-guide-next) {
   border-color: var(--site-rule);
   border-radius: 0;
@@ -1148,6 +1156,11 @@ body.vm-site-skin.vm-guide-route .guide-hero {
 
 body.vm-site-skin.vm-guide-route :is(.guide-chapter, .guide-relationship, .guide-sources, .reading-guide-section, .reading-guide-next, .maze-guide-section, .maze-guide-next) {
   border-width: 1px 0 0;
+}
+
+/* The hero owns the first chapter transition; later chapters own their top rule. */
+body.vm-site-skin.vm-guide-route .guide-story > .guide-chapter:first-child {
+  border-top-width: 0;
 }
 
 body.vm-site-skin.vm-guide-route :is(.guide-specimen, .guide-reading-stage, .guide-query, .guide-loom-choices > div, .guide-lane, .reading-flow-steps > div, .reading-intent-grid article, .reading-dossier-directory, .maze-query-specimen dl > div, .maze-context-states article, .maze-recovery-card) {
@@ -1201,6 +1214,10 @@ body.vm-site-skin.vm-guide-route :is(.guide-lane--deep, .guide-flow-main > div, 
 
 body.vm-site-skin.vm-guide-route :is(.guide-flow-main > div, .guide-flow-support > div) {
   border-width: 1px 0 0;
+}
+
+body.vm-site-skin.vm-guide-route .guide-flow-main > div {
+  border-top-width: 0;
 }
 
 body.vm-site-skin.vm-guide-route :is(.guide-question, .guide-direct-syntax, .reading-dossier-roles > div, .maze-specimen-next) {

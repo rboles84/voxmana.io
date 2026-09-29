@@ -2,7 +2,7 @@
 
 ID: VM-668
 Title: Field Guide Surface Convergence
-Status: Owner Review
+Status: In Progress
 Type: Route-family presentation implementation
 Area: Field Guide / shared site surface
 Priority: High
@@ -40,7 +40,7 @@ Current Owner execution request. VM-667 is integrated and closed. The accepted G
 - [x] Heading and landmark structure, product order, explanatory copy, relationship navigation semantics, mode selection, hidden-panel state, pointer/keyboard activation, meaningful focus, atmosphere, and reduced motion remain intact.
 - [x] Each Guide route remains usable without horizontal page overflow at approximately 390px, with reachable controls and preserved reading width/hierarchy.
 - [x] Guide-specific corrections do not leak into unrelated Maze, Legal, Strategium, Archscry, Apocrypha, or Home consumers.
-- [x] Independent exact-candidate RobQA passes and the task stops in genuine Owner Review with the bounded seven-step checklist.
+- [ ] Replacement candidate requires independent exact-candidate RobQA and renewed Owner Review with the bounded seven-step checklist.
 
 ## Files Likely Impacted
 
@@ -75,13 +75,13 @@ OWNER-VISUAL mode applies. Engineering evidence owns objective structure, route 
 Record version: 1
 Branch: codex/vm-668-guide-surface-convergence
 Admission baseline: 676ab502f705a58ec6dafc42d2bc1288eceec67e
-Candidate: 1b3b98bd8f1bece04815508a4dc7929ea7abdc04
-RobQA: PASS at 1b3b98bd8f1bece04815508a4dc7929ea7abdc04 — QA-2 / SEPARATE by `/root/vm668_robqa`; see [independent evidence](../../handoffs/2026-09-29-1136-robqa-vm668-guide-surface.md).
-Owner: PENDING
+Candidate: PENDING
+RobQA: PENDING
+Owner: CORRECTION REQUIRED / PENDING — original reviewed candidate `1b3b98bd8f1bece04815508a4dc7929ea7abdc04` remains auditable and unchanged; replacement material is not yet a candidate.
 Integration: PENDING
 Dependencies: None
 Decisions: Presentation-only Guide-family convergence. Preserve accepted content, ordering, routes, interaction semantics, atmosphere, accessibility, and responsive behavior. Use the existing site-skin contract with Guide-rooted declarations; do not rewrite generic Maze consumers. Scope amendment: include the canonical frontend HTML validator so its directly relevant Guide assertions require the admitted `vm-site-skin` root and late `site-skin.css?v=vm668` order while preserving Maze/Guide/rich-atmosphere checks; first-candidate independent RobQA proved the stale validator contract blocks the accepted implementation.
-Evidence: First candidate `8c5fe47f2a93172f7a09bc23ea5b3f98379c4ab4` received independent RobQA BLOCKED because canonical `npm.cmd run lint:html` retained two stale, directly relevant Guide body-root/final-stylesheet assertions. Corrected candidate `1b3b98bd8f1bece04815508a4dc7929ea7abdc04` receives independent RobQAPass PASS: canonical HTML validation, exact-candidate diff hygiene, static Guide contract, JavaScript syntax/lint, route metadata, frontend smoke, index freshness, exact diff inspection, and change-report validation pass. Production Guide/browser-contract bytes are identical to the first candidate, so its independent in-app browser route/computed-state/pointer/keyboard/reduced-motion/390px/isolation PASS evidence carries forward. The dedicated Edge harness remains host-blocked before assertions (exit code 0, no stderr). Owner visual/product judgment remains pending on the exact corrected candidate using the seven-item checklist in the QA handoff.
+Evidence: First candidate `8c5fe47f2a93172f7a09bc23ea5b3f98379c4ab4` received independent RobQA BLOCKED because canonical `npm.cmd run lint:html` retained two stale, directly relevant Guide body-root/final-stylesheet assertions. Corrected candidate `1b3b98bd8f1bece04815508a4dc7929ea7abdc04` received independent RobQAPass PASS: canonical HTML validation, exact-candidate diff hygiene, static Guide contract, JavaScript syntax/lint, route metadata, frontend smoke, index freshness, exact diff inspection, and change-report validation pass. Production Guide/browser-contract bytes were identical to the first candidate, so its independent in-app browser route/computed-state/pointer/keyboard/reduced-motion/390px/isolation PASS evidence carried forward. The dedicated Edge harness remains host-blocked before assertions (exit code 0, no stderr). Owner Review returned CORRECTION REQUIRED on that unchanged original candidate; current task state is In Progress with Candidate/RobQA PENDING. The correction addresses the opaque sticky Guide header, one hero-to-first-chapter boundary, intrinsic Maze specimen height, root Guide editorial density/composition, an ordered primary relationship rail, and a full-width parallel-lenses band without changing content or runtime behavior. Root `guide.css` now uses correction key `vm668r2`, guarded by canonical/static load-contract checks, so cached root CSS cannot preserve the removed `258px` reservation. Fresh rendered inspection and independent review remain required.
 
 ## Admission Scope
 

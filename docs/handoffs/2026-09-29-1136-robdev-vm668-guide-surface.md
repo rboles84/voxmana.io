@@ -97,3 +97,23 @@ Independent RobQA should inspect the exact future candidate, select proportional
 - The dedicated amendment commit `4f4d16691c700a42c52cf60086f616ebd96a607a` admitted only `scripts/validate-frontend-html.mjs`; admission continue passed before this correction.
 - Updated only those assertions. The canonical validator now requires `vm-site-skin` with the preserved `vm-maze-route` and `vm-guide-route` roots, `data-vm-atmosphere="rich"`, the rich-atmosphere canvas/script, unchanged Maze/Guide stylesheet order, and exactly one `site-skin.css?v=vm668` loaded last.
 - No product route, stylesheet, runtime, data, or interaction code changed. Current Candidate, RobQA, and Owner bindings are reset pending a new material candidate and independent review; Integration remains PENDING.
+
+## Owner Correction Required — Root Guide Composition
+
+- Owner Review of unchanged candidate `1b3b98bd8f1bece04815508a4dc7929ea7abdc04` accepted the overall convergence direction but returned a bounded correction request. Its separate RobQA PASS and the earlier stale-validator BLOCKED history remain auditable; this new material is not yet a candidate.
+- Measured root causes: Guide inherited the sticky shared topbar but had no Guide-specific opaque background owner; hero bottom plus first chapter top both drew the initial transition; `.guide-mode-stage` reserved `258px` for every tab; the Strategium example used too much outer chrome for its content; primary/parallel relationship spacing and the three-way Sources grid dispersed connected teaching content.
+- The correction stays inside `assets/css/guide.css`, `assets/css/site-skin.css`, and the focused VM-668 browser contract. The Guide topbar is now explicitly opaque at its existing sticky stacking level; only the first chapter relinquishes its duplicate top rule; mode content has intrinsic height; Strategium, relationship, parallel-lens, and Apocrypha concluding layouts are denser editorial compositions while teaching specimens remain solid.
+- The focused browser contract now adds objective checks for opaque/topmost sticky-header containment during real scroll, single hero-to-first-chapter divider ownership, and intrinsic/reflowing Plain/Operator/Loom mode heights. It continues to cover CTA targets, mode pointer/keyboard/focus state, reduced motion, narrow containment, and generic Maze isolation.
+- Static contract, HTML lint, JavaScript syntax/lint, route metadata, frontend smoke, and diff hygiene pass. The known local Edge launcher was not rerun; no usable IAB browser surface was available in this session, so fresh rendered screenshots and live browser assertions remain pending coordinator/RobQA execution. No content, destinations, semantics, generic Maze, child Guide route, data, push, PR, merge, deployment, or integration change was made.
+
+## Pre-Freeze Cache-Key Correction
+
+- Coordinator live review found the root browser still retrieving the unchanged `guide.css?v=vm614r8`, so its cached stylesheet retained the old `258px` mode-stage reservation even while the late `site-skin.css?v=vm668` update arrived.
+- Updated only `/guide/` to the truthful corrected owner key `guide.css?v=vm668r2`; child routes retain their existing cache keys because their route CSS did not change. Canonical HTML validation and the VM-668 static contract now require this root key.
+- The card has returned from Owner Review to In Progress; original candidate and RobQA history remain unchanged, while the current Candidate/RobQA/Owner bindings remain PENDING/CORRECTION REQUIRED. Generated board/index views were refreshed.
+
+## Relationship Composition Refinement
+
+- Wide rendered review found the initial relationship refinement still read as four isolated columns with small arrows and a partial-width parallel area.
+- The same Guide-owned CSS now presents the unchanged primary content as one four-stage editorial rail with restrained CSS-counter markers; authored decorative arrow glyphs are hidden. Strategium and Apocrypha now occupy one full-width `Parallel lenses` band rather than repeated item labels.
+- At the existing 980px breakpoint the primary relationship becomes a vertical editorial rail with the same ordered markers. No DOM copy, links, semantics, CTA, child route, runtime behavior, or generic Maze selector changed. The VM-668 static contract now protects the ordered rail and full-width parallel band.
