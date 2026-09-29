@@ -75,13 +75,13 @@ OWNER-VISUAL mode applies. Engineering evidence owns objective structure, route 
 Record version: 1
 Branch: codex/vm-668-guide-surface-convergence
 Admission baseline: 676ab502f705a58ec6dafc42d2bc1288eceec67e
-Candidate: PENDING
-RobQA: PENDING
-Owner: PENDING
+Candidate: 8c5fe47f2a93172f7a09bc23ea5b3f98379c4ab4
+RobQA: BLOCKED at 8c5fe47f2a93172f7a09bc23ea5b3f98379c4ab4 — canonical `npm.cmd run lint:html` retains the pre-VM-668 Guide body-class and final-stylesheet assertions; see [independent evidence](../../handoffs/2026-09-29-1136-robqa-vm668-guide-surface.md).
+Owner: PENDING — candidate 8c5fe47f2a93172f7a09bc23ea5b3f98379c4ab4 is not eligible for Owner Review.
 Integration: PENDING
 Dependencies: None
 Decisions: Presentation-only Guide-family convergence. Preserve accepted content, ordering, routes, interaction semantics, atmosphere, accessibility, and responsive behavior. Use the existing site-skin contract with Guide-rooted declarations; do not rewrite generic Maze consumers.
-Evidence: RobDev implementation complete. PASS `node scripts/vm668-guide-surface-browser.mjs --static`, `node --check scripts/vm668-guide-surface-browser.mjs`, `npm run lint:js`, `npm run test:frontend-smoke`, `git diff --check`, and generated-view `npm run task -- indexes --write` followed by `--check`. Focused in-app browser verification passed all three route roots/stylesheet order, landmarks/headings/CTA targets, computed open-versus-solid surface roles, pointer and ArrowRight mode activation with meaningful focus, rich-atmosphere preservation, 390px containment with zero horizontal overflow, and isolation from generic Maze. The dedicated Edge harness remains host-blocked before assertions (exit code 0, no stderr). Candidate/RobQA/Owner/Integration remain PENDING until the material commit and independent exact-candidate review.
+Evidence: RobDev implementation evidence is preserved in its handoff. Independent RobQA BLOCKED the exact candidate because canonical `npm.cmd run lint:html` rejects the new Guide body-root and accepted late site-skin order through two stale, directly relevant assertions. Independent static, JavaScript lint, route metadata, frontend smoke, focused in-app browser interaction/state/390px containment, generic Maze isolation, and targeted material diff hygiene otherwise passed. The dedicated Edge harness remains host-blocked before assertions (exit code 0, no stderr). RobDev must correct the validator contract without weakening its rich-atmosphere/root/order invariants and produce a new candidate before Owner Review.
 
 ## Admission Scope
 
