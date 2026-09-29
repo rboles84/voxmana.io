@@ -188,3 +188,107 @@ No runtime, implementation, validator, test-contract, fixture, policy, package, 
 - Follow-up recommendation: RobDev should update the canonical validator within admitted scope (or obtain a truthful scope amendment through the governing workflow), run the focused checks, commit a new candidate, and request independent RobQA.
 - Next suggested agent: RobDev on the same VM-668 card and branch.
 - Related records: [VM-668 card](../kanban/in-progress/VM-668-field-guide-surface-convergence.md), [RobDev handoff](2026-09-29-1136-robdev-vm668-guide-surface.md), and `docs/qa/RobQAPass.md`.
+
+---
+
+## Corrected-candidate RobQA — 2026-09-29
+
+Task: VM-668
+Prior BLOCKED candidate: `8c5fe47f2a93172f7a09bc23ea5b3f98379c4ab4`
+Candidate: 1b3b98bd8f1bece04815508a4dc7929ea7abdc04
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: `/root/vm668_robqa`
+Implementer: /root/vm668_robdev
+
+The corrected exact candidate receives **RobQAPass PASS**. This supersedes the first candidate's BLOCKED verdict for current readiness while preserving that historical finding. It permits genuine Owner Review; it does not assert Owner acceptance, integration, deployment, push, PR, or merge.
+
+## Material candidate
+
+- Baseline: `676ab502f705a58ec6dafc42d2bc1288eceec67e`
+- Candidate: `1b3b98bd8f1bece04815508a4dc7929ea7abdc04`
+- Changed paths: `12`
+
+## Files changed
+
+- `assets/css/guide-walkthrough.css`
+- `assets/css/site-skin.css`
+- `docs/handoffs/2026-09-29-1136-robdev-vm668-guide-surface.md`
+- `docs/handoffs/2026-09-29-1136-robqa-vm668-guide-surface.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-668-field-guide-surface-convergence.md`
+- `guide/index.html`
+- `guide/maze/index.html`
+- `guide/reading/index.html`
+- `scripts/validate-frontend-html.mjs`
+- `scripts/vm668-guide-surface-browser.mjs`
+
+## Corrected-candidate classification and scope review
+
+- QA tier: **QA-2 — component interaction**, with presentation/source checks at QA-1.
+- QA execution: **SEPARATE** by `/root/vm668_robqa`. The reviewer did not implement either material candidate. Independence remains proportionate because the full task changes a shared stylesheet across three public routes and preserves a real mode-control/focus boundary.
+- Corrected delta: the prior candidate to corrected candidate changes the admitted validator, lifecycle/evidence records, generated handoff view, and the two disclosed RobDev Markdown hardbreaks. It does not change any Guide HTML, CSS, runtime, or focused browser-contract byte.
+- Validator invariant: the corrected assertion parses the Guide body classes and requires `vm-site-skin`, `vm-maze-route`, and `vm-guide-route`; requires `data-vm-atmosphere="rich"` on the body; retains the rich-atmosphere canvas and script checks; and requires the exact Maze CSS → Guide CSS → one `site-skin.css?v=vm668` loaded last sequence.
+- Other routes and validators: no non-Guide assertion or route owner changed. The correction narrows only the two stale Guide checks identified by first-candidate RobQA.
+- Protected behavior intentionally untouched: Guide copy/order/CTA destinations/relationship semantics, JavaScript mode behavior, atmosphere implementation, route metadata, generic Maze, placement, identity, recommendation, persistence, generated data, and unrelated application behavior.
+
+No blocker, major, minor, or candidate-caused unresolved harness-debt finding remains.
+
+## Corrected-candidate tests selected
+
+- `npm.cmd run lint:html` — **PASS**. The canonical validator now accepts the intended Guide contract while retaining the required roots, atmosphere structure, and exact stylesheet order.
+- `git diff --check 676ab502f705a58ec6dafc42d2bc1288eceec67e..1b3b98bd8f1bece04815508a4dc7929ea7abdc04` — **PASS**. The two first-candidate Markdown hardbreak findings are removed and exact-candidate patch hygiene is clean.
+- `node scripts/vm668-guide-surface-browser.mjs --static` — **PASS**: `VM-668 Guide surface static contract passed.` Protects all three route roots/order, source structure, initial mode state, and CTA ownership.
+- `node --check scripts/vm668-guide-surface-browser.mjs` — **PASS**.
+- `npm.cmd run lint:js` — **PASS** for 37 files.
+- `npm.cmd run test:route-metadata` — **PASS** for 16 public route heads.
+- `npm.cmd run test:frontend-smoke` — **PASS** for Guide, Home, Maze, Archscry, Library alias, Privacy, and Terms.
+- `npm.cmd run task -- indexes --check` before evidence updates — **PASS** for 707 cards and 1142 handoffs.
+- Exact prior-to-corrected and baseline-to-corrected diff inspection — **PASS**. The corrected branch has 12 material paths; the runtime Guide shells/styles/focused browser script are byte-identical to the first candidate, and the corrected delta is limited to the admitted validator plus lifecycle/evidence history.
+
+## Corrected-candidate browser and objective evidence
+
+The first-candidate independent in-app browser evidence carries forward because `guide/index.html`, `guide/reading/index.html`, `guide/maze/index.html`, `assets/css/site-skin.css`, `assets/css/guide-walkthrough.css`, and `scripts/vm668-guide-surface-browser.mjs` are byte-identical between candidates. The correction changes only source validation and records; it cannot change rendered behavior. Repeating the browser actions would add no discriminating evidence.
+
+Carried-forward independent PASS evidence remains bound to the unchanged production bytes: all three route roots and late stylesheet ownership; banner/main/nav landmarks; one H1 and exact CTA destinations; rich atmosphere; open hero versus solid specimen/control computed roles; real pointer and ArrowRight mode activation; `aria-pressed`, hidden panels, meaningful focus and focus-visible outline; reduce-motion root state and transition duration; approximately 390px no-overflow/control reachability; and generic Maze isolation.
+
+Browser justification remains the same objective boundary: cascade ownership, actual input/focus modality, reduced-motion state, and viewport containment cannot be established reliably from source alone. No screenshot, aesthetic, or animation-feel claim is made.
+
+## Corrected-candidate tests intentionally skipped
+
+- Dedicated Edge browser mode: not rerun. It remains known host harness debt after the prior permitted causal retry exited before assertions with code 0 and no stderr; the unchanged runtime already has direct independent in-app browser coverage.
+- A second in-app browser pass: not required because every production and browser-contract byte is identical to the independently exercised first candidate and the correction is source-validation-only.
+- Screenshots, visual baselines, animation-fidelity waits, aesthetic comparison, and broad viewport matrices: OWNER-VISUAL remains active.
+- Placement, identity, recommendation, synthetic, mutation, recovery, journey, generated-data, and unrelated application suites: their owners did not change and they cannot answer this correction's validator risk.
+
+## Corrected-candidate CPU-heavy validation
+
+**NOT REQUIRED.** No placement, scoring, ranking, qualification, state-machine, generated-data, mutation, or recovery owner changed.
+
+## Corrected manual finding invariant
+
+- Finding: the first candidate left canonical Guide assertions on the former body-class and stylesheet-order contract.
+- Defect class: directly relevant test-contract drift.
+- Regression invariant: canonical validation requires all new and preserved route/atmosphere roots plus one VM-668 site skin loaded after the exact Maze/Guide stylesheet pair.
+- Corrected result: **PASS** by source inspection and canonical `lint:html` execution.
+
+## Remaining Owner judgment and exact checklist
+
+RobQA proves the objective structure, interaction, state, focus, motion, containment, and isolation contracts. The Owner judges visual coherence, hierarchy, color balance, readability, mode clarity, and final family fit using this exact bounded checklist:
+
+1. Guide root hero and first chapter.
+2. One representative teaching specimen.
+3. Product relationship section.
+4. Reading Guide mode control.
+5. Maze Guide mode control.
+6. One approximately 390px route.
+7. Confirm the Guide now belongs to the main site family while its teaching specimens remain intentionally solid.
+
+## Corrected-candidate handoff accounting
+
+- QA/lifecycle evidence updated by RobQA: this handoff and the VM-668 card, followed by generated board and handoff-index maintenance.
+- Product, validator, fixture, policy, and test-contract files changed by RobQA: none.
+- Current decision: RobQAPass PASS for exact candidate `1b3b98bd8f1bece04815508a4dc7929ea7abdc04`; Owner PENDING.
+- Not touched: GitHub, PR, push, acceptance, merge, deployment, integration, or unrelated repository behavior.
+- Next suggested agent: the Owner for the seven-item visual/product review. ACCEPT may integrate only this exact candidate; REJECT returns VM-668 to correction on the same branch.

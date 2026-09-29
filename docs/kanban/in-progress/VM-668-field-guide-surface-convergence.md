@@ -2,7 +2,7 @@
 
 ID: VM-668
 Title: Field Guide Surface Convergence
-Status: In Progress
+Status: Owner Review
 Type: Route-family presentation implementation
 Area: Field Guide / shared site surface
 Priority: High
@@ -40,7 +40,7 @@ Current Owner execution request. VM-667 is integrated and closed. The accepted G
 - [x] Heading and landmark structure, product order, explanatory copy, relationship navigation semantics, mode selection, hidden-panel state, pointer/keyboard activation, meaningful focus, atmosphere, and reduced motion remain intact.
 - [x] Each Guide route remains usable without horizontal page overflow at approximately 390px, with reachable controls and preserved reading width/hierarchy.
 - [x] Guide-specific corrections do not leak into unrelated Maze, Legal, Strategium, Archscry, Apocrypha, or Home consumers.
-- [ ] Independent exact-candidate RobQA passes and the task stops in genuine Owner Review with the bounded seven-step checklist.
+- [x] Independent exact-candidate RobQA passes and the task stops in genuine Owner Review with the bounded seven-step checklist.
 
 ## Files Likely Impacted
 
@@ -75,13 +75,13 @@ OWNER-VISUAL mode applies. Engineering evidence owns objective structure, route 
 Record version: 1
 Branch: codex/vm-668-guide-surface-convergence
 Admission baseline: 676ab502f705a58ec6dafc42d2bc1288eceec67e
-Candidate: PENDING
-RobQA: PENDING
+Candidate: 1b3b98bd8f1bece04815508a4dc7929ea7abdc04
+RobQA: PASS at 1b3b98bd8f1bece04815508a4dc7929ea7abdc04 — QA-2 / SEPARATE by `/root/vm668_robqa`; see [independent evidence](../../handoffs/2026-09-29-1136-robqa-vm668-guide-surface.md).
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Decisions: Presentation-only Guide-family convergence. Preserve accepted content, ordering, routes, interaction semantics, atmosphere, accessibility, and responsive behavior. Use the existing site-skin contract with Guide-rooted declarations; do not rewrite generic Maze consumers. Scope amendment: include the canonical frontend HTML validator so its directly relevant Guide assertions require the admitted `vm-site-skin` root and late `site-skin.css?v=vm668` order while preserving Maze/Guide/rich-atmosphere checks; first-candidate independent RobQA proved the stale validator contract blocks the accepted implementation.
-Evidence: First candidate `8c5fe47f2a93172f7a09bc23ea5b3f98379c4ab4` received independent RobQA BLOCKED because canonical `npm.cmd run lint:html` retained two stale, directly relevant Guide body-root/final-stylesheet assertions; see [independent evidence](../../handoffs/2026-09-29-1136-robqa-vm668-guide-surface.md). Independent static, JavaScript lint, route metadata, frontend smoke, focused in-app browser interaction/state/390px containment, generic Maze isolation, and targeted material diff hygiene otherwise passed. This new material correction updates the validator without weakening rich-atmosphere/root/order invariants; Candidate/RobQA/Owner are reset pending a new exact candidate. The dedicated Edge harness remains host-blocked before assertions (exit code 0, no stderr).
+Evidence: First candidate `8c5fe47f2a93172f7a09bc23ea5b3f98379c4ab4` received independent RobQA BLOCKED because canonical `npm.cmd run lint:html` retained two stale, directly relevant Guide body-root/final-stylesheet assertions. Corrected candidate `1b3b98bd8f1bece04815508a4dc7929ea7abdc04` receives independent RobQAPass PASS: canonical HTML validation, exact-candidate diff hygiene, static Guide contract, JavaScript syntax/lint, route metadata, frontend smoke, index freshness, exact diff inspection, and change-report validation pass. Production Guide/browser-contract bytes are identical to the first candidate, so its independent in-app browser route/computed-state/pointer/keyboard/reduced-motion/390px/isolation PASS evidence carries forward. The dedicated Edge harness remains host-blocked before assertions (exit code 0, no stderr). Owner visual/product judgment remains pending on the exact corrected candidate using the seven-item checklist in the QA handoff.
 
 ## Admission Scope
 
