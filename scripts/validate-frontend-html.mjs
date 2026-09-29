@@ -631,8 +631,8 @@ expect(
 );
 for (const colorClass of ["w", "u", "b", "r", "g", "c"]) {
   expect(
-    new RegExp(`<span class="vm-philosophy-symbol ms ms-${colorClass}"[^>]*aria-hidden="true"[^>]*><\\/span>`).test(sources.strategiumConsole),
-    `strategium/console/index.html should render the local ms-${colorClass} glyph without letter fallback text`
+    new RegExp(`<span class="vm-philosophy-symbol ms ms-${colorClass} ms-cost ms-shadow"[^>]*aria-hidden="true"[^>]*><\\/span>`).test(sources.strategiumConsole),
+    `strategium/console/index.html should render the full local ms-${colorClass} casting-cost symbol without letter fallback text`
   );
 }
 const hubConsolePreviewHrefs = [
@@ -657,6 +657,12 @@ expect(
     ["#strategium", "#color-expectations", "#readiness-checklist", "#next-move"].every(href => consoleWayfinding.includes(`href="${href}"`)) &&
     !consoleWayfinding.includes("?lesson="),
   "strategium/console/index.html should provide a protected-return-safe Console wayfinding nav with section-only destinations"
+);
+expect(
+  sources.strategiumConsole.indexOf('id="strategium-commander-title"') < sources.strategiumConsole.indexOf('class="vm-console-guide-layout"') &&
+    sources.strategiumConsole.indexOf('class="vm-console-guide-layout"') < sources.strategiumConsole.indexOf('id="strategium-entry-title"') &&
+    /<div class="vm-console-guide-content">\s*<section class="vm-section vm-section-tight" aria-labelledby="strategium-entry-title">/.test(sources.strategiumConsole),
+  "strategium/console/index.html should place the Guide map directly after the commander introduction and before the entry-point content"
 );
 
 const guideStylesheetHrefs = getStylesheetHrefs(sources.guide);

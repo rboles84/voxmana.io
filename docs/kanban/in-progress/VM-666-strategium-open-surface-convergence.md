@@ -20,12 +20,12 @@ Current Owner directive; [Strategium open-surface reconnaissance](../../handoffs
 
 - Add the shared site-skin link and route/body markers to the six Strategium documents while preserving their existing route contracts.
 - Add only a route-rooted, append-only Strategium adapter to the shared site skin, then implement the accepted surfaces in hub, lifecycle, Review/dialog, and Console order.
-- Add the Owner-authorized Console-only anchor navigation and convert the four hub Console previews into truthful direct links by reusing existing lesson/query and section-anchor contracts; new navigation labels are limited to this local wayfinding role.
+- Add the Owner-authorized Console-only anchor navigation and convert the four hub Console previews into truthful direct links by reusing existing lesson/query and section-anchor contracts; new navigation labels are limited to this local wayfinding role. Correct only the Console history seam that caused section anchors to replay a retained lesson and snap back.
 - Add focused structural and browser evidence, and update the applicable route ownership records.
 
 ## Explicitly Out Of Scope
 
-- VM-406 bridge semantics; Strategium JavaScript, lesson/product copy, data, route owners, state, metadata, dependencies, or breakpoint changes. The explicitly authorized Console-local wayfinding labels, query/fragment links, and section IDs are the only navigation/copy exceptions.
+- VM-406 bridge semantics; Strategium JavaScript beyond the admitted Console search-versus-fragment history correction, lesson/product copy, data, route owners, state, metadata, dependencies, or breakpoint changes. The explicitly authorized Console-local wayfinding labels, query/fragment links, and section IDs are the only navigation/copy exceptions.
 - Screenshots or visual baselines, exhaustive lifecycle/review suites without evidence, and all Archscry, Maze, and Apocrypha product changes.
 - Any edit to `assets/css/strategium.css` unless measured cascade proof triggers the documented stop/amendment path.
 
@@ -41,11 +41,12 @@ Current Owner directive; [Strategium open-surface reconnaissance](../../handoffs
 - [x] The route ownership matrix and project atlas are updated without unrelated edits.
 - [x] No Strategium JS, copy, data, routes, state, metadata, dependency, or breakpoint changes occur; no screenshots/baselines, VM-406 work, or exhaustive lifecycle/review suite is added absent evidence.
 - [x] `assets/css/strategium.css` remains excluded unless measured cascade proof triggers a stop, a dedicated card-only Admission Scope/Decisions amendment commit, and an admission continue PASS before it is touched.
-- [x] Console color signals use the repository's vendored Mana glyphs at one equal size, without literal letter-in-circle substitutes; adjacent color headings preserve accessible names.
-- [x] The black Mana glyph uses a visible near-black treatment instead of the prior purple token; other Mana colors retain their existing values.
+- [x] Console color signals use the repository's vendored full `ms-cost ms-shadow` Mana symbols at one equal 40px size, without literal letter-in-circle substitutes or enlarged `ms-4x` geometry; adjacent color headings preserve accessible names.
+- [x] The black Mana symbol uses the standard readable black skull on its neutral Mana-cost circle instead of the prior purple or nearly invisible standalone token; other Mana colors use the corresponding vendored cost-symbol colors.
 - [x] Each of the four hub lifecycle links keeps its distinct pointer-hover and keyboard-focus state; each Console preview row becomes a truthful direct link to its named lesson/section; and the general Console action lands beside an always-available Console-only table of contents.
 - [x] The Console table of contents exposes lesson and long-page section destinations without JavaScript, stays usefully sticky on desktop, becomes a contained readable block at approximately 390px, and gives pointer/keyboard users clear current interaction feedback.
-- [x] The black Mana glyph retains its near-black fill and gains a subtle neutral-grey outline/backlight sufficient to distinguish the skull on the dark page without returning to a purple or circular treatment.
+- [x] The Guide map follows the commander-introduction section and precedes the entry-point and long Console content, so it reads as the directory for everything below it on desktop and approximately 390px.
+- [x] Repeated Guide-map selection, including same-target clicks, Color Expectations, Next Move, and a live review `return=` query, settles on the requested section without replaying the retained lesson; Back/Forward restore the expected sections while preserving the active lesson and contextual return.
 - [x] A visible Console contextual return and its adjacent reading surface render one transition rule, not two near-parallel rules.
 - [x] A stable exact candidate receives an independent RobQA PASS and then genuine Owner Review; no push, PR, merge, or acceptance occurs without the Owner's exact-SHA response.
 
@@ -89,8 +90,8 @@ The shared-site-skin adapter is an escape hatch, not authority to alter generic 
 Record version: 1
 Branch: codex/vm-666-strategium-open-surface-convergence
 Admission baseline: 249c7005b72701e1cb689521ad8df35a58610e53
-Candidate: df71b301a60a1020a45840c47a73c0d936266765
-RobQA: PASS at df71b301a60a1020a45840c47a73c0d936266765 — SEPARATE execution by `/root/vm666_robqa`; implementer `/root/vm666_robdev`; no findings
+Candidate: PENDING for the Owner-reported Guide-map loop, Guide-map placement, and full Mana-cost-symbol correction
+RobQA: PENDING for the new exact candidate; the PASS at df71b301a60a1020a45840c47a73c0d936266765 is historical only
 Owner: PENDING
 Integration: PENDING
 Dependencies: None

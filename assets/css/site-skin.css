@@ -1106,11 +1106,15 @@ body.vm-site-skin.vm-strategium-route .vm-console-wayfinding-nav { display: grid
 body.vm-site-skin.vm-strategium-route .vm-console-wayfinding-nav .vm-eyebrow { padding: 0.3rem 0.4rem 0.55rem; }
 body.vm-site-skin.vm-strategium-route .vm-console-wayfinding-nav a { padding: 0.48rem 0.4rem; border-top: 1px solid var(--site-rule); color: var(--site-ink); font-size: 0.82rem; text-decoration: none; }
 body.vm-site-skin.vm-strategium-route .vm-console-wayfinding-nav a:is(:hover, :focus-visible) { background: #252116; color: var(--site-ink); outline: 2px solid var(--site-gold); outline-offset: 1px; }
-body.vm-site-skin.vm-strategium-route .vm-philosophy-symbol.ms {
-  display: inline-grid; place-items: center; width: 2.5rem; height: 2.5rem; border: 0; border-radius: 0;
-  background: transparent; color: var(--philosophy-color); font-size: 2.5rem; line-height: 1; text-align: center;
+body.vm-site-skin.vm-strategium-route .vm-philosophy-symbol.ms-cost {
+  display: inline-block; width: 2.5rem; height: 2.5rem; border: 0; border-radius: 50%;
+  background-color: #beb9b2; color: #111; font-size: 1.92rem; line-height: 1.3; text-align: center;
 }
-body.vm-site-skin.vm-strategium-route .vm-philosophy-symbol.ms-b { text-shadow: 0 0 1px #b8b5ad, 0 0 4px rgb(168 171 178 / 0.55); }
+body.vm-site-skin.vm-strategium-route .vm-philosophy-symbol.ms-cost.ms-w { background-color: #f0f2c0; }
+body.vm-site-skin.vm-strategium-route .vm-philosophy-symbol.ms-cost.ms-u { background-color: #b5cde3; }
+body.vm-site-skin.vm-strategium-route .vm-philosophy-symbol.ms-cost.ms-b { background-color: #aca29a; }
+body.vm-site-skin.vm-strategium-route .vm-philosophy-symbol.ms-cost.ms-r { background-color: #db8664; }
+body.vm-site-skin.vm-strategium-route .vm-philosophy-symbol.ms-cost.ms-g { background-color: #93b483; }
 
 @media (max-width: 720px) {
   body.vm-site-skin.vm-strategium-route .vm-shell { width: calc(100% - 40px); }

@@ -433,3 +433,23 @@ Preview provenance: `http://127.0.0.1:8000/`, Python `SimpleHTTP/0.6` / Python `
 The named preview rows and the separate general action now own their destinations; the blank card area is intentionally not a fifth ambiguous link. Existing lifecycle hover/focus, single contextual transition rule, Console interactions, and earlier accepted open-surface corrections remain protected. No Strategium JavaScript, `assets/css/strategium.css`, data, state, route owner, dependency, breakpoint, push, PR, merge, acceptance, or integration change occurred.
 
 ACCEPT or REJECT applies only to `df71b301a60a1020a45840c47a73c0d936266765`.
+
+## Guide-map loop, placement, and full Mana-cost correction — 2026-09-28
+
+The Owner did not accept `df71b301a60a1020a45840c47a73c0d936266765`. Manual review confirmed the direct Archetypes link and Guide-map presence, but exposed a repeat-navigation loop: starting from `?lesson=archetype-signal`, successive Guide-map selections could alternate between the requested long-page section and Archetype Signal. The same snap-back affected a Console URL carrying the contextual review `return=` query. The Owner also asked for the Guide map to follow the **Bring your identity to the table** section rather than appear between the entry-point heading and Console heading, and clarified that the color marks should use the complete Mana-cost treatment rather than standalone font icons.
+
+Raw Owner screenshots are preserved by path and SHA-256:
+
+- `C:\Users\obake\AppData\Local\Temp\codex-clipboard-cb085e9a-4aa8-46a9-8fc8-d7f92af88f20.png` — `8dab8b490ba68d5944bc31c1a60149b67ad5a5e6d9625c02a2a635ddc83e977e`
+- `C:\Users\obake\AppData\Local\Temp\codex-clipboard-77e93c38-9e1f-4faf-8696-eaab4e0fd427.png` — `0228d2089510d0c92b27fe6503d11fe10e10910c92ef5981aad9eb8f90ba99e4`
+- `C:\Users\obake\AppData\Local\Temp\codex-clipboard-3114102e-1093-4209-9941-4360972398eb.png` — `74eaf188139b81aead2f6559a4e2de3fc536a8a45b3c8a3b5cdc4022ed66a026`
+
+The first image repeats the still-hard-to-read standalone Black skull evidence. The second shows the Guide map wedged between the entry-point and Console compositions on mobile. The third shows all six standalone icons rather than complete Mana-cost symbols.
+
+The loop was a QA escape in the prior candidate. Native fragment navigation creates/traverses history while retaining `lesson=archetype-signal`; the Console's unconditional `popstate` handler re-applied that query and scrolled the lesson back into view even though the user had selected a long-page section. The focused harness had checked only a single section selection in the protected-return case, so it did not exercise repeated same-target use or section Back/Forward. The card-only scope amendment at `0349e8729a63dcbe3130e25edbb4f575304f69db` authorized only this history seam, and live admission continue passed before JavaScript changed.
+
+The correction tracks the last applied Console search string. Fragment-only `popstate` events now retain the active lesson without replaying its scroll; a real lesson-query change still re-applies the requested lesson. The regression executes Next Move twice, Color Expectations twice, Readiness Checklist, Back, and Forward while asserting the Archetype Signal tab, review-return query, contextual return target, requested hash, and settled destination throughout.
+
+The Guide map now immediately follows the commander-introduction section and remains the desktop sticky/mobile static directory for both the entry-point content and all long Console content below it. The six color marks now use the repository's existing `ms-cost ms-shadow` Mana Font contract in equal 40px boxes. The Owner-suggested `ms-4x` class was intentionally not added because the vendored class expands the symbol to `3em`; the admitted adapter keeps the prior 40px footprint. Black is the standard readable black skull on the neutral black-mana cost circle and no longer relies on a purple or near-black standalone glyph.
+
+A new exact material candidate and fresh independent RobQA remain pending. No acceptance, push, PR, merge, or integration is implied.

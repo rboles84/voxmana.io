@@ -1238,6 +1238,7 @@ function initStrategiumConsole() {
   if (!reveal || !tabs.length) return;
 
   const tabLessonIds = new Set(tabs.map(tab => tab.dataset.topic));
+  let appliedConsoleSearch = window.location.search;
 
   function prefersReducedMotion() {
     return (
@@ -1279,6 +1280,7 @@ function initStrategiumConsole() {
       url.searchParams.set("lesson", safeTopic);
       url.hash = "strategium";
       window.history.pushState({ strategiumLesson: safeTopic }, "", url);
+      appliedConsoleSearch = window.location.search;
     }
 
     if (moveFocus) revealHeading(reveal.querySelector("h3"), true);
@@ -1305,6 +1307,7 @@ function initStrategiumConsole() {
     if (requestedLesson === "readiness-checklist") {
       setTopic("command-zone");
       showReadinessChecklist(moveFocus);
+      appliedConsoleSearch = window.location.search;
       return;
     }
 
@@ -1312,6 +1315,7 @@ function initStrategiumConsole() {
     if (!requestedLesson && window.location.hash === "#readiness-checklist") {
       showReadinessChecklist(moveFocus);
     }
+    appliedConsoleSearch = window.location.search;
   }
 
   tabs.forEach(tab => {
@@ -1331,7 +1335,7 @@ function initStrategiumConsole() {
   });
 
   window.addEventListener("popstate", () => {
-    applyLocation(true);
+    if (window.location.search !== appliedConsoleSearch) applyLocation(true);
   });
 
   applyLocation(true);

@@ -190,8 +190,24 @@ try {
   await page.goto(`${origin}/strategium/console/?lesson=archetype-signal&return=%2Fstrategium%2Freview%2F%3Fpath%3Dafter-game%2Funsure#strategium`, { waitUntil: "domcontentloaded" });
   await page.waitForSelector("[data-review-return-link]:not([hidden])");
   await assertVisibleLessonHeading(page);
-  await page.click('.vm-console-wayfinding-nav a[href="#readiness-checklist"]');
-  assert.equal(await page.evaluate(() => location.hash), "#readiness-checklist", "section-only Guide map link did not set the requested section anchor");
+  for (const [href, target] of [
+    ["#next-move", "#next-move"],
+    ["#next-move", "#next-move"],
+    ["#color-expectations", "#color-expectations"],
+    ["#color-expectations", "#color-expectations"],
+    ["#readiness-checklist", "#readiness-checklist"],
+  ]) {
+    await page.click(`.vm-console-wayfinding-nav a[href="${href}"]`);
+    assert.equal(await page.evaluate(() => location.hash), href, `section-only Guide map link did not set ${href}`);
+    await assertSettledAnchor(page, target);
+    assert.equal(await page.$eval('.vm-tab[data-topic="archetype-signal"]', node => node.classList.contains("active")), true, `Guide map navigation to ${href} changed the retained Archetype Signal lesson`);
+  }
+  await page.goBack();
+  assert.equal(await page.evaluate(() => location.hash), "#color-expectations", "Back navigation did not restore the preceding Guide-map section");
+  await assertSettledAnchor(page, "#color-expectations");
+  await page.goForward();
+  assert.equal(await page.evaluate(() => location.hash), "#readiness-checklist", "Forward navigation did not restore the following Guide-map section");
+  await assertSettledAnchor(page, "#readiness-checklist");
   assert.equal(await page.evaluate(() => location.search), "?lesson=archetype-signal&return=%2Fstrategium%2Freview%2F%3Fpath%3Dafter-game%2Funsure", "section-only Guide map link changed the review-return query");
   assert.equal(await page.$eval("[data-review-return-link]", node => !node.hidden && node.getAttribute("href")), "/strategium/review/?path=after-game/unsure", "section-only Guide map link hid or changed the contextual return");
   assert.deepEqual(await page.$$eval(".vm-philosophy-symbol", nodes => nodes.map(node => {
@@ -209,22 +225,22 @@ try {
       width: rect.width,
       height: rect.height,
     };
-  })), [["w", "rgb(247, 240, 208)"], ["u", "rgb(88, 184, 255)"], ["b", "rgb(27, 24, 22)"], ["r", "rgb(255, 107, 85)"], ["g", "rgb(99, 229, 141)"], ["c", "rgb(168, 171, 178)"]].map(([color, glyphColor]) => ({
-    classes: ["vm-philosophy-symbol", "ms", `ms-${color}`],
+  })), [["w", "rgb(17, 17, 17)", "rgb(240, 242, 192)"], ["u", "rgb(17, 17, 17)", "rgb(181, 205, 227)"], ["b", "rgb(17, 17, 17)", "rgb(172, 162, 154)"], ["r", "rgb(17, 17, 17)", "rgb(219, 134, 100)"], ["g", "rgb(17, 17, 17)", "rgb(147, 180, 131)"], ["c", "rgb(17, 17, 17)", "rgb(190, 185, 178)"]].map(([color, glyphColor, background]) => ({
+    classes: ["vm-philosophy-symbol", "ms", `ms-${color}`, "ms-cost", "ms-shadow"],
     text: "",
     hidden: "true",
     font: "Mana",
-    background: "rgba(0, 0, 0, 0)",
+    background,
     border: "0px",
-    radius: "0px",
+    radius: "50%",
     color: glyphColor,
     width: 40,
     height: 40,
-  })), "Console color signals are not equal-size local Mana glyphs without letter circles");
+  })), "Console color signals are not equal-size full local Mana casting-cost symbols without letter fallbacks");
   assert.ok(await page.$eval(".vm-philosophy-symbol.ms-b", node => {
     const style = getComputedStyle(node);
-    return style.color === "rgb(27, 24, 22)" && style.textShadow !== "none" && /rgb\(184, 181, 173\)/.test(style.textShadow) && !/rgb\((164, 107, 234|210, 179, 112)\)/.test(style.textShadow);
-  }), "Black Mana glyph should retain its near-black fill with a neutral, non-purple/non-gold backlight");
+    return style.color === "rgb(17, 17, 17)" && style.backgroundColor === "rgb(172, 162, 154)" && style.boxShadow !== "none" && !/rgb\((164, 107, 234|210, 179, 112)\)/.test(style.boxShadow);
+  }), "Black Mana casting-cost symbol should use the standard readable black-on-neutral treatment with a non-purple shadow");
   for (const route of ["/strategium/find-a-table/", "/strategium/before-game/", "/strategium/during-game/"]) {
     await page.goto(`${origin}${route}`, { waitUntil: "domcontentloaded" });
     await page.waitForSelector("[data-lifecycle-option]");
