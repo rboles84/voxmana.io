@@ -295,3 +295,12 @@ PASS if the shared dialog feels restrained, readable, coherent, and finished on 
 **RobQAPass PASS** for exact candidate `83ca914b46702e5df52dc8798d469ffa4c20f131` under QA-2, SEPARATE execution by `/root/vm667_robqa`.
 
 No blocker or major remains. The candidate may proceed to genuine Owner Review with Owner decision pending. The historical BLOCKED verdict above remains valid only for candidate `48757708eb94abc64b7447e590731e0d7ae509e5`.
+
+## Exact Candidate PASS Record
+
+Task: VM-667
+Candidate: 83ca914b46702e5df52dc8798d469ffa4c20f131
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: /root/vm667_robqa
+Implementer: /root
