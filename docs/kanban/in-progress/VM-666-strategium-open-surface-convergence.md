@@ -2,7 +2,7 @@
 
 ID: VM-666
 Title: Strategium Open-Surface Convergence
-Status: In Progress
+Status: Accepted
 Type: Bounded public-route presentation
 Area: Strategium/shared site skin
 Priority: High
@@ -90,9 +90,9 @@ The shared-site-skin adapter is an escape hatch, not authority to alter generic 
 Record version: 1
 Branch: codex/vm-666-strategium-open-surface-convergence
 Admission baseline: 249c7005b72701e1cb689521ad8df35a58610e53
-Candidate: PENDING for the Owner-reported Guide-map loop, Guide-map placement, and full Mana-cost-symbol correction
-RobQA: PENDING for the new exact candidate; the PASS at df71b301a60a1020a45840c47a73c0d936266765 is historical only
-Owner: PENDING
+Candidate: 596af5fe4ef7fc0fd7716ec2a15e61409647b2f1
+RobQA: PASS at 596af5fe4ef7fc0fd7716ec2a15e61409647b2f1 — SEPARATE execution by /root/vm666_robqa; no blocker, major, or minor candidate defect. One concurrent focused-browser timeout is recorded as suspected load-sensitive harness debt after the unmodified contract passed serially, in four serial confirmations, and in an independent focused probe.
+Owner: ACCEPTED at 596af5fe4ef7fc0fd7716ec2a15e61409647b2f1 — current Codex task Owner command ACCEPT VM-666 596af5fe4ef7fc0fd7716ec2a15e61409647b2f1, 2026-09-28
 Integration: PENDING
 Dependencies: None
 Decisions: Current Owner directive; [Strategium open-surface reconnaissance](../../handoffs/2026-09-25-2200-planning-architect-strategium-open-surface-recon.md); [VM-666 red-team planning review](../../handoffs/2026-09-25-2317-planning-architect-vm666-redteam.md). Presentation-only boundary: no VM-406 bridge semantics or Strategium JS/data/state/metadata/dependency/breakpoint work. `assets/css/strategium.css` is an escape hatch only: measured cascade proof requires stop, a dedicated card-only Admission Scope/Decisions amendment commit, and admission continue PASS before touch. Owner REJECTED material candidate `684cffb5f6cbe36f9a0c25eb357a5948f1c61819` on 2026-09-27 and corrected material candidate `cd9a4efa76582b19b04f98497f16c219c8df7a06` in the second retest. Preserve both exact decisions and raw evidence. The second remediation is limited to consolidated route-rooted adapter and focused-contract changes: one boundary per transition, restrained interactive states, hierarchical result roles, explicit primary-action states, and coherent Console roles. Preserve the accepted hub, dialog, and contextual-return treatment. On 2026-09-27 the Owner clarified the cross-site visual authority: Main, Archscry, and Maze are the goal model; large reading, directory, and default-choice surfaces stay open, while a small number of opaque focal, current/selected, action, status, example, and dialog surfaces may draw attention. The Owner also explicitly authorized replacing Console letter circles with the existing local MTG Mana glyphs at equal size. Representative unique states are sufficient for review; the Owner is not required to supply a screenshot of every page. On 2026-09-28 the Owner authorized a bounded hub/Console follow-up: remove the remaining duplicated Console return/lesson rule, make the black Mana glyph near-black rather than purple, and give the four real lifecycle links distinct hover/focus feedback. After reviewing candidate `dba19dfd2175c2c4761794c396f8401487eb45c5`, the Owner confirmed those mechanics but found the general `#strategium` jump insufficient for the long Console and expected a named preview such as Archetypes to open that topic. The Owner now explicitly authorizes a Console-only HTML/CSS table of contents, direct hub-preview lesson/section links, the minimum wayfinding labels and section IDs needed for them, and a subtle neutral-grey black-glyph outline/backlight. Reuse existing query/fragment contracts without Strategium JavaScript, product/lesson copy, data, state, route-owner, dependency, or breakpoint changes. Scope amendment: the Owner's repeated Guide-map test proves that hash-only history traversal replays the retained Console lesson and snaps back to its reading surface; authorize only the minimum `assets/js/strategium/strategium.js` history-location correction required to keep section anchors stable while preserving lesson tabs, review return queries, Back/Forward behavior, routes, data, and product state.

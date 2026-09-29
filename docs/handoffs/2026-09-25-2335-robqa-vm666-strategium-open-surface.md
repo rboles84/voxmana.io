@@ -505,3 +505,50 @@ This exact candidate earns RobQAPass PASS. No blocker, major, minor, or candidat
 Review exact candidate `df71b301a60a1020a45840c47a73c0d936266765`: on desktop, use the hub Archetypes link, scan the non-interactive Console card/direct links/general-guide action, then scroll the Console with the sticky Guide map through lessons, Color Expectations, Readiness Checklist, and Next Move; inspect the black Mana skull. At approximately 390px, scan the Guide map and one direct-link destination. Judge only hierarchy, label clarity, readability, sticky-map comfort, black-glyph optical visibility, and Vox Mana family coherence. RobQA makes no subjective acceptance claim.
 
 RobQA changed no product/runtime/test or lifecycle-card file. This appended section is the only review edit.
+
+## Console history and guide correction RobQA — 2026-09-28
+
+Task: VM-666
+Admission baseline: `249c7005b72701e1cb689521ad8df35a58610e53`
+Candidate: `596af5fe4ef7fc0fd7716ec2a15e61409647b2f1`
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: `/root/vm666_robqa`
+Implementer: `/root/vm666_robdev`
+Classification: QA-3 Console query/fragment/history correction plus QA-1 Guide-map placement and Mana-symbol presentation
+
+This exact candidate earns RobQAPass PASS. No blocker, major, minor, or candidate correctness finding remains. Owner visual acceptance, integration, deployment, push, PR, and merge remain outside this verdict.
+
+### Changed and protected contracts
+
+- The only runtime change beyond the previously reviewed VM-666 presentation material is the admitted `assets/js/strategium/strategium.js` location-history correction: fragment-only history no longer reapplies the lesson, while a changed search query still reapplies the requested lesson. The Guide map now immediately follows the commander introduction and wraps the entry content; all six local Mana signals use full `ms-cost ms-shadow` casting-cost symbols.
+- Exact diff inspection found no unrelated Strategium JavaScript change and no change to `assets/css/strategium.css`, data, route metadata, dependencies, breakpoints, lifecycle/review state owners, generic pre-adapter site-skin bytes, or other-route product files. The new CSS remains route-rooted under `body.vm-site-skin.vm-strategium-route` and reuses the existing 720px breakpoint.
+
+### Tests selected and results
+
+- `node scripts/validate-frontend-html.mjs` — PASS. Protects the six public Strategium contracts, exact `ms ms-{color} ms-cost ms-shadow` markup, section-only Guide-map destinations, and required source order.
+- `npm.cmd run lint:html` — PASS.
+- `npm.cmd run lint:js` — PASS for 37 files.
+- `node --check scripts/vm666-strategium-open-surface-browser.mjs` — PASS.
+- `node scripts/vm666-strategium-open-surface-browser.mjs` — PASS when run serially. The exact live-return sequence (`Next Move` twice, `Color Expectations` twice, `Readiness Checklist`, Back, Forward) retained the active Archetype Signal lesson and query/contextual return while every requested destination settled in view. Existing direct-link/reload, lifecycle, Review, Console search/checklist/status, menu/reduced-motion, protected-consumer, and 390px containment assertions also passed.
+- Independent focused browser probe — PASS. Query-changing Back/Forward restored `archetype-signal` then `threat-reading`; refresh retained `threat-reading`; an invalid lesson safely fell back to `command-zone`; every state retained the exact contextual return. The Guide map is in the required DOM order. At 1440×900 it remained genuinely sticky at 104px after scrolling to `Next Move`; at 390×844 it became static, stayed within 20px..355px with no overflow, and exposed four 44px targets.
+- Rendered Mana probe — PASS. Each symbol is a 40×40 Mana-font casting-cost glyph with empty fallback text and `ms-cost ms-shadow`; black renders the Mana black glyph in `rgb(17, 17, 17)` on the neutral `rgb(172, 162, 154)` cost circle with the standard shadow geometry.
+- `npm.cmd run test:route-metadata` — PASS for 16 public route heads.
+- `npm.cmd run test:frontend-smoke` — PASS for Guide, Home, Maze, Archscry, Library alias, Privacy, and Terms.
+- `npm.cmd run task -- indexes --check` — PASS; 705 cards and 1136 handoffs were fresh before this evidence-only append.
+- `git diff --check 249c7005b72701e1cb689521ad8df35a58610e53 596af5fe4ef7fc0fd7716ec2a15e61409647b2f1` and the material commit parent-to-candidate range — PASS.
+- Exact HEAD/worktree cleanliness, candidate/path inspection, protected-owner inspection, and focused JS control-flow review — PASS.
+
+### Browser justification, harness disposition, and skipped suites
+
+Browser evidence was required because native same-document history, query-changing `popstate`, fragment scroll settlement, real sticky/static geometry, touch-target size, local font rendering, and computed cost-symbol ownership cannot be reliably proved below a browser. No screenshots or subjective visual claims were used.
+
+One browser invocation launched concurrently with seven other checks timed out at the five-second Forward anchor-settlement wait after the hash had already reached `#readiness-checklist`. The same unmodified contract then passed in serial execution and four serial confirmation runs; the independent focused browser probe also passed the affected history, destination, sticky, mobile, and glyph contracts. This is classified as suspected timeout/load-sensitive harness debt, not a product failure or an acceptance-coverage gap. The assertion was not weakened or removed.
+
+Screenshots, visual baselines, animation-fidelity review, broad viewport matrices, exhaustive lifecycle/Review enumeration, and placement/identity/scoring/synthetic/journey/mutation/recovery/certification suites were not required. CPU-heavy validation: **NOT REQUIRED**.
+
+### Remaining Owner judgment and bounded route
+
+Review exact candidate `596af5fe4ef7fc0fd7716ec2a15e61409647b2f1`: start from the live Review-return Archetype Signal URL and repeat Next Move twice, Color Expectations twice, Readiness Checklist, Back, and Forward; then inspect the Guide map directly after the commander introduction on desktop and approximately 390px, plus the six full cost symbols and the standard readable black Mana circle. Judge hierarchy, placement comfort, readability, symbol optical fit, and Vox Mana family coherence. RobQA makes no subjective acceptance claim.
+
+RobQA changed no product/runtime/test, task-card, Owner-handoff, or prior evidence text. This appended section is the only review edit.

@@ -453,3 +453,36 @@ The correction tracks the last applied Console search string. Fragment-only `pop
 The Guide map now immediately follows the commander-introduction section and remains the desktop sticky/mobile static directory for both the entry-point content and all long Console content below it. The six color marks now use the repository's existing `ms-cost ms-shadow` Mana Font contract in equal 40px boxes. The Owner-suggested `ms-4x` class was intentionally not added because the vendored class expands the symbol to `3em`; the admitted adapter keeps the prior 40px footprint. Black is the standard readable black skull on the neutral black-mana cost circle and no longer relies on a purple or near-black standalone glyph.
 
 A new exact material candidate and fresh independent RobQA remain pending. No acceptance, push, PR, merge, or integration is implied.
+
+## Console history and full Mana-cost candidate — Owner Review 2026-09-28
+
+- Exact material candidate: `596af5fe4ef7fc0fd7716ec2a15e61409647b2f1`
+- Preview provenance: `http://127.0.0.1:8000/`, serving the exact candidate above
+- Independent RobQA: **PASS**, SEPARATE execution by `/root/vm666_robqa`
+- Findings: no blocker, major, or minor candidate defect
+- Integration: PENDING; no acceptance, push, PR, or merge occurred
+
+The retained-lesson snap-back is corrected at the history seam. Fragment-only Guide-map navigation no longer replays the `lesson` query's scroll owner, while actual lesson-query changes continue to activate their requested lesson. The Guide map now follows **Bring your identity to the table** and precedes the entry-point and long Console content it indexes. All six color marks use the repository's full `ms-cost ms-shadow` Mana Font treatment at the existing equal 40px footprint; Black is the standard dark skull on its neutral Mana-cost circle. `ms-4x` is intentionally omitted because it would enlarge the symbols to `3em` instead of preserving the Owner-requested size.
+
+Independent checks passed: the six-route HTML contract; HTML and JavaScript lint; route metadata for 16 public routes; frontend smoke; focused browser syntax and execution; direct lesson/reload behavior; repeated Guide-map selection; query-changing Back/Forward; review-return preservation; desktop sticky and approximately 390px static Guide-map geometry; 44px mobile targets; full 40px cost-symbol rendering; task-index freshness; and diff/scope inspection. One focused-browser run executed concurrently with seven other checks timed out after Forward had already reached the correct hash. The same unmodified assertion passed serially, in four serial confirmation runs, and in an independent focused probe; RobQA classified this as suspected load-sensitive harness debt rather than a product or coverage failure. Automated evidence does not claim visual acceptance.
+
+### Quick Owner checklist
+
+1. Open `http://127.0.0.1:8000/strategium/console/?lesson=archetype-signal&return=%2Fstrategium%2Freview%2F%3Fpath%3Dafter-game%2Fwon-unclear#strategium`. Select **Next Move** twice. PASS if both clicks remain at Next Move and never snap back to Archetype Signal.
+2. Select **Color Expectations** twice, then **Readiness Checklist**. Use browser Back and Forward once. PASS if each requested section settles in view, **Archetype Signal** remains the active lesson tab, and **Return to your game review** remains present with the same target.
+3. Inspect the Guide map on desktop. PASS if it appears immediately after **Bring your identity to the table**, before **What kind of Commander player are you right now?**, and remains usefully sticky while scrolling the indexed content.
+4. Inspect White, Blue, Black, Red, Green, and Colorless under Color Expectations. PASS if all six are complete, equal-size Mana-cost circles with the normal shadow; Black should be the standard readable dark skull on its neutral circle, not purple and not a standalone outline.
+5. At approximately 390px, repeat one Guide-map jump. PASS if the map stays in the same document position, becomes a contained static two-column block, has comfortable targets, and produces no horizontal page scroll.
+
+Owner judgment remains required for Guide-map placement comfort, symbol optical fit, readability, and family coherence with Main, Archscry, and Maze. ACCEPT or REJECT applies only to `596af5fe4ef7fc0fd7716ec2a15e61409647b2f1`.
+
+## Owner acceptance — 2026-09-28
+
+Task: VM-666
+Candidate: 596af5fe4ef7fc0fd7716ec2a15e61409647b2f1
+Owner: ACCEPT
+Decision reference: Current Codex task Owner message on 2026-09-28: `ACCEPT VM-666 596af5fe4ef7fc0fd7716ec2a15e61409647b2f1`.
+
+Before issuing the exact ACCEPT command, the Owner reported PASS for all six bounded manual checks: repeated Next Move navigation; repeated Color Expectations plus Readiness Checklist and Back/Forward; Guide-map placement after the commander introduction; complete equal-size Mana-cost symbols including readable Black; and approximately 390px Guide-map placement, containment, touch targets, and absence of horizontal page scroll.
+
+This is genuine product and visual acceptance of exact material candidate `596af5fe4ef7fc0fd7716ec2a15e61409647b2f1`, which already holds independent SEPARATE RobQA PASS. It authorizes the normal VM-666 push, one PR, required CI, expected-head guarded squash merge, and governed closeout. Integration, merge, cleanup, and Done are not claimed by this acceptance record.
