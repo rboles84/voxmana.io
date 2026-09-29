@@ -135,6 +135,12 @@ See the compact evidence above. No engine, placement, synthetic-journey, mutatio
 
 Independent RobQA, requested as the repository `robqa` role (`gpt-5.6-sol`, medium effort) after the material candidate is frozen.
 
+## First-Candidate RobQA Correction
+
+- Independent RobQA correctly returned `BLOCKED` for candidate `48757708eb94abc64b7447e590731e0d7ae509e5`: the focused browser contract asserted 3px geometry on the topbar Feedback launcher, while the admitted task and implementation packet concern the dialog surface and the later Home/site-skin topbar owners intentionally reset that launcher.
+- The correction keeps the launcher outside this dialog-convergence task: it restores the pre-task shared launcher declarations and removes only the out-of-scope launcher-style assertion. Dialog styles, interaction checks, and the overlay focus-restoration correction remain unchanged.
+- This resolves the mismatch without adding route-specific CSS, increasing selector specificity, or redesigning the route-owned topbars. A new immutable candidate is required and must receive fresh independent RobQA.
+
 ## Related Kanban Card, Docs, Or Plans
 
 - `docs/kanban/in-progress/VM-667-shared-feedback-surface-convergence.md`

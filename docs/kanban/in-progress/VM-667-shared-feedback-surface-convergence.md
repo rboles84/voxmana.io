@@ -76,6 +76,7 @@ Integration: PENDING
 Dependencies: None
 Decisions: Presentation-only shared-owner convergence. Preserve the complete Feedback behavior and submission contract. Scope amendment: measured overlay `mousedown` dismissal clears focus after attempted restoration; permit only the minimal event-default correction in the existing Feedback owner, with no submission or provider-semantic change. Scope amendment: replace the initially reserved handoff paths with canonical timestamp-bearing filenames before either record is created.
 Evidence: [RobDev implementation handoff](../../handoffs/2026-09-29-0727-robdev-vm667-feedback-surface.md); exact-candidate RobQA PENDING
+RobQA history: candidate `48757708eb94abc64b7447e590731e0d7ae509e5` BLOCKED because its focused contract asserted route-owned launcher geometry outside the dialog-convergence scope; corrected on the same branch for a new candidate. Evidence: [first-candidate RobQA handoff](../../handoffs/2026-09-29-0727-robqa-vm667-feedback-surface.md).
 
 ## Admission Scope
 

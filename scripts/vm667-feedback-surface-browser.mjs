@@ -145,7 +145,6 @@ async function readSurface(page) {
         secondary: style(".vm-feedback-secondary"),
         sigil: style(".vm-feedback-sigil"),
         status: style(".vm-feedback-status"),
-        trigger: style(".vm-feedback-button"),
       },
     };
   });
@@ -176,7 +175,6 @@ function assertSharedSurface(surface, routeName) {
   expect(surface.styles.secondary.borderColor !== "rgba(121, 192, 219, 0.28)", `${routeName}: secondary action should not retain teal structure`);
   expect(surface.styles.sigil.backgroundImage === "none" && surface.styles.sigil.filter === "none", `${routeName}: structural rule should not retain glow`);
   expect(surface.styles.sigil.animationName === "none", `${routeName}: structural rule should not retain decorative animation`);
-  expect(surface.styles.trigger.borderRadius === "3px", `${routeName}: shared Feedback trigger should use restrained geometry`);
 }
 
 async function assertDismissed(page, message) {

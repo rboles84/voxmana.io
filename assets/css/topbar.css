@@ -61,6 +61,7 @@
 .vm-nav,
 .vm-menu-button,
 .vm-menu-panel,
+.vm-feedback-button,
 .vm-utility .vm-utility-link,
 .vm-utility .tb-identity,
 .vm-utility .tb-btn {
@@ -100,6 +101,7 @@
 .vm-nav::before,
 .vm-menu-button::before,
 .vm-menu-panel::before,
+.vm-feedback-button::before,
 .vm-utility .vm-utility-link::before,
 .vm-utility .tb-identity::before,
 .vm-utility .tb-btn::before {
@@ -440,11 +442,16 @@
   justify-content: center;
   min-height: 44px;
   padding: 0.46rem 0.9rem;
-  border: 1px solid rgba(212, 180, 97, 0.46);
-  border-radius: 3px;
-  background: #0d0c0a;
-  box-shadow: inset 0 -1px 0 rgba(212, 180, 97, 0.12);
-  color: var(--gold-l);
+  border: 1px solid rgba(121, 192, 219, 0.28);
+  border-radius: 999px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.012)),
+    linear-gradient(135deg, rgba(9, 17, 27, 0.96), rgba(5, 9, 18, 0.84));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 10px 24px rgba(0, 0, 0, 0.24),
+    0 0 20px rgba(37, 129, 163, 0.08);
+  color: color-mix(in srgb, var(--gold-l) 72%, var(--teal-l) 28%);
   cursor: pointer;
   font-family: var(--font-mono);
   font-size: 0.68rem;
@@ -462,16 +469,16 @@
 
 .vm-feedback-button:hover,
 .vm-feedback-button:focus-visible {
-  color: #fff0c2;
-  border-color: rgba(232, 201, 130, 0.78);
-  background: #15120d;
-  box-shadow: inset 3px 0 0 var(--gold-l);
-  transform: none;
-}
-
-.vm-feedback-button:focus-visible {
-  outline: 2px solid var(--gold-l);
-  outline-offset: 3px;
+  color: #f4e2b4;
+  border-color: rgba(232, 201, 130, 0.52);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.015)),
+    linear-gradient(135deg, rgba(13, 22, 34, 0.98), rgba(6, 12, 22, 0.9));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.09),
+    0 14px 32px rgba(0, 0, 0, 0.3),
+    0 0 24px rgba(37, 129, 163, 0.12);
+  transform: translateY(-1px);
 }
 
 body.vm-feedback-open {
@@ -1083,7 +1090,7 @@ body.vm-feedback-open {
   }
 
   .vm-feedback-button {
-    min-height: 44px;
+    min-height: 42px;
     padding-inline: 0.72rem;
     font-size: 0.62rem;
     letter-spacing: 0.1em;

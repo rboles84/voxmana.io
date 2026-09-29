@@ -1,4 +1,4 @@
-<!-- task-view-sha256:3cee53920f99b6f0958020ce017bcb72b0f02e62d7c2e687f7f1aac160d83a06 -->
+<!-- task-view-sha256:b87b4a46d8f9b22a896a595081b3ace59fa4ff228970738c3d6b34d52893dfc6 -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -9,6 +9,7 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 | Authored / filename date | Agent | Handoff | Related task references | Diagnostics |
 |---|---|---|---|---|
 | 2026-09-29T00:00:00Z (authored) | Codex `/root`, applying the repository-local `robdev` skill and full RobDevPass. | [2026-09-29 07:27 — RobDev — VM-667 Feedback Surface](2026-09-29-0727-robdev-vm667-feedback-surface.md) | VM-667, VM-423 | Identity displayed from heading; not admission metadata. |
+| 2026-09-29T00:00:00Z (authored) | Codex `/root/vm667_robqa`, applying the repository-local `robqa` skill and full `docs/qa/RobQAPass.md` independently from the implementation agent. | [2026-09-29 07:27 — RobQA — VM-667 Feedback Surface](2026-09-29-0727-robqa-vm667-feedback-surface.md) | VM-667 | Identity displayed from heading; not admission metadata. |
 | 2026-09-28T00:00:00Z (authored) | Unknown | [VM-666 — Integration And Closeout](2026-09-28-codex-vm666-closeout.md) | VM-666 | Identity displayed from heading; not admission metadata. |
 | 2026-09-27T00:00:00Z (authored) | Codex `/root` (session-selected coordination context) | [VM-666 — Owner Review Handoff](2026-09-25-2335-codex-vm666-owner-review.md) | VM-666 | Identity displayed from heading; not admission metadata. |
 | 2026-09-26T00:00:00Z (authored) | Codex `/root/vm666_robqa` (repository `robqa` role; requested/configured `gpt-5.6-sol`, medium; separate from implementation) | [VM-666 — Strategium Open-Surface Convergence: Independent RobQA PASS](2026-09-25-2335-robqa-vm666-strategium-open-surface.md) | VM-666 | Identity displayed from heading; not admission metadata. |
