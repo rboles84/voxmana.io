@@ -2,7 +2,7 @@
 
 ID: VM-667
 Title: Shared Feedback Surface Convergence
-Status: Accepted
+Status: Done
 Type: Shared presentation implementation
 Area: Feedback dialog / shared topbar surface
 Priority: High
@@ -74,10 +74,10 @@ Admission baseline: 6e5cdbee1cacf3e3dd365c8fe39a945a9ce47ff9
 Candidate: 26e87824cbae224683d99fff1295013ace66bb99
 RobQA: PASS at 26e87824cbae224683d99fff1295013ace66bb99 (QA-2, SEPARATE; `/root/vm667_robqa`)
 Owner: ACCEPTED at 26e87824cbae224683d99fff1295013ace66bb99 — current Codex task Owner decision dated 2026-09-29
-Integration: PENDING
+Integration: INTEGRATED via PR #59 at d2840dbd1c7cbcfc2790ac71342943af52a2d656
 Dependencies: None
 Decisions: Presentation-only shared-owner convergence. Preserve the complete Feedback behavior and submission contract. Scope amendment: measured overlay `mousedown` dismissal clears focus after attempted restoration; permit only the minimal event-default correction in the existing Feedback owner, with no submission or provider-semantic change. Scope amendment: replace the initially reserved handoff paths with canonical timestamp-bearing filenames before either record is created.
-Evidence: [RobDev implementation handoff](../../handoffs/2026-09-29-0727-robdev-vm667-feedback-surface.md); [exact-candidate RobQA PASS](../../handoffs/2026-09-29-0727-robqa-vm667-feedback-surface.md)
+Evidence: [RobDev implementation handoff](../../handoffs/2026-09-29-0727-robdev-vm667-feedback-surface.md); [exact-candidate RobQA PASS](../../handoffs/2026-09-29-0727-robqa-vm667-feedback-surface.md); [integration and closeout](../../handoffs/2026-09-29-1112-codex-vm667-owner-accepted-closeout.md)
 RobQA history: candidate `48757708eb94abc64b7447e590731e0d7ae509e5` BLOCKED because its focused contract asserted route-owned launcher geometry outside the dialog-convergence scope; corrected on the same branch for a new candidate. Evidence: [first-candidate RobQA handoff](../../handoffs/2026-09-29-0727-robqa-vm667-feedback-surface.md).
 Owner review history: candidate `83ca914b46702e5df52dc8798d469ffa4c20f131` retained the approved overall dialog direction but was returned for correction because the empty live-status node rendered idle chrome and the action accent had become a flat generic line. Owner acceptance was not granted; affected QA and candidate bindings reset to PENDING.
 

@@ -1,4 +1,4 @@
-<!-- task-view-sha256:1902fe63642e2e22a1cf80c5ff553890923fc4a626c911e45da340fdf0530bd9 -->
+<!-- task-view-sha256:1d20adc0c39f560646e19e5546500d163e6105df87030c4ce51986c607856bd5 -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -50,7 +50,6 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | ID | Card | Declared status | Diagnostics |
 |---|---|---|---|
 | VM-660 | [Maze Performance Recon](in-progress/VM-660-maze-performance-recon.md) | Accepted |  |
-| VM-667 | [Shared Feedback Surface Convergence](in-progress/VM-667-shared-feedback-surface-convergence.md) | Accepted |  |
 
 ## Integrated
 
@@ -683,6 +682,7 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | VM-664 | [Archscry Mixed-Reading Expansion Polish](done/VM-664-archscry-mixed-reading-expansion-polish.md) | Done |  |
 | VM-665 | [Apocrypha Open-Surface Convergence](done/VM-665-apocrypha-open-surface-convergence.md) | Done |  |
 | VM-666 | [Strategium Open-Surface Convergence](done/VM-666-strategium-open-surface-convergence.md) | Done |  |
+| VM-667 | [Shared Feedback Surface Convergence](done/VM-667-shared-feedback-surface-convergence.md) | Done |  |
 
 ## Unresolved
 
