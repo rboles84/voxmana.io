@@ -173,3 +173,12 @@ Owner review returned candidate `83ca914b46702e5df52dc8798d469ffa4c20f131` for t
 - Initial textarea focus, Tab from Send to Close, Shift+Tab from Close to Send, Escape dismissal, and trigger-focus restoration passed in the real browser.
 - PASS `node --check` for the shared Feedback owner and focused contract; PASS `npm run lint:js` for 37 files; PASS `npm run test:frontend-smoke`; PASS generated-view freshness. The dedicated Puppeteer contract was re-invoked as requested and encountered the already documented host Edge launch failure before assertions; the working in-app browser supplied the targeted objective evidence instead.
 - Before, corrected-default, corrected-error-status, and corrected-390px captures were saved in the task's local visualization workspace for Owner comparison.
+
+## Owner Acceptance — 2026-09-29
+
+Task: VM-667
+Candidate: 26e87824cbae224683d99fff1295013ace66bb99
+Owner: ACCEPT
+Decision reference: Current Codex task Owner message on 2026-09-29: `good, I approve, lets commit and push`.
+
+The Owner issued this decision immediately after the exact-candidate handoff and bounded visual checklist for `26e87824cbae224683d99fff1295013ace66bb99`. This is genuine product and visual acceptance of the candidate that already holds independent QA-2, SEPARATE RobQA PASS. The requested action in this turn is limited to committing this acceptance evidence and pushing the feature branch. Integration remains PENDING; no pull request, merge, deployment, or integration is claimed or performed by this record.

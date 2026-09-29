@@ -2,7 +2,7 @@
 
 ID: VM-667
 Title: Shared Feedback Surface Convergence
-Status: Owner Review
+Status: Accepted
 Type: Shared presentation implementation
 Area: Feedback dialog / shared topbar surface
 Priority: High
@@ -73,7 +73,7 @@ Branch: codex/vm-667-feedback-surface-convergence
 Admission baseline: 6e5cdbee1cacf3e3dd365c8fe39a945a9ce47ff9
 Candidate: 26e87824cbae224683d99fff1295013ace66bb99
 RobQA: PASS at 26e87824cbae224683d99fff1295013ace66bb99 (QA-2, SEPARATE; `/root/vm667_robqa`)
-Owner: PENDING
+Owner: ACCEPTED at 26e87824cbae224683d99fff1295013ace66bb99 — current Codex task Owner decision dated 2026-09-29
 Integration: PENDING
 Dependencies: None
 Decisions: Presentation-only shared-owner convergence. Preserve the complete Feedback behavior and submission contract. Scope amendment: measured overlay `mousedown` dismissal clears focus after attempted restoration; permit only the minimal event-default correction in the existing Feedback owner, with no submission or provider-semantic change. Scope amendment: replace the initially reserved handoff paths with canonical timestamp-bearing filenames before either record is created.
