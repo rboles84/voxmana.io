@@ -423,12 +423,16 @@ expect(
     sources.guide.includes('class="vm-bg"'),
   "guide/index.html should retain the shared atmosphere container without a painted background"
 );
+const guideBodyTag = sources.guide.match(/<body\b[^>]*>/i)?.[0] ?? "";
+const guideBodyClasses = guideBodyTag.match(/\bclass="([^"]*)"/i)?.[1].split(/\s+/) ?? [];
 expect(
-  sources.guide.includes('class="vm-maze-route vm-guide-route"') &&
-    sources.guide.includes('data-vm-atmosphere="rich"') &&
+  guideBodyClasses.includes("vm-site-skin") &&
+    guideBodyClasses.includes("vm-maze-route") &&
+    guideBodyClasses.includes("vm-guide-route") &&
+    /\bdata-vm-atmosphere="rich"/i.test(guideBodyTag) &&
     sources.guide.includes('<canvas class="vm-bg__stars"') &&
     sources.guide.includes('src="../assets/js/shared/vm-rich-atmosphere.js"'),
-  "guide/index.html should use the shared Archscry/Maze rich-atmosphere contract"
+  "guide/index.html should retain the shared Maze/Guide rich-atmosphere contract with its scoped site-skin root"
 );
 expect(
   sources.guide.includes('class="r-search-zone maze-command-deck guide-hero"') &&
@@ -667,9 +671,11 @@ expect(
 
 const guideStylesheetHrefs = getStylesheetHrefs(sources.guide);
 expect(
-  guideStylesheetHrefs.at(-2) === "../assets/css/maze.css?v=vm635" &&
-    guideStylesheetHrefs.at(-1) === "../assets/css/guide.css?v=vm614r8",
-  "guide/index.html should keep guide.css as the last stylesheet in the head"
+  guideStylesheetHrefs.at(-3) === "../assets/css/maze.css?v=vm635" &&
+    guideStylesheetHrefs.at(-2) === "../assets/css/guide.css?v=vm614r8" &&
+    guideStylesheetHrefs.at(-1) === "../assets/css/site-skin.css?v=vm668" &&
+    guideStylesheetHrefs.filter(href => /\/site-skin\.css(?:\?|$)/.test(href)).length === 1,
+  "guide/index.html should retain Guide route CSS before one scoped vm668 site skin loaded last"
 );
 
 expect(

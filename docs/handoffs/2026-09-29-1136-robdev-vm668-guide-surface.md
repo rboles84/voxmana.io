@@ -1,7 +1,8 @@
 # 2026-09-29 11:36 — RobDev — VM-668 Field Guide Surface
 
-Task: VM-668  
-Role: RobDev implementation  
+Task: VM-668
+
+Role: RobDev implementation
 Date: 2026-09-29
 
 ## Agent Name
@@ -89,3 +90,10 @@ Independent RobQA should inspect the exact future candidate, select proportional
 
 - Review found that the preserved reading Guide has two, not three, `[data-guide-cta]` links: Archscry and Maze.
 - Corrected only the VM-668 contract expectation from `ctas: 3` to `ctas: 2`; no product HTML, destination, interaction, or styling changed.
+
+## First-Candidate RobQA Blocker Correction
+
+- Independent RobQA BLOCKED first candidate `8c5fe47f2a93172f7a09bc23ea5b3f98379c4ab4` because the canonical HTML validator retained two stale Guide assertions: it expected the old body-class string and `guide.css` as the final stylesheet.
+- The dedicated amendment commit `4f4d16691c700a42c52cf60086f616ebd96a607a` admitted only `scripts/validate-frontend-html.mjs`; admission continue passed before this correction.
+- Updated only those assertions. The canonical validator now requires `vm-site-skin` with the preserved `vm-maze-route` and `vm-guide-route` roots, `data-vm-atmosphere="rich"`, the rich-atmosphere canvas/script, unchanged Maze/Guide stylesheet order, and exactly one `site-skin.css?v=vm668` loaded last.
+- No product route, stylesheet, runtime, data, or interaction code changed. Current Candidate, RobQA, and Owner bindings are reset pending a new material candidate and independent review; Integration remains PENDING.
