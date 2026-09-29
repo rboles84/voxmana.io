@@ -2,7 +2,7 @@
 
 ID: VM-667
 Title: Shared Feedback Surface Convergence
-Status: Owner Review
+Status: In Progress
 Type: Shared presentation implementation
 Area: Feedback dialog / shared topbar surface
 Priority: High
@@ -39,7 +39,9 @@ Current Owner implementation request. The existing shared Feedback owner introdu
 - [x] At approximately 390px, the dialog remains contained without horizontal overflow and preserves usable touch targets.
 - [x] Focused deterministic checks protect one dialog instance, semantics, accessible names, focus entry/trapping/restoration, Escape, close/Cancel/overlay dismissal, and relevant action/status states.
 - [x] All protected Feedback JavaScript, submission, copy, routing, context, accessibility, scroll, metadata, data, and navigation behavior remains unchanged apart from the admitted overlay focus-restoration correction.
-- [x] Independent exact-candidate RobQA passes and the task stops in genuine Owner Review with a bounded manual checklist.
+- [x] Empty status output creates no visible or reserved idle chrome and reappears only for meaningful status content.
+- [x] The action-rail accent is a restrained warm hairline that fades to transparent on desktop and approximately 390px without becoming a divider or bar.
+- [ ] Independent exact-candidate RobQA passes and the task stops in genuine Owner Review with a bounded manual checklist.
 
 ## Files Likely Impacted
 
@@ -69,14 +71,15 @@ OWNER-VISUAL mode applies: engineering evidence owns objective structure, intera
 Record version: 1
 Branch: codex/vm-667-feedback-surface-convergence
 Admission baseline: 6e5cdbee1cacf3e3dd365c8fe39a945a9ce47ff9
-Candidate: 83ca914b46702e5df52dc8798d469ffa4c20f131
-RobQA: PASS at 83ca914b46702e5df52dc8798d469ffa4c20f131 — SEPARATE
+Candidate: PENDING
+RobQA: PENDING
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Decisions: Presentation-only shared-owner convergence. Preserve the complete Feedback behavior and submission contract. Scope amendment: measured overlay `mousedown` dismissal clears focus after attempted restoration; permit only the minimal event-default correction in the existing Feedback owner, with no submission or provider-semantic change. Scope amendment: replace the initially reserved handoff paths with canonical timestamp-bearing filenames before either record is created.
 Evidence: [RobDev implementation handoff](../../handoffs/2026-09-29-0727-robdev-vm667-feedback-surface.md); [exact-candidate RobQA PASS](../../handoffs/2026-09-29-0727-robqa-vm667-feedback-surface.md)
 RobQA history: candidate `48757708eb94abc64b7447e590731e0d7ae509e5` BLOCKED because its focused contract asserted route-owned launcher geometry outside the dialog-convergence scope; corrected on the same branch for a new candidate. Evidence: [first-candidate RobQA handoff](../../handoffs/2026-09-29-0727-robqa-vm667-feedback-surface.md).
+Owner review history: candidate `83ca914b46702e5df52dc8798d469ffa4c20f131` retained the approved overall dialog direction but was returned for correction because the empty live-status node rendered idle chrome and the action accent had become a flat generic line. Owner acceptance was not granted; affected QA and candidate bindings reset to PENDING.
 
 ## Admission Scope
 

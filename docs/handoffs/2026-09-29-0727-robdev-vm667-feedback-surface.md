@@ -31,6 +31,7 @@ Execute VM-667 through a stable material candidate for independent exact-SHA Rob
 - `docs/architecture/route-ownership-matrix.md`
 - `docs/architecture/data-flow-map.md`
 - `docs/kanban/done/VM-423-feedback-composer-static-email-processor.md`
+
 - `docs/handoffs/2026-06-28-0930-codex-vm423-feedback-ux-simplification.md`
 - `assets/css/tokens.css`
 - `assets/css/topbar.css`
@@ -148,3 +149,27 @@ Independent RobQA, requested as the repository `robqa` role (`gpt-5.6-sol`, medi
 - `docs/dev/RobDevPass.md`
 - `docs/qa/RobQAPass.md`
 - `docs/kanban/done/VM-423-feedback-composer-static-email-processor.md`
+
+## Owner Correction — Idle Chrome And Action Rail
+
+Owner review returned candidate `83ca914b46702e5df52dc8798d469ffa4c20f131` for two bounded visual corrections while explicitly approving the overall dialog direction. Owner acceptance remained PENDING, so the candidate and affected RobQA binding were reset before correction.
+
+### Actual causes
+
+- The generated DOM always appends an empty `<p class="vm-feedback-status" role="status" aria-live="polite">`. `openDialog()` correctly resets it through `setStatus("", "neutral")`, but VM-667's unconditional `min-height`, margin, padding, border, and background rendered that semantically idle node as an unexplained outlined rectangle.
+- `.vm-feedback-sigil` is the existing action-rail accent immediately before the button group. VM-667 had replaced its prior atmospheric treatment with a literal `background: rgba(...)` one-pixel solid line, so it read as a generic divider. The narrow rule also hid the accent entirely.
+
+### Narrow correction
+
+- Added `.vm-feedback-status:empty { display: none; }` at the owning shared CSS layer. Meaningful status text still reveals the existing solid neutral/success/error surface, while `setStatus("")` removes both visible chrome and reserved geometry without changing the live-region node or JavaScript state contract.
+- Replaced the flat accent background with one thin warm left-to-right gold/material fade ending in transparency. At the narrow breakpoint the same accent remains a bounded hairline above the full-width button grid rather than disappearing or expanding into a divider.
+- Extended the focused VM-667 browser contract to assert default and typing idle-status absence, reset-to-idle absence after a meaningful status, gradient accent ownership, and a one-pixel bounded narrow accent. No Feedback JavaScript, provider, payload, copy, focus, dismissal, or route behavior changed.
+
+### Developer evidence
+
+- Fresh-origin Home desktop: idle status computed `display: none` with zero height; no empty lower rectangle; action accent remained a subtle bounded fade; empty Copy revealed the existing deliberate error surface.
+- Fresh-origin Archscry at 390-by-844: idle status computed `display: none` with zero dimensions; accent computed to a one-pixel `linear-gradient`, approximately 141px wide; document horizontal overflow was zero; all three actions remained a 44px grid.
+- Local Copy success revealed the existing solid success surface; closing and reopening reset the same live-status node to empty, `display: none`, and zero height. No live provider request was made.
+- Initial textarea focus, Tab from Send to Close, Shift+Tab from Close to Send, Escape dismissal, and trigger-focus restoration passed in the real browser.
+- PASS `node --check` for the shared Feedback owner and focused contract; PASS `npm run lint:js` for 37 files; PASS `npm run test:frontend-smoke`; PASS generated-view freshness. The dedicated Puppeteer contract was re-invoked as requested and encountered the already documented host Edge launch failure before assertions; the working in-app browser supplied the targeted objective evidence instead.
+- Before, corrected-default, corrected-error-status, and corrected-390px captures were saved in the task's local visualization workspace for Owner comparison.

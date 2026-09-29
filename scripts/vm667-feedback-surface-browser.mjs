@@ -109,6 +109,7 @@ async function readSurface(page) {
         borderRadius: computed.borderRadius,
         boxShadow: computed.boxShadow,
         color: computed.color,
+        display: computed.display,
         filter: computed.filter,
         height: rect.height,
         opacity: computed.opacity,
@@ -168,12 +169,13 @@ function assertSharedSurface(surface, routeName) {
   expect(surface.styles.context.backgroundColor === "rgb(16, 15, 12)", `${routeName}: context summary should remain solid`);
   expect(surface.styles.input.backgroundColor === "rgb(17, 16, 13)", `${routeName}: email field should remain solid`);
   expect(surface.styles.feedback.backgroundColor === "rgb(17, 16, 13)", `${routeName}: feedback field should remain solid`);
-  expect(surface.styles.status.backgroundColor === "rgb(10, 9, 8)", `${routeName}: status output should remain solid`);
+  expect(surface.styles.status.display === "none" && surface.styles.status.height === 0, `${routeName}: empty status output should not render idle chrome`);
   expect(surface.styles.primary.backgroundImage === "none", `${routeName}: primary action should not use a glass gradient`);
   expect(surface.styles.primary.backgroundColor !== surface.styles.secondary.backgroundColor, `${routeName}: primary and secondary actions should be differentiated`);
   expect(surface.styles.primary.borderRadius === "2px" && surface.styles.secondary.borderRadius === "2px", `${routeName}: action controls should use low-radius geometry`);
   expect(surface.styles.secondary.borderColor !== "rgba(121, 192, 219, 0.28)", `${routeName}: secondary action should not retain teal structure`);
-  expect(surface.styles.sigil.backgroundImage === "none" && surface.styles.sigil.filter === "none", `${routeName}: structural rule should not retain glow`);
+  expect(surface.styles.sigil.backgroundImage.startsWith("linear-gradient"), `${routeName}: action accent should fade rather than render as a flat rail`);
+  expect(surface.styles.sigil.filter === "none", `${routeName}: structural rule should not retain glow`);
   expect(surface.styles.sigil.animationName === "none", `${routeName}: structural rule should not retain decorative animation`);
 }
 
@@ -206,6 +208,18 @@ try {
   const homeSurface = await readSurface(page);
   assertSharedSurface(homeSurface, "Home");
   expect(await page.evaluate(() => document.activeElement?.matches(".vm-feedback-field textarea")), "Home: focus should enter the feedback textarea");
+
+  await page.type(".vm-feedback-field textarea", "Idle status visibility check.");
+  const typingStatus = await page.$eval(".vm-feedback-status", element => ({
+    display: getComputedStyle(element).display,
+    height: element.getBoundingClientRect().height,
+    text: element.textContent,
+  }));
+  expect(typingStatus.text === "" && typingStatus.display === "none" && typingStatus.height === 0, "Home: ordinary typing should not reveal an empty status surface");
+  await page.$eval(".vm-feedback-field textarea", element => {
+    element.value = "";
+    element.dispatchEvent(new Event("input", { bubbles: true }));
+  });
 
   await page.focus(".vm-feedback-primary");
   await page.keyboard.press("Tab");
@@ -270,6 +284,14 @@ try {
   await page.waitForFunction(() => document.querySelector(".vm-feedback-status")?.textContent === "Feedback sent. Thank you.");
   const successTone = await page.$eval(".vm-feedback-status", element => ({ color: getComputedStyle(element).color, tone: element.dataset.tone }));
   expect(successTone.tone === "success", "Success: status should expose the success tone");
+  await page.click(".vm-feedback-close");
+  await openFeedback(page);
+  const resetStatus = await page.$eval(".vm-feedback-status", element => ({
+    display: getComputedStyle(element).display,
+    height: element.getBoundingClientRect().height,
+    text: element.textContent,
+  }));
+  expect(resetStatus.text === "" && resetStatus.display === "none" && resetStatus.height === 0, "Status reset: returning to idle should remove the status surface");
 
   await loadRoute(page, baseUrl, "/archscry/");
   await openFeedback(page);
@@ -302,6 +324,11 @@ try {
       dialogRect: { left: rect.left, right: rect.right, width: rect.width },
       documentOverflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
       fieldHeight: document.querySelector(".vm-feedback-field input").getBoundingClientRect().height,
+      sigil: {
+        backgroundImage: getComputedStyle(document.querySelector(".vm-feedback-sigil")).backgroundImage,
+        height: document.querySelector(".vm-feedback-sigil").getBoundingClientRect().height,
+        width: document.querySelector(".vm-feedback-sigil").getBoundingClientRect().width,
+      },
       viewportWidth: innerWidth,
     };
   });
@@ -310,6 +337,8 @@ try {
   expect(narrow.dialogRect.left >= 0 && narrow.dialogRect.right <= 390, "Narrow: dialog should remain inside the viewport");
   expect(narrow.fieldHeight >= 44, "Narrow: field touch target should remain at least 44px high");
   expect(narrow.actionSizes.every(size => size.height >= 44 && size.width >= 44), "Narrow: action touch targets should remain usable");
+  expect(narrow.sigil.height === 1 && narrow.sigil.width > 0 && narrow.sigil.width <= 144, "Narrow: fading accent should remain a restrained hairline");
+  expect(narrow.sigil.backgroundImage.startsWith("linear-gradient"), "Narrow: action accent should retain its fade");
 
   if (failures.length) {
     console.error(`VM-667 browser validation failed (${failures.length}):`);

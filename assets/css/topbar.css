@@ -694,7 +694,13 @@ body.vm-feedback-open {
   max-width: 12rem;
   height: 1px;
   opacity: 1;
-  background: rgba(212, 180, 97, 0.38);
+  background: linear-gradient(
+    90deg,
+    rgba(232, 201, 130, 0.52) 0%,
+    rgba(212, 180, 97, 0.26) 42%,
+    rgba(212, 180, 97, 0.08) 72%,
+    transparent 100%
+  );
   pointer-events: none;
 }
 
@@ -799,6 +805,10 @@ body.vm-feedback-open {
   color: var(--text-dim);
   font-size: 0.86rem;
   line-height: 1.4;
+}
+
+.vm-feedback-status:empty {
+  display: none;
 }
 
 .vm-feedback-status[data-tone="success"] {
@@ -1110,7 +1120,10 @@ body.vm-feedback-open {
   }
 
   .vm-feedback-sigil {
-    display: none;
+    display: block;
+    flex: 0 0 min(42%, 9rem);
+    min-width: 4rem;
+    max-width: 9rem;
   }
 
   .vm-feedback-button-group {
