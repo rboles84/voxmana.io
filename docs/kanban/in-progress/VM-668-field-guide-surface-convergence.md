@@ -80,7 +80,7 @@ RobQA: BLOCKED at 8c5fe47f2a93172f7a09bc23ea5b3f98379c4ab4 — canonical `npm.cm
 Owner: PENDING — candidate 8c5fe47f2a93172f7a09bc23ea5b3f98379c4ab4 is not eligible for Owner Review.
 Integration: PENDING
 Dependencies: None
-Decisions: Presentation-only Guide-family convergence. Preserve accepted content, ordering, routes, interaction semantics, atmosphere, accessibility, and responsive behavior. Use the existing site-skin contract with Guide-rooted declarations; do not rewrite generic Maze consumers.
+Decisions: Presentation-only Guide-family convergence. Preserve accepted content, ordering, routes, interaction semantics, atmosphere, accessibility, and responsive behavior. Use the existing site-skin contract with Guide-rooted declarations; do not rewrite generic Maze consumers. Scope amendment: include the canonical frontend HTML validator so its directly relevant Guide assertions require the admitted `vm-site-skin` root and late `site-skin.css?v=vm668` order while preserving Maze/Guide/rich-atmosphere checks; first-candidate independent RobQA proved the stale validator contract blocks the accepted implementation.
 Evidence: RobDev implementation evidence is preserved in its handoff. Independent RobQA BLOCKED the exact candidate because canonical `npm.cmd run lint:html` rejects the new Guide body-root and accepted late site-skin order through two stale, directly relevant assertions. Independent static, JavaScript lint, route metadata, frontend smoke, focused in-app browser interaction/state/390px containment, generic Maze isolation, and targeted material diff hygiene otherwise passed. The dedicated Edge harness remains host-blocked before assertions (exit code 0, no stderr). RobDev must correct the validator contract without weakening its rich-atmosphere/root/order invariants and produce a new candidate before Owner Review.
 
 ## Admission Scope
@@ -93,6 +93,7 @@ Evidence: RobDev implementation evidence is preserved in its handoff. Independen
 - `assets/css/guide-reading.css`
 - `assets/css/guide-maze.css`
 - `assets/css/guide-walkthrough.css`
+- `scripts/validate-frontend-html.mjs`
 - `scripts/vm668-guide-surface-browser.mjs`
 - `docs/kanban/in-progress/VM-668-field-guide-surface-convergence.md`
 - `docs/kanban/board.md`
