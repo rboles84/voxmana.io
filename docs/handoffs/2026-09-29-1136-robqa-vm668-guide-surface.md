@@ -543,3 +543,46 @@ Boundaries: PASS
 - Matching PR inventory before creation: none for head `codex/vm-668-guide-surface-convergence` into `main`.
 - Live policy observation: optional under `docs/reference/workflow.md#main-protection-and-exceptions`; the connector's branch-protection read returned 403 `Resource not accessible by integration`, while its ruleset read returned an empty list. Required CI remains `Deterministic Validation`.
 - Unresolved writes: none.
+
+---
+
+## Integration And Closeout — 2026-09-29
+
+Task: VM-668
+Candidate: da5f8e1d535d25657037c84e48e98f959f7a3ada
+Evidence head: 3cc966f1affda180dfe52f78a923c72d3cfb31f8
+Owner: ACCEPT
+Integration: PASS
+Boundaries: PASS
+
+### Integration Result
+
+- PR60 was merged by an expected-head guarded squash after `Deterministic Validation` completed successfully on exact evidence head `3cc966f1affda180dfe52f78a923c72d3cfb31f8`.
+- Pull request: [PR #60](https://github.com/rboles84/voxmana.io/pull/60).
+- Squash merge: `06fdbaa359d2fce9b64f38c68cebcaf5e50de4de`.
+- Verified squash parent: admission baseline and pre-merge `main` at `676ab502f705a58ec6dafc42d2bc1288eceec67e`.
+- Verified tree parity: merge tree `2b71f68b4bc5067b3e8a55054ea0270cea9dbbdb` exactly equals evidence-head tree `2b71f68b4bc5067b3e8a55054ea0270cea9dbbdb`.
+- The accepted material candidate remains `da5f8e1d535d25657037c84e48e98f959f7a3ada`; the later PR commits are reviewed lifecycle/evidence updates only.
+
+### Closeout Accounting
+
+- Agent name: Codex `/root`.
+- Task requested: accept VM-668, push its exact evidence head, merge it to `main`, publish through the repository's normal `main` path, and clean up the feature branch/worktree state.
+- Files changed during closeout: the VM-668 card moved from `in-progress/` to `done/`; this append-only handoff section; faithfully regenerated `docs/kanban/board.md` and `docs/handoffs/HANDOFF_INDEX.md`.
+- Product/runtime changes during closeout: none.
+- Decisions made: preserve the exact accepted candidate and independent RobQA binding; use PR #60 as the only integration vehicle; record the actual squash result; close the card only after parent/tree parity and merged PR state were verified.
+- Risks / uncertainties: the previously disclosed Edge launcher debt remains unchanged and non-blocking. Public deployment verification is performed separately after `main` synchronization and cannot alter the integrated candidate.
+- Tests run before merge: exact-head `Deterministic Validation` PASS; governed integration-stage delivery check PASS; exact PR scope, commit inventory, and blob parity PASS.
+- Tests run after merge: squash parent/tree parity PASS; generated-view freshness and governed closeout checks are required before final reporting.
+- Not touched: Guide product bytes after merge, unrelated application routes, fixtures, policies, repository settings, credentials, or other worktrees.
+- Cleanup: the primary worktree returns to clean synchronized `main`; the local and remote `codex/vm-668-guide-surface-convergence` branches are removed after the closeout commit is safely published.
+- Follow-up recommendation: none for VM-668. Any future Guide presentation change should begin as a new admitted task.
+- Next suggested agent: none; VM-668 is complete after the final closeout checker and live-route verification pass.
+- Related records: [VM-668 done card](../kanban/done/VM-668-field-guide-surface-convergence.md), [RobDev handoff](2026-09-29-1136-robdev-vm668-guide-surface.md), [PR #60](https://github.com/rboles84/voxmana.io/pull/60), `docs/reference/workflow.md`, and `docs/reference/task-delivery.md`.
+
+### Boundary Review
+
+- The post-merge delta is limited to authorized lifecycle narrative, the card lifecycle move/status/integration binding, and generator-owned views.
+- No material implementation, policy, test, fixture, admission scope, criterion wording, dependency, or accepted decision changed after the exact candidate.
+- No unrelated dirty work or additional registered worktree was present when closeout began.
+- The feature branch points only to the already merged evidence head and is safe to remove after the lifecycle commit reaches `main`.
