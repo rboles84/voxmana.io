@@ -2,7 +2,7 @@
 
 ID: VM-671
 Title: Records Reconciliation
-Status: In Progress
+Status: Owner Review
 Type: Documentation and lifecycle-record reconciliation
 Area: Kanban, handoffs, delivery evidence, and workflow navigation
 Priority: High
@@ -38,8 +38,8 @@ Current Owner eight-item request, items 1–3, and the accepted VM-670 report an
 - [x] The five original VM-661 authored records are restored with exact historical identity, their later supersession/current disposition is documented, and no recovery source is disposed of.
 - [x] VM-637 has a documented parent-completion assessment grounded in its seven child outcomes and Owner evidence; a `done/` move occurs only if that assessment supports it.
 - [x] VM-637's five child links resolve to the current canonical child locations, and the course-correction plan points Phase 6 to the current VM-641 card.
-- [ ] Current reconciliation navigation links resolve; historical links in byte-preserved rescue records retain event-time meaning and any stale targets are disclosed. The board and handoff index are freshly generated rather than hand-maintained.
-- [ ] RobDev and independent RobQA evidence bind the exact documentation candidate; Owner and integration remain PENDING unless later authentic evidence exists.
+- [x] Current reconciliation navigation links resolve; historical links in byte-preserved rescue records retain event-time meaning and any stale targets are disclosed. The board and handoff index are freshly generated rather than hand-maintained.
+- [x] RobDev and independent RobQA evidence bind the exact documentation candidate; Owner and integration remain PENDING unless later authentic evidence exists.
 
 ## Files Likely Impacted
 
@@ -76,8 +76,8 @@ Apply the repository RobDev governing pass before substantive records work. Trea
 Record version: 1
 Branch: codex/vm-671-records-reconciliation
 Admission baseline: fc08845af94b1869386826bf6be7dac6ecf97b43
-Candidate: PENDING
-RobQA: PENDING
+Candidate: a7ff44e30b86e8c971cf817dda670a710dc920d0
+RobQA: PASS at a7ff44e30b86e8c971cf817dda670a710dc920d0; Execution: SEPARATE; docs/handoffs/2026-09-30-1430-robqa-vm671-records-reconciliation.md — Replacement exact candidate verdict
 Owner: PENDING
 Integration: PENDING
 Dependencies: None

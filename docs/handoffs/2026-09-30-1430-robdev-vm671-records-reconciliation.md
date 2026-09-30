@@ -54,3 +54,60 @@ VM-671 lifecycle/card, report, generated views, Git accounting, commits, host op
 ## Next suggested agent
 
 Independent RobQA, after the coordinator freezes the documentation candidate and generated views.
+
+## Material candidate
+
+- Baseline: `fc08845af94b1869386826bf6be7dac6ecf97b43`
+- Candidate: `a7ff44e30b86e8c971cf817dda670a710dc920d0`
+- Changed paths: `16`
+
+## Git-derived files changed
+
+- `docs/handoffs/2026-09-18-2300-codex-vm661-maze-modernization-spec.md`
+- `docs/handoffs/2026-09-18-2310-robqa-vm661-maze-modernization-spec.md`
+- `docs/handoffs/2026-09-19-0910-codex-vm662-maze-modernization-preflight.md`
+- `docs/handoffs/2026-09-19-0940-codex-kanban-vm660-vm661-lifecycle.md`
+- `docs/handoffs/2026-09-30-1430-kanban-vm671-admission.md`
+- `docs/handoffs/2026-09-30-1430-robdev-vm671-records-reconciliation.md`
+- `docs/handoffs/2026-09-30-1430-robqa-vm671-records-reconciliation.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/kanban/board.md`
+- `docs/kanban/done/VM-637-public-content-retention.md`
+- `docs/kanban/in-progress/VM-658-maze-instrument-frame.md`
+- `docs/kanban/in-progress/VM-660-maze-performance-recon.md`
+- `docs/kanban/in-progress/VM-661-maze-modernization-spec.md`
+- `docs/kanban/in-progress/VM-671-records-reconciliation.md`
+- `docs/plans/workflow-course-correction.md`
+- `docs/reports/2026-09-30-vm671-records-reconciliation.md`
+
+## Evidence delta
+
+- Material candidate: `a7ff44e30b86e8c971cf817dda670a710dc920d0`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `4`
+
+This is not the full task diff. Total branch scope remains 16 paths. Later evidence only appends exact QA/accounting/current administrative observations, updates VM-671 lifecycle fields, and regenerates its board projection.
+
+## Evidence-only paths
+
+- `docs/handoffs/2026-09-30-1430-robdev-vm671-records-reconciliation.md`
+- `docs/handoffs/2026-09-30-1430-robqa-vm671-records-reconciliation.md`
+- `docs/kanban/in-progress/VM-671-records-reconciliation.md`
+- `docs/kanban/board.md`
+
+## Eight-item progress observation after candidate
+
+The frozen report remains event-time material. This later administrative observation does not amend the VM-671 records scope or its material candidate.
+
+| Item | Current disposition | Remaining work / confidence |
+|---|---|---|
+| 1 — VM-658/660 | Reconciled in Owner Review candidate; older closeouts remain unresolved | VM-658 has a real post-merge evidence violation; VM-660 adoption is verified but its standalone closeout is pending. High confidence in these distinctions. |
+| 2 — VM-661 preservation | Five original records byte-preserved in candidate | Owner ACCEPT and PR integration required before deleting rescue refs. High confidence in blob identity. |
+| 3 — VM-637/current pointers | Parent completion assessment and link repairs in candidate | Exact Owner decision and integration pending. Seven accepted child outcomes satisfy allocated scope. |
+| 4 — residues/issues | Partially completed, directly verified | Local/remote VM-660 and local VM-667 refs removed at authorized exact heads. Both named stash objects removed by fresh identity mapping. Seven issues #2/#3/#4/#6/#7/#8/#10 closed as not planned with VM-656/PR50 retirement references; #9 remains open unchanged. VM-661 refs retained pending item2 integration; VM-670 cleanup separately deferred. |
+| 5 — dossier paths | Read-only loader failure reproduced | Separately admitted tooling implementation/consumer QA still required. |
+| 6 — repeat Search | Historical hypothesis located | Current rendered reproduction and bounded disposition still required. |
+| 7 — tests/harness | Two retired-label failures reproduced | Assertion repair and bounded browser-harness diagnosis still required. |
+| 8 — main protection | BLOCKED | No supported connector administration write; detailed protection read denied, gh absent, approved browser unavailable. Main observed unprotected; no configuration or effective-enforcement claim. |
+
+Residue recoverability: external `authorized-residue-preservation.bundle`, SHA256 `cef59c66f47d0b07e390d39554ab896f7d7ffe268329c3d9988b082e5cafbef2`, passed bundle verification and both stash commits resolve in the external bare verification archive. VM-667 retained tree exactly equals PR59 squash tree; VM-660 authored payload matches VM-662 adoption. The generated-only first stash and unique seven-line second-stash patch were inspected; no patch was applied. Git stash list is now empty. Remaining registered worktrees: one, the current repository. No ignored research, documents or unrelated refs were removed.

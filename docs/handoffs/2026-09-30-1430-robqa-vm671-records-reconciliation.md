@@ -74,3 +74,55 @@ Browser, visual, runtime, and broad product test bundles were not run because th
 Owner decision: `PENDING`.
 
 This QA decision does not replace Owner judgment, certify the eight-item retained-residue ledger as completed work, authorize later implementation, or treat later host observations as part of the frozen material candidate.
+
+## Replacement exact candidate verdict
+
+Task: VM-671
+Candidate: a7ff44e30b86e8c971cf817dda670a710dc920d0
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: Codex `/root/independent_qa`
+Implementer: Codex `/root/reconciliation_dev`
+
+The replacement candidate resolves the only finding from candidate `4435b5cbe040dd4ee06c9d8caab66d2cd9b1efd5` by removing exactly the two recorded trailing-space pairs. It also retains that original BLOCKED decision as history and refreshes the generated handoff index to include this independent QA record. The substantive reconciliation material is otherwise unchanged.
+
+The documentation-only candidate truthfully preserves the VM-658 closeout blocker, records VM-660 integration by adoption without inventing a standalone PR or completed closeout, restores the five VM-661 records byte-for-byte, closes VM-637 from the seven separately accepted and integrated child outcomes without manufacturing new obligations, and corrects the Phase 6 pointer. Historical same-agent VM-661 QA remains historical evidence and is not presented as this independent review.
+
+### Replacement evidence
+
+- `git diff --check fc08845af94b1869386826bf6be7dac6ecf97b43..a7ff44e30b86e8c971cf817dda670a710dc920d0`: PASS.
+- `npm.cmd run task -- indexes --check`: PASS; 711 cards, 1,153 handoffs, no stale generated view.
+- Baseline-to-candidate Git accounting: 16 documentation paths; no runtime, data, test, policy, or memory path.
+- Prior content receipts remain applicable because `4435b5cbe040dd4ee06c9d8caab66d2cd9b1efd5..a7ff44e30b86e8c971cf817dda670a710dc920d0` changes only the two corrected lines, adds this QA history, and refreshes `docs/handoffs/HANDOFF_INDEX.md`.
+- Browser, visual, runtime, broad product, and CPU-heavy suites remain not applicable to this records-only candidate.
+
+### Replacement material candidate
+
+- Baseline: `fc08845af94b1869386826bf6be7dac6ecf97b43`
+- Candidate: `a7ff44e30b86e8c971cf817dda670a710dc920d0`
+- Changed paths: `16`
+
+### Replacement files changed
+
+- `docs/handoffs/2026-09-18-2300-codex-vm661-maze-modernization-spec.md`
+- `docs/handoffs/2026-09-18-2310-robqa-vm661-maze-modernization-spec.md`
+- `docs/handoffs/2026-09-19-0910-codex-vm662-maze-modernization-preflight.md`
+- `docs/handoffs/2026-09-19-0940-codex-kanban-vm660-vm661-lifecycle.md`
+- `docs/handoffs/2026-09-30-1430-kanban-vm671-admission.md`
+- `docs/handoffs/2026-09-30-1430-robdev-vm671-records-reconciliation.md`
+- `docs/handoffs/2026-09-30-1430-robqa-vm671-records-reconciliation.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/kanban/board.md`
+- `docs/kanban/done/VM-637-public-content-retention.md`
+- `docs/kanban/in-progress/VM-658-maze-instrument-frame.md`
+- `docs/kanban/in-progress/VM-660-maze-performance-recon.md`
+- `docs/kanban/in-progress/VM-661-maze-modernization-spec.md`
+- `docs/kanban/in-progress/VM-671-records-reconciliation.md`
+- `docs/plans/workflow-course-correction.md`
+- `docs/reports/2026-09-30-vm671-records-reconciliation.md`
+
+### Replacement Owner boundary
+
+Owner decision: `PENDING`.
+
+This PASS is bound only to exact candidate `a7ff44e30b86e8c971cf817dda670a710dc920d0`. It does not replace Owner judgment, certify retained-residue ledger items as completed, accept later implementation scope, or incorporate later host administration into the material candidate.
