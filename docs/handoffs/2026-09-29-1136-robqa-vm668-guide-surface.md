@@ -504,3 +504,42 @@ RobQA proves the objective structure, cascade, interaction, focus, containment, 
 - Not touched: implementation/runtime material, GitHub, PR, push, acceptance, merge, deployment, integration, or unrelated repository behavior.
 - Follow-up recommendation and next suggested agent: the Owner should execute only the seven bounded review items above. ACCEPT may integrate only this exact candidate; REJECT returns VM-668 to another correction on the same branch.
 - Related records: [VM-668 card](../kanban/in-progress/VM-668-field-guide-surface-convergence.md), [RobDev handoff](2026-09-29-1136-robdev-vm668-guide-surface.md), `docs/qa/RobQAPass.md`, and `docs/reference/workflow.md`.
+
+---
+
+## Owner Acceptance — 2026-09-29
+
+Task: VM-668
+Candidate: da5f8e1d535d25657037c84e48e98f959f7a3ada
+Evidence head before acceptance: 5bd7a92757b3f48bb834147ecd2d743a474b5c0f
+Owner: ACCEPT
+Decision reference: current Codex task Owner message dated 2026-09-29: `accept VM-668, push, merge to main so its live on the site, clean up the worktree too`
+Integration: PENDING
+Boundaries: PASS
+
+### Acceptance Record
+
+- Agent name: Codex `/root`.
+- Task requested: accept exact VM-668 candidate, push its feature branch, merge it to `main`, and clean up the worktree/branch state.
+- Files reviewed: VM-668 card; RobDev and independent RobQA evidence; final Git/change report; workflow ACCEPT, routing, delivery-check, handoff, and cleanup contracts; current Git branch/worktree state.
+- Files changed: this admitted append-only handoff, the VM-668 lifecycle card, and faithfully regenerated board/handoff-index views.
+- What changed: recorded genuine Owner ACCEPT for exact material candidate `da5f8e1d535d25657037c84e48e98f959f7a3ada`; integration remains pending until guarded PR delivery succeeds.
+- Why it changed: the Owner explicitly authorized ACCEPT, push, merge to `main`, live integration, and cleanup in the current Codex task.
+- Decisions made: retain the exact candidate and independent RobQA PASS; use the existing `codex/vm-668-guide-surface-convergence` branch; route GitHub reads, PR creation, CI inspection, and merge through the authenticated GitHub connector; retain ordinary Git transport for fetch/push; use an expected-head guarded squash merge.
+- Risks / uncertainties: GitHub CI must pass on the exact pushed evidence head; any material change invalidates the current QA/Owner binding. The known Edge launcher debt remains non-blocking and unchanged.
+- Tests run: candidate-stage delivery check PASS at evidence head `5bd7a92757b3f48bb834147ecd2d743a474b5c0f`; independent exact-candidate RobQA PASS; indexes fresh; worktree clean before acceptance evidence.
+- Not touched: material candidate, product/runtime behavior, tests, fixtures, policies, credentials, repository settings, unrelated branches/worktrees, or deployments outside the repository's normal `main` publication path.
+- Follow-up recommendations: push the evidence head, use the single PR, verify exact PR scope/parity and required CI, run integration-stage check, squash merge with the expected-head guard, sync `main`, close lifecycle evidence, and remove the VM-668 feature branch/worktree state.
+- Next suggested agent: Codex `/root` continues the authorized ACCEPT flow.
+- Related records: [VM-668 card](../kanban/in-progress/VM-668-field-guide-surface-convergence.md), [RobDev handoff](2026-09-29-1136-robdev-vm668-guide-surface.md), `docs/reference/workflow.md`, and `docs/reference/task-delivery.md`.
+
+### GitHub Route Discovery
+
+- Repository: `rboles84/voxmana.io`.
+- Authenticated identity: `rboles84`; repository permissions observed as admin/maintain/push/pull/triage.
+- Approved read route before first attempt: authenticated GitHub connector.
+- Approved merge route before first attempt: authenticated GitHub connector; it exposes `expected_head_sha` and `merge_method: squash`.
+- Git transport: established `origin` for ordinary feature-branch push and main synchronization.
+- Matching PR inventory before creation: none for head `codex/vm-668-guide-surface-convergence` into `main`.
+- Live policy observation: optional under `docs/reference/workflow.md#main-protection-and-exceptions`; the connector's branch-protection read returned 403 `Resource not accessible by integration`, while its ruleset read returned an empty list. Required CI remains `Deterministic Validation`.
+- Unresolved writes: none.

@@ -2,7 +2,7 @@
 
 ID: VM-668
 Title: Field Guide Surface Convergence
-Status: In Progress
+Status: Accepted
 Type: Route-family presentation implementation
 Area: Field Guide / shared site surface
 Priority: High
@@ -77,11 +77,11 @@ Branch: codex/vm-668-guide-surface-convergence
 Admission baseline: 676ab502f705a58ec6dafc42d2bc1288eceec67e
 Candidate: da5f8e1d535d25657037c84e48e98f959f7a3ada
 RobQA: PASS at da5f8e1d535d25657037c84e48e98f959f7a3ada — SEPARATE execution by `/root/vm668_rail_robqa`; evidence: `docs/handoffs/2026-09-29-1136-robqa-vm668-guide-surface.md`.
-Owner: PENDING
+Owner: ACCEPTED at da5f8e1d535d25657037c84e48e98f959f7a3ada — current Codex task Owner decision dated 2026-09-29
 Integration: PENDING
 Dependencies: None
 Decisions: Presentation-only Guide-family convergence. Preserve accepted content, ordering, routes, interaction semantics, atmosphere, accessibility, and responsive behavior. Use the existing site-skin contract with Guide-rooted declarations; do not rewrite generic Maze consumers. Scope amendment: include the canonical frontend HTML validator so its directly relevant Guide assertions require the admitted `vm-site-skin` root and late `site-skin.css?v=vm668` order while preserving Maze/Guide/rich-atmosphere checks; first-candidate independent RobQA proved the stale validator contract blocks the accepted implementation.
-Evidence: First candidate `8c5fe47f2a93172f7a09bc23ea5b3f98379c4ab4` received independent RobQA BLOCKED because canonical `npm.cmd run lint:html` retained two stale, directly relevant Guide body-root/final-stylesheet assertions. Corrected candidate `1b3b98bd8f1bece04815508a4dc7929ea7abdc04` received independent RobQAPass PASS, then Owner Review returned CORRECTION REQUIRED on that unchanged candidate. Replacement candidate `17e3d06df0d2d69724bc9da6aaaedd483d32d2ec` received independent QA-2 / SEPARATE RobQAPass PASS. Owner Review returned a second approved correction limited to the Guide relationship composition; original candidates and evidence remain unchanged. Exact second-correction candidate `da5f8e1d535d25657037c84e48e98f959f7a3ada` now has independent QA-1 presentation / SEPARATE RobQAPass PASS. The implementation keeps the relationship as an open, centered 1240px editorial composition: coupled number/product rows on one subdued journey rail, brighter compact questions, and two non-sequential vertical-rule Parallel Lenses. The late Guide-rooted skin owns the required `0 0 0 2px` gold lens border so it survives the cascade; all three Guide shells load its truthful changed-owner key `site-skin.css?v=vm668r2`, after root `guide.css?v=vm668r4`. Independent exact-candidate browser measurements prove the final cascade, wide and narrow rail geometry, three-route narrow containment, mode pointer/keyboard/focus state, and generic Maze isolation. Final readability, hierarchy, balance, and family fit remain Owner judgment.
+Evidence: First candidate `8c5fe47f2a93172f7a09bc23ea5b3f98379c4ab4` received independent RobQA BLOCKED because canonical `npm.cmd run lint:html` retained two stale, directly relevant Guide body-root/final-stylesheet assertions. Corrected candidate `1b3b98bd8f1bece04815508a4dc7929ea7abdc04` received independent RobQAPass PASS, then Owner Review returned CORRECTION REQUIRED on that unchanged candidate. Replacement candidate `17e3d06df0d2d69724bc9da6aaaedd483d32d2ec` received independent QA-2 / SEPARATE RobQAPass PASS. Owner Review returned a second approved correction limited to the Guide relationship composition; original candidates and evidence remain unchanged. Exact second-correction candidate `da5f8e1d535d25657037c84e48e98f959f7a3ada` has independent QA-1 presentation / SEPARATE RobQAPass PASS. The Owner accepted that exact candidate in the current Codex task on 2026-09-29 and explicitly authorized push, merge to `main`, live integration, and cleanup. The implementation keeps the relationship as an open, centered 1240px editorial composition: coupled number/product rows on one subdued journey rail, brighter compact questions, and two non-sequential vertical-rule Parallel Lenses. The late Guide-rooted skin owns the required `0 0 0 2px` gold lens border so it survives the cascade; all three Guide shells load its truthful changed-owner key `site-skin.css?v=vm668r2`, after root `guide.css?v=vm668r4`. Independent exact-candidate browser measurements prove the final cascade, wide and narrow rail geometry, three-route narrow containment, mode pointer/keyboard/focus state, and generic Maze isolation.
 
 ## Admission Scope
 
