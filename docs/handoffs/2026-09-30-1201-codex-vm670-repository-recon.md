@@ -73,11 +73,11 @@ After committing the material candidate, the reviewer re-read its actual baselin
 
 Selected evidence: actual Git scope/content and preservation observations; authored link validation; derived-view freshness; whitespace validation; corroborated local/host/source facts. Browser, engine, mutation, certification and CPU-heavy suites: NOT REQUIRED for this QA-0 artifact. Remaining Owner judgment: proposed cleanup dispositions, separate host-settings decision and product priorities. Owner remains PENDING; integration remains PENDING.
 
-## Material change set
+## Material candidate
 
-Baseline: d842be5a95a57547cc942f8dbd4f8c9c8204d02d
-Material candidate: 604d4ed885eadcae497b9f8c92669f5862a259b4
-Changed paths: 5
+- Baseline: `d842be5a95a57547cc942f8dbd4f8c9c8204d02d`
+- Candidate: `604d4ed885eadcae497b9f8c92669f5862a259b4`
+- Changed paths: `5`
 
 ## Files changed
 
