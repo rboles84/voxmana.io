@@ -1,4 +1,4 @@
-<!-- task-view-sha256:e484a49fb695bca798b86e1c0946555c6809603df7518b8c87a841f39d7226b2 -->
+<!-- task-view-sha256:6d3101848bc54e6e1071dc3a9c3e7756ac9defa4e77f2073b6edcf9ec5de0ed6 -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -8,6 +8,7 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 
 | Authored / filename date | Agent | Handoff | Related task references | Diagnostics |
 |---|---|---|---|---|
+| 2026-09-30T12:01:00-06:00 (authored) | Codex `/root` | [VM-670 — Repository reconnaissance handoff](2026-09-30-1201-codex-vm670-repository-recon.md) | VM-670 | Identity displayed from heading; not admission metadata. |
 | 2026-09-30T00:00:00Z (authored) | Codex `/root`, coordinator using the session-selected model and effort | [VM-669 — Legal Surface Convergence — Owner Review Coordination](2026-09-30-0859-coordinator-vm669-owner-review.md) | VM-669, VM-648, VM-668 | Identity displayed from heading; not admission metadata. |
 | 2026-09-30T00:00:00Z (authored) | Codex `/root/vm669_robdev` | [VM-669 RobDev Handoff — Legal Surface Convergence](2026-09-30-0859-robdev-vm669-legal-surface.md) | VM-669, VM-648 | Identity displayed from heading; not admission metadata. |
 | 2026-09-30T00:00:00Z (authored) | Unknown | [VM-669 Independent RobQA — Legal Surface Convergence](2026-09-30-0859-robqa-vm669-legal-surface.md) | VM-669 | Identity displayed from heading; not admission metadata. |
