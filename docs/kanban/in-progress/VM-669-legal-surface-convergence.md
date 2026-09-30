@@ -55,7 +55,7 @@ RobQA: PENDING
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
-Decisions: Presentation-only Legal convergence. Preserve VM-648 copy and policy boundaries, all legal route contracts, and unrelated public-route consumers. Owner authorization, 2026-09-30: "Authorize the repaired admission history" for this exact same-branch reconciliation at `88699eadcbbd83eb1a4cd6115d214943d9ad2911`. The earlier unpushed admission-only commits are retained in reflog: the first placed Record version outside Delivery, then record-only corrections; the branch was soft-reset to the permitted baseline and recreated as the current valid two-file admission commit. No material implementation entered either history. Scope amendment: add the narrow static Legal baseline/adapter contract required to preserve locked legal bytes without a new browser harness.
+Decisions: Presentation-only Legal convergence. Preserve VM-648 copy and policy boundaries, all legal route contracts, and unrelated public-route consumers. Owner authorization, 2026-09-30: "Authorize the repaired admission history" for this exact same-branch reconciliation at `88699eadcbbd83eb1a4cd6115d214943d9ad2911`. The earlier unpushed admission-only commits are retained in reflog: the first placed Record version outside Delivery, then record-only corrections; the branch was soft-reset to the permitted baseline and recreated as the current valid two-file admission commit. No material implementation entered either history. Scope amendment: add the narrow static Legal baseline/adapter contract required to preserve locked legal bytes without a new browser harness. Scope amendment: admit timestamped specialist and coordinator handoff names required by the canonical handoff filename contract; preserve product bytes and acceptance criteria.
 
 ## Admission Scope
 
@@ -72,3 +72,7 @@ Decisions: Presentation-only Legal convergence. Preserve VM-648 copy and policy 
 - `docs/handoffs/2026-09-30-robdev-vm669-legal-surface.md`
 - `docs/handoffs/2026-09-30-robqa-vm669-legal-surface.md`
 - `docs/handoffs/2026-09-30-coordinator-vm669-owner-review.md`
+
+- `docs/handoffs/2026-09-30-0859-robdev-vm669-legal-surface.md`
+- `docs/handoffs/2026-09-30-0859-robqa-vm669-legal-surface.md`
+- `docs/handoffs/2026-09-30-0859-coordinator-vm669-owner-review.md`
