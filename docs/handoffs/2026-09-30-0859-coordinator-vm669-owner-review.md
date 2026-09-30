@@ -3,8 +3,8 @@
 Date: 2026-09-30
 Task: VM-669
 Agent: Codex `/root`, coordinator using the session-selected model and effort
-Candidate: PENDING — bounded README link correction after cbffe36cb9263697b7941196012bdb668a9f19c9
-RobQA: PENDING for the corrected candidate; previous independent PASS remains historical evidence.
+Candidate: 9844a26b482901f7636d2d4aa12c002055166177
+RobQA: PASS at 9844a26b482901f7636d2d4aa12c002055166177 — independent SEPARATE execution by `/root/vm669_robqa`; HTML-only correction evidence is in its durable record.
 Owner: PENDING
 Integration: PENDING — the Owner explicitly prohibited push, PR, merge, deployment, and integration in this request.
 
@@ -70,3 +70,9 @@ PASS if the shared hierarchy, surfaces, and reading rhythm satisfy that judgment
 Next: genuine Owner Review. If rejected, return to the same task and branch for a bounded RobDev correction and new independent exact-candidate QA. Do not integrate under the current request.
 
 Related: [VM-669 task](../kanban/in-progress/VM-669-legal-surface-convergence.md), [VM-648](../kanban/done/VM-648-terms-service-accuracy-pass.md), and [VM-668](../kanban/done/VM-668-field-guide-surface-convergence.md). Both generated views must be regenerated from these source records and checked before delivery.
+
+## Corrected candidate Owner check
+
+The corrected material candidate is `9844a26b482901f7636d2d4aa12c002055166177` on the existing local feature branch. Its incremental product diff changes only the two contact hrefs; CSS and runtime bytes match the earlier visual candidate. Developer checks passed the static Legal baseline contract, script syntax, HTML lint, and diff cleanliness. No new visual QA was performed, as requested.
+
+Refresh the [Terms](http://127.0.0.1:6690/terms/index.html) and [Privacy](http://127.0.0.1:6690/privacy/index.html) previews. In each Contact section, follow "Vox Mana public source repository" and verify that it reaches the [repository README](https://github.com/rboles84/voxmana.io#readme). The Owner's "rest looks ok" feedback is retained; destination verification and exact-candidate acceptance remain pending. No push, PR, merge, deployment, or integration was performed.

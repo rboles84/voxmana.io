@@ -2,7 +2,7 @@
 
 ID: VM-669
 Title: Legal Surface Convergence
-Status: In Progress
+Status: Owner Review
 Type: Frontend presentation convergence
 Area: Privacy, Terms, Legal route shell
 Priority: Medium
@@ -50,12 +50,12 @@ Bring the separate Terms and Privacy routes into the current Vox Mana public-sit
 Record version: 1
 Branch: `codex/vm-669-legal-surface-convergence`
 Admission baseline: `53f309865d5a194769b55643a52b85a710984521`
-Candidate: PENDING
-RobQA: PENDING
+Candidate: 9844a26b482901f7636d2d4aa12c002055166177
+RobQA: PASS at 9844a26b482901f7636d2d4aa12c002055166177 — SEPARATE execution by `/root/vm669_robqa`; evidence: `docs/handoffs/2026-09-30-0859-robqa-vm669-legal-surface.md`.
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
-Evidence: The prior visual review is limited to the Owner's "rest looks ok" observation. This Owner-authorized external-link correction invalidates the prior candidate and RobQA binding; fresh independent QA is required for the next immutable candidate. No push, PR, merge, deployment, or integration is authorized by this execution request.
+Evidence: Independent HTML-only engineering PASS is bound to the corrected exact candidate. The Owner's "rest looks ok" observation is retained; the Owner will verify both README links. Styling and runtime bytes match the earlier visual candidate; no visual rerun was performed as requested. Owner acceptance remains pending. No push, PR, merge, deployment, or integration is authorized by this execution request.
 Decisions: Presentation-only Legal convergence. Preserve VM-648 copy and policy boundaries, all legal route contracts, and unrelated public-route consumers. Owner authorization, 2026-09-30: "Authorize the repaired admission history" for this exact same-branch reconciliation at `88699eadcbbd83eb1a4cd6115d214943d9ad2911`. The earlier unpushed admission-only commits are retained in reflog: the first placed Record version outside Delivery, then record-only corrections; the branch was soft-reset to the permitted baseline and recreated as the current valid two-file admission commit. No material implementation entered either history. Scope amendment: add the narrow static Legal baseline/adapter contract required to preserve locked legal bytes without a new browser harness. Scope amendment: admit timestamped specialist and coordinator handoff names required by the canonical handoff filename contract; preserve product bytes and acceptance criteria. Owner-authorized surgical exception: replace only the two `Vox Mana public source repository` contact links from the GitHub Issues URL to the repository README URL; no other external link, legal text, metadata, route, or presentation change is authorized.
 
 ## Admission Scope

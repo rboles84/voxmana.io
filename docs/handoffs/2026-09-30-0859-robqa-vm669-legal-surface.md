@@ -4,7 +4,7 @@ Date: 2026-09-30
 Task: VM-669
 Branch: `codex/vm-669-legal-surface-convergence`
 Admission baseline: `53f309865d5a194769b55643a52b85a710984521`
-Candidate: `cbffe36cb9263697b7941196012bdb668a9f19c9`
+Candidate: 9844a26b482901f7636d2d4aa12c002055166177
 RobQA: PASS
 Execution: SEPARATE
 Reviewer: Codex `/root/vm669_robqa`; configured/requested/accepted route Sol medium, backend identity unverified
@@ -12,9 +12,11 @@ Implementer: Codex `/root/vm669_robdev`; configured/requested/accepted route Ter
 Authority: repository-local [RobQA skill](../../.agents/skills/robqa/SKILL.md) and full [RobQAPass](../qa/RobQAPass.md)
 Related implementation handoff: [VM-669 RobDev](2026-09-30-0859-robdev-vm669-legal-surface.md)
 Related card: [VM-669](../kanban/in-progress/VM-669-legal-surface-convergence.md)
-Next suggested agent: coordinator for evidence consolidation and Owner Review; Owner judgment remains pending
+Next suggested agent: coordinator for evidence consolidation and Owner verification of the corrected external destination; Owner acceptance remains pending
 
-## Candidate-bound decision
+## Historical initial candidate review — cbffe36cb9263697b7941196012bdb668a9f19c9
+
+The sections from this heading through the original Follow-up recommendations preserve the independent review of the initial visual candidate. Statements there that all link destinations were unchanged apply to that historical candidate and are superseded only by the later Owner-authorized README correction documented in the current-candidate section at the end of this handoff. The visual, focus, containment, cascade, and unrelated-consumer evidence remains applicable because style and runtime bytes did not change.
 
 Independent RobQA issues engineering **PASS** for exact immutable candidate `cbffe36cb9263697b7941196012bdb668a9f19c9`. The candidate satisfies the objective presentation, legal-content preservation, accessibility, responsive-containment, and unrelated-consumer isolation contracts selected for this QA-1 change. This verdict permits Owner Review; it is not Owner acceptance, integration, deployment, or a subjective visual judgment.
 
@@ -161,3 +163,56 @@ The complete selected set and results are recorded above. All selected static/ca
 - Coordinator should bind this PASS and exact candidate in the evidence-only lifecycle record, regenerate/check derived views, and present the bounded six-step checklist to the Owner.
 - If the Owner rejects a visual/product choice, preserve the finding, return the same card/branch to RobDev, create a new material candidate, and rerun proportionate independent RobQA.
 - Do not repeat placement/recommendation/identity/journey/mutation suites or headless-browser launch attempts for this unchanged QA-1 scope.
+
+## Surgical correction review — current candidate 9844a26b482901f7636d2d4aa12c002055166177
+
+### Current candidate-bound decision
+
+Independent RobQA issues engineering **PASS** for exact immutable candidate `9844a26b482901f7636d2d4aa12c002055166177`. The Owner authorized one exception to the initial locked-link boundary: the existing `Vox Mana public source repository` contact link on Terms and Privacy now targets `https://github.com/rboles84/voxmana.io#readme` instead of the repository Issues page. No other product difference from the previously reviewed product is present.
+
+This is **SEPARATE** execution by Codex `/root/vm669_robqa`, independent of implementer `/root/vm669_robdev`. The configured/requested/accepted reviewer route remains Sol medium; backend identity is unverified. The correction remains QA-1 bounded HTML/link presentation work: it changes a declared external destination without changing internal routing, state, interaction, styling, or runtime behavior.
+
+### Exact incremental scope
+
+- Incremental range inspected: `5f0cddd29c25a9b237237ddb9b7cc4dd5ebbb0c1..9844a26b482901f7636d2d4aa12c002055166177`.
+- Material product changes: one `href` in `terms/index.html`, one `href` in `privacy/index.html`, and the focused restoration logic in `scripts/vm669-legal-surface-static.mjs` that permits exactly those two authorized substitutions while preserving the baseline comparison.
+- Delivery evidence changes reset the prior candidate/QA/Owner state to pending and record the correction request. Generated board state returned to In Progress before this fresh verdict.
+- Full baseline-to-candidate scope remains within the eleven admitted rows reported by strict continuation.
+
+### Independent tests selected
+
+| Test | Reason | Result |
+|---|---|---|
+| `npm.cmd run validate:admission -- --task=VM-669 --mode=continue` with permitted remote visibility | Bind branch, baseline, merge base, local/remote main, and admitted scope to the corrected exact candidate. | **PASS** at `9844a26b482901f7636d2d4aa12c002055166177`; baseline, merge base, local main, and remote main all `53f309865d5a194769b55643a52b85a710984521`. |
+| Exact Git inspection of baseline-to-candidate and `5f0cddd..9844a26` | Establish full scope and isolate the correction from prior evidence and presentation work. | **PASS**. |
+| Per-page prior-product normalization comparison | Prove the new README href is the sole HTML difference from the previously reviewed Terms and Privacy product. | **PASS**: replacing the new href with the former Issues href makes each page byte-identical to its `5f0cddd` version. |
+| Per-page exact anchor/count assertions | Protect destination and accessible label at the authored HTML layer. | **PASS** on each page: one README URL, zero former Issues URLs, one unchanged `Vox Mana public source repository` label, and one exact labelled anchor. |
+| `node scripts/vm669-legal-surface-static.mjs` | Verify exactly one authorized README link per Legal route and reject all other content, metadata, links, or DOM drift outside approved VM-669 allowances. | **PASS**. |
+| `npm.cmd run lint:html` | Exercise the canonical public HTML contract after the surgical href correction. | **PASS**. |
+| `node --check scripts/vm669-legal-surface-static.mjs` | Verify the narrowed restoration contract is syntactically valid. | **PASS**. |
+| `git diff --check 53f3098..9844a26` | Detect exact-candidate whitespace errors. | **PASS**. |
+| `npm.cmd run task -- indexes --check` | Confirm generated views are fresh at the corrected candidate before this QA evidence update. | **PASS**: 708 cards and 1145 handoffs. |
+
+### Unchanged presentation and runtime proof
+
+- `git diff --quiet 5f0cddd..9844a26 -- assets` passes. All style, image, font, and runtime JavaScript bytes are identical to the previously reviewed product.
+- The canonical HTML validator did not change in the correction range.
+- The accessible label and surrounding Legal copy are byte-identical after normalizing only the authorized href.
+- The historical desktop, approximately 390px, focus, glossary, sticky-summary, footer, cascade, and Maze-isolation evidence remains applicable to the unchanged presentation/runtime inputs. The previously disclosed Control+End locator deadline remains historical harness debt; this correction introduces no renewed visual or interaction claim.
+
+### Browser, external destination, and expensive-suite disposition
+
+- No visual or browser rerun was performed. The Owner explicitly requested HTML-only independent QA and said the rest looked okay; unchanged style/runtime bytes make a visual rerun disproportionate.
+- No live external-network destination check was performed. The exact authored `https://github.com/rboles84/voxmana.io#readme` value is machine-verified; the Owner retains the requested external destination verification.
+- Placement, recommendation, identity, scoring, journey, synthetic, mutation, recovery, certification, screenshot, visual-baseline, broad-viewport, and full-system suites were not required because their owners and protected behavior did not change.
+- CPU-heavy validation: `NOT REQUIRED`.
+
+### Current limitations and Owner boundary
+
+- RobQA verifies the authored destination, label preservation, exact correction scope, and unchanged presentation/runtime bytes. It does not claim that the external GitHub destination was opened or that the Owner has accepted the corrected candidate.
+- Owner verification remains: activate `Vox Mana public source repository` once from Terms and once from Privacy and confirm each opens the repository README destination expected by the Owner.
+- Owner: **PENDING**. Integration: **PENDING**. No push, pull request, merge, deployment, or integration is authorized or performed by this review.
+
+### Current follow-up
+
+Coordinator should bind this PASS to `9844a26b482901f7636d2d4aa12c002055166177`, preserve the historical initial review, regenerate/check lifecycle views, and present only the two-link external-destination verification to the Owner. Any further material change requires a new immutable candidate and proportionate independent review.
