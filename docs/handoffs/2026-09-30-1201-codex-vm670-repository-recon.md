@@ -57,3 +57,34 @@ Owner reviews the report's concrete dispositions. Next suggested agent: coordina
 PENDING exact documentation candidate and distinct QA-0 review. This handoff will append the verified candidate, Git-derived material scope, evidence-only delta, current HEAD and state after those facts exist. It does not claim Owner acceptance or integration.
 
 Related: [VM-670](../kanban/in-progress/VM-670-repository-recon.md); [workflow](../reference/workflow.md); [report](../reports/2026-09-30-vm670-repository-recon.md).
+
+## Exact documentation QA
+
+Task: VM-670
+Candidate: 604d4ed885eadcae497b9f8c92669f5862a259b4
+RobQA: PASS
+Execution: SAME-AGENT DISTINCT PHASE
+Reviewer: Codex /root
+Implementer: Codex /root
+Independence required: no
+Execution reason: QA-0 original reconnaissance/report capture only. Recommendations do not change governance, shared behavior, protected authority or host configuration; no integration is attempted.
+
+After committing the material candidate, the reviewer re-read its actual baseline diff and acceptance criteria, including the full report, handoff, card and derived changes. All changes belong to the five admitted documentation paths. Local links in the three authored artifacts resolve; index freshness and exact-range whitespace checks pass. Existing branches and both stash objects remain at their observed heads. No existing task lifecycle or policy was changed. The three reconnaissance failures remain honestly reported, rather than treated as this report's QA failure or a product certification.
+
+Selected evidence: actual Git scope/content and preservation observations; authored link validation; derived-view freshness; whitespace validation; corroborated local/host/source facts. Browser, engine, mutation, certification and CPU-heavy suites: NOT REQUIRED for this QA-0 artifact. Remaining Owner judgment: proposed cleanup dispositions, separate host-settings decision and product priorities. Owner remains PENDING; integration remains PENDING.
+
+## Material change set
+
+Baseline: d842be5a95a57547cc942f8dbd4f8c9c8204d02d
+Material candidate: 604d4ed885eadcae497b9f8c92669f5862a259b4
+Changed paths: 5
+
+## Files changed
+
+- `docs/handoffs/2026-09-30-1201-codex-vm670-repository-recon.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-670-repository-recon.md`
+- `docs/reports/2026-09-30-vm670-repository-recon.md`
+
+This list and count come from `git diff --name-status --find-renames` for the full baseline-to-material-candidate range, including the admission commit. Later evidence-only recording must be accounted for separately; it is not the material scope. Final HEAD, evidence-only delta, total-branch scope, generated-view state and clean worktree will be verified and reported from Git after the evidence commit. No push, PR, merge or cleanup is authorized or claimed.
