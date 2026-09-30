@@ -408,3 +408,99 @@ RobQA proves the objective correction, structure, interaction, state, focus, mot
 - Historical decisions preserved: first candidate BLOCKED, corrected candidate PASS, and Owner CORRECTION REQUIRED on the prior candidate remain auditable above and on the card.
 - Not touched: GitHub, PR, push, acceptance, merge, deployment, integration, or unrelated repository behavior.
 - Next suggested agent: the Owner for renewed bounded visual/product review. ACCEPT may integrate only this exact candidate; REJECT returns VM-668 to correction on the same branch.
+
+---
+
+## Second relationship-correction RobQA — 2026-09-29
+
+Task: VM-668
+Prior evidence head: `781573e926118ae6458fa9d67519f1548d4fcdf2`
+Candidate: `da5f8e1d535d25657037c84e48e98f959f7a3ada`
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: `/root/vm668_rail_robqa`
+Implementer: `/root/vm668_rail_restart`
+
+The immutable second relationship-correction candidate receives **RobQAPass PASS**. This reviewer did not implement the candidate. The decision permits genuine bounded Owner Review only; it does not assert Owner acceptance, integration, deployment, push, PR, or merge.
+
+## Change classification
+
+- QA tier: **QA-1 — presentation/styling**, while the complete branch retains the earlier independently certified QA-2 mode-control boundary.
+- Changed behavior: the root Guide relationship becomes one centered 1240px editorial composition with a coupled number/product row, one horizontal journey rail and junctions, larger questions, two separate vertical-rule Parallel Lenses, and a vertical narrow sequence. The final Guide-rooted skin preserves the lens rules through the late cascade.
+- Protected behavior intentionally untouched: authored copy, headings, product order, relationship semantics, CTA destinations, landmarks, JavaScript, mode state, pointer/keyboard ownership, focus, atmosphere, reduced motion, child-route content, generic Maze, and unrelated application/data owners.
+- QA execution mode and reason: **SEPARATE** by `/root/vm668_rail_robqa`. The user required independent RobQA and the public presentation correction spans route CSS plus the late shared skin, even though the correction is narrowly QA-1.
+- Exact candidate and evidence reference: `da5f8e1d535d25657037c84e48e98f959f7a3ada`; this append-only handoff section and the VM-668 card.
+
+## Exact diff review
+
+- Full branch: `676ab502f705a58ec6dafc42d2bc1288eceec67e..da5f8e1d535d25657037c84e48e98f959f7a3ada` contains 13 paths, all inside the admitted VM-668 scope.
+- Second correction: `781573e926118ae6458fa9d67519f1548d4fcdf2..da5f8e1d535d25657037c84e48e98f959f7a3ada` contains 10 paths and 141 insertions / 61 deletions. Material presentation changes are limited to `assets/css/guide.css`, the Guide-rooted relationship declarations in `assets/css/site-skin.css`, and truthful stylesheet cache keys in the three Guide shells; the validator/focused contract and lifecycle records account for the remaining paths.
+- No Guide JavaScript, relationship DOM/copy/order, CTA href, route metadata, mode ownership, generic Maze selector, or unrelated route file changed in the second correction.
+- The Owner finding was converted into the narrowest route-specific invariant: number/product metadata is coupled, the journey uses one rail rather than separator lines, the questions stay attached to their products, and companion lenses remain visibly non-sequential through short gold left rules.
+
+No blocker, major, minor, or candidate-caused unresolved harness-debt finding remains.
+
+## Tests selected
+
+- `npm run validate:admission -- --task=VM-668 --mode=continue` — **PASS** after the sandboxed network attempt was rerun through the approved network path. Branch/head, remote/local main, admission baseline, admission commit, merge base, and all 13 scoped paths are valid for exact candidate `da5f8e1d535d25657037c84e48e98f959f7a3ada`.
+- `node scripts/vm668-guide-surface-browser.mjs --static` — **PASS**. Protects the centered `77.5rem` composition, coupled counters, one rail and junctions, distinct lens rules, late-skin border survival, vertical narrow sequence, three route roots/stylesheets, landmarks, initial mode state, and CTA ownership.
+- `node --check scripts/vm668-guide-surface-browser.mjs` — **PASS**.
+- `npm.cmd run lint:html` — **PASS**. Canonical Guide root, atmosphere, and exact stylesheet-order/cache contracts remain valid.
+- `npm.cmd run lint:js` — **PASS** for 37 files.
+- `npm.cmd run test:route-metadata` — **PASS** for 16 public route heads.
+- `npm.cmd run test:frontend-smoke` — **PASS** for Guide, Home, Maze, Archscry, Library alias, Privacy, and Terms.
+- `npm run task -- indexes --check` before QA evidence updates — **PASS** for 707 cards and 1142 handoffs.
+- `git diff --check 676ab502f705a58ec6dafc42d2bc1288eceec67e..da5f8e1d535d25657037c84e48e98f959f7a3ada` — **PASS**.
+- Independent full-branch and correction-only source/diff inspection — **PASS**. Every changed path is accounted, the final cascade owner is Guide-rooted, and generic Maze cannot match it.
+
+## Focused exact-candidate browser evidence
+
+Browser evidence was justified only for objective final-cascade geometry, responsive containment, real input/focus state, and route isolation that source inspection cannot prove reliably. No screenshot, aesthetic certification, or broad viewport matrix was used.
+
+- Wide root at a requested 1600x900 viewport: document client/scroll widths were `1585/1585`; `.guide-relationship` computed to exactly `1240px`, centered at `172.5..1412.5px`; all four stages computed to equal `270px` columns; the relationship rail computed to one `1px` line; each junction computed to approximately `7.19px` with a 1px gold border; and each question computed to `15.04px`.
+- The stage text remained exactly `Archscry`, `Reading / Placement`, `Dossier`, and `The Implicit Maze`, each with its accepted question. Rendered accessibility text exposed `01` through `04` directly alongside the respective product sequence.
+- Parallel Lenses computed as two equal `556px` columns. Strategium and Apocrypha remained transparent open regions with exactly `2px` gold left borders (`rgb(210, 179, 112)`), proving the late site-skin no longer erases the intended marks.
+- The final stylesheet order was Maze `vm635`, root Guide `vm668r4`, then Guide-rooted site skin `vm668r2`.
+- Root at a requested 390x844 viewport: browser inner width was 390 and document client/scroll widths were `375/375`; the four stages shared one vertical 1px rail and one column, with increasing top positions and aligned left positions; Parallel Lenses stacked to one column while retaining both 2px gold marks; no visible interactive element extended outside the client width.
+- Reading Guide and Maze Guide at the same requested narrow viewport each reported client/scroll `375/375`, zero offscreen interactive controls, the required Guide route roots, and `site-skin.css?v=vm668r2` loaded last.
+- Real root mode activation remained correct on this exact candidate: pointer activation selected Operator with only its panel visible and focus on its control; ArrowRight selected Loom, exposed only its panel, retained focus on Loom, and produced a solid 2px focus outline.
+- Generic `/maze/` retained only `vm-site-skin vm-maze-route`, had no Guide relationship, and could not match `body.vm-site-skin.vm-guide-route`.
+
+## Tests intentionally skipped
+
+- Dedicated Edge harness: not rerun. Its pre-assertion code-0/no-stderr launcher exit is already classified as known host harness debt, and independent in-app-browser evidence directly covers the changed objective risks.
+- Screenshots, visual baselines, aesthetic comparison, animation-fidelity waits, and broad viewport matrices: OWNER-VISUAL remains active; final readability and hierarchy belong to the Owner.
+- Placement, identity, recommendation, synthetic, mutation, recovery, journey, generated-data, and unrelated application suites: none of their protected owners changed, and they cannot answer the scoped presentation risk.
+
+## CPU-heavy validation
+
+**NOT REQUIRED.** No placement, scoring, ranking, qualification, state-machine, mutation, recovery, or generated-data owner changed.
+
+## Manual finding converted to invariant
+
+- Finding: the relationship section read as disconnected columns and separators, with numbers separated from products and Parallel Lenses visually ambiguous.
+- Defect class: presentation hierarchy/readability and relationship semantics.
+- Regression invariant: within the Guide route only, the four accepted stages share one constrained rail with coupled number/product headings and attached questions; companion lenses are outside that sequence and retain short gold vertical marks at wide and narrow widths.
+- Result: **PASS** at source, static-contract, final computed-style, and narrow-containment layers. Subjective readability remains Owner judgment.
+
+## Remaining Owner judgment and bounded checklist
+
+RobQA proves the objective structure, cascade, interaction, focus, containment, and isolation contracts. The Owner judges readability, scan order, spacing, visual balance, and whether the new relationship composition communicates one journey plus two companion lenses.
+
+1. Guide root hero and first chapter.
+2. One representative teaching specimen.
+3. Product relationship section — confirm the four numbered stages scan as one journey and Parallel Lenses do not read as steps 5–6.
+4. Reading Guide mode control.
+5. Maze Guide mode control.
+6. One approximately 390px route — confirm the vertical journey remains comfortable to scan.
+7. Confirm the Guide belongs to the main site family while its teaching specimens remain intentionally solid.
+
+## Handoff accounting
+
+- Files changed by this RobQA pass: this append-only handoff and the VM-668 card, followed by governed generated-view regeneration.
+- Product, runtime, validator, focused contract, fixture, policy, and acceptance-criterion files changed by RobQA: none.
+- Current decision: **RobQAPass PASS** for exact material candidate `da5f8e1d535d25657037c84e48e98f959f7a3ada`; Owner PENDING.
+- Risks/uncertainties: subjective readability, visual balance, and final family fit remain genuine Owner judgment; the known Edge launcher debt remains non-blocking because direct focused browser evidence is green.
+- Not touched: implementation/runtime material, GitHub, PR, push, acceptance, merge, deployment, integration, or unrelated repository behavior.
+- Follow-up recommendation and next suggested agent: the Owner should execute only the seven bounded review items above. ACCEPT may integrate only this exact candidate; REJECT returns VM-668 to another correction on the same branch.
+- Related records: [VM-668 card](../kanban/in-progress/VM-668-field-guide-surface-convergence.md), [RobDev handoff](2026-09-29-1136-robdev-vm668-guide-surface.md), `docs/qa/RobQAPass.md`, and `docs/reference/workflow.md`.
