@@ -76,7 +76,7 @@ Record version: 1
 Branch: codex/vm-668-guide-surface-convergence
 Admission baseline: 676ab502f705a58ec6dafc42d2bc1288eceec67e
 Candidate: da5f8e1d535d25657037c84e48e98f959f7a3ada
-RobQA: PASS — exact candidate `da5f8e1d535d25657037c84e48e98f959f7a3ada`, SEPARATE execution by `/root/vm668_rail_robqa`; evidence: `docs/handoffs/2026-09-29-1136-robqa-vm668-guide-surface.md`.
+RobQA: PASS at da5f8e1d535d25657037c84e48e98f959f7a3ada — SEPARATE execution by `/root/vm668_rail_robqa`; evidence: `docs/handoffs/2026-09-29-1136-robqa-vm668-guide-surface.md`.
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
