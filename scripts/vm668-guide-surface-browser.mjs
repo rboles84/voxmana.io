@@ -56,18 +56,22 @@ async function staticContract() {
   assert.match(guideCss, /vm-guide-route \.vm-topbar[\s\S]*?background: #0c0c0b/, "Guide sticky topbar must own an opaque surface");
   assert.match(guideCss, /\.guide-story > \.guide-chapter:first-child[\s\S]*?border-top-width: 0/, "Guide hero must be the only owner of the first chapter transition");
   assert.doesNotMatch(guideRouteCss, /\.guide-mode-stage\s*\{\s*min-height:\s*258px/, "Guide mode stage must not reserve the old common height");
-  assert.match(guideRouteCss, /\.guide-flow-main[\s\S]*?counter-reset: guide-stage/, "Guide relationship must expose one ordered primary journey rail");
-  assert.match(guideRouteCss, /\.guide-flow-support[\s\S]*?width: 100%[\s\S]*?Parallel lenses/, "Guide parallel lenses must share one full-width band");
+  assert.match(guideRouteCss, /\.guide-relationship[\s\S]*?width: min\(100%, 77\.5rem\)[\s\S]*?margin-inline: auto/, "Guide relationship must keep its heading and flow within a centered editorial composition");
+  assert.match(guideRouteCss, /\.guide-flow-main[\s\S]*?counter-reset: guide-stage[\s\S]*?\.guide-flow-main div > span::before[\s\S]*?counter\(guide-stage, decimal-leading-zero\)/, "Guide journey numbers must be coupled to their product headings");
+  assert.match(guideRouteCss, /\.guide-flow-main::before[\s\S]*?height: 1px[\s\S]*?\.guide-flow-main > div::before[\s\S]*?border: 1px solid var\(--maze-gold-2\)/, "Guide journey must use one subdued rail with gold junctions");
+  assert.match(guideRouteCss, /\.guide-flow-support > div[\s\S]*?border-left: 2px solid var\(--maze-gold-2\)/, "Guide parallel lenses must use distinct vertical lens rules");
+  assert.match(guideCss, /body\.vm-site-skin\.vm-guide-route \.guide-flow-support > div[\s\S]*?border-width: 0 0 0 2px;[\s\S]*?border-left-color: var\(--site-gold\)/, "Late Guide skin must preserve gold vertical lens rules over the route stylesheet");
+  assert.match(guideRouteCss, /@media \(max-width: 980px\)[\s\S]*?\.guide-flow-main[\s\S]*?grid-template-columns: minmax\(0, 1fr\)[\s\S]*?border-left: 1px solid var\(--maze-line-soft\)/, "Guide journey must become a vertical rail at narrow widths");
   for (const route of routes) {
     const file = path.join(root, route.path, "index.html");
     const html = await readFile(file, "utf8");
     const css = [...html.matchAll(/<link rel="stylesheet" href="([^"]+)/g)].map(match => match[1]);
-    assert.equal(css.at(-1)?.split("?")[0].endsWith("assets/css/site-skin.css"), true, `${route.path} should opt into site skin after route CSS`);
+    assert.equal(css.at(-1)?.endsWith("assets/css/site-skin.css?v=vm668r2"), true, `${route.path} should opt into the current site-skin owner after route CSS`);
     assert.match(html, /<body class="vm-site-skin vm-maze-route vm-guide-route/, `${route.path} should preserve the Guide and Maze route roots`);
     assert.match(html, new RegExp(`<main id="${route.main.slice(1)}"[\\s\\S]*?<h1 id="${route.title.slice(1)}"`), `${route.path} should retain its main landmark and H1`);
   }
   const rootHtml = await readFile(path.join(root, "guide/index.html"), "utf8");
-  assert.match(rootHtml, /href="\.\.\/assets\/css\/guide\.css\?v=vm668r3"/, "Root Guide must load its corrected stylesheet cache key");
+  assert.match(rootHtml, /href="\.\.\/assets\/css\/guide\.css\?v=vm668r4"/, "Root Guide must load its corrected stylesheet cache key");
   assert.match(rootHtml, /aria-pressed="true"[\s\S]*?data-guide-maze-mode="plain"/, "Plain Reading must remain initially selected");
   assert.match(rootHtml, /data-guide-maze-panel="operator" hidden/, "Inactive Guide mode panels must remain hidden initially");
   assert.match(rootHtml, /href="\.\.\/archscry\/index\.html"/, "Guide CTA targets must remain authored routes");

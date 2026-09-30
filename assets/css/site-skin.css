@@ -1212,12 +1212,14 @@ body.vm-site-skin.vm-guide-route :is(.guide-lane--deep, .guide-flow-main > div, 
   box-shadow: none;
 }
 
-body.vm-site-skin.vm-guide-route :is(.guide-flow-main > div, .guide-flow-support > div) {
-  border-width: 1px 0 0;
+body.vm-site-skin.vm-guide-route .guide-flow-main > div {
+  border-width: 0;
 }
 
-body.vm-site-skin.vm-guide-route .guide-flow-main > div {
-  border-top-width: 0;
+/* Lenses are ecosystem companions, not a continuation of the numbered journey. */
+body.vm-site-skin.vm-guide-route .guide-flow-support > div {
+  border-width: 0 0 0 2px;
+  border-left-color: var(--site-gold);
 }
 
 body.vm-site-skin.vm-guide-route :is(.guide-question, .guide-direct-syntax, .reading-dossier-roles > div, .maze-specimen-next) {

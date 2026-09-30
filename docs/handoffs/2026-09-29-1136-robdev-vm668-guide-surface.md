@@ -117,3 +117,34 @@ Independent RobQA should inspect the exact future candidate, select proportional
 - Wide rendered review found the initial relationship refinement still read as four isolated columns with small arrows and a partial-width parallel area.
 - The same Guide-owned CSS now presents the unchanged primary content as one four-stage editorial rail with restrained CSS-counter markers; authored decorative arrow glyphs are hidden. Strategium and Apocrypha now occupy one full-width `Parallel lenses` band rather than repeated item labels.
 - At the existing 980px breakpoint the primary relationship becomes a vertical editorial rail with the same ordered markers. No DOM copy, links, semantics, CTA, child route, runtime behavior, or generic Maze selector changed. The VM-668 static contract now protects the ordered rail and full-width parallel band.
+
+## Second Owner Correction Required — Relationship Composition
+
+- Owner Review of unchanged candidate `17e3d06df0d2d69724bc9da6aaaedd483d32d2ec` approved one more bounded correction: constrain and clarify the Guide relationship composition without changing its content model, ordering, or semantics.
+- The card has returned to In Progress. Candidate and RobQA are reset to PENDING; Owner is CORRECTION REQUIRED/PENDING. The first-candidate BLOCKED record, both prior candidates, their independent QA outcomes, and the known Edge launcher debt remain append-only evidence.
+
+## Second Owner Correction Implementation — Relationship Rail
+
+### Changed behavior
+
+- `assets/css/guide.css` is the route-local presentation owner. It now constrains the root relationship heading and flow to a centered `77.5rem` (1240px) maximum composition, retaining its open surface.
+- The existing CSS counter is now rendered inside each product heading row (`01 Archscry`, etc.), while one subdued horizontal rail and four small gold junctions express the primary journey. Decorative authored arrow spans remain hidden, and no content, DOM order, links, or semantics changed.
+- Questions are larger, brighter, and grouped directly below their paired product row. `Parallel lenses` remains separate from the journey: two balanced columns sit beneath it with short vertical gold rules rather than sequential markers or cards.
+- At the existing `980px` breakpoint, the journey becomes one vertical rail; at `640px`, the existing one-column support grid stacks the two lenses. The root Guide stylesheet key advances from `vm668r3` to `vm668r4`, with the canonical and focused validators updated to the truthful owner revision.
+
+### Protected behavior
+
+- Preserved exact Guide copy, headings, product order, relationship navigation semantics, CTA destinations, landmarks, mode state/keyboard/focus behavior, atmosphere, reduced motion, child Guide routes, and generic Maze isolation.
+- No `site-skin.css`, generic Maze CSS, Guide JavaScript, route metadata, runtime data, placement, identity, evidence, navigation, or deployment behavior changed. The relationship correction is scoped to its actual `guide.css` owner plus root cache-key and deterministic contracts.
+
+### Developer evidence and remaining judgment
+
+- PASS `npm run validate:admission -- --task=VM-668 --mode=continue` at `781573e926118ae6458fa9d67519f1548d4fcdf2`; remote and local `main` both resolve to the admitted baseline.
+- PASS `node scripts/vm668-guide-surface-browser.mjs --static`, `node --check scripts/vm668-guide-surface-browser.mjs`, and `npm.cmd run lint:html` after the rail implementation. The focused contract now protects the centered composition, coupled counter/product headings, horizontal rail/junctions, distinct lens rules, and mobile vertical sequence.
+- Fresh rendered inspection remains required for the new exact material candidate. The known local Edge launcher exits before assertions with code 0/no stderr; it was not retried because that established environment limitation is unrelated to this CSS correction. Final visual hierarchy, reading comfort, and polish remain Owner judgment; this record is not a candidate, RobQA result, Owner acceptance, or integration.
+
+### Late-skin cascade correction
+
+- Rendered wide measurement found that late `site-skin.css` correctly removed the journey-card borders but inadvertently reset both Parallel Lenses left borders to `0px`/the neutral rule color. The defect was in the late Guide-rooted adapter, not the route stylesheet.
+- The same route-rooted adapter now separately owns `.guide-flow-main > div { border-width: 0; }` and `.guide-flow-support > div { border-width: 0 0 0 2px; border-left-color: var(--site-gold); }`. This preserves the open numbered journey and makes the companion-lens marks survive the final cascade without `!important` or global consumer changes.
+- Because `site-skin.css` bytes changed, `/guide/`, `/guide/reading/`, and `/guide/maze/` now load `site-skin.css?v=vm668r2`; the canonical validator and focused VM-668 contract require that late owner. The focused contract also protects the exact late border width and gold color.
