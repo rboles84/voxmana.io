@@ -62,3 +62,9 @@ The original unpushed admission-only commit placed `Record version` outside `## 
 
 - Not touched: legal prose/policy meaning, metadata, canonicals, link destinations, scripts/runtime data, storage, placement, identity, recommendations, evidence, telemetry, navigation, generated artifacts, shared skin bytes, and unrelated route CSS.
 - Follow-up: independent RobQA inspects the immutable candidate and independently selects final evidence. Coordinator then prepares the separate RobQA and Owner-review records; Owner judges visual coherence and legal readability. Do not use this handoff as QA PASS or Owner acceptance.
+
+## Owner correction — repository contact link
+
+- Owner direction: both existing links labeled `Vox Mana public source repository` now target `https://github.com/rboles84/voxmana.io#readme`, replacing only the former `/issues` destination. The Owner said the rest looks okay; that observation is limited visual feedback, not renewed engineering PASS or acceptance.
+- The static baseline contract now permits exactly one such README link per legal route and restores it to the baseline Issues URL before its byte-preservation comparison. It rejects the former URL and any additional link drift.
+- This changes neither legal prose nor policy meaning. It resets Candidate, RobQA, and Owner delivery bindings to PENDING; fresh independent QA must bind the next immutable candidate.

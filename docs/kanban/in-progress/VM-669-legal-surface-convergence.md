@@ -2,7 +2,7 @@
 
 ID: VM-669
 Title: Legal Surface Convergence
-Status: Owner Review
+Status: In Progress
 Type: Frontend presentation convergence
 Area: Privacy, Terms, Legal route shell
 Priority: Medium
@@ -16,7 +16,7 @@ Bring the separate Terms and Privacy routes into the current Vox Mana public-sit
 
 - Owner task packet, 2026-09-30.
 - VM-648 remains the authority for the Terms/Privacy information boundary: Privacy owns data handling; Terms owns service and contractual framing.
-- Preserve every legal copy string, effective date, heading, metadata value, canonical URL, external link, route, and policy meaning.
+- Preserve every legal copy string, effective date, heading, metadata value, canonical URL, external link, route, and policy meaning, except the Owner-authorized replacement of the two labeled public-repository contact links with the repository README URL.
 - Keep the documents separate. Do not add a legal hub, navigation system, table of contents, or cross-links.
 
 ## Scope
@@ -27,7 +27,7 @@ Bring the separate Terms and Privacy routes into the current Vox Mana public-sit
 
 ## Explicitly out of scope
 
-- Policy/content, metadata, route, link, storage, service, data, runtime, identity, recommendation, placement, evidence, telemetry, deployment, and navigation changes.
+- Policy/content, metadata, route, link, storage, service, data, runtime, identity, recommendation, placement, evidence, telemetry, deployment, and navigation changes, except the Owner-authorized repository README link correction.
 - Changes to unrelated `site-skin.css` consumers or a new shared legal system beyond the scoped Legal adapter.
 
 ## Risks and protected behavior
@@ -39,7 +39,7 @@ Bring the separate Terms and Privacy routes into the current Vox Mana public-sit
 ## Acceptance criteria
 
 - [x] Terms and Privacy retain separate documents while sharing one Legal route adapter; visual coherence remains Owner judgment.
-- [x] Legal copy, dates, headings, metadata, canonicals, links, routes, and policy meaning are baseline-compared and byte-preserved outside explicitly allowed presentation markup.
+- [x] Legal copy, dates, headings, metadata, canonicals, links, routes, and policy meaning are baseline-compared and byte-preserved outside explicitly allowed presentation markup and the two Owner-authorized public-repository README link corrections.
 - [x] The shared Legal adapter provides an open hero boundary, open article stream, restrained section rules, solid summary/callouts, low-radius geometry, and warm-black/gold treatment.
 - [x] Desktop and approximately 390px objective checks cover containment, wrapping, focus, sticky summary, landmarks, links, and reachable footer.
 - [x] Legal-specific styling is rooted to Legal; a material Maze consumer probe confirms no Legal selectors there.
@@ -50,13 +50,13 @@ Bring the separate Terms and Privacy routes into the current Vox Mana public-sit
 Record version: 1
 Branch: `codex/vm-669-legal-surface-convergence`
 Admission baseline: `53f309865d5a194769b55643a52b85a710984521`
-Candidate: cbffe36cb9263697b7941196012bdb668a9f19c9
-RobQA: PASS at cbffe36cb9263697b7941196012bdb668a9f19c9 — SEPARATE execution by `/root/vm669_robqa`; evidence: `docs/handoffs/2026-09-30-0859-robqa-vm669-legal-surface.md`.
+Candidate: PENDING
+RobQA: PENDING
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
-Evidence: Independent engineering PASS is bound to the exact candidate; Owner Review remains pending. See the individual RobQA and coordinator handoffs. No push, PR, merge, deployment, or integration is authorized by this execution request.
-Decisions: Presentation-only Legal convergence. Preserve VM-648 copy and policy boundaries, all legal route contracts, and unrelated public-route consumers. Owner authorization, 2026-09-30: "Authorize the repaired admission history" for this exact same-branch reconciliation at `88699eadcbbd83eb1a4cd6115d214943d9ad2911`. The earlier unpushed admission-only commits are retained in reflog: the first placed Record version outside Delivery, then record-only corrections; the branch was soft-reset to the permitted baseline and recreated as the current valid two-file admission commit. No material implementation entered either history. Scope amendment: add the narrow static Legal baseline/adapter contract required to preserve locked legal bytes without a new browser harness. Scope amendment: admit timestamped specialist and coordinator handoff names required by the canonical handoff filename contract; preserve product bytes and acceptance criteria.
+Evidence: The prior visual review is limited to the Owner's "rest looks ok" observation. This Owner-authorized external-link correction invalidates the prior candidate and RobQA binding; fresh independent QA is required for the next immutable candidate. No push, PR, merge, deployment, or integration is authorized by this execution request.
+Decisions: Presentation-only Legal convergence. Preserve VM-648 copy and policy boundaries, all legal route contracts, and unrelated public-route consumers. Owner authorization, 2026-09-30: "Authorize the repaired admission history" for this exact same-branch reconciliation at `88699eadcbbd83eb1a4cd6115d214943d9ad2911`. The earlier unpushed admission-only commits are retained in reflog: the first placed Record version outside Delivery, then record-only corrections; the branch was soft-reset to the permitted baseline and recreated as the current valid two-file admission commit. No material implementation entered either history. Scope amendment: add the narrow static Legal baseline/adapter contract required to preserve locked legal bytes without a new browser harness. Scope amendment: admit timestamped specialist and coordinator handoff names required by the canonical handoff filename contract; preserve product bytes and acceptance criteria. Owner-authorized surgical exception: replace only the two `Vox Mana public source repository` contact links from the GitHub Issues URL to the repository README URL; no other external link, legal text, metadata, route, or presentation change is authorized.
 
 ## Admission Scope
 

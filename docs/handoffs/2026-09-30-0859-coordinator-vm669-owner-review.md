@@ -3,10 +3,18 @@
 Date: 2026-09-30
 Task: VM-669
 Agent: Codex `/root`, coordinator using the session-selected model and effort
-Candidate: cbffe36cb9263697b7941196012bdb668a9f19c9
-RobQA: PASS at cbffe36cb9263697b7941196012bdb668a9f19c9 — independent SEPARATE execution by `/root/vm669_robqa`; see its durable record.
+Candidate: PENDING — bounded README link correction after cbffe36cb9263697b7941196012bdb668a9f19c9
+RobQA: PENDING for the corrected candidate; previous independent PASS remains historical evidence.
 Owner: PENDING
 Integration: PENDING — the Owner explicitly prohibited push, PR, merge, deployment, and integration in this request.
+
+## Owner-requested README correction
+
+The Owner reported that the link labelled "Vox Mana public source repository" should lead to the repository README instead of Issues. This explicitly authorizes replacing that one href on both legal pages with `https://github.com/rboles84/voxmana.io#readme`, preserving its accessible label and surrounding policy copy. It is the sole exception to the original external-link preservation boundary. The narrow baseline contract records this allowance while protecting all other HTML bytes outside the existing presentation allowances.
+
+The Owner said "rest looks ok" and requested developer correction plus HTML-only independent QA, with no visual rerun. Existing visual evidence remains applicable to unchanged styling; the Owner will verify the new destination. This is a correction on the same task and branch, with a new immutable material candidate and independent QA required. Owner acceptance and integration remain pending.
+
+The sections below retain the initial convergence and review history. Their external-link preservation statements describe the initial candidate before this authorized correction.
 
 ## Task requested and authority
 
