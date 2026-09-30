@@ -187,3 +187,19 @@ Owner: ACCEPT
 Decision reference: Current Codex chat 01a0f3e0-4b21-7942-bdb3-e2e5e6f92e73, exact reply to VM-670 decision question: ACCEPT VM-670 at 1539f12cc3495e67b9212989a7d96487ed2a3005.
 
 The human Owner supplied this exact response after the pending question. It authorizes VM-670 integration through the existing PR/CI/guarded-merge workflow. It does not pre-accept later material candidates. The intake ledger's pending state above is historical; integration remains PENDING until verified.
+
+## VM-670 verified integration and closeout
+
+Task: VM-670
+Candidate: 1539f12cc3495e67b9212989a7d96487ed2a3005
+Integration: INTEGRATED PR62 https://github.com/rboles84/voxmana.io/pull/62
+Merge: bac8fd6b69845afe98eadbe4b36303142b6867df
+Original evidence head: cb3707fe4d4b859657edc1ee3c943ef199d061aa
+
+The integration-stage checker passed with actual host file/blob/commit parity, exact QA/Owner bindings, successful Deterministic Validation and a clean mergeable PR. GitHub accepted the server-guarded squash for that exact evidence head; its resulting tree equals the input tree. Main was synchronized. No feature refs, stashes, ignored research or issues were removed. Main protection remains BLOCKED as the ledger records; ordinary PR delivery did not configure or certify enforcement.
+
+Cleanup deferral reason: Automatic approval review rejected VM-670 ref deletion because it was outside the explicitly named cleanup list and could reduce recoverability; exact approval is pending.
+Cleanup owner: Owner, coordinated by Codex /root.
+Preserved work: Local and remote codex/vm-670-repository-recon refs at cb3707fe4d4b859657edc1ee3c943ef199d061aa; no additional worktree.
+
+This is an observed cleanup blockage with retained recoverability, not a claim of disposal. The requested exact deletion decision remains pending in the current chat. All VM-660/661/667 refs and both stash objects are preserved. The current canonical card is [VM-670 Done](../kanban/done/VM-670-repository-recon.md), with the governed truthful cleanup deferral. Earlier paths and pending statements remain event-time evidence. Lifecycle-only closeout preserves the material candidate, criteria, report findings and unrelated boundaries. The eight-item effort remains active and incomplete; its next separately admitted delivery starts from synchronized accepted main.

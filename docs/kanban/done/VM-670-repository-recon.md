@@ -2,7 +2,7 @@
 
 ID: VM-670
 Title: Repository Recon and Cleanup Decision Packet
-Status: Accepted
+Status: Done
 Type: Read-only reconnaissance / documentation
 Area: Repository memory, delivery residue and work prioritization
 Priority: Owner review
@@ -45,7 +45,7 @@ Admission baseline: d842be5a95a57547cc942f8dbd4f8c9c8204d02d
 Candidate: 1539f12cc3495e67b9212989a7d96487ed2a3005
 RobQA: PASS at 1539f12cc3495e67b9212989a7d96487ed2a3005 — SEPARATE QA-0; independent current QA in the handoff
 Owner: ACCEPTED at 1539f12cc3495e67b9212989a7d96487ed2a3005 — exact Owner response in current chat; handoff Owner decision
-Integration: PENDING
+Integration: INTEGRATED PR62 https://github.com/rboles84/voxmana.io/pull/62 — squash bac8fd6b69845afe98eadbe4b36303142b6867df; synchronized main; feature-ref cleanup deferred by automatic approval review, pending Owner decision
 Dependencies: None
 Decisions: Recon and documentation only; stop for review of proposed cleanup and priorities.
 Evidence: [Report](../../reports/2026-09-30-vm670-repository-recon.md); [Handoff](../../handoffs/2026-09-30-1201-codex-vm670-repository-recon.md)

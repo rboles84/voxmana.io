@@ -1,4 +1,4 @@
-<!-- task-view-sha256:8fc05f8db1b8b1dfa91317792ed6be883da9a87e90de7a1e5b365d602e7b024c -->
+<!-- task-view-sha256:aa61efad2eddd084d9e85f8622d7fd33faeea05cbd58f8848ead4dbc08ce8c5c -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -50,7 +50,6 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | ID | Card | Declared status | Diagnostics |
 |---|---|---|---|
 | VM-660 | [Maze Performance Recon](in-progress/VM-660-maze-performance-recon.md) | Accepted |  |
-| VM-670 | [Repository Recon and Cleanup Decision Packet](in-progress/VM-670-repository-recon.md) | Accepted |  |
 
 ## Integrated
 
@@ -686,6 +685,7 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | VM-667 | [Shared Feedback Surface Convergence](done/VM-667-shared-feedback-surface-convergence.md) | Done |  |
 | VM-668 | [Field Guide Surface Convergence](done/VM-668-field-guide-surface-convergence.md) | Done |  |
 | VM-669 | [Legal Surface Convergence](done/VM-669-legal-surface-convergence.md) | Done |  |
+| VM-670 | [Repository Recon and Cleanup Decision Packet](done/VM-670-repository-recon.md) | Done |  |
 
 ## Unresolved
 
