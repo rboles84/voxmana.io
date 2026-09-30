@@ -1,4 +1,4 @@
-<!-- task-view-sha256:b63e83c33dd47f33c4f0a6a8718508a001480ca352a5d9ec6f08c3069aa706e2 -->
+<!-- task-view-sha256:e484a49fb695bca798b86e1c0946555c6809603df7518b8c87a841f39d7226b2 -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -8,6 +8,9 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 
 | Authored / filename date | Agent | Handoff | Related task references | Diagnostics |
 |---|---|---|---|---|
+| 2026-09-30T00:00:00Z (authored) | Codex `/root`, coordinator using the session-selected model and effort | [VM-669 — Legal Surface Convergence — Owner Review Coordination](2026-09-30-0859-coordinator-vm669-owner-review.md) | VM-669, VM-648, VM-668 | Identity displayed from heading; not admission metadata. |
+| 2026-09-30T00:00:00Z (authored) | Codex `/root/vm669_robdev` | [VM-669 RobDev Handoff — Legal Surface Convergence](2026-09-30-0859-robdev-vm669-legal-surface.md) | VM-669, VM-648 | Identity displayed from heading; not admission metadata. |
+| 2026-09-30T00:00:00Z (authored) | Unknown | [VM-669 Independent RobQA — Legal Surface Convergence](2026-09-30-0859-robqa-vm669-legal-surface.md) | VM-669 | Identity displayed from heading; not admission metadata. |
 | 2026-09-29T11:12:00Z (filename) | Unknown | [2026-09-29 11:12 — Codex — VM-667 Owner-Accepted Closeout](2026-09-29-1112-codex-vm667-owner-accepted-closeout.md) | VM-667 | Identity displayed from heading; not admission metadata. |
 | 2026-09-29T00:00:00Z (authored) | Codex `/root`, applying the repository-local `robdev` skill and full RobDevPass. | [2026-09-29 07:27 — RobDev — VM-667 Feedback Surface](2026-09-29-0727-robdev-vm667-feedback-surface.md) | VM-667, VM-423 | Identity displayed from heading; not admission metadata. |
 | 2026-09-29T00:00:00Z (authored) | Codex `/root/vm667_robqa`, applying the repository-local `robqa` skill and full `docs/qa/RobQAPass.md` independently from the implementation agent. | [2026-09-29 07:27 — RobQA — VM-667 Feedback Surface](2026-09-29-0727-robqa-vm667-feedback-surface.md) | VM-667 | Identity displayed from heading; not admission metadata. |
