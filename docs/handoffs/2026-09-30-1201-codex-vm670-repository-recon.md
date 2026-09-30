@@ -92,3 +92,34 @@ This list and count come from `git diff --name-status --find-renames` for the fu
 ## Documentation-candidate replacement
 
 The initial report-format validation rejected the accounting grammar; the corrected format passed its material accounting check. Candidate-stage delivery subsequently required explicit review receipts for later prose deltas. Inspection also showed that the format correction reworded an already-committed handoff rather than appending to it, so it cannot retain the original candidate under the evidence-only exception. The original candidate and QA above remain historical. Reset current bindings and freeze a replacement material candidate on this same task/branch; the report, findings, scope, pre-existing records and product files remain unchanged. Complete a distinct QA-0 phase and append the new evidence, rather than weakening the checker or treating the blocked attempt as PASS.
+
+## Current exact documentation QA
+
+Task: VM-670
+Candidate: 1539f12cc3495e67b9212989a7d96487ed2a3005
+RobQA: PASS
+Execution: SAME-AGENT DISTINCT PHASE
+Reviewer: Codex /root
+Implementer: Codex /root
+Independence required: no
+Execution reason: QA-0 original reconnaissance/report capture only; recommendations do not modify governance, shared behavior, protected authority, host configuration or integration.
+
+The replacement material candidate was re-read in a distinct post-commit phase. Its actual replacement diff preserves historical QA under explicitly superseded headings, records the delivery blocker and resets current decision bindings; the report bytes are unchanged from the previously reviewed report. The full baseline scope remains five documentation-only paths. Local authored links, fresh generated views and exact-range whitespace evidence pass. The initial actual report/card/index review remains applicable to identical inputs. The observed branches and stashes remain preserved. No cleanup recommendation is executed and no product/certification PASS is claimed.
+
+Selected evidence: exact Git content/scope, unchanged report-byte diff, authored link resolution, paired-view freshness, whitespace and preservation observations. CPU-heavy validation: NOT REQUIRED. Browser/placement/semantic/mutation suites: not selected for this documentation artifact. The two stale-copy failures and dossier tooling failure remain explicit recon findings. Owner judgment: proposed cleanup and priority decisions; Owner PENDING and integration PENDING.
+
+## Material candidate
+
+- Baseline: `d842be5a95a57547cc942f8dbd4f8c9c8204d02d`
+- Candidate: `1539f12cc3495e67b9212989a7d96487ed2a3005`
+- Changed paths: `5`
+
+## Files changed
+
+- `docs/handoffs/2026-09-30-1201-codex-vm670-repository-recon.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-670-repository-recon.md`
+- `docs/reports/2026-09-30-vm670-repository-recon.md`
+
+The current list and count were derived from the exact baseline-to-replacement-candidate Git name-status output. Earlier accounting above is retained as superseded history. No runtime, data, test or policy path is present.
