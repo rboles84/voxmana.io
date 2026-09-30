@@ -98,3 +98,16 @@ Integration: PENDING
 The replacement material candidate absorbs the earlier record corrections without rewriting Git history. Independent RobQA verified identical product/test inputs to the passed two-link correction and bound its verdict to this exact SHA in the appended final review section. Prior candidate and header bindings above are historical. The source correction, HTML/static evidence, unchanged styles, and no-new-visual-QA disposition remain unchanged.
 
 Owner check: refresh Terms and Privacy locally, then follow the public repository link in each Contact section and verify it opens the repository README. No push, PR, merge, deployment, or integration was performed.
+
+## Owner acceptance — VM-669
+
+Task: VM-669
+Candidate: 480a6018982ccc54ad449abfefa46e1da033938d
+Owner: ACCEPT
+Decision reference: Human user message in this chat on 2026-09-30, immediately following the exact-candidate Owner handoff: "looks fine, approved, lets clean up local, worktrees, push and commit and make it live on main".
+
+The user approved the exact current candidate and authorized its integration, publication through main, and local/remote task cleanup. The original no-delivery instruction is superseded by this explicit later authorization. No additional Owner approval is required while material/evidence bindings remain valid.
+
+Host routing was discovered before operations: authenticated GitHub connector supports repository/identity/PR/CI reads, PR creation, and squash merge with expected_head_sha. Identity is rboles84 with repository admin/push access. These are the selected connector routes; Git transport is used normally for push/fetch and authorized remote branch deletion. No connector capability exposes live main-protection settings; that supplemental observation is optional under docs/reference/workflow.md#main-protection-and-exceptions. No alternate authentication path is needed. Deterministic Validation, exact PR head/base, complete diff/commit/blob observations, and the atomic merge guard remain mandatory.
+
+Checkout/worktree observation before delivery: clean primary checkout C:/dev/voxmana.io at df360467711d9da82890da4d012aecc29afcd1a9; no additional registered or attached worktrees. There is no unrelated dirty work to preserve. Admission continuation passed against live/local main 53f309865d5a194769b55643a52b85a710984521.

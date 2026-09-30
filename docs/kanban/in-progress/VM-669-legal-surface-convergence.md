@@ -2,7 +2,7 @@
 
 ID: VM-669
 Title: Legal Surface Convergence
-Status: Owner Review
+Status: Accepted
 Type: Frontend presentation convergence
 Area: Privacy, Terms, Legal route shell
 Priority: Medium
@@ -52,10 +52,10 @@ Branch: `codex/vm-669-legal-surface-convergence`
 Admission baseline: `53f309865d5a194769b55643a52b85a710984521`
 Candidate: 480a6018982ccc54ad449abfefa46e1da033938d
 RobQA: PASS at 480a6018982ccc54ad449abfefa46e1da033938d — SEPARATE execution by `/root/vm669_robqa`; evidence: `docs/handoffs/2026-09-30-0859-robqa-vm669-legal-surface.md`, final README candidate review section.
-Owner: PENDING
+Owner: ACCEPTED at 480a6018982ccc54ad449abfefa46e1da033938d — explicit approval and integration authorization in this chat, 2026-09-30; coordinator handoff Owner acceptance section.
 Integration: PENDING
 Dependencies: None
-Evidence: Independent HTML-only engineering PASS is bound to the replacement exact candidate after record-format correction; product and test bytes match the passed README correction. The Owner's "rest looks ok" observation is retained; the Owner will verify both README links. Styling and runtime bytes match the earlier visual candidate; no visual rerun was performed as requested. Owner acceptance remains pending. No push, PR, merge, deployment, or integration is authorized by this execution request.
+Evidence: Independent engineering PASS and genuine Owner ACCEPT are bound to the exact candidate. Owner approved the preview and authorized push, integration into main, live publication, and cleanup on 2026-09-30. This later instruction supersedes the original delivery prohibition; no product changes are needed. GitHub connector supports PR creation/read and an atomic expected-head guarded squash merge; normal Git transport handles push/fetch/branch cleanup. Separate live branch-policy settings visibility is optional under repository authority and unavailable through the connector's exposed capabilities. Required Deterministic Validation and exact PR scope/head will be checked before merge.
 Decisions: Presentation-only Legal convergence. Preserve VM-648 copy and policy boundaries, all legal route contracts, and unrelated public-route consumers. Owner authorization, 2026-09-30: "Authorize the repaired admission history" for this exact same-branch reconciliation at `88699eadcbbd83eb1a4cd6115d214943d9ad2911`. The earlier unpushed admission-only commits are retained in reflog: the first placed Record version outside Delivery, then record-only corrections; the branch was soft-reset to the permitted baseline and recreated as the current valid two-file admission commit. No material implementation entered either history. Scope amendment: add the narrow static Legal baseline/adapter contract required to preserve locked legal bytes without a new browser harness. Scope amendment: admit timestamped specialist and coordinator handoff names required by the canonical handoff filename contract; preserve product bytes and acceptance criteria. Owner-authorized surgical exception: replace only the two `Vox Mana public source repository` contact links from the GitHub Issues URL to the repository README URL; no other external link, legal text, metadata, route, or presentation change is authorized.
 
 ## Admission Scope
