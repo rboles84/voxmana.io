@@ -1,7 +1,7 @@
 # VM-671 — RobDev records reconciliation
 
-Date: 2026-09-30  
-Agent: RobDev, Documentation Steward constraints applied  
+Date: 2026-09-30
+Agent: RobDev, Documentation Steward constraints applied
 Route: requested/configured Terra medium; spawn accepted, backend host setting unverified.
 
 ## Task requested
