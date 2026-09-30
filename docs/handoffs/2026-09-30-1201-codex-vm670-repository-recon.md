@@ -123,3 +123,21 @@ Selected evidence: exact Git content/scope, unchanged report-byte diff, authored
 - `docs/reports/2026-09-30-vm670-repository-recon.md`
 
 The current list and count were derived from the exact baseline-to-replacement-candidate Git name-status output. Earlier accounting above is retained as superseded history. No runtime, data, test or policy path is present.
+
+## Owner-review readiness
+
+Candidate-stage verification PASS at evidence head `a3f74fbe36c293994b394ca1c5616579b3142b51`, with live remote main unchanged at the admission baseline. The exact replacement candidate is eligible for Owner Review. Set only VM-670 to Owner Review and regenerate the board; Owner and integration remain PENDING. The requested reconnaissance is complete. Review the report's proposed dispositions before any cleanup or follow-up implementation. All pre-existing branches, stashes, worktrees and GitHub state remain preserved. This documentation branch remains local; no push, PR or integration is performed.
+
+## Evidence delta
+
+- Material candidate: `1539f12cc3495e67b9212989a7d96487ed2a3005`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `3`
+
+This evidence-only delta is not the full task diff. It contains append-only QA/readiness/accounting, VM-670 delivery/lifecycle observations and the regenerated board. It changes no report findings, criteria, scope, decisions, product behavior or policy. The full baseline-to-final-head branch still has the same five material paths. Resolve HEAD from Git for final reporting and recheck exact-delta classification and generated freshness after committing.
+
+## Evidence-only paths
+
+- `docs/handoffs/2026-09-30-1201-codex-vm670-repository-recon.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-670-repository-recon.md`

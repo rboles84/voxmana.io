@@ -2,7 +2,7 @@
 
 ID: VM-670
 Title: Repository Recon and Cleanup Decision Packet
-Status: In Progress
+Status: Owner Review
 Type: Read-only reconnaissance / documentation
 Area: Repository memory, delivery residue and work prioritization
 Priority: Owner review
