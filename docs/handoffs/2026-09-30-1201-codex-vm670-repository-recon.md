@@ -1,0 +1,59 @@
+# VM-670 — Repository reconnaissance handoff
+
+Date: 2026-09-30T12:01:00-06:00
+Agent name: Codex `/root`
+Task: VM-670
+Task requested: Deep recon of repository, handoffs, board, learnings, GitHub and local worktrees; explain remaining work, reasons and confidence for Owner review before cleanup.
+
+## Outcome
+
+[The report](../reports/2026-09-30-vm670-repository-recon.md) reconciles current delivery, all pre-existing open cards, retained refs/stashes, stranded VM-661 evidence, deferred defects, tooling failures, host protection metadata and proposed priorities. Recommendations remain unexecuted.
+
+## Files reviewed
+
+AGENTS; RobDev and RobQA skills/full passes; workflow, task-context, delivery and cost contracts; board and handoff index; all 20 pre-existing non-Done cards; recent VM-642–669 cards and delivery handoffs; retained-branch VM-661 card/handoffs; VM-466, VM-570, VM-587–592, VM-613/617 and VM-640/641 evidence; current plans; architecture and retired-code recon; durable strategy learnings; package/CI; dossier tooling and its consumers; current Sultai/dossier source occurrences. Full inventory/retrieval limits are in the report.
+
+## What changed and why
+
+Added this decision packet's card, report and handoff; generated both navigation views. The Owner needs an evidence-backed cleanup plan rather than additional speculative product work. No existing card status, authored decision, product file, test, workflow policy, source data or external state was changed.
+
+## Decisions made
+
+- Preserve existing branches, stashes, worktrees and ignored research/evidence.
+- Distinguish source-card declarations from Git/host integration and historical advice from current requirements.
+- Treat VM-661 evidence rescue, lifecycle closeout, old GitHub issues, tooling/harness repair, product defects and optional features as separate scopes.
+- No semantic/CRIT/SIRF review or recertification is claimed. Existing protected authorities remain controlling.
+- No subagents were used: this is a read-only coordinator investigation with a bounded documentation artifact, not routine implementation or independent candidate QA of changed governance.
+
+## RobDev transfer packet
+
+- Changed behavior: documentation discoverability only.
+- Protected behavior: all application, semantic/source/generated, storage, route, query, deployment, test and governing policy bytes; all pre-existing Git residue.
+- Owner judgment: cleanup dispositions and priority choices in the report.
+- Risks: squash ancestry, branch-only accepted evidence, stale live pointers versus truthful historical records, ignored WIP, historical product findings not rerun live, detailed protection 403.
+- Smallest next work: approved records reconciliation, followed by separately admitted defects; no all-repo rewrite or bulk normalization.
+- Non-goals: executing recommendations, closing issues, deleting refs/stashes/worktrees, changing host settings, outreach, runtime remediation.
+
+## Checks run during reconnaissance
+
+- Initial view freshness PASS: 708 source cards / 1,145 handoffs.
+- Read-only local Git observations and live remote-head observations: verified clean synchronized baseline `d842be5a95a57547cc942f8dbd4f8c9c8204d02d` at scan start.
+- Authenticated GitHub connector: open/closed PRs, issues, branches, recent main Actions and available policy metadata. Main validation and Pages successful; detailed protection unavailable with 403.
+- Non-Done-card local Markdown-link scan: five stale VM-637 links.
+- Two focused historical static tests: FAIL at already documented retired labels; no assertion repaired or weakened.
+- Read-only dossier-input loading: FAIL before writing, wrong `scripts/data/factions.json` resolution; owning code inspected once.
+- VM-670 admission start ELIGIBLE; two-file admission commit `f60d52c88ec509558911f14b6de0f549db860967`; admission continue PASS.
+
+## Not touched
+
+All existing task states and authored historical evidence; all runtime/data/test/policy files; existing VM-660/661/667 refs; both stashes; ignored evidence/research; external GitHub issues/settings/PRs and remote refs. No product or protected authority was recertified.
+
+## Follow-up recommendations
+
+Owner reviews the report's concrete dispositions. Next suggested agent: coordinator for the selected records cleanup; then separately admitted RobDev and appropriate independent RobQA for tooling or the Azorius product fix. Preserve VM-661 evidence before any ref cleanup.
+
+## QA and Git accounting
+
+PENDING exact documentation candidate and distinct QA-0 review. This handoff will append the verified candidate, Git-derived material scope, evidence-only delta, current HEAD and state after those facts exist. It does not claim Owner acceptance or integration.
+
+Related: [VM-670](../kanban/in-progress/VM-670-repository-recon.md); [workflow](../reference/workflow.md); [report](../reports/2026-09-30-vm670-repository-recon.md).

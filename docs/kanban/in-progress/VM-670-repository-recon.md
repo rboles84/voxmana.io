@@ -18,12 +18,12 @@ Current Owner request: do deep recon first and explain what needs doing, why, an
 
 ## Acceptance Criteria
 
-- [ ] Reconcile current source-card state with local history, live GitHub and retained branches/stashes.
-- [ ] Inventory all open canonical cards and distinguish genuine work from obsolete premises or record debt.
-- [ ] Review relevant recent and decisive historical handoffs and durable learnings.
-- [ ] Explain proposed actions, evidence, confidence, order and decision boundaries.
-- [ ] Preserve all existing branches, stashes, worktrees, records, product files and external state.
-- [ ] Save a report and handoff; regenerate and check both derived views.
+- [x] Reconcile current source-card state with local history, live GitHub and retained branches/stashes.
+- [x] Inventory all open canonical cards and distinguish genuine work from obsolete premises or record debt.
+- [x] Review relevant recent and decisive historical handoffs and durable learnings.
+- [x] Explain proposed actions, evidence, confidence, order and decision boundaries.
+- [x] Preserve all existing branches, stashes, worktrees, records, product files and external state.
+- [x] Save a report and handoff; regenerate and check both derived views.
 
 ## Files Likely Impacted
 
