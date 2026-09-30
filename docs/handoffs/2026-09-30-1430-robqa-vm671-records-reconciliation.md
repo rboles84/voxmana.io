@@ -126,3 +126,65 @@ The documentation-only candidate truthfully preserves the VM-658 closeout blocke
 Owner decision: `PENDING`.
 
 This PASS is bound only to exact candidate `a7ff44e30b86e8c971cf817dda670a710dc920d0`. It does not replace Owner judgment, certify retained-residue ledger items as completed, accept later implementation scope, or incorporate later host administration into the material candidate.
+
+## Owner-requested temporal correction verdict
+
+Task: VM-671
+Candidate: a52cf791963f5f2372236fcc1e53b67b4f59c53e
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: Codex `/root/independent_qa`
+Implementer: Codex `/root/reconciliation_dev`
+
+The exact documentation candidate satisfies the Owner-requested temporal correction. It preserves the original VM-671 narrative, all eight freeze-time ledger rows, the residue paragraph, the rescued VM-661 originals, and the prior QA history. The report changes only two historical section headings and adds an explicit temporal boundary, a later verified Item 4 disposition, and its targeted verification note. The RobDev handoff receives an append-only correction record. The coordinator-owned card change records completed navigation evidence while leaving exact-candidate binding, Owner, and integration pending.
+
+The later Item 4 section is consistent with the correction handoff and keeps evidence classes distinct. Direct Git inspection verified current refs, stash entries and commit objects; the report separately attributes issue dispositions to direct issue observations rather than inferring them from Git. The candidate makes no claim that VM-671 performed the cleanup.
+
+### Temporal and current-state receipts
+
+- `a7ff44e30b86e8c971cf817dda670a710dc920d0..a52cf791963f5f2372236fcc1e53b67b4f59c53e` changes four documentation paths. The report's zero-context diff shows no deletion or rewrite of an original paragraph or table row; only the two section-heading labels change before the new temporal material is added.
+- Local `refs/heads/codex/vm-670-repository-recon` remains at `cb3707fe4d4b859657edc1ee3c943ef199d061aa`; live `git ls-remote --heads origin` returns no VM-670 branch. Local stale `refs/remotes/origin/codex/vm-670-repository-recon` still resolves to that SHA and was not pruned.
+- VM-661 remains at `306574628d2445cf2729a60782d0d63b56a4ebed` in both local `refs/heads/codex/vm-661-maze-modernization-spec` and the live remote branch.
+- `git stash list` is empty. The former stash commit objects `970dc3a1b582935912fcca05fdebab43f9fc8e4a` and `1749da791736b4ece758ac1d7fdbbab0eef4ff8c` resolve as commits in the verified external archive and remain object-recoverable; this is not a claim that stash entries still exist.
+- The preservation bundle SHA-256 remains `cef59c66f47d0b07e390d39554ab896f7d7ffe268329c3d9988b082e5cafbef2`. Exactly one worktree is registered.
+- The report and RobDev correction handoff consistently record issues #2, #3, #4, #6, #7, #8, and #10 as closed not planned from direct issue observations and #9 as open unchanged. Those issue facts are not presented as Git facts or as VM-671 material work.
+- Item 4 remains incomplete: VM-661 rescue integration and separately deferred VM-670 cleanup remain explicit.
+
+### QA-0 evidence
+
+- `git diff --check fc08845af94b1869386826bf6be7dac6ecf97b43..a52cf791963f5f2372236fcc1e53b67b4f59c53e`: PASS.
+- `npm.cmd run task -- indexes --check`: PASS at the exact candidate; 711 cards, 1,153 handoffs, no stale generated view.
+- Focused current-record link scan: 10 local Markdown targets checked, 0 missing. The byte-preserved historical VM-661 records are unchanged from the prior reviewed candidate and retain their disclosed event-time meaning.
+- Baseline-to-candidate scope: 16 paths, all under `docs/`; no runtime, data, test, policy, or product path.
+- Browser, runtime, product, and broad test suites were not run because the correction changes documentation chronology only.
+
+### Corrected material candidate
+
+- Baseline: `fc08845af94b1869386826bf6be7dac6ecf97b43`
+- Candidate: `a52cf791963f5f2372236fcc1e53b67b4f59c53e`
+- Changed paths: `16`
+
+### Corrected files changed
+
+- `docs/handoffs/2026-09-18-2300-codex-vm661-maze-modernization-spec.md`
+- `docs/handoffs/2026-09-18-2310-robqa-vm661-maze-modernization-spec.md`
+- `docs/handoffs/2026-09-19-0910-codex-vm662-maze-modernization-preflight.md`
+- `docs/handoffs/2026-09-19-0940-codex-kanban-vm660-vm661-lifecycle.md`
+- `docs/handoffs/2026-09-30-1430-kanban-vm671-admission.md`
+- `docs/handoffs/2026-09-30-1430-robdev-vm671-records-reconciliation.md`
+- `docs/handoffs/2026-09-30-1430-robqa-vm671-records-reconciliation.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/kanban/board.md`
+- `docs/kanban/done/VM-637-public-content-retention.md`
+- `docs/kanban/in-progress/VM-658-maze-instrument-frame.md`
+- `docs/kanban/in-progress/VM-660-maze-performance-recon.md`
+- `docs/kanban/in-progress/VM-661-maze-modernization-spec.md`
+- `docs/kanban/in-progress/VM-671-records-reconciliation.md`
+- `docs/plans/workflow-course-correction.md`
+- `docs/reports/2026-09-30-vm671-records-reconciliation.md`
+
+### Corrected Owner boundary
+
+Owner decision: `PENDING`.
+
+This PASS is bound only to exact candidate `a52cf791963f5f2372236fcc1e53b67b4f59c53e`. It confirms documentation truth and temporal clarity; it does not accept VM-671 for the Owner, declare Item 4 complete, authorize later implementation, or convert administrative observations into material product work.
