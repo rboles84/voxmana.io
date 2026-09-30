@@ -1,4 +1,4 @@
-<!-- task-view-sha256:7e0c8ed21cdbfebd06d1aa72f0f4fa9d6778f9edf79a9e106c2a1afe1d0b4e38 -->
+<!-- task-view-sha256:bd416292d08c0e138f340c216b7f8f73f729f54bbfbf6f22ba259aee1f1e94b9 -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -56,7 +56,6 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | ID | Card | Declared status | Diagnostics |
 |---|---|---|---|
 | VM-658 | [Maze Instrument Frame](in-progress/VM-658-maze-instrument-frame.md) | Integrated |  |
-| VM-669 | [Legal Surface Convergence](in-progress/VM-669-legal-surface-convergence.md) | Integrated |  |
 
 ## Blocked
 
@@ -685,6 +684,7 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | VM-666 | [Strategium Open-Surface Convergence](done/VM-666-strategium-open-surface-convergence.md) | Done |  |
 | VM-667 | [Shared Feedback Surface Convergence](done/VM-667-shared-feedback-surface-convergence.md) | Done |  |
 | VM-668 | [Field Guide Surface Convergence](done/VM-668-field-guide-surface-convergence.md) | Done |  |
+| VM-669 | [Legal Surface Convergence](done/VM-669-legal-surface-convergence.md) | Done |  |
 
 ## Unresolved
 

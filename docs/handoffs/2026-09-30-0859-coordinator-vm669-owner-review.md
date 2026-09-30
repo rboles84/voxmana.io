@@ -126,3 +126,14 @@ The integration checker passed before the GitHub connector submitted a squash me
 Supplemental routing clarification: the connector's generic approved GET capability does expose branch-protection reads. The actual installation attempt returned 403 Resource not accessible by integration; rules-by-branch was unsupported. Basic main metadata reported protected=false. Full policy visibility remained optional under the established repository authority, so no alternate authentication route or additional Owner approval was sought. Required CI, merge state, head guard and full PR file/commit/tree observations were verified.
 
 Cleanup: primary checkout is on synchronized main. The remote feature branch was already absent after merge; its absence was reconciled instead of retrying deletion. The matching local feature branch and stale tracking ref were removed after exact merged-tree preservation was proven. No additional registered/attached worktrees exist. The task's preview session was stopped. No unrelated dirty or untracked work existed before delivery or cleanup; no unrelated branches/files were deleted. Remaining work is only authorized lifecycle closeout.
+
+## Done closeout — VM-669
+
+Task: VM-669
+Candidate: 480a6018982ccc54ad449abfefa46e1da033938d
+Boundaries: PASS
+Integration: PR61; squash 299b8a8ffb66ed83402b66cf2e58b975a96809bb
+
+Integrated-stage closeout passed at ad162f24cde65f502d5d1f5ddc4d247dc7902e24. This final lifecycle-only update moves the same card into done, changes only Status/Evidence, appends this record, and regenerates the board. Product/test/policy/scope/criteria/Decisions and unrelated sources remain identical. The Owner's approval, QA verdict, accepted candidate, original PR evidence head and merge binding remain preserved. No feature branches/worktrees remain; the primary checkout and live main are synchronized. Final-state closeout is rerun before reporting completion.
+
+Current card: [VM-669 Done](../kanban/done/VM-669-legal-surface-convergence.md). Full Git material/evidence/branch/final-main accounting is retained in the external vm669-git-report.md artifact linked earlier in this record.
