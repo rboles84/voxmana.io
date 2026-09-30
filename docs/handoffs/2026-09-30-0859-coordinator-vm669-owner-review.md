@@ -3,8 +3,8 @@
 Date: 2026-09-30
 Task: VM-669
 Agent: Codex `/root`, coordinator using the session-selected model and effort
-Candidate: 9844a26b482901f7636d2d4aa12c002055166177
-RobQA: PASS at 9844a26b482901f7636d2d4aa12c002055166177 — independent SEPARATE execution by `/root/vm669_robqa`; HTML-only correction evidence is in its durable record.
+Candidate: PENDING — bounded README link correction after cbffe36cb9263697b7941196012bdb668a9f19c9
+RobQA: PENDING for the corrected candidate; previous independent PASS remains historical evidence.
 Owner: PENDING
 Integration: PENDING — the Owner explicitly prohibited push, PR, merge, deployment, and integration in this request.
 
@@ -73,6 +73,16 @@ Related: [VM-669 task](../kanban/in-progress/VM-669-legal-surface-convergence.md
 
 ## Corrected candidate Owner check
 
+Task: VM-669
+Candidate: 9844a26b482901f7636d2d4aa12c002055166177
+RobQA: PASS — separate HTML-only review by /root/vm669_robqa
+Owner: PENDING
+Integration: PENDING
+
+
 The corrected material candidate is `9844a26b482901f7636d2d4aa12c002055166177` on the existing local feature branch. Its incremental product diff changes only the two contact hrefs; CSS and runtime bytes match the earlier visual candidate. Developer checks passed the static Legal baseline contract, script syntax, HTML lint, and diff cleanliness. No new visual QA was performed, as requested.
 
 Refresh the [Terms](http://127.0.0.1:6690/terms/index.html) and [Privacy](http://127.0.0.1:6690/privacy/index.html) previews. In each Contact section, follow "Vox Mana public source repository" and verify that it reaches the [repository README](https://github.com/rboles84/voxmana.io#readme). The Owner's "rest looks ok" feedback is retained; destination verification and exact-candidate acceptance remain pending. No push, PR, merge, deployment, or integration was performed.
+
+
+The initial handoff headers above are retained at their material-candidate state. This appended record supplies the current corrected candidate binding and independent PASS.

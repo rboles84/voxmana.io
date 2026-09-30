@@ -4,7 +4,7 @@ Date: 2026-09-30
 Task: VM-669
 Branch: `codex/vm-669-legal-surface-convergence`
 Admission baseline: `53f309865d5a194769b55643a52b85a710984521`
-Candidate: 9844a26b482901f7636d2d4aa12c002055166177
+Candidate: `cbffe36cb9263697b7941196012bdb668a9f19c9`
 RobQA: PASS
 Execution: SEPARATE
 Reviewer: Codex `/root/vm669_robqa`; configured/requested/accepted route Sol medium, backend identity unverified
@@ -12,11 +12,9 @@ Implementer: Codex `/root/vm669_robdev`; configured/requested/accepted route Ter
 Authority: repository-local [RobQA skill](../../.agents/skills/robqa/SKILL.md) and full [RobQAPass](../qa/RobQAPass.md)
 Related implementation handoff: [VM-669 RobDev](2026-09-30-0859-robdev-vm669-legal-surface.md)
 Related card: [VM-669](../kanban/in-progress/VM-669-legal-surface-convergence.md)
-Next suggested agent: coordinator for evidence consolidation and Owner verification of the corrected external destination; Owner acceptance remains pending
+Next suggested agent: coordinator for evidence consolidation and Owner Review; Owner judgment remains pending
 
-## Historical initial candidate review — cbffe36cb9263697b7941196012bdb668a9f19c9
-
-The sections from this heading through the original Follow-up recommendations preserve the independent review of the initial visual candidate. Statements there that all link destinations were unchanged apply to that historical candidate and are superseded only by the later Owner-authorized README correction documented in the current-candidate section at the end of this handoff. The visual, focus, containment, cascade, and unrelated-consumer evidence remains applicable because style and runtime bytes did not change.
+## Candidate-bound decision
 
 Independent RobQA issues engineering **PASS** for exact immutable candidate `cbffe36cb9263697b7941196012bdb668a9f19c9`. The candidate satisfies the objective presentation, legal-content preservation, accessibility, responsive-containment, and unrelated-consumer isolation contracts selected for this QA-1 change. This verdict permits Owner Review; it is not Owner acceptance, integration, deployment, or a subjective visual judgment.
 
@@ -165,6 +163,13 @@ The complete selected set and results are recorded above. All selected static/ca
 - Do not repeat placement/recommendation/identity/journey/mutation suites or headless-browser launch attempts for this unchanged QA-1 scope.
 
 ## Surgical correction review — current candidate 9844a26b482901f7636d2d4aa12c002055166177
+
+Task: VM-669
+Candidate: 9844a26b482901f7636d2d4aa12c002055166177
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: Codex /root/vm669_robqa; configured Sol medium, backend unverified
+
 
 ### Current candidate-bound decision
 
