@@ -58,7 +58,7 @@ PENDING exact documentation candidate and distinct QA-0 review. This handoff wil
 
 Related: [VM-670](../kanban/in-progress/VM-670-repository-recon.md); [workflow](../reference/workflow.md); [report](../reports/2026-09-30-vm670-repository-recon.md).
 
-## Exact documentation QA
+## Exact documentation QA (superseded candidate history)
 
 Task: VM-670
 Candidate: 604d4ed885eadcae497b9f8c92669f5862a259b4
@@ -73,13 +73,13 @@ After committing the material candidate, the reviewer re-read its actual baselin
 
 Selected evidence: actual Git scope/content and preservation observations; authored link validation; derived-view freshness; whitespace validation; corroborated local/host/source facts. Browser, engine, mutation, certification and CPU-heavy suites: NOT REQUIRED for this QA-0 artifact. Remaining Owner judgment: proposed cleanup dispositions, separate host-settings decision and product priorities. Owner remains PENDING; integration remains PENDING.
 
-## Material candidate
+## Material candidate (superseded candidate history)
 
 - Baseline: `d842be5a95a57547cc942f8dbd4f8c9c8204d02d`
 - Candidate: `604d4ed885eadcae497b9f8c92669f5862a259b4`
 - Changed paths: `5`
 
-## Files changed
+## Files changed (superseded candidate history)
 
 - `docs/handoffs/2026-09-30-1201-codex-vm670-repository-recon.md`
 - `docs/handoffs/HANDOFF_INDEX.md`
@@ -88,3 +88,7 @@ Selected evidence: actual Git scope/content and preservation observations; autho
 - `docs/reports/2026-09-30-vm670-repository-recon.md`
 
 This list and count come from `git diff --name-status --find-renames` for the full baseline-to-material-candidate range, including the admission commit. Later evidence-only recording must be accounted for separately; it is not the material scope. Final HEAD, evidence-only delta, total-branch scope, generated-view state and clean worktree will be verified and reported from Git after the evidence commit. No push, PR, merge or cleanup is authorized or claimed.
+
+## Documentation-candidate replacement
+
+The initial report-format validation rejected the accounting grammar; the corrected format passed its material accounting check. Candidate-stage delivery subsequently required explicit review receipts for later prose deltas. Inspection also showed that the format correction reworded an already-committed handoff rather than appending to it, so it cannot retain the original candidate under the evidence-only exception. The original candidate and QA above remain historical. Reset current bindings and freeze a replacement material candidate on this same task/branch; the report, findings, scope, pre-existing records and product files remain unchanged. Complete a distinct QA-0 phase and append the new evidence, rather than weakening the checker or treating the blocked attempt as PASS.
