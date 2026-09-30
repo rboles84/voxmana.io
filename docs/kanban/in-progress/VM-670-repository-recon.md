@@ -2,7 +2,7 @@
 
 ID: VM-670
 Title: Repository Recon and Cleanup Decision Packet
-Status: Owner Review
+Status: Accepted
 Type: Read-only reconnaissance / documentation
 Area: Repository memory, delivery residue and work prioritization
 Priority: Owner review
@@ -43,8 +43,8 @@ Record version: 1
 Branch: codex/vm-670-repository-recon
 Admission baseline: d842be5a95a57547cc942f8dbd4f8c9c8204d02d
 Candidate: 1539f12cc3495e67b9212989a7d96487ed2a3005
-RobQA: PASS at 1539f12cc3495e67b9212989a7d96487ed2a3005 — SAME-AGENT DISTINCT PHASE QA-0; current exact documentation QA section in the handoff
-Owner: PENDING
+RobQA: PASS at 1539f12cc3495e67b9212989a7d96487ed2a3005 — SEPARATE QA-0; independent current QA in the handoff
+Owner: ACCEPTED at 1539f12cc3495e67b9212989a7d96487ed2a3005 — exact Owner response in current chat; handoff Owner decision
 Integration: PENDING
 Dependencies: None
 Decisions: Recon and documentation only; stop for review of proposed cleanup and priorities.

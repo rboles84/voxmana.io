@@ -167,3 +167,23 @@ Individual worker handoffs are temporarily preserved outside the active reposito
 - `C:/Users/obake/.codex/visualizations/2026/09/30/01a0f3e0-4b21-7942-bdb3-e2e5e6f92e73/2026-09-30-robqa-vm670-current-review.md`
 
 RobQA independently reviewed exact material candidate `1539f12cc3495e67b9212989a7d96487ed2a3005` and both existing evidence commits: QA-0 / SEPARATE / PASS. The original same-agent review remains historical. Current independent evidence also verifies link resolution, paired-view freshness, whitespace and clean-state observations; no product/semantic/certification PASS is inferred. The shortest remaining Owner check is the existing report and exact VM-670 ACCEPT/REJECT decision. Next: resolve that decision on this branch, complete its governed integration/closeout if accepted, then admit separately scoped deliveries from accepted main. The eight-item effort remains incomplete.
+
+## Independent current QA
+
+Task: VM-670
+Candidate: 1539f12cc3495e67b9212989a7d96487ed2a3005
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: Codex /root/independent_qa
+Implementer: Codex /root
+
+The separate configured RobQA worker reviewed the exact five-path QA-0 material candidate and all post-candidate evidence through `7221b3f19b12c965032b47529015c7d32996ba6d`. Its original external handoff above supplies the detailed evidence and three exact content-review receipts. No substantive findings remain. Paired-view freshness, authored links, whitespace, preserved report bytes and material/evidence/branch accounting passed. Product and certification suites were not required. This new review supplements the historical same-agent verdict rather than relabeling it. The first fresh delivery-check attempts exposed incomplete external source fields and the old card execution binding; these were evidence-record mismatches, not failed product checks or changes to the material candidate.
+
+## Owner decision
+
+Task: VM-670
+Candidate: 1539f12cc3495e67b9212989a7d96487ed2a3005
+Owner: ACCEPT
+Decision reference: Current Codex chat 01a0f3e0-4b21-7942-bdb3-e2e5e6f92e73, exact reply to VM-670 decision question: ACCEPT VM-670 at 1539f12cc3495e67b9212989a7d96487ed2a3005.
+
+The human Owner supplied this exact response after the pending question. It authorizes VM-670 integration through the existing PR/CI/guarded-merge workflow. It does not pre-accept later material candidates. The intake ledger's pending state above is historical; integration remains PENDING until verified.
