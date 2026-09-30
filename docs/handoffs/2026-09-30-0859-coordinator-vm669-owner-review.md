@@ -86,3 +86,15 @@ Refresh the [Terms](http://127.0.0.1:6690/terms/index.html) and [Privacy](http:/
 
 
 The initial handoff headers above are retained at their material-candidate state. This appended record supplies the current corrected candidate binding and independent PASS.
+
+## Final README candidate Owner review — 480a6018982ccc54ad449abfefa46e1da033938d
+
+Task: VM-669
+Candidate: 480a6018982ccc54ad449abfefa46e1da033938d
+RobQA: PASS — independent SEPARATE review by /root/vm669_robqa
+Owner: PENDING
+Integration: PENDING
+
+The replacement material candidate absorbs the earlier record corrections without rewriting Git history. Independent RobQA verified identical product/test inputs to the passed two-link correction and bound its verdict to this exact SHA in the appended final review section. Prior candidate and header bindings above are historical. The source correction, HTML/static evidence, unchanged styles, and no-new-visual-QA disposition remain unchanged.
+
+Owner check: refresh Terms and Privacy locally, then follow the public repository link in each Contact section and verify it opens the repository README. No push, PR, merge, deployment, or integration was performed.

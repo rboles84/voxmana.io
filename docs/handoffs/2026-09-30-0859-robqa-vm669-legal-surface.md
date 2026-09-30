@@ -222,3 +222,22 @@ This is **SEPARATE** execution by Codex `/root/vm669_robqa`, independent of impl
 ### Current follow-up
 
 Coordinator should bind this PASS to `9844a26b482901f7636d2d4aa12c002055166177`, preserve the historical initial review, regenerate/check lifecycle views, and present only the two-link external-destination verification to the Owner. Any further material change requires a new immutable candidate and proportionate independent review.
+
+## Final README candidate review — 480a6018982ccc54ad449abfefa46e1da033938d
+
+Task: VM-669
+Candidate: 480a6018982ccc54ad449abfefa46e1da033938d
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: Codex /root/vm669_robqa; configured Sol medium, backend unverified
+Implementer: Codex /root/vm669_robdev; configured Terra medium, backend unverified
+
+Independent RobQA issues engineering **PASS** for exact replacement material candidate `480a6018982ccc54ad449abfefa46e1da033938d`. The candidate-record format correction changes no product, validator, test, policy, workflow, scope, acceptance criterion, or Decision byte from independently passed README-link candidate `9844a26b482901f7636d2d4aa12c002055166177`.
+
+Git parity inspection of `9844a26b482901f7636d2d4aa12c002055166177..480a6018982ccc54ad449abfefa46e1da033938d` finds exactly four record/view paths: the RobQA handoff, coordinator handoff, VM-669 lifecycle card, and generated board. A protected-path comparison across `assets/`, `terms/`, `privacy/`, `scripts/`, package/CI configuration, repository authorities, and QA/workflow policy reports byte identity. Both existing handoffs retain their material-candidate content as exact byte prefixes and append scoped corrected-candidate records. The scoped surgical QA section contains one plain Task, Candidate, RobQA, Execution, Reviewer, and Implementer identity field.
+
+The full baseline-to-candidate range `53f309865d5a194769b55643a52b85a710984521..480a6018982ccc54ad449abfefa46e1da033938d` contains the same eleven admitted task paths: the shared Legal stylesheet; both Legal route shells; the canonical HTML validator; focused VM-669 static contract; RobDev, RobQA, and coordinator handoffs; source card; generated board; and generated handoff index. `git diff --check` passes for that full range.
+
+The successful exact-link, prior-product normalization, static Legal contract, canonical HTML lint, static-script syntax, admission, diff, and index-freshness results recorded in the surgical review remain applicable because every input they exercised is byte-identical. The historical visual evidence also remains applicable to unchanged presentation/runtime bytes. No browser, live external destination, visual, broad, or CPU-heavy test was rerun; repeating unchanged checks would add no candidate discrimination.
+
+Owner verification remains limited to activating `Vox Mana public source repository` once from Terms and once from Privacy and confirming the expected README destination. Owner: **PENDING**. Integration: **PENDING**. This PASS does not authorize or claim push, pull request, merge, deployment, integration, or Owner acceptance.
