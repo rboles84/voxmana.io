@@ -77,7 +77,7 @@ Record version: 1
 Branch: codex/vm-671-records-reconciliation
 Admission baseline: fc08845af94b1869386826bf6be7dac6ecf97b43
 Candidate: a7ff44e30b86e8c971cf817dda670a710dc920d0
-RobQA: PASS at a7ff44e30b86e8c971cf817dda670a710dc920d0; Execution: SEPARATE; docs/handoffs/2026-09-30-1430-robqa-vm671-records-reconciliation.md — Replacement exact candidate verdict
+RobQA: PASS at a7ff44e30b86e8c971cf817dda670a710dc920d0 — SEPARATE QA-0; docs/handoffs/2026-09-30-1430-robqa-vm671-records-reconciliation.md — Replacement exact candidate verdict
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
