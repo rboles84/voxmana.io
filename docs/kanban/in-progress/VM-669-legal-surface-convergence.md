@@ -1,0 +1,73 @@
+# VM-669 — Legal Surface Convergence
+
+ID: VM-669
+Title: Legal Surface Convergence
+Status: In Progress
+Type: Frontend presentation convergence
+Area: Privacy, Terms, Legal route shell
+Priority: Medium
+Created: 2026-09-30
+
+## Summary
+
+Bring the separate Terms and Privacy routes into the current Vox Mana public-site visual family through one shared Legal adapter, while preserving their approved VM-648 policy boundary and all legal content.
+
+## Source and locked decisions
+
+- Owner task packet, 2026-09-30.
+- VM-648 remains the authority for the Terms/Privacy information boundary: Privacy owns data handling; Terms owns service and contractual framing.
+- Preserve every legal copy string, effective date, heading, metadata value, canonical URL, external link, route, and policy meaning.
+- Keep the documents separate. Do not add a legal hub, navigation system, table of contents, or cross-links.
+
+## Scope
+
+- Establish a single Legal-family adapter for the two existing legal routes.
+- Converge the hero, article stream, one summary surface, callouts, topbar, and footer on the restrained warm-black/gold public-site family.
+- Preserve readable width, heading hierarchy, link distinction, sticky-summary usability, focus visibility, wrapping, and narrow-width containment.
+
+## Explicitly out of scope
+
+- Policy/content, metadata, route, link, storage, service, data, runtime, identity, recommendation, placement, evidence, telemetry, deployment, and navigation changes.
+- Changes to unrelated `site-skin.css` consumers or a new shared legal system beyond the scoped Legal adapter.
+
+## Risks and protected behavior
+
+- CSS cascade and cache-key order can leave old blue/glass rules active or affect unrelated public routes.
+- The sticky summary must remain useful without obscuring the article under the shared sticky topbar.
+- Terms and Privacy must retain all headings, landmarks, link destinations, accessible names, and footer reachability.
+
+## Acceptance criteria
+
+- [ ] Terms and Privacy visibly share the current Vox Mana language while remaining distinct documents.
+- [ ] Legal copy, dates, headings, metadata, canonicals, links, routes, and policy meaning are byte-preserved.
+- [ ] The shared Legal adapter provides an open hero boundary, open article stream, restrained section rules, solid summary/callouts, low-radius geometry, and warm-black/gold treatment.
+- [ ] Desktop and approximately 390px objective checks cover containment, wrapping, focus, sticky summary, landmarks, links, and reachable footer.
+- [ ] Legal-specific styling is isolated from unrelated routes.
+- [ ] Required handoffs and generated views are current; independent RobQA receives the exact material candidate packet.
+
+## Delivery
+
+Record version: 1
+Branch: `codex/vm-669-legal-surface-convergence`
+Admission baseline: `53f309865d5a194769b55643a52b85a710984521`
+Candidate: PENDING
+RobQA: PENDING
+Owner: PENDING
+Integration: PENDING
+Dependencies: None
+Decisions: Presentation-only Legal convergence. Preserve VM-648 copy and policy boundaries, all legal route contracts, and unrelated public-route consumers.
+
+## Admission Scope
+
+- `docs/kanban/in-progress/VM-669-legal-surface-convergence.md`
+- `docs/kanban/board.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `terms/index.html`
+- `privacy/index.html`
+- `assets/css/legal.css`
+- `assets/css/site-skin.css`
+- `scripts/validate-frontend-html.mjs`
+- `scripts/vm669-legal-surface-browser.mjs`
+- `docs/handoffs/2026-09-30-robdev-vm669-legal-surface.md`
+- `docs/handoffs/2026-09-30-robqa-vm669-legal-surface.md`
+- `docs/handoffs/2026-09-30-coordinator-vm669-owner-review.md`
