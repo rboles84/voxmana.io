@@ -761,14 +761,17 @@ const legalNavTargets = [
 for (const key of ["privacy", "terms"]) {
   const file = publicPages[key];
   const stylesheetHrefs = getStylesheetHrefs(sources[key]);
+  const bodyClasses = sources[key].match(/<body\b[^>]*\bclass="([^"]*)"/i)?.[1].split(/\s+/) ?? [];
 
   expect(
-    sources[key].includes('<link rel="stylesheet" href="../assets/css/legal.css?v=vm635">'),
+    sources[key].includes('<link rel="stylesheet" href="../assets/css/legal.css?v=vm669">'),
     `${file} should load "../assets/css/legal.css"`
   );
   expect(
-    stylesheetHrefs[stylesheetHrefs.length - 1] === "../assets/css/legal.css?v=vm635",
-    `${file} should keep legal.css as the last stylesheet in the head`
+    stylesheetHrefs.at(-1) === "../assets/css/site-skin.css?v=vm669" &&
+      stylesheetHrefs.filter(href => /\/site-skin\.css(?:\?|$)/.test(href)).length === 1 &&
+      bodyClasses.includes("vm-site-skin") && bodyClasses.includes("vm-legal-route"),
+    `${file} should opt into the scoped Legal site skin after legal.css`
   );
   expectAbsent(
     sources[key],

