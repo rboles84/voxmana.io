@@ -1,4 +1,4 @@
-<!-- task-view-sha256:772e1e2cbfc0277c9a3aeafa441666cd8cd14fe91f0b86ab2e6a4f9f0c72f3ae -->
+<!-- task-view-sha256:7e0c8ed21cdbfebd06d1aa72f0f4fa9d6778f9edf79a9e106c2a1afe1d0b4e38 -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -50,13 +50,13 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | ID | Card | Declared status | Diagnostics |
 |---|---|---|---|
 | VM-660 | [Maze Performance Recon](in-progress/VM-660-maze-performance-recon.md) | Accepted |  |
-| VM-669 | [Legal Surface Convergence](in-progress/VM-669-legal-surface-convergence.md) | Accepted |  |
 
 ## Integrated
 
 | ID | Card | Declared status | Diagnostics |
 |---|---|---|---|
 | VM-658 | [Maze Instrument Frame](in-progress/VM-658-maze-instrument-frame.md) | Integrated |  |
+| VM-669 | [Legal Surface Convergence](in-progress/VM-669-legal-surface-convergence.md) | Integrated |  |
 
 ## Blocked
 

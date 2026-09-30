@@ -68,3 +68,11 @@ The original unpushed admission-only commit placed `Record version` outside `## 
 - Owner direction: both existing links labeled `Vox Mana public source repository` now target `https://github.com/rboles84/voxmana.io#readme`, replacing only the former `/issues` destination. The Owner said the rest looks okay; that observation is limited visual feedback, not renewed engineering PASS or acceptance.
 - The static baseline contract now permits exactly one such README link per legal route and restores it to the baseline Issues URL before its byte-preservation comparison. It rejects the former URL and any additional link drift.
 - This changes neither legal prose nor policy meaning. It resets Candidate, RobQA, and Owner delivery bindings to PENDING; fresh independent QA must bind the next immutable candidate.
+
+## Integrated implementation reference — VM-669
+
+Task: VM-669
+Candidate: 480a6018982ccc54ad449abfefa46e1da033938d
+Recorded by: Codex /root, coordinator
+
+The implementation recorded above is the product reviewed and accepted at this exact candidate. The verified PR61 squash result 299b8a8ffb66ed83402b66cf2e58b975a96809bb contains identical accepted product/test bytes. This appended identity/binding record changes no implementation or developer verdict; original development history remains preserved.

@@ -111,3 +111,18 @@ The user approved the exact current candidate and authorized its integration, pu
 Host routing was discovered before operations: authenticated GitHub connector supports repository/identity/PR/CI reads, PR creation, and squash merge with expected_head_sha. Identity is rboles84 with repository admin/push access. These are the selected connector routes; Git transport is used normally for push/fetch and authorized remote branch deletion. No connector capability exposes live main-protection settings; that supplemental observation is optional under docs/reference/workflow.md#main-protection-and-exceptions. No alternate authentication path is needed. Deterministic Validation, exact PR head/base, complete diff/commit/blob observations, and the atomic merge guard remain mandatory.
 
 Checkout/worktree observation before delivery: clean primary checkout C:/dev/voxmana.io at df360467711d9da82890da4d012aecc29afcd1a9; no additional registered or attached worktrees. There is no unrelated dirty work to preserve. Admission continuation passed against live/local main 53f309865d5a194769b55643a52b85a710984521.
+
+## Integration and closeout — VM-669
+
+Task: VM-669
+Candidate: 480a6018982ccc54ad449abfefa46e1da033938d
+Boundaries: PASS
+Integration: INTEGRATED via PR61; squash merge 299b8a8ffb66ed83402b66cf2e58b975a96809bb
+PR: https://github.com/rboles84/voxmana.io/pull/61
+Evidence head: 0634717034db223033406d9d1171378ce3b7c95f
+
+The integration checker passed before the GitHub connector submitted a squash merge with expected_head_sha 0634717034db223033406d9d1171378ce3b7c95f. The server returned merged=true and the actual merge above. Fetched main has the previous main as its sole parent and the exact verified PR-head tree. Deterministic Validation passed at PR head and merged main. GitHub Pages build/deployment succeeded for the merge; public HTTPS reads of terms/index.html, privacy/index.html and assets/css/legal.css returned 200 and matched normalized merged-source bytes. No visual QA rerun or hosting configuration change occurred.
+
+Supplemental routing clarification: the connector's generic approved GET capability does expose branch-protection reads. The actual installation attempt returned 403 Resource not accessible by integration; rules-by-branch was unsupported. Basic main metadata reported protected=false. Full policy visibility remained optional under the established repository authority, so no alternate authentication route or additional Owner approval was sought. Required CI, merge state, head guard and full PR file/commit/tree observations were verified.
+
+Cleanup: primary checkout is on synchronized main. The remote feature branch was already absent after merge; its absence was reconciled instead of retrying deletion. The matching local feature branch and stale tracking ref were removed after exact merged-tree preservation was proven. No additional registered/attached worktrees exist. The task's preview session was stopped. No unrelated dirty or untracked work existed before delivery or cleanup; no unrelated branches/files were deleted. Remaining work is only authorized lifecycle closeout.
