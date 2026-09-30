@@ -8,6 +8,10 @@ VM-670 was genuinely accepted at `1539f12cc3495e67b9212989a7d96487ed2a3005`, int
 
 VM-671 addresses related repository-memory work in items 1–3. It preserves original evidence, corrects current navigation, and distinguishes genuine integration from incomplete closeout. No runtime, assertion, policy, host, ref, stash, dossier or semantic change belongs to this delivery.
 
+## Temporal boundary
+
+The original narrative and the material-candidate sections labelled **freeze-time** below preserve the snapshot authored at `a7ff44e30b86e8c971cf817dda670a710dc920d0`; this includes its event-time statement that original branches remain retained. They are not a claim about the later administrative cleanup state. The later verified Item 4 disposition records the current state separately and does not rewrite the retained historical rows or rescued VM-661 originals.
+
 ## Implemented records and preserved decisions
 
 - [VM-658](../kanban/in-progress/VM-658-maze-instrument-frame.md) remains Integrated at its actual PR #52 squash. Its later deterministic-closeout blocker is now explicitly linked. A post-merge handoff rewrite cannot be cured by appending a claim of Done. This delivery preserves that unresolved condition; it does not claim a new old-task closeout PASS.
@@ -17,7 +21,7 @@ VM-671 addresses related repository-memory work in items 1–3. It preserves ori
 
 These are proposed current record corrections in the VM-671 candidate until independent QA and exact Owner acceptance/integration finish. Rescued original records are historical evidence, not acceptance of unseen runtime work. The original branches remain retained.
 
-## Eight-item progress ledger
+## Eight-item progress ledger — freeze-time material snapshot
 
 Completion, remaining work and confidence are separate. High means directly inspected/reproduced evidence, not certainty that a proposed fix works.
 
@@ -32,7 +36,7 @@ Completion, remaining work and confidence are separate. High means directly insp
 | 7 — assertions / browser debt | Both stale static-label failures reproduced once against accepted current copy. No assertion changed. | Separately admit assertion reconciliation retaining behavior sensitivity; diagnose browser debt as bounded maintenance before promising a fix. | High for static failures; browser limitation not fully diagnosed. |
 | 8 — main protection | Main reports unprotected/enforcement off; rulesets empty; actual successful check is `Deterministic Validation`. | BLOCKED: connector has no administration-write capability; detailed protection read is 403; `gh` absent; browser runtime failed initialization. No settings changed or effective protection certified. | High for returned metadata/capability gap; detailed policy unavailable. |
 
-## Recoverable residue preservation
+## Recoverable residue preservation — historical snapshot
 
 External artifact: `C:/Users/obake/.codex/visualizations/2026/09/30/01a0f3e0-4b21-7942-bdb3-e2e5e6f92e73/authorized-residue-preservation.bundle`.
 
@@ -40,8 +44,22 @@ SHA-256: `cef59c66f47d0b07e390d39554ab896f7d7ffe268329c3d9988b082e5cafbef2`.
 
 The bundle was verified, then unpacked into the external bare verification archive `residue-verification.git`. All three named retained local branch heads and both stash commits, including `1749da791736b4ece758ac1d7fdbbab0eef4ff8c`, resolve there. This is an evidence archive with no checkout or registered project worktree. It preserves recoverable history before any disposal; it does not prove disposal is complete. Local/remote VM-660 and VM-661 heads still match the historically named heads; local VM-667 and both stashes remain. The project has one registered worktree.
 
+## Later verified Item 4 disposition
+
+This section supersedes only the current-state implication of the freeze-time Item 4 row and residue snapshot above. Those original paragraphs and table rows remain historical material evidence. The administrative cleanup observations are outside VM-671's records-only scope and create no product, runtime, policy, or Owner-authority change.
+
+- The external `authorized-residue-preservation.bundle` remains preserved with SHA-256 `cef59c66f47d0b07e390d39554ab896f7d7ffe268329c3d9988b082e5cafbef2`.
+- VM-660 has no local or remote branch. Its historical Owner/dependency head `119b13cd26623e92e1d72d2a2023dd6bfdda7b22` remains evidence, not a current branch claim. Local VM-667 is absent; its historical exact head `cd756fc8491131a5684fe0178044440d61b50b76` remains evidence.
+- The stash entries for `970dc3a1b582935912fcca05fdebab43f9fc8e4a` and `1749da791736b4ece758ac1d7fdbbab0eef4ff8c` were removed by identity; `git stash list` is empty, while both commit objects remain recoverable in the verified external archive.
+- VM-661 `306574628d2445cf2729a60782d0d63b56a4ebed` remains local and remote pending rescue integration. VM-670 `cb3707fe4d4b859657edc1ee3c943ef199d061aa` remains local, while its remote branch is now absent; the local stale `origin/codex/vm-670-repository-recon` tracking ref still names `cb3707fe4d4b859657edc1ee3c943ef199d061aa` and was not pruned or otherwise changed here. VM-671 remains the current local branch, and one worktree is registered.
+- Issues #2, #3, #4, #6, #7, #8, and #10 are closed as not planned with their VM-656 references. Issue #9 remains open and unchanged.
+
+Item 4 is not Done: VM-661 still awaits rescue integration, and VM-670 cleanup remains a separate deferred matter. This report neither attributes remote removal to VM-671 nor changes any retained ref, stash, issue, or host setting.
+
 ## Verification and Owner boundary
 
 RobDev verified all five rescued blobs, the current child/Phase-6 targets and whitespace. The coordinator generates current views through the existing writer. Independent RobQA reviews the frozen candidate and selects proportionate documentation evidence; no product or certification suite is justified by this documentation delivery. Its individual verdict and exact Git accounting follow in the attributed handoff.
+
+Targeted correction verification: current local and remote ref observations, stash-list state and both removed stash identities, the preserved bundle digest, registered-worktree count, and direct issue dispositions were refreshed for the later Item 4 section. The shortest Owner check is that this temporal boundary accurately separates historical candidate evidence from later administrative state, without treating VM-661 rescue integration or VM-670 cleanup as complete.
 
 Shortest Owner check: review the four record dispositions above, particularly preserved original VM-661 evidence, VM-637's retained voice and completed coordination purpose, and the honest old-task closeout limitations. An exact ACCEPT of this candidate is required before PR integration. Items 4–8 remain independently scoped; this report does not declare the eight-item effort Done.
