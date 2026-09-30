@@ -33,12 +33,12 @@ Current Owner eight-item request, items 1–3, and the accepted VM-670 report an
 
 ## Acceptance Criteria
 
-- [ ] VM-658 records its verified integration while retaining its concrete later closeout blocker; no Done claim is inferred.
-- [ ] VM-660 distinguishes its exact candidate, engineering QA, Owner decision, integration, and main adoption/accounting with evidence; no field is inferred from byte parity alone.
-- [ ] The five original VM-661 authored records are restored with exact historical identity, their later supersession/current disposition is documented, and no recovery source is disposed of.
-- [ ] VM-637 has a documented parent-completion assessment grounded in its seven child outcomes and Owner evidence; a `done/` move occurs only if that assessment supports it.
-- [ ] VM-637's five child links resolve to the current canonical child locations, and the course-correction plan points Phase 6 to the current VM-641 card.
-- [ ] All source-card, handoff, report, and derived-view links in the admitted scope resolve; the board and handoff index are freshly generated rather than hand-maintained.
+- [x] VM-658 records its verified integration while retaining its concrete later closeout blocker; no Done claim is inferred.
+- [x] VM-660 distinguishes its exact candidate, engineering QA, Owner decision, integration, and main adoption/accounting with evidence; no field is inferred from byte parity alone.
+- [x] The five original VM-661 authored records are restored with exact historical identity, their later supersession/current disposition is documented, and no recovery source is disposed of.
+- [x] VM-637 has a documented parent-completion assessment grounded in its seven child outcomes and Owner evidence; a `done/` move occurs only if that assessment supports it.
+- [x] VM-637's five child links resolve to the current canonical child locations, and the course-correction plan points Phase 6 to the current VM-641 card.
+- [ ] Current reconciliation navigation links resolve; historical links in byte-preserved rescue records retain event-time meaning and any stale targets are disclosed. The board and handoff index are freshly generated rather than hand-maintained.
 - [ ] RobDev and independent RobQA evidence bind the exact documentation candidate; Owner and integration remain PENDING unless later authentic evidence exists.
 
 ## Files Likely Impacted
@@ -77,12 +77,12 @@ Record version: 1
 Branch: codex/vm-671-records-reconciliation
 Admission baseline: fc08845af94b1869386826bf6be7dac6ecf97b43
 Candidate: PENDING
-RobQA: PENDING — exact candidate and independent evidence pending
-Owner: PENDING — exact candidate and authentic Owner decision pending
+RobQA: PENDING
+Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Decisions: Bounded records-only reconciliation of Owner-authorized items 1–3. Preserve historical evidence and unresolved closeout/adoption/parent-completion distinctions; do not infer acceptance or perform cleanup.
-Evidence: [VM-670 report](../../reports/2026-09-30-vm670-repository-recon.md); [VM-670 closeout handoff](../../handoffs/2026-09-30-1201-codex-vm670-repository-recon.md); current Owner eight-item request.
+Evidence: [Current reconciliation and eight-item ledger](../../reports/2026-09-30-vm671-records-reconciliation.md); [RobDev handoff](../../handoffs/2026-09-30-1430-robdev-vm671-records-reconciliation.md); [Kanban handoff](../../handoffs/2026-09-30-1430-kanban-vm671-admission.md); [VM-670 report](../../reports/2026-09-30-vm670-repository-recon.md); [VM-670 closeout handoff](../../handoffs/2026-09-30-1201-codex-vm670-repository-recon.md); current Owner eight-item request.
 
 ## Admission Scope
 

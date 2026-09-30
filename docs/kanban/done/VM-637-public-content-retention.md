@@ -2,7 +2,7 @@
 
 ID: VM-637
 Title: Public Content Retention and Owner Prose Plan
-Status: Backlog
+Status: Done
 Type: Product scope proposal
 Area: Public site content and discovery
 Priority: Owner decision
@@ -46,8 +46,8 @@ No runtime, placement, semantic, source-data, storage, generated-output, imagery
 - [x] Player utility and Owner writing order recorded.
 - [x] Correct source/producer boundaries and later visibility dependencies identified.
 - [x] Non-keep items grouped into seven Owner page passes: Main, Archscry, Maze, Apocrypha, Strategium, Privacy, and Terms; related guides assigned to their owning passes.
-- [ ] Owner chooses the desired public scope.
-- [ ] A bounded implementation contract and proportional validation are established for that scope.
+- [x] Owner-selected, bounded child scopes were completed individually: VM-642 through VM-648 each records an exact candidate, Owner acceptance, and verified integration in its Done card.
+- [x] The selected public-content implementation contracts and proportional validation were established and completed by those seven cards; their accepted outcomes retain the Owner's voice and do not turn unused review options into obligations.
 
 ## Child page cards
 
@@ -57,13 +57,15 @@ The Owner authorized creating these backlog stories on 2026-09-08. Work through 
 | --- | --- | --- |
 | 1 | [VM-642 — Home Public Content and Owner Prose Pass](../done/VM-642-home-owner-prose-pass.md) | Main / Home |
 | 2 | [VM-643 — Archscry Atlas and Dossier Owner Prose Pass](../done/VM-643-archscry-owner-prose-pass.md) | Archscry / Atlas / dossiers |
-| 3 | [VM-644 — Maze Search Guidance and Owner Prose Pass](VM-644-maze-owner-prose-pass.md) | Maze |
-| 4 | [VM-645 — Apocrypha Source Annotations and Owner Prose Pass](VM-645-apocrypha-owner-prose-pass.md) | Apocrypha |
-| 5 | [VM-646 — Strategium Table Guidance and Owner Prose Pass](VM-646-strategium-owner-prose-pass.md) | Strategium |
-| 6 | [VM-647 — Privacy Service Accuracy and Owner Prose Pass](VM-647-privacy-service-accuracy-pass.md) | Privacy |
-| 7 | [VM-648 — Terms Service Accuracy and Owner Prose Pass](VM-648-terms-service-accuracy-pass.md) | Terms |
+| 3 | [VM-644 — Maze Search Guidance and Owner Prose Pass](../done/VM-644-maze-owner-prose-pass.md) | Maze |
+| 4 | [VM-645 — Apocrypha Source Annotations and Owner Prose Pass](../done/VM-645-apocrypha-owner-prose-pass.md) | Apocrypha |
+| 5 | [VM-646 — Strategium Table Guidance and Owner Prose Pass](../done/VM-646-strategium-owner-prose-pass.md) | Strategium |
+| 6 | [VM-647 — Privacy Service Accuracy and Owner Prose Pass](../done/VM-647-privacy-service-accuracy-pass.md) | Privacy |
+| 7 | [VM-648 — Terms Service Accuracy and Owner Prose Pass](../done/VM-648-terms-service-accuracy-pass.md) | Terms |
 
-VM-637 remains the parent planning/coordination record. Implement page changes in the selected child rather than expanding the parent or VM-629 into duplicate implementation work. Preserve one active task/worktree under admission. Final availability, entry links and policy descriptions must agree across completed passes; no all-pages-at-once release is implied.
+## Completion assessment — 2026-09-30
+
+VM-642 through VM-648 are each Done with their own accepted, integrated delivery evidence. Together they fulfill this parent's authorized coordination purpose: every allocated page family received an individually bounded pass, and the outcomes preserve the Owner's direction that retaining voice is valid and that unselected review options are not new work. No concrete unfinished parent-owned obligation remains. Future content, player-feedback, repetition, semantic, or product work remains separately scoped on its own record.
 
 ## Delivery
 

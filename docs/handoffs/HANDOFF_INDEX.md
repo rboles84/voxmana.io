@@ -1,4 +1,4 @@
-<!-- task-view-sha256:6d3101848bc54e6e1071dc3a9c3e7756ac9defa4e77f2073b6edcf9ec5de0ed6 -->
+<!-- task-view-sha256:697f2ff212b29a1dac8be51e79545460cbe8a239d7f3a197d17c7575f117c4d9 -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -8,10 +8,12 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 
 | Authored / filename date | Agent | Handoff | Related task references | Diagnostics |
 |---|---|---|---|---|
+| 2026-09-30T14:30:00-06:00 (authored) | Kanban Steward `/root/kanban_steward` | [VM-671 — Kanban admission handoff](2026-09-30-1430-kanban-vm671-admission.md) | VM-671, VM-670 | Identity displayed from heading; not admission metadata. |
 | 2026-09-30T12:01:00-06:00 (authored) | Codex `/root` | [VM-670 — Repository reconnaissance handoff](2026-09-30-1201-codex-vm670-repository-recon.md) | VM-670 | Identity displayed from heading; not admission metadata. |
 | 2026-09-30T00:00:00Z (authored) | Codex `/root`, coordinator using the session-selected model and effort | [VM-669 — Legal Surface Convergence — Owner Review Coordination](2026-09-30-0859-coordinator-vm669-owner-review.md) | VM-669, VM-648, VM-668 | Identity displayed from heading; not admission metadata. |
 | 2026-09-30T00:00:00Z (authored) | Codex `/root/vm669_robdev` | [VM-669 RobDev Handoff — Legal Surface Convergence](2026-09-30-0859-robdev-vm669-legal-surface.md) | VM-669, VM-648 | Identity displayed from heading; not admission metadata. |
 | 2026-09-30T00:00:00Z (authored) | Unknown | [VM-669 Independent RobQA — Legal Surface Convergence](2026-09-30-0859-robqa-vm669-legal-surface.md) | VM-669 | Identity displayed from heading; not admission metadata. |
+| 2026-09-30T00:00:00Z (authored) | RobDev, Documentation Steward constraints applied | [VM-671 — RobDev records reconciliation](2026-09-30-1430-robdev-vm671-records-reconciliation.md) | VM-671 | Identity displayed from heading; not admission metadata. |
 | 2026-09-29T11:12:00Z (filename) | Unknown | [2026-09-29 11:12 — Codex — VM-667 Owner-Accepted Closeout](2026-09-29-1112-codex-vm667-owner-accepted-closeout.md) | VM-667 | Identity displayed from heading; not admission metadata. |
 | 2026-09-29T00:00:00Z (authored) | Codex `/root`, applying the repository-local `robdev` skill and full RobDevPass. | [2026-09-29 07:27 — RobDev — VM-667 Feedback Surface](2026-09-29-0727-robdev-vm667-feedback-surface.md) | VM-667, VM-423 | Identity displayed from heading; not admission metadata. |
 | 2026-09-29T00:00:00Z (authored) | Codex `/root/vm667_robqa`, applying the repository-local `robqa` skill and full `docs/qa/RobQAPass.md` independently from the implementation agent. | [2026-09-29 07:27 — RobQA — VM-667 Feedback Surface](2026-09-29-0727-robqa-vm667-feedback-surface.md) | VM-667 | Identity displayed from heading; not admission metadata. |
@@ -37,8 +39,10 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 | 2026-09-24T00:00:00Z (authored) | Codex `/root/vm664_robqa` (repository `robqa` role) | [VM-664 — Independent RobQA Handoff](2026-09-24-robqa-vm664-archscry-mixed-reading-polish.md) | VM-664 | Identity displayed from heading; not admission metadata. |
 | 2026-09-23T04:15:00Z (filename) | Unknown | [VM-662 — Owner manual-test bounded remediation](2026-09-23-0415-codex-vm662-owner-manual-remediation.md) | VM-662 | Identity displayed from heading; not admission metadata. Invalid authored date; filename fallback or undated ordering used. |
 | 2026-09-23T04:15:00Z (filename) | Unknown | [VM-662 — Independent RobQA for Owner manual-test remediation](2026-09-23-0415-robqa-vm662-owner-manual-remediation.md) | VM-662 | Identity displayed from heading; not admission metadata. Invalid authored date; filename fallback or undated ordering used. |
+| 2026-09-19T09:40:00Z (filename) | Codex `/root/kanban_vm662` | [VM-660 / VM-661 — Kanban Lifecycle Reconciliation](2026-09-19-0940-codex-kanban-vm660-vm661-lifecycle.md) | VM-660, VM-661 | Identity displayed from heading; not admission metadata. |
 | 2026-09-19T00:00:00Z (authored) | Codex `/root` | [VM-662 — Maze Modernization Implementation](2026-09-19-0751-codex-vm662-maze-modernization.md) | VM-662 | Identity displayed from heading; not admission metadata. |
 | 2026-09-19T00:00:00Z (authored) | Codex `/root/vm662_robqa` | [VM-662 — Independent RobQA](2026-09-19-0751-robqa-vm662-maze-modernization.md) | VM-662 | Identity displayed from heading; not admission metadata. |
+| 2026-09-19T00:00:00Z (authored) | Codex `/root` | [VM-662 — Maze Modernization Documentation-Only Preflight](2026-09-19-0910-codex-vm662-maze-modernization-preflight.md) | VM-662 | Identity displayed from heading; not admission metadata. |
 | 2026-09-19T00:00:00Z (authored) | Codex `/root` | [VM-662 — Admission Reconciliation](2026-09-19-0955-codex-vm662-admission-reconciliation.md) | VM-662 | Identity displayed from heading; not admission metadata. |
 | 2026-09-19T00:00:00Z (authored) | Unknown | [VM-662 — Owner-rejection bounded remediation](2026-09-19-2145-codex-vm662-owner-remediation.md) | VM-662 | Identity displayed from heading; not admission metadata. |
 | 2026-09-19T00:00:00Z (authored) | Codex `/root/vm662_robqa` | [VM-662 — Owner-Remediation Independent RobQA](2026-09-19-2145-robqa-vm662-owner-remediation.md) | VM-662 | Identity displayed from heading; not admission metadata. |
@@ -46,6 +50,8 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 | 2026-09-18T10:59:00Z (filename) | Codex `/root/robqa_vm659`, independent RobQA reviewer | [VM-659 Independent RobQA — Astra Policy Cleanup](2026-09-18-1059-robqa-vm659-astra-policy-cleanup.md) | VM-659 | Identity displayed from heading; not admission metadata. |
 | 2026-09-18T00:00:00Z (authored) | Codex `/root` | [VM-660 — Maze Performance Recon](2026-09-18-1853-codex-vm660-maze-performance-recon.md) | VM-660 | Identity displayed from heading; not admission metadata. |
 | 2026-09-18T00:00:00Z (authored) | Unknown | [VM-660 — RobQA QA-0 Handoff](2026-09-18-1853-robqa-vm660-maze-performance-recon.md) | VM-660 | Identity displayed from heading; not admission metadata. |
+| 2026-09-18T00:00:00Z (authored) | Codex `/root` | [VM-661 — Maze Modernization Implementation Specification](2026-09-18-2300-codex-vm661-maze-modernization-spec.md) | VM-661 | Identity displayed from heading; not admission metadata. |
+| 2026-09-18T00:00:00Z (authored) | Unknown | [VM-661 — RobQA QA-0 Handoff](2026-09-18-2310-robqa-vm661-maze-modernization-spec.md) | VM-661 | Identity displayed from heading; not admission metadata. |
 | 2026-09-17T00:00:00Z (authored) | Unknown | [VM-658 — Integration and closeout](2026-09-17-2327-codex-vm658-closeout.md) | VM-658 | Identity displayed from heading; not admission metadata. |
 | 2026-09-17T00:00:00Z (authored) | Unknown | [VM-658 — Closeout blocker](2026-09-17-2336-codex-vm658-closeout-blocked.md) | VM-658 | Identity displayed from heading; not admission metadata. |
 | 2026-09-15T21:44:00Z (filename) | Unknown | [VM-658 RobDev Implementation Handoff — Maze Instrument Frame](2026-09-15-2144-codex-vm658-maze-instrument-frame.md) | VM-658 | Identity displayed from heading; not admission metadata. |

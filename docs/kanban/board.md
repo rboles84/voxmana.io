@@ -1,4 +1,4 @@
-<!-- task-view-sha256:5eda9e284f0607a7b52f55dbbfeb185b23214ea4116deef64eb209950cf6b181 -->
+<!-- task-view-sha256:a8d2db7c89d5e8bcf78e47d4dd0f01d7e71ad91d2a09c4b3bcc150d45aa524d3 -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -28,7 +28,6 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | VM-628 | [Archscry Portable Reading Recovery](backlog/VM-628-archscry-portable-reading-recovery.md) | Backlog |  |
 | VM-629 | [Placement Language Repetition Reduction](backlog/VM-629-placement-language-repetition-reduction.md) | Backlog |  |
 | VM-630 | [CRIT-001 Live Provenance Pointer Normalization](backlog/VM-630-crit001-live-provenance-pointer-normalization.md) | Backlog |  |
-| VM-637 | [Public Content Retention and Owner Prose Plan](backlog/VM-637-public-content-retention.md) | Backlog |  |
 
 ## Ready
 
@@ -50,13 +49,14 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 
 | ID | Card | Declared status | Diagnostics |
 |---|---|---|---|
-| VM-660 | [Maze Performance Recon](in-progress/VM-660-maze-performance-recon.md) | Accepted |  |
+| VM-661 | [Maze Modernization Implementation Specification](in-progress/VM-661-maze-modernization-spec.md) | Accepted |  |
 
 ## Integrated
 
 | ID | Card | Declared status | Diagnostics |
 |---|---|---|---|
 | VM-658 | [Maze Instrument Frame](in-progress/VM-658-maze-instrument-frame.md) | Integrated |  |
+| VM-660 | [Maze Performance Recon](in-progress/VM-660-maze-performance-recon.md) | Integrated |  |
 
 ## Blocked
 
@@ -657,6 +657,7 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | VM-634 | [Temporarily Hide the Homepage Color Philosophy Strip](done/VM-634-hide-home-color-axis.md) | Done |  |
 | VM-635 | [Replace Designated Background Imagery with Black](done/VM-635-black-page-backgrounds.md) | Done |  |
 | VM-636 | [VM-636 — Restore the Mana Alignment Matrix in Atlas dossiers](done/VM-636-atlas-mana-matrix.md) | Done |  |
+| VM-637 | [Public Content Retention and Owner Prose Plan](done/VM-637-public-content-retention.md) | Done |  |
 | VM-638 | [Task Admission, Baseline, and Scope Validation](done/VM-638-task-admission.md) | Done |  |
 | VM-639 | [Generated Views and Progressive Task Rehydration](done/VM-639-task-context.md) | Done |  |
 | VM-640 | [Workflow Instruction Consolidation and Context Reduction](done/VM-640-instruction-consolidation.md) | Done |  |
