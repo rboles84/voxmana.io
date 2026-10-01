@@ -65,3 +65,18 @@ All product behavior, candidates, QA artifacts, Owner implementation decisions, 
 Regenerate `docs/kanban/board.md` and `docs/handoffs/HANDOFF_INDEX.md` from their existing generator, inspect the generated diffs, and obtain independent proportional QA of this exact lifecycle-only change before delivery. Preserve VM-658 as Integrated/closeout blocked and VM-660 as Integrated by adoption; do not use this propagation to claim Done or standard checker PASS.
 
 Related: [VM-658](../kanban/in-progress/VM-658-maze-instrument-frame.md), [VM-660](../kanban/in-progress/VM-660-maze-performance-recon.md), [VM-658 closeout blocker](2026-09-17-2336-codex-vm658-closeout-blocked.md), and [VM-673 coordinator handoff](2026-09-30-codex-vm673-retired-test-contracts.md).
+
+## Coordinator correction and complete delivery scope
+
+The role report above was authored before the coordinator generated and committed derived views. Its Files changed list identifies the three steward-authored files, not the complete delivery diff. Complete Git-derived scope from 26fb2726d27e1b7b61041ff11e4867a7e3f095fd is four paths:
+
+- docs/kanban/in-progress/VM-658-maze-instrument-frame.md
+- docs/kanban/in-progress/VM-660-maze-performance-recon.md
+- docs/handoffs/2026-09-30-kanban-legacy-terminal-dispositions.md
+- docs/handoffs/HANDOFF_INDEX.md
+
+Kanban authored the two lifecycle cards and its new handoff; the coordinator regenerated HANDOFF_INDEX from the unchanged repository generator. The board generator ran but its bytes did not change. The role statements about not editing generated views/indexes describe the steward's operations, not the complete committed delivery.
+
+The sentence 'no prior record is overwritten' was imprecise: VM-660's current Closeout field was intentionally replaced with the Owner-authorized terminal disposition. Its historical reconciliation prose, all historical candidate/QA/Owner/integration fields, and every historical handoff remain unchanged. The new dated supersession note explicitly preserves the former pending-closeout observation as historical. This correction preserves the original role report and supersedes only the imprecise accounting/preservation wording; no lifecycle meaning, Owner decision, product, policy, tool or historical delivery evidence changes.
+
+Independent QA rejected the first unpushed administrative head 4905b1c2cd1da066a135cbfcb1624890da80e766 on these record-wording issues. This appended correction is reviewed at its exact final head before push. The two cards remain Integrated, never Done or checker PASS.
