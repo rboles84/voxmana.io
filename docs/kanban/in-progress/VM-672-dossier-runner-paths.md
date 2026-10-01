@@ -2,7 +2,7 @@
 
 ID: VM-672
 Title: Dossier Runner Paths
-Status: In Progress
+Status: Owner Review
 Type: Focused repository-path repair
 Area: Dossier runner inputs and snapshot output isolation
 Priority: High
@@ -37,7 +37,7 @@ Current Owner eight-item request, item 5; accepted VM-670 and VM-671 records rec
 - [x] Regression evidence exercises the actual input/output seam and would fail for the reproduced path-resolution defect.
 - [x] Audit, snapshot, and Archscry-harness consumers run against the repaired input seam without writing to non-isolated locations.
 - [x] Results distinguish path correctness from dossier semantics, warning-count authority, visual behavior, and semantic certification; no broader recertification is claimed.
-- [ ] Exact-candidate RobQA evidence is independent and proportionate; Owner and integration remain pending unless authentic later evidence exists.
+- [x] Exact-candidate RobQA evidence is independent and proportionate; Owner and integration remain pending unless authentic later evidence exists.
 
 ## Files Likely Impacted
 
@@ -67,8 +67,8 @@ Apply RobDev before implementation. Reproduce the reported ENOENT with isolated 
 Record version: 1
 Branch: codex/vm-672-dossier-runner-paths
 Admission baseline: b8068af6a2eb2834e95ce8ca3eee1a54ad846d8f
-Candidate: PENDING
-RobQA: PENDING
+Candidate: 988828921768becadd59c4623a08109c126c09b0
+RobQA: PASS at 988828921768becadd59c4623a08109c126c09b0 — SEPARATE QA-1 by configured RobQA /root/independent_qa; see 2026-09-30-robqa-vm672-dossier-runner-paths.md
 Owner: PENDING
 Integration: PENDING
 Dependencies: None

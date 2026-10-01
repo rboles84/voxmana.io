@@ -43,3 +43,43 @@ RobDev implemented private input URLs and the default snapshot destination from 
 Focused developer verification passed canonical factions/model equality from a nested foreign working directory, default destination resolution, actual audit/snapshot CLIs with temporary output, unchanged repository snapshot inventory and guarded temporary cleanup. The Archscry coverage is its loader import/call contract plus the same UG pre-browser bootstrap seam; the harness script and browser were not run.
 
 Both actual consumer CLIs exit 1 on dossier-audit findings after writing their isolated outputs. The regression rejects arbitrary exceptions and distinguishes this classified audit failure from successful path loading. No semantic PASS, warning/failure-count authority, dossier rewrite or visual-baseline update is asserted. Independent RobQA selected QA-1 path/consumer evidence; exact-candidate verdict, Owner decision and integration remain PENDING.
+
+## Material candidate
+
+- Baseline: `b8068af6a2eb2834e95ce8ca3eee1a54ad846d8f`
+- Candidate: `988828921768becadd59c4623a08109c126c09b0`
+- Changed paths: `9`
+
+## Files changed
+
+- `docs/handoffs/2026-09-30-codex-vm672-dossier-runner-paths.md`
+- `docs/handoffs/2026-09-30-kanban-vm672-admission.md`
+- `docs/handoffs/2026-09-30-robdev-vm672-dossier-runner-paths.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-672-dossier-runner-paths.md`
+
+- `package.json`
+- `scripts/dossier-runner-path-tests.mjs`
+- `scripts/lib/dossier-runner.mjs`
+
+## Evidence delta
+
+- Material candidate: `988828921768becadd59c4623a08109c126c09b0`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `5`
+
+This is not the full task diff. The final branch scope is 10 Git paths: nine material paths and one newly added QA handoff, with four material records/views also receiving evidence updates. Evidence only appends accounting/QA disposition, binds lifecycle fields and regenerates existing views. The exact evidence head and content classification are verified separately before Owner Review.
+
+## Evidence-only paths
+
+- `docs/handoffs/2026-09-30-codex-vm672-dossier-runner-paths.md`
+- `docs/handoffs/2026-09-30-robqa-vm672-dossier-runner-paths.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-672-dossier-runner-paths.md`
+## Exact-candidate engineering disposition
+
+Independent configured RobQA reviewed material `988828921768becadd59c4623a08109c126c09b0` in SEPARATE mode and returned QA-1 PASS. Its focused command, absolute invocation from external CWD, Node syntax, canonical input and output-inventory checks passed. An isolated baseline-runner sensitivity check failed on the original `scripts/artifacts` default destination, demonstrating that the regression detects the owning path defect. Actual audit and snapshot consumers still exit 1 with 113 dossier-audit findings each; those diagnostics are limitations, not semantic certification. Archscry evidence remains import/call contract and the same UG bootstrap seam, with no browser execution.
+
+Item 5 now has an independently reviewed tooling candidate at Owner Review; Owner ACCEPT and PR integration/closeout remain pending. The earlier ledger and pre-candidate statements retain their event-time meaning. Items 1–4 and 6–8 retain the dispositions above. The shortest Owner check is to confirm the repository-root/default-output correction and that the explicit output override is acceptable for isolated CLI verification. No rendered product inspection applies to this tooling-only delivery. Mandatory Deterministic Validation must succeed on the exact future PR head before integration.
