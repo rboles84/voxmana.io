@@ -14,7 +14,7 @@ Repair the dossier runner's owning repository input and snapshot paths so suppor
 
 ## Source
 
-Current Owner eight-item request, item 5; accepted VM-670 and VM-671 records reconciliation reports. The observed failure is a read-only dossier-input load that resolves `scripts/data/factions.json` from the process working directory. The task authorizes only the owning runner-path repair and proportionate consumer seam evidence.
+Current Owner eight-item request, item 5; accepted VM-670 and VM-671 records reconciliation reports. The observed failure is a read-only dossier-input load that resolves `scripts/data/factions.json` relative to the runner module instead of the repository root. The task authorizes only the owning runner-path repair and proportionate consumer seam evidence.
 
 ## Scope
 
@@ -26,17 +26,17 @@ Current Owner eight-item request, item 5; accepted VM-670 and VM-671 records rec
 
 ## Explicitly Out Of Scope
 
-- Dossier/data meaning, source enrichment, generation, warning-count authority, semantic or visual recertification.
+- Dossier/data meaning, source enrichment, generation contracts or tracked generated-output changes, warning-count authority, semantic or visual recertification.
 - Runtime route behavior, browser infrastructure, public browser testing, and broad harness remediation.
 - Changes outside the admitted runner, focused test command if needed, records, and generated views.
 
 ## Acceptance Criteria
 
-- [ ] Dossier runner input loading is independent of the process current working directory and resolves the repository-owned inputs.
-- [ ] The default snapshot destination is repository-owned `artifacts/dossier-snapshots`; focused evidence isolates all generated outputs.
-- [ ] Regression evidence exercises the actual input/output seam and would fail for the reproduced path-resolution defect.
-- [ ] Audit, snapshot, and Archscry-harness consumers run against the repaired input seam without writing to non-isolated locations.
-- [ ] Results distinguish path correctness from dossier semantics, warning-count authority, visual behavior, and semantic certification; no broader recertification is claimed.
+- [x] Dossier runner input loading is independent of the process current working directory and resolves the repository-owned inputs.
+- [x] The default snapshot destination is repository-owned `artifacts/dossier-snapshots`; focused evidence isolates all generated outputs.
+- [x] Regression evidence exercises the actual input/output seam and would fail for the reproduced path-resolution defect.
+- [x] Audit, snapshot, and Archscry-harness consumers run against the repaired input seam without writing to non-isolated locations.
+- [x] Results distinguish path correctness from dossier semantics, warning-count authority, visual behavior, and semantic certification; no broader recertification is claimed.
 - [ ] Exact-candidate RobQA evidence is independent and proportionate; Owner and integration remain pending unless authentic later evidence exists.
 
 ## Files Likely Impacted

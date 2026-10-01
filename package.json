@@ -12,6 +12,7 @@
     "build:semantic-provenance": "node scripts/build/build-semantic-readiness-provenance.mjs",
     "dossier:audit": "node scripts/audit/audit-dossiers.mjs",
     "dossier:snapshots": "node scripts/build/generate-dossier-snapshots.mjs",
+    "test:dossier-runner-paths": "node scripts/dossier-runner-path-tests.mjs",
     "audit:archscry-current-state": "node scripts/audit/archscry-current-state.mjs",
     "audit:archscry-red-team-reconciliation": "node scripts/audit/archscry-red-team-reconciliation.mjs",
     "audit:archscry-current-state-workbooks": "node scripts/audit/build-archscry-current-state-workbooks.mjs",

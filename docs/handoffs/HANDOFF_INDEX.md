@@ -1,4 +1,4 @@
-<!-- task-view-sha256:d733dac5372faae51349abe4bdad0d183882e3eb2093d51fae957e2e94a79ced -->
+<!-- task-view-sha256:7e245388cf49f018f4c46a7ec087b006d8b0b5af6f4bdb472b2f7f47cd30d881 -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -15,6 +15,9 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 | 2026-09-30T00:00:00Z (authored) | Unknown | [VM-669 Independent RobQA — Legal Surface Convergence](2026-09-30-0859-robqa-vm669-legal-surface.md) | VM-669 | Identity displayed from heading; not admission metadata. |
 | 2026-09-30T00:00:00Z (authored) | RobDev, Documentation Steward constraints applied | [VM-671 — RobDev records reconciliation](2026-09-30-1430-robdev-vm671-records-reconciliation.md) | VM-671 | Identity displayed from heading; not admission metadata. |
 | 2026-09-30T00:00:00Z (authored) | RobQA | [VM-671 — Independent RobQA records reconciliation](2026-09-30-1430-robqa-vm671-records-reconciliation.md) | VM-671 | Identity displayed from heading; not admission metadata. |
+| 2026-09-30T00:00:00Z (filename) | Codex coordinator | [VM-672 — Dossier runner paths and coordinated progress](2026-09-30-codex-vm672-dossier-runner-paths.md) | VM-672 | Identity displayed from heading; not admission metadata. Invalid authored date; filename fallback or undated ordering used. |
+| 2026-09-30T00:00:00Z (authored) | Kanban Steward `/root/kanban_steward` | [VM-672 — Kanban admission handoff](2026-09-30-kanban-vm672-admission.md) | VM-672, VM-670, VM-671 | Identity displayed from heading; not admission metadata. |
+| 2026-09-30T00:00:00Z (filename) | Unknown | [VM-672 RobDev handoff — dossier runner paths](2026-09-30-robdev-vm672-dossier-runner-paths.md) | VM-672 | Identity displayed from heading; not admission metadata. Invalid authored date; filename fallback or undated ordering used. |
 | 2026-09-29T11:12:00Z (filename) | Unknown | [2026-09-29 11:12 — Codex — VM-667 Owner-Accepted Closeout](2026-09-29-1112-codex-vm667-owner-accepted-closeout.md) | VM-667 | Identity displayed from heading; not admission metadata. |
 | 2026-09-29T00:00:00Z (authored) | Codex `/root`, applying the repository-local `robdev` skill and full RobDevPass. | [2026-09-29 07:27 — RobDev — VM-667 Feedback Surface](2026-09-29-0727-robdev-vm667-feedback-surface.md) | VM-667, VM-423 | Identity displayed from heading; not admission metadata. |
 | 2026-09-29T00:00:00Z (authored) | Codex `/root/vm667_robqa`, applying the repository-local `robqa` skill and full `docs/qa/RobQAPass.md` independently from the implementation agent. | [2026-09-29 07:27 — RobQA — VM-667 Feedback Surface](2026-09-29-0727-robqa-vm667-feedback-surface.md) | VM-667 | Identity displayed from heading; not admission metadata. |
