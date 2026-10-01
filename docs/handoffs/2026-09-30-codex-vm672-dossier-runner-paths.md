@@ -92,3 +92,16 @@ Owner: ACCEPT
 Decision reference: Exact human asynchronous answer in Codex chat 01a0f3e0-4b21-7942-bdb3-e2e5e6f92e73 on 2026-09-30: ACCEPT VM-672 at 988828921768becadd59c4623a08109c126c09b0.
 
 This accepts the bounded tooling-path candidate only. PR integration remains pending successful required Deterministic Validation, exact evidence review, host/Git parity and guarded squash merge. Dossier-audit findings and future Search/test/policy deliveries are not accepted by this decision.
+
+## Verified VM-672 integration and cleanup
+
+Task: VM-672
+Candidate: 988828921768becadd59c4623a08109c126c09b0
+Integration: INTEGRATED PR64 expected-head guarded squash 3e0bc68a9bdbc077d5a52d7bd618fbb3f5ac98e6
+Evidence head: 7a1eec784c99adce99e20bb39d5e2190e1720bf6
+
+Required Deterministic Validation completed successfully at the exact PR head (run 36798373602, job 110166928509). The integration checker passed before the guarded merge succeeded. Main synchronized to the actual squash. Its tree and the accepted PR-head tree both equal a42b6bb6d6dc0ddbe6d49c07c16d2a3fcfc3ccf0. The remaining commit is lifecycle-only: Done card relocation, this append and generated views; final closeout is checked against that committed state.
+
+VM-672 cleanup: complete branch history is preserved in external vm672-accepted-delivery.bundle, SHA256 49d214bd4dcf0bf82520c15398709e5ba265e8ccaa6753ffaf97fc3805b4a622, verified as complete history. The live remote was already absent when freshly observed, with no removal attribution here. Local and stale tracking refs were removed using the exact 7a1eec784c99adce99e20bb39d5e2190e1720bf6 guard. One registered repository worktree remains and stash list is empty. No other refs, worktrees, ignored artifacts or evidence were removed.
+
+Current eight-item disposition: item 5 path repair is accepted and integrated, pending final closeout verification. Items 2, 3 and the expressly named item 4 cleanup remain Done. Item 1 remains distinct: VM-658 is integrated with an immutable post-merge evidence violation; VM-660 is integrated by adoption with a checker representation limitation. Independent legacy-boundary diagnosis is retained externally; terminal Owner disposition remains unchosen, with no invented Done/PASS. Items 6 and 7 await separately admitted work. Item 8 remains BLOCKED: no supported administration capability, main unprotected, no settings changed. The separate VM-670 local/stale-tracking deferral remains unchanged.

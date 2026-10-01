@@ -1,4 +1,4 @@
-<!-- task-view-sha256:89224c283cd7bbcd8405fb8f29b972236ec009d4d64be871688e4ae665317294 -->
+<!-- task-view-sha256:3604d450084dfef4fbb0043e369e6650a7421430f783dfe0158ff2ad114add12 -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -49,7 +49,6 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | ID | Card | Declared status | Diagnostics |
 |---|---|---|---|
 | VM-661 | [Maze Modernization Implementation Specification](in-progress/VM-661-maze-modernization-spec.md) | Accepted |  |
-| VM-672 | [Dossier Runner Paths](in-progress/VM-672-dossier-runner-paths.md) | Accepted |  |
 
 ## Integrated
 
@@ -689,6 +688,7 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | VM-669 | [Legal Surface Convergence](done/VM-669-legal-surface-convergence.md) | Done |  |
 | VM-670 | [Repository Recon and Cleanup Decision Packet](done/VM-670-repository-recon.md) | Done |  |
 | VM-671 | [Records Reconciliation](done/VM-671-records-reconciliation.md) | Done |  |
+| VM-672 | [Dossier Runner Paths](done/VM-672-dossier-runner-paths.md) | Done |  |
 
 ## Unresolved
 
