@@ -1,4 +1,4 @@
-<!-- task-view-sha256:080e02670239123292a0db9e1f72e04cc52b4b8608d4d2e56996f72f12fead74 -->
+<!-- task-view-sha256:c867d87e79d9497e63bb395ee6d0029826420e36b185d52b6444ca3a645bb81c -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -38,12 +38,12 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 
 | ID | Card | Declared status | Diagnostics |
 |---|---|---|---|
-| VM-674 | [Azorius Repeat Search](in-progress/VM-674-azorius-repeat-search.md) | In Progress |  |
 
 ## Owner Review
 
 | ID | Card | Declared status | Diagnostics |
 |---|---|---|---|
+| VM-674 | [Azorius Repeat Search](in-progress/VM-674-azorius-repeat-search.md) | Owner Review |  |
 
 ## Accepted
 

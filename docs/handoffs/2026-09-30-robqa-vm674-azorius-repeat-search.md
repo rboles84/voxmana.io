@@ -105,3 +105,57 @@ Evidence completed before the finding:
 - The fixture left zero `voxmana-vm674-*` temporary profile directories. Process-command-line enumeration remains outside the independent sandbox evidence.
 
 This BLOCKED verdict is bound only to `141baf1888e5fb6e0df739a27ff33c5a4915901c`. It preserves the earlier `6def77e0c6ab8bd673753df74f416e7551d66554` QA record as history and does not express Owner acceptance. A narrow fixture-only correction and a new exact candidate can close the evidence gap without changing runtime scope.
+
+## Owner correction QA
+
+Task: VM-674
+Candidate: 52ad1cbc9d0dec2fe5cacf084f890086a8b1320b
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: Codex `/root/independent_qa`
+Implementer: Codex `/root/reconciliation_dev`
+
+### Decision
+
+QA-3 passes for the exact replacement candidate. The public Azorius route starts with the canonical `id=wu is:commander f:commander` query and plain AI input. Direct unchanged Search and an Operator-to-Plain inspection round trip both retain that canonical query, settle to one rendered fixture result with no error, and expose `#results-interpretation-state` as `clear` rather than `needs-meaning`. An actual edit uses ordinary resolution, and restoring the original text after that edit remains ordinary resolution, so mode inspection preserves intent while input edits invalidate replay.
+
+The replay token is initialized only after the canonical VM-547 launch sets its mode. Replay requires the unchanged plain input and canonical query plus the active handoff's canonical flag, operator query, plain query, WU profile, WU fit, `commanders-that-fit` path, runtime, catalog, and `from=archscry` provenance. It routes through the existing raw resolver with the current order, uniqueness, and direction. Builder mode, input events, quick search, clear, suggestion inspection, and suggestion-draft restoration still invalidate the token. Parser/compiler, API filtering, cache/deduplication, producer, data, and other identities remain unchanged.
+
+### Exact positive evidence
+
+`npm.cmd run test:vm674-azorius-repeat-search` exited 0 against `52ad1cbc9d0dec2fe5cacf084f890086a8b1320b`. It recorded:
+
+- rendered public WU link provenance and canonical launch;
+- first launch and direct unchanged Search with AI/plain input, canonical inspector and API query, one result, empty error, interpretation state `clear`, and a complete-URL cache hit;
+- Operator-to-Plain inspection followed by Search with the same canonical inspector/API query, one result, empty error, interpretation state `{ key: "clear", label: "Clear" }`, and a complete-URL cache hit;
+- edited `id=wu is:commander` as an ordinary distinct request; and
+- edit then restore as ordinary `id=wu is:commander legal:commander` resolution with `{ key: "needs-meaning", label: "Needs meaning" }`, proving the real input edit invalidated replay.
+
+The positive log is `C:/Users/obake/.codex/visualizations/2026/09/30/01a0f3e0-4b21-7942-bdb3-e2e5e6f92e73/vm674-52ad-exact-positive.txt`, SHA-256 `1EC37B271A52D6A92EDF935BE2201DC347CED7403CF8EBEBA670CDE56A1B932B`.
+
+### Causal rejected-runtime evidence
+
+An external archive used the exact rejected runtime from `6def77e0c6ab8bd673753df74f416e7551d66554` and the exact current fixture from `52ad1cbc9d0dec2fe5cacf084f890086a8b1320b`. The rejected runtime copy matched Git blob `80e9694562624f54f00725742eafd0f76975884f`; the current fixture copy matched Git blob `ce8cc4d6822075dad78bee086ae87d15c0bcb90a`.
+
+The same command exited 1 after the round trip changed the query/API to `id=wu is:commander legal:commander` and exposed the actual interpretation state `{ key: "needs-meaning", label: "Needs meaning" }`. The first launch and direct unchanged Search remained canonical, and edited and restored stages still completed and were recorded, so the failure is causal to the rejected mode-switch invalidation rather than launch, server, browser, completion, or assertion setup.
+
+The negative log is `C:/Users/obake/.codex/visualizations/2026/09/30/01a0f3e0-4b21-7942-bdb3-e2e5e6f92e73/vm674-52ad-rejected-runtime-negative.txt`, SHA-256 `03B810FEA4C9A66D25622F115AFA019785A509009488A8522F035F1C8DD0BBB0`.
+
+### Exact candidate checks
+
+- `git diff --check a798f38559202050e29ac010de26241fa9aabaa1 52ad1cbc9d0dec2fe5cacf084f890086a8b1320b` — PASS.
+- `node --check assets/js/maze/research-init.js` — PASS.
+- `node --check scripts/vm674-archscry-azorius-repeat-search-browser.mjs` — PASS.
+- `npm.cmd run task -- indexes --check` — PASS, 714 cards and 1166 handoffs.
+- Exact Git accounting — PASS, 11 material paths: `assets/js/maze/research-init.js`; `docs/handoffs/2026-09-30-codex-vm674-azorius-repeat-search.md`; `docs/handoffs/2026-09-30-kanban-vm674-admission.md`; `docs/handoffs/2026-09-30-robdev-vm674-azorius-repeat-search.md`; `docs/handoffs/2026-09-30-robqa-vm674-azorius-repeat-search.md`; `docs/handoffs/HANDOFF_INDEX.md`; `docs/kanban/board.md`; `docs/kanban/in-progress/VM-674-azorius-repeat-search.md`; `maze/index.html`; `package.json`; and `scripts/vm674-archscry-azorius-repeat-search-browser.mjs`.
+- The fixture-only correction from `141baf1888e5fb6e0df739a27ff33c5a4915901c` adds the owning interpretation-state capture and assertion; the runtime bytes are identical.
+
+### Cleanup and limits
+
+Both runs used isolated `voxmana-vm674-*` profiles and bounded launcher/server cleanup. Zero owned profile directories remained. The independent sandbox denied process-command-line enumeration; a scoped elevated read of only `msedge.exe` command lines matching `*voxmana-vm674-*` then found zero owned processes. No broad browser kill or unrelated cleanup was used.
+
+This evidence proves the focused public WU route, direct repeat, mode-inspection round trip, real edit invalidation, query/API/result/error/interpretation state, and causal sensitivity. It does not certify live Scryfall availability, all identities or route types, card semantics, layout quality, or broad browser health. CPU-heavy and broad browser suites were not required for this bounded state-transition correction.
+
+### Shortest Owner recheck
+
+Open `archscry/?explore=azorius&panel=maze-discovery#maze-discovery-paths`, choose **Commanders in this identity**, switch to Operator and back to Plain without editing, then press Search. The query should remain `id=wu is:commander f:commander`, results should settle, and the result interpretation must not say **Needs meaning**. Editing the text remains an ordinary new search. Owner ACCEPT remains a separate decision for this exact candidate.

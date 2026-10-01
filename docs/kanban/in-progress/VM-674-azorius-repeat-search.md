@@ -2,7 +2,7 @@
 
 ID: VM-674
 Title: Azorius Repeat Search
-Status: In Progress
+Status: Owner Review
 Type: Bounded rendered-behavior investigation and conditional repair
 Area: Archscry-to-Maze discovery handoff and repeat search
 Priority: High
@@ -37,7 +37,7 @@ Current Owner eight-item request, item 6; accepted VM-670 and VM-671 records; hi
 - [x] The fixture is ChromeLauncher/DevTools-ready, cache-aware, output-isolated, and has owned cleanup; no extra network-count contract is asserted.
 - [x] A repair occurs only if the fresh evidence establishes an owning `research-init` defect; it includes meaningful focused regression evidence.
 - [x] If no defect or usable browser page is established, the handoff documents the bounded non-reproduction or limitation and no speculative code is added.
-- [ ] Canonical query ownership, mode, route, filters, cache/deduplication, reading context, API semantics, and render completion remain protected.
+- [x] Canonical query ownership, mode, route, filters, cache/deduplication, reading context, API semantics, and render completion remain protected.
 - [x] Exact-candidate independent RobQA, Owner, and integration decisions remain PENDING until authentic later evidence exists.
 
 ## Files Likely Impacted
@@ -70,9 +70,9 @@ Apply RobDev before implementation. Establish fresh rendered public evidence wit
 Record version: 1
 Branch: codex/vm-674-azorius-repeat-search
 Admission baseline: a798f38559202050e29ac010de26241fa9aabaa1
-Candidate: 6def77e0c6ab8bd673753df74f416e7551d66554
-RobQA: PENDING — earlier candidate PASS superseded by Owner mode-round-trip finding
-Owner: REJECTED at 6def77e0c6ab8bd673753df74f416e7551d66554 — canonical intent lost after Plain/Operator inspection; same-task correction required
+Candidate: 52ad1cbc9d0dec2fe5cacf084f890086a8b1320b
+RobQA: PASS at 52ad1cbc9d0dec2fe5cacf084f890086a8b1320b — SEPARATE QA-3; [Owner correction evidence](../../handoffs/2026-09-30-robqa-vm674-azorius-repeat-search.md#owner-correction-qa)
+Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Decisions: Fresh rendered evidence decides whether an owning repair is warranted. Preserve current Maze query, route, mode, filter, cache/deduplication, reading-context, API, and render contracts; do not treat VM-662 as current-defect proof.

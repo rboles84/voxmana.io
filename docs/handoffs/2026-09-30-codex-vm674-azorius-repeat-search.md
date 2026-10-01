@@ -142,3 +142,33 @@ The strengthened focused case passes after correction, including round-trip orig
 Material 141baf1888e5fb6e0df739a27ff33c5a4915901c passed the independently run extended behavior case; the rejected runtime failed causally at its mode round-trip, with later edited/restored stages recorded. Independent QA withheld PASS because the fixture did not directly capture the actual Needs meaning badge. The owning research-ui interpretation state is #results-interpretation-state.dataset.state, with needs-meaning representing unresolved interpretation. Checking only senate/exactly diagnostic text does not directly protect the Owner's visible finding. Same-task fixture correction will capture the badge key/label and assert the untouched round-trip is not needs-meaning; the rejected negative must show that state. Runtime and cache key are unchanged by this coverage correction. No successor is admitted.
 
 The narrow fixture correction now captures interpretationState key/label and directly rejects needs-meaning after untouched inspection. Developer verification passes with Clear / clear at that round-trip. Actual edited and edit-restored inputs remain ordinary resolver requests; restored formerly plain text can legitimately display needs-meaning after a real edit, demonstrating that stale replay is not revived. Runtime and cache key remain the same as 141baf. Scope, syntax, whitespace and owned temporary cleanup checks pass. The QA handoff preserves the 141baf BLOCKED finding; the next exact candidate still requires fresh independent QA.
+
+## Corrected Owner-review binding
+
+Task: VM-674
+Candidate: 52ad1cbc9d0dec2fe5cacf084f890086a8b1320b
+RobQA: PASS — SEPARATE QA-3
+Owner: PENDING
+Integration: PENDING
+
+Independent exact-candidate evidence is the unique Owner correction QA section in the existing RobQA handoff. The positive extended public case preserves the canonical query/API after actual Operator-to-Plain inspection and Search, settles rendered results with an empty error and interpretationState clear / Clear. The same fixture against rejected 6def77e0 runtime fails causally after the round-trip, with interpretationState needs-meaning / Needs meaning; first/direct unchanged and later edited/restored cases remain observable. Actual edited-input invalidation is retained. Syntax, whitespace, index freshness and cleanup checks pass; QA observed zero owned profiles and scoped Edge processes.
+
+This current disposition supersedes the earlier rejected candidate and 141baf coverage finding. Both remain preserved as history, with no rewritten role evidence. VM-674 stays on codex/vm-674-azorius-repeat-search and no successor was admitted. Item 6 is again engineering-ready at this exact replacement, awaiting authentic Owner ACCEPT, PR CI/integration and closeout. Other eight-item dispositions remain unchanged, including the Owner-authorized legacy terminal distinctions and blocked host protection.
+
+Git material scope from accepted main a798f38559202050e29ac010de26241fa9aabaa1 is eleven paths. The historical QA handoff is now part of the replacement material tree; earlier exact-SHA verdicts are not reused as current PASS. Post-candidate evidence paths and the exact resulting evidence head are derived in the corrected standalone accounting report and independently reviewed receipt. The original Material candidate / Files changed / Evidence delta sections above describe the earlier 6def77e0 boundary and remain historical.
+
+### Corrected material paths
+
+- `assets/js/maze/research-init.js`
+- `docs/handoffs/2026-09-30-codex-vm674-azorius-repeat-search.md`
+- `docs/handoffs/2026-09-30-kanban-vm674-admission.md`
+- `docs/handoffs/2026-09-30-robdev-vm674-azorius-repeat-search.md`
+- `docs/handoffs/2026-09-30-robqa-vm674-azorius-repeat-search.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-674-azorius-repeat-search.md`
+- `maze/index.html`
+- `package.json`
+- `scripts/vm674-archscry-azorius-repeat-search-browser.mjs`
+
+Shortest Owner recheck: fresh local Azorius discovery launch, inspect Operator's Hand, return to Plain Reading without editing, then Search. Canonical id=wu is:commander f:commander and Clear interpretation remain; results settle. Changing the request continues through ordinary resolution. Deterministic intercepted results certify this bounded transition, not live Scryfall availability, card semantics, all identities or visual quality. Exact Owner and integration decisions remain pending.
