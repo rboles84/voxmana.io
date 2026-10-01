@@ -1,0 +1,82 @@
+# VM-674 — Independent RobQA handoff
+
+Task: VM-674
+Candidate: 6def77e0c6ab8bd673753df74f416e7551d66554
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: Codex `/root/independent_qa`
+Implementer: Codex `/root/reconciliation_dev`
+
+## Decision
+
+QA-3 focused rendered-route and state-transition validation passes for the exact candidate. The public Azorius dossier link launches Maze with its canonical WU operator query and plain AI input. An unchanged Search replays that canonical query and settles from the complete-URL cache. An edited Search uses the ordinary resolver, and edit-then-restore does not revive the canonical replay token.
+
+The repair is limited to a VM-547 canonical Archscry handoff whose operator, plain input, profile, fit, path type, runtime, and catalog still match the active launch context. Input, mode, clear, quick-search, and suggestion actions invalidate replay. Current order, uniqueness, and direction continue through the existing route resolver. Parser/compiler, producer, filter, cache/deduplication, reading-context, data, and broad harness code are unchanged.
+
+## Evidence
+
+- `git diff --check a798f38559202050e29ac010de26241fa9aabaa1 6def77e0c6ab8bd673753df74f416e7551d66554` — PASS.
+- Exact Git accounting — PASS, 10 material paths.
+- `node --check assets/js/maze/research-init.js` — PASS.
+- `node --check scripts/vm674-archscry-azorius-repeat-search-browser.mjs` — PASS.
+- `npm.cmd run task -- indexes --check` — PASS, 714 cards and 1165 handoffs at the material candidate.
+- `npm.cmd run test:vm674-azorius-repeat-search` — PASS in the independent run.
+
+The positive browser record is `C:/Users/obake/.codex/visualizations/2026/09/30/01a0f3e0-4b21-7942-bdb3-e2e5e6f92e73/vm674-exact-candidate-positive.txt`, SHA-256 `312B831A4362737FB5CE7AA4C3A7F7710DF9431FC7DE31971C9DBEEEEEF68F1C`.
+
+Observed stages:
+
+- public route: rendered `Commanders in this identity` link, `pathType=commanders-that-fit`, operator `id=wu is:commander f:commander`, plain input, return URL, and WU VM-547 profile/runtime/catalog provenance;
+- first launch: AI mode, canonical inspector/API query, one rendered fixture card, and no error;
+- unchanged Search: button and result mutations completed, input and canonical inspector/API query remained stable, one rendered card remained, and the request list stayed at one because the complete URL was cached;
+- edited Search: `id=wu is:commander` resolved and rendered with a distinct request;
+- edit then restore: the original plain text went through ordinary resolution as `id=wu is:commander legal:commander`, proving the input event invalidated replay rather than restoring stale canonical state.
+
+## Causal sensitivity
+
+An external archive of the exact candidate disabled only the replay predicate by changing:
+
+`const canReplayArchscryCanonicalQuery = currentMode === "ai" &&`
+
+to:
+
+`const canReplayArchscryCanonicalQuery = false && currentMode === "ai" &&`
+
+The candidate runtime SHA-256 was `2A92E8A9D38286E7FC2506FCA0D2F809C82A9FD70D45C7E8D3091F7A785D18ED`; the one-line mutated copy was `FD41C5E66C3DF29F9F14492E47693651FB7D364BE4331E368A7A54A00BCC8E47`.
+
+The same focused command exited 1 at `VM-674 unchanged Search altered the canonical query.` The negative repeat produced `id=wu is:commander legal:commander`, unresolved `senate`/`exactly` diagnostics, and a second API request. The harness still completed and recorded edited `id=wu is:commander` and restored-input stages, so the negative was caused by removal of the guard rather than launch, server, browser, or assertion setup.
+
+The negative record is `C:/Users/obake/.codex/visualizations/2026/09/30/01a0f3e0-4b21-7942-bdb3-e2e5e6f92e73/vm674-exact-candidate-negative.txt`, SHA-256 `18ADA13508EE9FDF2D5574F5062DAB43464025D634B4E6C19B0DD019801FF23E`.
+
+## Attempt classification
+
+The implementation record truthfully preserves the earlier non-product setup and fixture findings: a missing profile child stopped before Edge, the historical fallback label contradicted the accepted profile-owned label, and an expected-query completion predicate hid the repeat state. Those results were excluded from product conclusions and corrected at their fixture seams. The later completed pre-repair route established the actual repeat-query drift. This independent exact-candidate run did not retry those ambiguous failures.
+
+## Material candidate
+
+- Baseline: `a798f38559202050e29ac010de26241fa9aabaa1`
+- Candidate: `6def77e0c6ab8bd673753df74f416e7551d66554`
+- Changed paths: `10`
+
+## Files changed
+
+- `assets/js/maze/research-init.js`
+- `docs/handoffs/2026-09-30-codex-vm674-azorius-repeat-search.md`
+- `docs/handoffs/2026-09-30-kanban-vm674-admission.md`
+- `docs/handoffs/2026-09-30-robdev-vm674-azorius-repeat-search.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-674-azorius-repeat-search.md`
+- `maze/index.html`
+- `package.json`
+- `scripts/vm674-archscry-azorius-repeat-search-browser.mjs`
+
+## Cleanup and limits
+
+Both QA browser runs used the fixture's isolated `voxmana-vm674-*` temporary profile, tracked loopback sockets, bounded DevTools readiness, awaited launcher kill, forced server shutdown, and guarded owned-directory removal. No owned temporary profile directory remained after the runs. The independent sandbox denied process-command-line enumeration. The coordinator separately performed a scoped elevated `msedge.exe` query filtered only to `*voxmana-vm674-*` command lines and observed zero matching processes; that is an attributed host observation, not independent process enumeration.
+
+The deterministic Scryfall response proves route, cache-aware completion, query, API, and rendered state transitions. It does not certify live Scryfall availability, card-result semantics, all identities or path types, diagnostic wording/counts, visual quality, or broader browser behavior. No screenshot or subjective visual certification was needed because layout did not change.
+
+## Shortest Owner check
+
+Open `archscry/?explore=azorius&panel=maze-discovery#maze-discovery-paths`, choose **Commanders in this identity**, press Search without editing, then change the input to `id=wu is:commander` and press Search again. PASS if the first and unchanged inspector query remains `id=wu is:commander f:commander`, results settle after the unchanged action, and the edited action changes the inspector/results to `id=wu is:commander`. Owner ACCEPT remains a separate decision for this exact candidate.

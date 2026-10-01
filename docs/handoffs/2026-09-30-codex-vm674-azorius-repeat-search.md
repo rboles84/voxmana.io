@@ -59,3 +59,46 @@ The completed baseline subsequently recorded all three stages. Only unchanged ca
 The first repaired developer run passed the public route, canonical first launch, cache-served unchanged completion and ordinary edited transition in approximately 7.5 seconds. Separate QA then required restricting replay to VM-547 canonical provenance, binding profile/fit and path type, assigning the token after final mode setup, and adding an edit-then-restore witness to prove input invalidation. These are ordinary same-task corrections before candidate freeze. Developer PASS is not independent exact-candidate RobQA PASS. Current ordering options remain forwarded through the existing raw resolver; no parser, compiler, cache or producer change is introduced.
 
 The narrowed implementation passed focused developer verification in approximately 6.9 seconds. It binds matching canonical profile/fit/path/runtime/catalog provenance and current query, initializes after mode setup, and invalidates on input events and alternate intent. The same browser case now also edits and restores the original plain input, confirming ordinary resolution rather than stale replay. Both Node syntax checks and scoped whitespace checks pass; owned temporary profiles are absent after execution. The implementation handoff preserves failed scaffold, label and completion-instrumentation attempts, complete pre-repair failure and repaired observations. Exact-candidate independent QA, Owner ACCEPT and integration remain pending.
+
+## Material candidate
+
+- Baseline: `a798f38559202050e29ac010de26241fa9aabaa1`
+- Candidate: `6def77e0c6ab8bd673753df74f416e7551d66554`
+- Changed paths: `10`
+
+## Files changed
+
+- `assets/js/maze/research-init.js`
+- `docs/handoffs/2026-09-30-codex-vm674-azorius-repeat-search.md`
+- `docs/handoffs/2026-09-30-kanban-vm674-admission.md`
+- `docs/handoffs/2026-09-30-robdev-vm674-azorius-repeat-search.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-674-azorius-repeat-search.md`
+- `maze/index.html`
+- `package.json`
+- `scripts/vm674-archscry-azorius-repeat-search-browser.mjs`
+
+## Evidence delta
+
+- Material candidate: `6def77e0c6ab8bd673753df74f416e7551d66554`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `5`
+
+This is not the full task diff. Git owns ten material paths, five post-candidate evidence paths and eleven total branch paths. HEAD names the evidence head during this Owner-review preparation; the independent receipt binds the resulting exact commit. Original material role handoffs remain frozen. Later changes append exact accounting/verdict, add the candidate-bound QA handoff, update only card lifecycle/delivery/checkbox results, and refresh existing views.
+
+## Evidence-only paths
+
+- `docs/handoffs/2026-09-30-codex-vm674-azorius-repeat-search.md`
+- `docs/handoffs/2026-09-30-robqa-vm674-azorius-repeat-search.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-674-azorius-repeat-search.md`
+
+## Exact-candidate engineering disposition
+
+Separate configured RobQA returned QA-3 PASS at material 6def77e0c6ab8bd673753df74f416e7551d66554. The independently executed public rendered case passes canonical first launch, cache-aware unchanged completion, edited ordinary resolution and edit-then-restore invalidation. Disabling only the guard in an external exact-candidate copy fails the intended unchanged-query assertion, reproducing the observed legal:commander drift and diagnostics while retaining edited/restored observations. Syntax, range whitespace, ten-path Git accounting and material view freshness pass. No repository runtime was mutated for negative testing.
+
+Both QA runs left zero owned profiles; the coordinator's scoped elevated host inventory observed zero Edge processes using voxmana-vm674 profiles. QA's initial sandbox process-enumeration denial is disclosed separately. Generic intercepted search results do not certify live Scryfall, card semantics, every identity/path, warning counts or visual quality. Existing broad browser-harness debt is still separately unresolved; this focused route is now genuinely rendered and verified.
+
+VM-674 is at Owner Review. Shortest Owner check on the candidate: public Azorius discovery route, Commanders in this identity, first and unchanged Search keep id=wu is:commander f:commander and settle results; edited id=wu is:commander uses ordinary resolution. Owner ACCEPT and PR integration remain PENDING; required Deterministic Validation must pass at any future accepted PR head. Item 6 is engineering-ready, not Done. Item 7's static repair is integrated and its bounded harness diagnosis is complete, with the legacy harness limitation retained. All other eight-item dispositions remain as recorded above.

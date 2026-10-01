@@ -2,7 +2,7 @@
 
 ID: VM-674
 Title: Azorius Repeat Search
-Status: In Progress
+Status: Owner Review
 Type: Bounded rendered-behavior investigation and conditional repair
 Area: Archscry-to-Maze discovery handoff and repeat search
 Priority: High
@@ -33,12 +33,12 @@ Current Owner eight-item request, item 6; accepted VM-670 and VM-671 records; hi
 
 ## Acceptance Criteria
 
-- [ ] Fresh actual public rendered evidence covers the Archscry Azorius discovery click, first query, unchanged repeat Search, and edited Search.
-- [ ] The fixture is ChromeLauncher/DevTools-ready, cache-aware, output-isolated, and has owned cleanup; no extra network-count contract is asserted.
-- [ ] A repair occurs only if the fresh evidence establishes an owning `research-init` defect; it includes meaningful focused regression evidence.
-- [ ] If no defect or usable browser page is established, the handoff documents the bounded non-reproduction or limitation and no speculative code is added.
-- [ ] Canonical query ownership, mode, route, filters, cache/deduplication, reading context, API semantics, and render completion remain protected.
-- [ ] Exact-candidate independent RobQA, Owner, and integration decisions remain PENDING until authentic later evidence exists.
+- [x] Fresh actual public rendered evidence covers the Archscry Azorius discovery click, first query, unchanged repeat Search, and edited Search.
+- [x] The fixture is ChromeLauncher/DevTools-ready, cache-aware, output-isolated, and has owned cleanup; no extra network-count contract is asserted.
+- [x] A repair occurs only if the fresh evidence establishes an owning `research-init` defect; it includes meaningful focused regression evidence.
+- [x] If no defect or usable browser page is established, the handoff documents the bounded non-reproduction or limitation and no speculative code is added.
+- [x] Canonical query ownership, mode, route, filters, cache/deduplication, reading context, API semantics, and render completion remain protected.
+- [x] Exact-candidate independent RobQA, Owner, and integration decisions remain PENDING until authentic later evidence exists.
 
 ## Files Likely Impacted
 
@@ -70,8 +70,8 @@ Apply RobDev before implementation. Establish fresh rendered public evidence wit
 Record version: 1
 Branch: codex/vm-674-azorius-repeat-search
 Admission baseline: a798f38559202050e29ac010de26241fa9aabaa1
-Candidate: PENDING
-RobQA: PENDING
+Candidate: 6def77e0c6ab8bd673753df74f416e7551d66554
+RobQA: PASS at 6def77e0c6ab8bd673753df74f416e7551d66554 — SEPARATE QA-3; [candidate-bound evidence](../../handoffs/2026-09-30-robqa-vm674-azorius-repeat-search.md)
 Owner: PENDING
 Integration: PENDING
 Dependencies: None

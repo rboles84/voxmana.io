@@ -1,4 +1,4 @@
-<!-- task-view-sha256:dc37ec4f7e326f010a2a5b061c9642f4c78366476e6e424f59249517f6ed8f5b -->
+<!-- task-view-sha256:c7c7846c3481a0dd0b295b4aca974478ee35777d912d697174e5b4fb97fe8c2b -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -27,6 +27,7 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 | 2026-09-30T00:00:00Z (filename) | Codex RobDev (`/root/reconciliation_dev`) | [VM674 RobDev handoff — Azorius repeat Search](2026-09-30-robdev-vm674-azorius-repeat-search.md) | VM-674 |  |
 | 2026-09-30T00:00:00Z (authored) | Unknown | [VM-672 — Independent RobQA dossier runner paths](2026-09-30-robqa-vm672-dossier-runner-paths.md) | VM-672 | Identity displayed from heading; not admission metadata. |
 | 2026-09-30T00:00:00Z (filename) | Unknown | [VM-673 — Independent RobQA handoff](2026-09-30-robqa-vm673-retired-test-contracts.md) | VM-673 | Identity displayed from heading; not admission metadata. |
+| 2026-09-30T00:00:00Z (filename) | Unknown | [VM-674 — Independent RobQA handoff](2026-09-30-robqa-vm674-azorius-repeat-search.md) | VM-674 | Identity displayed from heading; not admission metadata. |
 | 2026-09-29T11:12:00Z (filename) | Unknown | [2026-09-29 11:12 — Codex — VM-667 Owner-Accepted Closeout](2026-09-29-1112-codex-vm667-owner-accepted-closeout.md) | VM-667 | Identity displayed from heading; not admission metadata. |
 | 2026-09-29T00:00:00Z (authored) | Codex `/root`, applying the repository-local `robdev` skill and full RobDevPass. | [2026-09-29 07:27 — RobDev — VM-667 Feedback Surface](2026-09-29-0727-robdev-vm667-feedback-surface.md) | VM-667, VM-423 | Identity displayed from heading; not admission metadata. |
 | 2026-09-29T00:00:00Z (authored) | Codex `/root/vm667_robqa`, applying the repository-local `robqa` skill and full `docs/qa/RobQAPass.md` independently from the implementation agent. | [2026-09-29 07:27 — RobQA — VM-667 Feedback Surface](2026-09-29-0727-robqa-vm667-feedback-surface.md) | VM-667 | Identity displayed from heading; not admission metadata. |
