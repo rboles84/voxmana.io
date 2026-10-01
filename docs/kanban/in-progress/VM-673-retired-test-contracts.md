@@ -10,7 +10,7 @@ Created: 2026-09-30
 
 ## Summary
 
-Update two retired static assertions to reflect accepted Maze behavior without weakening the protected independent-search, guide, route, focus, privacy, or beacon contracts. The work reconciles the removed permanent standalone-search initial context with the accepted hidden/dynamic reading-context treatment, and the retired guided invitation label with the accepted `Open the Maze guide` label.
+Reconcile retired static expectations in two scripts with accepted Maze behavior without weakening the protected independent-search, guide, route, focus, privacy, or beacon contracts. The work reconciles the removed permanent standalone-search initial context with the accepted hidden/dynamic reading-context treatment, and the retired guided invitation label with the accepted `Open the Maze guide` label.
 
 ## Source
 
@@ -32,11 +32,11 @@ Current Owner eight-item request, item 7; accepted VM-670 and VM-671 records; th
 
 ## Acceptance Criteria
 
-- [ ] VM-616 no longer requires the retired permanent standalone-search initial context and instead verifies the accepted hidden/dynamic reading-context contract.
-- [ ] VM-619 expects the accepted `Open the Maze guide` invitation label and continues to verify its canonical guide URL/route.
-- [ ] Both scripts retain meaningful independent-search, guide URL/route, focus, privacy, and beacon assertions.
+- [x] VM-616 no longer requires the retired permanent standalone-search initial context and instead verifies the accepted hidden/dynamic reading-context contract.
+- [x] VM-619 expects the accepted `Open the Maze guide` invitation label and continues to verify its canonical guide URL/route.
+- [x] Both scripts retain meaningful independent-search, guide URL/route, focus, privacy, and beacon assertions.
 - [ ] Focused sensitivity evidence fails when a protected contract is damaged, rather than demonstrating only text-label agreement.
-- [ ] The repair is static-only; no browser execution or broader product, data, runtime, infrastructure, or policy claim is made.
+- [x] The repair is static-only; no browser execution or broader product, data, runtime, infrastructure, or policy claim is made.
 - [ ] Exact-candidate independent RobQA and Owner evidence remain PENDING until authentic later decisions exist.
 
 ## Files Likely Impacted

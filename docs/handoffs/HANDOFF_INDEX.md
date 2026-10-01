@@ -1,4 +1,4 @@
-<!-- task-view-sha256:baa4c9f16c13daa129dff38c77026f9c53348270ad73bd1ca98bcfe943e1ca70 -->
+<!-- task-view-sha256:02edd564b4fa02ef4440691be334826518808bad041c3436adfe9443b1a07e63 -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -16,8 +16,11 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 | 2026-09-30T00:00:00Z (authored) | RobDev, Documentation Steward constraints applied | [VM-671 — RobDev records reconciliation](2026-09-30-1430-robdev-vm671-records-reconciliation.md) | VM-671 | Identity displayed from heading; not admission metadata. |
 | 2026-09-30T00:00:00Z (authored) | RobQA | [VM-671 — Independent RobQA records reconciliation](2026-09-30-1430-robqa-vm671-records-reconciliation.md) | VM-671 | Identity displayed from heading; not admission metadata. |
 | 2026-09-30T00:00:00Z (filename) | Codex coordinator | [VM-672 — Dossier runner paths and coordinated progress](2026-09-30-codex-vm672-dossier-runner-paths.md) | VM-672 | Identity displayed from heading; not admission metadata. Invalid authored date; filename fallback or undated ordering used. |
+| 2026-09-30T00:00:00Z (filename) | Codex coordinator | [VM-673 — Retired test contracts and coordinated progress](2026-09-30-codex-vm673-retired-test-contracts.md) | VM-673 | Identity displayed from heading; not admission metadata. Invalid authored date; filename fallback or undated ordering used. |
 | 2026-09-30T00:00:00Z (authored) | Kanban Steward `/root/kanban_steward` | [VM-672 — Kanban admission handoff](2026-09-30-kanban-vm672-admission.md) | VM-672, VM-670, VM-671 | Identity displayed from heading; not admission metadata. |
+| 2026-09-30T00:00:00Z (authored) | Kanban Steward `/root/kanban_steward` | [VM-673 — Kanban admission handoff](2026-09-30-kanban-vm673-admission.md) | VM-673, VM-670, VM-671 | Identity displayed from heading; not admission metadata. |
 | 2026-09-30T00:00:00Z (filename) | Unknown | [VM-672 RobDev handoff — dossier runner paths](2026-09-30-robdev-vm672-dossier-runner-paths.md) | VM-672 | Identity displayed from heading; not admission metadata. Invalid authored date; filename fallback or undated ordering used. |
+| 2026-09-30T00:00:00Z (filename) | Unknown | [VM-673 RobDev handoff — retired test contracts](2026-09-30-robdev-vm673-retired-test-contracts.md) | VM-673 | Identity displayed from heading; not admission metadata. Invalid authored date; filename fallback or undated ordering used. |
 | 2026-09-30T00:00:00Z (authored) | Unknown | [VM-672 — Independent RobQA dossier runner paths](2026-09-30-robqa-vm672-dossier-runner-paths.md) | VM-672 | Identity displayed from heading; not admission metadata. |
 | 2026-09-29T11:12:00Z (filename) | Unknown | [2026-09-29 11:12 — Codex — VM-667 Owner-Accepted Closeout](2026-09-29-1112-codex-vm667-owner-accepted-closeout.md) | VM-667 | Identity displayed from heading; not admission metadata. |
 | 2026-09-29T00:00:00Z (authored) | Codex `/root`, applying the repository-local `robdev` skill and full RobDevPass. | [2026-09-29 07:27 — RobDev — VM-667 Feedback Surface](2026-09-29-0727-robdev-vm667-feedback-surface.md) | VM-667, VM-423 | Identity displayed from heading; not admission metadata. |
