@@ -2,7 +2,7 @@
 
 ID: VM-660
 Title: Maze Performance Recon
-Status: Accepted
+Status: Integrated
 Type: Technical reconnaissance and performance evidence
 Area: Maze runtime and UI-modernization constraints
 Priority: High
@@ -58,10 +58,15 @@ Admission baseline: b48a1357a0c9076b38ae0b7d058c4ea213db4aaa
 Candidate: 8f0da0f7f7b7a09e034851d26c17e7e9819b71ea
 RobQA: PASS at 8f0da0f7f7b7a09e034851d26c17e7e9819b71ea — SAME-AGENT DISTINCT PHASE QA-0 by Codex `/root`
 Owner: ACCEPTED at 8f0da0f7f7b7a09e034851d26c17e7e9819b71ea — Owner decision supplied 2026-09-18
-Integration: PENDING
+Integration: INTEGRATED by adoption in VM-662 PR #54 — the accepted VM-660 card and both handoffs were included in the expected-head guarded squash `def2b0740c8b03cb41e9d574fa21f33410e0eb55`. This is not a standalone VM-660 PR or merge.
+Closeout: PENDING — no distinct VM-660 lifecycle closeout/cleanup record is established by the VM-662 adoption; do not claim Done or checker PASS.
 Dependencies: None
 Decisions: Recon/documentation only. Do not modify production runtime or test contracts. Stop at Owner Review.
 Evidence: [VM-660 performance recon](../../handoffs/2026-09-18-1853-codex-vm660-maze-performance-recon.md); [RobQA QA-0 plan](../../handoffs/2026-09-18-1853-robqa-vm660-maze-performance-recon.md)
+
+## VM-671 reconciliation note
+
+Role bindings remain distinct: material candidate `8f0da0f7f7b7a09e034851d26c17e7e9819b71ea`; RobQA/evidence head `aa0cce444f490473f6b2673385cf588caf75a09f`; Owner/dependency evidence head `119b13cd26623e92e1d72d2a2023dd6bfdda7b22`. VM-662's accepted PR #54 adoption establishes integration of the accepted authored evidence, while the retained branch itself is not merged as cleanup and VM-660 closeout remains pending.
 
 ## Admission Scope
 
