@@ -79,7 +79,7 @@ Admission baseline: fc08845af94b1869386826bf6be7dac6ecf97b43
 Candidate: a52cf791963f5f2372236fcc1e53b67b4f59c53e
 RobQA: PASS at a52cf791963f5f2372236fcc1e53b67b4f59c53e — SEPARATE QA-0; docs/handoffs/2026-09-30-1430-robqa-vm671-records-reconciliation.md — Owner-requested temporal correction verdict
 Owner: ACCEPTED at a52cf791963f5f2372236fcc1e53b67b4f59c53e — exact human ACCEPT in current Codex chat; RobDev handoff Owner decision
-Integration: INTEGRATED through PR63 / PR #63; expected-head guarded squash acbc94049aadaa592e27f2ff1197fd7f1397f602; branch tree equals verified PR head fcff1e5d856c22094d84485cbec200f01ace6b7f
+Integration: INTEGRATED PR63; expected-head guarded squash acbc94049aadaa592e27f2ff1197fd7f1397f602; branch tree equals verified PR head fcff1e5d856c22094d84485cbec200f01ace6b7f
 Dependencies: None
 Decisions: Bounded records-only reconciliation of Owner-authorized items 1–3. Preserve historical evidence and unresolved closeout/adoption/parent-completion distinctions; do not infer acceptance or perform cleanup.
 Evidence: [Current reconciliation and eight-item ledger](../../reports/2026-09-30-vm671-records-reconciliation.md); [RobDev handoff](../../handoffs/2026-09-30-1430-robdev-vm671-records-reconciliation.md); [Kanban handoff](../../handoffs/2026-09-30-1430-kanban-vm671-admission.md); [VM-670 report](../../reports/2026-09-30-vm670-repository-recon.md); [VM-670 closeout handoff](../../handoffs/2026-09-30-1201-codex-vm670-repository-recon.md); current Owner eight-item request.
