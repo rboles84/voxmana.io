@@ -30,7 +30,8 @@ assert.equal(sha256(license), "EC3CE3A08736FEFD6A03A6D5B52B0705E6919FE06DE9D7BD3
 assert.match(text(license), /MIT License/);
 
 assert.match(text(beacon), /href="\.\.\/guide\/maze\/\?guided=maze-search"/);
-assert.match(text(beacon), /Walk me through this search/);
+assert.match(text(beacon), /qi-guide-action vm-guide-beacon__action">Open the Maze guide/, "Maze beacon must retain the accepted guide invitation");
+assert.doesNotMatch(text(beacon), /Walk me through this search/, "Maze beacon must not restore the retired invitation label");
 assert.doesNotMatch(text(beacon), /Read how to understand this search/);
 
 assert.equal((text(route).match(/target: "#[^"]+"/g) || []).length, 4, "Maze guided reading must stay exactly four steps");

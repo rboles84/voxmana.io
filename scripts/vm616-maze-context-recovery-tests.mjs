@@ -75,14 +75,22 @@ assert.equal(printedExact.query, "c=wu f:commander");
 ].forEach((expected) => assert.ok(mazeRuntime.includes(expected), `Maze shortcut label must remain truthful for its exact query: ${expected}`));
 assert.doesNotMatch(mazeRuntime, /Commander staples|by EDHREC rank|Free\/uncounterable|Commander entry points|Strange legends|offbeat commanders/);
 
-assert.match(mazeHtml, /id="maze-reading-context"[\s\S]*?Standalone search[\s\S]*?Search independently/);
+assert.match(
+  mazeHtml,
+  /id="maze-reading-context" tabindex="-1" hidden[\s\S]*?id="maze-reading-context-label"><\/span>[\s\S]*?id="maze-reading-context-return" href="\.\.\/archscry\/index\.html"><\/a>[\s\S]*?id="maze-reading-context-action" type="button" data-action="search-independently">Search independently<\/button>/,
+  "Maze must begin with hidden, dynamically populated reading context while retaining the independent-search action"
+);
+assert.doesNotMatch(mazeHtml, /id="maze-reading-context"[\s\S]*?Standalone search/, "Maze must not restore the retired permanent standalone-search context");
+assert.match(mazeHtml, /id="search-btn" type="button" data-action="search">Search<\/button>/, "Maze must retain its independent canonical Search action");
 assert.match(mazeHtml, /then keep local Reading Finds to revisit later\./);
-assert.match(mazeHtml, /Finds saved with a reading stay linked to it; standalone Finds remain standalone\./);
+assert.doesNotMatch(mazeHtml, /Finds saved with a reading stay linked to it; standalone Finds remain standalone\./, "Maze must not retain the retired permanent Reading Finds copy");
+assert.match(guideHtml, /Finds saved with reading context can stay attached to that reading; independent Finds remain standalone\./, "Maze Guide must retain the current conditional Reading Finds contract");
 assert.match(mazeHtml, /Fits Commander colors includes cards whose color identity stays within the selected colors; a card does not need every selected color\./);
 assert.doesNotMatch(mazeHtml, /id="loom-dossier-context"/);
 assert.equal((mazeUi.match(/href="\.\.\/guide\/maze\/\?guided=maze-search"/g) || []).length, 1, "working Maze should expose one opt-in guided-reading invitation");
 assert.doesNotMatch(mazeUi, /guide\/maze\/#recovery/, "canonical working-Maze Guide action must not skip to the recovery section");
-assert.match(mazeUi, /qi-guide-eyebrow vm-guide-beacon__eyebrow">Field Guide[\s\S]*?Walk me through this search/);
+assert.match(mazeUi, /qi-guide-eyebrow vm-guide-beacon__eyebrow">Field Guide[\s\S]*?qi-guide-action vm-guide-beacon__action">Open the Maze guide/, "Guide beacon must retain the accepted invitation and Field Guide context");
+assert.doesNotMatch(mazeUi, /Walk me through this search/, "Guide beacon must not restore the retired invitation label");
 assert.match(mazeUi, /data-guide-beacon-id="maze-search-help"/);
 assert.match(guideBeaconJs, /var seenBeaconIds = new Set\(\)[\s\S]*?IntersectionObserver[\s\S]*?intersectionRatio >= 0\.55/);
 assert.match(guideBeaconJs, /function settle[\s\S]*?classList\.remove\("is-signaling"\)[\s\S]*?pointerenter[\s\S]*?focusin[\s\S]*?animationend/);
@@ -96,10 +104,9 @@ assert.match(mazeRuntime, /function classifyRecoveryDiagnostics[\s\S]*?parser_un
 assert.match(mazeRuntime, /url\.searchParams\.set\("independent", "1"\)/);
 assert.match(mazeRuntime, /history\.pushState[\s\S]*?refreshReadingContextPresentation/);
 assert.match(mazeRuntime, /function readActiveArchscryMazeHandoff\(\)[\s\S]*?isIndependentSearch\(\) \? null : readArchscryMazeHandoff\(\)/);
-assert.match(mazeRuntime, /Searching independently[\s\S]*?not using the retained reading[\s\S]*?New Finds will not be attached[\s\S]*?existing Finds remain unchanged/);
+assert.match(mazeRuntime, /independent && associatesFinds[\s\S]*?New Finds are standalone[\s\S]*?action\.dataset\.action = "restore-reading-context"[\s\S]*?Attach new Finds to/, "Independent reading state must make new Finds standalone and offer the current reattach action");
+assert.match(mazeRuntime, /context\.dataset\.state = "reading"[\s\S]*?New Finds stay with this reading[\s\S]*?action\.dataset\.action = "search-independently"[\s\S]*?Save new Finds separately/, "Reading state must retain the current conditional separate-Finds action");
 assert.match(mazeRuntime, /function restoreReadingContext\(\)[\s\S]*?searchParams\.delete\("independent"\)[\s\S]*?history\.pushState/);
-assert.match(mazeRuntime, /action\.dataset\.action = "restore-reading-context"/);
-assert.match(mazeRuntime, /action\.textContent = retainedExplorationContext \? "Restore dossier context" : "Restore reading context"/);
 const independentAction = mazeRuntime.slice(mazeRuntime.indexOf("function searchIndependently"), mazeRuntime.indexOf("function refreshReadingContextPresentation"));
 assert.doesNotMatch(independentAction, /localStorage\.(?:setItem|removeItem|clear)/, "independent search must not rewrite handoff or saved-reading storage");
 assert.match(mazeCss, /\.maze-reading-context[\s\S]*?\.qi-recovery/);
