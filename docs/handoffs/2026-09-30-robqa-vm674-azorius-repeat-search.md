@@ -203,3 +203,75 @@ Implementer: Codex `/root/vm674_dev`
 ### Remaining Owner judgment
 
 Subjective visual clarity and product feel remain Owner work. Engineering QA will provide the shortest manual route beginning at `http://127.0.0.1:8000/archscry/?explore=azorius` after an exact candidate receives a candidate-bound verdict. Owner ACCEPT remains separate.
+
+## Catalog-backed canonical intent correction — exact-candidate QA
+
+Task: VM-674
+Candidate: `6222d48af45e823b4aa39df2657bf7928def0477`
+Admission baseline: `a798f38559202050e29ac010de26241fa9aabaa1`
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: Codex `/root/vm674_qa` (Sol medium)
+Implementer: Codex `/root/vm674_dev` (Terra medium)
+
+### Decision
+
+QA-3 passes for the exact material candidate. Search ownership is derived from the current stable dossier selector and current representation. The governed discovery catalog supplies the paired Plain and Operator values for `identity_key + pathType`, plus `threadId` for an active thread. Exact current Plain or Operator text links to that catalog intent; any mismatch remains a genuine custom request. Exact restoration re-links without an edit-history flag.
+
+The authority order is current valid catalog intent, compatible serialized handoff only when catalog provenance is unavailable, then ordinary standalone/custom behavior. A valid catalog with an unknown identity, path, or thread returns no governed intent and cannot regain linkage through serialized query fields. Canonical comparison uses only trim and CRLF/LF normalization. The diff adds no parallel dossier-query registry, no 37-identity controller table, no fuzzy or parser-derived equality, and no new persistence.
+
+### Objective evidence
+
+- JavaScript/MJS syntax checks passed for `maze-handoff.js`, `research-init.js`, the focused browser fixture, and the discovery-profile test.
+- `npm.cmd run test:mode` passed 14 mode-continuity and 14 leakage cases. Custom Plain drafts and existing Plain/Operator conversion contracts remain protected.
+- `node tests/maze/maze-query-contract-tests.js` passed. Generic Plain compilation and exact Operator syntax remain governed by their existing resolver paths.
+- `npm.cmd run test:maze-discovery-profiles` passed. The generated catalog was current for 37/37 profiles; the audit covered 367 projections, 354 executable projections, 13 intentionally unavailable projections, and zero empty executable results. The test checks every governed top-level pair and every available thread pair, including targeted WU broad, UB `hidden-information`, JUND, WUBRG, conservative CRLF/trim normalization, and unknown path/thread negatives.
+- `npm.cmd run task -- indexes --check` passed with 714 cards, 1,166 handoffs, and no stale generated views at the material candidate.
+- `git diff --check a798f38559202050e29ac010de26241fa9aabaa1..6222d48af45e823b4aa39df2657bf7928def0477` passed.
+
+The independent focused browser command `npm.cmd run test:vm674-azorius-repeat-search` exited 0 against the exact candidate. It used the rendered public Azorius dossier route and one deterministic intercepted Scryfall result. It observed:
+
+- A/B: fresh canonical Plain launch and unchanged repeat both executed `id=wu is:commander f:commander`, rendered one result, and remained free of unresolved terms and `needs-meaning`;
+- C/D: Plain → Operator → Plain → Search and Plain → Operator → Search → Plain → Search preserved the same canonical intent, with no request caused by mode switching itself;
+- E/F: a custom Plain request used ordinary compilation, and exact Plain restoration re-linked to the canonical query with clear interpretation;
+- G: real keyboard Ctrl+A/Ctrl+X exposed an empty current draft, Ctrl+V restored the exact canonical Plain value, and Search re-linked without stale diagnostics;
+- H: custom Operator syntax executed exactly, and restoring the exact canonical Operator syntax re-linked;
+- I: the `with cats` Plain draft survived an Operator round trip and remained custom;
+- J: the custom Plain path produced its ordinary interpretation, while exact canonical restoration cleared unresolved `senate`/`exactly` and `needs-meaning` before presenting canonical results; and
+- K: editing the current request without executing changed the results heading to `Previous results`; a completed Search restored `Results`, preserving the distinction between current request and last executed results.
+
+The browser fixture observed the real input, mode, inspector query, intercepted API query, rendered result/error completion, diagnostics, `#results-interpretation-state`, and results heading. It used an isolated `voxmana-vm674-*` profile and bounded launcher/server cleanup. Zero owned temporary profiles remained.
+
+### Causal sensitivity
+
+An isolated archive of the exact candidate changed only the representation resolver comparison so it could never return the catalog intent. The candidate archive copy of `assets/js/maze/research-init.js` had SHA-256 `92EEFEBC87A79864BC206DBADAF71C5BC91FE2AF2BD5CAF797EE6C8C3D4B0B55`; the one-line mutated copy had SHA-256 `44A39A2D7790E576A80F3FF8911BA282012844A7F75EB4188612BFF78AAF1E7E`.
+
+The same focused browser command exited 1. Launch still completed with the canonical query, proving the server, public route, catalog load, and browser setup were alive. The first unchanged Search and later exact restores instead compiled the Plain sentence as `id=wu is:commander legal:commander`, exposed unresolved `senate` and `exactly`, entered `needs-meaning`, and failed the canonical repeat, mode, exact restore, and cut/paste assertions. Custom request stages still executed. The negative is therefore sensitive to current-state catalog linkage rather than merely to launch or fixture availability.
+
+The disposable source was recreated directly from the exact Git object after the mutation and matched the original archive SHA-256 `92EEFEBC87A79864BC206DBADAF71C5BC91FE2AF2BD5CAF797EE6C8C3D4B0B55`. The owned archive directory was then removed. The repository candidate was never mutated and remained clean at `6222d48af45e823b4aa39df2657bf7928def0477`.
+
+### Candidate accounting
+
+Git reports 13 material paths from baseline to candidate:
+
+- `assets/js/maze/maze-handoff.js`
+- `assets/js/maze/research-init.js`
+- `docs/handoffs/2026-09-30-codex-vm674-azorius-repeat-search.md`
+- `docs/handoffs/2026-09-30-kanban-vm674-admission.md`
+- `docs/handoffs/2026-09-30-robdev-vm674-azorius-repeat-search.md`
+- `docs/handoffs/2026-09-30-robqa-vm674-azorius-repeat-search.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-674-azorius-repeat-search.md`
+- `maze/index.html`
+- `package.json`
+- `scripts/vm674-archscry-azorius-repeat-search-browser.mjs`
+- `tests/maze/maze-discovery-profile-tests.js`
+
+This appended verdict is evidence-only after the material candidate. It does not change the candidate or product behavior.
+
+### Limits and Owner boundary
+
+This evidence certifies the selected catalog resolver, conservative equality, focused WU rendered state transitions, deterministic catalog-wide pairing, stale selector refusal, custom request preservation, UI synchronization, and causal sensitivity. It does not certify live Scryfall availability, card-result semantics, subjective visual quality, every identity through a browser, broad browser health, or semantic dossier content. No screenshot, viewport matrix, broad browser suite, or semantic recertification was run. CPU-heavy validation was not required.
+
+Owner review remains separate. Start at `http://127.0.0.1:8000/archscry/?explore=azorius`, open **Commanders in this identity**, then check: unchanged Search; Plain → Operator → Plain; append `with cats`; remove it exactly and Search; finally cut the full canonical Plain request, paste it back, and Search. PASS if the canonical actions consistently execute `id=wu is:commander f:commander`, custom text remains custom, exact restoration re-links, and no stale **Needs meaning** survives. Owner ACCEPT must bind this exact material candidate before integration.

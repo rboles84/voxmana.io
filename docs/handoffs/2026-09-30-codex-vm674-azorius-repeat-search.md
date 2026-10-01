@@ -189,3 +189,26 @@ The clean existing branch at ade8cfa89d1f379f478b2fe3756a294ab10019c1 was resume
 Configured RobDev (Terra medium) owns the bounded catalog/handoff/controller correction, scope amendment if needed, focused regressions and its implementation handoff. Configured separate RobQA (Sol medium) owns test selection, exact-candidate QA and its evidence handoff. Both were spawned using their named roles with fork_turns none; the host accepted those arguments. Backend model identity and billing are unverified. The coordinator owns lifecycle consolidation, generated views, candidate accounting and delivery checks. All preserve shared edits; no recursive delegation or route escalation is requested. A concrete blocker would require a bounded announced escalation.
 
 The Owner explicitly requires browser journeys A–K, catalog breadth, and isolated candidate-copy causal mutation; those objective checks justify focused browser execution. Visual quality remains Owner judgment. VM-674 remains the only active material task and must stop at Owner Review. No VM-675 or successor may be begun. The remaining ledger above stays unchanged apart from item 6, which is back in correction with replacement-candidate QA and Owner decision pending.
+
+## 2026-10-01 corrected exact-candidate Owner Review
+
+Task: VM-674
+Candidate: 6222d48af45e823b4aa39df2657bf7928def0477
+RobQA: PASS
+Execution: SEPARATE
+Owner: PENDING
+Integration: PENDING
+
+Separate RobQA's durable verdict is [Catalog-backed canonical intent correction — exact-candidate QA](2026-09-30-robqa-vm674-azorius-repeat-search.md#catalog-backed-canonical-intent-correction--exact-candidate-qa). The final request owner derives from current stable identity/path/thread and current Plain or Operator representation, using only trim and CRLF/LF normalization. The existing catalog factory supplies both representations; exact restoration re-links regardless of edit history. Genuine custom Plain requests still use the unchanged generic compiler and custom Operator syntax still executes exactly. No parallel dossier-query registry or 37-identity controller table was introduced.
+
+Authority order is: valid stable intent from the current discovery catalog; compatible serialized handoff only when catalog provenance is unavailable; ordinary standalone/custom behavior otherwise. Unknown or stale selectors in an available valid catalog cannot acquire governed linkage from serialized query fields. Existing routes/bookmarks remain compatible; this is not a URL migration. Thread actions carry their existing stable threadId.
+
+Candidate-bound syntax, mode, query-contract, discovery-profile/catalog breadth, focused browser A–K, generated freshness and range whitespace checks passed. Keyboard cut/paste exact restoration re-links deterministically. Restored canonical execution clears unresolved senate/exactly and NEEDS MEANING. Edited unexecuted drafts label retained cards Previous results; completed Search restores Results. The isolated exact-candidate mutation disabled current representation linkage and failed the intended restoration journeys with legal:commander drift, unresolved senate/exactly and needs-meaning. The disposable source was restored from Git and hash-checked, then its copy was removed; repository candidate bytes were never mutated.
+
+Git accounting uses accepted baseline a798f38559202050e29ac010de26241fa9aabaa1. The current standalone validated accounting report is `C:/Users/obake/.codex/visualizations/2026/10/01/01a0f8a8-2c56-75b2-864d-ac580d3f2907/vm674-change-report.md`; it separately records material paths, evidence delta and final branch delta from Git. Earlier accounting sections above remain historical. The post-candidate changes append observations/decisions and update only card lifecycle/delivery/checkbox results plus generated views. Runtime, fixtures, tests, policy and scope remain frozen. No push, PR integration or successor work was performed.
+
+### Short Owner check
+
+Open http://127.0.0.1:8000/archscry/?explore=azorius and choose Commanders in this identity. The local server returned HTTP 200 before handoff. Search twice, inspect Plain → Operator → Plain and Search, append with cats and Search, remove those words exactly and Search, then cut the entire canonical Plain request and paste it back and Search. Canonical actions should execute id=wu is:commander f:commander without Needs meaning; edited text should remain custom. Exact restoration must recover the dossier request and clear stale diagnostics.
+
+Owner visual/product judgment and exact-candidate ACCEPT remain pending. The browser uses deterministic intercepted results and does not certify live Scryfall availability, card semantics, subjective visual quality or broad browser health. The remaining work ledger retains items 1–5 and 7 as previously recorded, item 6 at this Owner Review, and item 8 blocked on administration capability. After acceptance/closeout or another rejection, return that ledger and wait for explicit Owner direction. No automatic follow-up is authorized.

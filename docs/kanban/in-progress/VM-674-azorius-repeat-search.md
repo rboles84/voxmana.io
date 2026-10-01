@@ -2,7 +2,7 @@
 
 ID: VM-674
 Title: Azorius Repeat Search
-Status: In Progress
+Status: Owner Review
 Type: Bounded rendered-behavior investigation and conditional repair
 Area: Archscry-to-Maze discovery handoff and repeat search
 Priority: High
@@ -37,10 +37,10 @@ Current Owner eight-item request, item 6; accepted VM-670 and VM-671 records; hi
 
 - [x] Fresh actual public rendered evidence covers the Archscry Azorius discovery click, first query, unchanged repeat Search, and edited Search.
 - [x] The fixture is ChromeLauncher/DevTools-ready, cache-aware, output-isolated, and has owned cleanup; no extra network-count contract is asserted.
-- [ ] A catalog-backed current-representation resolver replaces the history-dependent replay guard without a duplicate dossier registry.
-- [ ] Exact canonical Plain and Operator restoration, including cut/paste, re-links deterministically; custom Plain and Operator requests retain existing behavior.
-- [ ] Stale custom diagnostics and misleading current-request presentation clear when a canonical dossier intent is restored.
-- [ ] Deterministic lower-level coverage proves catalog resolution for broad and thread-specific paths across identity families.
+- [x] A catalog-backed current-representation resolver replaces the history-dependent replay guard without a duplicate dossier registry.
+- [x] Exact canonical Plain and Operator restoration, including cut/paste, re-links deterministically; custom Plain and Operator requests retain existing behavior.
+- [x] Stale custom diagnostics and misleading current-request presentation clear when a canonical dossier intent is restored.
+- [x] Deterministic lower-level coverage proves catalog resolution for broad and thread-specific paths across identity families.
 - [x] If no defect or usable browser page is established, the handoff documents the bounded non-reproduction or limitation and no speculative code is added.
 - [x] Canonical query ownership, mode, route, filters, cache/deduplication, reading context, API semantics, and render completion remain protected.
 - [x] Exact-candidate independent RobQA, Owner, and integration decisions remain PENDING until authentic later evidence exists.
@@ -75,8 +75,8 @@ Apply RobDev before implementation. Replace the reproduced history-dependent rep
 Record version: 1
 Branch: codex/vm-674-azorius-repeat-search
 Admission baseline: a798f38559202050e29ac010de26241fa9aabaa1
-Candidate: PENDING
-RobQA: PENDING
+Candidate: 6222d48af45e823b4aa39df2657bf7928def0477
+RobQA: PASS at 6222d48af45e823b4aa39df2657bf7928def0477 — SEPARATE QA-3; [Catalog-backed correction QA](../../handoffs/2026-09-30-robqa-vm674-azorius-repeat-search.md#catalog-backed-canonical-intent-correction--exact-candidate-qa)
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
