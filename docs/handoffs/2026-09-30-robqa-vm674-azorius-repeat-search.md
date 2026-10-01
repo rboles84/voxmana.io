@@ -80,3 +80,28 @@ The deterministic Scryfall response proves route, cache-aware completion, query,
 ## Shortest Owner check
 
 Open `archscry/?explore=azorius&panel=maze-discovery#maze-discovery-paths`, choose **Commanders in this identity**, press Search without editing, then change the input to `id=wu is:commander` and press Search again. PASS if the first and unchanged inspector query remains `id=wu is:commander f:commander`, results settle after the unchanged action, and the edited action changes the inspector/results to `id=wu is:commander`. Owner ACCEPT remains a separate decision for this exact candidate.
+
+## 141baf QA finding
+
+Task: VM-674
+Candidate: 141baf1888e5fb6e0df739a27ff33c5a4915901c
+RobQA: BLOCKED
+Execution: SEPARATE
+Reviewer: Codex `/root/independent_qa`
+Implementer: Codex `/root/reconciliation_dev`
+
+The replacement runtime correction preserves canonical replay across an Operator-to-Plain inspection round trip while retaining edit invalidation, but the selected regression does not yet assert the owning DOM state for the Owner-reported **NEEDS MEANING** result. `assets/js/maze/research-ui.js` derives that state from unresolved terms and writes it to `#results-interpretation-state`; the fixture captures only `#qi-diagnostics` text and infers the state from the words `senate` and `exactly`. That indirect check is insufficient for the exact Owner finding. Capture the result interpretation key and require the corrected round trip to differ from `needs-meaning`; the same extended fixture against the rejected runtime must observe `needs-meaning`.
+
+QA-3 remains proportionate because the changed risk is a rendered route state transition across Plain-to-Operator-to-Plain mode inspection and Search. A focused browser path is required to observe the real completion, API, result, and interpretation state. Broad browser, parser, and search matrices remain out of scope.
+
+Evidence completed before the finding:
+
+- `npm.cmd run test:vm674-azorius-repeat-search` passed against the exact candidate and recorded first launch, direct unchanged Search, Operator-to-Plain round trip, edited Search, and edit-then-restore. The log is `C:/Users/obake/.codex/visualizations/2026/09/30/01a0f3e0-4b21-7942-bdb3-e2e5e6f92e73/vm674-r2-exact-candidate-positive.txt`, SHA-256 `B2A3ED44546B3419FF2836760E48958F787564D0074594231E17664D513CAE32`.
+- The exact rejected runtime from `6def77e0c6ab8bd673753df74f416e7551d66554`, with the exact `141baf1888e5fb6e0df739a27ff33c5a4915901c` extended fixture copied externally, exited 1 at the round-trip query/API/diagnostic assertions. It still recorded the first/direct unchanged, edited, and restored stages. The runtime copy matched Git blob `80e9694562624f54f00725742eafd0f76975884f`; the fixture copy matched Git blob `4d82c3d3ab5e19649f26fe57660fe1b9accabbf8`. The log is `C:/Users/obake/.codex/visualizations/2026/09/30/01a0f3e0-4b21-7942-bdb3-e2e5e6f92e73/vm674-r2-rejected-runtime-negative.txt`, SHA-256 `64BF5859BD5515FF09234867539AC7739E583D6BBF34B83AFDFFB5B1266D4691`.
+- `node --check assets/js/maze/research-init.js` and `node --check scripts/vm674-archscry-azorius-repeat-search-browser.mjs` passed.
+- `git diff --check a798f38559202050e29ac010de26241fa9aabaa1 141baf1888e5fb6e0df739a27ff33c5a4915901c` passed.
+- Exact Git accounting found 11 material paths: the ten paths listed in the original material section plus this preserved historical QA handoff.
+- `npm.cmd run task -- indexes --check` passed with 714 cards and 1166 handoffs.
+- The fixture left zero `voxmana-vm674-*` temporary profile directories. Process-command-line enumeration remains outside the independent sandbox evidence.
+
+This BLOCKED verdict is bound only to `141baf1888e5fb6e0df739a27ff33c5a4915901c`. It preserves the earlier `6def77e0c6ab8bd673753df74f416e7551d66554` QA record as history and does not express Owner acceptance. A narrow fixture-only correction and a new exact candidate can close the evidence gap without changing runtime scope.

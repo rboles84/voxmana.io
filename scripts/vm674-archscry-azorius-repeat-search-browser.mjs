@@ -216,11 +216,16 @@ async function captureMazeState(page, requestUrls) {
     const searchLink = document.getElementById("search-scryfall-link");
     const grid = document.getElementById("card-grid");
     const results = document.getElementById("results-header");
+    const interpretationState = document.getElementById("results-interpretation-state");
     return {
       input: document.getElementById("search-input")?.value || "",
       query: document.getElementById("qi-query")?.textContent?.trim() || "",
       mode: document.body.dataset.mazeMode || "",
       diagnostics: document.getElementById("qi-diagnostics")?.textContent?.trim() || "",
+      interpretationState: {
+        key: interpretationState?.dataset?.state || "",
+        label: interpretationState?.textContent?.trim() || "",
+      },
       error: document.getElementById("error-msg")?.textContent?.trim() || "",
       apiUrl: searchLink?.getAttribute("aria-disabled") === "false" ? searchLink.href : "",
       result: {
@@ -371,6 +376,7 @@ async function runPublicAzoriusRoute(page, baseUrl) {
   collectFailure(apiQuery(roundtrip.state.apiUrl) === first.query, "VM-674 Plain-Operator-Plain inspector/API state lost the canonical query.");
   collectFailure(roundtrip.state.result.gridVisible && roundtrip.state.result.cards > 0, "VM-674 Plain-Operator-Plain Search did not settle to rendered results.");
   collectFailure(roundtrip.state.error === "", "VM-674 Plain-Operator-Plain Search reported an error state.");
+  collectFailure(roundtrip.state.interpretationState.key !== "needs-meaning", "VM-674 Plain-Operator-Plain Search entered the NEEDS MEANING interpretation state.");
   collectFailure(!/unresolved\s*senate|unresolved\s*exactly/i.test(roundtrip.state.diagnostics), "VM-674 Plain-Operator-Plain Search entered NEEDS MEANING diagnostics.");
 
   currentPhase = "edited-search";

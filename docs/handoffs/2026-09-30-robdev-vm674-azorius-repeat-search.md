@@ -142,3 +142,6 @@ The round-trip fixture additionally asserts the post-Search plain input and AI m
 query equality with the canonical first query, visible grid with at least one card, and an empty error
 state. These are accumulated alongside completion, canonical-query, and no-NEEDS-MEANING diagnostics
 checks so an observed round-trip failure still leaves the edited and edit-restore controls observable.
+It now captures `#results-interpretation-state` directly as `{ key, label }` and rejects the owning
+`needs-meaning` state key, rather than treating the diagnostics text as the sole indication of that
+visible result state.
