@@ -1,4 +1,4 @@
-<!-- task-view-sha256:12e0d9cd972cf3c15881c19ded0b5e7af00e46723cbbc3b1eced0dd95d5469ed -->
+<!-- task-view-sha256:6fd1ad778b530c21e08b78058096467bdc7f6ad5244b90073d011310aab644ba -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -17,6 +17,7 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 | 2026-09-30T00:00:00Z (authored) | RobQA | [VM-671 — Independent RobQA records reconciliation](2026-09-30-1430-robqa-vm671-records-reconciliation.md) | VM-671 | Identity displayed from heading; not admission metadata. |
 | 2026-09-30T00:00:00Z (filename) | Codex coordinator | [VM-672 — Dossier runner paths and coordinated progress](2026-09-30-codex-vm672-dossier-runner-paths.md) | VM-672 | Identity displayed from heading; not admission metadata. Invalid authored date; filename fallback or undated ordering used. |
 | 2026-09-30T00:00:00Z (filename) | Codex coordinator | [VM-673 — Retired test contracts and coordinated progress](2026-09-30-codex-vm673-retired-test-contracts.md) | VM-673 | Identity displayed from heading; not admission metadata. Invalid authored date; filename fallback or undated ordering used. |
+| 2026-09-30T00:00:00Z (authored) | Kanban Steward `/root/kanban_steward` | [Legacy terminal dispositions — Kanban handoff](2026-09-30-kanban-legacy-terminal-dispositions.md) | VM-658, VM-660, VM-673 |  |
 | 2026-09-30T00:00:00Z (authored) | Kanban Steward `/root/kanban_steward` | [VM-672 — Kanban admission handoff](2026-09-30-kanban-vm672-admission.md) | VM-672, VM-670, VM-671 | Identity displayed from heading; not admission metadata. |
 | 2026-09-30T00:00:00Z (authored) | Kanban Steward `/root/kanban_steward` | [VM-673 — Kanban admission handoff](2026-09-30-kanban-vm673-admission.md) | VM-673, VM-670, VM-671 | Identity displayed from heading; not admission metadata. |
 | 2026-09-30T00:00:00Z (filename) | Unknown | [VM-672 RobDev handoff — dossier runner paths](2026-09-30-robdev-vm672-dossier-runner-paths.md) | VM-672 | Identity displayed from heading; not admission metadata. Invalid authored date; filename fallback or undated ordering used. |
