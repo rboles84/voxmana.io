@@ -75,14 +75,16 @@ RobQA: PASS at 52ad1cbc9d0dec2fe5cacf084f890086a8b1320b — SEPARATE QA-3; [Owne
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
-Decisions: Fresh rendered evidence decides whether an owning repair is warranted. Preserve current Maze query, route, mode, filter, cache/deduplication, reading-context, API, and render contracts; do not treat VM-662 as current-defect proof.
+Decisions: Fresh rendered evidence decides whether an owning repair is warranted. Preserve current Maze query, route, mode, filter, cache/deduplication, reading-context, API, and render contracts; do not treat VM-662 as current-defect proof. Scope amendment: catalog-backed current-representation resolver and deterministic lower-level catalog coverage are required by the Owner correction, so `maze-handoff.js` and its profile test enter the admitted scope.
 Evidence: [VM-670 report](../../reports/2026-09-30-vm670-repository-recon.md); [VM-671 records reconciliation report](../../reports/2026-09-30-vm671-records-reconciliation.md); current Owner item 6 request.
 
 ## Admission Scope
 
 - `assets/js/maze/research-init.js`
+- `assets/js/maze/maze-handoff.js`
 - `maze/index.html`
 - `scripts/vm674-archscry-azorius-repeat-search-browser.mjs`
+- `tests/maze/maze-discovery-profile-tests.js`
 - `package.json`
 - `docs/kanban/in-progress/VM-674-azorius-repeat-search.md`
 - `docs/handoffs/2026-09-30-kanban-vm674-admission.md`
