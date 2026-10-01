@@ -1,4 +1,6 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { resolve, sep } from "node:path";
+import { pathToFileURL } from "node:url";
 
 import { runAdaptiveGoldenPath } from "../../assets/js/archscry/adaptive-placement.js";
 import {
@@ -8,7 +10,18 @@ import {
   renderCommanderDossierText,
 } from "../../assets/js/archscry/commander-dossier.js";
 
-export const DOSSIER_SNAPSHOT_DIR = new URL("../artifacts/dossier-snapshots/", import.meta.url);
+const REPOSITORY_ROOT_URL = new URL("../../", import.meta.url);
+const configuredSnapshotDir = process.env.VOX_MANA_DOSSIER_SNAPSHOT_DIR;
+
+export const DOSSIER_SNAPSHOT_DIR = configuredSnapshotDir
+  ? pathToFileURL(`${resolve(configuredSnapshotDir)}${sep}`)
+  : new URL("artifacts/dossier-snapshots/", REPOSITORY_ROOT_URL);
+
+const DOSSIER_INPUT_URLS = Object.freeze({
+  factions: new URL("data/factions.json", REPOSITORY_ROOT_URL),
+  placementModel: new URL("data/placement-model.json", REPOSITORY_ROOT_URL),
+  deckTags: new URL("data/deck-tags_expanded.json", REPOSITORY_ROOT_URL),
+});
 
 export const REGRESSION_ADJACENT_CASES = [
   {
@@ -23,14 +36,14 @@ export const REGRESSION_ADJACENT_CASES = [
   },
 ];
 
-async function readJson(relativePath) {
-  return JSON.parse(await readFile(new URL(`../${relativePath}`, import.meta.url), "utf8"));
+async function readJson(url) {
+  return JSON.parse(await readFile(url, "utf8"));
 }
 
 export async function loadDossierInputs() {
-  const factionData = await readJson("data/factions.json");
-  const placementModel = await readJson("data/placement-model.json");
-  const deckTagData = await readJson("data/deck-tags_expanded.json");
+  const factionData = await readJson(DOSSIER_INPUT_URLS.factions);
+  const placementModel = await readJson(DOSSIER_INPUT_URLS.placementModel);
+  const deckTagData = await readJson(DOSSIER_INPUT_URLS.deckTags);
 
   return {
     factions: factionData.factions || {},
