@@ -50,6 +50,7 @@ let currentDir = undefined;
 let currentSearchApi = {};
 let lastSmartInput = "";
 let lastSmartQuery = "";
+let archscryCanonicalReplay = null;
 let allResults = [];
 let displayPage = 0;
 let hasMore = false;
@@ -995,6 +996,16 @@ async function initializeResearchArchives() {
     lastSmartInput = normalizedLaunch.plainReadingQuery || launchOperatorQuery;
     lastSmartQuery = queryResult.query;
     setMode(useRawVisibleArchscryLaunch ? "raw" : "ai");
+    archscryCanonicalReplay = !useRawVisibleArchscryLaunch && normalizedLaunch.vm547Canonical === true ? {
+      plainReadingQuery: lastSmartInput,
+      operatorQuery: queryResult.query,
+      profile: normalizedLaunch.vm547Profile,
+      fit: normalizedLaunch.fit,
+      pathType: normalizedLaunch.pathType,
+      runtime: normalizedLaunch.vm547Runtime,
+      catalog: normalizedLaunch.vm547Catalog,
+      launchContext: { ...normalizedLaunch, operatorQuery: launchOperatorQuery }
+    } : null;
     triggerSearch(queryResult.query, {
       api: queryResult.api,
       diagnostics: queryResult.diagnostics || [],
@@ -1032,6 +1043,7 @@ async function initializeResearchArchives() {
  */
 function setMode(mode) {
   const previousMode = currentMode;
+  if (previousMode !== mode) archscryCanonicalReplay = null;
   currentMode = mode;
   document.body.dataset.mazeMode = mode;
   MODE_IDS.forEach((id) => {
@@ -1315,6 +1327,7 @@ function renderSelectedSuggestionView() {
 }
 
 function restoreSuggestionDraft() {
+  archscryCanonicalReplay = null;
   clearPendingSuggestedSearch({ restorePresentation: false });
   const input = document.getElementById("search-input");
   if (input) {
@@ -1364,6 +1377,7 @@ function bindSearchInputSelectOnFocus() {
   });
 
   input.addEventListener("input", () => {
+    archscryCanonicalReplay = null;
     selectAutoFilledInputOnFocus = false;
     clearPendingSuggestedSearch();
     rememberModeDraftInput({ target: input });
@@ -1434,7 +1448,32 @@ async function doSearch() {
   allResults = [];
 
   try {
-    const queryResult = resolveMazeRouteQuery(rawInput);
+    const activeHandoff = readActiveArchscryMazeHandoff() || {};
+    const canReplayArchscryCanonicalQuery = currentMode === "ai" &&
+      archscryCanonicalReplay &&
+      rawInput === archscryCanonicalReplay.plainReadingQuery &&
+      currentQuery === archscryCanonicalReplay.operatorQuery &&
+      activeHandoff.vm547Canonical === true &&
+      activeHandoff.operatorQuery === archscryCanonicalReplay.operatorQuery &&
+      activeHandoff.plainReadingQuery === archscryCanonicalReplay.plainReadingQuery &&
+      activeHandoff.vm547Profile === archscryCanonicalReplay.profile &&
+      activeHandoff.fit === archscryCanonicalReplay.fit &&
+      activeHandoff.pathType === archscryCanonicalReplay.pathType &&
+      activeHandoff.vm547Runtime === archscryCanonicalReplay.runtime &&
+      activeHandoff.vm547Catalog === archscryCanonicalReplay.catalog &&
+      new URLSearchParams(location.search).get("from") === "archscry";
+    const queryResult = canReplayArchscryCanonicalQuery
+      ? resolveMazeRouteQuery(archscryCanonicalReplay.operatorQuery, {
+        mode: "raw",
+        origin: "archscry",
+        order: currentOrder,
+        unique: currentUnique,
+        dir: currentDir,
+        forceRaw: true,
+        useFormatDefault: false,
+        launchContext: archscryCanonicalReplay.launchContext
+      })
+      : resolveMazeRouteQuery(rawInput);
     const query = queryResult.query;
     const diagnostics = queryResult.diagnostics || [];
     const reason = currentMode === "builder" ? "" : queryResult.reason || "";
@@ -3446,6 +3485,7 @@ function buildColorGrid() {
  * @param {string} query - Raw query.
  */
 function runQuickSearch(query, opts = {}) {
+  archscryCanonicalReplay = null;
   clearPendingSuggestedSearch({ restorePresentation: false });
   currentMode = "raw";
   const queryResult = resolveMazeRouteQuery(query, {
@@ -3508,6 +3548,7 @@ function runQuickSearch(query, opts = {}) {
  * @param {object} opts - Existing route-query adapter options.
  */
 function inspectSuggestedSearch(query, opts = {}) {
+  archscryCanonicalReplay = null;
   if (currentMode === "builder") return;
   const queryResult = resolveMazeRouteQuery(query, {
     mode: "raw",
@@ -3721,6 +3762,7 @@ function handleSearchInputKeydown(event) {
  * Clears the search surface without changing the active mode.
  */
 function clearSearchInput() {
+  archscryCanonicalReplay = null;
   const input = document.getElementById("search-input");
   if (currentMode === "builder") {
     resetBuilderFilters();
