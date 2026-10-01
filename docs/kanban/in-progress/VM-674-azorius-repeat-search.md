@@ -2,7 +2,7 @@
 
 ID: VM-674
 Title: Azorius Repeat Search
-Status: Owner Review
+Status: In Progress
 Type: Bounded rendered-behavior investigation and conditional repair
 Area: Archscry-to-Maze discovery handoff and repeat search
 Priority: High
@@ -10,7 +10,7 @@ Created: 2026-09-30
 
 ## Summary
 
-Reproduce the reported rendered public flow from the Archscry Azorius discovery link through first query, unchanged repeat Search, and edited Search. VM-662's historical hypothesis is not proof of a current defect. Make a narrow `research-init` repair only if fresh reproduction establishes an owning defect; otherwise document the bounded non-reproduction or browser limitation without speculative code.
+Correct the rejected history-dependent dossier replay guard. Resolve a linked dossier request from the current discovery catalog and current Plain Reading or Operator's Hand representation so exact restore, including cut/paste, re-links deterministically without replacing genuine custom drafts.
 
 ## Source
 
@@ -21,6 +21,9 @@ Current Owner eight-item request, item 6; accepted VM-670 and VM-671 records; hi
 - Use one bounded ChromeLauncher/DevTools-ready fixture with owned cleanup to observe the public Archscry Azorius discovery link, first query, unchanged repeat Search, and edited Search.
 - Capture cache-aware UI, canonical query, API, and render-completion observations; an extra network-count requirement is not implied.
 - Repair only the owning `assets/js/maze/research-init.js` behavior if the fresh reproduction establishes a defect.
+- Resolve governed dossier intent from the current discovery catalog using stable `identity_key`, `pathType`, and `threadId` where applicable; the catalog owns canonical Plain and Operator representations.
+- Preserve compatible serialized-handoff fallback only when a stable catalog intent cannot resolve.
+- Add focused deterministic catalog coverage across broad, thread-specific, and identity-family paths.
 - Update `maze/index.html` only for the controller cache key if that controller changes.
 - Add a focused browser regression, and a package command only if needed to expose that focused evidence.
 - Record a bounded non-reproduction or browser-page limitation if no current defect can be established.
@@ -28,14 +31,17 @@ Current Owner eight-item request, item 6; accepted VM-670 and VM-671 records; hi
 ## Explicitly Out Of Scope
 
 - Semantic recertification, data enrichment, dossier rewriting, source meaning, broad browser infrastructure, old VM-619 retry, visual baselines, or speculative runtime changes.
-- Changes to canonical query ownership, mode, route, filters, cache/deduplication, reading-context behavior, or unrelated Maze execution contracts.
+- Changes to canonical query ownership, mode, route, filters, cache/deduplication, reading-context behavior, or unrelated Maze execution contracts, except the current-state resolver needed to keep a governed dossier intent and its two canonical representations paired.
 - Broad test-command reorganization, product redesign, or claims based only on VM-662 historical hypotheses.
 
 ## Acceptance Criteria
 
 - [x] Fresh actual public rendered evidence covers the Archscry Azorius discovery click, first query, unchanged repeat Search, and edited Search.
 - [x] The fixture is ChromeLauncher/DevTools-ready, cache-aware, output-isolated, and has owned cleanup; no extra network-count contract is asserted.
-- [x] A repair occurs only if the fresh evidence establishes an owning `research-init` defect; it includes meaningful focused regression evidence.
+- [ ] A catalog-backed current-representation resolver replaces the history-dependent replay guard without a duplicate dossier registry.
+- [ ] Exact canonical Plain and Operator restoration, including cut/paste, re-links deterministically; custom Plain and Operator requests retain existing behavior.
+- [ ] Stale custom diagnostics and misleading current-request presentation clear when a canonical dossier intent is restored.
+- [ ] Deterministic lower-level coverage proves catalog resolution for broad and thread-specific paths across identity families.
 - [x] If no defect or usable browser page is established, the handoff documents the bounded non-reproduction or limitation and no speculative code is added.
 - [x] Canonical query ownership, mode, route, filters, cache/deduplication, reading context, API semantics, and render completion remain protected.
 - [x] Exact-candidate independent RobQA, Owner, and integration decisions remain PENDING until authentic later evidence exists.
@@ -70,12 +76,12 @@ Apply RobDev before implementation. Establish fresh rendered public evidence wit
 Record version: 1
 Branch: codex/vm-674-azorius-repeat-search
 Admission baseline: a798f38559202050e29ac010de26241fa9aabaa1
-Candidate: 52ad1cbc9d0dec2fe5cacf084f890086a8b1320b
-RobQA: PASS at 52ad1cbc9d0dec2fe5cacf084f890086a8b1320b — SEPARATE QA-3; [Owner correction evidence](../../handoffs/2026-09-30-robqa-vm674-azorius-repeat-search.md#owner-correction-qa)
+Candidate: PENDING
+RobQA: PENDING
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
-Decisions: Fresh rendered evidence decides whether an owning repair is warranted. Preserve current Maze query, route, mode, filter, cache/deduplication, reading-context, API, and render contracts; do not treat VM-662 as current-defect proof. Scope amendment: catalog-backed current-representation resolver and deterministic lower-level catalog coverage are required by the Owner correction, so `maze-handoff.js` and its profile test enter the admitted scope.
+Decisions: Fresh rendered evidence decides whether an owning repair is warranted. Preserve current Maze query, route, mode, filter, cache/deduplication, reading-context, API, and render contracts; do not treat VM-662 as current-defect proof. Scope amendment: catalog-backed current-representation resolver and deterministic lower-level catalog coverage are required by the Owner correction, so `maze-handoff.js` and its profile test enter the admitted scope. Current valid catalog intent is authoritative for canonical representations; serialized handoff fields are compatible fallback only when catalog resolution is unavailable.
 Evidence: [VM-670 report](../../reports/2026-09-30-vm670-repository-recon.md); [VM-671 records reconciliation report](../../reports/2026-09-30-vm671-records-reconciliation.md); current Owner item 6 request.
 
 ## Admission Scope
