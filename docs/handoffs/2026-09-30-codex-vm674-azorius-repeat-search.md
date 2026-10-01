@@ -117,3 +117,14 @@ The earlier eight-item table records the admission-time boundary and remains his
 | 6 | Exact VM-674 material 6def77e0 has SEPARATE QA-3 PASS and causal rendered regression evidence. | Owner ACCEPT, PR CI/integration and closeout pending. High confidence in demonstrated bounded correction. |
 | 7 | VM-673 static repair integrated via PR65 with closeout PASS; bounded browser debt diagnosis recorded. | Legacy VM-619 harness limitation remains unresolved. VM-674 focused browser evidence passes, without general harness certification. |
 | 8 | BLOCKED: latest host main remains unprotected and rulesets empty. | Approved administration capability unavailable; no policy mutation or enforcement claim. High confidence in capability boundary. |
+
+## Owner rejection and same-task correction
+
+Task: VM-674
+Candidate: 6def77e0c6ab8bd673753df74f416e7551d66554
+Owner: REJECT
+Decision reference: Authentic Owner message in this Codex chat rejecting this exact material candidate.
+
+Owner finding: On a fresh local Azorius launch the canonical id=wu is:commander f:commander displays correctly in Operator's Hand. After switching back to Plain Reading and pressing Search without editing, Maze falls into NEEDS MEANING with unresolved senate and exactly. Initial unchanged Search and edited requests work; inspection of the Operator representation must not invalidate canonical intent. Plain/Operator round-trips preserve the canonical launch until actual intent changes. Existing edited-request invalidation remains required.
+
+The earlier exact-candidate QA record is historical and insufficient for this newly demonstrated mode transition. Current QA returns to PENDING, Owner is REJECTED, integration remains PENDING, and VM-674 returns to In Progress on the same branch. No successor is admitted. This supersedes the earlier QA instruction treating every mode switch as intent change. RobDev owns the same admitted controller/cache-key/fixture and append-only implementation handoff. Separate RobQA selects and verifies the round-trip invariant, edit invalidation and causal rejected-candidate failure. Historical handoffs and candidate evidence are preserved.

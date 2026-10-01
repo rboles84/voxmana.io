@@ -2,7 +2,7 @@
 
 ID: VM-674
 Title: Azorius Repeat Search
-Status: Owner Review
+Status: In Progress
 Type: Bounded rendered-behavior investigation and conditional repair
 Area: Archscry-to-Maze discovery handoff and repeat search
 Priority: High
@@ -71,8 +71,8 @@ Record version: 1
 Branch: codex/vm-674-azorius-repeat-search
 Admission baseline: a798f38559202050e29ac010de26241fa9aabaa1
 Candidate: 6def77e0c6ab8bd673753df74f416e7551d66554
-RobQA: PASS at 6def77e0c6ab8bd673753df74f416e7551d66554 — SEPARATE QA-3; [candidate-bound evidence](../../handoffs/2026-09-30-robqa-vm674-azorius-repeat-search.md)
-Owner: PENDING
+RobQA: PENDING — earlier candidate PASS superseded by Owner mode-round-trip finding
+Owner: REJECTED at 6def77e0c6ab8bd673753df74f416e7551d66554 — canonical intent lost after Plain/Operator inspection; same-task correction required
 Integration: PENDING
 Dependencies: None
 Decisions: Fresh rendered evidence decides whether an owning repair is warranted. Preserve current Maze query, route, mode, filter, cache/deduplication, reading-context, API, and render contracts; do not treat VM-662 as current-defect proof.
