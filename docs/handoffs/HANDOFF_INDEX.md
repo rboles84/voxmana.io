@@ -1,4 +1,4 @@
-<!-- task-view-sha256:02edd564b4fa02ef4440691be334826518808bad041c3436adfe9443b1a07e63 -->
+<!-- task-view-sha256:12e0d9cd972cf3c15881c19ded0b5e7af00e46723cbbc3b1eced0dd95d5469ed -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -22,6 +22,7 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 | 2026-09-30T00:00:00Z (filename) | Unknown | [VM-672 RobDev handoff — dossier runner paths](2026-09-30-robdev-vm672-dossier-runner-paths.md) | VM-672 | Identity displayed from heading; not admission metadata. Invalid authored date; filename fallback or undated ordering used. |
 | 2026-09-30T00:00:00Z (filename) | Unknown | [VM-673 RobDev handoff — retired test contracts](2026-09-30-robdev-vm673-retired-test-contracts.md) | VM-673 | Identity displayed from heading; not admission metadata. Invalid authored date; filename fallback or undated ordering used. |
 | 2026-09-30T00:00:00Z (authored) | Unknown | [VM-672 — Independent RobQA dossier runner paths](2026-09-30-robqa-vm672-dossier-runner-paths.md) | VM-672 | Identity displayed from heading; not admission metadata. |
+| 2026-09-30T00:00:00Z (filename) | Unknown | [VM-673 — Independent RobQA handoff](2026-09-30-robqa-vm673-retired-test-contracts.md) | VM-673 | Identity displayed from heading; not admission metadata. |
 | 2026-09-29T11:12:00Z (filename) | Unknown | [2026-09-29 11:12 — Codex — VM-667 Owner-Accepted Closeout](2026-09-29-1112-codex-vm667-owner-accepted-closeout.md) | VM-667 | Identity displayed from heading; not admission metadata. |
 | 2026-09-29T00:00:00Z (authored) | Codex `/root`, applying the repository-local `robdev` skill and full RobDevPass. | [2026-09-29 07:27 — RobDev — VM-667 Feedback Surface](2026-09-29-0727-robdev-vm667-feedback-surface.md) | VM-667, VM-423 | Identity displayed from heading; not admission metadata. |
 | 2026-09-29T00:00:00Z (authored) | Codex `/root/vm667_robqa`, applying the repository-local `robqa` skill and full `docs/qa/RobQAPass.md` independently from the implementation agent. | [2026-09-29 07:27 — RobQA — VM-667 Feedback Surface](2026-09-29-0727-robqa-vm667-feedback-surface.md) | VM-667 | Identity displayed from heading; not admission metadata. |

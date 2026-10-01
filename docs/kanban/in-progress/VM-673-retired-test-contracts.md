@@ -2,7 +2,7 @@
 
 ID: VM-673
 Title: Retired Test Contracts
-Status: In Progress
+Status: Owner Review
 Type: Focused static assertion repair
 Area: Maze context recovery and guided-reading test contracts
 Priority: High
@@ -35,9 +35,9 @@ Current Owner eight-item request, item 7; accepted VM-670 and VM-671 records; th
 - [x] VM-616 no longer requires the retired permanent standalone-search initial context and instead verifies the accepted hidden/dynamic reading-context contract.
 - [x] VM-619 expects the accepted `Open the Maze guide` invitation label and continues to verify its canonical guide URL/route.
 - [x] Both scripts retain meaningful independent-search, guide URL/route, focus, privacy, and beacon assertions.
-- [ ] Focused sensitivity evidence fails when a protected contract is damaged, rather than demonstrating only text-label agreement.
+- [x] Focused sensitivity evidence fails when a protected contract is damaged, rather than demonstrating only text-label agreement.
 - [x] The repair is static-only; no browser execution or broader product, data, runtime, infrastructure, or policy claim is made.
-- [ ] Exact-candidate independent RobQA and Owner evidence remain PENDING until authentic later decisions exist.
+- [x] Exact-candidate independent RobQA and Owner evidence remain PENDING until authentic later decisions exist.
 
 ## Files Likely Impacted
 
@@ -66,8 +66,8 @@ Apply RobDev before changing the assertions. Make the smallest static-test repai
 Record version: 1
 Branch: codex/vm-673-retired-test-contracts
 Admission baseline: 8eefcc9c6e47ae3c8fd10227a4f3343a9de17a29
-Candidate: PENDING
-RobQA: PENDING
+Candidate: 13468271e0b82ecc90bb5a81417bf07481ddd741
+RobQA: PASS at 13468271e0b82ecc90bb5a81417bf07481ddd741 — SEPARATE QA-1 by configured RobQA /root/independent_qa; see 2026-09-30-robqa-vm673-retired-test-contracts.md
 Owner: PENDING
 Integration: PENDING
 Dependencies: None

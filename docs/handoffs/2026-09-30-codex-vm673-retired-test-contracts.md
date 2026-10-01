@@ -51,3 +51,44 @@ No stashes remain and one registered repository worktree remains. Only VM-673 is
 Both static scripts pass after the bounded corrections. Fixing the first VM-616 assertion exposed stale permanent Reading Finds and independent-state copy farther down the same protected context checks. Those expectations now bind the accepted conditional Guide wording and reading/independent runtime actions instead of the retired presentation strings; existing URL/history-only and storage non-mutation checks remain. This is the same context contract, with no product change or new requirement.
 
 The developer diff adds specific hidden/empty dynamic context and independent-action assertions, preserves one canonical guided destination and the Field Guide context, and rejects the retired guide invitation. Runtime, product, source data, package commands, browser scripts and policy are byte-unchanged. Developer focused commands pass; independent mutation evidence and exact-candidate verdict remain pending. All role handoffs and views are included before freezing the material candidate.
+
+## Material candidate
+
+- Baseline: `8eefcc9c6e47ae3c8fd10227a4f3343a9de17a29`
+- Candidate: `13468271e0b82ecc90bb5a81417bf07481ddd741`
+- Changed paths: `8`
+
+## Files changed
+
+- `docs/handoffs/2026-09-30-codex-vm673-retired-test-contracts.md`
+- `docs/handoffs/2026-09-30-kanban-vm673-admission.md`
+- `docs/handoffs/2026-09-30-robdev-vm673-retired-test-contracts.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-673-retired-test-contracts.md`
+- `scripts/vm616-maze-context-recovery-tests.mjs`
+- `scripts/vm619-guide-walkthrough-tests.mjs`
+
+## Evidence delta
+
+- Material candidate: `13468271e0b82ecc90bb5a81417bf07481ddd741`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `5`
+
+This is not the full task diff. Total branch scope is nine Git paths: eight material paths and one new exact-candidate QA handoff, with four material records/views also receiving evidence updates. Candidate implementation and Kanban handoffs are frozen; later QA is separately added after its exact-candidate execution. Post-candidate changes append accounting/QA disposition, update only card lifecycle/delivery/criterion results and regenerate existing views. Exact evidence-head classification is independently verified before Owner Review.
+
+## Evidence-only paths
+
+- `docs/handoffs/2026-09-30-codex-vm673-retired-test-contracts.md`
+- `docs/handoffs/2026-09-30-robqa-vm673-retired-test-contracts.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-673-retired-test-contracts.md`
+
+## Exact-candidate engineering disposition
+
+Independent configured RobQA returned SEPARATE QA-1 PASS at material 13468271e0b82ecc90bb5a81417bf07481ddd741. Both focused static scripts, both Node syntax checks, range whitespace and material view freshness passed. QA inspected the complete eight-path diff and retained guide/focus/privacy/beacon and association/storage checks. A byte-faithful external copy also passed both tests; each of four isolated source mutations then failed causally for invitation label, initial hidden context, independent action and canonical guided route, with exact source bytes restored between cases. No shared runtime source was mutated.
+
+An initial git-archive sensitivity setup failed the existing vendored byte-count precondition due to line-ending normalization before mutation. It was excluded from product/sensitivity conclusions; the byte-faithful copy restored that precondition before the four real witnesses. No assertion was weakened to bypass it. Static PASS establishes checked-in contract sensitivity, not rendered/browser correctness. Browser harness debt remains unresolved and separate.
+
+VM-673 is at Owner Review. Owner ACCEPT and integration remain PENDING; mandatory Deterministic Validation must succeed at any future accepted PR head. Shortest Owner check: inspect the two test diffs for the accepted hidden/dynamic context and current guide invitation while retained action/route/focus/privacy/beacon assertions remain intact. Item 7 has a ready static candidate; it is not Done until accepted integration/closeout and its separately bounded browser-debt disposition. Other eight-item states remain those in the ledger above, including accepted legacy terminal dispositions pending canonical propagation.
