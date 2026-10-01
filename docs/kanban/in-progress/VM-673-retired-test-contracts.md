@@ -2,7 +2,7 @@
 
 ID: VM-673
 Title: Retired Test Contracts
-Status: Owner Review
+Status: Accepted
 Type: Focused static assertion repair
 Area: Maze context recovery and guided-reading test contracts
 Priority: High
@@ -68,7 +68,7 @@ Branch: codex/vm-673-retired-test-contracts
 Admission baseline: 8eefcc9c6e47ae3c8fd10227a4f3343a9de17a29
 Candidate: 13468271e0b82ecc90bb5a81417bf07481ddd741
 RobQA: PASS at 13468271e0b82ecc90bb5a81417bf07481ddd741 — SEPARATE QA-1 by configured RobQA /root/independent_qa; see 2026-09-30-robqa-vm673-retired-test-contracts.md
-Owner: PENDING
+Owner: ACCEPTED at 13468271e0b82ecc90bb5a81417bf07481ddd741 — exact human ACCEPT in current Codex chat on 2026-09-30
 Integration: PENDING
 Dependencies: None
 Decisions: Repair only retired VM-616 and VM-619 static expectations while retaining sensitivity to protected independent-search, guide, route, focus, privacy, and beacon contracts.

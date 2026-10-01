@@ -92,3 +92,12 @@ Independent configured RobQA returned SEPARATE QA-1 PASS at material 13468271e0b
 An initial git-archive sensitivity setup failed the existing vendored byte-count precondition due to line-ending normalization before mutation. It was excluded from product/sensitivity conclusions; the byte-faithful copy restored that precondition before the four real witnesses. No assertion was weakened to bypass it. Static PASS establishes checked-in contract sensitivity, not rendered/browser correctness. Browser harness debt remains unresolved and separate.
 
 VM-673 is at Owner Review. Owner ACCEPT and integration remain PENDING; mandatory Deterministic Validation must succeed at any future accepted PR head. Shortest Owner check: inspect the two test diffs for the accepted hidden/dynamic context and current guide invitation while retained action/route/focus/privacy/beacon assertions remain intact. Item 7 has a ready static candidate; it is not Done until accepted integration/closeout and its separately bounded browser-debt disposition. Other eight-item states remain those in the ledger above, including accepted legacy terminal dispositions pending canonical propagation.
+
+## Owner decision
+
+Task: VM-673
+Candidate: 13468271e0b82ecc90bb5a81417bf07481ddd741
+Owner: ACCEPT
+Decision reference: Exact human message in Codex chat 01a0f3e0-4b21-7942-bdb3-e2e5e6f92e73 on 2026-09-30: ACCEPT VM-673 at 13468271e0b82ecc90bb5a81417bf07481ddd741.
+
+This accepts only the static test-contract material. Integration remains pending required Deterministic Validation, verified PR scope/parity and expected-head guarded squash. Browser debt and the future Azorius public reproduction remain separate.
