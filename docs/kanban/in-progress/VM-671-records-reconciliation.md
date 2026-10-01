@@ -2,7 +2,7 @@
 
 ID: VM-671
 Title: Records Reconciliation
-Status: Owner Review
+Status: Accepted
 Type: Documentation and lifecycle-record reconciliation
 Area: Kanban, handoffs, delivery evidence, and workflow navigation
 Priority: High
@@ -78,7 +78,7 @@ Branch: codex/vm-671-records-reconciliation
 Admission baseline: fc08845af94b1869386826bf6be7dac6ecf97b43
 Candidate: a52cf791963f5f2372236fcc1e53b67b4f59c53e
 RobQA: PASS at a52cf791963f5f2372236fcc1e53b67b4f59c53e — SEPARATE QA-0; docs/handoffs/2026-09-30-1430-robqa-vm671-records-reconciliation.md — Owner-requested temporal correction verdict
-Owner: PENDING
+Owner: ACCEPTED at a52cf791963f5f2372236fcc1e53b67b4f59c53e — exact human ACCEPT in current Codex chat; RobDev handoff Owner decision
 Integration: PENDING
 Dependencies: None
 Decisions: Bounded records-only reconciliation of Owner-authorized items 1–3. Preserve historical evidence and unresolved closeout/adoption/parent-completion distinctions; do not infer acceptance or perform cleanup.

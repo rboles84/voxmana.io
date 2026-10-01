@@ -125,3 +125,12 @@ No ref, stash, issue, host, runtime, product, policy, or authority action was pe
 The Owner-requested temporal correction supersedes the prior VM-671 material candidate for new Owner review. Corrected material candidate: `a52cf791963f5f2372236fcc1e53b67b4f59c53e`; admission baseline remains `fc08845af94b1869386826bf6be7dac6ecf97b43`. Git derives 16 material paths, all documentation. Prior candidate and QA/accounting sections above retain historical meaning.
 
 Independent RobQA PASS binds this corrected candidate in `Owner-requested temporal correction verdict`. Owner and integration remain PENDING. The subsequent evidence delta is not the full task diff: four paths append the two role handoffs, bind the task card, and regenerate the board. Total branch scope remains 16 Git paths. The report is frozen at the corrected material candidate; no post-candidate report rewrite is included.
+
+## Owner decision
+
+Task: VM-671
+Candidate: a52cf791963f5f2372236fcc1e53b67b4f59c53e
+Owner: ACCEPT
+Decision reference: Exact human message in Codex chat 01a0f3e0-4b21-7942-bdb3-e2e5e6f92e73 on 2026-09-30: ACCEPT VM-671 at a52cf791963f5f2372236fcc1e53b67b4f59c53e.
+
+This decision accepts only the corrected records material. Integration remains pending current PR, required Deterministic Validation, exact evidence review and guarded squash merge. It does not accept future tooling, Search, test-contract or policy changes.
