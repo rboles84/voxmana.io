@@ -134,3 +134,18 @@ Owner: ACCEPT
 Decision reference: Exact human message in Codex chat 01a0f3e0-4b21-7942-bdb3-e2e5e6f92e73 on 2026-09-30: ACCEPT VM-671 at a52cf791963f5f2372236fcc1e53b67b4f59c53e.
 
 This decision accepts only the corrected records material. Integration remains pending current PR, required Deterministic Validation, exact evidence review and guarded squash merge. It does not accept future tooling, Search, test-contract or policy changes.
+
+## VM-671 verified integration and closeout
+
+Task: VM-671
+Candidate: a52cf791963f5f2372236fcc1e53b67b4f59c53e
+Integration: PR63 / PR #63 expected-head guarded squash acbc94049aadaa592e27f2ff1197fd7f1397f602
+Evidence head: fcff1e5d856c22094d84485cbec200f01ace6b7f
+
+Deterministic Validation succeeded at the exact PR head before the integration checker passed. The guarded merge returned success. Main was synchronized to the actual squash; its tree and the original PR-head tree both equal `9ea78b659ecc320c18b3a08b0ff95abb4786a72e`. The final lifecycle-only closeout records the Done card and current derived views; final checker evidence is collected against that committed state.
+
+VM-671 cleanup: local feature ref removed at its exact head after bundle verification. The live remote was already absent; the guarded delete rejected as stale information and no retry was performed. A subsequent authoritative read confirmed absence, and only this task's stale tracking ref was removed. Full branch history is recoverable in external `vm671-accepted-delivery.bundle`, SHA256 `92a8c3141a52849c2b1b2a742516ffc7ae0d22eeff3ed4e993ef42f48d8d9a88`. No additional worktree existed.
+
+Separately authorized item 4: after all five original VM-661 blobs matched accepted main, its unchanged local/remote refs at `306574628d2445cf2729a60782d0d63b56a4ebed` were removed with exact-head guards. The original preservation bundle and external verification archive retain its full history and both former stash objects. All expressly named residue disposals are now verified absent; seven retired issues remain closed and #9 open. VM-670 local ref and its stale tracking ref remain under the previously recorded separate cleanup deferral; its live remote is absent, with no removal attribution here.
+
+Eight-item closeout disposition: item 2 preservation and item 3 parent/navigation corrections are integrated. Item 1 record reconciliation is integrated while VM-658's historical violation and VM-660's separate closeout remain genuine unresolved obligations. Item 4's named disposal and retired-issue actions are completed; the separate VM-670 deferral is preserved. Items 5–7 still require independently admitted implementation/verification; item 8 remains BLOCKED with main unprotected and no administration capability. No acceptance of those future material deliveries is inferred.
