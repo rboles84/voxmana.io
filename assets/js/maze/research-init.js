@@ -15,10 +15,12 @@ import { buildScryfallWebSearchUrl, renderExactQuery, renderQueryInspector } fro
 import {
   buildDossierMazePathEntries,
   isMazeOperatorQuery,
+  normalizeMazeCanonicalRepresentation,
+  resolveMazeCanonicalDossierIntent,
   resolveMazeDiscoveryCatalogProvenance,
   resolveMazeDiscoveryProfile,
   resolveMazeLaunchState,
-} from "./maze-handoff.js?v=vm636";
+} from "./maze-handoff.js?v=vm674r3";
 import {
   DEFAULT_READING_FINDS_TITLE,
   READING_FIND_SECTION_CONFIG,
@@ -50,7 +52,6 @@ let currentDir = undefined;
 let currentSearchApi = {};
 let lastSmartInput = "";
 let lastSmartQuery = "";
-let archscryCanonicalReplay = null;
 let allResults = [];
 let displayPage = 0;
 let hasMore = false;
@@ -81,6 +82,7 @@ let mazeDiscoveryProfileCatalog = null;
 let mazeDiscoveryProfileProvenance = null;
 let activeDossierPaths = [];
 let activeDossierPathType = "";
+let activeDossierThreadId = "";
 const MODAL_FOCUS_SELECTOR = [
   "a[href]",
   "button:not([disabled])",
@@ -996,16 +998,6 @@ async function initializeResearchArchives() {
     lastSmartInput = normalizedLaunch.plainReadingQuery || launchOperatorQuery;
     lastSmartQuery = queryResult.query;
     setMode(useRawVisibleArchscryLaunch ? "raw" : "ai");
-    archscryCanonicalReplay = !useRawVisibleArchscryLaunch && normalizedLaunch.vm547Canonical === true ? {
-      plainReadingQuery: lastSmartInput,
-      operatorQuery: queryResult.query,
-      profile: normalizedLaunch.vm547Profile,
-      fit: normalizedLaunch.fit,
-      pathType: normalizedLaunch.pathType,
-      runtime: normalizedLaunch.vm547Runtime,
-      catalog: normalizedLaunch.vm547Catalog,
-      launchContext: { ...normalizedLaunch, operatorQuery: launchOperatorQuery }
-    } : null;
     triggerSearch(queryResult.query, {
       api: queryResult.api,
       diagnostics: queryResult.diagnostics || [],
@@ -1043,7 +1035,6 @@ async function initializeResearchArchives() {
  */
 function setMode(mode) {
   const previousMode = currentMode;
-  if (mode === "builder") archscryCanonicalReplay = null;
   currentMode = mode;
   document.body.dataset.mazeMode = mode;
   MODE_IDS.forEach((id) => {
@@ -1327,7 +1318,6 @@ function renderSelectedSuggestionView() {
 }
 
 function restoreSuggestionDraft() {
-  archscryCanonicalReplay = null;
   clearPendingSuggestedSearch({ restorePresentation: false });
   const input = document.getElementById("search-input");
   if (input) {
@@ -1363,6 +1353,40 @@ function syncInputForModeSwitch(input, previousMode, nextMode) {
   if (nextMode === "raw") selectAutoFilledInputOnFocus = false;
 }
 
+function resolveCurrentDossierIntent() {
+  const handoff = readActiveArchscryMazeHandoff();
+  if (!handoff || handoff.vm547Canonical !== true) return null;
+  const identityKey = String(handoff.vm547Profile || handoff.fit || "").trim();
+  const pathType = String(activeDossierPathType || handoff.pathType || "").trim();
+  const threadId = String(activeDossierThreadId || handoff.threadId || "").trim();
+  const catalogIntent = resolveMazeCanonicalDossierIntent(mazeDiscoveryProfileCatalog, { identityKey, pathType, threadId });
+  if (catalogIntent) return { ...catalogIntent, authority: "catalog", handoff };
+  if (resolveMazeDiscoveryCatalogProvenance(mazeDiscoveryProfileCatalog)) return null;
+  if (!identityKey || !pathType || !handoff.plainReadingQuery || !handoff.operatorQuery) return null;
+  return {
+    identityKey, pathType, threadId,
+    plainReadingQuery: handoff.plainReadingQuery,
+    operatorQuery: handoff.operatorQuery,
+    authority: "handoff-fallback",
+    handoff,
+  };
+}
+
+function resolveCurrentDossierRepresentation(input, mode = currentMode) {
+  const intent = resolveCurrentDossierIntent();
+  if (!intent || (mode !== "ai" && mode !== "raw")) return null;
+  const canonical = mode === "raw" ? intent.operatorQuery : intent.plainReadingQuery;
+  return normalizeMazeCanonicalRepresentation(input) === normalizeMazeCanonicalRepresentation(canonical) ? intent : null;
+}
+
+function resolveCanonicalDossierQuery(intent) {
+  return resolveMazeRouteQuery(intent.operatorQuery, {
+    mode: "raw", origin: "archscry", order: currentOrder, unique: currentUnique, dir: currentDir,
+    forceRaw: true, useFormatDefault: false,
+    launchContext: { ...intent.handoff, operatorQuery: intent.operatorQuery },
+  });
+}
+
 /**
  * Selects quick-search generated text the next time the search input receives focus.
  */
@@ -1377,10 +1401,13 @@ function bindSearchInputSelectOnFocus() {
   });
 
   input.addEventListener("input", () => {
-    archscryCanonicalReplay = null;
     selectAutoFilledInputOnFocus = false;
     clearPendingSuggestedSearch();
     rememberModeDraftInput({ target: input });
+    if (currentQuery && normalizeSearchInputValue(input.value) !== normalizeSearchInputValue(currentQuery)) {
+      const heading = document.querySelector(".results-heading");
+      if (heading) heading.textContent = "Previous results";
+    }
     if (currentMode === "raw") refreshExactQueryForMode("raw");
   });
 }
@@ -1448,31 +1475,9 @@ async function doSearch() {
   allResults = [];
 
   try {
-    const activeHandoff = readActiveArchscryMazeHandoff() || {};
-    const canReplayArchscryCanonicalQuery = currentMode === "ai" &&
-      archscryCanonicalReplay &&
-      rawInput === archscryCanonicalReplay.plainReadingQuery &&
-      currentQuery === archscryCanonicalReplay.operatorQuery &&
-      activeHandoff.vm547Canonical === true &&
-      activeHandoff.operatorQuery === archscryCanonicalReplay.operatorQuery &&
-      activeHandoff.plainReadingQuery === archscryCanonicalReplay.plainReadingQuery &&
-      activeHandoff.vm547Profile === archscryCanonicalReplay.profile &&
-      activeHandoff.fit === archscryCanonicalReplay.fit &&
-      activeHandoff.pathType === archscryCanonicalReplay.pathType &&
-      activeHandoff.vm547Runtime === archscryCanonicalReplay.runtime &&
-      activeHandoff.vm547Catalog === archscryCanonicalReplay.catalog &&
-      new URLSearchParams(location.search).get("from") === "archscry";
-    const queryResult = canReplayArchscryCanonicalQuery
-      ? resolveMazeRouteQuery(archscryCanonicalReplay.operatorQuery, {
-        mode: "raw",
-        origin: "archscry",
-        order: currentOrder,
-        unique: currentUnique,
-        dir: currentDir,
-        forceRaw: true,
-        useFormatDefault: false,
-        launchContext: archscryCanonicalReplay.launchContext
-      })
+    const dossierIntent = resolveCurrentDossierRepresentation(rawInput);
+    const queryResult = dossierIntent
+      ? resolveCanonicalDossierQuery(dossierIntent)
       : resolveMazeRouteQuery(rawInput);
     const query = queryResult.query;
     const diagnostics = queryResult.diagnostics || [];
@@ -1754,6 +1759,8 @@ async function loadMore() {
  */
 function renderResults(append = false) {
   hideState();
+  const heading = document.querySelector(".results-heading");
+  if (heading) heading.textContent = "Results";
   document.getElementById("results-header").classList.remove("hidden");
   document.getElementById("card-grid").classList.remove("hidden");
   document.getElementById("results-footer").classList.remove("hidden");
@@ -3192,6 +3199,7 @@ function renderDossierDiscoveryPanel(paths = [], requestedPathType = "") {
           query: thread.query,
           plainReadingQuery: thread.plainReadingQuery,
           pathType: activePath.pathType,
+          threadId: thread.threadId,
           origin: "dossier-thread",
           dossierThread: "true",
         },
@@ -3485,7 +3493,6 @@ function buildColorGrid() {
  * @param {string} query - Raw query.
  */
 function runQuickSearch(query, opts = {}) {
-  archscryCanonicalReplay = null;
   clearPendingSuggestedSearch({ restorePresentation: false });
   currentMode = "raw";
   const queryResult = resolveMazeRouteQuery(query, {
@@ -3548,7 +3555,6 @@ function runQuickSearch(query, opts = {}) {
  * @param {object} opts - Existing route-query adapter options.
  */
 function inspectSuggestedSearch(query, opts = {}) {
-  archscryCanonicalReplay = null;
   if (currentMode === "builder") return;
   const queryResult = resolveMazeRouteQuery(query, {
     mode: "raw",
@@ -3762,7 +3768,6 @@ function handleSearchInputKeydown(event) {
  * Clears the search surface without changing the active mode.
  */
 function clearSearchInput() {
-  archscryCanonicalReplay = null;
   const input = document.getElementById("search-input");
   if (currentMode === "builder") {
     resetBuilderFilters();
@@ -4833,6 +4838,9 @@ function handleMazeActionClick(event) {
       if (actionNode.dataset.dossierPath === "true") {
         selectDossierDiscoveryPath(actionNode.dataset.pathType || "");
       }
+      activeDossierThreadId = actionNode.dataset.dossierThread === "true"
+        ? actionNode.dataset.threadId || ""
+        : "";
       runQuickSearch(actionNode.dataset.query || "", {
         order: actionNode.dataset.order || undefined,
         unique: actionNode.dataset.unique || undefined,

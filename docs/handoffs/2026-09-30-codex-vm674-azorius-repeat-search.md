@@ -172,3 +172,20 @@ Git material scope from accepted main a798f38559202050e29ac010de26241fa9aabaa1 i
 - `scripts/vm674-archscry-azorius-repeat-search-browser.mjs`
 
 Shortest Owner recheck: fresh local Azorius discovery launch, inspect Operator's Hand, return to Plain Reading without editing, then Search. Canonical id=wu is:commander f:commander and Clear interpretation remain; results settle. Changing the request continues through ordinary resolution. Deterministic intercepted results certify this bounded transition, not live Scryfall availability, card semantics, all identities or visual quality. Exact Owner and integration decisions remain pending.
+
+## 2026-10-01 Owner canonical-intent correction
+
+Agent: Codex coordinator
+Task: VM-674
+Owner: REJECT
+Decision reference: Authentic Owner message in this chat and attached “VM-674 Owner Correction — Replace History-Dependent Replay State with Catalog-Backed Canonical Intent”, received 2026-10-01, America/Denver.
+
+The attached instruction supersedes prior VM-674 implementation guidance, including the historical requirement that editing and restoring canonical Plain text must keep replay invalidated. Candidate 6def77e0c6ab8bd673753df74f416e7551d66554 is explicitly rejected; the later 52ad1cbc candidate does not satisfy the new ownership contract either. Neither is authorized for integration. All earlier evidence and decisions above retain their historical meaning.
+
+Current request ownership must derive from an active catalog intent identified by stable identity_key + pathType + threadId where applicable, and conservative equality of the current representation. Exact restoration, including cut/paste, must automatically re-link. The existing discovery catalog and shared handoff remain the authorities; no parallel registry, identity controller table, parser expansion, persistence or semantic-content change is authorized. Catalog resolution outranks serialized compatible fallback, which outranks ordinary standalone/custom behavior. Mode inspection and Search do not change intent. Custom drafts remain supported, and stale interpretation and Results presentation must tell the truth about the current request separately from the last executed search.
+
+The clean existing branch at ade8cfa89d1f379f478b2fe3756a294ab10019c1 was resumed. Initial sandbox admission failed before obtaining live GitHub refs; the same required read-only check with elevated network access returned PASS against unchanged accepted main a798f38559202050e29ac010de26241fa9aabaa1, one registered worktree and no remote task branch. No new task, branch or worktree was created.
+
+Configured RobDev (Terra medium) owns the bounded catalog/handoff/controller correction, scope amendment if needed, focused regressions and its implementation handoff. Configured separate RobQA (Sol medium) owns test selection, exact-candidate QA and its evidence handoff. Both were spawned using their named roles with fork_turns none; the host accepted those arguments. Backend model identity and billing are unverified. The coordinator owns lifecycle consolidation, generated views, candidate accounting and delivery checks. All preserve shared edits; no recursive delegation or route escalation is requested. A concrete blocker would require a bounded announced escalation.
+
+The Owner explicitly requires browser journeys A–K, catalog breadth, and isolated candidate-copy causal mutation; those objective checks justify focused browser execution. Visual quality remains Owner judgment. VM-674 remains the only active material task and must stop at Owner Review. No VM-675 or successor may be begun. The remaining ledger above stays unchanged apart from item 6, which is back in correction with replacement-candidate QA and Owner decision pending.

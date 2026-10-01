@@ -159,3 +159,47 @@ This evidence proves the focused public WU route, direct repeat, mode-inspection
 ### Shortest Owner recheck
 
 Open `archscry/?explore=azorius&panel=maze-discovery#maze-discovery-paths`, choose **Commanders in this identity**, switch to Operator and back to Plain without editing, then press Search. The query should remain `id=wu is:commander f:commander`, results should settle, and the result interpretation must not say **Needs meaning**. Editing the text remains an ordinary new search. Owner ACCEPT remains a separate decision for this exact candidate.
+
+## Catalog-backed canonical intent correction — QA selection
+
+Task: VM-674
+Candidate: PENDING
+RobQA: PENDING
+Execution: SEPARATE
+Reviewer: Codex `/root/vm674_qa` (Sol medium)
+Implementer: Codex `/root/vm674_dev`
+
+### Change classification
+
+- QA tier: QA-3, because the correction changes shared Archscry-to-Maze request ownership, mode/draft state transitions, Search execution, and synchronization between the current request, interpretation, diagnostics, and last executed Results.
+- Changed behavior to prove: catalog-resolved canonical intent owns an exact current Plain or Operator representation; current mismatches remain genuine custom requests; exact restoration re-links without depending on edit history.
+- Protected behavior: ordinary custom Plain compilation, exact custom Operator syntax, accepted mode/draft continuity, cache/deduplication, API/filter/result semantics, unknown or stale handoff fallback, and existing discovery meaning.
+- Independence reason: this is a substantive shared behavioral and catalog/handoff authority boundary. The material implementer cannot issue the candidate QA verdict.
+
+### Selected evidence
+
+- Syntax checks for every changed JavaScript or MJS file.
+- `npm.cmd run test:mode` for existing Plain/Operator continuity.
+- `node tests/maze/maze-query-contract-tests.js` for unchanged generic query behavior.
+- `npm.cmd run test:maze-discovery-profiles` for governed catalog/handoff integrity and deterministic breadth. Coverage must include WU broad commander, another two-color identity, a non-broad mechanical or story thread using stable `threadId`, and a different identity family; a cheap catalog-wide lower-layer loop is preferred to 37 browser journeys.
+- `npm.cmd run test:vm674-azorius-repeat-search` as the mandatory focused browser path. It must exercise Owner journeys A-K: fresh canonical launch; unchanged repeat; both mode-inspection/Search orders; Custom Plain `with cats`; exact Plain restoration; real full-field cut/paste restoration; custom Operator and exact restore; custom Plain draft preservation across modes; stale unresolved/`needs-meaning` clearance; and truthful separation of an edited unexecuted request from prior Results.
+- Browser assertions must observe the real public route, current mode and drafts, canonical context/ownership presentation, inspector/API query, rendered result/error completion, unresolved diagnostics, and `#results-interpretation-state`. This is objective state-transition evidence; screenshots and subjective visual certification are not required.
+- An isolated-candidate mutation must disable or break canonical resolution/re-linking and make exact edit-restore or cut/paste-restore fail for the intended reason. Candidate source bytes must be restored and hash-checked afterward.
+- `npm.cmd run task -- indexes --check` when the card, handoff, or generated views change; `git diff --check` against the admission baseline; exact Git candidate accounting; and the repository change-report validator for the final enumerated report.
+
+### Required authority and sensitivity assertions
+
+- Authority order: valid stable intent from the current discovery catalog; compatible serialized handoff fallback only when stable intent resolution is unavailable; ordinary standalone/custom behavior otherwise.
+- Stable intent keys use `identity_key + pathType`, plus stable `threadId` for thread-specific paths. Display labels and prose are not identity keys.
+- Canonical comparison uses only documented conservative transport normalization. Approximate, semantic, parser-derived, or ignored-word matching must remain absent.
+- No parallel dossier-query registry and no 37-identity controller table may be introduced.
+- The negative mutation must show that green positive evidence is sensitive to the intended resolver or re-link behavior rather than only to launch, server, browser, or assertion setup.
+
+### Intentionally skipped
+
+- Broad browser smoke, 37 interactive identity journeys, semantic recertification, live Scryfall/card-result semantics, screenshot or visual-regression work, viewport matrices, and unrelated harness repair are outside the changed boundary.
+- CPU-heavy validation: NOT REQUIRED. Catalog breadth belongs at the deterministic lower layer; only the focused WU route needs a browser.
+
+### Remaining Owner judgment
+
+Subjective visual clarity and product feel remain Owner work. Engineering QA will provide the shortest manual route beginning at `http://127.0.0.1:8000/archscry/?explore=azorius` after an exact candidate receives a candidate-bound verdict. Owner ACCEPT remains separate.

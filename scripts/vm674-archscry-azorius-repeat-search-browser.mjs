@@ -229,6 +229,7 @@ async function captureMazeState(page, requestUrls) {
       error: document.getElementById("error-msg")?.textContent?.trim() || "",
       apiUrl: searchLink?.getAttribute("aria-disabled") === "false" ? searchLink.href : "",
       result: {
+        heading: document.querySelector(".results-heading")?.textContent?.trim() || "",
         headerVisible: Boolean(results && !results.classList.contains("hidden")),
         gridVisible: Boolean(grid && !grid.classList.contains("hidden")),
         cards: grid?.querySelectorAll(".card-item").length || 0,
@@ -320,6 +321,26 @@ async function switchModeAndCapture(page, mode, requestUrls) {
   return captureMazeState(page, requestUrls);
 }
 
+async function replaceInputWithKeyboard(page, value) {
+  await page.click("#search-input");
+  await page.keyboard.down("Control");
+  await page.keyboard.press("A");
+  await page.keyboard.up("Control");
+  await page.keyboard.type(value);
+}
+
+async function cutAndPasteCanonicalPlain(page) {
+  await page.click("#search-input");
+  await page.keyboard.down("Control");
+  await page.keyboard.press("A");
+  await page.keyboard.press("X");
+  const cutState = await captureMazeState(page, page.vm674Requests);
+  await page.keyboard.press("V");
+  await page.keyboard.up("Control");
+  const pastedState = await captureMazeState(page, page.vm674Requests);
+  return { cutState, pastedState };
+}
+
 async function runPublicAzoriusRoute(page, baseUrl) {
   currentPhase = "archscry-route";
   await page.goto(azoriusDossierUrl(baseUrl), { waitUntil: "domcontentloaded", timeout: 30000 });
@@ -379,6 +400,17 @@ async function runPublicAzoriusRoute(page, baseUrl) {
   collectFailure(roundtrip.state.interpretationState.key !== "needs-meaning", "VM-674 Plain-Operator-Plain Search entered the NEEDS MEANING interpretation state.");
   collectFailure(!/unresolved\s*senate|unresolved\s*exactly/i.test(roundtrip.state.diagnostics), "VM-674 Plain-Operator-Plain Search entered NEEDS MEANING diagnostics.");
 
+  currentPhase = "operator-search-then-plain-search";
+  const modeRequests = page.vm674Requests.length;
+  const operatorSearchMode = await switchModeAndCapture(page, "raw", page.vm674Requests);
+  const operatorSearch = await clickSearchAndCapture(page, page.vm674Requests);
+  const plainSearchMode = await switchModeAndCapture(page, "ai", page.vm674Requests);
+  const plainSearch = await clickSearchAndCapture(page, page.vm674Requests);
+  reportObservation(currentPhase, { operatorSearchMode, operatorSearch, plainSearchMode, plainSearch });
+  collectFailure(operatorSearchMode.requestUrls.length === modeRequests, "VM-674 mode switch executed an unexpected search.");
+  collectFailure(operatorSearch.state.query === first.query && plainSearch.state.query === first.query, "VM-674 Operator Search then Plain Search drifted from the canonical intent.");
+  collectFailure(operatorSearch.state.interpretationState.key !== "needs-meaning" && plainSearch.state.interpretationState.key !== "needs-meaning", "VM-674 canonical mode searches entered NEEDS MEANING.");
+
   currentPhase = "edited-search";
   const editedInput = "id=wu is:commander";
   let edited;
@@ -412,7 +444,8 @@ async function runPublicAzoriusRoute(page, baseUrl) {
     restored = await clickSearchAndCapture(page, page.vm674Requests);
     reportObservation(currentPhase, { restored });
     collectFailure(restored.completion.completed, "VM-674 restored input did not expose a loading/result completion witness.");
-    collectFailure(restored.state.query !== first.query, "VM-674 restored input reused a stale canonical replay token.");
+    collectFailure(restored.state.query === first.query, "VM-674 exact restored input did not re-link to the canonical catalog query.");
+    collectFailure(restored.state.interpretationState.key !== "needs-meaning", "VM-674 exact restored input retained NEEDS MEANING.");
   } catch (error) {
     const restoredBlocker = await captureMazeState(page, page.vm674Requests);
     reportObservation(currentPhase, {
@@ -421,6 +454,41 @@ async function runPublicAzoriusRoute(page, baseUrl) {
     });
     failures.push("VM-674 restored input could not execute after an edit.");
   }
+
+  currentPhase = "custom-plain-and-exact-restore";
+  await replaceInputWithKeyboard(page, `${first.input} with cats`);
+  const customPlainBeforeSearch = await captureMazeState(page, page.vm674Requests);
+  const customPlainOperator = await switchModeAndCapture(page, "raw", page.vm674Requests);
+  const customPlainRoundtrip = await switchModeAndCapture(page, "ai", page.vm674Requests);
+  const customPlain = await clickSearchAndCapture(page, page.vm674Requests);
+  await replaceInputWithKeyboard(page, first.input);
+  const plainRestore = await clickSearchAndCapture(page, page.vm674Requests);
+  reportObservation(currentPhase, { customPlainBeforeSearch, customPlainOperator, customPlainRoundtrip, customPlain, plainRestore });
+  collectFailure(customPlainBeforeSearch.result.heading === "Previous results", "VM-674 unexecuted custom Plain request still presented old results as current.");
+  collectFailure(customPlainRoundtrip.input === `${first.input} with cats`, "VM-674 Plain custom draft was replaced during mode inspection.");
+  collectFailure(customPlain.state.query !== first.query, "VM-674 custom Plain was overwritten by the canonical query.");
+  collectFailure(plainRestore.state.query === first.query, "VM-674 exact custom Plain restore did not re-link.");
+  collectFailure(plainRestore.state.interpretationState.key !== "needs-meaning", "VM-674 restored Plain retained NEEDS MEANING.");
+
+  currentPhase = "cut-paste-restore";
+  const cutPasteDraft = await cutAndPasteCanonicalPlain(page);
+  const cutPaste = await clickSearchAndCapture(page, page.vm674Requests);
+  reportObservation(currentPhase, { cutPasteDraft, cutPaste });
+  collectFailure(cutPasteDraft.cutState.input === "", "VM-674 keyboard cut did not expose an empty current draft.");
+  collectFailure(cutPasteDraft.pastedState.input === first.input, "VM-674 keyboard paste did not restore the exact canonical draft.");
+  collectFailure(cutPaste.state.input === first.input, "VM-674 keyboard cut/paste did not restore the canonical Plain draft.");
+  collectFailure(cutPaste.state.query === first.query, "VM-674 keyboard cut/paste did not re-link the canonical query.");
+  collectFailure(!/unresolved\s*senate|unresolved\s*exactly/i.test(cutPaste.state.diagnostics) && cutPaste.state.interpretationState.key !== "needs-meaning", "VM-674 cut/paste restore retained stale canonical diagnostics.");
+
+  currentPhase = "custom-operator-and-restore";
+  await switchModeAndCapture(page, "raw", page.vm674Requests);
+  await replaceInputWithKeyboard(page, "id=wu is:commander");
+  const customOperator = await clickSearchAndCapture(page, page.vm674Requests);
+  await replaceInputWithKeyboard(page, first.query);
+  const operatorRestore = await clickSearchAndCapture(page, page.vm674Requests);
+  reportObservation(currentPhase, { customOperator, operatorRestore });
+  collectFailure(customOperator.state.query !== first.query, "VM-674 custom Operator was overwritten by the canonical query.");
+  collectFailure(operatorRestore.state.query === first.query, "VM-674 exact Operator restore did not re-link.");
 
   const summary = {
     route,

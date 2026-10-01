@@ -20,7 +20,6 @@ Current Owner eight-item request, item 6; accepted VM-670 and VM-671 records; hi
 
 - Use one bounded ChromeLauncher/DevTools-ready fixture with owned cleanup to observe the public Archscry Azorius discovery link, first query, unchanged repeat Search, and edited Search.
 - Capture cache-aware UI, canonical query, API, and render-completion observations; an extra network-count requirement is not implied.
-- Repair only the owning `assets/js/maze/research-init.js` behavior if the fresh reproduction establishes a defect.
 - Resolve governed dossier intent from the current discovery catalog using stable `identity_key`, `pathType`, and `threadId` where applicable; the catalog owns canonical Plain and Operator representations.
 - Preserve compatible serialized-handoff fallback only when a stable catalog intent cannot resolve.
 - Add focused deterministic catalog coverage across broad, thread-specific, and identity-family paths.
@@ -69,7 +68,7 @@ Current Owner eight-item request, item 6; accepted VM-670 and VM-671 records; hi
 
 ## Implementation Prompt
 
-Apply RobDev before implementation. Establish fresh rendered public evidence with the admitted owned-cleanup fixture. Treat VM-662 only as a historical lead. If an owning defect is reproduced, make the smallest `research-init` correction and focused regression that protects the existing canonical query, route, mode, filter, cache/deduplication, reading-context, API, and render-completion contracts. If reproduction fails or no usable browser page is available, document the precise boundary and make no speculative code change. Apply independent RobQA to an exact candidate and stop at Owner Review.
+Apply RobDev before implementation. Replace the reproduced history-dependent replay guard with the smallest catalog-backed current-representation resolver in `maze-handoff.js` and `research-init.js`. Catalog identity/path/thread and its paired canonical Plain/Operator values are authoritative when available; serialized handoff values are compatible fallback only while the catalog is unavailable. Keep genuine custom Plain compilation and custom Operator syntax unchanged, preserve mode drafts, and synchronize diagnostics/current-request presentation. Add focused rendered and deterministic regression evidence, apply independent RobQA to the exact candidate, and stop at Owner Review.
 
 ## Delivery
 

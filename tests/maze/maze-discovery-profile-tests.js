@@ -6,6 +6,8 @@ import { buildPersonalizedMazePaths } from "../../assets/js/archscry/archscry-pr
 import {
   buildDossierMazePathEntries,
   isMazeOperatorQuery,
+  normalizeMazeCanonicalRepresentation,
+  resolveMazeCanonicalDossierIntent,
   resolveMazeDiscoveryProfile,
 } from "../../assets/js/maze/maze-handoff.js";
 
@@ -37,6 +39,52 @@ assert.deepEqual(approvedKeys, discoveredKeys, "Discovery profiles must cover th
 assert.equal(source.records.length, 37, "Authored discovery source must contain exactly 37 profiles");
 assert.equal(catalog.authority.runtime_ai, false, "Runtime AI must not generate dossier semantics");
 assert.equal(catalog.authority.ranking, false, "Discovery catalog must not claim a fit ranking");
+
+const canonicalCases = [
+  ["WU", "commanders-that-fit", ""],
+  ["UB", "support-cards", "hidden-information"],
+  ["JUND", "flavor-echoes", ""],
+  ["WUBRG", "commanders-that-fit", ""],
+];
+for (const [identityKey, pathType, threadId] of canonicalCases) {
+  const intent = resolveMazeCanonicalDossierIntent(catalog, { identityKey, pathType, threadId });
+  assert(intent, `${identityKey}/${pathType}/${threadId || "broad"}: catalog intent must resolve`);
+  assert.equal(intent.identityKey, identityKey);
+  assert.equal(intent.pathType, pathType);
+  assert.equal(intent.threadId, threadId);
+  assert(intent.plainReadingQuery && intent.operatorQuery, `${identityKey}/${pathType}: canonical representations must remain paired`);
+}
+for (const profile of catalog.profiles) {
+  const paths = buildDossierMazePathEntries({
+    identity: profile.color_identity,
+    factionName: profile.identity_name,
+    includeOutsideColorStretch: profile.stretch.availability === "available",
+    discoveryProfile: profile,
+  });
+  for (const pathEntry of paths) {
+    const intent = resolveMazeCanonicalDossierIntent(catalog, { identityKey: profile.identity_key, pathType: pathEntry.pathType });
+    assert.deepEqual(
+      [intent?.plainReadingQuery, intent?.operatorQuery],
+      [pathEntry.plainReadingQuery, pathEntry.operatorQuery],
+      `${profile.identity_key}/${pathEntry.pathType}: catalog canonical pair drifted`,
+    );
+    for (const thread of pathEntry.threads.filter((candidate) => candidate.availability === "available")) {
+      const threadIntent = resolveMazeCanonicalDossierIntent(catalog, {
+        identityKey: profile.identity_key,
+        pathType: pathEntry.pathType,
+        threadId: thread.threadId,
+      });
+      assert.deepEqual(
+        [threadIntent?.plainReadingQuery, threadIntent?.operatorQuery],
+        [thread.plainReadingQuery, thread.operatorQuery],
+        `${profile.identity_key}/${pathEntry.pathType}/${thread.threadId}: thread pair drifted`,
+      );
+    }
+  }
+}
+assert.equal(resolveMazeCanonicalDossierIntent(catalog, { identityKey: "WU", pathType: "unknown-path" }), null);
+assert.equal(resolveMazeCanonicalDossierIntent(catalog, { identityKey: "WU", pathType: "support-cards", threadId: "unknown-thread" }), null);
+assert.equal(normalizeMazeCanonicalRepresentation("  Azorius\r\nSenate  "), "Azorius\nSenate");
 
 let archscryRendered = 0;
 let mazeRehydrated = 0;

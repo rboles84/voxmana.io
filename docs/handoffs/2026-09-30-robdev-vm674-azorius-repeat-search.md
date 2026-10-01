@@ -145,3 +145,25 @@ checks so an observed round-trip failure still leaves the edited and edit-restor
 It now captures `#results-interpretation-state` directly as `{ key, label }` and rejects the owning
 `needs-meaning` state key, rather than treating the diagnostics text as the sole indication of that
 visible result state.
+
+## Owner correction — catalog-derived relinking (in progress)
+
+Agent: RobDev (Terra medium requested). The resolver now derives current ownership from the governed discovery catalog using stable `identity_key`, `pathType`, and active thread actions' `threadId`. It uses trim and CRLF/LF normalization only; browser text controls can transport line endings, while NFC and whitespace collapsing were not required and are deliberately excluded. A valid catalog with stale selectors refuses fallback; serialized handoff fields apply only when the catalog is unavailable.
+
+Changed files: `research-init.js`, `maze-handoff.js`, the VM-674 browser fixture, the profile test, and the admitted card. Developer checks passed: syntax, `test:maze-discovery-profiles`, query-contract test, and current focused browser launch/repeat/mode/edit/exact-restore flow. The deterministic catalog loop covers all 37 top-level and executable thread pairs plus WU, UB thread, JUND, WUBRG, and stale selectors.
+
+Remaining before RobQA: Owner journeys A–K, actual cut/paste, custom Plain/Operator draft continuity, current-results truth signal, and isolated resolver mutation. This is not a QA verdict or Owner-ready claim.
+
+## Corrected implementation handoff — developer complete
+
+Agent: RobDev (Terra medium requested). Task: VM-674 Owner correction. Files reviewed: Owner correction prompt, task card, `research-init.js`, `maze-handoff.js`, discovery catalog, profile and query-contract tests, and the focused browser fixture. Files changed: `assets/js/maze/research-init.js`, `assets/js/maze/maze-handoff.js`, `scripts/vm674-archscry-azorius-repeat-search-browser.mjs`, `tests/maze/maze-discovery-profile-tests.js`, and the VM-674 card.
+
+What changed: the sticky `archscryCanonicalReplay` history flag was removed. A catalog resolver pairs the current stable identity/path/thread with authored Plain and Operator representations. Every Search derives linkage from present state; exact canonical text executes the paired Operator query, while custom Plain uses the existing compiler and custom Operator executes exact syntax. The current catalog takes precedence. Handoff fields are a compatibility fallback only if catalog provenance is unavailable, never for stale selectors. The controller labels retained result cards as `Previous results` as soon as an unexecuted input no longer equals the executed query.
+
+Protected behavior: no discovery meaning, generated catalog, query parser, generic custom compiler, Operator execution, cache contract, URL migration, persistence, identity registry, or dossier query registry changed. No 37-identity controller table was introduced. Trim plus CRLF/LF normalization are the only equivalence transforms; no NFC, whitespace collapse, fuzzy matching, or parser heuristic is used.
+
+Developer evidence: syntax checks passed for each changed JS/MJS; `npm run test:mode`, `node tests/maze/maze-query-contract-tests.js`, `npm run test:maze-discovery-profiles`, and `npm run test:vm674-azorius-repeat-search` passed. The rendered fixture records A–K: launch, repeat, both Plain/Operator routes, custom Plain then exact restore, keyboard Ctrl+A/Ctrl+X/Ctrl+V canonical restore, custom Operator then exact restore, a Plain custom mode round trip, NEEDS MEANING/unresolved state before restore and clear state afterward, and the `Previous results` signal for an unexecuted custom draft. Catalog coverage checks all 37 top-level pairs and available thread pairs, with WU, UB thread, JUND, WUBRG, conservative transport normalization, and stale selector negatives. `npm run task -- indexes --check` reports only the board as stale; root owns generated-view refresh.
+
+Risks / follow-up: separate RobQA must perform candidate-bound review and the requested isolated candidate-copy mutation. Current branch is not frozen and this handoff is not a RobQA PASS or Owner acceptance. Next suggested agent: separate RobQA after root freezes the exact candidate.
+
+Pre-freeze correction: `maze/index.html` and the `research-init.js` shared `maze-handoff.js` import now use `vm674r3`, so the controller and its newly exported resolver load as one browser module revision. `renderResults` restores the heading to `Results` after an executed search; input divergence alone sets `Previous results`. The fixture now separately proves Operator Search then Plain Search, no network/search during mode switches, the observable empty draft between keyboard cut and paste, explicit absence of unresolved `senate`/`exactly` plus non-NEEDS-MEANING state after restoration, and coherent canonical status after each executed restore.
