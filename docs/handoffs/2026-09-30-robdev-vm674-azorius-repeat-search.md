@@ -97,3 +97,48 @@ diagnostic counts.
 Independent RobQA should inspect the exact candidate diff, run the focused command separately, and
 confirm the pre-repair repeat drift remains the causal negative. Owner acceptance and integration are
 PENDING.
+
+## Owner correction — Plain/Operator inspection replay
+
+The Owner rejected the earlier material `6def77e0` after a real route observation: first launch and
+the Operator tab correctly showed `id=wu is:commander f:commander`, but returning to the untouched
+Plain tab and selecting Search reintroduced `legal:commander` plus unresolved `senate`/`exactly`.
+This continuation is admitted at
+`dcf8ccf5520ba6f88468340e9596f29b2e2d9bd4`. Plain/Operator switching is a presentation-only
+inspection when neither representation has been edited; it must retain the successful canonical
+Archscry replay. It is not an intent change.
+
+The causal negative used the focused fixture against the rejected runtime. First launch and a direct
+unchanged Search were canonical. The fixture then selected the actual Operator control, verified the
+canonical operator value, returned through the actual Plain control without an input event, and
+searched. That round trip resolved `id=wu is:commander legal:commander`, recorded the unresolved
+`senate`/`exactly` diagnostics, and made a distinct request. The edited and edit-then-restore stages
+still completed and were recorded before the fixture failed from its accumulated round-trip findings.
+
+`assets/js/maze/research-init.js` now retains the narrowly eligible VM547 canonical replay token
+through the AI/raw representation round trip. It still invalidates on a real input event in either
+mode, clear, builder entry, quick search, suggestion action, or handoff/provenance mismatch. The
+token remains bound to the successful non-four-color VM547 profile, fit, path type, runtime/catalog,
+launch context, original plain input, and canonical operator query. The existing route resolver
+continues to receive current order, unique, and direction API options; no parser, compiler, cache,
+filter, route, provenance, or reading-data semantics changed. `maze/index.html` changes only this
+script cache key to `vm674r2`.
+
+The fixture now covers first launch, direct unchanged Search, actual Operator-to-Plain inspection
+and Search, an edited operator-query Search, and edit-then-restore of the original plain input. The
+last control must use the ordinary resolver because its actual input event invalidates the token. The
+post-correction focused command `npm.cmd run test:vm674-azorius-repeat-search` exited zero in about
+6.6 seconds: the first, direct unchanged, and representation-roundtrip Search states retained the
+canonical query; the unchanged states were valid complete-URL cache hits; edited and restored states
+used ordinary resolution and each recorded their own result transition. The same owned-profile
+cleanup guard ran and post-run inspection found no `voxmana-vm674-*` temporary directory.
+
+Developer checks also passed: `node --check assets/js/maze/research-init.js` and
+`node --check scripts/vm674-archscry-azorius-repeat-search-browser.mjs`. This is RobDev evidence
+only. Independent RobQA must select and execute exact-candidate validation; Owner acceptance and
+integration remain pending.
+
+The round-trip fixture additionally asserts the post-Search plain input and AI mode, inspector/API
+query equality with the canonical first query, visible grid with at least one card, and an empty error
+state. These are accumulated alongside completion, canonical-query, and no-NEEDS-MEANING diagnostics
+checks so an observed round-trip failure still leaves the edited and edit-restore controls observable.

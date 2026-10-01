@@ -37,7 +37,7 @@ Current Owner eight-item request, item 6; accepted VM-670 and VM-671 records; hi
 - [x] The fixture is ChromeLauncher/DevTools-ready, cache-aware, output-isolated, and has owned cleanup; no extra network-count contract is asserted.
 - [x] A repair occurs only if the fresh evidence establishes an owning `research-init` defect; it includes meaningful focused regression evidence.
 - [x] If no defect or usable browser page is established, the handoff documents the bounded non-reproduction or limitation and no speculative code is added.
-- [x] Canonical query ownership, mode, route, filters, cache/deduplication, reading context, API semantics, and render completion remain protected.
+- [ ] Canonical query ownership, mode, route, filters, cache/deduplication, reading context, API semantics, and render completion remain protected.
 - [x] Exact-candidate independent RobQA, Owner, and integration decisions remain PENDING until authentic later evidence exists.
 
 ## Files Likely Impacted

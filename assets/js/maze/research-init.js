@@ -1043,7 +1043,7 @@ async function initializeResearchArchives() {
  */
 function setMode(mode) {
   const previousMode = currentMode;
-  if (previousMode !== mode) archscryCanonicalReplay = null;
+  if (mode === "builder") archscryCanonicalReplay = null;
   currentMode = mode;
   document.body.dataset.mazeMode = mode;
   MODE_IDS.forEach((id) => {

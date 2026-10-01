@@ -309,6 +309,12 @@ async function clickSearchAndCapture(page, requestUrls) {
   };
 }
 
+async function switchModeAndCapture(page, mode, requestUrls) {
+  await page.click(`#mode-${mode}`);
+  await page.waitForFunction((expectedMode) => document.body.dataset.mazeMode === expectedMode, { timeout: 30000 }, mode);
+  return captureMazeState(page, requestUrls);
+}
+
 async function runPublicAzoriusRoute(page, baseUrl) {
   currentPhase = "archscry-route";
   await page.goto(azoriusDossierUrl(baseUrl), { waitUntil: "domcontentloaded", timeout: 30000 });
@@ -350,6 +356,22 @@ async function runPublicAzoriusRoute(page, baseUrl) {
   collectFailure(repeated.state.query === first.query, "VM-674 unchanged Search altered the canonical query.");
   collectFailure(repeated.state.mode === "ai", "VM-674 unchanged Search altered the mode.");
   collectFailure(repeated.state.result.gridVisible && repeated.state.result.cards > 0, "VM-674 unchanged Search did not settle to rendered results.");
+
+  currentPhase = "operator-plain-roundtrip";
+  const operator = await switchModeAndCapture(page, "raw", page.vm674Requests);
+  const plain = await switchModeAndCapture(page, "ai", page.vm674Requests);
+  const roundtrip = await clickSearchAndCapture(page, page.vm674Requests);
+  reportObservation(currentPhase, { operator, plain, roundtrip });
+  collectFailure(operator.input === first.query && operator.query === first.query && operator.mode === "raw", "VM-674 Operator inspection did not display the canonical query.");
+  collectFailure(plain.input === first.input && plain.query === first.query && plain.mode === "ai", "VM-674 Plain return did not restore the original representation.");
+  collectFailure(roundtrip.completion.completed, "VM-674 roundtrip Search did not expose a loading/result completion witness.");
+  collectFailure(roundtrip.state.input === first.input, "VM-674 Plain-Operator-Plain Search did not retain the original plain input.");
+  collectFailure(roundtrip.state.mode === "ai", "VM-674 Plain-Operator-Plain Search did not remain in AI mode.");
+  collectFailure(roundtrip.state.query === first.query, "VM-674 Plain-Operator-Plain Search altered the canonical query.");
+  collectFailure(apiQuery(roundtrip.state.apiUrl) === first.query, "VM-674 Plain-Operator-Plain inspector/API state lost the canonical query.");
+  collectFailure(roundtrip.state.result.gridVisible && roundtrip.state.result.cards > 0, "VM-674 Plain-Operator-Plain Search did not settle to rendered results.");
+  collectFailure(roundtrip.state.error === "", "VM-674 Plain-Operator-Plain Search reported an error state.");
+  collectFailure(!/unresolved\s*senate|unresolved\s*exactly/i.test(roundtrip.state.diagnostics), "VM-674 Plain-Operator-Plain Search entered NEEDS MEANING diagnostics.");
 
   currentPhase = "edited-search";
   const editedInput = "id=wu is:commander";
@@ -398,6 +420,9 @@ async function runPublicAzoriusRoute(page, baseUrl) {
     route,
     first,
     repeated: { ...repeated, cacheOutcome: repeated.state.requestUrls.length > first.requestUrls.length ? "request" : "complete-url-cache" },
+    operator,
+    plain,
+    roundtrip: { ...roundtrip, cacheOutcome: roundtrip.state.requestUrls.length > repeated.state.requestUrls.length ? "request" : "complete-url-cache" },
     edited: edited ? { ...edited, cacheOutcome: edited.state.requestUrls.length > repeated.state.requestUrls.length ? "request" : "complete-url-cache" } : null,
     restored: restored ? { ...restored, cacheOutcome: restored.state.requestUrls.length > (edited?.state.requestUrls.length || repeated.state.requestUrls.length) ? "request" : "complete-url-cache" } : null,
     failures,
