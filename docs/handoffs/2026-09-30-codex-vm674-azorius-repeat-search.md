@@ -102,3 +102,18 @@ Separate configured RobQA returned QA-3 PASS at material 6def77e0c6ab8bd673753df
 Both QA runs left zero owned profiles; the coordinator's scoped elevated host inventory observed zero Edge processes using voxmana-vm674 profiles. QA's initial sandbox process-enumeration denial is disclosed separately. Generic intercepted search results do not certify live Scryfall, card semantics, every identity/path, warning counts or visual quality. Existing broad browser-harness debt is still separately unresolved; this focused route is now genuinely rendered and verified.
 
 VM-674 is at Owner Review. Shortest Owner check on the candidate: public Azorius discovery route, Commanders in this identity, first and unchanged Search keep id=wu is:commander f:commander and settle results; edited id=wu is:commander uses ordinary resolution. Owner ACCEPT and PR integration remain PENDING; required Deterministic Validation must pass at any future accepted PR head. Item 6 is engineering-ready, not Done. Item 7's static repair is integrated and its bounded harness diagnosis is complete, with the legacy harness limitation retained. All other eight-item dispositions remain as recorded above.
+
+## Latest ledger at Owner Review
+
+The earlier eight-item table records the admission-time boundary and remains historical. This table records the later verified disposition without rewriting that evidence.
+
+| Item | Latest verified disposition | Remaining obligation / confidence |
+|---|---|---|
+| 1 | Owner-authorized VM-658 Integrated / closeout blocked and VM-660 Integrated by adoption terminal records published at a798f385. | Further closeout pursuit retired; no standard Done/PASS claim. High confidence. |
+| 2 | Done: original VM-661 card and four handoffs preserved byte-identically through PR63. | Historical decisions and supersession retained. High confidence. |
+| 3 | Done: VM-637 child links/current pointers and genuinely completed narrowed parent scope reconciled through PR63. | Owner voice retained. High confidence. |
+| 4 | Done: named refs/stashes removed after preservation; seven retired issues closed; #9 remains open. | External recovery evidence retained; separate VM-670 ref deferral persists. High confidence. |
+| 5 | Done: accepted VM-672 path repair, PR64 integration and closeout PASS. | Existing 113 audit findings per audit/snapshot consumer retained; no semantic recertification. High confidence in path scope. |
+| 6 | Exact VM-674 material 6def77e0 has SEPARATE QA-3 PASS and causal rendered regression evidence. | Owner ACCEPT, PR CI/integration and closeout pending. High confidence in demonstrated bounded correction. |
+| 7 | VM-673 static repair integrated via PR65 with closeout PASS; bounded browser debt diagnosis recorded. | Legacy VM-619 harness limitation remains unresolved. VM-674 focused browser evidence passes, without general harness certification. |
+| 8 | BLOCKED: latest host main remains unprotected and rulesets empty. | Approved administration capability unavailable; no policy mutation or enforcement claim. High confidence in capability boundary. |
