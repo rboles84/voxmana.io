@@ -2,7 +2,7 @@
 
 ID: VM-672
 Title: Dossier Runner Paths
-Status: Owner Review
+Status: Accepted
 Type: Focused repository-path repair
 Area: Dossier runner inputs and snapshot output isolation
 Priority: High
@@ -69,7 +69,7 @@ Branch: codex/vm-672-dossier-runner-paths
 Admission baseline: b8068af6a2eb2834e95ce8ca3eee1a54ad846d8f
 Candidate: 988828921768becadd59c4623a08109c126c09b0
 RobQA: PASS at 988828921768becadd59c4623a08109c126c09b0 — SEPARATE QA-1 by configured RobQA /root/independent_qa; see 2026-09-30-robqa-vm672-dossier-runner-paths.md
-Owner: PENDING
+Owner: ACCEPTED at 988828921768becadd59c4623a08109c126c09b0 — exact human ACCEPT in current Codex chat on 2026-09-30
 Integration: PENDING
 Dependencies: None
 Decisions: Repair only CWD-independent dossier-runner input resolution and repository-owned default snapshot paths; preserve data/dossier semantics, warning-count authority, runtime, source enrichment, and browser infrastructure.

@@ -83,3 +83,12 @@ This is not the full task diff. The final branch scope is 10 Git paths: nine mat
 Independent configured RobQA reviewed material `988828921768becadd59c4623a08109c126c09b0` in SEPARATE mode and returned QA-1 PASS. Its focused command, absolute invocation from external CWD, Node syntax, canonical input and output-inventory checks passed. An isolated baseline-runner sensitivity check failed on the original `scripts/artifacts` default destination, demonstrating that the regression detects the owning path defect. Actual audit and snapshot consumers still exit 1 with 113 dossier-audit findings each; those diagnostics are limitations, not semantic certification. Archscry evidence remains import/call contract and the same UG bootstrap seam, with no browser execution.
 
 Item 5 now has an independently reviewed tooling candidate at Owner Review; Owner ACCEPT and PR integration/closeout remain pending. The earlier ledger and pre-candidate statements retain their event-time meaning. Items 1–4 and 6–8 retain the dispositions above. The shortest Owner check is to confirm the repository-root/default-output correction and that the explicit output override is acceptable for isolated CLI verification. No rendered product inspection applies to this tooling-only delivery. Mandatory Deterministic Validation must succeed on the exact future PR head before integration.
+
+## Owner decision
+
+Task: VM-672
+Candidate: 988828921768becadd59c4623a08109c126c09b0
+Owner: ACCEPT
+Decision reference: Exact human asynchronous answer in Codex chat 01a0f3e0-4b21-7942-bdb3-e2e5e6f92e73 on 2026-09-30: ACCEPT VM-672 at 988828921768becadd59c4623a08109c126c09b0.
+
+This accepts the bounded tooling-path candidate only. PR integration remains pending successful required Deterministic Validation, exact evidence review, host/Git parity and guarded squash merge. Dossier-audit findings and future Search/test/policy deliveries are not accepted by this decision.
