@@ -101,3 +101,16 @@ Owner: ACCEPT
 Decision reference: Exact human message in Codex chat 01a0f3e0-4b21-7942-bdb3-e2e5e6f92e73 on 2026-09-30: ACCEPT VM-673 at 13468271e0b82ecc90bb5a81417bf07481ddd741.
 
 This accepts only the static test-contract material. Integration remains pending required Deterministic Validation, verified PR scope/parity and expected-head guarded squash. Browser debt and the future Azorius public reproduction remain separate.
+
+## Verified VM-673 integration and cleanup
+
+Task: VM-673
+Candidate: 13468271e0b82ecc90bb5a81417bf07481ddd741
+Integration: INTEGRATED PR65 expected-head guarded squash 7e4c2f4c032d2a014f7e22075b1a85067a6358ba
+Evidence head: b6d34c7da29dbb43e86fd2630022fc11e42916bf
+
+Required Deterministic Validation succeeded at the exact PR head. The integration checker passed before the guarded merge succeeded. Main synchronized to the actual squash; its tree and the accepted PR-head tree both equal 1fbc3a33ff4054bfae0bb7b92e1772a52768a412. This subsequent commit only appends closeout evidence, relocates/binds the Done card and regenerates views; final closeout is checked at that committed state.
+
+VM-673 cleanup: external vm673-accepted-delivery.bundle preserves complete branch history at b6d34c7da29dbb43e86fd2630022fc11e42916bf, verified with SHA256 e0c92072b018e11aa7e8e8bc6b18268070a36bb56363b4ad6dbe6168277ecfdd. The live remote was already absent when freshly observed, with no removal attribution here. Only this task's local and stale tracking refs were removed with exact-head guards. One registered worktree and no stashes remain. No other refs, evidence, worktrees or ignored research were removed.
+
+Item 7 static assertion repair is accepted and integrated with separate QA, focused suites and four causal sensitivity failures; browser launch/lifecycle debt remains separately diagnosed and unresolved, with no browser-health claim. Legacy terminal dispositions are accepted but canonical record propagation remains separate. Items 2–5 retain verified completion; item 6 still needs its actual Archscry public launch/repeat/edited reproduction; item 8 remains BLOCKED on administration capability, main unprotected. VM-670 cleanup deferral remains unchanged.
