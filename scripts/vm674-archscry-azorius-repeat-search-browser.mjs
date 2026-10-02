@@ -143,6 +143,7 @@ async function waitForDevtools(port, retries = 40, delayMs = 500) {
 
 async function configurePage(browser, baseUrl) {
   const page = await browser.newPage();
+  page.on("pageerror", (error) => console.log(`VM674_PAGE_ERROR ${error.message}`));
   page.vm674Requests = [];
   await page.setViewport({ width: 1440, height: 1000, deviceScaleFactor: 1 });
   await page.setRequestInterception(true);
@@ -361,6 +362,90 @@ async function cutAndPasteCanonicalPlain(page) {
   return { cutState, pastedState };
 }
 
+async function clearAndCapture(page, requestUrls) {
+  await page.click("#clear-search-btn");
+  await page.waitForFunction(() => document.getElementById("search-input")?.value === "", { timeout: 30000 });
+  return captureMazeState(page, requestUrls);
+}
+
+async function selectDossierAction(page, selector, requestUrls) {
+  currentPhase = "dossier-action";
+  const expected = await page.$eval(selector, (node) => node.dataset.query || "");
+  await armSearchCompletionWitness(page);
+  await page.$eval(selector, (node) => node.click());
+  try {
+    await page.waitForFunction((query) => document.getElementById("qi-query")?.textContent?.trim() === query, { timeout: 30000 }, expected);
+  } catch (error) {
+    reportObservation("dossier-action-blocker", { expected, selector, state: await captureMazeState(page, requestUrls) });
+    throw error;
+  }
+  assert((await finishSearchCompletionWitness(page)).completed, "Dossier selection did not complete its search.");
+  return captureMazeState(page, requestUrls);
+}
+
+async function inspectSuggestion(page) {
+  currentPhase = "inspect-suggestion";
+  await page.$eval("[data-action='inspect-suggested-search']", (node) => node.click());
+  await page.waitForFunction(() => document.getElementById("maze-selected-search")?.hidden === false);
+  await page.evaluate(() => new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+}
+
+async function returnSuggestionDraft(page) {
+  currentPhase = "return-suggestion-draft";
+  await page.$eval("[data-action='restore-suggestion-draft']", (node) => node.click());
+  await page.waitForFunction(() => document.getElementById("maze-selected-search")?.hidden === true);
+}
+
+async function assertDossierReset(page, selector, { clear = false, startMode = "raw" } = {}) {
+  currentPhase = "custom-draft-dossier-reset";
+  const pair = await page.$eval(selector, (node) => ({
+    operatorQuery: node.dataset.query,
+    plainReadingQuery: node.dataset.plainReadingQuery,
+    threadId: node.dataset.threadId || ""
+  }));
+  await switchModeAndCapture(page, "raw", page.vm674Requests);
+  await replaceInputWithKeyboard(page, `${pair.operatorQuery} type:cat`);
+  const custom = await clickSearchAndCapture(page, page.vm674Requests);
+  assert.equal(custom.state.query, `${pair.operatorQuery} type:cat`);
+  await switchModeAndCapture(page, startMode, page.vm674Requests);
+  if (clear) await clearAndCapture(page, page.vm674Requests);
+  const selected = await selectDossierAction(page, selector, page.vm674Requests);
+  const plain = await switchModeAndCapture(page, "ai", page.vm674Requests);
+  const raw = await switchModeAndCapture(page, "raw", page.vm674Requests);
+  const plainAgain = await switchModeAndCapture(page, "ai", page.vm674Requests);
+  const rawAgain = await switchModeAndCapture(page, "raw", page.vm674Requests);
+  assert.equal(selected.input, pair.operatorQuery, "Explicit selection did not reset the canonical Operator input.");
+  assert.equal(selected.query, pair.operatorQuery);
+  assert.equal(apiQuery(selected.apiUrl), pair.operatorQuery);
+  assert.equal(plain.input, pair.plainReadingQuery, "Explicit selection did not establish canonical Plain.");
+  assert.equal(plainAgain.input, pair.plainReadingQuery);
+  assert.equal(raw.input, pair.operatorQuery, "A stale custom draft resurrected after dossier selection.");
+  assert.equal(rawAgain.input, pair.operatorQuery);
+  assert.equal(rawAgain.requestUrls.length, selected.requestUrls.length, "Mode inspection executed after a reset.");
+  return { pair, custom, selected, plain, raw, plainAgain, rawAgain, clear, startMode };
+}
+
+async function guideRoundtrip(page, { staleContext = false } = {}) {
+  currentPhase = staleContext ? "stale-context-guide-return" : "generated-guide-return";
+  const returnUrl = page.url();
+  // Exercise the real guide-save action and boot-time return restoration without
+  // making unrelated guide rendering/navigation part of this ownership fixture.
+  await page.$eval("[data-action='open-maze-guide']", (node) => {
+    node.addEventListener("click", (event) => event.preventDefault(), { once: true });
+    node.click();
+  });
+  if (staleContext) await page.evaluate(() => {
+    const key = "vm_maze_guide_return_ui_v1";
+    const record = JSON.parse(sessionStorage.getItem(key));
+    record.generatedDossierPlainProjection.intentKey = "obsolete-dossier-context";
+    record.suggestionReturnDraft.intentKey = "obsolete-dossier-context";
+    record.suggestionReturnDraft.generatedProjection.intentKey = "obsolete-dossier-context";
+    sessionStorage.setItem(key, JSON.stringify(record));
+  });
+  await page.goto(returnUrl, { waitUntil: "domcontentloaded" });
+  await page.waitForFunction(() => document.getElementById("maze-selected-search")?.hidden === false);
+}
+
 async function runPublicAzoriusRoute(page, baseUrl) {
   currentPhase = "archscry-route";
   await page.goto(dossierUrl(baseUrl, "azorius"), { waitUntil: "domcontentloaded", timeout: 30000 });
@@ -464,8 +549,8 @@ async function runPublicAzoriusRoute(page, baseUrl) {
     restored = await clickSearchAndCapture(page, page.vm674Requests);
     reportObservation(currentPhase, { restored });
     collectFailure(restored.completion.completed, "VM-674 restored input did not expose a loading/result completion witness.");
-    collectFailure(restored.state.query === first.query, "VM-674 exact restored input did not re-link to the canonical catalog query.");
-    collectFailure(restored.state.interpretationState.key !== "needs-meaning", "VM-674 exact restored input retained NEEDS MEANING.");
+    collectFailure(restored.state.query === first.query, "VM-674 exact canonical Plain restore did not re-link to the catalog query.");
+    collectFailure(restored.state.interpretationState.key !== "needs-meaning" && !/unresolved\s*(senate|exactly)/i.test(restored.state.diagnostics), "VM-674 canonical Plain restore retained stale interpretation.");
   } catch (error) {
     const restoredBlocker = await captureMazeState(page, page.vm674Requests);
     reportObservation(currentPhase, {
@@ -487,8 +572,8 @@ async function runPublicAzoriusRoute(page, baseUrl) {
   collectFailure(customPlainBeforeSearch.result.heading === "Previous results", "VM-674 unexecuted custom Plain request still presented old results as current.");
   collectFailure(customPlainRoundtrip.input === `${first.input} with cats`, "VM-674 Plain custom draft was replaced during mode inspection.");
   collectFailure(customPlain.state.query !== first.query, "VM-674 custom Plain was overwritten by the canonical query.");
-  collectFailure(plainRestore.state.query === first.query, "VM-674 exact custom Plain restore did not re-link.");
-  collectFailure(plainRestore.state.interpretationState.key !== "needs-meaning", "VM-674 restored Plain retained NEEDS MEANING.");
+  collectFailure(plainRestore.state.query === first.query, "VM-674 exact canonical Plain restore did not re-link.");
+  collectFailure(plainRestore.state.interpretationState.key !== "needs-meaning", "VM-674 canonical Plain restore retained NEEDS MEANING.");
 
   currentPhase = "cut-paste-restore";
   const cutPasteDraft = await cutAndPasteCanonicalPlain(page);
@@ -498,17 +583,50 @@ async function runPublicAzoriusRoute(page, baseUrl) {
   collectFailure(cutPasteDraft.pastedState.input === first.input, "VM-674 keyboard paste did not restore the exact canonical draft.");
   collectFailure(cutPaste.state.input === first.input, "VM-674 keyboard cut/paste did not restore the canonical Plain draft.");
   collectFailure(cutPaste.state.query === first.query, "VM-674 keyboard cut/paste did not re-link the canonical query.");
-  collectFailure(!/unresolved\s*senate|unresolved\s*exactly/i.test(cutPaste.state.diagnostics) && cutPaste.state.interpretationState.key !== "needs-meaning", "VM-674 cut/paste restore retained stale canonical diagnostics.");
+  collectFailure(cutPaste.state.interpretationState.key !== "needs-meaning" && !/unresolved\s*(senate|exactly)/i.test(cutPaste.state.diagnostics), "VM-674 keyboard cut/paste retained stale canonical diagnostics.");
 
   currentPhase = "custom-operator-and-restore";
   await switchModeAndCapture(page, "raw", page.vm674Requests);
+  await replaceInputWithKeyboard(page, "id=wu  is:commander");
+  const doubleSpaceOperator = await clickSearchAndCapture(page, page.vm674Requests);
   await replaceInputWithKeyboard(page, "id=wu is:commander");
   const customOperator = await clickSearchAndCapture(page, page.vm674Requests);
   await replaceInputWithKeyboard(page, first.query);
   const operatorRestore = await clickSearchAndCapture(page, page.vm674Requests);
-  reportObservation(currentPhase, { customOperator, operatorRestore });
+  reportObservation(currentPhase, { doubleSpaceOperator, customOperator, operatorRestore });
+  collectFailure(doubleSpaceOperator.state.input === doubleSpaceOperator.state.query, "VM-674 raw double-space input and executable query diverged.");
+  collectFailure(apiQuery(doubleSpaceOperator.state.apiUrl) === doubleSpaceOperator.state.query, "VM-674 raw double-space inspector/API truth diverged.");
   collectFailure(customOperator.state.query !== first.query, "VM-674 custom Operator was overwritten by the canonical query.");
   collectFailure(operatorRestore.state.query === first.query, "VM-674 exact Operator restore did not re-link.");
+
+  currentPhase = "clear-path-thread-reselection";
+  const clearFromRaw = await clearAndCapture(page, page.vm674Requests);
+  const pathFromRaw = await selectDossierAction(page, "#reading-path-list [data-dossier-path='true']", page.vm674Requests);
+  const pathPlain = await switchModeAndCapture(page, "ai", page.vm674Requests);
+  const clearFromPlain = await clearAndCapture(page, page.vm674Requests);
+  const pathFromPlain = await selectDossierAction(page, "#reading-path-list [data-dossier-path='true']", page.vm674Requests);
+  const threadFromPlain = await selectDossierAction(page, "#dossier-thread-grid [data-dossier-thread='true']", page.vm674Requests);
+  const threadRaw = await switchModeAndCapture(page, "raw", page.vm674Requests);
+  const threadPlain = await switchModeAndCapture(page, "ai", page.vm674Requests);
+  reportObservation(currentPhase, { clearFromRaw, pathFromRaw, pathPlain, clearFromPlain, pathFromPlain, threadFromPlain, threadRaw, threadPlain });
+  collectFailure(clearFromRaw.input === "" && clearFromPlain.input === "", "VM-674 Clear retained a stale draft.");
+  collectFailure(pathFromRaw.mode === "raw" && pathPlain.mode === "ai", "VM-674 dossier path did not establish paired Raw and Plain representations.");
+  collectFailure(pathFromPlain.mode === "raw", "VM-674 dossier reselection from Plain did not execute through Operator syntax.");
+  collectFailure(threadFromPlain.mode === "raw" && threadRaw.input === threadFromPlain.query && threadPlain.mode === "ai", "VM-674 thread reselection did not atomically replace the prior path draft.");
+
+  currentPhase = "suggestion-return-to-draft";
+  await replaceInputWithKeyboard(page, "id=wu is:commander type:cat");
+  const draftBeforeSuggestion = await captureMazeState(page, page.vm674Requests);
+  const suggestionSelector = "[data-action='inspect-suggested-search']";
+  const hasSuggestion = await page.$(suggestionSelector);
+  if (hasSuggestion) {
+    await inspectSuggestion(page);
+    await returnSuggestionDraft(page);
+  }
+  const returnedDraft = await captureMazeState(page, page.vm674Requests);
+  reportObservation(currentPhase, { draftBeforeSuggestion, returnedDraft, suggestionAvailable: Boolean(hasSuggestion) });
+  collectFailure(Boolean(hasSuggestion), "VM-674 expected an inspectable suggestion control.");
+  collectFailure(returnedDraft.input === draftBeforeSuggestion.input, "VM-674 Return to draft did not restore the authored request.");
 
   const summary = {
     route,
@@ -519,6 +637,12 @@ async function runPublicAzoriusRoute(page, baseUrl) {
     roundtrip: { ...roundtrip, cacheOutcome: roundtrip.state.requestUrls.length > repeated.state.requestUrls.length ? "request" : "complete-url-cache" },
     edited: edited ? { ...edited, cacheOutcome: edited.state.requestUrls.length > repeated.state.requestUrls.length ? "request" : "complete-url-cache" } : null,
     restored: restored ? { ...restored, cacheOutcome: restored.state.requestUrls.length > (edited?.state.requestUrls.length || repeated.state.requestUrls.length) ? "request" : "complete-url-cache" } : null,
+    clearFromRaw,
+    pathFromRaw,
+    clearFromPlain,
+    pathFromPlain,
+    threadFromPlain,
+    returnedDraft,
     failures,
   };
   reportObservation("summary", summary);
@@ -551,12 +675,69 @@ async function runPrismariOperatorRestore(page, baseUrl) {
   await replaceInputWithKeyboard(page, `${route.link.operatorQuery} type:cat`);
   const customRawSearch = await clickSearchAndCapture(page, page.vm674Requests);
   const customPlain = await switchModeAndCapture(page, "ai", page.vm674Requests);
+  const passiveRaw = await switchModeAndCapture(page, "raw", page.vm674Requests);
+  await switchModeAndCapture(page, "ai", page.vm674Requests);
+  const customPlainBackedSearch = await clickSearchAndCapture(page, page.vm674Requests);
+  const suggestionSelector = "[data-action='inspect-suggested-search']";
+  const customSuggestion = await page.$(suggestionSelector);
+  let customSuggestionDirectReturn = null;
+  let customSuggestionCrossModeReturn = null;
+  if (customSuggestion) {
+    await inspectSuggestion(page);
+    await returnSuggestionDraft(page);
+    customSuggestionDirectReturn = await captureMazeState(page, page.vm674Requests);
+    await inspectSuggestion(page);
+    await inspectSuggestion(page);
+    await guideRoundtrip(page);
+    await switchModeAndCapture(page, "raw", page.vm674Requests);
+    await returnSuggestionDraft(page);
+    customSuggestionCrossModeReturn = await captureMazeState(page, page.vm674Requests);
+    await switchModeAndCapture(page, "ai", page.vm674Requests);
+  }
+  await page.click("#search-input");
+  await page.keyboard.press("End");
+  await page.keyboard.type(" ");
+  await page.keyboard.press("Backspace");
+  const editedSameText = await captureMazeState(page, page.vm674Requests);
+  await inspectSuggestion(page);
+  await inspectSuggestion(page);
+  await returnSuggestionDraft(page);
+  const authoredSuggestionReturn = await captureMazeState(page, page.vm674Requests);
+  const customPlainEditedSameTextSearch = await clickSearchAndCapture(page, page.vm674Requests);
   const rawForRestore = await switchModeAndCapture(page, "raw", page.vm674Requests);
+  await switchModeAndCapture(page, "ai", page.vm674Requests);
+  await replaceInputWithKeyboard(page, customPlain.input.replace(/\bcat\b\s*/i, ""));
+  const authoredCatRemoved = await clickSearchAndCapture(page, page.vm674Requests);
+  const authoredCatRemovedRaw = await switchModeAndCapture(page, "raw", page.vm674Requests);
   await replaceInputWithKeyboard(page, route.link.operatorQuery);
   const restoredRawBeforeSearch = await captureMazeState(page, page.vm674Requests);
   const restoredRawSearch = await clickSearchAndCapture(page, page.vm674Requests);
   const restoredPlain = await switchModeAndCapture(page, "ai", page.vm674Requests);
   const restoredPlainSearch = await clickSearchAndCapture(page, page.vm674Requests);
+  await switchModeAndCapture(page, "raw", page.vm674Requests);
+  await replaceInputWithKeyboard(page, `${route.link.operatorQuery} type:cat`);
+  await clickSearchAndCapture(page, page.vm674Requests);
+  await switchModeAndCapture(page, "ai", page.vm674Requests);
+  await inspectSuggestion(page);
+  await guideRoundtrip(page, { staleContext: true });
+  await returnSuggestionDraft(page);
+  const staleContextReturn = await captureMazeState(page, page.vm674Requests);
+  const staleContextSearch = await clickSearchAndCapture(page, page.vm674Requests);
+  const commandersSelector = "#reading-path-list [data-path-type='commanders-that-fit']";
+  const threadSelector = "#dossier-thread-grid [data-dossier-thread='true']";
+  const resets = [];
+  for (const startMode of ["raw", "ai"]) {
+    resets.push(await assertDossierReset(page, commandersSelector, { clear: true, startMode }));
+    resets.push(await assertDossierReset(page, commandersSelector, { startMode }));
+    resets.push(await assertDossierReset(page, threadSelector, { startMode }));
+    resets.push(await assertDossierReset(page, threadSelector, { startMode }));
+  }
+  await page.goto(`${baseUrl}/maze/?independent=1`, { waitUntil: "domcontentloaded" });
+  await page.waitForSelector("#mode-raw");
+  await switchModeAndCapture(page, "raw", page.vm674Requests);
+  await replaceInputWithKeyboard(page, "id=ur is:commander f:commander type:cat");
+  await clickSearchAndCapture(page, page.vm674Requests);
+  const genericIzzet = await switchModeAndCapture(page, "ai", page.vm674Requests);
   const failures = [];
   const expect = (condition, message) => { if (!condition) failures.push(message); };
   expect(initial.input === route.link.plainReadingQuery && initial.query === route.link.operatorQuery, "VM-674 Prismari launch did not preserve catalog representations.");
@@ -565,14 +746,30 @@ async function runPrismariOperatorRestore(page, baseUrl) {
   expect(canonicalRawSearch.state.query === route.link.operatorQuery && apiQuery(canonicalRawSearch.state.apiUrl) === route.link.operatorQuery, "VM-674 Prismari canonical Operator search drifted.");
   expect(customRawSearch.state.query === `${route.link.operatorQuery} type:cat` && apiQuery(customRawSearch.state.apiUrl) === `${route.link.operatorQuery} type:cat`, "VM-674 Prismari custom Operator lost exact syntax.");
   expect(customPlain.mode === "ai" && customPlain.input !== route.link.plainReadingQuery && customPlain.dossierRuntime.identityKey === route.link.profile && customPlain.dossierRuntime.pathType === route.link.pathType, "VM-674 Prismari custom Operator did not retain its stable catalog metadata.");
+  expect(!/\bIzzet\b/i.test(customPlain.input), "VM-674 Prismari custom expression was misrepresented as a generic Izzet selection.");
+  expect(customPlainBackedSearch.state.query === customRawSearch.state.query, "VM-674 untouched generated Plain did not execute its exact custom Operator backing.");
+  expect(customPlainBackedSearch.completion.completed && customPlainBackedSearch.state.result.heading === "Results", "VM-674 generated Plain Search did not complete truthful current results.");
+  expect(apiQuery(customPlainBackedSearch.state.apiUrl) === customRawSearch.state.query, "VM-674 generated Plain API backing drifted.");
+  expect(passiveRaw.input === customRawSearch.state.query && passiveRaw.requestUrls.length === customRawSearch.state.requestUrls.length, "VM-674 passive custom mode round trip lost exact backing or searched.");
+  expect(Boolean(customSuggestion), "VM-674 expected an inspectable suggestion during the generated custom Plain journey.");
+  expect(customSuggestionDirectReturn?.input === customPlain.input, "VM-674 direct Return to draft did not restore the first generated custom Plain projection.");
+  expect(customSuggestionCrossModeReturn?.input === customRawSearch.state.query, "VM-674 cross-mode Return to draft did not restore the generated custom Operator backing.");
+  expect(customPlainEditedSameTextSearch.state.query !== customRawSearch.state.query, "VM-674 edited generated Plain retained its stale custom Operator backing.");
+  expect(customPlainEditedSameTextSearch.state.query === "type:cat c<=ur -c:c legal:commander", "VM-674 authored same-text Plain did not use ordinary compilation.");
+  expect(authoredCatRemoved.state.query === "c:ur legal:commander", "VM-674 authored Plain cat removal did not use ordinary compilation.");
+  expect(editedSameText.input === customPlain.input && authoredSuggestionReturn.input === customPlain.input, "VM-674 authored same-visible-text witness changed representation.");
+  expect(rawForRestore.input === customPlainEditedSameTextSearch.state.query, "VM-674 compiled authored Plain revived an obsolete Operator draft.");
+  expect(authoredCatRemovedRaw.input === authoredCatRemoved.state.query && !/type:cat/.test(authoredCatRemovedRaw.input), "VM-674 authored Plain cat removal revived a stale custom clause.");
+  expect(/Izzet color identity/i.test(genericIzzet.input), "VM-674 changed generic UR/Izzet translation outside Prismari context.");
+  expect(staleContextReturn.input === route.link.plainReadingQuery && staleContextSearch.state.query === route.link.operatorQuery, "VM-674 restored obsolete guide projection/return backing from another dossier context.");
   expect(rawForRestore.mode === "raw", "VM-674 Prismari return to Operator failed.");
   expect(restoredRawBeforeSearch.input === route.link.operatorQuery, "VM-674 Prismari canonical Operator was not visibly restored before Search.");
   expect(restoredRawSearch.state.query === route.link.operatorQuery && apiQuery(restoredRawSearch.state.apiUrl) === route.link.operatorQuery, "VM-674 Prismari restored Operator did not execute canonical bytes.");
   expect(restoredPlain.input === route.link.plainReadingQuery && restoredPlain.mode === "ai", "VM-674 Prismari canonical Operator did not restore catalog Plain text.");
   expect(restoredPlainSearch.state.query === route.link.operatorQuery && apiQuery(restoredPlainSearch.state.apiUrl) === route.link.operatorQuery && restoredPlainSearch.state.interpretationState.key !== "needs-meaning" && !/unresolved\s*(prismari|exactly)/i.test(restoredPlainSearch.state.diagnostics), "VM-674 Prismari restored Plain search retained stale interpretation.");
-  const summary = { route, initial, raw, canonicalRawSearch, customRawSearch, customPlain, rawForRestore, restoredRawBeforeSearch, restoredRawSearch, restoredPlain, restoredPlainSearch, failures };
+  const summary = { route, initial, raw, canonicalRawSearch, customRawSearch, customPlain, passiveRaw, customPlainBackedSearch, customSuggestionDirectReturn, customSuggestionCrossModeReturn, authoredSuggestionReturn, customPlainEditedSameTextSearch, authoredCatRemoved, rawForRestore, restoredRawBeforeSearch, restoredRawSearch, restoredPlain, restoredPlainSearch, staleContextReturn, staleContextSearch, resets, genericIzzet, failures };
   reportObservation("prismari-summary", summary);
-  console.log(`VM674_PRISMARI_SUMMARY ${JSON.stringify({ initial: { input: initial.input, query: initial.query }, canonicalRawSearch: { query: canonicalRawSearch.state.query, apiQuery: apiQuery(canonicalRawSearch.state.apiUrl) }, customRawSearch: { query: customRawSearch.state.query, apiQuery: apiQuery(customRawSearch.state.apiUrl) }, customPlain: { input: customPlain.input, interpretation: customPlain.interpretationState.key, context: customPlain.context }, restoredRawBeforeSearch: { input: restoredRawBeforeSearch.input }, restoredRawSearch: { query: restoredRawSearch.state.query, apiQuery: apiQuery(restoredRawSearch.state.apiUrl) }, restoredPlain: { input: restoredPlain.input, interpretation: restoredPlain.interpretationState.key }, restoredPlainSearch: { query: restoredPlainSearch.state.query, apiQuery: apiQuery(restoredPlainSearch.state.apiUrl), interpretation: restoredPlainSearch.state.interpretationState.key }, failures })}`);
+  console.log(`VM674_PRISMARI_SUMMARY ${JSON.stringify({ initial: { input: initial.input, query: initial.query }, canonicalRawSearch: { query: canonicalRawSearch.state.query, apiQuery: apiQuery(canonicalRawSearch.state.apiUrl) }, customRawSearch: { query: customRawSearch.state.query, apiQuery: apiQuery(customRawSearch.state.apiUrl) }, customPlain: { input: customPlain.input, interpretation: customPlain.interpretationState.key, context: customPlain.context }, customPlainBackedSearch: { query: customPlainBackedSearch.state.query }, customPlainEditedSameTextSearch: { query: customPlainEditedSameTextSearch.state.query }, restoredRawBeforeSearch: { input: restoredRawBeforeSearch.input }, restoredRawSearch: { query: restoredRawSearch.state.query, apiQuery: apiQuery(restoredRawSearch.state.apiUrl) }, restoredPlain: { input: restoredPlain.input, interpretation: restoredPlain.interpretationState.key }, restoredPlainSearch: { query: restoredPlainSearch.state.query, apiQuery: apiQuery(restoredPlainSearch.state.apiUrl), interpretation: restoredPlainSearch.state.interpretationState.key }, failures })}`);
   if (failures.length) throw new Error(failures.join(" "));
   return summary;
 }

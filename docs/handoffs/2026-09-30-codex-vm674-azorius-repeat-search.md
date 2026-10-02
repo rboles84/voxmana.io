@@ -60,13 +60,13 @@ The first repaired developer run passed the public route, canonical first launch
 
 The narrowed implementation passed focused developer verification in approximately 6.9 seconds. It binds matching canonical profile/fit/path/runtime/catalog provenance and current query, initializes after mode setup, and invalidates on input events and alternate intent. The same browser case now also edits and restores the original plain input, confirming ordinary resolution rather than stale replay. Both Node syntax checks and scoped whitespace checks pass; owned temporary profiles are absent after execution. The implementation handoff preserves failed scaffold, label and completion-instrumentation attempts, complete pre-repair failure and repaired observations. Exact-candidate independent QA, Owner ACCEPT and integration remain pending.
 
-## Material candidate
+## Historical material candidate — initial VM-674 delivery
 
 - Baseline: `a798f38559202050e29ac010de26241fa9aabaa1`
 - Candidate: `6def77e0c6ab8bd673753df74f416e7551d66554`
 - Changed paths: `10`
 
-## Files changed
+## Historical files changed — initial VM-674 delivery
 
 - `assets/js/maze/research-init.js`
 - `docs/handoffs/2026-09-30-codex-vm674-azorius-repeat-search.md`
@@ -79,7 +79,7 @@ The narrowed implementation passed focused developer verification in approximate
 - `package.json`
 - `scripts/vm674-archscry-azorius-repeat-search-browser.mjs`
 
-## Evidence delta
+## Historical evidence delta — initial VM-674 delivery
 
 - Material candidate: `6def77e0c6ab8bd673753df74f416e7551d66554`
 - Evidence head: `HEAD`
@@ -87,7 +87,7 @@ The narrowed implementation passed focused developer verification in approximate
 
 This is not the full task diff. Git owns ten material paths, five post-candidate evidence paths and eleven total branch paths. HEAD names the evidence head during this Owner-review preparation; the independent receipt binds the resulting exact commit. Original material role handoffs remain frozen. Later changes append exact accounting/verdict, add the candidate-bound QA handoff, update only card lifecycle/delivery/checkbox results, and refresh existing views.
 
-## Evidence-only paths
+## Historical evidence-only paths — initial VM-674 delivery
 
 - `docs/handoffs/2026-09-30-codex-vm674-azorius-repeat-search.md`
 - `docs/handoffs/2026-09-30-robqa-vm674-azorius-repeat-search.md`
@@ -258,3 +258,27 @@ The consolidated Git report is `C:/Users/obake/.codex/visualizations/2026/10/01/
 Open http://127.0.0.1:8000/archscry/?explore=prismari and choose Commanders in this identity. Switch to Operator and Search, append ` type:cat` and Search, inspect Plain, return to Operator, remove ` type:cat` exactly and Search, then return to Plain and Search. Expect Raw `id=ur is:commander f:commander`, Plain `Prismari College Commander-legal commanders with exactly blue-red identity`, and no Needs meaning after canonical restoration, without another sidebar click. The local HTTP route is available; visual/product judgment remains Owner work.
 
 The preserved Azorius companion check starts at http://127.0.0.1:8000/archscry/?explore=azorius: launch Commanders in this identity, add `with cats` in Plain and Search, remove it exactly and Search; cut/paste restoration and mode inspection also remain protected. Item 6 is at this replacement Owner Review. Other remaining-ledger dispositions are unchanged, including item 8's administration capability blocker. No push, integration or successor task was performed. Stop here pending genuine exact-candidate ACCEPT; after acceptance/closeout or rejection, return the remaining ledger and wait for explicit Owner direction.
+
+## Option A correction — Owner authorization and recon handoff
+
+Date: 2026-10-01, America/Denver
+Agent: Codex coordinator
+Task requested: implement the bounded Option A correction on existing VM-674, return a new exact candidate and SEPARATE RobQA, and stop without integration or another task.
+
+The Owner explicitly authorized Option A after read-only recon. Generated Plain from Operator is presentation-only and must retain exact backing syntax until an actual Plain input edit. Explicit dossier path/thread reselection is the authoritative reset boundary: establish its catalog intent and replace/invalidate obsolete per-mode drafts atomically. Prismari expression context remains distinct from generic UR/Izzet translation and external Izzet routes. These locked requirements supersede delivery reliance on the prior 186a8b34a2a29b0269c2c18db63c5c21860adb8c PASS; that verdict and its evidence remain historical. No new QA or Owner acceptance is inferred.
+
+Recon findings: generic custom Operator translation ignores active PRISMARI context and emits Izzet wording. Passive Operator/Plain/Operator switching preserved the original query in the observed exact sequence; Search in generated Plain caused recompilation to type:cat c<=ur -c:c legal:commander and erased the raw draft. Removing cat then executed c<=ur -c:c legal:commander. Clear and dossier quick-search left raw/ai draft stores intact, so setMode restored old custom raw text after canonical conversion. Exact canonical restore still resolved the Prismari catalog. The single Izzet control confirmed context-blind translation. Live count 9,802 is an observation only. API encoding was separately captured through the real research-search fetch boundary with a deterministic sink, not claimed as live browser interception. Hidden diagnostics markup can remain stale after raw rendering; it was not visible in that return flow. No runtime or test files changed during recon.
+
+Admission initially blocked on unrelated untracked docs/qa/RobQAPass (1).md. To preserve unrelated work while enabling authorized continuation, the coordinator moved it byte-identically to C:/Users/obake/.codex/visualizations/2026/10/02/01a0faa0-e32f-7572-9040-c3ed46404469/RobQAPass (1).preserved-before-vm674.md. SHA-256: 28BF553D20F334C8727CA6C6DF6112058301E6D8E56179B7F9361759B2F3FBEB. Original path is recorded here; the artifact remains recoverable. It is not imported as governing policy or included in this candidate. Continue PASS followed preservation, then committed Owner scope amendment eeb0f886086a079d524ec2fd77f99175103be88a and another continue PASS. Baseline remains a798f38559202050e29ac010de26241fa9aabaa1; no replacement branch/worktree.
+
+Configured RobDev Terra medium owns research-init.js, the Maze controller cache key, the existing focused browser fixture and its attributed development handoff. Configured separate RobQA Sol medium owns test selection and its attributed exact-candidate QA handoff. Tool-accepted roles are robdev and robqa with fork_turns none; backend model/effort telemetry is unverified. Root owns card, coordination/admission records, generated views, freeze/accounting and delivery checks. Escalation, if needed, must be concrete, announced and bounded. All preserve others' edits.
+
+Files reviewed: active VM-674 card and prior handoffs; RobDev/RobQA skills and governing passes; workflow/task-context/cost routing; research-init.js, research-mode.js, research-syntax-language.js, maze-handoff.js, maze-query-core.js, research-ui.js and research-search.js; Prismari/Izzet catalog and external-routing sources; accepted VM-657/658/663 contracts; existing VM-674 browser fixture. Files changed at this coordination stage: current card and generated board; this handoff records the recon and authorization. Git owns final path accounting at freeze.
+
+Changed behavior to implement: exact Operator-backed generated Plain, coherent authored/generated provenance, atomic dossier reselection, and truthful restored-request/results presentation using existing route state. Protected: catalog/source meaning, parser/compiler/query core, external aliases, routes, legitimate filters, cache/dedupe/API, suggestion Return to draft, Loom filters and existing canonical relinking. Risks: overlapping programmatic input writers, guide-return state, both starting modes, thread selection and suggestion lifetimes. Method: focused forward/reverse, perturb/restore, same-current-state/different-history and visible/executed seams; no all-37 journey suite. Tests at this boundary: admission continue PASS; no new product QA yet. New candidate, separate QA and Owner decision are PENDING. Next suggested agent: configured RobDev, then separate RobQA; stop at Owner Review.
+
+## Option A bounded completion and candidate preparation
+
+Root performed a bounded implementation escalation after configured RobDev stopped twice at the suggestion Return fixture seam. Separate RobQA remains independent and owns the final verdict. Prefreeze review caught weakened diagnostics checks, reset fixtures starting after canonical restoration rather than custom search, and unsafe equality-based provenance recovery; all were corrected before freeze. The strengthened same-visible-state/different-history case exercises a real Plain edit, repeated Inspect, Return and ordinary compilation. Projection/snapshot restoration checks the current dossier key, and same-selector path/thread clicks force the canonical reset. Root owns final controller/fixture completion together with the original RobDev worker; its handoff discloses the exact test dispatch and guide-return limitations.
+
+Successful developer evidence covers the focused Azorius and Prismari routes, eight custom-cat reset histories across both starting modes, generated backing versus authored compilation, exact restore/cut-paste, direct/cross-mode/repeated suggestion Return, guide-save boot restoration and obsolete-key rejection, visible/executable/API normalization, and a generic Izzet control. The fixture intercepts deterministic results and dispatches rendered action controls; it makes no live count, card semantics, pointer geometry or subjective visual claim. Syntax, mode and query-contract checks passed. Final frozen-candidate evidence and negative rejected-controller sensitivity remain separate RobQA work. No catalog, compiler, query core, API/cache, external alias, data meaning, policy or successor changes are introduced.

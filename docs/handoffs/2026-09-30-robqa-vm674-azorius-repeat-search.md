@@ -383,3 +383,52 @@ The compact independent receipt is `C:/Users/obake/.codex/visualizations/2026/10
 This PASS certifies the selected current-state catalog pairing, both custom/restore directions, exact query/API bytes, mode draft continuity, focused rendered diagnostics/results truth, deterministic catalog breadth, and causal sensitivity. It does not certify live Scryfall availability, card-result semantics, result counts, subjective visual quality, broad browser health, every identity through a browser, or semantic dossier content. CPU-heavy and broad rendered suites were not required.
 
 Owner review remains separate. Start at `http://127.0.0.1:8000/archscry/?explore=prismari`, choose **Commanders in this identity**, switch to Operator, Search, append ` type:cat` and Search, inspect Plain, return to Operator, restore exactly `id=ur is:commander f:commander` and Search, then return to Plain and Search. PASS if the custom query remains custom, exact restoration returns the Prismari catalog phrase without a sidebar click, and the final query is canonical without stale **Needs meaning**. Owner ACCEPT must bind exact candidate `186a8b34a2a29b0269c2c18db63c5c21860adb8c` before integration.
+
+## Option A generated-Plain provenance and canonical reset — QA selection
+
+Task: VM-674
+Admission baseline: `a798f38559202050e29ac010de26241fa9aabaa1`
+Rejected candidate: `186a8b34a2a29b0269c2c18db63c5c21860adb8c`
+Owner correction scope amendment: `eeb0f886086a079d524ec2fd77f99175103be88a`
+Replacement candidate: PENDING
+RobQA: PENDING
+Execution: SEPARATE
+Reviewer: Codex `/root/option_a_qa` (Sol medium)
+
+The Owner selected Option A after stateful adversarial reconnaissance showed that the rejected candidate could confuse generated Plain presentation with authored Plain input and could resurrect an obsolete raw draft after Clear plus explicit dossier-path reselection. The historical PASS above remains evidence for its exact rejected SHA; it is not current delivery readiness.
+
+### Change classification
+
+- QA tier: QA-3. The correction changes shared mode/draft provenance, canonical dossier re-linking, explicit reset transitions, and visible-versus-executed request synchronization.
+- Execution: SEPARATE because this is a shared Archscry/Maze dossier, mode, draft, query, and results-state boundary after an Owner-reported QA escape.
+- Regression invariants: generated Plain remains presentation backed by the exact executed Operator request until a real input event authors Plain; provenance is explicit state and must never be reconstructed from later string equality. An explicit dossier path/thread selection atomically establishes the selected canonical pair and invalidates obsolete drafts; PRISMARI expression context remains separate from generic UR/Izzet labels and external routes; the visible Operator request, inspector request, and decoded API request tell the same transport truth.
+
+### Candidate-blocking focused browser evidence
+
+Strengthen and run the existing public Prismari fixture in `scripts/vm674-archscry-azorius-repeat-search-browser.mjs`. The browser is required because the objective risk crosses real input events, mode controls, rendered dossier actions, result presentation, and the API request. Screenshots and subjective visual inspection are not required.
+
+1. Launch the public Prismari `commanders-that-fit` route, switch to Operator, append ` type:cat`, and Search. Assert exact visible Operator, inspector, and decoded API request state.
+2. Switch to Plain without an input event. Assert the generated Plain presentation remains distinct from the canonical Prismari phrase, preserves stable PRISMARI dossier/path/thread context, and does not falsely imply that the selected expression changed to Izzet. Context-aware Prismari framing or neutral blue-red wording is valid. Generic Izzet vocabulary remains valid in genuinely generic contexts and external routes and must not be globally replaced.
+3. Switch back to Operator without Search. Assert the exact custom Operator request returns and no mode switch issued a request.
+4. Return to untouched generated Plain and Search. Assert it executes the original custom Operator backing request; generated Plain must not become authored or recompile merely because it is visible.
+5. After the untouched generated custom Plain Search, Inspect a suggestion and use **Return to draft**. Verify the original custom projection/backing pair is preserved even though Search cleared the ordinary raw draft: direct Plain return restores the generated custom Plain, and a cross-mode return restores the original backing Operator rather than the inspected suggestion, canonical text, or a newer projection snapshot. Do not assume the inspection snapshot mode must equal the mode used for Return. Preserve the same first return snapshot through Maze guide save/restore, keyed to the owning dossier context; a restored selected suggestion must not replace it.
+6. Repeat from the generated custom-Operator Plain projection, but perform a real keyboard perturb-and-restore so the final visible string is identical. Search must now treat that same visible custom projection as authored Plain and compile it through the ordinary resolver. Do not use the canonical catalog Plain phrase for this witness; exact canonical equality must continue to re-link. This is the required same-visible-state/different-history witness.
+7. Repeat the real keyboard perturb-and-restore to identical custom Plain bytes, then Inspect a suggestion, Return to draft, and Search. The first authored snapshot must survive repeated Inspect and Return, and Search must perform the ordinary authored Plain compilation. Equality with `lastSmartInput`/`lastSmartQuery` or an earlier projection must not promote this authored value back to generated provenance.
+8. After authored Plain compilation, switch to Operator and assert the compiled executable value replaces the obsolete earlier raw draft. Editing the authored Plain to remove `cat` must execute the expected broad compiled request rather than revive the stale custom raw request.
+9. From a searched custom raw `type:cat` state, use Clear, explicitly choose the Prismari commanders dossier path/thread again, then round-trip Plain → Operator. Assert an atomic canonical reset: exact Prismari canonical pair, no stale `cat`, no obsolete mode draft, and no sidebar-independent resurrection.
+10. Exercise a raw request containing a deliberate internal double space. After Search, require agreement under the existing normalizer among visible Operator, executable inspector query, and decoded API query; the generated Plain must retain that normalized execution as its Operator backing. The backing syntax must preserve `id=`, `is:commander`, `f:commander`, and every custom clause without lossy translator reconstruction.
+
+For every sequence, observe mode, input-event provenance through behavior, current input, active dossier identity/path/thread, inspector query, decoded intercepted API query, request count, Search completion, results heading, diagnostics, and `#results-interpretation-state`. Current request versus **Previous results** must remain truthful. Do not pin intercepted result counts or the incidental interpretation label of a valid custom request.
+
+### Causal and lower-layer evidence
+
+- Run the strengthened focused fixture once with `VM674_RESEARCH_INIT_FILE` bound to the exact rejected `186a8b34a2a29b0269c2c18db63c5c21860adb8c` `research-init.js` blob. Record Git blob/SHA-256 attribution before execution and verify the override remains unchanged afterward. It must fail at the intended provenance/reset assertions while public launch and custom Operator Search still complete.
+- Run syntax checks for each changed JavaScript/MJS file, `npm.cmd run test:mode`, and `node tests/maze/maze-query-contract-tests.js`. These cheaply protect mode continuity and request/compiler contracts adjacent to the correction.
+- Run `git diff --check`, inspect the authoritative baseline-to-candidate diff and exact Git accounting, and use the repository delivery/report checks selected by the coordinator.
+- Preserve existing suggestion inspect/Return-to-draft behavior, Loom filters, canonical exact-value relinking including authored cut/paste, current order/unique/direction, parser/compiler/API/cache/routes/identity semantics, and stable PRISMARI expression context. Generated custom backing provenance is independent of canonical resolution. Any unexpected change to those protected owners is scope drift, not justification for a broader suite.
+
+### Intentionally skipped and Owner boundary
+
+The 37-profile dossier matrix, broad browser smoke, snapshots, viewport matrices, live Scryfall/card-result semantics, broad query-engine or identity recertification, and unrelated harness repair are outside the correction boundary. CPU-heavy validation is **NOT REQUIRED**. If the focused browser fixture is the only coverage for a changed objective seam and it cannot run, QA is BLOCKED rather than replaced with source inspection.
+
+Subjective wording, layout, and product feel remain Owner judgment. A replacement candidate may receive PASS only after immutable candidate SHA, clean continuation admission, independent exact-diff inspection, and green candidate-bound evidence. No integration or successor task is authorized by this selection.

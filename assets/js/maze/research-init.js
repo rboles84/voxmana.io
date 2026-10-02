@@ -45,6 +45,8 @@ import {
 let currentMode = "ai";
 const modeDraftValues = { ai: "", raw: "" };
 const modeDraftEdited = { ai: false, raw: false };
+let activeDossierIntentKey = "";
+let generatedDossierPlainProjection = null;
 let currentQuery = "";
 let currentOrder = "name";
 let currentUnique = "cards";
@@ -68,6 +70,7 @@ let modalReturnFocusEl = null;
 let stashDragState = null;
 let activeKeywordSuggestionIndex = -1;
 let pendingSuggestedSearch = null;
+let suggestionReturnDraft = null;
 let selectedSuggestionView = null;
 let lastInspectorState = null;
 
@@ -1110,11 +1113,12 @@ function setMode(mode) {
     if (mode === "ai") input.value = selectedSuggestionView.label;
     if (mode === "raw") input.value = pendingSuggestedSearch?.query || currentQuery;
   } else {
-    syncInputForModeSwitch(input, previousMode, mode);
+    const synchronizedDossierRepresentation = syncInputForModeSwitch(input, previousMode, mode);
     if (previousMode === "builder" && mode === "raw") {
       input.value = buildFilterQuery();
-    } else if (previousMode !== mode && modeDraftEdited[mode] && modeDraftValues[mode]) {
+    } else if (!synchronizedDossierRepresentation && previousMode !== mode && modeDraftEdited[mode] && modeDraftValues[mode]) {
       input.value = modeDraftValues[mode];
+      generatedDossierPlainProjection = null;
     }
   }
   renderSelectedSuggestionView();
@@ -1297,7 +1301,10 @@ function clearPendingSuggestedSearch({ restorePresentation = true, preserveView 
   const hadPending = Boolean(pendingSuggestedSearch);
   pendingSuggestedSearch = null;
   document.body.dataset.pendingSuggestion = "false";
-  if (!preserveView) selectedSuggestionView = null;
+  if (!preserveView) {
+    selectedSuggestionView = null;
+    suggestionReturnDraft = null;
+  }
   renderSelectedSuggestionView();
   if (restorePresentation && hadPending) refreshExactQueryForMode(currentMode);
 }
@@ -1318,10 +1325,27 @@ function renderSelectedSuggestionView() {
 }
 
 function restoreSuggestionDraft() {
+  const returnDraft = resolveSuggestionReturnDraft(suggestionReturnDraft);
   clearPendingSuggestedSearch({ restorePresentation: false });
+  suggestionReturnDraft = null;
   const input = document.getElementById("search-input");
   if (input) {
-    input.value = modeDraftValues[currentMode] || "";
+    const dossierIntent = resolveCurrentDossierIntent();
+    const canonicalDraft = dossierIntent && (currentMode === "ai" || currentMode === "raw")
+      ? (currentMode === "raw" ? dossierIntent.operatorQuery : dossierIntent.plainReadingQuery)
+      : "";
+    input.value = returnDraft?.generatedProjection
+      ? (currentMode === "raw" ? returnDraft.generatedProjection.operatorQuery : returnDraft.generatedProjection.plainReadingQuery)
+      : returnDraft?.mode === currentMode
+      ? returnDraft.value
+      : modeDraftEdited[currentMode] ? modeDraftValues[currentMode] || "" : canonicalDraft;
+    if (returnDraft?.generatedProjection) {
+      generatedDossierPlainProjection = returnDraft.generatedProjection;
+    } else if (returnDraft?.dossierIntent && returnDraft.mode === currentMode) {
+      establishCurrentDossierIntent(returnDraft.dossierIntent);
+    } else if (!returnDraft && canonicalDraft) {
+      establishCurrentDossierIntent(dossierIntent);
+    }
     input.focus();
   }
   document.getElementById("query-inspector")?.classList.add("hidden");
@@ -1335,14 +1359,22 @@ function restoreSuggestionDraft() {
  * @param {string} nextMode - Mode being entered.
  */
 function syncInputForModeSwitch(input, previousMode, nextMode) {
-  if (!input) return;
+  if (!input) return false;
+  const generatedProjection = resolveGeneratedDossierPlainProjection(input.value, previousMode);
+  if (generatedProjection && (nextMode === "ai" || nextMode === "raw")) {
+    input.value = nextMode === "raw" ? generatedProjection.operatorQuery : generatedProjection.plainReadingQuery;
+    lastSmartInput = generatedProjection.plainReadingQuery;
+    lastSmartQuery = generatedProjection.operatorQuery;
+    return true;
+  }
   const dossierIntent = resolveCurrentDossierRepresentation(input.value, previousMode);
   if (dossierIntent && (nextMode === "ai" || nextMode === "raw")) {
+    establishCurrentDossierIntent(dossierIntent);
     input.value = nextMode === "raw" ? dossierIntent.operatorQuery : dossierIntent.plainReadingQuery;
     lastSmartInput = dossierIntent.plainReadingQuery;
     lastSmartQuery = dossierIntent.operatorQuery;
     if (nextMode === "raw") selectAutoFilledInputOnFocus = false;
-    return;
+    return true;
   }
   const resolved = resolveModeInputValue({
     previousMode,
@@ -1351,14 +1383,26 @@ function syncInputForModeSwitch(input, previousMode, nextMode) {
     lastSmartInput,
     lastSmartQuery
   });
-  if (!resolved.changed) return;
+  if (!resolved.changed) return false;
   const previousValue = input.value.trim();
-  input.value = resolved.value;
+  const currentDossierIntent = resolveCurrentDossierIntent();
+  input.value = previousMode === "raw" && nextMode === "ai" && currentDossierIntent?.identityKey === "PRISMARI"
+    ? resolved.value.replace(/\bIzzet color identity\b/gi, "blue-red color identity")
+    : resolved.value;
   if (previousMode === "raw" && nextMode === "ai") {
-    lastSmartInput = resolved.value;
+    const currentDossierIntent = resolveCurrentDossierIntent();
+    lastSmartInput = input.value;
     lastSmartQuery = previousValue;
+    if (currentDossierIntent) {
+      generatedDossierPlainProjection = {
+        intentKey: dossierIntentKey(currentDossierIntent),
+        plainReadingQuery: input.value,
+        operatorQuery: previousValue
+      };
+    }
   }
   if (nextMode === "raw") selectAutoFilledInputOnFocus = false;
+  return false;
 }
 
 function resolveCurrentDossierIntent() {
@@ -1387,6 +1431,59 @@ function resolveCurrentDossierRepresentation(input, mode = currentMode) {
   return normalizeMazeCanonicalRepresentation(input) === normalizeMazeCanonicalRepresentation(canonical) ? intent : null;
 }
 
+function dossierIntentKey(intent) {
+  if (!intent) return "";
+  return [intent.identityKey, intent.pathType, intent.threadId, intent.plainReadingQuery, intent.operatorQuery]
+    .map((value) => normalizeMazeCanonicalRepresentation(value))
+    .join("\u001f");
+}
+
+/**
+ * A new dossier path or thread supersedes drafts that belonged to its predecessor.
+ * Catalog Plain is generated presentation; drafts become authored only through input events.
+ */
+function establishCurrentDossierIntent(intent, { force = false } = {}) {
+  const nextKey = dossierIntentKey(intent);
+  if (!nextKey || (!force && nextKey === activeDossierIntentKey)) return;
+  activeDossierIntentKey = nextKey;
+  modeDraftValues.ai = "";
+  modeDraftValues.raw = "";
+  modeDraftEdited.ai = false;
+  modeDraftEdited.raw = false;
+  generatedDossierPlainProjection = null;
+  suggestionReturnDraft = null;
+}
+
+function resolveGeneratedDossierPlainProjection(input, mode = currentMode) {
+  const projection = matchGeneratedDossierPlainProjection(input, mode);
+  return isCurrentDossierProjection(projection) ? projection : null;
+}
+
+function isCurrentDossierProjection(projection) {
+  const currentIntent = resolveCurrentDossierIntent();
+  return Boolean(projection && currentIntent
+    && typeof projection.plainReadingQuery === "string"
+    && typeof projection.operatorQuery === "string"
+    && projection.intentKey === dossierIntentKey(currentIntent));
+}
+
+function resolveSuggestionReturnDraft(draft) {
+  if (!draft || !["ai", "raw"].includes(draft.mode) || typeof draft.value !== "string") return null;
+  if (draft.intentKey !== dossierIntentKey(resolveCurrentDossierIntent())) return null;
+  if (draft.generatedProjection && !isCurrentDossierProjection(draft.generatedProjection)) return null;
+  if (draft.dossierIntent && dossierIntentKey(draft.dossierIntent) !== draft.intentKey) return null;
+  return draft;
+}
+
+function matchGeneratedDossierPlainProjection(input, mode = currentMode) {
+  const projection = generatedDossierPlainProjection;
+  if (!projection || (mode !== "ai" && mode !== "raw")) return null;
+  const expected = mode === "ai" ? projection.plainReadingQuery : projection.operatorQuery;
+  return normalizeMazeCanonicalRepresentation(input) === normalizeMazeCanonicalRepresentation(expected)
+    ? projection
+    : null;
+}
+
 function resolveCanonicalDossierQuery(intent) {
   return resolveMazeRouteQuery(intent.operatorQuery, {
     mode: "raw", origin: "archscry", order: currentOrder, unique: currentUnique, dir: currentDir,
@@ -1410,7 +1507,10 @@ function bindSearchInputSelectOnFocus() {
 
   input.addEventListener("input", () => {
     selectAutoFilledInputOnFocus = false;
+    activeDossierIntentKey = "";
+    generatedDossierPlainProjection = null;
     clearPendingSuggestedSearch();
+    suggestionReturnDraft = null;
     rememberModeDraftInput({ target: input });
     if (currentQuery && normalizeSearchInputValue(input.value) !== normalizeSearchInputValue(currentQuery)) {
       const heading = document.querySelector(".results-heading");
@@ -1484,11 +1584,25 @@ async function doSearch() {
 
   try {
     const dossierIntent = resolveCurrentDossierRepresentation(rawInput);
-    const queryResult = dossierIntent
+    if (dossierIntent) establishCurrentDossierIntent(dossierIntent);
+    const generatedProjection = resolveGeneratedDossierPlainProjection(rawInput);
+    const queryResult = generatedProjection
+      ? resolveMazeRouteQuery(generatedProjection.operatorQuery, {
+        mode: "raw", origin: "archscry", forceRaw: true, useFormatDefault: false,
+        launchContext: resolveCurrentDossierIntent()?.handoff
+      })
+      : dossierIntent
       ? resolveCanonicalDossierQuery(dossierIntent)
       : resolveMazeRouteQuery(rawInput);
     const query = queryResult.query;
     const diagnostics = queryResult.diagnostics || [];
+    if (generatedProjection && !queryResult.executionBlocked) generatedProjection.operatorQuery = query;
+    if (currentMode === "raw" && queryResult.detectedMode === "raw" && !queryResult.executionBlocked && document.getElementById("search-input")?.value !== query) {
+      const input = document.getElementById("search-input");
+      if (input) input.value = query;
+      modeDraftValues.raw = query;
+      modeDraftEdited.raw = true;
+    }
     const reason = currentMode === "builder" ? "" : queryResult.reason || "";
     if (currentMode === "ai") {
       modeDraftValues.raw = "";
@@ -3502,6 +3616,13 @@ function buildColorGrid() {
  */
 function runQuickSearch(query, opts = {}) {
   clearPendingSuggestedSearch({ restorePresentation: false });
+  generatedDossierPlainProjection = null;
+  if (opts.resetDossierDrafts) {
+    modeDraftValues.ai = "";
+    modeDraftValues.raw = "";
+    modeDraftEdited.ai = false;
+    modeDraftEdited.raw = false;
+  }
   currentMode = "raw";
   const queryResult = resolveMazeRouteQuery(query, {
     mode: "raw",
@@ -3575,8 +3696,18 @@ function inspectSuggestedSearch(query, opts = {}) {
   const finalQuery = queryResult.query;
   const diagnostics = queryResult.diagnostics || [];
   const label = String(opts.label || query).trim();
-  if (!selectedSuggestionView && Object.hasOwn(modeDraftValues, currentMode)) {
-    modeDraftValues[currentMode] = document.getElementById("search-input")?.value || "";
+  const currentInput = document.getElementById("search-input")?.value || "";
+  const dossierRepresentation = resolveCurrentDossierRepresentation(currentInput, currentMode);
+  const generatedProjection = resolveGeneratedDossierPlainProjection(currentInput, currentMode);
+  if (!selectedSuggestionView) suggestionReturnDraft = {
+    mode: currentMode,
+    intentKey: dossierIntentKey(resolveCurrentDossierIntent()),
+    value: currentInput,
+    dossierIntent: dossierRepresentation || null,
+    generatedProjection: generatedProjection || null
+  };
+  if (!selectedSuggestionView && !dossierRepresentation && !generatedProjection && Object.hasOwn(modeDraftValues, currentMode)) {
+    modeDraftValues[currentMode] = currentInput;
     modeDraftEdited[currentMode] = true;
   }
   selectedSuggestionView = {
@@ -3792,6 +3923,13 @@ function clearSearchInput() {
   clearPendingSuggestedSearch({ restorePresentation: false });
   lastSmartInput = "";
   lastSmartQuery = "";
+  modeDraftValues.ai = "";
+  modeDraftValues.raw = "";
+  modeDraftEdited.ai = false;
+  modeDraftEdited.raw = false;
+  activeDossierIntentKey = "";
+  generatedDossierPlainProjection = null;
+  suggestionReturnDraft = null;
   setMode(currentMode);
   clearError();
   resetSearchResults();
@@ -3812,6 +3950,8 @@ function preserveMazeGuideReturnState() {
     input: input?.value || "",
     drafts: { ...modeDraftValues },
     draftEdited: { ...modeDraftEdited },
+    generatedDossierPlainProjection,
+    suggestionReturnDraft,
     selectedSuggestionView,
     builderFilters: {
       ...bFilters,
@@ -3857,6 +3997,10 @@ function restoreMazeGuideReturnState() {
   restoreBuilderFilters(record.builderFilters);
   Object.assign(modeDraftValues, record.drafts || {});
   Object.assign(modeDraftEdited, record.draftEdited || {});
+  const restoredProjection = record.generatedDossierPlainProjection;
+  generatedDossierPlainProjection = isCurrentDossierProjection(restoredProjection) ? restoredProjection : null;
+  const restoredSuggestionReturn = record.suggestionReturnDraft;
+  suggestionReturnDraft = resolveSuggestionReturnDraft(restoredSuggestionReturn);
   setMode(record.mode);
   const input = document.getElementById("search-input");
   if (input) input.value = String(record.input || "");
@@ -4849,12 +4993,16 @@ function handleMazeActionClick(event) {
       activeDossierThreadId = actionNode.dataset.dossierThread === "true"
         ? actionNode.dataset.threadId || ""
         : "";
+      if (actionNode.dataset.dossierPath === "true" || actionNode.dataset.dossierThread === "true") {
+        establishCurrentDossierIntent(resolveCurrentDossierIntent(), { force: true });
+      }
       runQuickSearch(actionNode.dataset.query || "", {
         order: actionNode.dataset.order || undefined,
         unique: actionNode.dataset.unique || undefined,
         dir: actionNode.dataset.dir || undefined,
         plainReadingQuery: actionNode.dataset.plainReadingQuery || undefined,
-        origin: actionNode.dataset.origin || "maze"
+        origin: actionNode.dataset.origin || "maze",
+        resetDossierDrafts: actionNode.dataset.dossierPath === "true" || actionNode.dataset.dossierThread === "true"
       });
       return;
     case "inspect-suggested-search":
