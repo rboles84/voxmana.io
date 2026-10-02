@@ -2,7 +2,7 @@
 
 ID: VM-674
 Title: Azorius Repeat Search
-Status: Owner Review
+Status: In Progress
 Type: Bounded rendered-behavior investigation and conditional repair
 Area: Archscry-to-Maze discovery handoff and repeat search
 Priority: High
@@ -26,11 +26,13 @@ Current Owner eight-item request, item 6; accepted VM-670 and VM-671 records; hi
 - Update `maze/index.html` only for the controller cache key if that controller changes.
 - Add a focused browser regression, and a package command only if needed to expose that focused evidence.
 - Record a bounded non-reproduction or browser-page limitation if no current defect can be established.
+- Owner-authorized Option A correction: coordinate the existing request, representation and per-mode draft owners. Generated Plain is presentation-only, retains exact Operator backing syntax, and is not compiled or treated as authored unless the player edits it.
+- Explicit dossier path/thread reselection atomically establishes its canonical intent and invalidates/replaces obsolete per-mode drafts. Preserve expression context separately from generic color translation and external routing aliases.
 
 ## Explicitly Out Of Scope
 
 - Semantic recertification, data enrichment, dossier rewriting, source meaning, broad browser infrastructure, old VM-619 retry, visual baselines, or speculative runtime changes.
-- Changes to canonical query ownership, mode, route, filters, cache/deduplication, reading-context behavior, or unrelated Maze execution contracts, except the current-state resolver needed to keep a governed dossier intent and its two canonical representations paired.
+- Changes to catalog meaning, parser/compiler, query core, routes, filters, cache/deduplication, persistence schemas, or unrelated Maze execution contracts. The authorized Option A exception is limited to existing route-local representation provenance, draft priority/reset and current-request presentation; no replacement universal state object or global identity-label change.
 - Broad test-command reorganization, product redesign, or claims based only on VM-662 historical hypotheses.
 
 ## Acceptance Criteria
@@ -45,6 +47,11 @@ Current Owner eight-item request, item 6; accepted VM-670 and VM-671 records; hi
 - [x] If no defect or usable browser page is established, the handoff documents the bounded non-reproduction or limitation and no speculative code is added.
 - [x] Canonical query ownership, mode, route, filters, cache/deduplication, reading context, API semantics, and render completion remain protected.
 - [x] Exact-candidate independent RobQA, Owner, and integration decisions remain PENDING until authentic later evidence exists.
+- [ ] Untouched generated Plain inspection and Search retain the exact backing Operator syntax; an actual Plain edit becomes an authored custom request using existing compilation.
+- [ ] Prismari-context custom queries retain their expression context without globally replacing Izzet labels or modifying external aliases.
+- [ ] Clear followed by explicit dossier path/thread reselection cannot resurrect obsolete filters on later mode switches, in either starting mode.
+- [ ] Suggestion inspection/Return to draft, Loom filter ownership, canonical relinking, API/cache behavior and truthful previous-results presentation remain protected by focused adversarial regression evidence.
+- [ ] A new exact VM-674 candidate receives SEPARATE RobQA before Owner Review; no integration or successor task is authorized.
 
 ## Files Likely Impacted
 
@@ -76,12 +83,12 @@ Apply RobDev before implementation. Replace the reproduced history-dependent rep
 Record version: 1
 Branch: codex/vm-674-azorius-repeat-search
 Admission baseline: a798f38559202050e29ac010de26241fa9aabaa1
-Candidate: 186a8b34a2a29b0269c2c18db63c5c21860adb8c
-RobQA: PASS at 186a8b34a2a29b0269c2c18db63c5c21860adb8c — SEPARATE QA-3; [Prismari correction QA](../../handoffs/2026-09-30-robqa-vm674-azorius-repeat-search.md#prismari-cross-mode-operator-restore--exact-candidate-qa)
+Candidate: PENDING
+RobQA: PENDING — Owner findings revoke delivery reliance on the historical PASS at 186a8b34a2a29b0269c2c18db63c5c21860adb8c; new Option A candidate requires SEPARATE QA.
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
-Decisions: Fresh rendered evidence decides whether an owning repair is warranted. Preserve current Maze query, route, mode, filter, cache/deduplication, reading-context, API, and render contracts; do not treat VM-662 as current-defect proof. Scope amendment: catalog-backed current-representation resolver and deterministic lower-level catalog coverage are required by the Owner correction, so `maze-handoff.js` and its profile test enter the admitted scope. Current valid catalog intent is authoritative for canonical representations; serialized handoff fields are compatible fallback only when catalog resolution is unavailable.
+Decisions: Fresh rendered evidence decides whether an owning repair is warranted. Preserve current Maze query, route, filter, cache/deduplication, reading-context, API, and render contracts; do not treat VM-662 as current-defect proof. Prior amendment admitted the catalog-backed current-representation resolver and deterministic catalog coverage. Owner authorized Option A after bounded recon: exact Operator-backed generated Plain remains presentation-only until actual input edits; explicit dossier path/thread reselection is the authoritative atomic reset boundary for canonical intent and obsolete mode drafts; Prismari expression context remains independent from generic UR/Izzet translation and external aliases. Existing route owners only; stop at a new candidate and separate RobQA, with no integration or next task.
 Evidence: [VM-670 report](../../reports/2026-09-30-vm670-repository-recon.md); [VM-671 records reconciliation report](../../reports/2026-09-30-vm671-records-reconciliation.md); current Owner item 6 request. The rejected Prismari correction is within the admitted controller, focused fixture, card, and handoff paths: it covers both Azorius Plain and Prismari Operator canonical restoration directions without changing data meaning.
 
 ## Admission Scope
