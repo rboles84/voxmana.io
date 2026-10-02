@@ -432,3 +432,83 @@ For every sequence, observe mode, input-event provenance through behavior, curre
 The 37-profile dossier matrix, broad browser smoke, snapshots, viewport matrices, live Scryfall/card-result semantics, broad query-engine or identity recertification, and unrelated harness repair are outside the correction boundary. CPU-heavy validation is **NOT REQUIRED**. If the focused browser fixture is the only coverage for a changed objective seam and it cannot run, QA is BLOCKED rather than replaced with source inspection.
 
 Subjective wording, layout, and product feel remain Owner judgment. A replacement candidate may receive PASS only after immutable candidate SHA, clean continuation admission, independent exact-diff inspection, and green candidate-bound evidence. No integration or successor task is authorized by this selection.
+
+## Option A generated-Plain provenance and canonical reset — exact-candidate QA
+
+Task: VM-674
+Candidate: `d5da3bd355ca76298ea95ac01756fabe6e02095f`
+Superseded pre-QA freeze: `f593414de55b5b5b169cdb7dd969a6e7571cda5a`
+Rejected predecessor: `186a8b34a2a29b0269c2c18db63c5c21860adb8c`
+Admission baseline: `a798f38559202050e29ac010de26241fa9aabaa1`
+Owner correction scope amendment: `eeb0f886086a079d524ec2fd77f99175103be88a`
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: Codex `/root/option_a_qa` (Sol medium)
+Implementer: Codex `/root/option_a_dev` and coordinator `/root` for bounded prefreeze completion
+
+### Decision
+
+QA-3 passes for the exact replacement candidate. Generated Plain now carries explicit current-dossier provenance and the normalized exact Operator request that produced it. Merely displaying or searching that generated presentation preserves the Operator backing; a real input event clears generated provenance and sends even identical-looking Plain through the ordinary compiler. Suggestion inspection preserves the first Return-to-draft snapshot across repeat Inspect and the selected guide save/boot-restore boundary, while current identity/path/thread keys refuse obsolete snapshots. Explicit dossier path/thread actions force an atomic canonical reset and prevent earlier custom filters from returning through destination drafts.
+
+The focused Prismari presentation retains its expression context with neutral blue-red wording, while the independent generic UR route still says Izzet. Canonical exact-value relinking, including authored cut/paste, remains authoritative. The implementation does not change the query core, parser/compiler, search/API/cache owner, route aliases, catalog meaning, Loom filter producers, or external Izzet labels.
+
+### Selected checks
+
+- `node --check assets/js/maze/maze-handoff.js` — PASS.
+- `node --check assets/js/maze/research-init.js` — PASS.
+- `node --check scripts/vm674-archscry-azorius-repeat-search-browser.mjs` — PASS.
+- `node --check tests/maze/maze-discovery-profile-tests.js` — PASS.
+- `npm.cmd run test:mode` — PASS, 14 mode-continuity and 14 leakage cases.
+- `node tests/maze/maze-query-contract-tests.js` — PASS.
+- `npm.cmd run task -- indexes --check` — PASS, 714 cards, 1,166 handoffs, zero stale generated views.
+- `git diff --check a798f38559202050e29ac010de26241fa9aabaa1..d5da3bd355ca76298ea95ac01756fabe6e02095f` — PASS.
+- `npm.cmd run test:vm674-azorius-repeat-search` — PASS against the exact candidate with the default combined Azorius and Prismari journey.
+
+CPU-heavy validation: **NOT REQUIRED**. The change is a bounded route-local state-transition correction. The focused rendered interaction is required because the risk crosses real keyboard input events, mode controls, dossier actions, suggestion Return, boot restoration, result presentation, and intercepted API requests; the lower-layer mode and query contracts alone cannot prove those histories.
+
+### Independent focused browser evidence
+
+The exact-candidate command exited 0 with an empty failures collection. The preserved Azorius journey kept canonical launch and unchanged Search, Plain/Operator round trips, exact Plain and Operator restoration, authored cut/paste relinking, stale-diagnostic clearing, double-space Operator normalization truth, and ordinary suggestion Return behavior.
+
+The Prismari journey independently observed:
+
+- canonical initial and API request `id=ur is:commander f:commander`;
+- exact custom Operator/input/API request `id=ur is:commander f:commander type:cat`;
+- a Prismari-context generated Plain presentation using blue-red rather than falsely presenting an Izzet expression choice;
+- passive mode inspection with no request and exact restoration of the custom Operator backing;
+- untouched generated Plain Search executing that same custom Operator/API request and presenting current **Results**;
+- direct Return to the generated custom Plain and guide-restored cross-mode Return to its exact Operator backing after repeated Inspect;
+- real keyboard perturb-and-restore to identical visible Plain bytes followed by repeated Inspect/Return and ordinary authored compilation to `type:cat c<=ur -c:c legal:commander`;
+- authored `cat` removal compiling to `c:ur legal:commander`, with the corresponding compiled request replacing the obsolete raw draft;
+- an injected obsolete guide context key being refused in favor of the current canonical Prismari pair;
+- eight searched-custom-`type:cat` reset histories covering path and thread selection, Clear and no-Clear, raw and Plain starting modes, and repeated same-selector selection without stale-clause resurrection; and
+- a separate independent UR control retaining generic `Izzet color identity` wording.
+
+The raw double-space witness followed the existing normalizer: visible Operator, inspector query, and decoded API query agreed after Search. The generated Plain backing retained the resulting Operator syntax, including `id=`, `is:commander`, `f:commander`, and the custom clause.
+
+### Causal rejected-controller evidence
+
+An owned temporary archive materialized only `assets/js/maze/research-init.js` from exact rejected candidate `186a8b34a2a29b0269c2c18db63c5c21860adb8c`. Its Git blob was `6ba6c9d0cdc03fc07d3d406da3860abd9a6d3c87`; SHA-256 was `E9381B9408014A86C7342D5AED1C1C2861B3A9EDCB35F2E009164FFE71EB5159` before and after execution. `VM674_JOURNEY=prismari` with `VM674_RESEARCH_INIT_FILE` bound to that file exited 1, and the owned archive was removed.
+
+The rejected controller completed public launch, canonical Operator Search, and exact custom `id=ur is:commander f:commander type:cat` Operator/API execution. Its emitted pre-helper provenance observation then showed the defect: Plain read `Izzet color identity commander candidates cat commander legal`; passive Operator return still held the custom request, but untouched Plain Search compiled `type:cat c<=ur -c:c legal:commander`, entered `needs-meaning`, and issued that lossy API request. The run later failed at the dossier reset seam because the rejected controller returned the obsolete custom presentation instead of the current Prismari canonical Plain. No missing-field, helper, or fixture-schema exception occurred. This red witness is therefore sensitive to the corrected provenance and reset owners rather than browser launch, interception, custom raw execution, or a fixture-only crash.
+
+### Candidate accounting, attempts, and limits
+
+The authoritative baseline-to-candidate diff contains the 13 admitted VM-674 paths. The Option A correction from `eeb0f886086a079d524ec2fd77f99175103be88a` contains six paths: the route controller, its cache key, the focused fixture, and three task handoffs. `f593414de55b5b5b169cdb7dd969a6e7571cda5a` was superseded before independent execution when source review found the rejected-controller fixture could dereference provenance fields absent from older code. The final fixture-only correction guards optional fields and emits the decisive provenance observation first. Independent evidence consists of one exact-candidate combined positive run and one exact rejected-controller Prismari negative run.
+
+The suggestion and dossier controls were exercised through native click dispatch on their rendered controls because direct pointer clicks across the moving panel did not reliably complete the delegated action. Real text changes used keyboard input. The guide case invoked the real save action with navigation default suppressed, then booted the same Maze URL to verify stored-state restoration. This evidence does not certify pointer geometry/travel, guide-page navigation, live Scryfall availability, result counts or card semantics, subjective visual quality, broad browser health, all identities through a browser, or semantic dossier content. Screenshots, viewport matrices, the 37-profile browser matrix, broad engine recertification, and unrelated harness repair were intentionally skipped.
+
+### Owner boundary
+
+Purpose: judge whether generated versus authored Plain behavior and Prismari wording feel truthful in the real product.
+
+Open: `http://127.0.0.1:8000/archscry/?explore=prismari&panel=maze-discovery#maze-discovery-paths`
+
+Do:
+
+1. Choose **Commanders in this identity**, switch to Operator, append ` type:cat`, and Search.
+2. Switch to Plain. Confirm it keeps Prismari/blue-red context, then Search without editing and confirm the inspector still shows the exact Operator request with `type:cat`.
+3. Add and remove one space in that Plain text, then Search. Confirm the request now follows ordinary authored Plain compilation.
+4. Clear, choose **Commanders in this identity** again, and round-trip Plain → Operator. Confirm the exact canonical pair returns with no stale `cat`.
+
+PASS if the flow distinguishes untouched generated presentation from actual authored input, Prismari is not presented as a changed Izzet expression choice, and explicit reselection restores the canonical pair. FAIL if untouched Plain loses Operator clauses, editing still uses stale backing, or `cat` returns after reselection. Subjective wording and product feel remain Owner judgment. Owner ACCEPT must bind exact candidate `d5da3bd355ca76298ea95ac01756fabe6e02095f`; this engineering PASS does not authorize integration or successor work.

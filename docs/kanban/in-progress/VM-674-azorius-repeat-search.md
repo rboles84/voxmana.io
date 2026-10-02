@@ -2,7 +2,7 @@
 
 ID: VM-674
 Title: Azorius Repeat Search
-Status: In Progress
+Status: Owner Review
 Type: Bounded rendered-behavior investigation and conditional repair
 Area: Archscry-to-Maze discovery handoff and repeat search
 Priority: High
@@ -47,11 +47,11 @@ Current Owner eight-item request, item 6; accepted VM-670 and VM-671 records; hi
 - [x] If no defect or usable browser page is established, the handoff documents the bounded non-reproduction or limitation and no speculative code is added.
 - [x] Canonical query ownership, mode, route, filters, cache/deduplication, reading context, API semantics, and render completion remain protected.
 - [x] Exact-candidate independent RobQA, Owner, and integration decisions remain PENDING until authentic later evidence exists.
-- [ ] Untouched generated Plain inspection and Search retain the exact backing Operator syntax; an actual Plain edit becomes an authored custom request using existing compilation.
-- [ ] Prismari-context custom queries retain their expression context without globally replacing Izzet labels or modifying external aliases.
-- [ ] Clear followed by explicit dossier path/thread reselection cannot resurrect obsolete filters on later mode switches, in either starting mode.
-- [ ] Suggestion inspection/Return to draft, Loom filter ownership, canonical relinking, API/cache behavior and truthful previous-results presentation remain protected by focused adversarial regression evidence.
-- [ ] A new exact VM-674 candidate receives SEPARATE RobQA before Owner Review; no integration or successor task is authorized.
+- [x] Untouched generated Plain inspection and Search retain the exact backing Operator syntax; an actual Plain edit becomes an authored custom request using existing compilation.
+- [x] Prismari-context custom queries retain their expression context without globally replacing Izzet labels or modifying external aliases.
+- [x] Clear followed by explicit dossier path/thread reselection cannot resurrect obsolete filters on later mode switches, in either starting mode.
+- [x] Suggestion inspection/Return to draft, Loom filter ownership, canonical relinking, API/cache behavior and truthful previous-results presentation remain protected by focused adversarial regression evidence.
+- [x] A new exact VM-674 candidate receives SEPARATE RobQA before Owner Review; no integration or successor task is authorized.
 
 ## Files Likely Impacted
 
@@ -83,8 +83,8 @@ Apply RobDev before implementation. Replace the reproduced history-dependent rep
 Record version: 1
 Branch: codex/vm-674-azorius-repeat-search
 Admission baseline: a798f38559202050e29ac010de26241fa9aabaa1
-Candidate: PENDING
-RobQA: PENDING — Owner findings revoke delivery reliance on the historical PASS at 186a8b34a2a29b0269c2c18db63c5c21860adb8c; new Option A candidate requires SEPARATE QA.
+Candidate: d5da3bd355ca76298ea95ac01756fabe6e02095f
+RobQA: PASS at d5da3bd355ca76298ea95ac01756fabe6e02095f — SEPARATE Option A exact-candidate verdict in docs/handoffs/2026-09-30-robqa-vm674-azorius-repeat-search.md; historical rejected PASS remains superseded.
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
