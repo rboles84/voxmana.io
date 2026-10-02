@@ -573,3 +573,54 @@ Run syntax checks for changed JavaScript/MJS, `npm.cmd run test:mode`, `node tes
 The 37-profile interactive matrix, broad browser smoke, screenshots, viewport matrices, live Scryfall/card semantics or counts, broad parser/AST/identity recertification and unrelated harness repair are intentionally skipped. CPU-heavy validation is **NOT REQUIRED**. Any need for general semantic equivalence or recursive Boolean translation is scope drift and must return to the Owner rather than expand VM-674.
 
 Owner judgment remains natural wording and product feel for simple B, complex B and fallback C. A replacement may receive PASS only after immutable candidate SHA, clean continuation admission, exact-diff/source inspection, green A–H evidence and all four causal mutations. No integration, push, VM-675 or successor work is authorized by this selection.
+
+## Bounded catalog Plain plus proven delta / honest fallback — exact-candidate QA
+
+Task: VM-674
+Candidate: `2341691e1b2f0311c3c6cead0345e08e70f675a1`
+Admission baseline: `a798f38559202050e29ac010de26241fa9aabaa1`
+Owner B/C scope amendment: `f53fff8aa220db4aaf16c249375a3d8e8d2d9cf5`
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: Codex `/root/option_a_qa` (Sol medium)
+Implementer: Codex `/root/option_a_dev` and coordinator `/root` for bounded fixture completion
+
+### Decision
+
+QA-3 passes for the exact frozen candidate. The raw-to-Plain boundary now composes catalog Plain only when catalog authority owns the active intent and the complete exact catalog Operator query is followed by a space-delimited suffix made entirely of supported standalone `type:` atoms. Changed, removed, reordered, nested, negated, identity, format, commander, unsupported, grouped and missing-boundary forms use a source-context fallback that does not claim the canonical base remains intact. Both generated presentations preserve the normalized exact Operator request for passive round trips and untouched Plain Search. A real Plain input event restores ordinary compiler ownership, while an existing authored destination draft keeps its established priority.
+
+Exact canonical restoration and explicit same-path/thread reselection clear obsolete custom state. Existing Option A Prismari context/provenance, suggestion and guide Return ownership, generic Izzet wording, Azorius restoration, Loom, query/API, route, cache, parser/compiler and normalization contracts remain green.
+
+### Exact-candidate evidence
+
+- `node --check assets/js/maze/research-init.js` and the focused browser fixture — PASS.
+- `npm.cmd run test:mode` — PASS, 14 mode-continuity and 14 leakage cases.
+- `node tests/maze/maze-query-contract-tests.js` — PASS.
+- `npm.cmd run task -- indexes --check` — PASS, 714 cards, 1,166 handoffs and zero stale generated views.
+- `git diff --check a798f38559202050e29ac010de26241fa9aabaa1..2341691e1b2f0311c3c6cead0345e08e70f675a1` — PASS.
+- `npm.cmd run test:vm674-azorius-repeat-search` — PASS with the default combined Azorius and Prismari journey against the exact candidate.
+
+The rendered journey covered A–H: simple and complex safe composition; multiple allowed atoms; eleven close negative boundaries; B and C real keyboard edits through the ordinary compiler; authored destination priority; exact canonical restore; same support-path reselection with and without Clear from raw and Plain; a thread reset after the complex custom query; the VM-479/480 functional-tag humanizer control; and the full historical Azorius route. It observed visible input, mode, dossier context, request counts, exact inspector and decoded API queries, result presentation, diagnostics and interpretation state. Untouched B/C presentations executed their complete custom Operator backing and passive representation switching issued no search.
+
+### Causal external controls
+
+The exact candidate controller had SHA-256 `99724BF0094F78CC848033650A7CDAE26456F3F40A705042550D931B3E5E05F3` in the repository and in the owned byte-for-byte external copy. Each final isolated mutation used `VM674_JOURNEY=bc` and `VM674_RESEARCH_INIT_FILE`, reached the prerequisite rendered dossier/custom-search flow, exited 1 on its intended product invariant, and retained the same pre/post SHA-256:
+
+- raw leakage `5957B1086EEFEAC598EC8082751F6332E258E8F3B9CA3F1D71A7DE28E24627EE`: the removed-clause C case failed `Generated Plain leaked raw syntax`;
+- unsafe B `D5B482851667D0209DDE27051A22C140A97D23466BBF137BFC017F41DF409F8F`: the changed-base case failed `Unsafe B composition or misleading fallback claimed canonical constraints`;
+- exact backing loss `EFC14787AD2369F27FBBC20A023261496D4D52AC12CFC5F8F3EA840CAC97095D`: the simple B case failed exact Operator round-trip backing by dropping `type:cat`; and
+- stale restoration `2CD0AC561FFAE07C4039AC8BCCFECF0508A5423922DD7B6BD006029F0BC1DECA`: an explicit dossier action restored the obsolete `narrowed to cat cards` presentation instead of the canonical support Plain.
+
+Control construction was itself checked adversarially. An initial raw-leak variant failed earlier on lost Prismari context, an initial unsafe-B variant rejected the valid multiple-atom positive, and two initial stale-reset variants survived because they did not disable every owning reset seam. Those noncausal attempts were not counted. The final controls changed only external copies, produced the four intended failures above without helper/schema crashes, and were removed after post-run hashing; their logs remain external durable evidence.
+
+### Proportionality, limits and Owner boundary
+
+CPU-heavy validation is **NOT REQUIRED**. The change is confined to the rendered representation/state boundary, so the focused browser histories plus mode/query contracts and four mutation controls are stronger evidence than a broad unrelated browser sweep. The 37-profile matrix, screenshots, viewport matrices, live Scryfall/card semantics and counts, broad parser/AST/identity recertification and unrelated harness repair were intentionally skipped. Native DOM click dispatch exercised moving dossier controls and real keyboard events exercised authored text; pointer geometry and subjective visual quality remain uncertified.
+
+Owner judgment remains whether the simple and complex B wording and honest C fallback feel natural. Open the Prismari dossier, select **Cards that support this shape**, append ` type:cat` in Operator, Search, and switch to Plain. PASS if the catalog sentence gains a natural Cat refinement, contains no raw syntax, and untouched Search still sends the exact complex Operator query. Then remove or change one canonical clause in Operator: PASS if Plain changes to honest Prismari/path/thread context without claiming the catalog constraints still hold, while untouched Search preserves that exact custom query. Finally reselect the same path: PASS if the exact canonical pair returns and no Cat refinement resurfaces. Owner ACCEPT must bind candidate `2341691e1b2f0311c3c6cead0345e08e70f675a1`; this engineering PASS authorizes neither integration nor successor work.
+
+### Post-verdict conservative-suffix finding — candidate superseded
+
+Candidate `2341691e1b2f0311c3c6cead0345e08e70f675a1` is **BLOCKED** and its PASS above is historical evidence only. The final bounded source review found that the B allowlist `/^type:[a-z][a-z-]*$/i` admits an unrecognized value such as `type:cat-or-dog`. The shared humanizer accepts it and dehyphenates it to `cat or dog`, creating Boolean-looking Plain meaning that the atomic raw value does not prove. A zero-unhandled translation is therefore insufficient evidence that this suffix is safe to compose with catalog Plain.
+
+The correction remains inside the authorized conservative boundary: restrict this B seam to letters-only `type:` atoms and add `type:cat-or-dog` as a focused negative that must use C/source-context fallback while retaining its exact Operator backing for round trip and untouched Search. Existing positive letters-only atoms and all prior A–H contracts remain required. A new immutable candidate and clean continuation admission are required before a replacement verdict.

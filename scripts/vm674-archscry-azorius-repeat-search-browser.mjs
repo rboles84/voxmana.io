@@ -860,6 +860,7 @@ async function runBoundedDossierPresentation(page) {
     ["commander", pair.raw.replace("-is:commander", "is:commander") + " type:cat"],
     ["unsupported", `${pair.raw} o:draw`],
     ["grouped-suffix", `${pair.raw} (type:cat)`],
+    ["hyphenated-value", `${pair.raw} type:cat-or-dog`],
     ["missing-token-boundary", `${pair.raw}type:cat`],
   ];
   const fallbacks = [];

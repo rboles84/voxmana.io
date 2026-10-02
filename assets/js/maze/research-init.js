@@ -1429,7 +1429,7 @@ function buildDossierCustomPlainPresentation(operatorQuery) {
     const suffix = query.slice(prefix.length);
     const atoms = suffix.split(" ");
     const descriptions = atoms.map((atom) => {
-      if (!/^type:[a-z][a-z-]*$/i.test(atom)) return "";
+      if (!/^type:[a-z]+$/i.test(atom)) return "";
       const translated = translateScryfallSyntaxToPlainText(atom);
       return translated.translated && !translated.unhandled?.length ? translated.text : "";
     });
