@@ -437,9 +437,11 @@ async function guideRoundtrip(page, { staleContext = false } = {}) {
   if (staleContext) await page.evaluate(() => {
     const key = "vm_maze_guide_return_ui_v1";
     const record = JSON.parse(sessionStorage.getItem(key));
-    record.generatedDossierPlainProjection.intentKey = "obsolete-dossier-context";
-    record.suggestionReturnDraft.intentKey = "obsolete-dossier-context";
-    record.suggestionReturnDraft.generatedProjection.intentKey = "obsolete-dossier-context";
+    if (record.generatedDossierPlainProjection) record.generatedDossierPlainProjection.intentKey = "obsolete-dossier-context";
+    if (record.suggestionReturnDraft) {
+      record.suggestionReturnDraft.intentKey = "obsolete-dossier-context";
+      if (record.suggestionReturnDraft.generatedProjection) record.suggestionReturnDraft.generatedProjection.intentKey = "obsolete-dossier-context";
+    }
     sessionStorage.setItem(key, JSON.stringify(record));
   });
   await page.goto(returnUrl, { waitUntil: "domcontentloaded" });
@@ -678,6 +680,7 @@ async function runPrismariOperatorRestore(page, baseUrl) {
   const passiveRaw = await switchModeAndCapture(page, "raw", page.vm674Requests);
   await switchModeAndCapture(page, "ai", page.vm674Requests);
   const customPlainBackedSearch = await clickSearchAndCapture(page, page.vm674Requests);
+  reportObservation("generated-plain-provenance", { customRawSearch, customPlain, passiveRaw, customPlainBackedSearch });
   const suggestionSelector = "[data-action='inspect-suggested-search']";
   const customSuggestion = await page.$(suggestionSelector);
   let customSuggestionDirectReturn = null;
