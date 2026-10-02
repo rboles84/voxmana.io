@@ -323,3 +323,26 @@ No grammar, compiler/query-core, catalog/source meaning, alias, policy, dependen
 The initial B/C candidate 2341691e1b2f0311c3c6cead0345e08e70f675a1 passed the focused positive and four final isolated controls. Before delivery, coordinator review raised a supported-atom boundary: type:cat-or-dog was admitted and dehyphenated into potentially misleading Boolean prose. Separate RobQA confirmed the defect and BLOCKED delivery of that candidate. Its prior PASS remains historical, superseded by this source-bound finding. A transient capacity error interrupted the configured reviewer; the same Sol medium reviewer resumed, with no model substitution.
 
 The authorized correction remains bounded: letters-only type values for B; hyphenated values receive C. Root added the negative fallback/backing regression, passed the focused developer run and advanced the controller cache key. No broader grammar or type/identity table was introduced. New exact-candidate separate QA is required; Owner and integration remain pending. Earlier Git reports remain historical and a new report will bind the replacement candidate. No push, integration or successor task occurred.
+## B/C correction — replacement exact candidate Owner Review
+
+Task: VM-674
+Candidate: 6f9c197e753506fd4963e51aad36c4b8043a16e3
+RobQA: PASS
+Execution: SEPARATE
+Owner: PENDING
+Integration: PENDING
+
+Separate RobQA's replacement verdict is in [the attributed QA handoff](2026-09-30-robqa-vm674-azorius-repeat-search.md#conservative-letters-only-suffix-boundary--replacement-exact-candidate-qa). Independent default Azorius/Prismari/B/C positive, syntax, mode/leakage, query contract, freshness and whitespace checks passed. Four required isolated controls detected raw leakage, unsafe base composition, backing loss and stale restoration. A fifth restoring the old hyphen guard failed the newly protected C boundary. Exact source/mutation hashes were checked before/after execution, copies were confirmed removed and original logs remain durable externally. Replacement receipt: C:/Users/obake/.codex/visualizations/2026/10/02/01a0faa0-e32f-7572-9040-c3ed46404469/vm674-bc-6f9c197-qa-evidence.md, SHA-256 0643d0f33ce5d9650b6d3b78e0def1b0c5b4497e9abd0cdfaade97126ae0befd. The earlier receipt retains failed/surviving control attempts and superseded readiness honestly.
+
+The full Git-derived material/evidence/total report is C:/Users/obake/.codex/visualizations/2026/10/02/01a0faa0-e32f-7572-9040-c3ed46404469/vm674-bc-final-git-report.md. Baseline remains a798f38559202050e29ac010de26241fa9aabaa1; the complete task material scope is 13 Git paths. Post-candidate records are limited to appended QA/coordinator evidence, card lifecycle/delivery/checkbox results and generated board. The exact-delta independent content receipt and delivery checker must verify those records before final presentation. Earlier code/test/policy/source bytes remain frozen. Unrelated RobQAPass (1).md remains recoverably preserved outside the checkout as previously recorded.
+
+### Short Owner manual check
+
+1. Prismari **Commanders in this identity**: append ` type:cat` in Operator, Search, inspect Plain, Search untouched, then return to Operator. Expect Prismari catalog wording plus Cat refinement and exact custom backing.
+2. Prismari **Cards that support this shape**: repeat Cat refinement. Expect catalog support Plain plus Cat cards, with no raw type/Oracle/tag/Boolean syntax; untouched Search retains the complete complex query.
+3. Change a canonical clause or append ` type:cat-or-dog`. Expect honest custom Operator/source context, no false catalog-base or Cat-or-Dog equivalence, and exact custom execution.
+4. Restore exact canonical Operator. Expect exact catalog Plain and clear current interpretation with no custom/fallback residue.
+5. After a complex custom search, Clear and reselect the support path; also reselect it without Clear. Repeated mode switching must retain the canonical pair without resurrected Cat state.
+6. Azorius **Commanders in this identity**: add `with cats` in Plain and Search, remove it exactly and Search. Canonical restore and mode inspection remain correct.
+
+Natural wording/product feel and real pointer navigation remain Owner judgment. Automated evidence uses deterministic intercepted results and native rendered-control dispatch; it does not certify live counts/card semantics, pointer geometry or screenshots. No push, integration or successor task occurred. Stop at Owner Review pending exact-candidate ACCEPT.

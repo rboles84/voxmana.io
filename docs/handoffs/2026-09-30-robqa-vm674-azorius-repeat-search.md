@@ -624,3 +624,48 @@ Owner judgment remains whether the simple and complex B wording and honest C fal
 Candidate `2341691e1b2f0311c3c6cead0345e08e70f675a1` is **BLOCKED** and its PASS above is historical evidence only. The final bounded source review found that the B allowlist `/^type:[a-z][a-z-]*$/i` admits an unrecognized value such as `type:cat-or-dog`. The shared humanizer accepts it and dehyphenates it to `cat or dog`, creating Boolean-looking Plain meaning that the atomic raw value does not prove. A zero-unhandled translation is therefore insufficient evidence that this suffix is safe to compose with catalog Plain.
 
 The correction remains inside the authorized conservative boundary: restrict this B seam to letters-only `type:` atoms and add `type:cat-or-dog` as a focused negative that must use C/source-context fallback while retaining its exact Operator backing for round trip and untouched Search. Existing positive letters-only atoms and all prior A–H contracts remain required. A new immutable candidate and clean continuation admission are required before a replacement verdict.
+
+## Conservative letters-only suffix boundary — replacement exact-candidate QA
+
+Task: VM-674
+Candidate: `6f9c197e753506fd4963e51aad36c4b8043a16e3`
+Admission baseline: `a798f38559202050e29ac010de26241fa9aabaa1`
+Owner B/C scope amendment: `f53fff8aa220db4aaf16c249375a3d8e8d2d9cf5`
+Superseded candidate: `2341691e1b2f0311c3c6cead0345e08e70f675a1`
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: Codex `/root/option_a_qa` (Sol medium)
+Implementer: Codex `/root/option_a_dev` and coordinator `/root` for bounded fixture completion
+
+### Decision
+
+QA-3 passes for the exact replacement candidate. B now accepts only letters-only standalone `type:` suffix atoms after the exact catalog Operator prefix and delimiter. A hyphenated value such as `type:cat-or-dog` takes C, so the shared humanizer cannot turn an unproved atomic value into Boolean-looking catalog refinement. C keeps honest Prismari/path/thread context, exposes no raw syntax or false canonical-base claim, and retains the exact custom Operator request for round trip and untouched Search.
+
+The complete previously selected A–H stateful evidence remains green: simple and complex B, multiple allowed atoms, twelve close negative boundaries, B/C real edits, authored destination priority, exact canonical restoration, same path/thread reset histories, VM-479/480 humanizer control and the historical Azorius journey. Existing Option A provenance, Prismari context, generic Izzet route, suggestion/guide Return ownership, Loom/query/API/cache/route/parser/compiler and normalization behavior remain protected.
+
+### Exact-candidate checks
+
+- `node --check assets/js/maze/research-init.js` and `node --check scripts/vm674-archscry-azorius-repeat-search-browser.mjs` — PASS.
+- `npm.cmd run test:mode` — PASS, 14 mode-continuity and 14 leakage cases.
+- `node tests/maze/maze-query-contract-tests.js` — PASS.
+- `npm.cmd run task -- indexes --check` — PASS, 714 cards, 1,166 handoffs and zero stale generated views.
+- `git diff --check a798f38559202050e29ac010de26241fa9aabaa1..6f9c197e753506fd4963e51aad36c4b8043a16e3` — PASS.
+- `npm.cmd run test:vm674-azorius-repeat-search` — PASS with the default combined Azorius and Prismari journey. The emitted `hyphenated-value` observation used the C presentation, preserved exact input/inspector/decoded API bytes, and the final failures collection was empty.
+
+CPU-heavy validation is **NOT REQUIRED**. The focused rendered state histories, lower query/mode contracts and mutation controls target the changed seam directly. Broad browser smoke, the 37-profile matrix, screenshots, viewport matrices, live Scryfall/card semantics and counts, broad grammar/AST/identity recertification and unrelated harness repair remain intentionally skipped. Native DOM click dispatch covered moving dossier controls and real keyboard events covered authored text; pointer geometry and subjective visual quality remain Owner territory.
+
+### Replacement causal controls
+
+The exact replacement controller had SHA-256 `DBC07CAB4D3C6A7264C2F63D11A2EA94D7F902B1297E12548AE5E1D2B36D3596` in the repository and its byte-for-byte external copy. Five isolated `VM674_JOURNEY=bc` / `VM674_RESEARCH_INIT_FILE` runs reached the rendered prerequisite histories, retained their pre/post hashes and exited 1 on the intended invariant:
+
+- raw leakage `714C27FFB9ABCA423144C60A37A2E8CEDF2AC632E01F346230489FE54434B8AC` — removed-clause C failed `Generated Plain leaked raw syntax`;
+- unsafe B `972367142A01F12E2B839F986509C95961D8291BF4776D198517C53584675E80` — changed-base C failed the false canonical-constraint assertion;
+- exact backing loss `7176B27F123FA2EB5FEF505B961F673AE2B59D5459819093DE4E7A8D016A4939` — simple B lost `type:cat` from exact round-trip backing;
+- stale restoration `361B77985F333CA104AEF223CCAE195893F8795DAB0120D1F95A491B4A6602EA` — explicit dossier action restored obsolete `narrowed to cat cards`; and
+- old hyphen guard `9ECF32A7EEE9448351D06DADB739365A5B1B627D7990461C2093B2DFFBDB2DA0` — `hyphenated-value` falsely composed B and failed the C assertion.
+
+No final control failed through launch, fixture schema or helper error. The superseded candidate receipt separately preserves the initially noncausal control attempts and their correction. All replacement external controller copies were removed after final post-run hash verification; durable positive/control logs and the external replacement receipt remain.
+
+### Owner boundary
+
+Owner judgment remains the natural feel of the simple/complex B wording and source-context C wording. In the Prismari support path, append ` type:cat`; Plain should naturally refine the catalog sentence and untouched Search must execute the exact complex Operator query. Then try ` type:cat-or-dog`; Plain should use the honest custom Prismari/path context without claiming catalog constraints or saying `cat or dog`, while untouched Search preserves that exact raw request. Reselect the path and confirm the canonical pair returns with no stale refinement. Owner ACCEPT must bind `6f9c197e753506fd4963e51aad36c4b8043a16e3`; this engineering PASS does not authorize integration or successor work.
