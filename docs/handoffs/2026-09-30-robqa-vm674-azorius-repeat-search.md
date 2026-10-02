@@ -323,3 +323,63 @@ The fixture must observe mode, current draft, active dossier context/ownership p
 - Preserve catalog-first current equality, stable `identity_key + pathType + threadId` resolution, unavailable-catalog compatibility fallback, stale-selector refusal, conservative normalization, genuine custom Plain compilation, exact custom Operator execution, mode draft continuity, stale diagnostic clearing, and truthful current-request versus previous-results presentation.
 
 Broad browser smoke, 37 interactive browser identities, semantic recertification, live Scryfall semantics, screenshots, viewport matrices, subjective visual certification, and unrelated harness work remain out of scope. CPU-heavy validation is NOT REQUIRED. Owner product judgment and exact-candidate ACCEPT remain separate.
+
+## Prismari cross-mode Operator restore — exact-candidate QA
+
+Task: VM-674
+Candidate: `186a8b34a2a29b0269c2c18db63c5c21860adb8c`
+Rejected predecessor: `6222d48af45e823b4aa39df2657bf7928def0477`
+Admission baseline: `a798f38559202050e29ac010de26241fa9aabaa1`
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: Codex `/root/vm674_qa` (Sol medium)
+Implementer: Codex `/root/vm674_dev` (Terra medium)
+
+### Decision
+
+QA-3 passes for the exact replacement candidate. The current source-mode value is checked against the active catalog pair before generic mode translation. An exact catalog Plain or Operator representation therefore changes mode to the other catalog representation and refreshes the accepted Plain/Operator bridge. A noncanonical value continues through the existing generic translator and remains a genuine custom request.
+
+This closes the Owner-reported Prismari escape without changing the established authority model. The valid current catalog remains authoritative through stable dossier identity/path/thread; serialized fields remain compatibility fallback only when catalog provenance is unavailable; stale selectors do not gain linkage; current exact equality remains conservative; and standalone/custom behavior remains third. No registry, identity table, parser expansion, persistence, source meaning, result-count contract, or sidebar recovery dependency was introduced.
+
+### Selected checks
+
+- Syntax checks passed for `maze-handoff.js`, `research-init.js`, the focused browser fixture, and discovery-profile test.
+- `npm.cmd run test:mode` passed 14 mode-continuity and 14 leakage cases.
+- `node tests/maze/maze-query-contract-tests.js` passed.
+- `npm.cmd run test:maze-discovery-profiles` passed with 37/37 current catalog profiles, 367 projections, 354 executable projections, 13 intentionally unavailable projections, zero empty executable results, and the existing catalog-wide canonical pair checks.
+- `npm.cmd run task -- indexes --check` passed with 714 cards, 1,166 handoffs, and no stale generated views at the material candidate.
+- `git diff --check a798f38559202050e29ac010de26241fa9aabaa1..186a8b34a2a29b0269c2c18db63c5c21860adb8c` passed.
+- Git reports 13 material paths from the admission baseline to this candidate, the same path set as the prior catalog-backed candidate. The correction delta from evidence head `b62df194b64d55ab71f0006ffd95879ea72cafb5` changes the controller, focused fixture, controller cache key, current card/board, and append-only task handoffs only.
+
+### Independent focused browser evidence
+
+`VM674_JOURNEY=azorius npm.cmd run test:vm674-azorius-repeat-search` exited 0. The preserved Azorius A–K path retained exact initial, repeat, mode-round-trip and restored `id=wu is:commander f:commander` execution; custom Plain and Operator paths, keyboard cut/paste restoration, stale-diagnostic clearing, and current-request/previous-results assertions remained green.
+
+`VM674_JOURNEY=prismari npm.cmd run test:vm674-azorius-repeat-search` exited 0 from a separate fresh page. The rendered stable dossier/profile key was `PRISMARI`, while the catalog color query remained `id=ur is:commander f:commander`. The journey observed:
+
+- exact initial Plain `Prismari College Commander-legal commanders with exactly blue-red identity`;
+- exact canonical raw inspector/API bytes `id=ur is:commander f:commander`;
+- exact custom raw inspector/API bytes `id=ur is:commander f:commander type:cat`;
+- a custom Plain translation distinct from the catalog phrase while stable dossier context remained active;
+- exact canonical raw restoration and `Previous results` before executing the restored request;
+- exact canonical raw inspector/API bytes after Search;
+- exact catalog Plain text immediately after the next mode switch, with no sidebar click; and
+- a final Plain Search executing the canonical Operator query with `clear` interpretation and no stale unresolved state.
+
+The generic custom Plain translation's observed interpretation key was `exact` in this independent run. That classification is intentionally not pinned; the regression requires only genuine custom ownership, a value distinct from the catalog phrase, and retained stable dossier context. No result count was used as evidence.
+
+### Causal rejected-runtime evidence
+
+One cold fresh-Prismari run served the current static candidate with only `/assets/js/maze/research-init.js` overridden by the exact rejected `6222d48af45e823b4aa39df2657bf7928def0477` Git blob. The file matched expected blob `7daf6fbfd7a400146230cb2afced98b0fec2ea4f` and SHA-256 `92EEFEBC87A79864BC206DBADAF71C5BC91FE2AF2BD5CAF797EE6C8C3D4B0B55` before execution and again before cleanup.
+
+The command exited 1 after reaching the intended seam. Initial catalog launch, canonical raw Search, custom `type:cat` raw Search, exact raw restoration, `Previous results`, and restored raw inspector/API bytes all completed correctly. Returning to Plain then produced `Izzet color identity commander candidates commander legal`; final Plain Search executed `c:ur legal:commander` and entered `needs-meaning`. The only failures were catalog Plain restoration and stale interpretation. This isolates the replacement's eight-line mode-pair synchronization rather than launch, catalog availability, custom Operator execution, Search, API interception, or browser setup.
+
+The rejected override remained byte-identical, its owned directory was removed, zero `voxmana-vm674-*` profiles remained, and the repository stayed clean at the exact replacement candidate. Earlier developer attempts that reused an Azorius-only `WU` identity waiter are disclosed in the RobDev handoff and excluded from product conclusions; the corrected fixture distinguishes stable `PRISMARI` from query color identity `UR`.
+
+The compact independent receipt is `C:/Users/obake/.codex/visualizations/2026/10/01/01a0f8a8-2c56-75b2-864d-ac580d3f2907/vm674-prismari-cross-mode-qa-receipt.md`, SHA-256 `59C3A700D66C81654F81A37B4FB8CADE99577F3CEB9EA5547A2B265A3DC76E67`.
+
+### Limits and Owner boundary
+
+This PASS certifies the selected current-state catalog pairing, both custom/restore directions, exact query/API bytes, mode draft continuity, focused rendered diagnostics/results truth, deterministic catalog breadth, and causal sensitivity. It does not certify live Scryfall availability, card-result semantics, result counts, subjective visual quality, broad browser health, every identity through a browser, or semantic dossier content. CPU-heavy and broad rendered suites were not required.
+
+Owner review remains separate. Start at `http://127.0.0.1:8000/archscry/?explore=prismari`, choose **Commanders in this identity**, switch to Operator, Search, append ` type:cat` and Search, inspect Plain, return to Operator, restore exactly `id=ur is:commander f:commander` and Search, then return to Plain and Search. PASS if the custom query remains custom, exact restoration returns the Prismari catalog phrase without a sidebar click, and the final query is canonical without stale **Needs meaning**. Owner ACCEPT must bind exact candidate `186a8b34a2a29b0269c2c18db63c5c21860adb8c` before integration.

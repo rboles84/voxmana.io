@@ -2,7 +2,7 @@
 
 ID: VM-674
 Title: Azorius Repeat Search
-Status: In Progress
+Status: Owner Review
 Type: Bounded rendered-behavior investigation and conditional repair
 Area: Archscry-to-Maze discovery handoff and repeat search
 Priority: High
@@ -39,7 +39,7 @@ Current Owner eight-item request, item 6; accepted VM-670 and VM-671 records; hi
 - [x] The fixture is ChromeLauncher/DevTools-ready, cache-aware, output-isolated, and has owned cleanup; no extra network-count contract is asserted.
 - [x] A catalog-backed current-representation resolver replaces the history-dependent replay guard without a duplicate dossier registry.
 - [x] Exact canonical Plain and Operator restoration, including cut/paste, re-links deterministically; custom Plain and Operator requests retain existing behavior.
-- [ ] Prismari’s `commanders-that-fit` path restores its catalog Plain representation after an exact canonical Operator restore and search, while a custom Operator request keeps its stable catalog context.
+- [x] Prismari’s `commanders-that-fit` path restores its catalog Plain representation after an exact canonical Operator restore and search, while a custom Operator request keeps its stable catalog context.
 - [x] Stale custom diagnostics and misleading current-request presentation clear when a canonical dossier intent is restored.
 - [x] Deterministic lower-level coverage proves catalog resolution for broad and thread-specific paths across identity families.
 - [x] If no defect or usable browser page is established, the handoff documents the bounded non-reproduction or limitation and no speculative code is added.
@@ -76,8 +76,8 @@ Apply RobDev before implementation. Replace the reproduced history-dependent rep
 Record version: 1
 Branch: codex/vm-674-azorius-repeat-search
 Admission baseline: a798f38559202050e29ac010de26241fa9aabaa1
-Candidate: PENDING
-RobQA: PENDING
+Candidate: 186a8b34a2a29b0269c2c18db63c5c21860adb8c
+RobQA: PASS at 186a8b34a2a29b0269c2c18db63c5c21860adb8c — SEPARATE QA-3; [Prismari correction QA](../../handoffs/2026-09-30-robqa-vm674-azorius-repeat-search.md#prismari-cross-mode-operator-restore--exact-candidate-qa)
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
