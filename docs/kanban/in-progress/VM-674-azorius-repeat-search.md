@@ -2,7 +2,7 @@
 
 ID: VM-674
 Title: Azorius Repeat Search
-Status: Owner Review
+Status: In Progress
 Type: Bounded rendered-behavior investigation and conditional repair
 Area: Archscry-to-Maze discovery handoff and repeat search
 Priority: High
@@ -28,6 +28,7 @@ Current Owner eight-item request, item 6; accepted VM-670 and VM-671 records; hi
 - Record a bounded non-reproduction or browser-page limitation if no current defect can be established.
 - Owner-authorized Option A correction: coordinate the existing request, representation and per-mode draft owners. Generated Plain is presentation-only, retains exact Operator backing syntax, and is not compiled or treated as authored unless the player edits it.
 - Explicit dossier path/thread reselection atomically establishes its canonical intent and invalidates/replaces obsolete per-mode drafts. Preserve expression context separately from generic color translation and external routing aliases.
+- Owner-authorized B/C correction after a QA escape: use the catalog Plain base only when an exact intact canonical Operator prefix plus explicitly supported standalone additive refinements proves composition. Otherwise show an honest contextual custom Operator presentation without raw syntax or an unproven base-equivalence claim. Preserve all Option A ownership contracts.
 
 ## Explicitly Out Of Scope
 
@@ -52,6 +53,10 @@ Current Owner eight-item request, item 6; accepted VM-670 and VM-671 records; hi
 - [x] Clear followed by explicit dossier path/thread reselection cannot resurrect obsolete filters on later mode switches, in either starting mode.
 - [x] Suggestion inspection/Return to draft, Loom filter ownership, canonical relinking, API/cache behavior and truthful previous-results presentation remain protected by focused adversarial regression evidence.
 - [x] A new exact VM-674 candidate receives SEPARATE RobQA before Owner Review; no integration or successor task is authorized.
+- [ ] Simple Prismari Cat and complex support-card Cat use catalog Plain plus a proven supported additive refinement without syntax leakage.
+- [ ] Non-additive, changed Boolean/negation/identity/format/commander, reordered or unsupported syntax rejects composition and uses honest generated fallback while retaining exact backing.
+- [ ] Focused A–H regressions protect genuine Plain edits, canonical restore, complex custom dossier reset, VM-479/480 supported translation and Azorius.
+- [ ] Separate Stateful Adversarial RobQA binds the new exact candidate and demonstrates detection of leakage, unsafe composition, backing loss and stale restoration through causal mutations/controls.
 
 ## Files Likely Impacted
 
@@ -83,8 +88,8 @@ Apply RobDev before implementation. Replace the reproduced history-dependent rep
 Record version: 1
 Branch: codex/vm-674-azorius-repeat-search
 Admission baseline: a798f38559202050e29ac010de26241fa9aabaa1
-Candidate: d5da3bd355ca76298ea95ac01756fabe6e02095f
-RobQA: PASS at d5da3bd355ca76298ea95ac01756fabe6e02095f — SEPARATE Option A exact-candidate verdict in docs/handoffs/2026-09-30-robqa-vm674-azorius-repeat-search.md; historical rejected PASS remains superseded.
+Candidate: PENDING
+RobQA: PENDING — Owner found complex reverse-translation leakage after the prior Option A PASS; B/C correction requires a new exact candidate and separate Stateful Adversarial review.
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
