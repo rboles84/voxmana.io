@@ -1336,6 +1336,14 @@ function restoreSuggestionDraft() {
  */
 function syncInputForModeSwitch(input, previousMode, nextMode) {
   if (!input) return;
+  const dossierIntent = resolveCurrentDossierRepresentation(input.value, previousMode);
+  if (dossierIntent && (nextMode === "ai" || nextMode === "raw")) {
+    input.value = nextMode === "raw" ? dossierIntent.operatorQuery : dossierIntent.plainReadingQuery;
+    lastSmartInput = dossierIntent.plainReadingQuery;
+    lastSmartQuery = dossierIntent.operatorQuery;
+    if (nextMode === "raw") selectAutoFilledInputOnFocus = false;
+    return;
+  }
   const resolved = resolveModeInputValue({
     previousMode,
     nextMode,

@@ -7,7 +7,8 @@ import path from "node:path";
 import * as ChromeLauncher from "chrome-launcher";
 import puppeteer from "puppeteer-core";
 
-const root = process.cwd();
+const root = process.env.VM674_SOURCE_ROOT || process.cwd();
+const researchInitOverride = process.env.VM674_RESEARCH_INIT_FILE ? path.resolve(process.env.VM674_RESEARCH_INIT_FILE) : "";
 const host = "127.0.0.1";
 const temporaryPrefix = "voxmana-vm674-";
 const wholeRouteTimeoutMs = 60000;
@@ -102,7 +103,7 @@ function startServer() {
       const relativePath = pathname.endsWith("/") ? `${pathname}index.html` : pathname;
       const resolvedPath = path.resolve(root, `.${relativePath}`);
       if (!resolvedPath.startsWith(root)) throw new Error("outside workspace");
-      const body = await readFile(resolvedPath);
+      const body = await readFile(relativePath === "/assets/js/maze/research-init.js" && researchInitOverride ? researchInitOverride : resolvedPath);
       response.writeHead(200, {
         "content-type": mimeTypes.get(path.extname(resolvedPath).toLowerCase()) || "application/octet-stream",
         "cache-control": "no-store",
@@ -166,15 +167,20 @@ async function configurePage(browser, baseUrl) {
   return page;
 }
 
-function azoriusDossierUrl(baseUrl) {
-  return `${baseUrl}/archscry/?explore=azorius&panel=maze-discovery#maze-discovery-paths`;
+function dossierUrl(baseUrl, explore) {
+  return `${baseUrl}/archscry/?explore=${explore}&panel=maze-discovery#maze-discovery-paths`;
 }
 
-async function inspectAzoriusCommandersPath(page) {
+async function inspectCommandersPath(page, expectedIdentity = "WU") {
   await page.waitForSelector("#maze-discovery-paths .deck-link[data-service='maze']", { timeout: 30000 });
-  await page.waitForFunction(() => (
-    document.querySelector("[data-dossier-console]")?.getAttribute("data-dossier-identity-key") === "WU"
-  ), { timeout: 30000 });
+  try {
+    await page.waitForFunction((identity) => (
+      document.querySelector("[data-dossier-console]")?.getAttribute("data-dossier-identity-key") === identity
+    ), {}, expectedIdentity);
+  } catch (error) {
+    console.log(`VM674_DOSSIER_IDENTITY ${JSON.stringify(await page.evaluate(() => document.querySelector("[data-dossier-console]")?.getAttribute("data-dossier-identity-key") || "") )}`);
+    throw error;
+  }
   return page.evaluate(() => {
     const identity = document.querySelector("[data-dossier-console]")?.getAttribute("data-dossier-identity-key") || "";
     const links = [...document.querySelectorAll("#maze-discovery-paths .deck-link[data-service='maze']")];
@@ -213,6 +219,12 @@ async function clickInspectedPath(page) {
 
 async function captureMazeState(page, requestUrls) {
   return page.evaluate((requests) => {
+    let handoff = {};
+    try {
+      handoff = JSON.parse(localStorage.getItem("vm_archscry_maze_handoff_v1") || "{}") || {};
+    } catch {
+      handoff = {};
+    }
     const searchLink = document.getElementById("search-scryfall-link");
     const grid = document.getElementById("card-grid");
     const results = document.getElementById("results-header");
@@ -236,6 +248,14 @@ async function captureMazeState(page, requestUrls) {
         count: document.getElementById("res-count")?.textContent?.trim() || "",
       },
       requestUrls: requests,
+      handoff: {
+        identityKey: handoff.identity_key || handoff.identityKey || handoff.profile || "",
+        pathType: handoff.path_type || handoff.pathType || "",
+      },
+      dossierRuntime: {
+        identityKey: document.documentElement.dataset.vm547Profile || document.querySelector("#reading-path-panel")?.dataset.vm547Profile || "",
+        pathType: new URL(location.href).searchParams.get("pathType") || "",
+      },
     };
   }, requestUrls);
 }
@@ -343,8 +363,8 @@ async function cutAndPasteCanonicalPlain(page) {
 
 async function runPublicAzoriusRoute(page, baseUrl) {
   currentPhase = "archscry-route";
-  await page.goto(azoriusDossierUrl(baseUrl), { waitUntil: "domcontentloaded", timeout: 30000 });
-  const route = await inspectAzoriusCommandersPath(page);
+  await page.goto(dossierUrl(baseUrl, "azorius"), { waitUntil: "domcontentloaded", timeout: 30000 });
+  const route = await inspectCommandersPath(page);
   reportObservation(currentPhase, { route });
   assert.equal(route.identity, "WU", "VM-674 expected the rendered Azorius dossier identity.");
   assert(route.link, "VM-674 expected the public commanders-that-fit Maze link.");
@@ -507,6 +527,56 @@ async function runPublicAzoriusRoute(page, baseUrl) {
   return summary;
 }
 
+async function runPrismariOperatorRestore(page, baseUrl) {
+  currentPhase = "prismari-dossier-navigation";
+  await page.goto(dossierUrl(baseUrl, "prismari"), { waitUntil: "domcontentloaded", timeout: 30000 });
+  currentPhase = "prismari-path-inspection";
+  const route = await inspectCommandersPath(page, "PRISMARI");
+  assert.equal(route.identity, "PRISMARI", "VM-674 Prismari route resolved the wrong dossier identity.");
+  assert.equal(route.link?.plainReadingQuery, "Prismari College Commander-legal commanders with exactly blue-red identity");
+  assert.equal(route.link?.operatorQuery, "id=ur is:commander f:commander");
+  currentPhase = "prismari-maze-launch";
+  await clickInspectedPath(page);
+  try {
+    await page.waitForFunction((query) => document.getElementById("qi-query")?.textContent?.trim() === query, {}, route.link.operatorQuery);
+  } catch (error) {
+    const launchState = await page.evaluate(() => ({ href: location.href, input: document.getElementById("search-input")?.value || "", query: document.getElementById("qi-query")?.textContent?.trim() || "", mode: document.body.dataset.mazeMode || "", diagnostics: document.getElementById("qi-diagnostics")?.textContent?.trim() || "", interpretation: document.getElementById("results-interpretation-state")?.dataset?.state || "" }));
+    console.log(`VM674_PRISMARI_LAUNCH_STATE ${JSON.stringify(launchState)}`);
+    throw error;
+  }
+  const initial = await captureMazeState(page, page.vm674Requests);
+  const requestsBeforeModes = page.vm674Requests.length;
+  const raw = await switchModeAndCapture(page, "raw", page.vm674Requests);
+  const canonicalRawSearch = await clickSearchAndCapture(page, page.vm674Requests);
+  await replaceInputWithKeyboard(page, `${route.link.operatorQuery} type:cat`);
+  const customRawSearch = await clickSearchAndCapture(page, page.vm674Requests);
+  const customPlain = await switchModeAndCapture(page, "ai", page.vm674Requests);
+  const rawForRestore = await switchModeAndCapture(page, "raw", page.vm674Requests);
+  await replaceInputWithKeyboard(page, route.link.operatorQuery);
+  const restoredRawBeforeSearch = await captureMazeState(page, page.vm674Requests);
+  const restoredRawSearch = await clickSearchAndCapture(page, page.vm674Requests);
+  const restoredPlain = await switchModeAndCapture(page, "ai", page.vm674Requests);
+  const restoredPlainSearch = await clickSearchAndCapture(page, page.vm674Requests);
+  const failures = [];
+  const expect = (condition, message) => { if (!condition) failures.push(message); };
+  expect(initial.input === route.link.plainReadingQuery && initial.query === route.link.operatorQuery, "VM-674 Prismari launch did not preserve catalog representations.");
+  expect(raw.input === route.link.operatorQuery && raw.mode === "raw", "VM-674 Prismari Operator view did not show canonical syntax.");
+  expect(raw.requestUrls.length === requestsBeforeModes, "VM-674 Prismari mode inspection executed a search.");
+  expect(canonicalRawSearch.state.query === route.link.operatorQuery && apiQuery(canonicalRawSearch.state.apiUrl) === route.link.operatorQuery, "VM-674 Prismari canonical Operator search drifted.");
+  expect(customRawSearch.state.query === `${route.link.operatorQuery} type:cat` && apiQuery(customRawSearch.state.apiUrl) === `${route.link.operatorQuery} type:cat`, "VM-674 Prismari custom Operator lost exact syntax.");
+  expect(customPlain.mode === "ai" && customPlain.input !== route.link.plainReadingQuery && customPlain.dossierRuntime.identityKey === route.link.profile && customPlain.dossierRuntime.pathType === route.link.pathType, "VM-674 Prismari custom Operator did not retain its stable catalog metadata.");
+  expect(rawForRestore.mode === "raw", "VM-674 Prismari return to Operator failed.");
+  expect(restoredRawBeforeSearch.input === route.link.operatorQuery, "VM-674 Prismari canonical Operator was not visibly restored before Search.");
+  expect(restoredRawSearch.state.query === route.link.operatorQuery && apiQuery(restoredRawSearch.state.apiUrl) === route.link.operatorQuery, "VM-674 Prismari restored Operator did not execute canonical bytes.");
+  expect(restoredPlain.input === route.link.plainReadingQuery && restoredPlain.mode === "ai", "VM-674 Prismari canonical Operator did not restore catalog Plain text.");
+  expect(restoredPlainSearch.state.query === route.link.operatorQuery && apiQuery(restoredPlainSearch.state.apiUrl) === route.link.operatorQuery && restoredPlainSearch.state.interpretationState.key !== "needs-meaning" && !/unresolved\s*(prismari|exactly)/i.test(restoredPlainSearch.state.diagnostics), "VM-674 Prismari restored Plain search retained stale interpretation.");
+  const summary = { route, initial, raw, canonicalRawSearch, customRawSearch, customPlain, rawForRestore, restoredRawBeforeSearch, restoredRawSearch, restoredPlain, restoredPlainSearch, failures };
+  reportObservation("prismari-summary", summary);
+  console.log(`VM674_PRISMARI_SUMMARY ${JSON.stringify({ initial: { input: initial.input, query: initial.query }, canonicalRawSearch: { query: canonicalRawSearch.state.query, apiQuery: apiQuery(canonicalRawSearch.state.apiUrl) }, customRawSearch: { query: customRawSearch.state.query, apiQuery: apiQuery(customRawSearch.state.apiUrl) }, customPlain: { input: customPlain.input, interpretation: customPlain.interpretationState.key, context: customPlain.context }, restoredRawBeforeSearch: { input: restoredRawBeforeSearch.input }, restoredRawSearch: { query: restoredRawSearch.state.query, apiQuery: apiQuery(restoredRawSearch.state.apiUrl) }, restoredPlain: { input: restoredPlain.input, interpretation: restoredPlain.interpretationState.key }, restoredPlainSearch: { query: restoredPlainSearch.state.query, apiQuery: apiQuery(restoredPlainSearch.state.apiUrl), interpretation: restoredPlainSearch.state.interpretationState.key }, failures })}`);
+  if (failures.length) throw new Error(failures.join(" "));
+  return summary;
+}
+
 async function main() {
   const server = await startServer();
   let browser;
@@ -528,24 +598,37 @@ async function main() {
     await launchedChrome.launch();
     await waitForDevtools(launchedChrome.port);
     browser = await puppeteer.connect({ browserURL: `http://${host}:${launchedChrome.port}` });
-    const page = await configurePage(browser, baseUrl);
-    let routeTimeout;
-    let routeRun;
-    try {
-      routeRun = await Promise.race([
-        runPublicAzoriusRoute(page, baseUrl),
-        new Promise((_, reject) => {
-          routeTimeout = setTimeout(
-            () => reject(new Error(`VM-674 public route exceeded its ${wholeRouteTimeoutMs}ms whole-route limit.`)),
-            wholeRouteTimeoutMs
-          );
-        }),
-      ]);
-    } finally {
-      clearTimeout(routeTimeout);
+    const journey = process.env.VM674_JOURNEY || "both";
+    assert(["azorius", "prismari", "both"].includes(journey), "VM-674 VM674_JOURNEY must be azorius, prismari, or both.");
+    let routeRun = null;
+    if (journey === "azorius" || journey === "both") {
+      const page = await configurePage(browser, baseUrl);
+      let routeTimeout;
+      try {
+        routeRun = await Promise.race([
+          runPublicAzoriusRoute(page, baseUrl),
+          new Promise((_, reject) => {
+            routeTimeout = setTimeout(
+              () => reject(new Error(`VM-674 public route exceeded its ${wholeRouteTimeoutMs}ms whole-route limit.`)),
+              wholeRouteTimeoutMs
+            );
+          }),
+        ]);
+      } finally {
+        clearTimeout(routeTimeout);
+        await page.close();
+      }
     }
-    console.log(JSON.stringify(routeRun, null, 2));
-    await page.close();
+    let prismariRun = null;
+    if (journey === "prismari" || journey === "both") {
+      const page = await configurePage(browser, baseUrl);
+      try {
+        prismariRun = await runPrismariOperatorRestore(page, baseUrl);
+      } finally {
+        await page.close();
+      }
+    }
+    console.log(JSON.stringify({ azorius: routeRun, prismari: prismariRun }, null, 2));
   } finally {
     if (browser) {
       try {

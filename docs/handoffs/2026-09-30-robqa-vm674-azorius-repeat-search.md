@@ -275,3 +275,51 @@ This appended verdict is evidence-only after the material candidate. It does not
 This evidence certifies the selected catalog resolver, conservative equality, focused WU rendered state transitions, deterministic catalog-wide pairing, stale selector refusal, custom request preservation, UI synchronization, and causal sensitivity. It does not certify live Scryfall availability, card-result semantics, subjective visual quality, every identity through a browser, broad browser health, or semantic dossier content. No screenshot, viewport matrix, broad browser suite, or semantic recertification was run. CPU-heavy validation was not required.
 
 Owner review remains separate. Start at `http://127.0.0.1:8000/archscry/?explore=azorius`, open **Commanders in this identity**, then check: unchanged Search; Plain → Operator → Plain; append `with cats`; remove it exactly and Search; finally cut the full canonical Plain request, paste it back, and Search. PASS if the canonical actions consistently execute `id=wu is:commander f:commander`, custom text remains custom, exact restoration re-links, and no stale **Needs meaning** survives. Owner ACCEPT must bind this exact material candidate before integration.
+
+## Prismari cross-mode Operator restore — QA selection
+
+Task: VM-674
+Rejected candidate: `6222d48af45e823b4aa39df2657bf7928def0477`
+Replacement candidate: PENDING
+RobQA: PENDING
+Execution: SEPARATE
+Reviewer: Codex `/root/vm674_qa` (Sol medium)
+Implementer: Codex `/root/vm674_dev` (Terra medium)
+
+The Owner rejected `6222d48af45e823b4aa39df2657bf7928def0477` after the real Prismari route exposed a cross-mode ownership defect: custom Operator syntax worked, Plain showed its generic translation, but restoring the exact canonical Operator query and searching did not restore the catalog-owned Plain representation. The earlier PASS remains immutable historical evidence for that SHA and is no longer current readiness evidence.
+
+### Change classification
+
+- QA tier: QA-3. The correction changes the shared state transition between current custom Operator, generic Plain translation, exact canonical Operator restoration, catalog re-linking, Search execution, and the subsequent Plain representation.
+- Execution: SEPARATE because this remains a shared Archscry/Maze catalog, handoff, mode/draft, and results-synchronization boundary after an Owner-reported QA escape.
+- Regression invariant: when the same stable dossier identity/path/thread remains active, exact current equality with either canonical representation re-links the one catalog intent. A temporary custom representation or cross-mode generic translation cannot permanently replace the catalog pair.
+
+### Blocking focused browser evidence
+
+Keep the existing Azorius Plain custom → exact restore A–K coverage, then exercise the real public Prismari `commanders-that-fit` route in this order:
+
+1. Open the public Prismari dossier and choose **Commanders in this identity**.
+2. Assert initial Plain is exactly `Prismari College Commander-legal commanders with exactly blue-red identity`.
+3. Switch to Operator and assert the visible raw request is exactly `id=ur is:commander f:commander`.
+4. Search the canonical raw request and observe exact inspector/API bytes and completed rendered state.
+5. Append exactly ` type:cat` to the raw request.
+6. Search and prove the custom Operator request executes exactly rather than being overwritten by the catalog query.
+7. Switch to Plain and prove the custom context/draft translation is retained; its generic `needs-meaning` state is allowed and must remain distinct from the canonical dossier phrase.
+8. Switch back to Operator without executing a search.
+9. Restore the visible raw request to exactly `id=ur is:commander f:commander`.
+10. Before Search, assert the raw draft is byte-for-byte canonical and the previous custom Results are not presented as current.
+11. Search and assert the executable inspector query and intercepted API query are exactly `id=ur is:commander f:commander`.
+12. Verify completed rendered results and coherent diagnostics/status without pinning result counts.
+13. Switch to Plain without a sidebar or dossier-thread recovery action.
+14. Assert Plain is exactly the catalog phrase, then Search and verify the canonical Operator query executes with no stale unresolved terms or `needs-meaning`.
+
+The fixture must observe mode, current draft, active dossier context/ownership presentation, inspector query, intercepted API query, Search completion, results heading, diagnostics, and `#results-interpretation-state`. Mode switches must not execute a search. A sidebar click is not an acceptable recovery dependency.
+
+### Causal and lower-layer evidence
+
+- Run the strengthened Prismari regression against the rejected runtime from `6222d48af45e823b4aa39df2657bf7928def0477`; it must fail for the intended raw-restore/cross-mode catalog-pair reason while public launch and custom Operator execution still complete.
+- For the replacement candidate, use an isolated mutation or the exact rejected-runtime witness as causal sensitivity only when its bytes and test fixture are attributable and restored/hash-checked. Do not count a green fixture without a demonstrated red defect witness.
+- Re-run syntax checks for every changed JavaScript/MJS file, `npm.cmd run test:mode`, `node tests/maze/maze-query-contract-tests.js`, `npm.cmd run test:maze-discovery-profiles`, generated-view freshness when records change, `git diff --check`, exact Git accounting, and the repository delivery/report checks selected by the coordinator.
+- Preserve catalog-first current equality, stable `identity_key + pathType + threadId` resolution, unavailable-catalog compatibility fallback, stale-selector refusal, conservative normalization, genuine custom Plain compilation, exact custom Operator execution, mode draft continuity, stale diagnostic clearing, and truthful current-request versus previous-results presentation.
+
+Broad browser smoke, 37 interactive browser identities, semantic recertification, live Scryfall semantics, screenshots, viewport matrices, subjective visual certification, and unrelated harness work remain out of scope. CPU-heavy validation is NOT REQUIRED. Owner product judgment and exact-candidate ACCEPT remain separate.

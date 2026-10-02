@@ -2,7 +2,7 @@
 
 ID: VM-674
 Title: Azorius Repeat Search
-Status: Owner Review
+Status: In Progress
 Type: Bounded rendered-behavior investigation and conditional repair
 Area: Archscry-to-Maze discovery handoff and repeat search
 Priority: High
@@ -39,6 +39,7 @@ Current Owner eight-item request, item 6; accepted VM-670 and VM-671 records; hi
 - [x] The fixture is ChromeLauncher/DevTools-ready, cache-aware, output-isolated, and has owned cleanup; no extra network-count contract is asserted.
 - [x] A catalog-backed current-representation resolver replaces the history-dependent replay guard without a duplicate dossier registry.
 - [x] Exact canonical Plain and Operator restoration, including cut/paste, re-links deterministically; custom Plain and Operator requests retain existing behavior.
+- [ ] Prismari’s `commanders-that-fit` path restores its catalog Plain representation after an exact canonical Operator restore and search, while a custom Operator request keeps its stable catalog context.
 - [x] Stale custom diagnostics and misleading current-request presentation clear when a canonical dossier intent is restored.
 - [x] Deterministic lower-level coverage proves catalog resolution for broad and thread-specific paths across identity families.
 - [x] If no defect or usable browser page is established, the handoff documents the bounded non-reproduction or limitation and no speculative code is added.
@@ -75,13 +76,13 @@ Apply RobDev before implementation. Replace the reproduced history-dependent rep
 Record version: 1
 Branch: codex/vm-674-azorius-repeat-search
 Admission baseline: a798f38559202050e29ac010de26241fa9aabaa1
-Candidate: 6222d48af45e823b4aa39df2657bf7928def0477
-RobQA: PASS at 6222d48af45e823b4aa39df2657bf7928def0477 — SEPARATE QA-3; [Catalog-backed correction QA](../../handoffs/2026-09-30-robqa-vm674-azorius-repeat-search.md#catalog-backed-canonical-intent-correction--exact-candidate-qa)
+Candidate: PENDING
+RobQA: PENDING
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Decisions: Fresh rendered evidence decides whether an owning repair is warranted. Preserve current Maze query, route, mode, filter, cache/deduplication, reading-context, API, and render contracts; do not treat VM-662 as current-defect proof. Scope amendment: catalog-backed current-representation resolver and deterministic lower-level catalog coverage are required by the Owner correction, so `maze-handoff.js` and its profile test enter the admitted scope. Current valid catalog intent is authoritative for canonical representations; serialized handoff fields are compatible fallback only when catalog resolution is unavailable.
-Evidence: [VM-670 report](../../reports/2026-09-30-vm670-repository-recon.md); [VM-671 records reconciliation report](../../reports/2026-09-30-vm671-records-reconciliation.md); current Owner item 6 request.
+Evidence: [VM-670 report](../../reports/2026-09-30-vm670-repository-recon.md); [VM-671 records reconciliation report](../../reports/2026-09-30-vm671-records-reconciliation.md); current Owner item 6 request. The rejected Prismari correction is within the admitted controller, focused fixture, card, and handoff paths: it covers both Azorius Plain and Prismari Operator canonical restoration directions without changing data meaning.
 
 ## Admission Scope
 
