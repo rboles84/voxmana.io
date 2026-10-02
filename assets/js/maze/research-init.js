@@ -7,7 +7,7 @@ import {
   setPlainReadingSemanticRegistry,
   setScryfallGrounding
 } from "./scryfall-grounded-compiler.js";
-import { setScryfallSyntaxDisplayLookup } from "./research-syntax-language.js?v=vm627";
+import { setScryfallSyntaxDisplayLookup, translateScryfallSyntaxToPlainText } from "./research-syntax-language.js?v=vm627";
 import { applyMazeFormatToQuery, resolveMazeQueryRequest } from "./maze-query-core.js?v=vm636";
 import { resolveModeInputValue } from "./research-mode.js?v=vm627";
 import * as ResearchSearch from "./research-search.js";
@@ -1376,6 +1376,17 @@ function syncInputForModeSwitch(input, previousMode, nextMode) {
     if (nextMode === "raw") selectAutoFilledInputOnFocus = false;
     return true;
   }
+  const customDossierPresentation = previousMode === "raw" && nextMode === "ai"
+    ? buildDossierCustomPlainPresentation(input.value)
+    : null;
+  if (customDossierPresentation) {
+    input.value = customDossierPresentation.plainReadingQuery;
+    lastSmartInput = input.value;
+    lastSmartQuery = customDossierPresentation.operatorQuery;
+    generatedDossierPlainProjection = customDossierPresentation;
+    // Custom generated presentation yields to a genuinely authored destination draft.
+    return false;
+  }
   const resolved = resolveModeInputValue({
     previousMode,
     nextMode,
@@ -1403,6 +1414,42 @@ function syncInputForModeSwitch(input, previousMode, nextMode) {
   }
   if (nextMode === "raw") selectAutoFilledInputOnFocus = false;
   return false;
+}
+
+function buildDossierCustomPlainPresentation(operatorQuery) {
+  const intent = resolveCurrentDossierIntent();
+  if (!intent || !operatorQuery) return null;
+  const base = String(intent.operatorQuery || "");
+  const query = String(operatorQuery || "").trim();
+  const prefix = `${base} `;
+  let plainReadingQuery = "";
+  // This proves a textual append to the complete catalog request, not semantic
+  // equivalence. The entire suffix must consist of supported standalone atoms.
+  if (intent.authority === "catalog" && query.startsWith(prefix)) {
+    const suffix = query.slice(prefix.length);
+    const atoms = suffix.split(" ");
+    const descriptions = atoms.map((atom) => {
+      if (!/^type:[a-z][a-z-]*$/i.test(atom)) return "";
+      const translated = translateScryfallSyntaxToPlainText(atom);
+      return translated.translated && !translated.unhandled?.length ? translated.text : "";
+    });
+    if (atoms.length && descriptions.every(Boolean)) {
+      plainReadingQuery = `${intent.plainReadingQuery}, narrowed to ${descriptions.join(" and ")} cards`;
+    }
+  }
+  if (!plainReadingQuery) {
+    const profile = resolveMazeDiscoveryProfile(mazeDiscoveryProfileCatalog, intent.identityKey);
+    const path = activeDossierPaths.find((entry) => entry.pathType === intent.pathType);
+    const profileLabel = profile?.identity_name || intent.handoff?.factionName || intent.identityKey;
+    const pathLabel = path?.label || intent.pathType.replace(/-/g, " ");
+    const threadLabel = path?.threads?.find((entry) => entry.threadId === intent.threadId)?.label;
+    plainReadingQuery = `Custom Operator search · ${profileLabel} · ${pathLabel}${threadLabel ? ` · ${threadLabel}` : ""} context`;
+  }
+  return {
+    intentKey: dossierIntentKey(intent),
+    plainReadingQuery,
+    operatorQuery: query
+  };
 }
 
 function resolveCurrentDossierIntent() {

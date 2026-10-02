@@ -512,3 +512,64 @@ Do:
 4. Clear, choose **Commanders in this identity** again, and round-trip Plain → Operator. Confirm the exact canonical pair returns with no stale `cat`.
 
 PASS if the flow distinguishes untouched generated presentation from actual authored input, Prismari is not presented as a changed Izzet expression choice, and explicit reselection restores the canonical pair. FAIL if untouched Plain loses Operator clauses, editing still uses stale backing, or `cat` returns after reselection. Subjective wording and product feel remain Owner judgment. Owner ACCEPT must bind exact candidate `d5da3bd355ca76298ea95ac01756fabe6e02095f`; this engineering PASS does not authorize integration or successor work.
+
+## Bounded catalog Plain plus proven delta / honest fallback — QA selection
+
+Task: VM-674
+Admission baseline: `a798f38559202050e29ac010de26241fa9aabaa1`
+Previously passed candidate now under correction: `d5da3bd355ca76298ea95ac01756fabe6e02095f`
+Owner B/C scope amendment: `f53fff8aa220db4aaf16c249375a3d8e8d2d9cf5`
+Replacement candidate: PENDING
+RobQA: PENDING
+Execution: SEPARATE
+Reviewer: Codex `/root/option_a_qa` (Sol medium)
+Implementer: Codex `/root/option_a_dev` with coordinator `/root` for bounded fixture completion
+
+The Owner found a complex Operator-to-Plain presentation defect after the prior PASS. This is a QA escape: the accepted Option A state owners remain protected, but the previous fixture exercised only a simple custom clause and did not challenge the legacy reverse translator with the real nested support-card query. The prior PASS remains historical evidence for its exact SHA and is superseded as current VM-674 readiness.
+
+### Change classification and proof boundary
+
+- QA tier: QA-3. The correction changes the presentation chosen during an Operator-to-Plain state transition while preserving exact execution, provenance, authored/generated ownership, canonical restoration and dossier resets.
+- Execution: SEPARATE because this is a shared catalog/representation/state boundary after an Owner-reported QA escape.
+- B is allowed only for current catalog authority when the current raw request is the exact complete canonical Operator prefix followed at a top-level conjunctive boundary by one or more fully allowlisted additive atoms. Every suffix atom must translate safely with no unhandled remainder. String containment, reordered terms, semantic normalization, partial suffix translation and general equivalence inference are insufficient.
+- C must identify only the safely known source identity/path/thread context and any independently safe refinements. When the base is changed or unproved, C must not repeat the full catalog Plain semantics in a way that implies those constraints remain active. B and C must never expose raw/display-normalized Scryfall or Boolean control syntax as pseudo-English.
+- Existing authored destination mode drafts retain their accepted ownership priority over a newly generated B/C presentation. Catalog-exact pairing and an already-valid generated projection keep their separate current-state contracts.
+
+### Candidate-blocking stateful adversarial evidence
+
+Use the existing bounded rendered fixture and extend only the focused VM-674 journeys. The browser is required because the changed risk crosses real keyboard input, mode switching, catalog actions, visible presentation, inspector/API truth and stored draft provenance.
+
+A. **Simple Prismari custom Operator:** from canonical commanders, append ` type:cat`; require Prismari-contextual, human Cat refinement with no raw syntax; untouched Plain Search and Plain → Operator return preserve the exact normalized backing query.
+
+B. **Complex support path plus safe delta:** use the Owner's exact `support-cards` canonical Operator query and catalog Plain, append ` type:cat`, and require catalog Plain base plus a natural Cat refinement. Reject visible `t:`, `mv>=`, `o:`, `otag:`, parentheses, serialized quotes, display-normalized `t elemental`/`o copy`/`otag counterspell`, and exposed Boolean `OR`. Untouched Plain Search must execute the complete custom Operator query in inspector and decoded API; passive mode switching must issue no request and restore exact Operator syntax.
+
+C. **Unsupported/non-additive boundaries:** exercise at least canonical-clause removal or replacement, a nested/top-level Boolean edit, an unsupported suffix, and reordered canonical syntax. Each must reject B, show honest source-context fallback without false intact-base claims, retain exact backing execution, and avoid raw/control leakage. Include a close positive/negative boundary pair so a green result cannot come only from always choosing C.
+
+D. **Real Plain edits:** from both a B presentation and a C presentation, perform a real keyboard edit. The displayed generated provenance must clear, ordinary Plain compiler ownership must take over, and Search must not retain hidden exact Operator execution. Also preserve the accepted destination-owner history: author Plain, switch to raw, make a real B/C-eligible custom raw edit, then return to Plain; the existing authored Plain destination draft wins and no new generated projection remains active.
+
+E. **Canonical restoration:** restore the exact canonical Operator request and require the exact catalog Plain, cleared custom refinement/fallback, coherent diagnostics and canonical inspector/API execution.
+
+F. **Explicit dossier reselection:** after a searched complex custom request, reselect the same path and a thread boundary from both starting modes; canonical pair replaces obsolete generated/custom state and repeated mode switching cannot revive it.
+
+G. **Historical VM-479/480 control:** retain a known-good functional-tag display case such as `otag:counterspell otag:draw is:commander legal:commander f:commander` and its human wording. This is a bounded control, not arbitrary translator certification.
+
+H. **Azorius regression:** preserve the existing VM-674 launch, repeat, custom, canonical restore, cut/paste, diagnostics and Return-to-draft evidence.
+
+Across A–H observe the visible input, mode, dossier identity/path/thread, request count, inspector query, decoded API query, results heading, diagnostics and interpretation state. Preserve truthful current versus **Previous results**, generic independent UR/Izzet wording, suggestion/guide Return ownership, Loom filters, order/unique/direction, canonical exact-value relinking, query-core/parser/compiler/API/cache/routes/identity semantics, and the existing normalization contract.
+
+### Required causal mutations
+
+Use one isolated external controller override per mutation through `VM674_RESEARCH_INIT_FILE`; never edit repository runtime for mutation evidence. Attribute and hash the exact candidate source and each mutation, verify unchanged bytes after execution, and remove owned temporary files. Each run must reach public launch and its prerequisite custom Search before failing the intended invariant rather than a helper/schema error.
+
+1. **Raw leakage:** disable the B/C presentation seam so the old partial translator handles the nested support query. The complex no-leak assertions must fail on the leaked nested syntax/control terms.
+2. **Unsafe B:** force the allowlisted trailing atom to compose with catalog Plain despite a changed or unproved base. A non-additive C case must fail on the false intact-base presentation.
+3. **Exact backing loss:** replace the generated projection's custom backing with the canonical base or a lossy reconstructed request. Untouched generated Plain Search must fail exact inspector/API backing assertions.
+4. **Stale custom restoration:** restore the old destination-draft priority over a synchronized canonical reset, or equivalently disable the owning reset guard at that seam. Same-path/thread reselection must fail by resurrecting the searched custom state.
+
+### Lower-layer evidence, skips and Owner boundary
+
+Run syntax checks for changed JavaScript/MJS, `npm.cmd run test:mode`, `node tests/maze/maze-query-contract-tests.js`, the focused VM-674 rendered command, `git diff --check`, generated-view freshness and coordinator-owned delivery/accounting checks. Add a bounded source/fixture assertion for catalog authority, full-prefix proof, whole-suffix allowlisting and C source-only context; do not add a general grammar suite.
+
+The 37-profile interactive matrix, broad browser smoke, screenshots, viewport matrices, live Scryfall/card semantics or counts, broad parser/AST/identity recertification and unrelated harness repair are intentionally skipped. CPU-heavy validation is **NOT REQUIRED**. Any need for general semantic equivalence or recursive Boolean translation is scope drift and must return to the Owner rather than expand VM-674.
+
+Owner judgment remains natural wording and product feel for simple B, complex B and fallback C. A replacement may receive PASS only after immutable candidate SHA, clean continuation admission, exact-diff/source inspection, green A–H evidence and all four causal mutations. No integration, push, VM-675 or successor work is authorized by this selection.

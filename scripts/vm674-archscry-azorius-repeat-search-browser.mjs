@@ -396,7 +396,7 @@ async function returnSuggestionDraft(page) {
   await page.waitForFunction(() => document.getElementById("maze-selected-search")?.hidden === true);
 }
 
-async function assertDossierReset(page, selector, { clear = false, startMode = "raw" } = {}) {
+async function assertDossierReset(page, selector, { clear = false, startMode = "raw", customOperatorQuery = "" } = {}) {
   currentPhase = "custom-draft-dossier-reset";
   const pair = await page.$eval(selector, (node) => ({
     operatorQuery: node.dataset.query,
@@ -404,9 +404,10 @@ async function assertDossierReset(page, selector, { clear = false, startMode = "
     threadId: node.dataset.threadId || ""
   }));
   await switchModeAndCapture(page, "raw", page.vm674Requests);
-  await replaceInputWithKeyboard(page, `${pair.operatorQuery} type:cat`);
+  const customQuery = customOperatorQuery || `${pair.operatorQuery} type:cat`;
+  await replaceInputWithKeyboard(page, customQuery);
   const custom = await clickSearchAndCapture(page, page.vm674Requests);
-  assert.equal(custom.state.query, `${pair.operatorQuery} type:cat`);
+  assert.equal(custom.state.query, customQuery);
   await switchModeAndCapture(page, startMode, page.vm674Requests);
   if (clear) await clearAndCapture(page, page.vm674Requests);
   const selected = await selectDossierAction(page, selector, page.vm674Requests);
@@ -702,6 +703,7 @@ async function runPrismariOperatorRestore(page, baseUrl) {
   await page.keyboard.type(" ");
   await page.keyboard.press("Backspace");
   const editedSameText = await captureMazeState(page, page.vm674Requests);
+  const authoredSameTextControl = await plainCompilerControl(page, editedSameText.input);
   await inspectSuggestion(page);
   await inspectSuggestion(page);
   await returnSuggestionDraft(page);
@@ -709,7 +711,8 @@ async function runPrismariOperatorRestore(page, baseUrl) {
   const customPlainEditedSameTextSearch = await clickSearchAndCapture(page, page.vm674Requests);
   const rawForRestore = await switchModeAndCapture(page, "raw", page.vm674Requests);
   await switchModeAndCapture(page, "ai", page.vm674Requests);
-  await replaceInputWithKeyboard(page, customPlain.input.replace(/\bcat\b\s*/i, ""));
+  await replaceInputWithKeyboard(page, "blue-red creatures commander legal");
+  const authoredRemovedControl = await plainCompilerControl(page, "blue-red creatures commander legal");
   const authoredCatRemoved = await clickSearchAndCapture(page, page.vm674Requests);
   const authoredCatRemovedRaw = await switchModeAndCapture(page, "raw", page.vm674Requests);
   await replaceInputWithKeyboard(page, route.link.operatorQuery);
@@ -735,12 +738,17 @@ async function runPrismariOperatorRestore(page, baseUrl) {
     resets.push(await assertDossierReset(page, threadSelector, { startMode }));
     resets.push(await assertDossierReset(page, threadSelector, { startMode }));
   }
+  const boundedPresentation = await runBoundedDossierPresentation(page);
   await page.goto(`${baseUrl}/maze/?independent=1`, { waitUntil: "domcontentloaded" });
   await page.waitForSelector("#mode-raw");
   await switchModeAndCapture(page, "raw", page.vm674Requests);
   await replaceInputWithKeyboard(page, "id=ur is:commander f:commander type:cat");
   await clickSearchAndCapture(page, page.vm674Requests);
   const genericIzzet = await switchModeAndCapture(page, "ai", page.vm674Requests);
+  await switchModeAndCapture(page, "raw", page.vm674Requests);
+  await replaceInputWithKeyboard(page, "otag:counterspell otag:draw is:commander legal:commander f:commander");
+  const historicalPlain = await switchModeAndCapture(page, "ai", page.vm674Requests);
+  assert.equal(historicalPlain.input, "commander candidates with counterspells and card draw commander legal", "VM-479/480 supported humanization regressed.");
   const failures = [];
   const expect = (condition, message) => { if (!condition) failures.push(message); };
   expect(initial.input === route.link.plainReadingQuery && initial.query === route.link.operatorQuery, "VM-674 Prismari launch did not preserve catalog representations.");
@@ -758,8 +766,8 @@ async function runPrismariOperatorRestore(page, baseUrl) {
   expect(customSuggestionDirectReturn?.input === customPlain.input, "VM-674 direct Return to draft did not restore the first generated custom Plain projection.");
   expect(customSuggestionCrossModeReturn?.input === customRawSearch.state.query, "VM-674 cross-mode Return to draft did not restore the generated custom Operator backing.");
   expect(customPlainEditedSameTextSearch.state.query !== customRawSearch.state.query, "VM-674 edited generated Plain retained its stale custom Operator backing.");
-  expect(customPlainEditedSameTextSearch.state.query === "type:cat c<=ur -c:c legal:commander", "VM-674 authored same-text Plain did not use ordinary compilation.");
-  expect(authoredCatRemoved.state.query === "c:ur legal:commander", "VM-674 authored Plain cat removal did not use ordinary compilation.");
+  expect(customPlainEditedSameTextSearch.state.query === authoredSameTextControl.query, "VM-674 authored same-text Plain did not use ordinary compilation.");
+  expect(authoredCatRemoved.state.query === authoredRemovedControl.query, "VM-674 authored Plain cat removal did not use ordinary compilation.");
   expect(editedSameText.input === customPlain.input && authoredSuggestionReturn.input === customPlain.input, "VM-674 authored same-visible-text witness changed representation.");
   expect(rawForRestore.input === customPlainEditedSameTextSearch.state.query, "VM-674 compiled authored Plain revived an obsolete Operator draft.");
   expect(authoredCatRemovedRaw.input === authoredCatRemoved.state.query && !/type:cat/.test(authoredCatRemovedRaw.input), "VM-674 authored Plain cat removal revived a stale custom clause.");
@@ -770,10 +778,122 @@ async function runPrismariOperatorRestore(page, baseUrl) {
   expect(restoredRawSearch.state.query === route.link.operatorQuery && apiQuery(restoredRawSearch.state.apiUrl) === route.link.operatorQuery, "VM-674 Prismari restored Operator did not execute canonical bytes.");
   expect(restoredPlain.input === route.link.plainReadingQuery && restoredPlain.mode === "ai", "VM-674 Prismari canonical Operator did not restore catalog Plain text.");
   expect(restoredPlainSearch.state.query === route.link.operatorQuery && apiQuery(restoredPlainSearch.state.apiUrl) === route.link.operatorQuery && restoredPlainSearch.state.interpretationState.key !== "needs-meaning" && !/unresolved\s*(prismari|exactly)/i.test(restoredPlainSearch.state.diagnostics), "VM-674 Prismari restored Plain search retained stale interpretation.");
-  const summary = { route, initial, raw, canonicalRawSearch, customRawSearch, customPlain, passiveRaw, customPlainBackedSearch, customSuggestionDirectReturn, customSuggestionCrossModeReturn, authoredSuggestionReturn, customPlainEditedSameTextSearch, authoredCatRemoved, rawForRestore, restoredRawBeforeSearch, restoredRawSearch, restoredPlain, restoredPlainSearch, staleContextReturn, staleContextSearch, resets, genericIzzet, failures };
+  const summary = { route, initial, raw, canonicalRawSearch, customRawSearch, customPlain, passiveRaw, customPlainBackedSearch, customSuggestionDirectReturn, customSuggestionCrossModeReturn, authoredSuggestionReturn, customPlainEditedSameTextSearch, authoredCatRemoved, rawForRestore, restoredRawBeforeSearch, restoredRawSearch, restoredPlain, restoredPlainSearch, staleContextReturn, staleContextSearch, resets, boundedPresentation, genericIzzet, failures };
   reportObservation("prismari-summary", summary);
   console.log(`VM674_PRISMARI_SUMMARY ${JSON.stringify({ initial: { input: initial.input, query: initial.query }, canonicalRawSearch: { query: canonicalRawSearch.state.query, apiQuery: apiQuery(canonicalRawSearch.state.apiUrl) }, customRawSearch: { query: customRawSearch.state.query, apiQuery: apiQuery(customRawSearch.state.apiUrl) }, customPlain: { input: customPlain.input, interpretation: customPlain.interpretationState.key, context: customPlain.context }, customPlainBackedSearch: { query: customPlainBackedSearch.state.query }, customPlainEditedSameTextSearch: { query: customPlainEditedSameTextSearch.state.query }, restoredRawBeforeSearch: { input: restoredRawBeforeSearch.input }, restoredRawSearch: { query: restoredRawSearch.state.query, apiQuery: apiQuery(restoredRawSearch.state.apiUrl) }, restoredPlain: { input: restoredPlain.input, interpretation: restoredPlain.interpretationState.key }, restoredPlainSearch: { query: restoredPlainSearch.state.query, apiQuery: apiQuery(restoredPlainSearch.state.apiUrl), interpretation: restoredPlainSearch.state.interpretationState.key }, failures })}`);
   if (failures.length) throw new Error(failures.join(" "));
+  return summary;
+}
+
+async function plainCompilerControl(page, input) {
+  return page.evaluate(async (value) => {
+    const { resolveMazeQueryRequest } = await import("/assets/js/maze/maze-query-core.js?v=vm636");
+    return resolveMazeQueryRequest({ mode: "ai", origin: "maze", input: value,
+      options: { format: "commander", order: "name", unique: "cards", useFormatDefault: true } });
+  }, input);
+}
+
+async function assertGeneratedPresentation(page, query, { basePlain = "", composed = false, label = "" } = {}) {
+  currentPhase = `bounded-presentation-${label}`;
+  await switchModeAndCapture(page, "raw", page.vm674Requests);
+  await replaceInputWithKeyboard(page, query);
+  const rawSearch = await clickSearchAndCapture(page, page.vm674Requests);
+  const plain = await switchModeAndCapture(page, "ai", page.vm674Requests);
+  const raw = await switchModeAndCapture(page, "raw", page.vm674Requests);
+  await switchModeAndCapture(page, "ai", page.vm674Requests);
+  const untouchedSearch = await clickSearchAndCapture(page, page.vm674Requests);
+  const witness = { label, query, rawSearch, plain, raw, untouchedSearch, composed };
+  reportObservation("bounded-presentation", witness);
+  assert.equal(rawSearch.state.query, query, "Custom Operator execution drifted.");
+  assert(rawSearch.state.requestUrls.some((url) => apiQuery(url) === query), "Custom Operator query did not reach the Scryfall API boundary.");
+  assert(!/(?:\b(?:t|type|o|otag):|\bmv\s*[<>=]|[()]|\bOR\b|\b(?:t elemental|otag counterspell|o copy)\b)/.test(plain.input), "Generated Plain leaked raw syntax.");
+  assert(/Prismari/i.test(plain.input) && !/Izzet/i.test(plain.input), "Generated presentation lost Prismari source context.");
+  if (composed) {
+    assert(plain.input.startsWith(`${basePlain}, narrowed to `) && /\bcat\b/i.test(plain.input), "Supported additive delta did not use catalog Plain plus human refinement.");
+  } else {
+    assert(/^Custom Operator search · /.test(plain.input) && !/based on|narrowed to|across three|Commander-legal/i.test(plain.input), "Unsafe B composition or misleading fallback claimed canonical constraints.");
+  }
+  assert.equal(raw.input, query, "Generated presentation lost exact Operator round-trip backing.");
+  assert.equal(raw.requestUrls.length, rawSearch.state.requestUrls.length, "Passive mode inspection searched.");
+  assert.equal(untouchedSearch.state.query, query, "Untouched generated Plain lost exact Operator backing.");
+  assert.equal(apiQuery(untouchedSearch.state.apiUrl), query, "Generated Plain API backing drifted.");
+  assert(untouchedSearch.completion.completed && untouchedSearch.state.result.heading === "Results", "Generated Search did not complete current results.");
+  return witness;
+}
+
+async function assertRealPlainEdit(page) {
+  const authored = "blue-red cat creatures commander legal";
+  const control = await plainCompilerControl(page, authored);
+  const backing = (await captureMazeState(page, page.vm674Requests)).query;
+  await replaceInputWithKeyboard(page, authored);
+  const edited = await captureMazeState(page, page.vm674Requests);
+  assert.equal(edited.result.heading, "Previous results", "Real Plain edit did not mark prior results.");
+  const search = await clickSearchAndCapture(page, page.vm674Requests);
+  const raw = await switchModeAndCapture(page, "raw", page.vm674Requests);
+  assert.equal(search.state.query, control.query, "Real Plain edit bypassed ordinary compiler ownership.");
+  assert.notEqual(search.state.query, backing, "Real Plain edit retained hidden Operator backing.");
+  assert.equal(raw.input, control.query, "Authored Plain restored an obsolete Operator draft.");
+  return { authored, control: control.query, backing, search, raw };
+}
+
+async function runBoundedDossierPresentation(page) {
+  const supportSelector = "#reading-path-list [data-path-type='support-cards']";
+  const commandersSelector = "#reading-path-list [data-path-type='commanders-that-fit']";
+  await selectDossierAction(page, commandersSelector, page.vm674Requests);
+  const commanderPair = await page.$eval(commandersSelector, (node) => ({ raw: node.dataset.query, plain: node.dataset.plainReadingQuery }));
+  const simple = await assertGeneratedPresentation(page, `${commanderPair.raw} type:cat`, { composed: true, basePlain: commanderPair.plain, label: "simple-cat" });
+  await selectDossierAction(page, supportSelector, page.vm674Requests);
+  const pair = await page.$eval(supportSelector, (node) => ({ raw: node.dataset.query, plain: node.dataset.plainReadingQuery }));
+  assert.equal(pair.raw, 'id<=ur f:commander -is:commander -t:land ((t:elemental) OR (((t:instant OR t:sorcery) (mv>=6 OR o:copy))) OR (((o:copy (o:instant OR o:sorcery OR o:spell)) OR otag:counterspell OR o:"can\'t be countered")))');
+  const complex = await assertGeneratedPresentation(page, `${pair.raw} type:cat`, { composed: true, basePlain: pair.plain, label: "complex-cat" });
+  const editedB = await assertRealPlainEdit(page);
+  const multiple = await assertGeneratedPresentation(page, `${pair.raw} type:cat type:creature`, { composed: true, basePlain: pair.plain, label: "multiple-atoms" });
+  assert(/cat and creature/i.test(multiple.plain.input));
+  const rejected = [
+    ["removed-clause", pair.raw.replace(" -t:land", "") + " type:cat"],
+    ["nested-edit", pair.raw.replace("t:elemental", "t:dragon") + " type:cat"],
+    ["boolean-suffix", `${pair.raw} OR type:cat`],
+    ["reordered", pair.raw.replace("id<=ur f:commander", "f:commander id<=ur") + " type:cat"],
+    ["negation", pair.raw.replace("-t:land", "t:land") + " type:cat"],
+    ["identity", pair.raw.replace("id<=ur", "id<=wu") + " type:cat"],
+    ["format", pair.raw.replace("f:commander", "f:legacy") + " type:cat"],
+    ["commander", pair.raw.replace("-is:commander", "is:commander") + " type:cat"],
+    ["unsupported", `${pair.raw} o:draw`],
+    ["grouped-suffix", `${pair.raw} (type:cat)`],
+    ["missing-token-boundary", `${pair.raw}type:cat`],
+  ];
+  const fallbacks = [];
+  for (const [label, query] of rejected) fallbacks.push(await assertGeneratedPresentation(page, query, { label }));
+  const editedC = await assertRealPlainEdit(page);
+  await replaceInputWithKeyboard(page, pair.raw);
+  await clickSearchAndCapture(page, page.vm674Requests);
+  const restored = await switchModeAndCapture(page, "ai", page.vm674Requests);
+  assert.equal(restored.input, pair.plain, "Canonical support restore retained custom/fallback presentation.");
+  const restoredSearch = await clickSearchAndCapture(page, page.vm674Requests);
+  assert.equal(restoredSearch.state.query, pair.raw);
+  assert.notEqual(restoredSearch.state.interpretationState.key, "needs-meaning");
+  const resets = [];
+  for (const startMode of ["raw", "ai"]) {
+    resets.push(await assertDossierReset(page, supportSelector, { startMode }));
+    resets.push(await assertDossierReset(page, supportSelector, { clear: true, startMode }));
+  }
+  resets.push(await assertDossierReset(page, "#dossier-thread-grid [data-dossier-thread='true']", {
+    startMode: "ai", customOperatorQuery: `${pair.raw} type:cat`
+  }));
+  // A real destination draft keeps its priority over a newly generated custom view.
+  await selectDossierAction(page, supportSelector, page.vm674Requests);
+  await switchModeAndCapture(page, "ai", page.vm674Requests);
+  const authoredDraft = "blue-red cat creatures commander legal";
+  await replaceInputWithKeyboard(page, authoredDraft);
+  await switchModeAndCapture(page, "raw", page.vm674Requests);
+  await replaceInputWithKeyboard(page, `${pair.raw} type:cat`);
+  const destination = await switchModeAndCapture(page, "ai", page.vm674Requests);
+  assert.equal(destination.input, authoredDraft, "Generated B/C displaced a genuinely authored destination draft.");
+  const destinationSearch = await clickSearchAndCapture(page, page.vm674Requests);
+  const destinationControl = await plainCompilerControl(page, authoredDraft);
+  assert.equal(destinationSearch.state.query, destinationControl.query, "Restored authored destination kept generated backing.");
+  const summary = { simple, complex, multiple, fallbacks, editedB, editedC, restored, restoredSearch, resets, destination, destinationSearch };
+  reportObservation("bounded-presentation-summary", summary);
   return summary;
 }
 
@@ -799,7 +919,7 @@ async function main() {
     await waitForDevtools(launchedChrome.port);
     browser = await puppeteer.connect({ browserURL: `http://${host}:${launchedChrome.port}` });
     const journey = process.env.VM674_JOURNEY || "both";
-    assert(["azorius", "prismari", "both"].includes(journey), "VM-674 VM674_JOURNEY must be azorius, prismari, or both.");
+    assert(["azorius", "prismari", "both", "bc"].includes(journey), "VM-674 VM674_JOURNEY must be azorius, prismari, both, or bc.");
     let routeRun = null;
     if (journey === "azorius" || journey === "both") {
       const page = await configurePage(browser, baseUrl);
@@ -828,7 +948,20 @@ async function main() {
         await page.close();
       }
     }
-    console.log(JSON.stringify({ azorius: routeRun, prismari: prismariRun }, null, 2));
+    let boundedRun = null;
+    if (journey === "bc") {
+      const page = await configurePage(browser, baseUrl);
+      try {
+        await page.goto(dossierUrl(baseUrl, "prismari"), { waitUntil: "domcontentloaded" });
+        await inspectCommandersPath(page, "PRISMARI");
+        await clickInspectedPath(page);
+        await page.waitForFunction(() => document.getElementById("qi-query")?.textContent?.trim() === "id=ur is:commander f:commander");
+        boundedRun = await runBoundedDossierPresentation(page);
+      } finally {
+        await page.close();
+      }
+    }
+    console.log(JSON.stringify({ azorius: routeRun, prismari: prismariRun, bounded: boundedRun }, null, 2));
   } finally {
     if (browser) {
       try {
