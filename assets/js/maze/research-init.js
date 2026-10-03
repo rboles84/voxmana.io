@@ -72,6 +72,10 @@ let activeKeywordSuggestionIndex = -1;
 let pendingSuggestedSearch = null;
 let suggestionReturnDraft = null;
 let selectedSuggestionView = null;
+// Route-local provenance for the request the player is currently shaping. This
+// deliberately is not execution, selected UI, return-draft, or dossier-session
+// state: each of those can outlive or precede the request it describes.
+let currentRequestSource = null;
 let lastInspectorState = null;
 
 const PAGE_SIZE = 24;
@@ -1001,6 +1005,10 @@ async function initializeResearchArchives() {
     lastSmartInput = normalizedLaunch.plainReadingQuery || launchOperatorQuery;
     lastSmartQuery = queryResult.query;
     setMode(useRawVisibleArchscryLaunch ? "raw" : "ai");
+    const launchDossierIntent = resolveCurrentDossierIntent();
+    if (launchDossierIntent && queryResult.query === launchDossierIntent.operatorQuery) {
+      currentRequestSource = createDossierRequestSource(launchDossierIntent);
+    }
     triggerSearch(queryResult.query, {
       api: queryResult.api,
       diagnostics: queryResult.diagnostics || [],
@@ -1346,6 +1354,7 @@ function restoreSuggestionDraft() {
     } else if (!returnDraft && canonicalDraft) {
       establishCurrentDossierIntent(dossierIntent);
     }
+    currentRequestSource = cloneRequestSource(returnDraft?.requestSource);
     input.focus();
   }
   document.getElementById("query-inspector")?.classList.add("hidden");
@@ -1417,16 +1426,32 @@ function syncInputForModeSwitch(input, previousMode, nextMode) {
 }
 
 function buildDossierCustomPlainPresentation(operatorQuery) {
-  const intent = resolveCurrentDossierIntent();
-  if (!intent || !operatorQuery) return null;
-  const base = String(intent.operatorQuery || "");
+  let source = resolveCurrentRequestSource(operatorQuery);
+  if (!operatorQuery) return null;
+  if (!source) {
+    // A retained dossier can describe where the player arrived, but cannot
+    // supply provenance for an independent request. Keep the exact backing
+    // bytes while presenting an intentionally neutral current request. A
+    // complete existing syntax translation remains generic presentation; it
+    // does not create Helper or dossier provenance.
+    const translated = translateScryfallSyntaxToPlainText(operatorQuery);
+    return {
+      intentKey: "neutral",
+      plainReadingQuery: translated.translated && !translated.unhandled?.length
+        ? translated.text
+        : "Custom Operator search",
+      operatorQuery: String(operatorQuery).trim(),
+      requestSource: null
+    };
+  }
+  const base = source.baseQuery;
   const query = String(operatorQuery || "").trim();
-  const prefix = `${base} `;
+  const hasBase = query === base || query.startsWith(`${base} `);
+  const suffix = query === base ? "" : hasBase ? query.slice(base.length + 1) : null;
   let plainReadingQuery = "";
-  // This proves a textual append to the complete catalog request, not semantic
+  // This proves a textual append to this request's recorded base, not semantic
   // equivalence. The entire suffix must consist of supported standalone atoms.
-  if (intent.authority === "catalog" && query.startsWith(prefix)) {
-    const suffix = query.slice(prefix.length);
+  if (suffix && (source.kind === "Helper search" || source.catalogBacked === true)) {
     const atoms = suffix.split(" ");
     const descriptions = atoms.map((atom) => {
       if (!/^type:[a-z]+$/i.test(atom)) return "";
@@ -1434,22 +1459,73 @@ function buildDossierCustomPlainPresentation(operatorQuery) {
       return translated.translated && !translated.unhandled?.length ? translated.text : "";
     });
     if (atoms.length && descriptions.every(Boolean)) {
-      plainReadingQuery = `${intent.plainReadingQuery}, narrowed to ${descriptions.join(" and ")} cards`;
+      plainReadingQuery = `${source.plainReadingQuery || source.label}, narrowed to ${descriptions.join(" and ")} cards`;
     }
+  } else if (!suffix && hasBase) {
+    plainReadingQuery = source.plainReadingQuery || source.label;
   }
   if (!plainReadingQuery) {
-    const profile = resolveMazeDiscoveryProfile(mazeDiscoveryProfileCatalog, intent.identityKey);
-    const path = activeDossierPaths.find((entry) => entry.pathType === intent.pathType);
-    const profileLabel = profile?.identity_name || intent.handoff?.factionName || intent.identityKey;
-    const pathLabel = path?.label || intent.pathType.replace(/-/g, " ");
-    const threadLabel = path?.threads?.find((entry) => entry.threadId === intent.threadId)?.label;
-    plainReadingQuery = `Custom Operator search · ${profileLabel} · ${pathLabel}${threadLabel ? ` · ${threadLabel}` : ""} context`;
+    plainReadingQuery = source.label
+      ? `Custom Operator search · ${source.label} context`
+      : "Custom Operator search";
   }
   return {
-    intentKey: dossierIntentKey(intent),
+    intentKey: source.intentKey || "",
     plainReadingQuery,
-    operatorQuery: query
+    operatorQuery: query,
+    requestSource: cloneRequestSource(source)
   };
+}
+
+function createRequestSource({ kind = "", label = "", hint = "", baseQuery = "", plainReadingQuery = "", intentKey = "", catalogBacked = false } = {}) {
+  const normalizedBase = normalizeSearchInputValue(baseQuery);
+  if (!normalizedBase) return null;
+  return {
+    kind: String(kind).trim(),
+    label: String(label).trim(),
+    hint: String(hint).trim(),
+    baseQuery: normalizedBase,
+    plainReadingQuery: String(plainReadingQuery).trim(),
+    intentKey: String(intentKey).trim(),
+    catalogBacked: catalogBacked === true
+  };
+}
+
+function cloneRequestSource(source) {
+  return source ? { ...source } : null;
+}
+
+function resolveCurrentRequestSource(query) {
+  return resolveRequestSourceForQuery(currentRequestSource, query);
+}
+
+function resolveRequestSourceForQuery(source, query) {
+  const normalizedQuery = normalizeSearchInputValue(query);
+  if (!source?.baseQuery || !normalizedQuery) return null;
+  // A source is relevant only while this exact request remains its base or a
+  // textual refinement of that base. Retained dossier session selectors never
+  // prove current-request provenance.
+  return normalizedQuery === source.baseQuery || normalizedQuery.startsWith(`${source.baseQuery} `)
+    ? source
+    : null;
+}
+
+function createDossierRequestSource(intent) {
+  if (!intent?.operatorQuery) return null;
+  const path = activeDossierPaths.find((entry) => entry.pathType === intent.pathType);
+  const thread = path?.threads?.find((entry) => entry.threadId === intent.threadId);
+  const profile = resolveMazeDiscoveryProfile(mazeDiscoveryProfileCatalog, intent.identityKey);
+  const profileLabel = profile?.identity_name || intent.handoff?.factionName || intent.identityKey;
+  const pathLabel = thread?.label || path?.label || intent.pathType;
+  return createRequestSource({
+    kind: "Dossier path",
+    label: `${profileLabel} · ${pathLabel}`,
+    hint: path?.interpretation || "",
+    baseQuery: intent.operatorQuery,
+    plainReadingQuery: intent.authority === "catalog" ? intent.plainReadingQuery : "",
+    intentKey: dossierIntentKey(intent),
+    catalogBacked: intent.authority === "catalog"
+  });
 }
 
 function resolveCurrentDossierIntent() {
@@ -1506,18 +1582,20 @@ function resolveGeneratedDossierPlainProjection(input, mode = currentMode) {
   return isCurrentDossierProjection(projection) ? projection : null;
 }
 
-function isCurrentDossierProjection(projection) {
-  const currentIntent = resolveCurrentDossierIntent();
-  return Boolean(projection && currentIntent
+function isCurrentDossierProjection(projection, source = currentRequestSource) {
+  if (projection?.intentKey === "neutral") return !resolveRequestSourceForQuery(source, projection.operatorQuery);
+  const matchingSource = resolveRequestSourceForQuery(source, projection?.operatorQuery)
+    || resolveRequestSourceForQuery(projection?.requestSource, projection?.operatorQuery);
+  return Boolean(projection && matchingSource
     && typeof projection.plainReadingQuery === "string"
     && typeof projection.operatorQuery === "string"
-    && projection.intentKey === dossierIntentKey(currentIntent));
+    && projection.intentKey === matchingSource.intentKey);
 }
 
 function resolveSuggestionReturnDraft(draft) {
   if (!draft || !["ai", "raw"].includes(draft.mode) || typeof draft.value !== "string") return null;
   if (draft.intentKey !== dossierIntentKey(resolveCurrentDossierIntent())) return null;
-  if (draft.generatedProjection && !isCurrentDossierProjection(draft.generatedProjection)) return null;
+  if (draft.generatedProjection && !isCurrentDossierProjection(draft.generatedProjection, draft.requestSource)) return null;
   if (draft.dossierIntent && dossierIntentKey(draft.dossierIntent) !== draft.intentKey) return null;
   return draft;
 }
@@ -1631,7 +1709,10 @@ async function doSearch() {
 
   try {
     const dossierIntent = resolveCurrentDossierRepresentation(rawInput);
-    if (dossierIntent) establishCurrentDossierIntent(dossierIntent);
+    if (dossierIntent) {
+      establishCurrentDossierIntent(dossierIntent);
+      currentRequestSource = createDossierRequestSource(dossierIntent);
+    }
     const generatedProjection = resolveGeneratedDossierPlainProjection(rawInput);
     const queryResult = generatedProjection
       ? resolveMazeRouteQuery(generatedProjection.operatorQuery, {
@@ -1686,6 +1767,11 @@ async function doSearch() {
       });
       return;
     }
+
+    // Input events may preserve a candidate source until this real resolution
+    // can prove or reject its base relationship. Execution remains owned by
+    // the existing resolver; this only records presentation provenance.
+    if (!resolveCurrentRequestSource(query)) currentRequestSource = null;
 
     if (queryResult.parserMode === "exact_name") {
       currentQuery = query;
@@ -3663,6 +3749,7 @@ function buildColorGrid() {
  */
 function runQuickSearch(query, opts = {}) {
   clearPendingSuggestedSearch({ restorePresentation: false });
+  currentRequestSource = cloneRequestSource(opts.requestSource);
   generatedDossierPlainProjection = null;
   if (opts.resetDossierDrafts) {
     modeDraftValues.ai = "";
@@ -3751,7 +3838,8 @@ function inspectSuggestedSearch(query, opts = {}) {
     intentKey: dossierIntentKey(resolveCurrentDossierIntent()),
     value: currentInput,
     dossierIntent: dossierRepresentation || null,
-    generatedProjection: generatedProjection || null
+    generatedProjection: generatedProjection || null,
+    requestSource: cloneRequestSource(currentRequestSource)
   };
   if (!selectedSuggestionView && !dossierRepresentation && !generatedProjection && Object.hasOwn(modeDraftValues, currentMode)) {
     modeDraftValues[currentMode] = currentInput;
@@ -3762,6 +3850,12 @@ function inspectSuggestedSearch(query, opts = {}) {
     label,
     hint: String(opts.hint || "").trim()
   };
+  currentRequestSource = createRequestSource({
+    kind: opts.kind || "Suggested search",
+    label,
+    hint: opts.hint,
+    baseQuery: finalQuery
+  });
   pendingSuggestedSearch = {
     query: finalQuery,
     api: queryResult.api || {},
@@ -3976,6 +4070,7 @@ function clearSearchInput() {
   modeDraftEdited.raw = false;
   activeDossierIntentKey = "";
   generatedDossierPlainProjection = null;
+  currentRequestSource = null;
   suggestionReturnDraft = null;
   setMode(currentMode);
   clearError();
@@ -3998,6 +4093,7 @@ function preserveMazeGuideReturnState() {
     drafts: { ...modeDraftValues },
     draftEdited: { ...modeDraftEdited },
     generatedDossierPlainProjection,
+    currentRequestSource: cloneRequestSource(currentRequestSource),
     suggestionReturnDraft,
     selectedSuggestionView,
     builderFilters: {
@@ -4044,6 +4140,7 @@ function restoreMazeGuideReturnState() {
   restoreBuilderFilters(record.builderFilters);
   Object.assign(modeDraftValues, record.drafts || {});
   Object.assign(modeDraftEdited, record.draftEdited || {});
+  currentRequestSource = cloneRequestSource(record.currentRequestSource);
   const restoredProjection = record.generatedDossierPlainProjection;
   generatedDossierPlainProjection = isCurrentDossierProjection(restoredProjection) ? restoredProjection : null;
   const restoredSuggestionReturn = record.suggestionReturnDraft;
@@ -5034,22 +5131,27 @@ function handleMazeActionClick(event) {
       return;
     case "quick-search":
       if (actionNode.closest("#modal-wrap")) closeModal();
+      const selectsDossierIntent = actionNode.dataset.dossierPath === "true" || actionNode.dataset.dossierThread === "true";
       if (actionNode.dataset.dossierPath === "true") {
         selectDossierDiscoveryPath(actionNode.dataset.pathType || "");
       }
       activeDossierThreadId = actionNode.dataset.dossierThread === "true"
         ? actionNode.dataset.threadId || ""
         : "";
-      if (actionNode.dataset.dossierPath === "true" || actionNode.dataset.dossierThread === "true") {
+      if (selectsDossierIntent) {
         establishCurrentDossierIntent(resolveCurrentDossierIntent(), { force: true });
       }
+      const dossierRequestSource = selectsDossierIntent
+        ? createDossierRequestSource(resolveCurrentDossierIntent())
+        : null;
       runQuickSearch(actionNode.dataset.query || "", {
         order: actionNode.dataset.order || undefined,
         unique: actionNode.dataset.unique || undefined,
         dir: actionNode.dataset.dir || undefined,
         plainReadingQuery: actionNode.dataset.plainReadingQuery || undefined,
         origin: actionNode.dataset.origin || "maze",
-        resetDossierDrafts: actionNode.dataset.dossierPath === "true" || actionNode.dataset.dossierThread === "true"
+        resetDossierDrafts: selectsDossierIntent,
+        requestSource: dossierRequestSource
       });
       return;
     case "inspect-suggested-search":

@@ -346,3 +346,23 @@ The full Git-derived material/evidence/total report is C:/Users/obake/.codex/vis
 6. Azorius **Commanders in this identity**: add `with cats` in Plain and Search, remove it exactly and Search. Canonical restore and mode inspection remain correct.
 
 Natural wording/product feel and real pointer navigation remain Owner judgment. Automated evidence uses deterministic intercepted results and native rendered-control dispatch; it does not certify live counts/card semantics, pointer geometry or screenshots. No push, integration or successor task occurred. Stop at Owner Review pending exact-candidate ACCEPT.
+
+## Current-request provenance correction — Owner authorization and preflight
+
+Date: 2026-10-02, America/Denver
+Agent: Codex coordinator
+Task: VM-674
+
+Owner rejected material 6f9c197e753506fd4963e51aad36c4b8043a16e3 at evidence HEAD 3657a22478e3f419952a7cf5ff5e4c6e06c0d126 and explicitly authorized recommended recon Option A. The execution contract passed; Helper provenance was lost on the first real Operator edit, while retained dossier session selectors falsely supplied the current request label. Existing task/branch and baseline a798f38559202050e29ac010de26241fa9aabaa1 remain authoritative. Network-restricted admission initially failed to observe remote heads; the same read-only command with network access returned PASS, with live remote main equal to baseline. No history or refs changed.
+
+Bounded pre-edit contract: existing Helper selection metadata produces an independent small route-local current-request source snapshot before transient inspection state is dismissed. B/C consumes proven request source, never available session context alone. Selection replaces it, edits retain only a proven relationship, Search carries it with the exact request, Clear invalidates it, and Return restores the prior draft with its own source. Unknown source receives neutral wording. Existing query/results/API ownership, parser/compiler, catalog meanings, identity data, Option A/B/C backing and VM-662/663 inspection/Return remain protected. Stop if this requires replacement architecture.
+
+Relevant prior implementation, rejection and exact-candidate handoffs were recovered through selected task context and the existing coordination ledger. The scope remains selection producer → real-input handoff → Search → B/C presentation. Root owns card/coordinator records, derived views and candidate/delivery accounting. Configured robdev_provenance owns controller/cache key/focused fixture and its existing handoff; separate non-implementing robqa_provenance owns test selection, exact-candidate adversarial review and its existing handoff. Workers preserve each other's edits. Tool-selected RobDev route is Terra medium; RobQA is Sol medium; remote backend identity is unverified. No escalation or model substitution is requested.
+
+Required evidence is the Owner's A–J stateful seams, existing passing Option A/B/C controls, and a causal discarded-Helper-source control whose attribution fails while execution stays green. Owner judgment remains natural wording/product feel. No push, integration, successor task or new catalog is authorized. New candidate, RobQA and Owner decisions are PENDING. Next agents: RobDev, then separate RobQA, then Owner exact-candidate ACCEPT.
+
+## Provenance correction — material freeze preparation
+
+The independent source snapshot, presentation consumer, selection/reset/Return and exact backing are implemented using existing route owners. Root completed the expanded fixture after the worker's partial first-Helper coverage and remains a disclosed co-implementer. Separate QA remains non-implementing. Prefreeze review removed attempted ambient dossier-prefix source reconstruction and unconditional catalog-source retention, and ensured fresh unsupported input receives neutral exact backing. A small suffix guard prevents unrecognized source kinds from displaying base-only wording for custom suffixes.
+
+Expanded provenance A–J developer evidence is green. The exact rejected controller fails Helper attribution after execution/API/Results/Copy/Open invariants pass. Existing Azorius evidence passed in the combined attempt; isolated final Prismari/Option A/B/C/generic control passed after one unexplained combined-run timeout, disclosed as suspected harness timing debt. No screenshot, broad browser, parser recertification, live-count certification or unrelated repair was performed. Card meaning/acceptance/source authority and fixture/controller changes are material and will be included in the new candidate. Candidate, separate RobQA and Owner remain PENDING. Stop at Owner Review; no push, integration or VM-675.

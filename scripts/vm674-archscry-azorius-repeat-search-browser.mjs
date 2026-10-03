@@ -739,6 +739,7 @@ async function runPrismariOperatorRestore(page, baseUrl) {
     resets.push(await assertDossierReset(page, threadSelector, { startMode }));
   }
   const boundedPresentation = await runBoundedDossierPresentation(page);
+  currentPhase = "generic-translation-control";
   await page.goto(`${baseUrl}/maze/?independent=1`, { waitUntil: "domcontentloaded" });
   await page.waitForSelector("#mode-raw");
   await switchModeAndCapture(page, "raw", page.vm674Requests);
@@ -785,6 +786,138 @@ async function runPrismariOperatorRestore(page, baseUrl) {
   return summary;
 }
 
+async function runCurrentRequestProvenance(page, baseUrl) {
+  currentPhase = "current-request-provenance";
+  const requests = page.vm674Requests;
+  const observations = [];
+  const helperSelector = (label) => '#quick-search-list [data-action="inspect-suggested-search"][data-label="' + label + '"]';
+  const dossierSelector = "#reading-path-list [data-path-type='commanders-that-fit']";
+  const inspectHelper = async (label) => {
+    await page.waitForSelector(helperSelector(label));
+    const before = await captureMazeState(page, requests);
+    await page.$eval(helperSelector(label), (node) => node.click());
+    await page.waitForFunction((name) => document.getElementById("maze-selected-search")?.hidden === false
+      && document.getElementById("maze-selected-search-label")?.textContent === name, {}, label);
+    const selected = await captureMazeState(page, requests);
+    assert.equal(requests.length, before.requestUrls.length, "Helper inspection executed a request.");
+    assert.equal(selected.result.heading, "Previous results", "Helper inspection misrepresented prior results.");
+    const raw = await switchModeAndCapture(page, "raw", requests);
+    return { before, selected, base: raw.input };
+  };
+  const assertHelperPresentation = (plain, label) => {
+    assert(plain.input.includes(label), 'VM-674 Helper-derived Plain lost ' + label + ' attribution.');
+    assert(!/Prismari|Commanders in this identity|type:|otag:|oracle:/.test(plain.input), "Helper request inherited dossier provenance or leaked syntax.");
+  };
+  const customizeHelper = async (label, { clear = true } = {}) => {
+    currentPhase = 'helper-provenance-' + label;
+    if (clear) await clearAndCapture(page, requests);
+    const inspection = await inspectHelper(label);
+    const query = inspection.base + " type:cats";
+    await replaceInputWithKeyboard(page, query);
+    assert(await page.$eval("#maze-selected-search", (node) => node.hidden), "Real edit retained selected Helper UI.");
+    assert.equal(await page.evaluate(() => document.body.dataset.pendingSuggestion || "false"), "false", "Real edit retained pending execution semantics.");
+    const editedPlain = await switchModeAndCapture(page, "ai", requests);
+
+    await switchModeAndCapture(page, "raw", requests);
+    const executed = await clickSearchAndCapture(page, requests);
+    assert(executed.completion.completed && executed.state.result.cards > 0 && executed.state.result.heading === "Results", "Custom Helper Results did not complete.");
+    assert.equal(executed.state.query, query, "Custom Helper execution bytes changed.");
+    assert.equal(apiQuery(executed.state.apiUrl), query, "Custom Helper Open query changed.");
+    assert(requests.some((url) => apiQuery(url) === query), "Custom Helper query never reached API bytes.");
+    await page.evaluate(() => {
+      window.__vm674Copied = null;
+      Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async (text) => { window.__vm674Copied = text; } } });
+    });
+    await page.click("#search-copy-btn");
+    assert.equal(await page.evaluate(() => window.__vm674Copied), query, "Copy did not preserve exact Helper query.");
+    reportObservation("helper-execution-truth", { label, query, executed, copy: query, open: executed.state.apiUrl });
+    const plain = await switchModeAndCapture(page, "ai", requests);
+    // Execution assertions precede attribution so a causal source-discard control
+    // can prove execution green while attribution alone fails.
+    assertHelperPresentation(plain, label);
+    assertHelperPresentation(editedPlain, label);
+    const untouched = await clickSearchAndCapture(page, requests);
+    assert.equal(untouched.state.query, query, "Untouched Helper Plain Search recompiled presentation.");
+    assert.equal(apiQuery(untouched.state.apiUrl), query);
+    const raw = await switchModeAndCapture(page, "raw", requests);
+    assert.equal(raw.input, query, "Helper Operator round trip lost exact backing.");
+    const observation = { label, inspection, query, editedPlain, executed, plain, untouched, raw };
+    observations.push(observation);
+    return observation;
+  };
+  await page.goto(dossierUrl(baseUrl, "prismari"), { waitUntil: "domcontentloaded", timeout: 30000 });
+  const route = await inspectCommandersPath(page, "PRISMARI");
+  await clickInspectedPath(page);
+  await page.waitForSelector(helperSelector("Mana dorks"));
+  await page.waitForFunction((query) => document.getElementById("qi-query")?.textContent?.trim() === query
+    && !document.getElementById("search-btn")?.disabled, {}, route.link.operatorQuery);
+  const mana = await customizeHelper("Mana dorks"); // A, H, J
+  const ramp = await customizeHelper("Ramp spells"); // B
+  assert(!ramp.plain.input.includes("Mana dorks"), "Ramp inherited Mana dorks.");
+  await clearAndCapture(page, requests); // E
+  for (const mode of ["ai", "raw", "ai", "raw"]) {
+    const cleared = await switchModeAndCapture(page, mode, requests);
+    assert.equal(cleared.input, "", "Clear resurrected request provenance or a prior draft.");
+  }
+  await inspectHelper("Mana dorks");
+  const replacement = await customizeHelper("Ramp spells", { clear: false }); // F
+  assert(!replacement.plain.input.includes("Mana dorks"));
+  const selectedDossier = await selectDossierAction(page, dossierSelector, requests); // G, C
+  const dossierBase = selectedDossier.query;
+  await switchModeAndCapture(page, "raw", requests);
+  await replaceInputWithKeyboard(page, dossierBase + " type:cats");
+  await clickSearchAndCapture(page, requests);
+  const dossierPlain = await switchModeAndCapture(page, "ai", requests);
+  assert(dossierPlain.input.includes("Commander") && !/Mana dorks|Ramp spells/.test(dossierPlain.input), "Dossier selection did not replace Helper source.");
+  // I: returning from temporary Helper inspection restores generated prior draft
+  // and its own source, including exact backing in the other mode.
+  const prior = dossierPlain.input;
+  await inspectHelper("Mana dorks");
+  await switchModeAndCapture(page, "ai", requests);
+  await returnSuggestionDraft(page);
+  const returned = await captureMazeState(page, requests);
+  assert.equal(returned.input, prior, "Return did not restore prior draft presentation.");
+  const returnedSearch = await clickSearchAndCapture(page, requests);
+  assert.equal(returnedSearch.state.query, dossierBase + " type:cats", "Return lost prior draft backing/provenance.");
+  await switchModeAndCapture(page, "raw", requests);
+  await customizeHelper("Mana dorks", { clear: false }); // H after dossier custom
+  // Return from one Helper to an earlier customized Helper must restore that
+  // Helper's provenance independently of the temporary selection.
+  await switchModeAndCapture(page, "ai", requests);
+  const helperPrior = (await captureMazeState(page, requests)).input;
+  await inspectHelper("Ramp spells");
+  await switchModeAndCapture(page, "ai", requests);
+  await returnSuggestionDraft(page);
+  assert.equal((await captureMazeState(page, requests)).input, helperPrior);
+  assertHelperPresentation(await captureMazeState(page, requests), "Mana dorks");
+  await switchModeAndCapture(page, "raw", requests);
+  // Authored independent request: known Helper base is no longer provable.
+  const independent = 'name:Sol type:artifact';
+  await replaceInputWithKeyboard(page, independent);
+  await clickSearchAndCapture(page, requests);
+  const neutral = await switchModeAndCapture(page, "ai", requests);
+  assert(!/Mana dorks|Ramp spells|Prismari|Commanders in this identity/.test(neutral.input), "Independent request kept a false named source.");
+  const neutralSearch = await clickSearchAndCapture(page, requests);
+  assert.equal(neutralSearch.state.query, independent, "Neutral generated Plain lost exact backing.");
+  // D: remove navigation handoff/session in this isolated page, then load fresh.
+  await page.evaluate(() => { localStorage.clear(); sessionStorage.clear(); });
+  await page.goto(baseUrl + "/maze/?independent=1", { waitUntil: "domcontentloaded" });
+  await page.waitForSelector(helperSelector("Mana dorks"));
+  const fresh = await customizeHelper("Mana dorks");
+  assert(!/Prismari|Azorius|Commanders in this identity/.test(fresh.plain.input), "Fresh Helper invented dossier context.");
+  await clearAndCapture(page, requests);
+  await switchModeAndCapture(page, "raw", requests);
+  const unknownQuery = '(oracle:"draw" OR oracle:"discard") type:artifact';
+  await replaceInputWithKeyboard(page, unknownQuery);
+  await clickSearchAndCapture(page, requests);
+  const unknown = await switchModeAndCapture(page, "ai", requests);
+  assert.equal(unknown.input, "Custom Operator search", "Unknown unsupported provenance did not receive neutral fallback.");
+  assert.equal((await clickSearchAndCapture(page, requests)).state.query, unknownQuery, "Unknown-source fallback lost exact execution.");
+  assert.equal((await switchModeAndCapture(page, "raw", requests)).input, unknownQuery);
+  reportObservation("current-request-provenance", { observations, mana, ramp, replacement, dossierPlain, returned, neutral, fresh, unknown });
+  return { observations, dossierPlain, returned, neutral, fresh };
+}
+
 async function plainCompilerControl(page, input) {
   return page.evaluate(async (value) => {
     const { resolveMazeQueryRequest } = await import("/assets/js/maze/maze-query-core.js?v=vm636");
@@ -807,11 +940,12 @@ async function assertGeneratedPresentation(page, query, { basePlain = "", compos
   assert.equal(rawSearch.state.query, query, "Custom Operator execution drifted.");
   assert(rawSearch.state.requestUrls.some((url) => apiQuery(url) === query), "Custom Operator query did not reach the Scryfall API boundary.");
   assert(!/(?:\b(?:t|type|o|otag):|\bmv\s*[<>=]|[()]|\bOR\b|\b(?:t elemental|otag counterspell|o copy)\b)/.test(plain.input), "Generated Plain leaked raw syntax.");
-  assert(/Prismari/i.test(plain.input) && !/Izzet/i.test(plain.input), "Generated presentation lost Prismari source context.");
+  assert(!/Izzet/i.test(plain.input), "Generated presentation collapsed Prismari into Izzet.");
+  if (composed) assert(/Prismari/i.test(plain.input), "Proven composition lost Prismari source.");
   if (composed) {
     assert(plain.input.startsWith(`${basePlain}, narrowed to `) && /\bcat\b/i.test(plain.input), "Supported additive delta did not use catalog Plain plus human refinement.");
   } else {
-    assert(/^Custom Operator search · /.test(plain.input) && !/based on|narrowed to|across three|Commander-legal/i.test(plain.input), "Unsafe B composition or misleading fallback claimed canonical constraints.");
+    assert(/^Custom Operator search(?: · |$)/.test(plain.input) && !/based on|narrowed to|across three|Commander-legal/i.test(plain.input), "Unsafe B composition or misleading fallback claimed canonical constraints.");
   }
   assert.equal(raw.input, query, "Generated presentation lost exact Operator round-trip backing.");
   assert.equal(raw.requestUrls.length, rawSearch.state.requestUrls.length, "Passive mode inspection searched.");
@@ -847,6 +981,7 @@ async function runBoundedDossierPresentation(page) {
   assert.equal(pair.raw, 'id<=ur f:commander -is:commander -t:land ((t:elemental) OR (((t:instant OR t:sorcery) (mv>=6 OR o:copy))) OR (((o:copy (o:instant OR o:sorcery OR o:spell)) OR otag:counterspell OR o:"can\'t be countered")))');
   const complex = await assertGeneratedPresentation(page, `${pair.raw} type:cat`, { composed: true, basePlain: pair.plain, label: "complex-cat" });
   const editedB = await assertRealPlainEdit(page);
+  await selectDossierAction(page, supportSelector, page.vm674Requests);
   const multiple = await assertGeneratedPresentation(page, `${pair.raw} type:cat type:creature`, { composed: true, basePlain: pair.plain, label: "multiple-atoms" });
   assert(/cat and creature/i.test(multiple.plain.input));
   const rejected = [
@@ -864,7 +999,13 @@ async function runBoundedDossierPresentation(page) {
     ["missing-token-boundary", `${pair.raw}type:cat`],
   ];
   const fallbacks = [];
-  for (const [label, query] of rejected) fallbacks.push(await assertGeneratedPresentation(page, query, { label }));
+  for (const [label, query] of rejected) {
+    await selectDossierAction(page, supportSelector, page.vm674Requests);
+    const fallback = await assertGeneratedPresentation(page, query, { label });
+    if (query.startsWith(pair.raw + " ")) assert(/Prismari/.test(fallback.plain.input), "Known request lost dossier-contextual fallback.");
+    else assert.equal(fallback.plain.input, "Custom Operator search", "Unproven request inherited dossier source.");
+    fallbacks.push(fallback);
+  }
   const editedC = await assertRealPlainEdit(page);
   await replaceInputWithKeyboard(page, pair.raw);
   await clickSearchAndCapture(page, page.vm674Requests);
@@ -920,7 +1061,7 @@ async function main() {
     await waitForDevtools(launchedChrome.port);
     browser = await puppeteer.connect({ browserURL: `http://${host}:${launchedChrome.port}` });
     const journey = process.env.VM674_JOURNEY || "both";
-    assert(["azorius", "prismari", "both", "bc"].includes(journey), "VM-674 VM674_JOURNEY must be azorius, prismari, both, or bc.");
+    assert(["azorius", "prismari", "both", "bc", "provenance"].includes(journey), "VM-674 VM674_JOURNEY must be azorius, prismari, both, bc, or provenance.");
     let routeRun = null;
     if (journey === "azorius" || journey === "both") {
       const page = await configurePage(browser, baseUrl);
@@ -962,7 +1103,12 @@ async function main() {
         await page.close();
       }
     }
-    console.log(JSON.stringify({ azorius: routeRun, prismari: prismariRun, bounded: boundedRun }, null, 2));
+    let provenanceRun = null;
+    if (journey === "provenance" || journey === "both") {
+      const page = await configurePage(browser, baseUrl);
+      try { provenanceRun = await runCurrentRequestProvenance(page, baseUrl); } finally { await page.close(); }
+    }
+    console.log(JSON.stringify({ azorius: routeRun, prismari: prismariRun, bounded: boundedRun, provenance: provenanceRun }, null, 2));
   } finally {
     if (browser) {
       try {
@@ -989,6 +1135,7 @@ try {
 } catch (error) {
   console.error(`VM674_FAILURE ${JSON.stringify({
     phase: currentPhase,
+    stack: error?.stack,
     name: error?.name || "Error",
     message: error instanceof Error ? error.message : String(error),
   })}`);
