@@ -2,7 +2,7 @@
 
 ID: VM-677
 Title: RobQA Stateful Adversarial Policy Recovery, Red-Team, and Refinement
-Status: Owner Review
+Status: In Progress
 Type: Bounded RobQA policy recovery, red-team review, and refinement
 Area: RobQA stateful-adversarial governance policy
 Priority: High
@@ -74,8 +74,8 @@ Exact Owner-recovered artifacts supersede the recon's prior conclusion that the 
 Record version: 1
 Branch: codex/vm-677-robqa-stash-recon
 Admission baseline: 181b6a08c2e05a917e1d8681e70bd6f18249faa6
-Candidate: 77456852eaedeedcbf62d48a9c290bc06b45c443
-RobQA: PASS at 77456852eaedeedcbf62d48a9c290bc06b45c443 — SEPARATE QA-0; source docs/handoffs/2026-10-03-robqa-vm677-stateful-adversarial-upgrade.md#exact-candidate-qa
+Candidate: PENDING
+RobQA: PENDING
 Owner: PENDING
 Integration: PENDING
 Dependencies: None

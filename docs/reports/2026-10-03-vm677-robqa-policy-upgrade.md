@@ -5,6 +5,12 @@ Task: VM-677
 Branch: `codex/vm-677-robqa-stash-recon`
 Integrated governance baseline: `181b6a08c2e05a917e1d8681e70bd6f18249faa6`
 
+Current delivery binding and Git accounting: the [VM-677 card](../kanban/in-progress/VM-677-robqa-stash-recon.md)
+and latest revised decision in the [independent QA handoff](../handoffs/2026-10-03-robqa-vm677-stateful-adversarial-upgrade.md).
+The first frozen package below remains historical after the delivery-classifier correction recorded at
+the end of this report. The three reviewed policy blobs remain unchanged; all ten Owner answers still
+describe the final methodology candidate.
+
 ## Decision boundary and correction to recon
 
 The Owner authorized a bounded policy candidate on the existing VM-677 task and branch. This package stops at independent exact-candidate QA and Owner Review. Acceptance and integration remain pending. The candidate is the subject of adoption review; it does not become governing authority by existing on this branch. The currently integrated RobQAPass, RobDevPass and workflow control delivery. Proposed rules cannot be the sole justification for their own acceptance.
@@ -165,3 +171,24 @@ This evidence delta is not the full task diff. It appends the authentic exact-ca
 - Changed paths: `13`
 
 The full branch includes the original recon and this bounded policy candidate. Live/local main remains `181b6a08c2e05a917e1d8681e70bd6f18249faa6`. No feature push, PR creation, merge, integration, stash change, successor, runtime change, model/configuration change or cleanup occurred. The final clean-worktree, evidence-delta review, report-validator and candidate-stage results are verified after the evidence commit. Owner acceptance remains PENDING.
+
+## Delivery classifier correction and final accounting owner
+
+The candidate-stage checker for material `77456852eaedeedcbf62d48a9c290bc06b45c443` and evidence
+`f0c75fa02bb83cf88a79f707b758505d2b19499c` returned BLOCKED: the post-candidate report appendix is a
+material or unclassified path under the existing delivery checker. Its Git report accounting passed,
+and the independent policy verdict remains authentic; those facts do not waive the checker boundary.
+
+The complete report is therefore included in a replacement material freeze on the same VM-677 branch.
+No policy correction is required. The three policy blobs remain `485f48be8ffe6b3d86a13fb3aed0e05e1469af70`,
+`f0f7f442a67ce04be83e2556567ed6663231b43b`, and `1f60298d25c5f334e26502436bbbaceb346b1f6f`, in
+SKILL/navigation/canonical-pass order. The earlier candidate, QA, evidence receipt and Git sections
+above preserve the first attempted package's history; they do not bind the replacement freeze.
+
+The current candidate-bound verdict is recorded under `Revised exact-candidate QA` in the independent
+handoff. That handoff also owns current material/evidence/total Git accounting; the card owns active
+lifecycle bindings. Final evidence changes will be confined to permitted handoff/card/generated-board
+records. This report will receive no post-freeze appendix. The separate reviewer must verify the new
+exact SHA and the unchanged policy blobs, and the candidate-stage checker must pass before delivery.
+Owner ACCEPT and integration remain pending. There is no new task, successor, policy/bootstrap
+exception, product test, native-agent/model change, stash mutation, push or merge.
