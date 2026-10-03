@@ -2,7 +2,7 @@
 
 ID: VM-676
 Title: Home Author's Note Text Replacement
-Status: Integrated
+Status: Done
 Type: Surgical production copy edit
 Area: Home
 Priority: Owner requested

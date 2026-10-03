@@ -1,4 +1,4 @@
-<!-- task-view-sha256:e0b5e53d550e5ab33709b28680597fe80c5187cae326a24b6af989914b1ec815 -->
+<!-- task-view-sha256:d932e019c5cbdbea830254c8482f9766556108c086b3bb02d67588b286e29ff1 -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -56,7 +56,6 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 |---|---|---|---|
 | VM-658 | [Maze Instrument Frame](in-progress/VM-658-maze-instrument-frame.md) | Integrated |  |
 | VM-660 | [Maze Performance Recon](in-progress/VM-660-maze-performance-recon.md) | Integrated |  |
-| VM-676 | [Home Author's Note Text Replacement](in-progress/VM-676-home-author-note.md) | Integrated |  |
 
 ## Blocked
 
@@ -692,6 +691,7 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | VM-672 | [Dossier Runner Paths](done/VM-672-dossier-runner-paths.md) | Done |  |
 | VM-673 | [Retired Test Contracts](done/VM-673-retired-test-contracts.md) | Done |  |
 | VM-674 | [Azorius Repeat Search](done/VM-674-azorius-repeat-search.md) | Done |  |
+| VM-676 | [Home Author's Note Text Replacement](done/VM-676-home-author-note.md) | Done |  |
 
 ## Unresolved
 
