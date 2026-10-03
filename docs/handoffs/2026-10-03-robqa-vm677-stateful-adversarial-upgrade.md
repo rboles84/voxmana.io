@@ -191,3 +191,73 @@ The report's recovery/refinement descriptions, required scenario table, VM-674 p
 - Browser, Maze, Archscry, placement, scoring, mutation, visual, viewport, and full-product suites — NOT REQUIRED for a policy-only candidate with unchanged runtime and product behavior.
 
 No blocking finding remains for this exact candidate. Any material amendment requires a new immutable candidate and fresh RobQA review. Owner ACCEPT remains a separate decision.
+
+## Revised exact-candidate QA
+
+Task: VM-677
+Candidate: be13b06017b97f96386bb17dde056c909369cef8
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: /root/recon_qa
+Implementer: /root/policy_dev (policy) and /root (package correction)
+
+Decision: PASS for the replacement material candidate. This decision supersedes the earlier package binding while preserving its review history. It certifies the exact policy-and-document package for Owner Review; it does not accept or integrate the policy.
+
+### Replacement review
+
+- `HEAD` resolved to the revised candidate with a clean worktree. The complete accepted-baseline-to-candidate diff contains the same 13 authorized VM-677 paths and passes `git diff --check`.
+- All three policy blobs are byte-identical to the rigorously reviewed `77456852eaedeedcbf62d48a9c290bc06b45c443` versions: `485f48be8ffe6b3d86a13fb3aed0e05e1469af70`, `f0f7f442a67ce04be83e2556567ed6663231b43b`, and `1f60298d25c5f334e26502436bbbaceb346b1f6f` in SKILL/navigation/canonical-pass order. The full-policy A-G analysis, 34 focused policy assertions, workflow-instructions 15/15 result, source-hash verification, and candidate SHA-256 evidence therefore apply without inference across changed policy bytes: there are none.
+- The previously protected native-agent, workflow, package, and workflow-test blobs also remain byte-identical. The retained stash remains `4f5a2c67c9a4ca0366f4052a271e5c31105493a3` and was not mutated.
+- The replacement material adds the complete delivery-classifier correction to the report and keeps it inside the material freeze. The correction truthfully records the earlier checker BLOCKED result, identifies the post-candidate report appendix as material or unclassified, preserves the authentic prior policy review as history, names this revised section as the current binding source, and moves current Git accounting to this handoff after QA. It claims no policy exception or prior delivery success.
+- The card is truthfully reset to `Status: In Progress` with `Candidate`, `RobQA`, `Owner`, and `Integration` all `PENDING`. Its completed acceptance checkboxes describe work already performed; they do not claim candidate approval. The generated board matches that lifecycle state.
+- The refreshed all-target check resolved 28/28 relative links and anchors across eight policy/task files with zero failures. Generated views are fresh at 716 cards and 1,173 handoffs.
+
+No report edit is permitted after this freeze. Subsequent evidence is limited to this handoff, the card, and the generated board. No product/browser/Maze/placement/heavy suite was selected because policy and product behavior are unchanged from the already reviewed policy candidate. The unavailable optional Python YAML helper remains a disclosed environment limitation, not a PASS.
+
+No blocking finding remains for `be13b06017b97f96386bb17dde056c909369cef8`. Any material change requires another freeze and exact-candidate review. Owner ACCEPT and integration remain pending.
+
+## Material candidate
+
+- Baseline: `181b6a08c2e05a917e1d8681e70bd6f18249faa6`
+- Candidate: `be13b06017b97f96386bb17dde056c909369cef8`
+- Changed paths: `13`
+
+## Files changed
+
+- `.agents/skills/robqa/SKILL.md`
+- `.agents/skills/robqa/robqa.md`
+- `docs/handoffs/2026-10-02-2241-codex-vm677-robqa-stash-recon.md`
+- `docs/handoffs/2026-10-02-2241-kanban-vm677-robqa-stash-recon.md`
+- `docs/handoffs/2026-10-02-2241-robqa-vm677-robqa-stash-recon.md`
+- `docs/handoffs/2026-10-03-robdev-vm677-stateful-adversarial-upgrade.md`
+- `docs/handoffs/2026-10-03-robqa-vm677-stateful-adversarial-upgrade.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-677-robqa-stash-recon.md`
+- `docs/qa/RobQAPass.md`
+- `docs/reports/2026-10-02-vm677-robqa-stash-recon.md`
+- `docs/reports/2026-10-03-vm677-robqa-policy-upgrade.md`
+
+This is the full VM-677 material path set derived from Git, including preserved recon records and the complete Owner report. Only the three named RobQA targets change policy/skill behavior. The first package and its historical bindings remain documentary history; the Revised exact-candidate QA section above binds this active material candidate.
+
+## Evidence delta
+
+- Material candidate: `be13b06017b97f96386bb17dde056c909369cef8`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `3`
+
+This evidence delta is not the full task diff. It appends the revised authentic QA verdict and current Git accounting to this handoff, updates card lifecycle bindings only, and regenerates the board. No report or policy bytes change after this material freeze. HEAD resolves to the final immutable evidence commit at delivery.
+
+## Evidence-only paths
+
+- `docs/handoffs/2026-10-03-robqa-vm677-stateful-adversarial-upgrade.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-677-robqa-stash-recon.md`
+
+## Final branch delta
+
+- Baseline: `181b6a08c2e05a917e1d8681e70bd6f18249faa6`
+- Head: `HEAD`
+- Changed paths: `13`
+
+The final package remains local on codex/vm-677-robqa-stash-recon with Owner and Integration PENDING. All three recovered source hashes match; all three policy candidate blobs retain their first reviewed bytes; stash 4f5a2c67c9a4ca0366f4052a271e5c31105493a3 remains unchanged. No successor, integration, push, merge, model/configuration change, product/runtime/test-behavior change or cleanup occurred. Final exact-delta review, Git-report validation and candidate-stage check follow the evidence commit; those checks do not constitute Owner consent.
