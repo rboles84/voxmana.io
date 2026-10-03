@@ -2,7 +2,7 @@
 
 ID: VM-674
 Title: Azorius Repeat Search
-Status: In Progress
+Status: Owner Review
 Type: Bounded rendered-behavior investigation and conditional repair
 Area: Archscry-to-Maze discovery handoff and repeat search
 Priority: High
@@ -60,9 +60,9 @@ Current Owner eight-item request, item 6; accepted VM-670 and VM-671 records; hi
 - [x] Focused A–H regressions protect genuine Plain edits, canonical restore, complex custom dossier reset, VM-479/480 supported translation and Azorius.
 - [x] Separate Stateful Adversarial RobQA binds the new exact candidate and demonstrates detection of leakage, unsafe composition, backing loss and stale restoration through causal mutations/controls.
 
-- [ ] Helper customization remains attributable to the selected Helper; dossier session context cannot imply current-request provenance.
-- [ ] Named Helper/dossier replacement, Clear, authored independent requests, mode inspection and Return restore obey the independent source lifecycle.
-- [ ] Required provenance journeys A–J and the causal discarded-Helper-source control receive separate exact-candidate Stateful Adversarial RobQA; execution remains green in the attribution-negative control.
+- [x] Helper customization remains attributable to the selected Helper; dossier session context cannot imply current-request provenance.
+- [x] Named Helper/dossier replacement, Clear, authored independent requests, mode inspection and Return restore obey the independent source lifecycle.
+- [x] Required provenance journeys A–J and the causal discarded-Helper-source control receive separate exact-candidate Stateful Adversarial RobQA; execution remains green in the attribution-negative control.
 
 ## Files Likely Impacted
 
@@ -94,13 +94,13 @@ Apply RobDev before implementation. Replace the reproduced history-dependent rep
 Record version: 1
 Branch: codex/vm-674-azorius-repeat-search
 Admission baseline: a798f38559202050e29ac010de26241fa9aabaa1
-Candidate: PENDING
-RobQA: PENDING — prior 6f9c197 PASS superseded by Owner-confirmed Helper provenance QA escape; separate exact-candidate review required.
-Owner: PENDING — Owner rejected 6f9c197e753506fd4963e51aad36c4b8043a16e3 and authorized the bounded current-request provenance correction on 2026-10-02; no integration.
+Candidate: 65ac433f99e70186000d9bf930f22443ad593e6c
+RobQA: PASS at 65ac433f99e70186000d9bf930f22443ad593e6c — SEPARATE Stateful Adversarial review in docs/handoffs/2026-09-30-robqa-vm674-azorius-repeat-search.md#current-request-provenance-exact-candidate-qa. Prior 6f9c197 PASS is historical and superseded by Owner rejection.
+Owner: PENDING at 65ac433f99e70186000d9bf930f22443ad593e6c — no integration authorized; earlier 6f9c197 rejection retained in the provenance authorization handoff.
 Integration: PENDING
 Dependencies: None
 Decisions: Owner authorization 2026-10-02 preserves current-request provenance across Helper customization using existing metadata; no universal state architecture, second query/results owner, pending execution retention, catalog/parser change, VM-675 or integration. Fresh rendered evidence decides whether an owning repair is warranted. Preserve current Maze query, route, filter, cache/deduplication, reading-context, API, and render contracts; do not treat VM-662 as current-defect proof. Prior amendment admitted the catalog-backed current-representation resolver and deterministic catalog coverage. Owner authorized Option A after bounded recon: exact Operator-backed generated Plain remains presentation-only until actual input edits; explicit dossier path/thread reselection is the authoritative atomic reset boundary for canonical intent and obsolete mode drafts; Prismari expression context remains independent from generic UR/Izzet translation and external aliases. Existing route owners only; stop at a new candidate and separate RobQA, with no integration or next task.
-Evidence: [VM-670 report](../../reports/2026-09-30-vm670-repository-recon.md); [VM-671 records reconciliation report](../../reports/2026-09-30-vm671-records-reconciliation.md); current Owner item 6 request. The rejected Prismari correction is within the admitted controller, focused fixture, card, and handoff paths: it covers both Azorius Plain and Prismari Operator canonical restoration directions without changing data meaning.
+Evidence: Current exact-candidate provenance QA and discarded-source causal control in docs/handoffs/2026-09-30-robqa-vm674-azorius-repeat-search.md#current-request-provenance-exact-candidate-qa; [VM-670 report](../../reports/2026-09-30-vm670-repository-recon.md); [VM-671 records reconciliation report](../../reports/2026-09-30-vm671-records-reconciliation.md); current Owner item 6 request. The rejected Prismari correction is within the admitted controller, focused fixture, card, and handoff paths: it covers both Azorius Plain and Prismari Operator canonical restoration directions without changing data meaning.
 
 ## Admission Scope
 

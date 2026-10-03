@@ -669,3 +669,46 @@ No final control failed through launch, fixture schema or helper error. The supe
 ### Owner boundary
 
 Owner judgment remains the natural feel of the simple/complex B wording and source-context C wording. In the Prismari support path, append ` type:cat`; Plain should naturally refine the catalog sentence and untouched Search must execute the exact complex Operator query. Then try ` type:cat-or-dog`; Plain should use the honest custom Prismari/path context without claiming catalog constraints or saying `cat or dog`, while untouched Search preserves that exact raw request. Reselect the path and confirm the canonical pair returns with no stale refinement. Owner ACCEPT must bind `6f9c197e753506fd4963e51aad36c4b8043a16e3`; this engineering PASS does not authorize integration or successor work.
+
+## Current-request provenance exact-candidate QA
+
+Task: VM-674
+Candidate: `65ac433f99e70186000d9bf930f22443ad593e6c`
+Admission baseline: `a798f38559202050e29ac010de26241fa9aabaa1`
+Superseded candidate: `6f9c197e753506fd4963e51aad36c4b8043a16e3`
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: Codex `/root/robqa_provenance` (configured Sol medium; backend setting unverified)
+Implementer: Codex `/root/robdev_provenance` and coordinator `/root`
+
+### Decision
+
+QA-3 passes for the exact frozen candidate. The route-local current-request source snapshot is independent from pending Helper execution, selected UI, Return draft and retained dossier session. Explicit Helper or dossier actions replace it; Clear and unrelated authored requests invalidate it; Inspect/Return restores the prior draft with that draft's own source. B/C presentation reads only a source whose recorded base is the exact current query or a space-bounded prefix. It does not reconstruct provenance from the active Prismari session. Unknown or unsupported unsourced requests receive neutral exact backing, while complete existing generic translations remain generic without acquiring named provenance.
+
+The full focused rendered journey is green. From Prismari, Clear → **Mana dorks** inspect-first → Operator → append ` type:cats` → Search → Plain names Mana dorks, excludes commander/dossier attribution and raw syntax, and retains the exact Operator query. Untouched generated Plain Search and return to Operator preserve that backing. **Ramp spells** proves independent Helper attribution. Explicit dossier selection replaces Helper source, Helper selection replaces dossier source, Clear does not revive either across modes, and Inspect/Return restores both dossier and Helper drafts with their own provenance. Authored independent input, a fresh Helper page and an unknown unsupported request remain neutral where required. Inspector, intercepted API, Results versus Previous results, Copy and Open remain aligned with the exact current query.
+
+Existing Azorius A-K, Option A generated/authored ownership, complex support-card B/C, letters-only additive composition, unsupported and changed-base fallback, authored destination priority, canonical restoration, VM-479/480 functional-tag translation, no syntax leakage, query/parser/compiler, filters, cache, routes and result ownership remain green. The actual candidate diff was inspected independently rather than accepted from the developer summary. No blocker or major correctness finding remains.
+
+### Exact-candidate evidence
+
+- Clean continuation admission: PASS at `65ac433f99e70186000d9bf930f22443ad593e6c` with baseline `a798f38559202050e29ac010de26241fa9aabaa1`.
+- `git diff --check a798f38559202050e29ac010de26241fa9aabaa1..65ac433f99e70186000d9bf930f22443ad593e6c` and the focused prior-head-to-candidate check: PASS.
+- `node --check assets/js/maze/research-init.js` and `node --check scripts/vm674-archscry-azorius-repeat-search-browser.mjs`: PASS.
+- `npm.cmd run test:mode`: PASS, 14 mode-continuity and 14 leakage cases.
+- `node tests/maze/maze-query-contract-tests.js`: PASS.
+- `npm.cmd run test:maze-discovery-profiles`: PASS, 37 source-valid profiles and 367 projections.
+- `npm.cmd run test:vm674-azorius-repeat-search`: PASS, exit 0 with default `both`; the run included Azorius, Prismari Option A/B/C and the provenance A-J journey on fresh pages.
+- `npm.cmd run task -- indexes --check`: PASS, 714 cards, 1,166 handoffs and zero stale generated views.
+- Post-run Git status: clean before this QA evidence append.
+
+### Causal discarded-source control
+
+An owned external byte-for-byte copy of the exact candidate controller was changed only so `inspectSuggestedSearch` discarded a Helper source snapshot while leaving the Prismari session, pending query and execution path intact. The repository candidate controller SHA-256 remained `AEEB1A683BBD9E49B87805F9335A3BCAD82D34F40B3F2137D661CE0E3656EEE9` before and after. The isolated override SHA-256 remained `FC0B0A06FDD415EB9BCA82B7D1C488FD7E502CEFD4661AEACA0A86AF97E91B38` before and after execution.
+
+`VM674_JOURNEY=provenance` with `VM674_RESEARCH_INIT_FILE` exited 1 at the intended assertion. Its preceding `helper-execution-truth` observation proved the exact Mana-dorks-plus-`type:cats` query in Operator, inspector, intercepted API, completed Results, Copy and Open while `dossierRuntime` remained `PRISMARI` / `commanders-that-fit`. It then failed only with `VM-674 Helper-derived Plain lost Mana dorks attribution.` This demonstrates sensitivity to the current-request source owner rather than execution, session or fixture availability. The external override was hash-checked and removed; repository bytes were never modified.
+
+### Proportionality and Owner boundary
+
+CPU-heavy validation is **NOT REQUIRED**. The changed risk is the rendered request-source lifecycle, so the focused stateful journey, lower query/mode/profile contracts and one causal source mutation provide sufficient evidence. The 37-profile interactive matrix, broad browser smoke, screenshots, viewport matrices, live Scryfall semantics or counts, broad parser/AST recertification and unrelated harness repair were intentionally skipped. Native DOM action dispatch and real keyboard edits verify objective state behavior; pointer geometry and subjective wording remain uncertified.
+
+Owner judgment remains whether the Helper, dossier-context and neutral presentations read naturally. Open Prismari Maze, Clear, inspect **Mana dorks**, switch to Operator, append ` type:cats`, Search and switch to Plain. PASS if the wording names Mana dorks without claiming commanders or Prismari dossier ownership, and untouched Search still uses the exact Operator query. Then Clear and enter an unrelated unsupported Operator request: PASS if Plain is neutral and preserves exact backing. Finally inspect **Ramp spells**, then select a dossier path: PASS if each latest explicit action replaces the prior attribution. Owner ACCEPT must bind exact candidate `65ac433f99e70186000d9bf930f22443ad593e6c`; this engineering PASS authorizes neither integration, push, VM-675 nor successor work.

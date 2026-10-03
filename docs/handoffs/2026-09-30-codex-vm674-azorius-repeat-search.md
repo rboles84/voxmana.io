@@ -366,3 +366,21 @@ Required evidence is the Owner's A–J stateful seams, existing passing Option A
 The independent source snapshot, presentation consumer, selection/reset/Return and exact backing are implemented using existing route owners. Root completed the expanded fixture after the worker's partial first-Helper coverage and remains a disclosed co-implementer. Separate QA remains non-implementing. Prefreeze review removed attempted ambient dossier-prefix source reconstruction and unconditional catalog-source retention, and ensured fresh unsupported input receives neutral exact backing. A small suffix guard prevents unrecognized source kinds from displaying base-only wording for custom suffixes.
 
 Expanded provenance A–J developer evidence is green. The exact rejected controller fails Helper attribution after execution/API/Results/Copy/Open invariants pass. Existing Azorius evidence passed in the combined attempt; isolated final Prismari/Option A/B/C/generic control passed after one unexplained combined-run timeout, disclosed as suspected harness timing debt. No screenshot, broad browser, parser recertification, live-count certification or unrelated repair was performed. Card meaning/acceptance/source authority and fixture/controller changes are material and will be included in the new candidate. Candidate, separate RobQA and Owner remain PENDING. Stop at Owner Review; no push, integration or VM-675.
+
+## Current-request provenance correction — exact candidate Owner Review
+
+Date: 2026-10-02, America/Denver
+Task: VM-674
+Candidate: 65ac433f99e70186000d9bf930f22443ad593e6c
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: robqa_provenance
+Implementer: robdev_provenance and root
+Owner: PENDING
+Integration: PENDING
+
+The attributed [QA handoff](2026-09-30-robqa-vm674-azorius-repeat-search.md#current-request-provenance-exact-candidate-qa) independently binds engineering PASS to this immutable candidate. Full default Azorius/Prismari/Option A/B/C and provenance A–J passed, with syntax, mode-continuity/leakage, query contract, source-valid discovery profiles, whitespace and generated freshness checks. The external source-discard control retained Prismari session context and exact Helper Operator/inspector/API/Results/Copy/Open truth, then failed only Helper attribution. Candidate/override pre/post hashes matched and the override was removed. The earlier developer combined-run timeout remains disclosed as suspected timing debt; the independent exact-candidate default run passed without weakening checks.
+
+Git accounting is recorded in C:/Users/obake/.codex/visualizations/2026/10/03/01a0ff15-9730-79d1-baec-048ed91dc97f/vm674-provenance-git-report.md. That report derives material paths from baseline a798f38559202050e29ac010de26241fa9aabaa1 to the candidate and distinguishes the later evidence-only and total-branch scopes. Post-candidate changes only append QA/coordinator observations, update card lifecycle/delivery/checkbox results, and regenerate views. Exact delta content review and candidate-delivery validation remain required before final delivery. No push, integration or VM-675 was performed.
+
+Focused Owner check: in a Prismari Maze session, Clear → Mana dorks → Operator → append type:cats → Search → Plain. Expect Helper-attributed wording, no commanders/dossier-source claim; Search untouched and return Operator preserve exact custom query. Repeat with Ramp spells and verify the label changes. Inspect another Helper and Return to draft; the prior draft and its own source should return. Clear and switch modes, then select a dossier path; no old Helper label/refinement should return, and the dossier should own the new request. Owner judgment remains wording/product feel; exact execution and lifecycle seams are machine-verified. Intercepted deterministic cards do not certify live Scryfall counts or card semantics. Stop at Owner Review pending exact-candidate ACCEPT.
