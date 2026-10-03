@@ -105,3 +105,41 @@ This evidence delta is not the full task diff. HEAD is resolved by the Git-repor
 - Changed paths: `7`
 
 The total branch remains documentation-only. No push, PR, merge, policy promotion, or stash mutation was performed. Final clean-worktree, report-validator and candidate-stage results are verified after the evidence commit.
+
+## VM-677 policy recovery continuation — 2026-10-03
+
+The Owner supplied exact recovered October 1 artifacts and authorized a bounded policy candidate on
+this same task and branch. All three required SHA-256 values match; current pre-edit target Git blobs
+match October 1 and integrated baseline. This supersedes the event-time missing-bytes conclusion above;
+it preserves the unsafe-stash finding and original recon candidate/evidence. No stash application or
+successor task occurred. The card-only amendment is `77580b12940f782b612e9b369054f1f70aa11ea5`.
+
+The [new Owner packet](../reports/2026-10-03-vm677-robqa-policy-upgrade.md) owns current delivery and
+Git accounting. Earlier SHA/count sections above remain historical recon records, not policy-candidate
+readiness. The integrated baseline `181b6a08c2e05a917e1d8681e70bd6f18249faa6` controls adoption;
+the proposed RobQAPass is the subject under review and has no independent authority until acceptance
+and integration.
+
+Coordinator `/root` owns recovery/drift verification, the decision packet, admission/freeze, generated
+freshness and Git delivery evidence. `/root/policy_dev` owns the three admitted material policy targets
+and the [RobDev packet](2026-10-03-robdev-vm677-stateful-adversarial-upgrade.md).
+`/root/recon_qa` owns [separate QA](2026-10-03-robqa-vm677-stateful-adversarial-upgrade.md), using accepted
+governance rather than the candidate to justify adoption. `/root/recon_records` owns card/lifecycle
+records. Required role settings are configured RobDev Terra medium, RobQA Sol medium and clerical Terra
+low, accepted by role selection; backend identity, billing and token savings are unverified.
+
+Changed behavior: a canonical, proportional method for material state ownership/history risks;
+wrappers remain navigation. Protected behavior: authority hierarchy, Owner-Visual, cost controls,
+lowest reliable layer, independent review and exact-candidate Owner decision. AGENTS, native-agent
+configuration, RobDev, model routing, product/runtime and test behavior remain unchanged.
+
+Primary risks reviewed: visible text mistaken for complete authoritative state; session context
+mistaken for request provenance; stale ownership resurrected after replacement; accepted normalization
+mistaken for drift; simple-case evidence missing a structurally different branch; green regressions
+insensitive to the escaped defect; unnecessary browser/test inflation. Selected documentary scenarios,
+full policy diff, links and governance checks address those risks. No product journeys, Maze browser
+suites, placement certification, screenshots or CPU-heavy validation are required for adoption.
+
+Next suggested role: separate RobQA for the frozen candidate, then Owner for exact-candidate review.
+No integration, push/merge, cleanup or stash deletion is authorized. The final decision packet records
+actual QA/validation results and the immutable candidate/evidence bindings after freeze.

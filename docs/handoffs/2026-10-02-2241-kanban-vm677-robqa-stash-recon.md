@@ -75,3 +75,11 @@ The retained stash; all `docs/qa` policy files; all prompts, runtime code, tests
 ## Next suggested agent
 
 Coordinator for the bounded report and exact-candidate preparation; then an independent RobQA reviewer. Owner Review is required after a candidate-bound RobQA PASS.
+
+## 2026-10-03 lifecycle context — approved policy-candidate scope amendment
+
+The approved amendment at `77580b12940f782b612e9b369054f1f70aa11ea5` returns VM-677 to **In Progress** for a new, bounded RobQA governance-policy candidate. Its delivery fields reset to Candidate, RobQA, Owner, and Integration **PENDING**; the prior documentation-only recon candidate `1801609b0bf22a789352414cfce56274ea01c122` and evidence head `62f1ce261f178d6d8f3da7a68dcb80eedbf5b5be` remain historical only.
+
+The new material policy scope is confined to `.agents/skills/robqa/SKILL.md`, `.agents/skills/robqa/robqa.md`, and `docs/qa/RobQAPass.md`, with ordinary VM-677 report/handoff/card/view records allowed as lifecycle evidence. The stated task is to recover exact Owner artifacts, red-team and refine this policy candidate. It authorizes no retained-stash application, successor, integration, native-agent/model, RobDev, product/runtime, or test-behavior change. The prior unavailable-bytes conclusion is corrected by exact Owner-recovered artifacts, while retained stash `4f5a2c67c9a4ca0366f4052a271e5c31105493a3` remains unsafe to apply and unchanged.
+
+No PASS, active review result, or Owner acceptance is recorded here for the new candidate. The next lifecycle transition requires supplied independent, exact-candidate QA evidence; it remains separate from the completed recon's QA evidence.

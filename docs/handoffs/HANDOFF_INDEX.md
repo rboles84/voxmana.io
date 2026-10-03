@@ -1,4 +1,4 @@
-<!-- task-view-sha256:6c2aa0340becc818fc821ecd1dc8034db0da945bc3ff8dc1cc495b0c8bcfa10c -->
+<!-- task-view-sha256:3859f6953b7878d290784b86440be12217a74eadbf2f166803aa215eb9b118b0 -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -9,6 +9,8 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 | Authored / filename date | Agent | Handoff | Related task references | Diagnostics |
 |---|---|---|---|---|
 | 2026-10-02T22:41:00-06:00 (authored) | Kanban Steward `/root/recon_records` | [VM-677 — Kanban Admission and Lifecycle Handoff](2026-10-02-2241-kanban-vm677-robqa-stash-recon.md) | VM-677 | Identity displayed from heading; not admission metadata. |
+| 2026-10-03T00:00:00Z (filename) | Unknown | [VM-677 RobDev handoff — Stateful-Adversarial RobQA upgrade](2026-10-03-robdev-vm677-stateful-adversarial-upgrade.md) | VM-677 | Identity displayed from heading; not admission metadata. |
+| 2026-10-03T00:00:00Z (filename) | Unknown | [VM-677 — Stateful Adversarial RobQA Upgrade — Independent QA](2026-10-03-robqa-vm677-stateful-adversarial-upgrade.md) | VM-677 | Identity displayed from heading; not admission metadata. Invalid authored date; filename fallback or undated ordering used. |
 | 2026-10-02T22:41:00Z (filename) | Codex coordinator `/root` | [VM-677 — Coordinator stash recon handoff](2026-10-02-2241-codex-vm677-robqa-stash-recon.md) | VM-677, VM-674 | Identity displayed from heading; not admission metadata. Invalid authored date; filename fallback or undated ordering used. |
 | 2026-10-02T22:41:00Z (filename) | Codex `/root/recon_qa` | [VM-677 — Independent RobQA Stash Recon Handoff](2026-10-02-2241-robqa-vm677-robqa-stash-recon.md) | VM-677 | Identity displayed from heading; not admission metadata. Invalid authored date; filename fallback or undated ordering used. |
 | 2026-10-02T22:08:00Z (filename) | Unknown | [RobDev Handoff — VM-676 Home Author's Note](2026-10-02-2208-robdev-vm676-home-author-note.md) | VM-676 | Identity displayed from heading; not admission metadata. |
