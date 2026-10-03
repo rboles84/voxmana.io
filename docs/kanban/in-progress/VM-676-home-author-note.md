@@ -2,7 +2,7 @@
 
 ID: VM-676
 Title: Home Author's Note Text Replacement
-Status: Accepted
+Status: Integrated
 Type: Surgical production copy edit
 Area: Home
 Priority: Owner requested
@@ -45,7 +45,7 @@ Admission baseline: e761d4b6cdcd8947e09524c9574a39669eac26ca
 Candidate: 77ecd7c39fcb730f2e127b6e4941bd6a802b3913
 RobQA: PASS at 77ecd7c39fcb730f2e127b6e4941bd6a802b3913 — SEPARATE QA-1 product / QA-0 records by /root/author_note_qa; docs/handoffs/2026-10-02-2208-robqa-vm676-home-author-note.md
 Owner: ACCEPTED at 77ecd7c39fcb730f2e127b6e4941bd6a802b3913 — current Owner approval in this chat; docs/handoffs/2026-10-02-2208-robdev-vm676-home-author-note.md#owner-acceptance
-Integration: PENDING
+Integration: INTEGRATED PR #67 — squash af5e54fe8e6536ad19fafaf3a451d33efe61a16b; local main synchronized; task branch cleanup complete
 Dependencies: None
 Decisions: Exact Owner-supplied copy only; index.html is the sole product path; required lifecycle/evidence records only; no integration before Owner ACCEPT.
 Evidence: [RobDev handoff](../../handoffs/2026-10-02-2208-robdev-vm676-home-author-note.md); [RobQA handoff](../../handoffs/2026-10-02-2208-robqa-vm676-home-author-note.md)
