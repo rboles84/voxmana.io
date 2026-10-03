@@ -96,7 +96,7 @@ Branch: codex/vm-674-azorius-repeat-search
 Admission baseline: a798f38559202050e29ac010de26241fa9aabaa1
 Candidate: 65ac433f99e70186000d9bf930f22443ad593e6c
 RobQA: PASS at 65ac433f99e70186000d9bf930f22443ad593e6c — SEPARATE Stateful Adversarial review in docs/handoffs/2026-09-30-robqa-vm674-azorius-repeat-search.md#current-request-provenance-exact-candidate-qa. Prior 6f9c197 PASS is historical and superseded by Owner rejection.
-Owner: PENDING at 65ac433f99e70186000d9bf930f22443ad593e6c — no integration authorized; earlier 6f9c197 rejection retained in the provenance authorization handoff.
+Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Decisions: Owner authorization 2026-10-02 preserves current-request provenance across Helper customization using existing metadata; no universal state architecture, second query/results owner, pending execution retention, catalog/parser change, VM-675 or integration. Fresh rendered evidence decides whether an owning repair is warranted. Preserve current Maze query, route, filter, cache/deduplication, reading-context, API, and render contracts; do not treat VM-662 as current-defect proof. Prior amendment admitted the catalog-backed current-representation resolver and deterministic catalog coverage. Owner authorized Option A after bounded recon: exact Operator-backed generated Plain remains presentation-only until actual input edits; explicit dossier path/thread reselection is the authoritative atomic reset boundary for canonical intent and obsolete mode drafts; Prismari expression context remains independent from generic UR/Izzet translation and external aliases. Existing route owners only; stop at a new candidate and separate RobQA, with no integration or next task.
