@@ -103,3 +103,65 @@ and 1,173 handoffs. The Skill Creator `quick_validate.py` helper could not run b
 from both available Python runtimes. No package was installed. Skill frontmatter is unchanged from
 integrated baseline; existing workflow/entrypoint validation and direct authority/link review provide
 the applicable repository checks. This environment limitation is not reported as a validator PASS.
+
+## Exact-candidate disposition
+
+Task: VM-677
+Candidate: 77456852eaedeedcbf62d48a9c290bc06b45c443
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: /root/recon_qa
+Implementer: /root/policy_dev
+
+The separate reviewer did not author the policy candidate. Under integrated baseline governance it inspected the complete three-file material diff and the complete candidate, the recovered hashes, authority hierarchy, all A-G scenario/counterexample dispositions, proportionality, full-document terminology, protected-file parity and wrapper subordination. All required red-team corrections are present, with no remaining blocking finding. The ten-point summary above accurately describes this exact candidate. Its policy remains pending Owner ACCEPT and integration.
+
+Actual checks: workflow-instructions 15/15; 26/26 relative links/anchors; 34/34 focused policy assertions; baseline-to-candidate whitespace clean; generated views fresh at 716 cards and 1,173 handoffs; admission continuation PASS with live/local main unchanged. The optional Python helper limitation remains as disclosed. No product/browser/Maze/placement/heavy suite was run.
+
+Source: docs/handoffs/2026-10-03-robqa-vm677-stateful-adversarial-upgrade.md#exact-candidate-qa. All three policy files are frozen at the candidate and may not change through evidence-only updates. Owner and integration remain PENDING.
+
+## Material candidate
+
+- Baseline: `181b6a08c2e05a917e1d8681e70bd6f18249faa6`
+- Candidate: `77456852eaedeedcbf62d48a9c290bc06b45c443`
+- Changed paths: `13`
+
+## Files changed
+
+- `.agents/skills/robqa/SKILL.md`
+- `.agents/skills/robqa/robqa.md`
+- `docs/handoffs/2026-10-02-2241-codex-vm677-robqa-stash-recon.md`
+- `docs/handoffs/2026-10-02-2241-kanban-vm677-robqa-stash-recon.md`
+- `docs/handoffs/2026-10-02-2241-robqa-vm677-robqa-stash-recon.md`
+- `docs/handoffs/2026-10-03-robdev-vm677-stateful-adversarial-upgrade.md`
+- `docs/handoffs/2026-10-03-robqa-vm677-stateful-adversarial-upgrade.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-677-robqa-stash-recon.md`
+- `docs/qa/RobQAPass.md`
+- `docs/reports/2026-10-02-vm677-robqa-stash-recon.md`
+- `docs/reports/2026-10-03-vm677-robqa-policy-upgrade.md`
+
+These Git-derived paths cover the full VM-677 branch, including preserved recon records. The three RobQA targets are the only methodology/skill changes; the remaining paths are VM-677 authored records and generated views.
+
+## Evidence delta
+
+- Material candidate: `77456852eaedeedcbf62d48a9c290bc06b45c443`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `4`
+
+This evidence delta is not the full task diff. It appends the authentic exact-candidate QA verdict and decision/Git evidence, updates only the card lifecycle/delivery/checkbox bindings, and regenerates the board. The policy files and their reviewed candidate blobs remain unchanged. HEAD resolves to the immutable evidence commit at delivery.
+
+## Evidence-only paths
+
+- `docs/handoffs/2026-10-03-robqa-vm677-stateful-adversarial-upgrade.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-677-robqa-stash-recon.md`
+- `docs/reports/2026-10-03-vm677-robqa-policy-upgrade.md`
+
+## Final branch delta
+
+- Baseline: `181b6a08c2e05a917e1d8681e70bd6f18249faa6`
+- Head: `HEAD`
+- Changed paths: `13`
+
+The full branch includes the original recon and this bounded policy candidate. Live/local main remains `181b6a08c2e05a917e1d8681e70bd6f18249faa6`. No feature push, PR creation, merge, integration, stash change, successor, runtime change, model/configuration change or cleanup occurred. The final clean-worktree, evidence-delta review, report-validator and candidate-stage results are verified after the evidence commit. Owner acceptance remains PENDING.

@@ -2,7 +2,7 @@
 
 ID: VM-677
 Title: RobQA Stateful Adversarial Policy Recovery, Red-Team, and Refinement
-Status: In Progress
+Status: Owner Review
 Type: Bounded RobQA policy recovery, red-team review, and refinement
 Area: RobQA stateful-adversarial governance policy
 Priority: High
@@ -31,11 +31,11 @@ Current Owner request and the approved scope amendment at `77580b12940f782b612e9
 
 ## Acceptance Criteria
 
-- [ ] Exact Owner-provided recovery bytes for all three approved RobQA policy/skill targets are verified before refinement.
-- [ ] The recovered policy candidate receives bounded red-team review against integrated baseline governance without changing excluded material.
-- [ ] Any refinement remains confined to the three approved RobQA policy/skill targets, with new report and role handoffs.
-- [ ] The new policy candidate receives independent exact-candidate separate QA evidence and stops at Owner Review.
-- [ ] Generated board/index views are refreshed after the authorized source records are complete.
+- [x] Exact Owner-provided recovery bytes for all three approved RobQA policy/skill targets are verified before refinement.
+- [x] The recovered policy candidate receives bounded red-team review against integrated baseline governance without changing excluded material.
+- [x] Any refinement remains confined to the three approved RobQA policy/skill targets, with new report and role handoffs.
+- [x] The new policy candidate receives independent exact-candidate separate QA evidence and stops at Owner Review.
+- [x] Generated board/index views are refreshed after the authorized source records are complete.
 
 ## Historical Recon Record — completed before the scope amendment
 
@@ -74,8 +74,8 @@ Exact Owner-recovered artifacts supersede the recon's prior conclusion that the 
 Record version: 1
 Branch: codex/vm-677-robqa-stash-recon
 Admission baseline: 181b6a08c2e05a917e1d8681e70bd6f18249faa6
-Candidate: PENDING
-RobQA: PENDING
+Candidate: 77456852eaedeedcbf62d48a9c290bc06b45c443
+RobQA: PASS at 77456852eaedeedcbf62d48a9c290bc06b45c443 — SEPARATE QA-0; source docs/handoffs/2026-10-03-robqa-vm677-stateful-adversarial-upgrade.md#exact-candidate-qa
 Owner: PENDING
 Integration: PENDING
 Dependencies: None

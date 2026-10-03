@@ -146,3 +146,48 @@ Preview checks: all three full files and recovered-to-final/live-to-final diffs 
 ## Candidate status
 
 PENDING. No engineering verdict applies until RobDev freezes an immutable candidate and this reviewer completes the exact three-file review and selected checks. Any material correction requires a new candidate and fresh review. Owner acceptance remains separate.
+
+## Exact-candidate QA
+
+Task: VM-677
+Candidate: 77456852eaedeedcbf62d48a9c290bc06b45c443
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: Codex `/root/recon_qa` (`robqa` role)
+Implementer: Codex `/root/policy_dev` (`robdev` role)
+
+Decision: PASS for this exact QA-0 governance candidate. The decision certifies the policy-document change and its task evidence for Owner review. It does not certify a live product change, replace Owner judgment, or apply the retained stash.
+
+### Candidate control and scope
+
+- Admission continue was PASS for this freeze. `HEAD` resolved to the exact candidate, the worktree was clean, local/live `main` remained at accepted bootstrap `181b6a08c2e05a917e1d8681e70bd6f18249faa6`, and VM-677 remained the single active work branch.
+- The complete baseline-to-candidate Git diff contained 13 authorized VM-677 task paths. The policy material is exactly `.agents/skills/robqa/SKILL.md`, `.agents/skills/robqa/robqa.md`, and `docs/qa/RobQAPass.md`; the remaining paths are the task's historical/current report, handoff, card, and generated-view records.
+- No runtime, product, test, package-script, workflow-authority, model, native-agent, or approval configuration changed. The protected `.codex/agents/robqa.toml`, `docs/reference/workflow.md`, `package.json`, and `tests/governance/workflow-instructions.test.mjs` blobs remained unchanged.
+- Candidate SHA-256 values were independently observed as `BE9C534BE33E40CE81C7AB07202D79D04509577EABC6099ACFD74B36A380E168`, `8033915A5E67E11F8BC8D953F0D2FE8191204BC918ED428B60E1FFB7840EAD14`, and `E6E35BA2458133D54CEEE9CB589B821A94D6486EDD5040E6D7FB59BDA8962A97` in the target-file order above. The recovered inputs independently matched the three Owner-supplied hashes recorded earlier in this handoff; authorized refinement explains the candidate hashes' difference.
+- The retained stash still resolved to `4f5a2c67c9a4ca0366f4052a271e5c31105493a3`. It was not applied, popped, dropped, or rewritten.
+
+### Substantive policy review
+
+The full three policy files, rather than selected hunks, passed the A-G review under the accepted integrated authority:
+
+- **A — complete state and equivalence:** complete authoritative semantic state includes relevant ownership, provenance, and backing. Same visible text alone is insufficient, while a causal authored/generated distinction is legitimate; no provenance badge is mandated.
+- **B — provenance:** a provable customization may retain its source, a new explicit source replaces it, unsupported provenance becomes neutral/unknown, and surviving session context cannot own an unrelated current request.
+- **C — replacement/reset:** an obsolete owner cannot reclaim state through mode changes, submit, clear/reset, return, history, refresh, reopen, persistence, or restore.
+- **D — current/executed truth:** current visible, interpreted, backed, executable, normalized, last-executed, and result-owned state are compared where relevant. An accepted documented normalizer may change bytes without changing meaning; semantic loss, stale execution, source mismatch, or undocumented normalization fails.
+- **E — second representative:** another case is required only when shared or generic behavior could conceal a different branch or owner. Lower-layer population coverage and a few focused witnesses remain sufficient; a second label with the same structure does not qualify.
+- **F — causal controls:** Owner-confirmed escapes yield reusable invariants and useful red-before-green or focused sensitivity evidence when practical and proportionate. The control must reach the prerequisite and fail for the intended reason; universal mutation is expressly rejected.
+- **G — proportionality and authority:** the trigger follows material ownership/history/restore/representation risk across tiers. QA-0 and simple QA-1 remain protected, a simple single-owner QA-2 modal does not acquire a matrix, QA-3 stays focused on the relevant seam, and QA-4 receives stateful coverage only where its risk requires it. One sequence may cover multiple dimensions and reasoned `NOT APPLICABLE` replaces label-filling. The canonical pass remains the sole behavioral authority; both wrappers remain thin and introduce no approval, model, browser, or heavy-suite mandate.
+
+The report's recovery/refinement descriptions, required scenario table, VM-674 positive examples, blocking counterexamples, and ten-point Owner summary agree with the complete candidate text. No contradictory whole-policy use of state, provenance, equivalence, replacement, normalization, execution, causal control, or proportionality was found.
+
+### Objective evidence
+
+- `git diff --check 181b6a08c2e05a917e1d8681e70bd6f18249faa6 77456852eaedeedcbf62d48a9c290bc06b45c443` — PASS.
+- `npm.cmd run test:workflow-instructions` — PASS, 15/15.
+- `npm.cmd run task -- indexes --check` — PASS; generated views were fresh at 716 cards and 1,173 handoffs.
+- External all-target Markdown link/anchor check — PASS, 26/26 relative links across eight policy/task files with zero failures.
+- External focused policy-contract assertions — PASS, 34/34, covering the A-G positive and blocking requirements plus authority and cost boundaries.
+- Skill Creator `quick_validate.py` — NOT RUN successfully because both available Python environments lacked the `yaml` module (`ModuleNotFoundError`). No dependency was installed and no substitute framework was introduced. This is nonblocking for the selected QA-0 review because frontmatter is unchanged from the accepted baseline and the applicable governance, exact-diff, terminology, and link checks passed.
+- Browser, Maze, Archscry, placement, scoring, mutation, visual, viewport, and full-product suites — NOT REQUIRED for a policy-only candidate with unchanged runtime and product behavior.
+
+No blocking finding remains for this exact candidate. Any material amendment requires a new immutable candidate and fresh RobQA review. Owner ACCEPT remains a separate decision.
