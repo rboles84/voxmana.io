@@ -2,7 +2,7 @@
 
 ID: VM-674
 Title: Azorius Repeat Search
-Status: In Progress
+Status: Owner Review
 Type: Bounded rendered-behavior investigation and conditional repair
 Area: Archscry-to-Maze discovery handoff and repeat search
 Priority: High
@@ -94,8 +94,8 @@ Apply RobDev before implementation. Replace the reproduced history-dependent rep
 Record version: 1
 Branch: codex/vm-674-azorius-repeat-search
 Admission baseline: a798f38559202050e29ac010de26241fa9aabaa1
-Candidate: PENDING
-RobQA: PENDING
+Candidate: 8733415941fc87ff0cd9cc22fd84fb726a248525
+RobQA: PASS at 8733415941fc87ff0cd9cc22fd84fb726a248525 — SEPARATE required-CI guard correction review in docs/handoffs/2026-09-30-robqa-vm674-azorius-repeat-search.md#required-ci-guard-correction-exact-candidate-qa; accepted product/fixture bytes match 65ac433 exactly.
 Owner: PENDING
 Integration: PENDING
 Dependencies: None

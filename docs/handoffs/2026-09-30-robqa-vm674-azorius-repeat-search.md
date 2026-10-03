@@ -712,3 +712,43 @@ An owned external byte-for-byte copy of the exact candidate controller was chang
 CPU-heavy validation is **NOT REQUIRED**. The changed risk is the rendered request-source lifecycle, so the focused stateful journey, lower query/mode/profile contracts and one causal source mutation provide sufficient evidence. The 37-profile interactive matrix, broad browser smoke, screenshots, viewport matrices, live Scryfall semantics or counts, broad parser/AST recertification and unrelated harness repair were intentionally skipped. Native DOM action dispatch and real keyboard edits verify objective state behavior; pointer geometry and subjective wording remain uncertified.
 
 Owner judgment remains whether the Helper, dossier-context and neutral presentations read naturally. Open Prismari Maze, Clear, inspect **Mana dorks**, switch to Operator, append ` type:cats`, Search and switch to Plain. PASS if the wording names Mana dorks without claiming commanders or Prismari dossier ownership, and untouched Search still uses the exact Operator query. Then Clear and enter an unrelated unsupported Operator request: PASS if Plain is neutral and preserves exact backing. Finally inspect **Ramp spells**, then select a dossier path: PASS if each latest explicit action replaces the prior attribution. Owner ACCEPT must bind exact candidate `65ac433f99e70186000d9bf930f22443ad593e6c`; this engineering PASS authorizes neither integration, push, VM-675 nor successor work.
+
+## Required CI guard correction exact-candidate QA
+
+Task: VM-674
+Candidate: `8733415941fc87ff0cd9cc22fd84fb726a248525`
+Admission baseline: `a798f38559202050e29ac010de26241fa9aabaa1`
+Superseded accepted candidate: `65ac433f99e70186000d9bf930f22443ad593e6c`
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: Codex `/root/robqa_provenance` (configured Sol medium; backend setting unverified)
+Implementer: Codex `/root/robdev_provenance` and coordinator `/root`
+
+### Decision
+
+The QA-0-equivalent static validation-contract correction passes for the exact replacement candidate. The required frontend validator now checks the Maze controller's actual accepted `maze-handoff.js?v=vm674r3` import while retaining the existing `maze-query-core.js?v=vm636` controller import and the query-core-to-handoff `vm636` guard. The assertion remains exact and rejects the stale controller expectation rather than weakening the chain to a regex or dynamic acceptance rule.
+
+All accepted product, runtime, package, focused fixture and relevant test bytes are identical between `65ac433f99e70186000d9bf930f22443ad593e6c` and this candidate. The prior separate stateful product QA therefore remains applicable; no browser rerun was justified. The actual material correction is one line in `scripts/validate-frontend-html.mjs`, accompanied by admitted lifecycle and implementation evidence. No runtime, query grammar, cache key, product copy or behavior changed.
+
+### Exact-candidate evidence
+
+- Clean continuation admission: PASS after scope amendment `a787dce44a94f48da3e9e318e5b729a0e3c28b38`.
+- Exact product parity: `git diff --exit-code 65ac433f99e70186000d9bf930f22443ad593e6c..8733415941fc87ff0cd9cc22fd84fb726a248525 -- assets/js/maze maze/index.html scripts/vm674-archscry-azorius-repeat-search-browser.mjs package.json tests/maze/maze-discovery-profile-tests.js` — PASS with no differences.
+- `node --check scripts/validate-frontend-html.mjs` — PASS.
+- `npm.cmd run lint:html` — PASS.
+- `npm.cmd run lint:js` — PASS for 37 frontend files.
+- `git diff --check a798f38559202050e29ac010de26241fa9aabaa1..8733415941fc87ff0cd9cc22fd84fb726a248525` — PASS.
+- `npm.cmd run task -- indexes --check` — PASS, 714 cards, 1,166 handoffs and zero stale generated views.
+- Post-run Git status: clean before this QA evidence append.
+
+### Stale-expectation causal control
+
+An owned external byte-for-byte copy of the exact candidate validator changed only the corrected controller handoff expectation from `vm674r3` back to stale `vm636`. The repository validator SHA-256 remained `D9FD8417CA1153C6EF29A908DF3EDAB6A141BFCE9920305AE861D5A2A55A94F0` before and after. The isolated stale control SHA-256 remained `AAFE7E6091ED2B70265F87496EE03B6FA9E6CDE4ED2131AB891A78A571751C5C` before and after execution.
+
+The external validator passed syntax checking, then exited 1 with exactly `Maze should cache-bust the complete Maze rehydration-to-query module chain`. This proves the green candidate depends on the corrected exact cache-revision expectation. The external control was hash-checked and removed; repository bytes were never modified.
+
+### Proportionality and Owner boundary
+
+CPU-heavy validation is **NOT REQUIRED**. Browser, stateful provenance, broad parser/query, live Scryfall, screenshot and viewport suites were intentionally skipped because accepted product bytes are unchanged and exact parity preserves their candidate-bound evidence. The correction changes required CI validation code only; syntax, both owning lint commands, exact source assertions and the causal stale-key control are the lowest reliable evidence.
+
+No product wording or visual judgment changed. Owner review is required again because the test-contract correction creates a new material candidate under delivery workflow. Owner ACCEPT must bind exact candidate `8733415941fc87ff0cd9cc22fd84fb726a248525`; this engineering PASS authorizes neither merge, integration, VM-675 nor unrelated work.

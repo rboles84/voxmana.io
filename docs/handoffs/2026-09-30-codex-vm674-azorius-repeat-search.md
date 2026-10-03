@@ -417,3 +417,21 @@ PR 66 was created after authentic ACCEPT and remains unmerged. Deterministic Val
 The dedicated scope amendment at a787dce44a94f48da3e9e318e5b729a0e3c28b38 admits only scripts/validate-frontend-html.mjs for this required-CI mismatch, and admission continue passed. Change the controller handoff expectation only; preserve all other cache-chain assertions and all runtime, product and fixture bytes. This is a material validation-contract change under the delivery workflow, requiring a new immutable candidate, separate QA and exact-candidate Owner ACCEPT before integration. Prior authentic acceptance remains historical and is not transferred to changed material.
 
 Separate RobQA selects exact diff and accepted product/fixture blob parity, validator syntax, lint:html, lint:js, whitespace, generated freshness and candidate accounting. An external validator copy reverts only the expectation to vm636 and must fail with the exact Maze chain error; remove the copy after recording its hash. Prior full runtime A–J and Option A/B/C QA may be retained only if exact accepted runtime/fixture parity holds. No parser, catalog, controller, execution or Helper behavior change is authorized by this CI correction. Candidate, RobQA and Owner return to PENDING; no VM-675 or merge.
+
+## Required CI correction — exact candidate Owner Review
+
+Date: 2026-10-02, America/Denver
+Task: VM-674
+Candidate: 8733415941fc87ff0cd9cc22fd84fb726a248525
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: robqa_provenance
+Implementer: robdev_provenance and root
+Owner: PENDING
+Integration: PENDING
+
+Separate QA independently verifies the one-line exact cache-version guard correction, validator syntax, HTML/JavaScript lint, whitespace and generated freshness. All accepted runtime, product, package, test and browser-fixture bytes are identical to 65ac433f99e70186000d9bf930f22443ad593e6c, so its stateful A–J and Option A/B/C evidence remains applicable. The external stale-expectation control passes syntax then fails only the intended Maze cache-chain assertion; original and override hashes remain stable and the override is removed. The earlier discarded-Helper-source control remains a provenance-specific negative with exact execution green.
+
+Required Deterministic Validation completed success on this exact candidate: https://github.com/rboles84/voxmana.io/actions/runs/37088721218/job/111104262036. Existing PR https://github.com/rboles84/voxmana.io/pull/66 is draft and unmerged. Original acceptance of 65ac433 is preserved in its historical decision section; it cannot authorize integration of this changed material candidate. Scope remains bounded to the owning validation assertion; no product correction, unrelated work, successor task or integration occurred.
+
+Focused Owner check remains Prismari session → Clear → Mana dorks → Operator → append type:cats → Search → Plain: Helper source survives, exact query remains; repeat with Ramp spells, Return to draft and explicit dossier replacement. No new visual or wording change requires judgment. Git-derived material/evidence/total accounting and candidate-delivery receipts are external review artifacts in the current visualization directory. Stop at Owner Review pending exact-candidate ACCEPT.
