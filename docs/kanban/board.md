@@ -1,4 +1,4 @@
-<!-- task-view-sha256:4a5ce464bf4db03fa5b64c4e25f8057d53932da51abe9fb6f6ac61b4e4a43f19 -->
+<!-- task-view-sha256:aaf05b303e723ec5cb5bc7c7c6e67f71ba47279b3cdf36ce0ccd8a18db165fcd -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -56,7 +56,6 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 |---|---|---|---|
 | VM-658 | [Maze Instrument Frame](in-progress/VM-658-maze-instrument-frame.md) | Integrated |  |
 | VM-660 | [Maze Performance Recon](in-progress/VM-660-maze-performance-recon.md) | Integrated |  |
-| VM-677 | [RobQA Stateful Adversarial Policy Recovery, Red-Team, and Refinement](in-progress/VM-677-robqa-stash-recon.md) | Integrated |  |
 
 ## Blocked
 
@@ -693,6 +692,7 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | VM-673 | [Retired Test Contracts](done/VM-673-retired-test-contracts.md) | Done |  |
 | VM-674 | [Azorius Repeat Search](done/VM-674-azorius-repeat-search.md) | Done |  |
 | VM-676 | [Home Author's Note Text Replacement](done/VM-676-home-author-note.md) | Done |  |
+| VM-677 | [RobQA Stateful Adversarial Policy Recovery, Red-Team, and Refinement](done/VM-677-robqa-stash-recon.md) | Done |  |
 
 ## Unresolved
 

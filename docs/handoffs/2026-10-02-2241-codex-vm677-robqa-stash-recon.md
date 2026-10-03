@@ -202,3 +202,34 @@ AGENTS, native-agent/model configuration, RobDev, product/runtime and test behav
 complete recovery report and three policy blobs match the accepted candidate. Stash
 `4f5a2c67c9a4ca0366f4052a271e5c31105493a3` remains untouched, including through main synchronization.
 Lifecycle closeout is pending its own exact-delta, preservation, generated-view and cleanup checks.
+
+## Accepted candidate closeout
+
+Task: VM-677
+Candidate: be13b06017b97f96386bb17dde056c909369cef8
+Evidence head: 95e7061788da3aebf6eef2378d9d75fbace7cdc9
+Merge commit: 0dde65fd2921b64f7ad164a20cf64aef26dd1c38
+Lifecycle: Done
+
+The closeout-stage checker passed against synchronized local/live main
+`f463b68284b6aa387cdea1c1e249c1e78e08c881` while the card was Integrated. It verified the
+accepted bindings, squash parent/tree, independent lifecycle review, fresh generated views,
+Git-derived accounting, clean worktree, and completed feature cleanup. The local feature branch
+was removed after merge parity was established; a successful native Git remote-head read verified
+the remote feature branch was already absent. There are no additional registered worktrees.
+The PR head remains retrievable through PR #68 and local `origin/pr/68` for historical evidence.
+
+This final lifecycle update moves the same card to `docs/kanban/done/VM-677-robqa-stash-recon.md`
+and refreshes generated views. Historical scope, decisions and handoff prose retain their event-time
+meaning; the direct Owner ACCEPT above authorizes this integration and closeout. The complete
+accepted policy and recovery report remain frozen. Final closeout must be checked again against
+the resulting commit and synchronized remote main before completion is reported.
+
+Git accounting remains distinct: baseline-to-material candidate has 13 paths, accepted-candidate
+to original PR evidence head has 4 evidence-only paths, and the original full branch has 13 paths.
+Current final-main accounting and exact-delta review are supplied through the workflow's external
+closeout observation/report transport, avoiding a self-referential committed HEAD assertion.
+
+Stash `4f5a2c67c9a4ca0366f4052a271e5c31105493a3` remains unchanged as historical recovery
+evidence. It was neither restored nor deleted. Stash deletion remains a separate Owner decision;
+no successor task, product/runtime/test behavior, model routing or native-agent configuration changed.

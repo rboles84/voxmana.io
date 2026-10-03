@@ -2,7 +2,7 @@
 
 ID: VM-677
 Title: RobQA Stateful Adversarial Policy Recovery, Red-Team, and Refinement
-Status: Integrated
+Status: Done
 Type: Bounded RobQA policy recovery, red-team review, and refinement
 Area: RobQA stateful-adversarial governance policy
 Priority: High
