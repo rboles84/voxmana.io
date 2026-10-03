@@ -63,7 +63,7 @@ RobQA: PASS at 1801609b0bf22a789352414cfce56274ea01c122 — SEPARATE QA-0; docs/
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
-Decisions: Documentation-only reconnaissance. Preserve stash `4f5a2c67c9a4ca0366f4052a271e5c31105493a3` unchanged; no unstash, promotion, live policy, or implementation action is authorized by this card.
+Decisions: Original recon was documentation-only; its findings and exact-candidate evidence remain historical. Preserve stash `4f5a2c67c9a4ca0366f4052a271e5c31105493a3` unchanged. Scope amendment: Owner request on 2026-10-03 authorizes recovery, red-team refinement and a bounded governance-policy candidate on this same VM-677 branch, superseding the earlier recon-only implementation boundary. Only the three named RobQA policy/skill targets and ordinary VM-677 records may change; recovered source hashes must match the Owner's exact values. Integrated baseline governance controls adoption review; the proposed gate is the subject under review. No stash restoration, successor, integration, push/merge, native-agent/model, RobDev, product or test-behavior change is authorized. Stop at a new exact-candidate separate QA PASS and Owner Review; prior recon PASS does not approve the policy candidate.
 Evidence: [VM-677 forensic report](../../reports/2026-10-02-vm677-robqa-stash-recon.md); [coordinator handoff](../../handoffs/2026-10-02-2241-codex-vm677-robqa-stash-recon.md); [Kanban handoff](../../handoffs/2026-10-02-2241-kanban-vm677-robqa-stash-recon.md); [independent RobQA handoff](../../handoffs/2026-10-02-2241-robqa-vm677-robqa-stash-recon.md).
 
 ## Admission Scope
@@ -75,3 +75,9 @@ Evidence: [VM-677 forensic report](../../reports/2026-10-02-vm677-robqa-stash-re
 - `docs/handoffs/2026-10-02-2241-kanban-vm677-robqa-stash-recon.md`
 - `docs/kanban/board.md`
 - `docs/handoffs/HANDOFF_INDEX.md`
+- `.agents/skills/robqa/SKILL.md`
+- `.agents/skills/robqa/robqa.md`
+- `docs/qa/RobQAPass.md`
+- `docs/reports/2026-10-03-vm677-robqa-policy-upgrade.md`
+- `docs/handoffs/2026-10-03-robdev-vm677-stateful-adversarial-upgrade.md`
+- `docs/handoffs/2026-10-03-robqa-vm677-stateful-adversarial-upgrade.md`
