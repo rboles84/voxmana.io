@@ -31,11 +31,11 @@ Current Owner request. Admission start was ELIGIBLE at live/local `main` baselin
 
 ## Acceptance Criteria
 
-- [ ] Exact stash Git inventory is recorded, including its parent/base relationship and changed-path evidence.
-- [ ] Deletion effects and agent-file parity are reviewed against the admitted baseline without modifying either source.
-- [ ] Current policy and relevant repository history are reviewed; compatibility is checked nonmutatively and any ambiguity is stated as an unavailable fact.
-- [ ] Recommendations distinguish possible future action from authorized present work and state the bounds/evidence required for an unstash or promotion decision.
-- [ ] Coordinator, independent RobQA, and Kanban records are complete; generated board/index views are fresh.
+- [x] Exact stash Git inventory is recorded, including its parent/base relationship and changed-path evidence.
+- [x] Deletion effects and agent-file parity are reviewed against the admitted baseline without modifying either source.
+- [x] Current policy and relevant repository history are reviewed; compatibility is checked nonmutatively and any ambiguity is stated as an unavailable fact.
+- [x] Recommendations distinguish possible future action from authorized present work and state the bounds/evidence required for an unstash or promotion decision.
+- [x] Coordinator, independent RobQA, and Kanban records are complete; generated board/index views are fresh.
 - [ ] The documentation-only candidate receives independent exact-candidate RobQA evidence and stops at Owner Review.
 
 ## Files Likely Impacted
@@ -64,7 +64,7 @@ Owner: PENDING — no Owner decision recorded.
 Integration: PENDING
 Dependencies: None
 Decisions: Documentation-only reconnaissance. Preserve stash `4f5a2c67c9a4ca0366f4052a271e5c31105493a3` unchanged; no unstash, promotion, live policy, or implementation action is authorized by this card.
-Evidence: PENDING — coordinator report/handoff, independent RobQA handoff, and Kanban handoff to be recorded after admission continue PASS.
+Evidence: [VM-677 forensic report](../../reports/2026-10-02-vm677-robqa-stash-recon.md); [coordinator handoff](../../handoffs/2026-10-02-2241-codex-vm677-robqa-stash-recon.md); [Kanban handoff](../../handoffs/2026-10-02-2241-kanban-vm677-robqa-stash-recon.md); [independent RobQA handoff](../../handoffs/2026-10-02-2241-robqa-vm677-robqa-stash-recon.md).
 
 ## Admission Scope
 
