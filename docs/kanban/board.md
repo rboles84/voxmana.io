@@ -1,4 +1,4 @@
-<!-- task-view-sha256:d932e019c5cbdbea830254c8482f9766556108c086b3bb02d67588b286e29ff1 -->
+<!-- task-view-sha256:ec59f14171e9d77719b5aa654f4a9698d951a3eb6695eb40ea4826881be39ba4 -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -49,6 +49,7 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | ID | Card | Declared status | Diagnostics |
 |---|---|---|---|
 | VM-661 | [Maze Modernization Implementation Specification](in-progress/VM-661-maze-modernization-spec.md) | Accepted |  |
+| VM-677 | [RobQA Stateful Adversarial Policy Recovery, Red-Team, and Refinement](in-progress/VM-677-robqa-stash-recon.md) | Accepted |  |
 
 ## Integrated
 

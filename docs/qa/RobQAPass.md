@@ -1098,6 +1098,111 @@ When a user is offered a refinement/recovery action:
 
 ---
 
+# 13A. Stateful Adversarial QA
+
+Apply this focused method when changed risk materially depends on state ownership, interaction history,
+mode or representation changes, restore/reset behavior, provenance, current-versus-executed state, or
+multiple state owners. QA-2 and QA-3 are the common cases; a higher tier can also trigger it when those
+risks are present. A QA-0 documentation change and a QA-1 styling-only change do not trigger it merely
+because they are visible.
+
+This is not a new QA tier, framework, or combinatorial journey matrix. It selects the smallest
+high-information deterministic sequence at the lowest reliable layer. Use browser evidence only when an
+objective interaction or state risk cannot be protected there; Owner-Visual, cost controls, and the
+existing heavy-suite rules remain controlling.
+
+## 13A.1 State owners and seams
+
+Inventory only the relevant owners and materially changed seams. Depending on the product, these can
+include canonical intent, a current editable draft, an alternate-mode representation, derived
+interpretation, executable request, last executed request, results, route/restore state, persistence,
+selected mode, and return state.
+
+For relevant stateful flows, distinguish as applicable:
+
+- surrounding or session context;
+- current-request or source provenance;
+- user-modification provenance;
+- execution or results provenance.
+
+Test a changed seam where ownership passes between those owners; endpoint checks alone do not establish
+that handoff. Retained surrounding context must not be mistaken for current-request ownership.
+
+## 13A.2 Reverse transitions; perturb and restore
+
+If the product promises both A -> B and B -> A, test both. A successful forward transition does not prove
+the reverse direction. Record `NOT APPLICABLE` with a reason when the reverse action is not contractual.
+
+For a state a user can validly alter and restore, establish it, perturb it, verify the perturbed truth,
+restore it, and verify the promised resulting meaning. Examples include select/change/reselect,
+canonical/edit/canonical, UI/URL/UI, or enabled/disabled/enabled. A restored visible value does not by
+itself establish that its prior ownership or provenance was restored.
+
+## 13A.3 Complete-state equivalence and provenance continuity
+
+When two histories converge on the same current authoritative semantic state, including relevant
+ownership, provenance, and backing state, equivalent interpretation and execution are expected unless the
+product contract explicitly defines otherwise. The same visible text alone does not prove the same complete
+state.
+
+When behavior differs, ask:
+
+1. Is there a legitimate state-owner or provenance distinction?
+2. What user action created that distinction?
+3. Is the resulting behavior deterministic and truthful?
+4. Is stale or accidental history influencing behavior instead?
+
+Do not require a visible badge merely because internal provenance exists. The distinction must be
+contractual and causally justified.
+
+When a named source becomes the current request, later customization must retain that provenance while it
+remains provable, explicitly replace it when another source takes ownership, or degrade to neutral/unknown
+provenance when it cannot be established. Session context can survive without becoming the owner of a
+different current request.
+
+## 13A.4 Representation round-trips and current versus executed state
+
+When two representations describe one intent, round-trip them where relevant: for example UI -> URL -> UI,
+editor -> preview -> editor, or a generated form -> human form -> generated form. Check stable identity,
+authored versus derived meaning, valid restoration, and that a view switch alone does not execute, detach,
+broaden, or reinterpret intent.
+
+Compare visible/current request with the exact executed request after accounting for the documented,
+accepted normalization contract. Fail unexpected semantic change, clause loss, broadening or narrowing,
+stale execution, source mismatch, undocumented normalization, or an unexpected byte change where byte
+preservation is itself contractual. Harmless documented transport normalization, including whitespace
+normalization, is not execution drift merely because raw bytes differ.
+
+## 13A.5 Replacement and reset
+
+Ask: what happens when another source, selection, route, draft, record, or canonical request explicitly
+takes ownership? Verify obsolete state cannot later reclaim ownership through mode switching, submit,
+clear/reset, return, Back/Forward, refresh, reopen, or restore. This covers stale-draft and wrong-source
+resurrection as one reusable defect class.
+
+## 13A.6 Structurally different representatives and sequence design
+
+For a generic, registry-driven, catalog-driven, schema-driven, or shared-state change, use one
+structurally different representative when it can expose another branch or owner. This does not mean test
+every record; deterministic lower-layer population coverage can supplement a small number of focused
+interactive witnesses.
+
+Generate focused sequences by asking: can the transition be inverted; can it be perturbed and restored;
+can the same complete state be reached through another history; can it cross a representation and return;
+does explicit replacement defeat obsolete ownership; and does execution remain truthful? One well-designed
+journey may satisfy several questions. Do not duplicate executions merely to fill labels.
+
+## 13A.7 QA escapes and causal control
+
+When an Owner-confirmed correctness defect escapes a RobQA PASS, record the exact sequence, defect class,
+and reusable invariant. Use red-before-green where practical. For a state-owner defect or a regression
+that could pass for the wrong reason, add a focused sensitivity witness when practical and proportionate:
+narrowly disable the ownership/provenance fix, use the rejected controller, revert the seam in an isolated
+copy, or alter one fixture's state owner. The invariant should fail for the intended reason while unrelated
+protected behavior can remain green. This is not mandatory mutation testing for every task.
+
+---
+
 # 14. Error, Empty, Failure, and Network-State QA
 
 Do not test only successful data.
@@ -1321,6 +1426,11 @@ It is a disciplined final review of the deterministic changed cases.
 - Did I test the changed state transition?
 - Did I verify the old state is not stranded/stale?
 - Did I verify repeat use?
+- When Section 13A applies, did I inventory relevant owners, seams, and provenance?
+- Did I test the contractual reverse direction, perturb/restore, and explicit replacement or record why each is not applicable?
+- Did I compare same visible state reached by different histories against complete authoritative state rather than visible text alone?
+- Did I account for the documented normalization contract before comparing current and executed requests?
+- If generic behavior could conceal another branch or owner, did I use a structurally different representative?
 
 ### Truth
 
@@ -1511,6 +1621,24 @@ If required:
 - interaction checked:
 - objective result:
 
+## Stateful adversarial coverage
+
+Complete this section when Section 13A applies; otherwise record `NOT APPLICABLE` and why. One focused
+case may satisfy several fields.
+
+- relevant state owners and materially changed ownership seams:
+- request/source provenance owners, when relevant:
+- forward transition:
+- reverse transition or reason not applicable:
+- perturb/restore:
+- replacement/reset:
+- same-visible-state/different-history comparison, including authoritative hidden state/provenance:
+- representation round-trip:
+- visible/current versus executed state and applicable normalization contract:
+- structurally different representative or reason not applicable:
+- sensitivity/causal control for an Owner QA escape when practical, or why not required:
+- objective result:
+
 ## Manual findings converted to invariants
 
 - finding:
@@ -1538,6 +1666,12 @@ A change has **RobQAPass PASS** (engineering PASS) when:
 - any browser automation was justified by objective changed risk that cheaper checks could not reliably protect;
 - changed copy was actually read;
 - changed interactions were verified at an appropriate deterministic layer;
+- when Section 13A applied, relevant reverse, restore, replacement, and round-trip risks were covered or
+  dispositioned; provenance continuity was checked when source ownership is contractual; and current versus
+  executed truth was checked with documented normalization considered;
+- a structurally different representative was used when shared or generic behavior could conceal another
+  branch or owner; Owner QA escapes were converted to reusable invariants with a useful sensitivity witness
+  when proportionate;
 - relevant responsive behavior was verified only when it was an objective changed risk;
 - DOM/HTML was inspected where needed;
 - modal/popup value was reviewed where relevant;
@@ -1591,6 +1725,19 @@ Do not claim RobQAPass PASS if any of these are true:
 - the owner is asked to "test all 37" for a narrow presentation change;
 - the agent creates a new audit/research/certification phase instead of using existing machinery;
 - a prior owner finding was patched only as one string/identity/card without considering the defect class;
+- a materially relevant Section 13A ownership/history risk was omitted without a reasoned disposition;
+- retained session or surrounding context falsely attributes current-request ownership after another source
+  has taken control;
+- an explicit source replacement, reset, or reselection occurs and obsolete state later silently reclaims
+  ownership;
+- two histories have the same complete authoritative semantic state, including relevant ownership,
+  provenance, and backing state, yet interpretation or execution differs without a contractual reason;
+- an unexpected material divergence exists between current and executed state outside the documented
+  normalization contract;
+- a relevant representation round-trip can overwrite, detach, broaden, or reinterpret intent without a
+  product-authorized reason;
+- a generic or shared-state fix is certified only against its primary example when a structurally different
+  representative is needed to expose another branch or owner;
 - a contextual owner finding was turned into an unsafe global ban.
 
 ---
@@ -1618,6 +1765,15 @@ Do not claim RobQAPass PASS if any of these are true:
 19. **CPU-heavy validation needs a concrete reason.**
 20. **The goal is confidence sufficient to ship, not infinite proof.**
 21. **Additional QA evidence must earn its token, compute, and elapsed-time cost.**
+22. **For stateful behavior, a forward transition does not prove the reverse transition.**
+23. **Perturb and restore contractual state; do not assume restoration because the happy path passed.**
+24. **Identical visible text is not proof of identical complete state.**
+25. **Session context is not current-request provenance.**
+26. **Explicit replacement must defeat obsolete ownership.**
+27. **Documented normalization is not execution drift.**
+28. **Test ownership seams, not only their endpoints.**
+29. **Round-trip alternate representations when they describe one intent.**
+30. **Use a structurally different representative when it can expose another branch or owner.**
 
 ---
 
@@ -1631,8 +1787,10 @@ When repository instructions need a short pointer instead of this full document,
 > cheaply below the browser. Screenshot, visual-regression, animation-fidelity, and broad viewport evidence
 > are opt-in. After one reasonable causal check, disclose unrelated or ambiguous harness failures as known
 > or suspected debt, do not retry them, and continue to Owner Review when directly relevant verification is
-> green. Historical test lists do not create a run obligation. Broad or exhaustive suites require a current
-> concrete changed-risk justification.
+> green. When changed risk materially depends on ownership, history, representations, reset/restore,
+> provenance, current versus executed state, or multiple owners, apply Section 13A with the smallest
+> high-information sequence and record irrelevant cases as not applicable. Historical test lists do not
+> create a run obligation. Broad or exhaustive suites require a current concrete changed-risk justification.
 
 ---
 

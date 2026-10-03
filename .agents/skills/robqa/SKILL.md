@@ -7,7 +7,7 @@ description: Apply Vox Mana's risk-proportional owner-QA gate when selecting tes
 
 Read and apply the full governing [RobQAPass](../../../docs/qa/RobQAPass.md) before selecting tests, validating changes or preparing Owner Review. It remains the canonical behavioral authority; applicable specialist gates control their domains.
 
-Use the repository [stage reading model](../../../docs/reference/workflow.md#required-reading-model). Apply RobQAPass QA execution independence and Owner-First policy; scope drift returns to RobDev.
+Use the repository [stage reading model](../../../docs/reference/workflow.md#required-reading-model). Apply RobQAPass QA execution independence and Owner-First policy; scope drift returns to RobDev. When stateful-adversarial risk is present, apply the canonical [Stateful Adversarial QA](../../../docs/qa/RobQAPass.md#13a-stateful-adversarial-qa) section.
 
 Use [Agent Model Routing](../../../docs/reference/token-reasoning-cost-control.md#agent-model-routing) for delegated settings. This skill selects RobQA authority, not a model; independent QA and test strategy are requested as Sol medium under the canonical routing rule.
 
