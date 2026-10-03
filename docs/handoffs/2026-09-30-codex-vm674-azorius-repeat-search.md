@@ -388,3 +388,19 @@ Focused Owner check: in a Prismari Maze session, Clear → Mana dorks → Operat
 ### Candidate-delivery record normalization
 
 The first read-only candidate check at 3bc01ed6fc253cc2806538f54242a2cd370c61b4 blocked because it requires the card Owner field to be exactly PENDING; the added candidate/explanation suffix was rejected. The Owner field is normalized to that exact value, preserving the candidate and authentic pending decision in the surrounding records. No runtime, fixture, scope or QA evidence changed. Regenerated-view freshness and exact-delta review accompany the corrected evidence HEAD before the checker reruns.
+
+## Exact-candidate Owner acceptance
+
+Date: 2026-10-02, America/Denver
+Task: VM-674
+Candidate: 65ac433f99e70186000d9bf930f22443ad593e6c
+Owner: ACCEPT
+Decision reference: Current Codex chat Owner message: ACCEPT VM-674 at 65ac433f99e70186000d9bf930f22443ad593e6c.
+
+Owner explicitly accepted the exact separate-RobQA-passed material candidate. Under ACCEPT workflow this authorizes normal integration and lifecycle closeout. Prior no-integration instructions remain historical pre-acceptance boundaries; no VM-675 or unrelated task is authorized. Candidate product/controller/fixture bytes remain frozen. Required final candidate check previously passed at evidence HEAD 0693248540fdf8be3500c2ece2c471617d48621b.
+
+Host operation routing was discovered before operations: GitHub connector supports authenticated repository/PR/CI/file/tree reads, PR creation/update and squash merge with expected_head_sha. Authenticated profile rboles84 and repository rboles84/voxmana.io permissions confirm current repository access; squash merging is enabled. Connector is approved for reads, PR create/update and guarded merge. Native Git remains the fetch/push transport; no gh/browser/authentication fallback is selected. Complete VM-674 PR search returned no matching PR before creation. Supplemental branch-policy visibility is optional under docs/reference/workflow.md#main-protection-and-exceptions; any unavailable setting read will be recorded without changing authority or authentication route.
+
+Integration remains PENDING until exact head required CI, complete host scope/content parity, read-only integration PASS and guarded merge result are established. Root owns host/Git/delivery actions and lifecycle records; separate RobQA reviews evidence-only deltas without replacing the accepted material verdict.
+
+Supplemental policy observation: approved GitHub connector branch-protection GET returned 403 Resource not accessible by integration. Its managed connection exposes no administration read access; this observation is optional under the stated workflow authority. No alternative authentication route or settings change was attempted. Required Deterministic Validation, exact PR parity and atomic expected-head squash guard remain mandatory.
