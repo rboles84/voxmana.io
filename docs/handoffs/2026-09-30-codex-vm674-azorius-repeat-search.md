@@ -446,3 +446,18 @@ Decision reference: Current Codex chat Owner message: ACCEPT VM-674 at 873341594
 Owner explicitly accepts the exact separate-RobQA-passed corrected material candidate and authorizes normal guarded integration and lifecycle closeout. Required Deterministic Validation passed at evidence HEAD 4938520dcd9d6658ce8f7c820f48171c4290c605. Product/fixture parity and the validator causal control remain intact. Candidate and evidence bytes stay frozen except appended observations, lifecycle fields and generated views. No VM-675 is authorized.
 
 Existing approved GitHub connector route remains adequate for authenticated host reads, PR update and expected-head guarded squash. Native Git is only the authorized fetch/push transport. The optional branch-protection read remains unavailable with managed-connector 403 under docs/reference/workflow.md#main-protection-and-exceptions; no authentication fallback or settings change is authorized or needed. Exact-head required CI, complete host scope/content parity and integration checker PASS are mandatory before merge. Integration remains PENDING until the actual guarded merge is observed.
+
+## Verified integration and closeout
+
+Task: VM-674
+Candidate: 8733415941fc87ff0cd9cc22fd84fb726a248525
+RobQA: PASS — SEPARATE
+Owner: ACCEPT
+Integration: INTEGRATED PR66 c2e6da01f81fa7ead12d120b8176b439de81725d
+Evidence HEAD: 3015bfc9124ef43a4525ac7045c999ddc73fd6d6
+
+The read-only integration checker passed at the exact accepted PR head with complete authenticated host file/blob and ordered-commit parity, required Deterministic Validation success, independently reviewed evidence-only deltas and authentic Owner acceptance. GitHub's expected_head_sha guarded squash returned merged true and the actual SHA above. Fresh PR read confirms closed/merged; the squash parent is admission baseline a798f38559202050e29ac010de26241fa9aabaa1 and the squash tree exactly equals the verified evidence head. Local main fast-forwarded to the observed merge without material edits.
+
+The original feature history was preserved in a verified complete external Git bundle before cleanup. GitHub had already removed the remote codex/vm-674-azorius-repeat-search branch after merge: the explicit deletion reported ref absent, and a fresh live heads read confirmed only main. The exact local feature branch was then removed; no uncertain remote write remains. The single primary shared worktree remains; no managed task worktree was created or removed. No unrelated dirty work, temporary repository artifacts, authentication fallback, settings change, parser/catalog edit or VM-675 occurred.
+
+The canonical card moves to Done with its unchanged admission/source/scope and exact candidate/QA/Owner identity. Only lifecycle/integration observations, this appended handoff and fresh generated views change on main. Separate RobQA reviews the exact merge-to-lifecycle delta and task/preservation boundaries. Original product execution and Helper-provenance causal evidence remain intact; no redundant browser replay is needed for lifecycle-only closeout. Final Git accounting and read-only closeout validation use external original receipts; completion is reported only after final closeout PASS and main/live parity.

@@ -1,4 +1,4 @@
-<!-- task-view-sha256:d74948e6288d3ded1ca2e9945dd5ca24b70751dee4403a1c676b302538c3e145 -->
+<!-- task-view-sha256:141a493ecf3cbde0af2a3c0c8b31c1e38e6d7eec78c2b238ec632e99f3c3f427 -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -49,7 +49,6 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | ID | Card | Declared status | Diagnostics |
 |---|---|---|---|
 | VM-661 | [Maze Modernization Implementation Specification](in-progress/VM-661-maze-modernization-spec.md) | Accepted |  |
-| VM-674 | [Azorius Repeat Search](in-progress/VM-674-azorius-repeat-search.md) | Accepted |  |
 
 ## Integrated
 
@@ -691,6 +690,7 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | VM-671 | [Records Reconciliation](done/VM-671-records-reconciliation.md) | Done |  |
 | VM-672 | [Dossier Runner Paths](done/VM-672-dossier-runner-paths.md) | Done |  |
 | VM-673 | [Retired Test Contracts](done/VM-673-retired-test-contracts.md) | Done |  |
+| VM-674 | [Azorius Repeat Search](done/VM-674-azorius-repeat-search.md) | Done |  |
 
 ## Unresolved
 
