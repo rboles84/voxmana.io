@@ -64,3 +64,21 @@ Runtime/product code, canonical sources/catalogs, placement/identity semantics, 
 ## Follow-up and next suggested agent
 
 The next implementation should first repair safe return navigation at the existing Maze adapter, then simplify producer URLs and preserve legacy replay. RobDev implementation and separate RobQA security/navigation review are required for that repair. Review this report's evidence and proposal; VM-678 itself remains a documentation candidate until its independent QA and exact Owner decision are recorded.
+
+## Final documentation candidate and independent review
+
+Task: VM-678
+Candidate: 30735c5ac44273c4d7d47c2e09f6a0bf46195d2a
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: /root/url_qa
+Owner: PENDING
+Integration: PENDING
+
+The independent reviewer completed QA-0 source/content/diff review and retained both earlier BLOCKED decisions. The initial candidate had Markdown trailing whitespace and imprecise operation references; the corrected intermediate candidate retained one off-by-one reference. The same-branch corrections removed those document defects and added exact operation anchors without changing runtime behavior. Final PASS binds only the report/documentation candidate, not an unimplemented security fix or the live product's security.
+
+The final source witnesses support unsafe external return navigation and explicit URL disclosure after a click. JavaScript-scheme retention remains a source witness with browser execution untested. The Owner should review the report's finding and proposed repair sequence. Product/hosting repairs, merge and deployment remain future work.
+
+Git confirms seven documentation paths from baseline `a436a845cb0a67bbe738fb283966ea6d832f1b39` to material candidate `30735c5ac44273c4d7d47c2e09f6a0bf46195d2a`: the VM-678 card, report, coordinator/RobDev/RobQA handoffs, board and handoff index. The earlier Files changed/PENDING section is the preserved pre-freeze snapshot; final accounting is generated and validated from Git in [the change report](C:/Users/obake/.codex/visualizations/2026/10/03/01a103fa-3335-7e63-b042-3da8a30f60c3/vm678-git-change-report.md). It separates material, evidence and total branch scopes and is not an alternative task-state source.
+
+Final checks include exact baseline-to-candidate `git diff --check`, source-anchor verification, generated-view freshness, focused catalog support and the change-report validator. Candidate-stage validation is performed after the consolidated evidence commit. No push, merge or deployment was performed; Owner remains PENDING. The coordinator will verify the committed evidence delta as append-only QA/lifecycle observations and generated navigation before the final stage check.

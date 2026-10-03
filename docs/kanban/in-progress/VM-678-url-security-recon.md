@@ -2,7 +2,7 @@
 
 ID: VM-678
 Title: URL and Security Reconnaissance
-Status: In Progress
+Status: Owner Review
 Type: Read-only runtime investigation and documentation delivery
 Area: Archscry-to-Maze URL handoff, navigation and security
 Priority: High
@@ -37,7 +37,7 @@ Current Owner request: recon and deep dive on how to fix the supplied Mardu and 
 - [x] Security findings carry a witness, reachability conditions and realistic impact; untested claims remain explicit limitations.
 - [x] Live deployment observations and repository facts remain distinct.
 - [x] URL cleanup proposal preserves searches, shared-link replay, refresh, Back/Forward and dossier return behavior with a bounded migration strategy.
-- [ ] Documentation-only candidate receives separate evidence review; runtime files remain unchanged.
+- [x] Documentation-only candidate receives separate evidence review; runtime files remain unchanged.
 
 ## Files Likely Impacted
 
@@ -63,8 +63,8 @@ Apply RobDev for grounding and the documentation proposal. Trace current owners 
 Record version: 1
 Branch: codex/vm-678-url-security-recon
 Admission baseline: a436a845cb0a67bbe738fb283966ea6d832f1b39
-Candidate: PENDING
-RobQA: PENDING
+Candidate: 30735c5ac44273c4d7d47c2e09f6a0bf46195d2a
+RobQA: PASS at 30735c5ac44273c4d7d47c2e09f6a0bf46195d2a — SEPARATE QA-0; docs/handoffs/2026-10-03-1658-robqa-vm678-url-security-recon.md#final-exact-candidate-qa
 Owner: PENDING
 Integration: PENDING
 Dependencies: None

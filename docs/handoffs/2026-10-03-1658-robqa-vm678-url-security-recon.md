@@ -88,3 +88,53 @@ File changed by this reviewer: `docs/handoffs/2026-10-03-1658-robqa-vm678-url-se
 RobQAPass exit criteria are **not met** for `fcdb3343...`; Owner Review is not ready on this SHA. After the two bounded documentation corrections, a new exact candidate needs independent confirmation of clean diff, exact anchors, generated-view freshness, six-path material scope, and preserved claim limitations. Even a later PASS will mean only that the documentation candidate is ready for Owner review. It will not claim an implemented product repair, production security, penetration-test coverage, deployment, integration, or Owner acceptance.
 
 Remaining Owner judgment after a future PASS: whether to authorize the proposed return-target repair, whether URL shortening belongs in the same implementation card, and whether production header policy should be a separate hosting decision.
+
+## Revised exact-candidate QA
+
+Task: VM-678
+
+Candidate: 622a6d05e5a9493bb45944aaa232be2a4688cfeb
+
+RobQA: BLOCKED
+
+Execution: SEPARATE
+
+Reviewer: /root/url_qa
+
+Implementer: /root/url_recon and coordinator
+
+The first correction candidate resolved the original `git diff --check` failure, corrected the main producer/reader/sink anchors, fixed the selector-only comparison from 76 to 79 characters, and replaced the generic scheme description with exact safe non-navigation outputs. Its seven-path baseline scope was documentation-only and generated views were fresh.
+
+It remained blocked because the transient no-saved-handoff statement was cited at line 3172 while the operation was at line 3173. The history statement also cited its enclosing function at line 1232 rather than the two `history.pushState` operations at lines 1242 and 1250. Under the card's exact-source-reference criterion and the invariant recorded above, candidate `622a6d05e5a9493bb45944aaa232be2a4688cfeb` did not qualify for PASS.
+
+## Final exact-candidate QA
+
+Task: VM-678
+
+Candidate: 30735c5ac44273c4d7d47c2e09f6a0bf46195d2a
+
+RobQA: PASS
+
+Execution: SEPARATE
+
+Reviewer: /root/url_qa
+
+Implementer: /root/url_recon and coordinator
+
+**RobQAPass PASS** is bound only to exact candidate `30735c5ac44273c4d7d47c2e09f6a0bf46195d2a`, baseline/main `a436a845cb0a67bbe738fb283966ea6d832f1b39`, candidate tree `cb69f5629b918082ff6110b2e1b9a4f2e43f4b62`, report blob `7b48401ddda3290b922af6aa3e65abbc3fb969b0`, and frozen historical-QA blob `90e34d2976e8ccb05cbd4467874436c3617a40d7`.
+
+The final delta from `622a6d05...` changes only the two report anchors identified above. Direct source comparison confirms the transient replacement operation at `research-init.js:3173` and the independent/restore `pushState` operations at lines 1242 and 1250. The previously corrected anchors remain exact, including dossier path production at 1875/1902, initialization at 953, canonical resolution/rehydration at 3215/3241, incoming return target at 3301, return-link sink at 1198, return helper at 4790, and URL parser at 3331.
+
+Final bounded checks:
+
+- exact baseline-to-candidate `git diff --check` — **PASS**;
+- exact baseline-to-candidate scope — **PASS**, seven Git paths, all under `docs/`, with no runtime path;
+- `npm.cmd run task -- indexes --check` — **PASS**, fresh generated board/index (`cards: 717`, `handoffs: 1176`);
+- selector-only comparison URL — **PASS**, exactly 79 characters;
+- source/sink reachability, literal URL counts, decoded `q === operatorQuery`, normalized-only deployment parity wording, header/referrer limitations, non-navigation witness outputs, and migration/state/provenance protections — **PASS** based on the independent evidence recorded above;
+- focused catalog/profile test — prior independent **PASS** remains applicable because no runtime, catalog, query, or test byte changed after its execution;
+- browser, dangerous navigation, penetration, broad regression, visual, mutation, synthetic, and CPU-heavy suites — intentionally not run for QA-0; no changed risk justifies them.
+
+Stateful-adversarial execution remains not applicable to the documentation bytes themselves. The report gives the future repair a proportionate owner/seam test plan covering stored versus transient context, malicious and malformed replacement, current-request provenance, custom query independence, canonical thread/query-label pairing, legacy replay, refresh, Back/Forward, and a structurally different longest-stretch representative.
+
+No blocker or major correctness defect remains in the documentation candidate. This PASS permits Owner Review of the reconnaissance and proposed follow-up scope. It does not certify an implemented product repair, browser exploit behavior, production security, all-route headers, penetration-test coverage, deployment, integration, or Owner acceptance. Owner judgment remains limited to whether to authorize the return-target repair, bundle URL shortening with it, and handle hosting-header policy separately.
