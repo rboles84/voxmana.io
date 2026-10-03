@@ -61,4 +61,3 @@ The future policy candidate should receive SEPARATE QA-0 governance review for t
 ## Candidate-bound review status
 
 PENDING. After the coordinator freezes an immutable documentation candidate, this reviewer will inspect `181b6a08c2e05a917e1d8681e70bd6f18249faa6..candidate`, validate the report's factual claims and decision bounds against the exact Git objects and source history, run the selected QA-0 checks, confirm the stash remains unchanged, and append the exact-candidate verdict here.
-
