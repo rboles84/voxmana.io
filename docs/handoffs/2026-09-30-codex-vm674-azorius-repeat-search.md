@@ -435,3 +435,14 @@ Separate QA independently verifies the one-line exact cache-version guard correc
 Required Deterministic Validation completed success on this exact candidate: https://github.com/rboles84/voxmana.io/actions/runs/37088721218/job/111104262036. Existing PR https://github.com/rboles84/voxmana.io/pull/66 is draft and unmerged. Original acceptance of 65ac433 is preserved in its historical decision section; it cannot authorize integration of this changed material candidate. Scope remains bounded to the owning validation assertion; no product correction, unrelated work, successor task or integration occurred.
 
 Focused Owner check remains Prismari session → Clear → Mana dorks → Operator → append type:cats → Search → Plain: Helper source survives, exact query remains; repeat with Ramp spells, Return to draft and explicit dossier replacement. No new visual or wording change requires judgment. Git-derived material/evidence/total accounting and candidate-delivery receipts are external review artifacts in the current visualization directory. Stop at Owner Review pending exact-candidate ACCEPT.
+
+## Corrected candidate Owner acceptance
+
+Task: VM-674
+Candidate: 8733415941fc87ff0cd9cc22fd84fb726a248525
+Owner: ACCEPT
+Decision reference: Current Codex chat Owner message: ACCEPT VM-674 at 8733415941fc87ff0cd9cc22fd84fb726a248525.
+
+Owner explicitly accepts the exact separate-RobQA-passed corrected material candidate and authorizes normal guarded integration and lifecycle closeout. Required Deterministic Validation passed at evidence HEAD 4938520dcd9d6658ce8f7c820f48171c4290c605. Product/fixture parity and the validator causal control remain intact. Candidate and evidence bytes stay frozen except appended observations, lifecycle fields and generated views. No VM-675 is authorized.
+
+Existing approved GitHub connector route remains adequate for authenticated host reads, PR update and expected-head guarded squash. Native Git is only the authorized fetch/push transport. The optional branch-protection read remains unavailable with managed-connector 403 under docs/reference/workflow.md#main-protection-and-exceptions; no authentication fallback or settings change is authorized or needed. Exact-head required CI, complete host scope/content parity and integration checker PASS are mandatory before merge. Integration remains PENDING until the actual guarded merge is observed.

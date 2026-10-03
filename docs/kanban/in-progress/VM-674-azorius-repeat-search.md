@@ -2,7 +2,7 @@
 
 ID: VM-674
 Title: Azorius Repeat Search
-Status: Owner Review
+Status: Accepted
 Type: Bounded rendered-behavior investigation and conditional repair
 Area: Archscry-to-Maze discovery handoff and repeat search
 Priority: High
@@ -96,7 +96,7 @@ Branch: codex/vm-674-azorius-repeat-search
 Admission baseline: a798f38559202050e29ac010de26241fa9aabaa1
 Candidate: 8733415941fc87ff0cd9cc22fd84fb726a248525
 RobQA: PASS at 8733415941fc87ff0cd9cc22fd84fb726a248525 — SEPARATE required-CI guard correction review in docs/handoffs/2026-09-30-robqa-vm674-azorius-repeat-search.md#required-ci-guard-correction-exact-candidate-qa; accepted product/fixture bytes match 65ac433 exactly.
-Owner: PENDING
+Owner: ACCEPTED at 8733415941fc87ff0cd9cc22fd84fb726a248525 — authentic Owner ACCEPT in current Codex chat; docs/handoffs/2026-09-30-codex-vm674-azorius-repeat-search.md#corrected-candidate-owner-acceptance
 Integration: PENDING
 Dependencies: None
 Decisions: Scope amendment: add owning scripts/validate-frontend-html.mjs for the directly relevant required-CI stale controller handoff cache-revision assertion; preserve existing query-core and handoff execution semantics and all other guards. Owner authorization 2026-10-02 preserves current-request provenance across Helper customization using existing metadata; no universal state architecture, second query/results owner, pending execution retention, catalog/parser change, VM-675 or integration. Fresh rendered evidence decides whether an owning repair is warranted. Preserve current Maze query, route, filter, cache/deduplication, reading-context, API, and render contracts; do not treat VM-662 as current-defect proof. Prior amendment admitted the catalog-backed current-representation resolver and deterministic catalog coverage. Owner authorized Option A after bounded recon: exact Operator-backed generated Plain remains presentation-only until actual input edits; explicit dossier path/thread reselection is the authoritative atomic reset boundary for canonical intent and obsolete mode drafts; Prismari expression context remains independent from generic UR/Izzet translation and external aliases. Existing route owners only; stop at a new candidate and separate RobQA, with no integration or next task.
