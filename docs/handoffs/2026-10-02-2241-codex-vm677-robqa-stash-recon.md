@@ -172,3 +172,33 @@ Integration remains pending until the actual PR, exact remote head, complete sco
 guarded merge are verified. The policy blobs, complete report and reviewed material candidate remain
 unchanged. Stash `4f5a2c67c9a4ca0366f4052a271e5c31105493a3` remains historical and untouched; deletion
 is still a separate closeout decision.
+
+## Accepted candidate integration
+
+Task: VM-677
+Candidate: be13b06017b97f96386bb17dde056c909369cef8
+Integration: INTEGRATED
+PR68: https://github.com/rboles84/voxmana.io/pull/68
+Evidence head: 95e7061788da3aebf6eef2378d9d75fbace7cdc9
+Merge commit: 0dde65fd2921b64f7ad164a20cf64aef26dd1c38
+
+The existing integration-stage checker passed for the exact PR/evidence head after complete host
+file/blob and ordered commit parity, accepted QA/Owner decisions, clean mergeability and successful
+`Deterministic Validation` were verified. The approved connector performed the squash merge with atomic
+`expected_head_sha=95e7061788da3aebf6eef2378d9d75fbace7cdc9`. GitHub confirmed merged/closed and
+the actual merge SHA above. Native Git synchronized local main to that result. Its sole parent is the
+verified integration base `181b6a08c2e05a917e1d8681e70bd6f18249faa6`, and its tree exactly matches the
+verified PR input; no candidate behavior changed during integration.
+
+Capability clarification: the connector's general approved-resource GET tool supplies raw PR state and
+repository/Git resources, supplementing its normalized tools. Main-protection GET returned an actual
+403 `Resource not accessible by integration`; that supplemental settings observation was unavailable.
+No authentication/interface/configuration change was made. Required CI, complete PR scope and atomic
+head guard remained enforced. This corrects the earlier narrower capability inventory without changing
+repository policy or creating a delivery exception.
+
+The integrated canonical RobQAPass now owns the adopted methodology; both wrappers remain subordinate.
+AGENTS, native-agent/model configuration, RobDev, product/runtime and test behavior are unchanged. The
+complete recovery report and three policy blobs match the accepted candidate. Stash
+`4f5a2c67c9a4ca0366f4052a271e5c31105493a3` remains untouched, including through main synchronization.
+Lifecycle closeout is pending its own exact-delta, preservation, generated-view and cleanup checks.

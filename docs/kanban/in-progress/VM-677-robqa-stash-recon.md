@@ -2,7 +2,7 @@
 
 ID: VM-677
 Title: RobQA Stateful Adversarial Policy Recovery, Red-Team, and Refinement
-Status: Accepted
+Status: Integrated
 Type: Bounded RobQA policy recovery, red-team review, and refinement
 Area: RobQA stateful-adversarial governance policy
 Priority: High
@@ -77,7 +77,7 @@ Admission baseline: 181b6a08c2e05a917e1d8681e70bd6f18249faa6
 Candidate: be13b06017b97f96386bb17dde056c909369cef8
 RobQA: PASS at be13b06017b97f96386bb17dde056c909369cef8 — SEPARATE QA-0; docs/handoffs/2026-10-03-robqa-vm677-stateful-adversarial-upgrade.md#revised-exact-candidate-qa
 Owner: ACCEPTED at be13b06017b97f96386bb17dde056c909369cef8 — direct Owner ACCEPT in Codex chat 01a10001-2424-75c1-9931-67d86749da3f; docs/handoffs/2026-10-02-2241-codex-vm677-robqa-stash-recon.md#owner-acceptance
-Integration: PENDING
+Integration: INTEGRATED — PR #68 https://github.com/rboles84/voxmana.io/pull/68; squash merge 0dde65fd2921b64f7ad164a20cf64aef26dd1c38
 Dependencies: None
 Decisions: Original recon was documentation-only; its findings and exact-candidate evidence remain historical. Preserve stash `4f5a2c67c9a4ca0366f4052a271e5c31105493a3` unchanged. Scope amendment: Owner request on 2026-10-03 authorizes recovery, red-team refinement and a bounded governance-policy candidate on this same VM-677 branch, superseding the earlier recon-only implementation boundary. Only the three named RobQA policy/skill targets and ordinary VM-677 records may change; recovered source hashes must match the Owner's exact values. Integrated baseline governance controls adoption review; the proposed gate is the subject under review. No stash restoration, successor, integration, push/merge, native-agent/model, RobDev, product or test-behavior change is authorized. Stop at a new exact-candidate separate QA PASS and Owner Review; prior recon PASS does not approve the policy candidate.
 Evidence: Historical recon: [VM-677 forensic report](../../reports/2026-10-02-vm677-robqa-stash-recon.md); [coordinator handoff](../../handoffs/2026-10-02-2241-codex-vm677-robqa-stash-recon.md); [Kanban handoff](../../handoffs/2026-10-02-2241-kanban-vm677-robqa-stash-recon.md); [independent RobQA handoff](../../handoffs/2026-10-02-2241-robqa-vm677-robqa-stash-recon.md). New candidate: [policy-upgrade report](../../reports/2026-10-03-vm677-robqa-policy-upgrade.md); [RobDev handoff](../../handoffs/2026-10-03-robdev-vm677-stateful-adversarial-upgrade.md); [independent RobQA handoff](../../handoffs/2026-10-03-robqa-vm677-stateful-adversarial-upgrade.md).
