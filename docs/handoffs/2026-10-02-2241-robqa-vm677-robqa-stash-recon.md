@@ -61,3 +61,36 @@ The future policy candidate should receive SEPARATE QA-0 governance review for t
 ## Candidate-bound review status
 
 PENDING. After the coordinator freezes an immutable documentation candidate, this reviewer will inspect `181b6a08c2e05a917e1d8681e70bd6f18249faa6..candidate`, validate the report's factual claims and decision bounds against the exact Git objects and source history, run the selected QA-0 checks, confirm the stash remains unchanged, and append the exact-candidate verdict here.
+
+## Exact-candidate QA
+
+Task: VM-677
+Candidate: 1801609b0bf22a789352414cfce56274ea01c122
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: Codex `/root/recon_qa`, configured RobQA role (`gpt-5.6-sol`, medium); backend identity unverified
+Implementer: Codex coordinator `/root` with Kanban Steward `/root/recon_records`
+
+### Decision
+
+QA-0 governance reconnaissance passes for the exact material candidate. The report accurately concludes that raw stash application is unsafe, selective wrapper promotion is incomplete and wrongly places authority, and any future policy change requires a separate admitted canonical amendment. Its factual uncertainty is honest: the intended untracked replacement bytes were not recovered, so the report does not claim to inspect or reconstruct them.
+
+This PASS certifies only the seven-path VM-677 documentation candidate. It does not certify the stash as a live-policy candidate, approve the proposed stateful gate, authorize unstash/promotion, issue Owner acceptance, or change current repository policy.
+
+### Exact-candidate evidence
+
+- `181b6a08c2e05a917e1d8681e70bd6f18249faa6..1801609b0bf22a789352414cfce56274ea01c122` contains exactly seven documentation paths: the card, report, three handoffs, and two generated views. No runtime, policy, test, source-data, configuration, or agent file changed.
+- Independent source review matched the report to immutable stash `4f5a2c67c9a4ca0366f4052a271e5c31105493a3`, parents `cb6b16ace783c75485700ac32dd758bf8bbef851` and `23c0ef75323dc618237072ff0fe5a10d0f21b433`, absent third parent, exact three-path saved diff, unchanged policy/native-agent blobs, and original-chat evidence for the excluded untracked `(1)` replacement.
+- `git diff --check 181b6a08c2e05a917e1d8681e70bd6f18249faa6 1801609b0bf22a789352414cfce56274ea01c122` — PASS.
+- `npm.cmd run task -- indexes --check` — PASS; 716 cards, 1,171 handoffs, zero stale generated views.
+- `npm.cmd run test:workflow-instructions` — PASS, 15/15. Current canonical files, anchors, optional-navigation contract, role routing, and workflow reachability remain intact.
+- Focused existence validation for the report, three handoffs, card, VM-674 QA source, and current canonical `RobQAPass.md` — PASS, seven paths found.
+- `stash@{0}` still resolves to exact object `4f5a2c67c9a4ca0366f4052a271e5c31105493a3` with the same tree and two parents. No apply, pop, drop, rewrite, policy implementation, host write, or product execution occurred.
+
+The first frozen candidate, `ac72e8838f5efea4e2d50999ec3c02dc82aa25d7`, failed exact baseline-to-candidate `git diff --check` because this handoff had one new blank line at EOF. That candidate received no PASS. The replacement changes only removal of that blank line; its complete baseline diff is clean.
+
+### Proportionality and Owner boundary
+
+CPU-heavy validation: **NOT REQUIRED**. Browser, screenshot, visual, product, placement, semantic, mutation, and broad regression suites were intentionally skipped because the candidate changes only documentary evidence and generated views. There is no rendered-product judgment to delegate to the Owner.
+
+Remaining Owner judgment is the disposition after recon: try to recover and authenticate the missing original replacement, or authorize a new governance task to reconstruct a canonical amendment from the explicit requirements and VM-674 evidence. Owner Review must bind this exact documentation candidate; this engineering PASS authorizes no policy promotion or integration.

@@ -2,7 +2,7 @@
 
 ID: VM-677
 Title: RobQA Stateful Adversarial Upgrade Stash Recon
-Status: In Progress
+Status: Owner Review
 Type: Documentation-only forensic and policy reconnaissance
 Area: Retained RobQA stateful-adversarial-upgrade stash readiness
 Priority: High
@@ -36,7 +36,7 @@ Current Owner request. Admission start was ELIGIBLE at live/local `main` baselin
 - [x] Current policy and relevant repository history are reviewed; compatibility is checked nonmutatively and any ambiguity is stated as an unavailable fact.
 - [x] Recommendations distinguish possible future action from authorized present work and state the bounds/evidence required for an unstash or promotion decision.
 - [x] Coordinator, independent RobQA, and Kanban records are complete; generated board/index views are fresh.
-- [ ] The documentation-only candidate receives independent exact-candidate RobQA evidence and stops at Owner Review.
+- [x] The documentation-only candidate receives independent exact-candidate RobQA evidence and stops at Owner Review.
 
 ## Files Likely Impacted
 
@@ -58,9 +58,9 @@ Current Owner request. Admission start was ELIGIBLE at live/local `main` baselin
 Record version: 1
 Branch: codex/vm-677-robqa-stash-recon
 Admission baseline: 181b6a08c2e05a917e1d8681e70bd6f18249faa6
-Candidate: PENDING
-RobQA: PENDING — independent exact-candidate review required after the documentation candidate is fixed.
-Owner: PENDING — no Owner decision recorded.
+Candidate: 1801609b0bf22a789352414cfce56274ea01c122
+RobQA: PASS at 1801609b0bf22a789352414cfce56274ea01c122 — SEPARATE QA-0; docs/handoffs/2026-10-02-2241-robqa-vm677-robqa-stash-recon.md#exact-candidate-qa
+Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Decisions: Documentation-only reconnaissance. Preserve stash `4f5a2c67c9a4ca0366f4052a271e5c31105493a3` unchanged; no unstash, promotion, live policy, or implementation action is authorized by this card.

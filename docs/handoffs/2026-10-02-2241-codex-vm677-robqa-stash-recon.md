@@ -51,3 +51,57 @@ Exact Git inspections and both `git apply --check` variants succeeded without ap
 No stash application/drop/rewrite, live policy changes, product tests or edits, source data, host writes, push, PR, merge, or cleanup. No recovery outside the named targeted locations. Next suggested role: separate RobQA to bind this report candidate; after recon Owner review, a new RobDev governance task may recover/reconstruct the canonical amendment within explicitly admitted scope.
 
 Related: [VM-677 card](../kanban/in-progress/VM-677-robqa-stash-recon.md), [VM-674 QA](2026-09-30-robqa-vm674-azorius-repeat-search.md), [Kanban handoff](2026-10-02-2241-kanban-vm677-robqa-stash-recon.md), [RobQA handoff](2026-10-02-2241-robqa-vm677-robqa-stash-recon.md).
+
+## Recon engineering disposition
+
+Task: VM-677
+Candidate: 1801609b0bf22a789352414cfce56274ea01c122
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: /root/recon_qa
+Implementer: /root with /root/recon_records for clerical records
+
+Independent QA verified the actual baseline-to-candidate documentation, stash/source facts, authority boundaries, links, whitespace and generated freshness. Its unique Exact-candidate QA section retains the authentic decision and selected evidence. The prior `ac72e8838f5efea4e2d50999ec3c02dc82aa25d7` freeze failed full-diff whitespace because its initial QA selection handoff had a blank line at EOF; the one-line correction produced this new reviewed candidate. No substantive report or policy change occurred.
+
+This PASS binds only the recon documentation. The retained stash remains incomplete and unsafe to promote wholesale. Owner is PENDING; integration, push and PR creation remain PENDING/unperformed. The next policy implementation needs its own admitted scope and independent candidate review.
+
+Post-candidate changes are limited to this appended QA/Git evidence, the reviewer's appended verdict, the card's lifecycle/decision bindings and checkbox, and regenerated navigation. They neither revise the report nor change accepted scope or requirements. A separate exact-delta review and final candidate-stage check verify that evidence boundary before delivery.
+
+## Material candidate
+
+- Baseline: `181b6a08c2e05a917e1d8681e70bd6f18249faa6`
+- Candidate: `1801609b0bf22a789352414cfce56274ea01c122`
+- Changed paths: `7`
+
+## Files changed
+
+- `docs/handoffs/2026-10-02-2241-codex-vm677-robqa-stash-recon.md`
+- `docs/handoffs/2026-10-02-2241-kanban-vm677-robqa-stash-recon.md`
+- `docs/handoffs/2026-10-02-2241-robqa-vm677-robqa-stash-recon.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-677-robqa-stash-recon.md`
+- `docs/reports/2026-10-02-vm677-robqa-stash-recon.md`
+
+## Evidence delta
+
+- Material candidate: `1801609b0bf22a789352414cfce56274ea01c122`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `4`
+
+This evidence delta is not the full task diff. HEAD is resolved by the Git-report validator at delivery; the final response reports its full immutable SHA.
+
+## Evidence-only paths
+
+- `docs/handoffs/2026-10-02-2241-codex-vm677-robqa-stash-recon.md`
+- `docs/handoffs/2026-10-02-2241-robqa-vm677-robqa-stash-recon.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-677-robqa-stash-recon.md`
+
+## Final branch delta
+
+- Baseline: `181b6a08c2e05a917e1d8681e70bd6f18249faa6`
+- Head: `HEAD`
+- Changed paths: `7`
+
+The total branch remains documentation-only. No push, PR, merge, policy promotion, or stash mutation was performed. Final clean-worktree, report-validator and candidate-stage results are verified after the evidence commit.
