@@ -2,7 +2,7 @@
 
 ID: VM-676
 Title: Home Author's Note Text Replacement
-Status: In Progress
+Status: Owner Review
 Type: Surgical production copy edit
 Area: Home
 Priority: Owner requested
@@ -42,8 +42,8 @@ Apply RobDev. Author's Note is authored directly in index.html. Replace only tex
 Record version: 1
 Branch: codex/vm-676-home-author-note
 Admission baseline: e761d4b6cdcd8947e09524c9574a39669eac26ca
-Candidate: PENDING
-RobQA: PENDING
+Candidate: 77ecd7c39fcb730f2e127b6e4941bd6a802b3913
+RobQA: PASS at 77ecd7c39fcb730f2e127b6e4941bd6a802b3913 — SEPARATE QA-1 product / QA-0 records by /root/author_note_qa; docs/handoffs/2026-10-02-2208-robqa-vm676-home-author-note.md
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
