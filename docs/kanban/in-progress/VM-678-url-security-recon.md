@@ -32,11 +32,11 @@ Current Owner request: recon and deep dive on how to fix the supplied Mardu and 
 
 ## Acceptance Criteria
 
-- [ ] The three supplied URL shapes are explained and measured, including duplicated and derived state.
-- [ ] Owning builders, readers, sinks and state precedence are identified with exact source references.
-- [ ] Security findings carry a witness, reachability conditions and realistic impact; untested claims remain explicit limitations.
-- [ ] Live deployment observations and repository facts remain distinct.
-- [ ] URL cleanup proposal preserves searches, shared-link replay, refresh, Back/Forward and dossier return behavior with a bounded migration strategy.
+- [x] The three supplied URL shapes are explained and measured, including duplicated and derived state.
+- [x] Owning builders, readers, sinks and state precedence are identified with exact source references.
+- [x] Security findings carry a witness, reachability conditions and realistic impact; untested claims remain explicit limitations.
+- [x] Live deployment observations and repository facts remain distinct.
+- [x] URL cleanup proposal preserves searches, shared-link replay, refresh, Back/Forward and dossier return behavior with a bounded migration strategy.
 - [ ] Documentation-only candidate receives separate evidence review; runtime files remain unchanged.
 
 ## Files Likely Impacted
@@ -69,7 +69,7 @@ Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Decisions: Owner requested recon and recommendations, with no runtime repair or deployment. Admission start was ELIGIBLE at synchronized local/live main a436a845cb0a67bbe738fb283966ea6d832f1b39. Preserve current VM-674 request/provenance ownership and the existing canonical catalog; URL shortening must be proposed at the existing producer/adapter layer.
-Evidence: Current source and public read-only observations to be recorded in the report and role handoffs.
+Evidence: [Reconnaissance report](../../reports/2026-10-03-vm678-url-security-recon.md), [RobDev handoff](../../handoffs/2026-10-03-1658-robdev-vm678-url-security-recon.md), and [coordinator handoff](../../handoffs/2026-10-03-1658-codex-vm678-url-security-recon.md) contain source traces, literal URL measurements, deployed parity, and bounded security witnesses. Separate candidate QA remains PENDING.
 
 ## Admission Scope
 

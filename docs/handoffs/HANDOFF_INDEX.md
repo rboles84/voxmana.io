@@ -1,4 +1,4 @@
-<!-- task-view-sha256:3859f6953b7878d290784b86440be12217a74eadbf2f166803aa215eb9b118b0 -->
+<!-- task-view-sha256:e320fa423dae415c1d7d687492317ced781463a2350d6f35de777a6dd576dab3 -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -8,6 +8,8 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 
 | Authored / filename date | Agent | Handoff | Related task references | Diagnostics |
 |---|---|---|---|---|
+| 2026-10-03T16:58:00Z (filename) | Codex coordinator | [Coordinator handoff — VM-678 URL and security reconnaissance](2026-10-03-1658-codex-vm678-url-security-recon.md) | VM-678 | Identity displayed from heading; not admission metadata. Invalid authored date; filename fallback or undated ordering used. |
+| 2026-10-03T16:58:00Z (filename) | Unknown | [RobDev handoff — VM-678 URL and security reconnaissance](2026-10-03-1658-robdev-vm678-url-security-recon.md) | VM-678 | Identity displayed from heading; not admission metadata. |
 | 2026-10-02T22:41:00-06:00 (authored) | Kanban Steward `/root/recon_records` | [VM-677 — Kanban Admission and Lifecycle Handoff](2026-10-02-2241-kanban-vm677-robqa-stash-recon.md) | VM-677 | Identity displayed from heading; not admission metadata. |
 | 2026-10-03T00:00:00Z (filename) | Unknown | [VM-677 RobDev handoff — Stateful-Adversarial RobQA upgrade](2026-10-03-robdev-vm677-stateful-adversarial-upgrade.md) | VM-677 | Identity displayed from heading; not admission metadata. |
 | 2026-10-03T00:00:00Z (filename) | Unknown | [VM-677 — Stateful Adversarial RobQA Upgrade — Independent QA](2026-10-03-robqa-vm677-stateful-adversarial-upgrade.md) | VM-677 | Identity displayed from heading; not admission metadata. Invalid authored date; filename fallback or undated ordering used. |
