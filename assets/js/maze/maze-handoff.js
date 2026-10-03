@@ -256,6 +256,61 @@ export function resolveMazeDiscoveryProfile(catalog, identityKey = "") {
   return (catalog.profiles || []).find((profile) => profile.identity_key === key) || null;
 }
 
+/**
+ * Applies only transport-safe normalization before comparing an authored
+ * dossier representation with the current text-control value.
+ * @param {string} value Current or canonical request representation.
+ * @returns {string} Conservatively normalized representation.
+ */
+export function normalizeMazeCanonicalRepresentation(value = "") {
+  return String(value || "")
+    .replace(/\r\n?/g, "\n")
+    .trim();
+}
+
+/**
+ * Resolves one current governed dossier intent from the discovery catalog.
+ * Stable identity, path, and optional thread are the only lookup keys; the
+ * returned Plain and Operator values remain one paired catalog definition.
+ * @param {object|null} catalog Generated discovery-profile catalog.
+ * @param {object} identity Stable identity/path/thread selectors.
+ * @returns {object|null} Canonical paired intent, or null when unprovable.
+ */
+export function resolveMazeCanonicalDossierIntent(catalog, {
+  identityKey = "",
+  pathType = "",
+  threadId = "",
+} = {}) {
+  const profile = resolveMazeDiscoveryProfile(catalog, identityKey);
+  const stablePathType = String(pathType || "").trim();
+  const stableThreadId = String(threadId || "").trim();
+  if (!profile || !stablePathType) return null;
+  const paths = buildProfileOwnedDossierPaths(profile, {
+    factionName: profile.identity_name,
+    includeOutsideColorStretch: profile.stretch?.availability === "available",
+  });
+  const path = paths.find((candidate) => candidate.pathType === stablePathType);
+  if (!path) return null;
+  if (!stableThreadId) {
+    return {
+      identityKey: profile.identity_key,
+      pathType: path.pathType,
+      threadId: "",
+      plainReadingQuery: path.plainReadingQuery,
+      operatorQuery: path.operatorQuery,
+    };
+  }
+  const thread = path.threads.find((candidate) => candidate.threadId === stableThreadId);
+  if (!thread || thread.availability !== "available" || !thread.operatorQuery || !thread.plainReadingQuery) return null;
+  return {
+    identityKey: profile.identity_key,
+    pathType: path.pathType,
+    threadId: thread.threadId,
+    plainReadingQuery: thread.plainReadingQuery,
+    operatorQuery: thread.operatorQuery,
+  };
+}
+
 export function resolveMazeDiscoveryCatalogProvenance(catalog) {
   if (catalog?.schema_version !== "vm547-maze-discovery-catalog-v1") return null;
   if (catalog?.runtime_revision !== VM547_DISCOVERY_RUNTIME_REVISION) return null;

@@ -725,7 +725,7 @@ expect(
 );
 expect(
   scriptSources.maze.includes('from "./maze-query-core.js?v=vm636"') &&
-    scriptSources.maze.includes('from "./maze-handoff.js?v=vm636"') &&
+    scriptSources.maze.includes('from "./maze-handoff.js?v=vm674r3"') &&
     scriptSources.mazeQueryCore.includes('from "./maze-handoff.js?v=vm636"'),
   "Maze should cache-bust the complete Maze rehydration-to-query module chain"
 );
