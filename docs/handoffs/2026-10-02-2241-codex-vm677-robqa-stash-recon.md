@@ -143,3 +143,32 @@ suites, placement certification, screenshots or CPU-heavy validation are require
 Next suggested role: separate RobQA for the frozen candidate, then Owner for exact-candidate review.
 No integration, push/merge, cleanup or stash deletion is authorized. The final decision packet records
 actual QA/validation results and the immutable candidate/evidence bindings after freeze.
+
+## Owner acceptance
+
+Task: VM-677
+Candidate: be13b06017b97f96386bb17dde056c909369cef8
+Owner: ACCEPT
+Decision reference: Owner's latest message in Codex chat 01a10001-2424-75c1-9931-67d86749da3f: "ACCEPT VM-677 at `be13b06017b97f96386bb17dde056c909369cef8`".
+
+Coordinator `/root` received this exact acceptance directly from the human Owner after the revised
+candidate received separate RobQA PASS and the candidate-stage delivery check passed. This authentic
+decision authorizes normal ACCEPT integration and closeout on the same VM-677 branch. It supersedes
+the earlier stop-at-Owner-Review boundary for this candidate, without authorizing stash restoration or
+deletion, a successor task, material changes, or model/runtime/configuration changes.
+
+Adoption remains governed by the currently integrated baseline process until integration. GitHub routing
+was discovered before host operations: the authenticated connector supports repository/identity reads,
+PR creation and expected-head guarded squash merge. Profile `rboles84` and repository
+`rboles84/voxmana.io` access were verified; repository permissions include admin/push and squash is
+allowed. Connector PR search found no existing matching head/base PR. Approved routes are connector
+for host reads, PR creation and guarded merge, with native Git for fetch/push. No gh/browser fallback
+or credential extraction is authorized or needed. Separate branch-policy visibility is supplemental
+under workflow Main Protection And Exceptions; no exposed connector policy-settings capability was
+found. Required CI remains the repository's `Deterministic Validation` check. No configuration change
+or policy bypass is inferred.
+
+Integration remains pending until the actual PR, exact remote head, complete scope, required CI and
+guarded merge are verified. The policy blobs, complete report and reviewed material candidate remain
+unchanged. Stash `4f5a2c67c9a4ca0366f4052a271e5c31105493a3` remains historical and untouched; deletion
+is still a separate closeout decision.
