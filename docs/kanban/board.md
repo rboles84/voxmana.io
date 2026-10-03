@@ -1,4 +1,4 @@
-<!-- task-view-sha256:d8f7a639e561e1969fab90b2a2f61164a66f217a9123d26f7875f0d9e9f9f0d3 -->
+<!-- task-view-sha256:3d9e04f7191592bba672a1c8a263901ce961a55cfca9d4a5a1ab94edff76781d -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -43,13 +43,13 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 
 | ID | Card | Declared status | Diagnostics |
 |---|---|---|---|
-| VM-676 | [Home Author's Note Text Replacement](in-progress/VM-676-home-author-note.md) | Owner Review |  |
 
 ## Accepted
 
 | ID | Card | Declared status | Diagnostics |
 |---|---|---|---|
 | VM-661 | [Maze Modernization Implementation Specification](in-progress/VM-661-maze-modernization-spec.md) | Accepted |  |
+| VM-676 | [Home Author's Note Text Replacement](in-progress/VM-676-home-author-note.md) | Accepted |  |
 
 ## Integrated
 

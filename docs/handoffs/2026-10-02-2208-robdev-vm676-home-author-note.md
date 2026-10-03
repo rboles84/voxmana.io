@@ -44,3 +44,14 @@ The initial worktree was clean on VM-675's Owner Review branch. That branch was 
 The grounded contract is exact Owner copy at the authored Home paragraph, with every exterior byte and all other product paths protected. Card, role handoffs, and generator-owned board/index are the only authorized governance paths. Root owns admission, generated records, commits and delivery accounting; RobDev owns the paragraph and its individual handoff; independent RobQA owns exact-candidate QA. Named RobDev Terra/medium and RobQA Sol/medium routes were accepted by the host; effective backend identity and costs are unverified. Workers were instructed to preserve others' edits.
 
 Proportional objective checks cover accidental copy/markup/encoding drift. No cleanup or warning-driven edits were authorized. Root will bind independent QA to the frozen candidate and stop at Owner Review, retaining Owner PENDING. No push, PR, merge or deployment is authorized at this boundary.
+
+## Owner acceptance
+
+Task: VM-676
+Candidate: 77ecd7c39fcb730f2e127b6e4941bd6a802b3913
+Owner: ACCEPT
+Decision reference: Current Owner message in this chat following the exact-candidate Owner Review report: "looks good I approve as owner", accompanied by a localhost Home screenshot of the replacement paragraph.
+
+The coordinator directly received this human approval for the unchanged reviewed candidate and verified the clean evidence HEAD 0635db49e6097fc8a5f874819ce02deeba2a16fc. This is product/visual acceptance and authorization for the canonical ACCEPT integration path. Earlier PENDING and stop-boundary statements above remain historical. Product bytes, accepted scope, independent QA, and all protected boundaries remain unchanged.
+
+GitHub routing was discovered before host operations. The authenticated GitHub connector reports rboles84 with repository push/admin access and supports PR reads/creation plus squash merge with expected_head_sha. Read, PR creation and merge routes are connector; normal push/fetch uses established Git transport. No alternate auth route, credential retrieval or settings change is authorized. One task PR will be used. Required Deterministic Validation and expected-head guarded merge remain mandatory.
