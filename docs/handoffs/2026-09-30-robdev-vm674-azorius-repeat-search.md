@@ -252,6 +252,12 @@ The presenter uses only proven current source: catalog composition remains catal
 
 Developer checks passed: controller syntax, `npm.cmd run test:mode` (28 cases), `npm.cmd run test:maze-discovery-profiles` (37 profiles / 367 projections), and scoped whitespace. The cache key is `vm674r8`. Root owns remaining browser A–J and causal-source fixture evidence. Configured RobDev route: Terra medium; backend telemetry unverified. No QA verdict, Owner acceptance, candidate freeze, or integration is claimed.
 
+## CI validator correction
+
+At the admission-continuation baseline `a787dce44a94f48da3e9e318e5b729a0e3c28b38`, `npm.cmd run lint:html` failed because its Maze rehydration-chain assertion still expected `maze-handoff.js?v=vm636` while the admitted Maze controller imports `maze-handoff.js?v=vm674r3`. The validator now expects only that controller import revision; the `maze-query-core.js?v=vm636` and query-core handoff guards are unchanged.
+
+Red-before-green evidence: the prior `lint:html` failure was `Maze should cache-bust the complete Maze rehydration-to-query module chain`. Developer verification after the one-line repair passed: `node --check scripts/validate-frontend-html.mjs`, `npm.cmd run lint:html`, `npm.cmd run lint:js` (37 files), and scoped `git diff --check`. This adds no QA verdict, Owner acceptance, candidate freeze, merge, or integration claim.
+
 ### Fresh unknown request correction
 
 Fresh unsupported Operator input now receives the same neutral projection and exact backing as an unknown request in a retained dossier session. When the existing syntax translator can completely translate a fresh generic query with no unhandled terms, its generic presentation remains available without assigning Helper or dossier provenance. The cache key is `vm674r9`. Controller syntax, `test:mode`, and scoped whitespace passed again.

@@ -404,3 +404,16 @@ Host operation routing was discovered before operations: GitHub connector suppor
 Integration remains PENDING until exact head required CI, complete host scope/content parity, read-only integration PASS and guarded merge result are established. Root owns host/Git/delivery actions and lifecycle records; separate RobQA reviews evidence-only deltas without replacing the accepted material verdict.
 
 Supplemental policy observation: approved GitHub connector branch-protection GET returned 403 Resource not accessible by integration. Its managed connection exposes no administration read access; this observation is optional under the stated workflow authority. No alternative authentication route or settings change was attempted. Required Deterministic Validation, exact PR parity and atomic expected-head squash guard remain mandatory.
+
+## Required CI correction — bounded validation contract
+
+Date: 2026-10-02, America/Denver
+Task: VM-674
+Prior accepted candidate: 65ac433f99e70186000d9bf930f22443ad593e6c
+Integration: PENDING
+
+PR 66 was created after authentic ACCEPT and remains unmerged. Deterministic Validation at evidence HEAD a55b4e648299ec2535c5975be837bba55b33f62d failed at lint:html: the owning validator still requires the controller handoff import cache key vm636, although the accepted controller correctly advances that import to vm674r3. Query-core retains its unchanged vm636 imports. Failure evidence is https://github.com/rboles84/voxmana.io/actions/runs/37088115106/job/111102484510.
+
+The dedicated scope amendment at a787dce44a94f48da3e9e318e5b729a0e3c28b38 admits only scripts/validate-frontend-html.mjs for this required-CI mismatch, and admission continue passed. Change the controller handoff expectation only; preserve all other cache-chain assertions and all runtime, product and fixture bytes. This is a material validation-contract change under the delivery workflow, requiring a new immutable candidate, separate QA and exact-candidate Owner ACCEPT before integration. Prior authentic acceptance remains historical and is not transferred to changed material.
+
+Separate RobQA selects exact diff and accepted product/fixture blob parity, validator syntax, lint:html, lint:js, whitespace, generated freshness and candidate accounting. An external validator copy reverts only the expectation to vm636 and must fail with the exact Maze chain error; remove the copy after recording its hash. Prior full runtime A–J and Option A/B/C QA may be retained only if exact accepted runtime/fixture parity holds. No parser, catalog, controller, execution or Helper behavior change is authorized by this CI correction. Candidate, RobQA and Owner return to PENDING; no VM-675 or merge.
