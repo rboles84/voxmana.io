@@ -1,4 +1,4 @@
-<!-- task-view-sha256:23f24c7a9900d176ac29e89f0a42c2be377c93b6316981a6769adfc69e5596a4 -->
+<!-- task-view-sha256:b085f999c6000e6bf2089a5135c3efb72d789002296db55963ff3974ef59a2d7 -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -8,6 +8,7 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 
 | Authored / filename date | Agent | Handoff | Related task references | Diagnostics |
 |---|---|---|---|---|
+| 2026-10-04T22:46:17Z (authored) | `/root/qa_final` (configured RobQA Sol medium; backend-effective identity unverified) | [RobQA handoff — VM-678 A0 identity-key alias feasibility](2026-10-04-1640-robqa-vm678-a0-alias-feasibility.md) | VM-678 | Identity displayed from heading; not admission metadata. |
 | 2026-10-04T22:04:14Z (authored) | `/root/qa_final` (configured RobQA Sol medium; backend-effective identity unverified) | [RobQA handoff — VM-678 Slice A local return security](2026-10-04-1555-robqa-vm678-slice-a-return-security.md) | VM-678 | Identity displayed from heading; not admission metadata. |
 | 2026-10-04T19:26:00Z (authored) | `/root/qa_final` (configured RobQA Sol medium; backend-effective identity unverified) | [RobQA handoff — VM-678 preserved-ID URL plan review](2026-10-04-1300-robqa-vm678-preserved-id-plan-review.md) | VM-678 | Identity displayed from heading; not admission metadata. |
 | 2026-10-04T18:31:16Z (authored) | `/root/qa_final` (configured RobQA Sol medium; backend-effective identity unverified) | [RobQA handoff — VM-678 native/session launch feasibility](2026-10-04-1200-robqa-vm678-session-feasibility.md) | VM-678 | Identity displayed from heading; not admission metadata. |
@@ -16,6 +17,9 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 | 2026-10-04T17:25:03Z (authored) | /root | [VM-678 — red-team correction and vanilla multi-page navigation fit](2026-10-04-1100-codex-vm678-redteam.md) | VM-678 | Identity displayed from heading; not admission metadata. |
 | 2026-10-04T11:14:02-06:00 (authored) | /root/baseline_catalog | [RobDev red-team — VM-678 same-tab continuity fit](2026-10-04-1100-robdev-vm678-redteam.md) | VM-678 | Identity displayed from heading; not admission metadata. |
 | 2026-10-04T11:13:48-06:00 (authored) | /root/qa_final | [VM-678 — independent red-team of continuity STOP](2026-10-04-1100-robqa-vm678-redteam.md) | VM-678 | Identity displayed from heading; not admission metadata. |
+| 2026-10-04T16:40:00Z (filename) | /root | [VM-678 — restored runtime and bounded A0 feasibility](2026-10-04-1640-codex-vm678-a0-alias-feasibility.md) | VM-678 | Identity displayed from heading; not admission metadata. Invalid authored date; filename fallback or undated ordering used. |
+| 2026-10-04T16:40:00Z (filename) | Unknown | [VM-678 A0 — Archscry identity-key alias feasibility proposal](2026-10-04-1640-planning-architect-vm678-a0-alias-proposal.md) | VM-678 | Identity displayed from heading; not admission metadata. |
+| 2026-10-04T16:40:00Z (filename) | `/root/baseline_browser` — configured Terra medium; backend-effective identity unverified. | [RobDev handoff — VM-678 A0 identity alias feasibility](2026-10-04-1640-robdev-vm678-a0-alias-feasibility.md) | VM-678 | Identity displayed from heading; not admission metadata. Invalid authored date; filename fallback or undated ordering used. |
 | 2026-10-04T16:38:00Z (authored) | `/root/baseline_browser` — configured Terra medium route; backend-effective model identity unverified. | [RobDev handoff — VM-678 continuity browser probe](2026-10-04-1000-robdev-vm678-continuity-browser.md) | VM-678 | Identity displayed from heading; not admission metadata. |
 | 2026-10-04T16:38:00Z (authored) | `/root/baseline_browser` — configured Terra-medium route; backend-effective model identity unverified. | [RobDev handoff — VM-678 preserved-ID URL plan](2026-10-04-1300-robdev-vm678-preserved-id-url-plan.md) | VM-678 | Identity displayed from heading; not admission metadata. |
 | 2026-10-04T16:34:00Z (authored) | /root | [VM-678 — interrupted preparation STOP and browser metadata clarification](2026-10-04-1000-codex-vm678-continuity.md) | VM-678 | Identity displayed from heading; not admission metadata. |
