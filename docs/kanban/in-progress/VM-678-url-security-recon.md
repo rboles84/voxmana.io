@@ -2,7 +2,7 @@
 
 ID: VM-678
 Title: URL and Security Reconnaissance
-Status: In Progress
+Status: Owner Review
 Type: Staged URL/security repair — continuity preparation STOP and harness clarification
 Area: Archscry-to-Maze URL handoff, navigation and security
 Priority: High
@@ -73,7 +73,7 @@ Current Owner request: recon and deep dive on how to fix the supplied Mardu and 
 - [ ] Reload, Back/Forward, independent successors and eligible Restore activate or clear entry association truthfully without altering query truth.
 - [ ] Native modified/new-tab activations preserve the source document and independent public comparison tabs.
 - [ ] Missing, invalid, stale or failed/interrupted preparation is public/unassociated; persisted Finds never receive B or a fabricated reading ID.
-- [ ] Frozen 1,002-record historical oracles remain unchanged; candidate semantic parity and approved deltas pass with unambiguous two-public-mode/four-browser-worker metadata.
+- [x] Frozen 1,002-record historical oracles remain unchanged; candidate semantic parity and approved deltas pass with unambiguous two-public-mode/four-browser-worker metadata.
 - [ ] Exact candidate receives independent SEPARATE QA-3 review and returns to Owner before the serializer slice.
 
 ## Files Likely Impacted
@@ -116,8 +116,8 @@ Apply RobDev to the explicitly approved narrow same-tab continuity slice. Carry 
 Record version: 1
 Branch: codex/vm-678-url-security-recon
 Admission baseline: a436a845cb0a67bbe738fb283966ea6d832f1b39
-Candidate: PENDING
-RobQA: PENDING — independent SEPARATE QA-0 for the non-runtime STOP/harness candidate; continuity QA-3 unavailable
+Candidate: 1680f1cfa4c50a1db7ad5e17d1a13ca4945c4189
+RobQA: PASS at 1680f1cfa4c50a1db7ad5e17d1a13ca4945c4189 — SEPARATE QA-0 for non-runtime STOP documentation/harness clarification only; continuity QA-3 unavailable
 Owner: PENDING
 Integration: PENDING
 Runtime stage: STOP at interrupted-entry preparation: the tested pushState/reload commit boundaries cannot satisfy exact successful continuity plus interrupted public/unassociated behavior. No runtime patch retained. Revised activation/commit protocol requires Owner review; production serializer, legacy ingress, return hardening, integration and deployment remain STOP.

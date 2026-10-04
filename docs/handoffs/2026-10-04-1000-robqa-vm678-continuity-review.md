@@ -137,3 +137,65 @@ Reviewer: `/root/qa_final` (configured custom RobQA route; Sol medium requested 
 Implementer: PENDING final attribution at freeze
 
 Final candidate-bound documentation checks, limits, and decision will be appended only after the coordinator freezes and identifies the exact non-runtime candidate. No QA-3 runtime PASS is available from this review.
+
+## Final exact-candidate QA — frozen STOP candidate
+
+Task: VM-678
+
+Candidate: `1680f1cfa4c50a1db7ad5e17d1a13ca4945c4189`
+
+RobQA: PASS — non-runtime STOP documentation and harness clarification only
+
+Execution: SEPARATE
+
+Reviewer: `/root/qa_final` (configured custom RobQA route; Sol medium requested and accepted; backend-effective model identity unverified)
+
+Implementer: `/root` + `/root/baseline_browser` + `/root/baseline_catalog`; `/root` recovered and finalized the browser harness after the workers' bounded attempts
+
+### Candidate-bound decision
+
+RobQAPass **PASS** applies to the exact non-runtime STOP candidate `1680f1cfa4c50a1db7ad5e17d1a13ca4945c4189`, candidate tree `ba26c8624d648e0014e51cd75e49797b01f44980`, and parent `cd37c1e689da3be6338f9c46620dc22d4df2d104`. The reviewed pre-append QA handoff blob is `42b3d7e0f347bbc422ad88ce1e11464cc74ec1be`; the final browser harness blob is `10af92344e8d0a15d9ae5e6be41e232873ca951f`.
+
+This PASS confirms that the candidate honestly records the bounded runtime STOP, preserves unchanged product behavior and frozen historical oracles, clarifies four isolated browser workers versus two public modes, and supplies a repeatable assertion-bearing generic lifecycle probe. It is not a continuity implementation, product-Find proof, QA-3 runtime PASS, universal browser impossibility result, Owner acceptance, permission to select a replacement protocol, integration, or deployment approval.
+
+### Classification, independence, and scope
+
+- **QA tier:** QA-0 for the non-runtime documentation, metadata, and diagnostic-harness clarification. The stopped runtime problem remains QA-3 but has no implementation candidate to certify.
+- **Independence:** SEPARATE. `/root/qa_final` authored the individual pre-freeze RobQA evidence handoff and this append-only final evidence, but authored none of the material browser script, coordinator/runtime/browser reports, card transition, or generated views under review.
+- **Continuation scope:** exactly eight paths and 439 insertions/16 deletions from prior reviewed head `64a86995e58296538ba3cc940d59212d0e4e202d`: four new role/coordinator handoffs, the handoff index, board, VM-678 card, and the existing VM-678 browser harness.
+- **Full task accounting:** accepted-main `a436a845cb0a67bbe738fb283966ea6d832f1b39` through this candidate contains 27 paths. The merge base with accepted main remains that exact accepted-main commit.
+- **Runtime and oracle exclusion:** all three admitted product owners are byte-identical to `64a86995e...`: `archscry-presentation.js` blob `e94ca00c...`, `dossier-view.js` blob `7bca5513...`, and `research-init.js` blob `def41958...`. `package.json` and both frozen fixtures are also byte-identical. Browser fixture blob `45e278d9...`, URL-parity fixture blob `41ede9cb...`, and package blob `b769ac2e...` match the prior reviewed head.
+
+### Exact tests and checks
+
+- `npm.cmd run validate:admission -- --task=VM-678 --mode=continue --json` with live remote access — **PASS** at exact HEAD `1680f1c...`; branch, clean worktree, local/remote main, admission baseline, merge base, related branch, and all admitted paths passed.
+- `git diff --check 64a86995e...1680f1cf` and `git diff --check a436a845...1680f1cf` — **PASS**.
+- `node --check scripts/vm678-archscry-maze-navigation-browser.mjs` — **PASS**.
+- `npm.cmd run task -- indexes --check` — **PASS**, 717 cards and 1,190 handoffs fresh.
+- Changed-document link validation — **PASS**, seven Markdown files and 1,924 local links; no missing targets or out-of-range `#L` anchors.
+- `npm.cmd run test:vm678-url-parity` — **PASS**, 37 profiles, 147 top-level paths, 367 thread projections, 354 executable threads, 13 unavailable threads, 501 executable intents, and 1,002 public-context records.
+- `node tests/maze/maze-semantic-state-contract-tests.js` — **PASS**, all 18 authority-audited fixtures, including fixture 17's unapplied dossier provenance and query-truth boundary.
+- `node scripts/vm678-archscry-maze-navigation-browser.mjs --preparation-probe` in installed Edge `154.0.4258.53` — **PASS for the expected lifecycle failure witnesses**. Dismissing the one real `beforeunload` dialog left the source diagnostic document alive at the clean destination URL with exact-A marker phase `active`. The no-dialog `pagehide` case loaded a new document that observed exact-A phase `pending`, while the outgoing beacon reported `error: ""` and phase `active`. Both URLs lacked public `readingId`.
+- `npm.cmd run test:vm678-navigation-baseline` in headless Edge — **PASS**, reproducing all 1,002 historical navigations: 501 normal-reading and 501 identity-explore records, pointer/keyboard/Ctrl/middle behavior, two simultaneous comparison tabs, 10 transport probes, eight inert hostile-return fixtures, history/return behavior, persisted rows, and the frozen A/B known-red witnesses. The checker translated only historical `contexts: 4` to current `isolatedBrowserContexts: 4`, asserted the 501/501 split, and compared every other captured field exactly.
+
+### Probe meaning and limits
+
+The preparation probe runs isolated generic local documents. It executes no Vox Mana route, uses no production runtime owner, and creates no Reading Find. Its PASS means its assertions reproduced the two expected failure witnesses; it does not mean the rejected continuity protocol works.
+
+The evidence supports a bounded STOP for the tested `pushState`/reload protocol in the installed Edge version. `beforeunload` authorizes state despite canceled navigation, while the observed outgoing `pagehide` replacement is absent from the incoming reload snapshot. No candidate evidence establishes a safe authoritative boundary satisfying exact successful continuity plus interrupted public/unassociated behavior. The result makes no claim about every browser API or broader architecture.
+
+The historical 1,002-record PASS preserves baseline truth rather than repairing it. Late-B Finding ownership and clean-selector B contamination remain frozen known-red observations. The candidate does not change or approve them.
+
+The coordinator disclosed an initial exploratory probe failure caused by an incorrect expected `SecurityError`. The corrected probe asserts the actually observed outgoing/incoming state and passed independently here. The superseded expectation is diagnostic history, not a hidden product failure.
+
+### Final individual specialist handoff
+
+- **Files reviewed:** RobQA authority; exact continuation and accepted-main diffs; candidate commit/tree/parent/ancestry; card and all new STOP/browser/coordinator handoffs; final browser harness; admission output; generated views; package and frozen fixture identity; three runtime-owner identity; and the exact assertion outputs above.
+- **Files changed:** `docs/handoffs/2026-10-04-1000-robqa-vm678-continuity-review.md` only, by append-only post-candidate evidence.
+- **What changed:** appended this exact-candidate QA-0 decision, test record, scope accounting, and bounded interpretation of the browser lifecycle evidence.
+- **Why it changed:** the mutable early review could justify STOP but could not grant candidate-bound engineering PASS. The frozen non-runtime packet required independent replay and exact identity/scope checks before Owner review.
+- **Decisions made:** PASS the STOP documentation/harness clarification; preserve runtime STOP; withhold QA-3 continuity certification; preserve the frozen baselines and known-red facts; return any replacement activation/commit protocol to Owner and fresh admission.
+- **Risks / uncertainties:** the approved continuity goal remains unmet; the lifecycle proof is Edge-version- and protocol-specific; no replacement protocol has been investigated or authorized; the historical baseline deliberately contains known-red ownership and return facts.
+- **Tests run:** exact diff/ancestry/tree/scope and byte-identity checks; live admission; diff whitespace; script syntax; index freshness; local links/line anchors; URL parity; semantic fixture suite; assertion-bearing preparation probe; full historical 1,002-navigation browser replay.
+- **Not touched:** candidate prose before this appendix; product runtime; package; fixtures; browser harness; card/generated views; data/catalog; Git candidate/history; remote refs; browser state outside ephemeral test processes; Owner decision; integration; deployment.
+- **Follow-up:** coordinator `/root` should Git-account this append-only evidence and present the frozen STOP candidate to Owner. Runtime work may resume only after Owner chooses a revised activation/commit direction and a fresh admission produces a separately frozen implementation candidate for independent QA-3.
