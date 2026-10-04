@@ -125,4 +125,3 @@ Git derives the full material scope below from the staged candidate tree. This f
 - Changed paths: `46`
 
 Branch: `codex/vm-678-url-security-recon`. Exact full SHA, clean-worktree observation, live main/feature-ref state, validator and original independent BLOCKED verdict are read after freeze and returned to Owner. No push, integration, task acceptance or deployment is performed. The draft has a proven exploration-return regression; no QA-3 or engineering PASS is claimed.
-
