@@ -1,4 +1,4 @@
-<!-- task-view-sha256:d99a4de6a94ac2d03456d40762418e1063ee9d4dca89ec8a4542704176a69b2d -->
+<!-- task-view-sha256:9b75f3bc310c5eb8c98f0f3d4d82c518077736e926995598ab9a4fad181bedd9 -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -8,6 +8,9 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 
 | Authored / filename date | Agent | Handoff | Related task references | Diagnostics |
 |---|---|---|---|---|
+| 2026-10-04T18:31:16Z (authored) | `/root/qa_final` (configured RobQA Sol medium; backend-effective identity unverified) | [RobQA handoff — VM-678 native/session launch feasibility](2026-10-04-1200-robqa-vm678-session-feasibility.md) | VM-678 | Identity displayed from heading; not admission metadata. |
+| 2026-10-04T18:22:49Z (authored) | /root | [VM-678 — final native/session launch feasibility](2026-10-04-1200-codex-vm678-session-feasibility.md) | VM-678 | Identity displayed from heading; not admission metadata. |
+| 2026-10-04T12:00:00-06:00 (authored) | `/root/session_probe_completion`. Repository routing began with a configured Terra-medium worker. The coordinator announced and assigned a bounded escalation to Sol medium after two incomplete Owner-matrix attempts; backend-effective model identity is not independently observable. | [RobDev handoff — VM-678 session launch feasibility](2026-10-04-1200-robdev-vm678-session-feasibility.md) | VM-678 | Identity displayed from heading; not admission metadata. |
 | 2026-10-04T17:25:03Z (authored) | /root | [VM-678 — red-team correction and vanilla multi-page navigation fit](2026-10-04-1100-codex-vm678-redteam.md) | VM-678 | Identity displayed from heading; not admission metadata. |
 | 2026-10-04T11:14:02-06:00 (authored) | /root/baseline_catalog | [RobDev red-team — VM-678 same-tab continuity fit](2026-10-04-1100-robdev-vm678-redteam.md) | VM-678 | Identity displayed from heading; not admission metadata. |
 | 2026-10-04T11:13:48-06:00 (authored) | /root/qa_final | [VM-678 — independent red-team of continuity STOP](2026-10-04-1100-robqa-vm678-redteam.md) | VM-678 | Identity displayed from heading; not admission metadata. |
