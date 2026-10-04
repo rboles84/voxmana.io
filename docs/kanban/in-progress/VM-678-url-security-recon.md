@@ -106,7 +106,7 @@ Record version: 1
 Branch: codex/vm-678-url-security-recon
 Admission baseline: a436a845cb0a67bbe738fb283966ea6d832f1b39
 Candidate: bdaac18ac177c877ae6df239a9461ad9002df957
-RobQA: PASS at bdaac18ac177c877ae6df239a9461ad9002df957 — separate QA-3/QA-0 for the frozen proposal and unchanged-runtime baseline; no mechanism approval or changed-runtime certification
+RobQA: PASS at bdaac18ac177c877ae6df239a9461ad9002df957 — SEPARATE QA-3/QA-0 for the frozen proposal and unchanged-runtime baseline; no mechanism approval or changed-runtime certification
 Owner: PENDING
 Integration: PENDING
 Runtime stage: STOP pending concrete continuity-proposal approval. Owner selected exact ordinary same-tab association; proposal and Slice 1 baseline are authorized and underway. Continuity, serializer, ingress and return-security runtime implementation remain unauthorized.

@@ -106,3 +106,7 @@ This evidence-only delta is not the full task diff. It appends independent QA an
 The full baseline-to-evidence branch set is 23 paths; these four evidence paths update material paths. Branch: `codex/vm-678-url-security-recon`. Local/tracking main and live main remain `a436a845cb0a67bbe738fb283966ea6d832f1b39`. The read-only live `ls-remote` returned main and no VM-678 feature ref. No push, merge, PR write, integration or deployment occurred. Owner remains PENDING and the runtime stop remains in force.
 
 After the evidence commit, verify clean worktree, fresh views, candidate-stage PASS and authoritative change-report PASS; report their observed results in the final response. The external evidence-content review must inspect this exact append-only delta. No future result is inferred by this paragraph.
+
+## Delivery record correction
+
+The live delivery check requires the card to contain the exact `SEPARATE` execution-mode token from the authentic QA record. Its initial lowercase description failed that binding check; the card was corrected as lifecycle evidence and the board regenerated. The sandbox-created external packet was also recreated in host Temp so the live checker could read it. Material C, QA verdict/source, candidate scope and Owner PENDING are unchanged. This correction grants no runtime or integration permission.
