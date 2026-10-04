@@ -68,7 +68,7 @@ RobQA: PASS at 30735c5ac44273c4d7d47c2e09f6a0bf46195d2a — SEPARATE QA-0; docs/
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
-Decisions: Owner requested recon and recommendations, with no runtime repair or deployment. Admission start was ELIGIBLE at synchronized local/live main a436a845cb0a67bbe738fb283966ea6d832f1b39. Preserve current VM-674 request/provenance ownership and the existing canonical catalog; URL shortening must be proposed at the existing producer/adapter layer.
+Decisions: Owner requested recon and recommendations, with no runtime repair or deployment. Admission start was ELIGIBLE at synchronized local/live main a436a845cb0a67bbe738fb283966ea6d832f1b39. Preserve current VM-674 request/provenance ownership and the existing canonical catalog; URL shortening must be proposed at the existing producer/adapter layer. Scope amendment: Owner clarification on 2026-10-03 requests deeper reconnaissance and a concrete how/where/why/what repair plan for review before implementation approval. Admit only the Planning Architect and independent plan-review handoffs; runtime changes, integration and deployment remain unauthorized. The original report candidate and its PASS remain historical evidence, not approval of the new plan.
 Evidence: [Reconnaissance report](../../reports/2026-10-03-vm678-url-security-recon.md), [RobDev handoff](../../handoffs/2026-10-03-1658-robdev-vm678-url-security-recon.md), and [coordinator handoff](../../handoffs/2026-10-03-1658-codex-vm678-url-security-recon.md) contain source traces, literal URL measurements, deployed parity, and bounded security witnesses. Separate candidate QA remains PENDING.
 
 ## Admission Scope
@@ -80,3 +80,5 @@ Evidence: [Reconnaissance report](../../reports/2026-10-03-vm678-url-security-re
 - `docs/handoffs/2026-10-03-1658-codex-vm678-url-security-recon.md`
 - `docs/kanban/board.md`
 - `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/handoffs/2026-10-03-2140-planning-architect-vm678-url-repair-approval.md`
+- `docs/handoffs/2026-10-03-2140-robqa-vm678-url-repair-plan-review.md`
