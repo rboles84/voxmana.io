@@ -144,3 +144,8 @@ This append-only QA/report and lifecycle/checkbox/generated-board delta is evide
 - Changed paths: `27`
 
 Branch: `codex/vm-678-url-security-recon`. The exact evidence commit and final clean/gate/report checks are reported from observed Git after commit. Local/main/tracking and live main remain `a436a845cb0a67bbe738fb283966ea6d832f1b39`; no remote feature ref exists. Owner and Integration remain PENDING. Runtime stage remains STOP.
+
+
+## Delivery binding format correction
+
+The first read-only candidate check returned BLOCKED because the original final QA field contained a scope qualifier after `PASS`; the gate requires the exact field value `PASS`. Independent reviewer `/root/qa_final` appended a validator-compatible binding for the same material candidate `1680f1cfa4c50a1db7ad5e17d1a13ca4945c4189`, preserving the explicit non-runtime STOP scope and every prior paragraph. This is a format correction, not a changed QA verdict, runtime PASS, Owner acceptance or material revision. Final candidate/gate/report observations are returned from the corrected evidence head. The four-path evidence scope and 27-path full branch scope remain unchanged.

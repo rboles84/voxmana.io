@@ -199,3 +199,19 @@ The coordinator disclosed an initial exploratory probe failure caused by an inco
 - **Tests run:** exact diff/ancestry/tree/scope and byte-identity checks; live admission; diff whitespace; script syntax; index freshness; local links/line anchors; URL parity; semantic fixture suite; assertion-bearing preparation probe; full historical 1,002-navigation browser replay.
 - **Not touched:** candidate prose before this appendix; product runtime; package; fixtures; browser harness; card/generated views; data/catalog; Git candidate/history; remote refs; browser state outside ephemeral test processes; Owner decision; integration; deployment.
 - **Follow-up:** coordinator `/root` should Git-account this append-only evidence and present the frozen STOP candidate to Owner. Runtime work may resume only after Owner chooses a revised activation/commit direction and a fresh admission produces a separately frozen implementation candidate for independent QA-3.
+
+## Final exact-candidate QA — gate binding
+
+Task: VM-678
+
+Candidate: `1680f1cfa4c50a1db7ad5e17d1a13ca4945c4189`
+
+RobQA: PASS
+
+Execution: SEPARATE
+
+Reviewer: `/root/qa_final`
+
+Implementer: `/root` + `/root/baseline_browser` + `/root/baseline_catalog`
+
+This gate binding carries the verdict above without changing its scope: PASS applies only to the non-runtime STOP documentation and harness clarification at candidate `1680f1cfa4c50a1db7ad5e17d1a13ca4945c4189`, tree `ba26c8624d648e0014e51cd75e49797b01f44980`. It grants no continuity implementation or runtime QA-3 PASS.
