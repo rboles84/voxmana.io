@@ -1,4 +1,4 @@
-<!-- task-view-sha256:0136787b7af54113915c1e1e79dd11b7a9a245fae0fc6dcc2f401bfe1b268fe6 -->
+<!-- task-view-sha256:515c20334fea809e24c7ba82e215ccb8b46c0082aecf5d1e92e80510dc66b1e9 -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -8,9 +8,14 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 
 | Authored / filename date | Agent | Handoff | Related task references | Diagnostics |
 |---|---|---|---|---|
+| 2026-10-04T08:28:00-06:00 (authored) | /root (session coordinator) | [VM-678 continuity proposal and Slice 1 delivery](2026-10-04-0010-codex-vm678-baseline-continuity.md) | VM-678 | Identity displayed from heading; not admission metadata. |
+| 2026-10-04T08:28:00-06:00 (authored) | /root (coordinator recovery); /root/baseline_browser and /root/baseline_catalog (configured RobDev Terra medium; backend unverified) | [RobDev handoff — VM-678 real browser baseline](2026-10-04-0010-robdev-vm678-browser-baseline.md) | VM-678 | Identity displayed from heading; not admission metadata. |
+| 2026-10-04T08:25:00-06:00 (authored) | /root/baseline_catalog (Planning Architect / RobDev; configured Terra medium, backend unverified) | [VM-678 same-tab Reading Finds continuity design](2026-10-04-0010-planning-architect-vm678-same-tab-continuity.md) | VM-678 | Identity displayed from heading; not admission metadata. |
+| 2026-10-04T08:25:00-06:00 (authored) | /root/baseline_catalog (RobDev; configured Terra medium, backend unverified) | [RobDev handoff — VM-678 catalog baseline](2026-10-04-0010-robdev-vm678-catalog-baseline.md) | VM-678 | Identity displayed from heading; not admission metadata. |
 | 2026-10-03T23:26:00-06:00 (authored) | Codex coordinator (`/root`, session-selected route) | [VM-678 Slice 0 — coordinator delivery](2026-10-03-2326-codex-vm678-slice0-delivery.md) | VM-678 | Identity displayed from heading; not admission metadata. |
 | 2026-10-03T23:26:00-06:00 (authored) | RobDev `/root/feasibility` (configured Terra medium role; backend unverified) | [RobDev handoff — VM-678 Slice 0 feasibility](2026-10-03-2326-robdev-vm678-slice0-feasibility.md) | VM-678 | Identity displayed from heading; not admission metadata. |
 | 2026-10-03T23:26:00-06:00 (authored) | RobQA `/root/test_strategy` (configured Sol medium role; backend unverified) | [VM-678 — Independent RobQA Slice 0 review and Slice 1 test strategy](2026-10-03-2326-robqa-vm678-slice0-review.md) | VM-678 | Identity displayed from heading; not admission metadata. |
+| 2026-10-04T00:10:00Z (filename) | `/root/qa_final` (configured custom RobQA route; Sol medium requested and accepted; backend-effective model identity unverified) | [RobQA handoff — VM-678 continuity proposal and Slice 1 baseline](2026-10-04-0010-robqa-vm678-baseline-continuity-review.md) | VM-678 | Identity displayed from heading; not admission metadata. Invalid authored date; filename fallback or undated ordering used. |
 | 2026-10-03T21:40:00Z (filename) | Unknown | [VM-678 URL repair approval plan](2026-10-03-2140-planning-architect-vm678-url-repair-approval.md) | VM-678 | Identity displayed from heading; not admission metadata. |
 | 2026-10-03T21:40:00Z (filename) | RobQA `/root/url_qa` (configured `robqa` role; Sol medium requested under repository routing, host accepted the dispatch arguments, backend-effective identity unverified) | [VM-678 — Independent RobQA review of URL-repair approval plan](2026-10-03-2140-robqa-vm678-url-repair-plan-review.md) | VM-678 | Identity displayed from heading; not admission metadata. Invalid authored date; filename fallback or undated ordering used. |
 | 2026-10-03T16:58:00Z (filename) | Codex coordinator | [Coordinator handoff — VM-678 URL and security reconnaissance](2026-10-03-1658-codex-vm678-url-security-recon.md) | VM-678 | Identity displayed from heading; not admission metadata. Invalid authored date; filename fallback or undated ordering used. |
