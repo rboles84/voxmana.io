@@ -44,3 +44,65 @@ The early sandbox DevTools EACCES and incomplete browser attempts were corrected
 Files changed by root: browser script/fixture recovery, package commands, active card and this handoff; individual specialist handoffs identify their own work. Existing reports and historical QA bindings are retained. Generated views use the existing producer. Final Git-derived complete material/evidence lists will be appended after freeze; this pre-freeze section is not the accounting report.
 
 Protected: all runtime, source/catalog data, existing Finds IDs/rows/schema, guide/boot, parser/query/request/cache semantics, UI, hosting, main, remote refs and deployment. Owner approval of this concrete narrow proposal is next after independent engineering review. No task acceptance, integration or deployment is authorized.
+
+
+## Final candidate disposition
+
+Independent non-authoring RobQA `/root/qa_final` issued QA-3/QA-0 PASS for `bdaac18ac177c877ae6df239a9461ad9002df957`, tree `149b1f459b71c1e3dff8075d8e160bb53176424d`. The [frozen-candidate QA section](2026-10-04-0010-robqa-vm678-baseline-continuity-review.md#final-exact-candidate-qa--frozen-candidate) records independent byte-identical reproduction of both artifacts, all 1,002 browser/Finds records, native/history/tab/A-B/adversarial assertions, runtime exclusion, scope, freshness, syntax, 1,988 local links and 10 source anchors. No unresolved finding remains. Owner review is pending; this PASS grants neither proposal approval nor changed-runtime certification.
+
+The last canonical continuation check passed on clean C against live main `a436a845cb0a67bbe738fb283966ea6d832f1b39`. Generated views were fresh for 717 cards and 1,186 handoffs. The index producer's initial sandbox attempt could not create its normal .git transaction journal; approved execution succeeded. A mistaken task-command alias was corrected to the canonical admission command before freeze. These tooling corrections do not replace any check.
+
+## Material candidate
+
+- Baseline: `a436a845cb0a67bbe738fb283966ea6d832f1b39`
+- Candidate: `bdaac18ac177c877ae6df239a9461ad9002df957`
+- Changed paths: `23`
+
+Git `diff --name-status --find-renames` owns this complete baseline-to-candidate list. It includes earlier reconnaissance/proposal/Slice 0 documentation on the same task branch. The latest material commit changes 13 admitted paths; the complete task material set has 23. There is no runtime/data path in either set.
+
+## Files changed
+
+- `docs/handoffs/2026-10-03-1658-codex-vm678-url-security-recon.md`
+- `docs/handoffs/2026-10-03-1658-robdev-vm678-url-security-recon.md`
+- `docs/handoffs/2026-10-03-1658-robqa-vm678-url-security-recon.md`
+- `docs/handoffs/2026-10-03-2140-planning-architect-vm678-url-repair-approval.md`
+- `docs/handoffs/2026-10-03-2140-robqa-vm678-url-repair-plan-review.md`
+- `docs/handoffs/2026-10-03-2326-codex-vm678-slice0-delivery.md`
+- `docs/handoffs/2026-10-03-2326-robdev-vm678-slice0-feasibility.md`
+- `docs/handoffs/2026-10-03-2326-robqa-vm678-slice0-review.md`
+- `docs/handoffs/2026-10-04-0010-codex-vm678-baseline-continuity.md`
+- `docs/handoffs/2026-10-04-0010-planning-architect-vm678-same-tab-continuity.md`
+- `docs/handoffs/2026-10-04-0010-robdev-vm678-browser-baseline.md`
+- `docs/handoffs/2026-10-04-0010-robdev-vm678-catalog-baseline.md`
+- `docs/handoffs/2026-10-04-0010-robqa-vm678-baseline-continuity-review.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-678-url-security-recon.md`
+- `docs/reports/2026-10-03-vm678-slice0-feasibility.md`
+- `docs/reports/2026-10-03-vm678-url-security-recon.md`
+- `package.json`
+- `scripts/vm678-archscry-maze-navigation-browser.mjs`
+- `scripts/vm678-url-parity-baseline.mjs`
+- `tests/fixtures/vm678-navigation-baseline.json`
+- `tests/fixtures/vm678-url-parity-baseline.json`
+
+## Evidence delta
+
+- Material candidate: `bdaac18ac177c877ae6df239a9461ad9002df957`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `4`
+
+This evidence-only delta is not the full task diff. It appends independent QA and this accounting, binds the card's lifecycle/checkbox observations, and regenerates the board. Candidate material, criterion wording, scope, decisions, dependencies, scripts, fixtures, package commands and source remain unchanged. `HEAD` resolves to the evidence commit containing this appendix; the final full SHA is reported from Git at delivery.
+
+## Evidence-only paths
+
+- `docs/handoffs/2026-10-04-0010-codex-vm678-baseline-continuity.md`
+- `docs/handoffs/2026-10-04-0010-robqa-vm678-baseline-continuity-review.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-678-url-security-recon.md`
+
+## Final branch and repository state
+
+The full baseline-to-evidence branch set is 23 paths; these four evidence paths update material paths. Branch: `codex/vm-678-url-security-recon`. Local/tracking main and live main remain `a436a845cb0a67bbe738fb283966ea6d832f1b39`. The read-only live `ls-remote` returned main and no VM-678 feature ref. No push, merge, PR write, integration or deployment occurred. Owner remains PENDING and the runtime stop remains in force.
+
+After the evidence commit, verify clean worktree, fresh views, candidate-stage PASS and authoritative change-report PASS; report their observed results in the final response. The external evidence-content review must inspect this exact append-only delta. No future result is inferred by this paragraph.

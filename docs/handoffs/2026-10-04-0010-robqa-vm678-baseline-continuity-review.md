@@ -156,3 +156,80 @@ Reviewer: `/root/qa_final` (configured custom RobQA route; Sol medium requested 
 Implementer: `/root` + `/root/feasibility` + `/root/baseline_catalog` + `/root/baseline_browser` (superseded incomplete browser attempt; browser harness recovered by `/root`)
 
 Final candidate-bound checks and verdict will be appended only after the coordinator freezes and identifies the exact candidate.
+
+## Final exact-candidate QA — frozen candidate
+
+Task: VM-678
+
+Candidate: bdaac18ac177c877ae6df239a9461ad9002df957
+
+RobQA: PASS
+
+Execution: SEPARATE
+
+Reviewer: `/root/qa_final` (configured custom RobQA route; Sol medium requested and accepted; backend-effective model identity unverified)
+
+Implementer: `/root` + `/root/feasibility` + `/root/baseline_catalog` + `/root/baseline_browser` (superseded incomplete browser attempt; browser harness recovered and completed by `/root`)
+
+**Candidate-bound decision:** RobQAPass **PASS** applies to the continuity-design and unchanged-runtime baseline candidate `bdaac18ac177c877ae6df239a9461ad9002df957`, accepted-main baseline `a436a845cb0a67bbe738fb283966ea6d832f1b39`, and candidate tree `149b1f459b71c1e3dff8075d8e160bb53176424d`. The reviewed pre-append QA handoff blob is `677c3097a97b114c01035b846c9ccc0c758bdcd7`; the proposal blob is `2e126c89e178a4ad56b6af0ddbb320ec90798001`; the catalog script/artifact blobs are `fdcfef1db970bd38549ed4e6012c30f9664fbd0f` and `41ede9cb7f9385e6e7c826bbe76cc89e821970db`; the browser script/artifact blobs are `17835ee436656abea1ffa32d985871bab4f87db0` and `45e278d904831b6e2d1dd98e36ca0accc0e73f3f`. This decision permits Owner review of the concrete proposal and frozen baseline. It does not certify a continuity implementation, approve the proposed mechanism for the Owner, authorize runtime work, accept/integrate/deploy the task, or approve the known-red behavior captured by the baseline.
+
+### Final classification and scope
+
+- **QA tier:** QA-3 for the developer navigation/routing/state-transition harness and its artifacts; QA-0 for the non-runtime design and handoff text. The combined candidate uses the higher tier.
+- **Execution independence:** SEPARATE by `/root/qa_final`, who authored none of the material proposal, scripts, fixtures, package command, card, generated views, or implementer/coordinator handoffs.
+- **Exact scope:** 23 paths, 206,022 insertions, and 2 deletions: 18 documentation/generated-view paths, `package.json`, two focused scripts, and two frozen fixtures. No other path class changed.
+- **Product/runtime exclusion:** PASS. The three proposed future runtime owners and the directly relevant boot, handoff, request, scratchpad-store, and catalog files are byte-identical to accepted main. Candidate artifacts also bind their source fingerprints to accepted main.
+- **Ancestry:** PASS. The candidate parent is admitted card-only continuation commit `3a2909a103a084cb5a2f8d69e3af27e6457a49c9`; the candidate merge-base with accepted main is `a436a845cb0a67bbe738fb283966ea6d832f1b39`.
+
+### Final tests and checks
+
+- `git diff --check a436a845cb0a67bbe738fb283966ea6d832f1b39..bdaac18ac177c877ae6df239a9461ad9002df957` — **PASS**. No whitespace error.
+- `npm.cmd run task -- indexes --check` — **PASS**. Generated views are fresh for 717 cards and 1,186 handoffs.
+- `node --check scripts/vm678-url-parity-baseline.mjs` and `node --check scripts/vm678-archscry-maze-navigation-browser.mjs` — **PASS**.
+- `npm.cmd run test:vm678-url-parity` — **PASS**. The frozen artifact reproduces 37 profiles, 147 top-level paths, 367 thread projections, 354 executable threads, 13 unavailable threads, 501 executable catalog intents, and 1,002 public-context records.
+- `npm.cmd run test:vm678-navigation-baseline` — **PASS** in real headless Edge with approved local loopback DevTools access. Pointer, keyboard, Ctrl, middle, reload, Back/Forward, local return, two simultaneous comparison tabs, ten transport probes, eight inert hostile-return fixtures, A/B ownership witnesses, and the entire 1,002-record browser matrix reproduced byte-for-byte.
+- Frozen artifact structure — **PASS**. The browser matrix has 1,002 unique intent keys, split 501 normal-reading and 501 identity-explore. Every normal record persists a nonblank current reading ID; every identity-explore record persists a blank ID. The catalog artifact also has 1,002 unique intent keys. Runtime and catalog SHA-256 fingerprints match the current byte-identical accepted-main files.
+- Full changed-document local links — **PASS**. Across 18 changed Markdown files, all 1,988 local targets exist. All 10 source `#L` anchors in the current proposal/review packet are in range.
+- Candidate/card state — **PASS for freeze semantics**. Candidate, RobQA, Owner, and integration fields remain `PENDING` inside the frozen material commit because this appendix is post-candidate evidence. Runtime remains STOP pending Owner approval of the concrete continuity proposal.
+
+### CPU-heavy and browser justification
+
+The 1,002-route browser matrix is proportionate here because the candidate itself introduces the reusable navigation baseline and promises exhaustive identity/path/thread/context evidence. A handpicked browser case could not detect route-specific action/display/request/Find ownership drift. The programmatic artifact remains the cheaper authority for the canonical Operator/Plain pair and clean selector contract; the browser matrix proves current parent-anchor/thread-action execution, native activation, history, requests, and persisted ownership. No unrelated placement, mutation, recovery, visual, hosting, or broad browser suite was run.
+
+### Objective and stateful-adversarial evidence
+
+- **Deterministic case:** full A after shared B replacement versus selector-only A after different-fit B, with distinct fixture cards so persisted ownership cannot be mistaken for a merged prior row.
+- **Objective result:** full A wins ingress and persists A; a later B render makes a new Find use B; selector-only A keeps WU's canonical query while persisting B's RG ID. The latter two are reproducible known-red current behavior.
+- **Native source invariance:** Ctrl and middle create genuine new targets while source URL, document token, history/pagehide counters, and request witness remain unchanged. Modified targets execute independently.
+- **Forward/reverse transitions:** ordinary pointer and Enter reach Maze; reload, Back/Forward, and existing local dossier return reproduce the current A association. Two distinct tabs remain open and reload independently.
+- **Representation and request:** all 1,002 records resolve the expected identity and Operator request. The canonical Plain pair remains separately frozen; current thread actions and live four-/five-color top routes honestly record Operator display rather than claiming Plain display.
+- **Association:** every enumerated browser record persists an actual Find and asserts exact current normal ID or blank exploration ID.
+- **Invalid/adversarial transport:** fresh, copied-current, legacy, duplicate, poisoned-shared-state, traversal, nested, external, protocol-relative, malformed, `javascript:`, and `data:` inputs are recorded. Dangerous return schemes are never activated.
+- **Future state seam:** marker validation, interrupted marker preparation, history-API failure, independent-successor stripping, `popstate` revalidation, and Restore rebinding remain future changed-runtime QA-3 requirements. No present mechanism exists to test or certify.
+
+### Known-red baseline facts and limits
+
+Baseline PASS means the current observations are complete and deterministic. It does not approve late-B Finds ownership, selector-only A contamination, unsafe external/protocol-relative return sinks, or malformed-return initialization failure. A later admitted repair must use a separately named candidate artifact and reviewed expected deltas; it must not overwrite the historical baseline or preserve a bug merely to keep this snapshot green.
+
+The browser harness supplies deterministic local Scryfall response I/O while asserting the original product-constructed request URL. It is real browser navigation evidence, but not live Scryfall, deployed-host, visual, production-security, or changed-runtime evidence. No screenshots were needed because this candidate changes no visible product presentation.
+
+The historical Maze search harness failure on pre-existing `vm658` versus `vm663r4` asset-token debt was not retried or treated as evidence. Broad placement, visual, mutation, recovery, hosting, penetration, guide, and full regression suites were intentionally skipped because they protect unchanged product behavior or future implementation work.
+
+### Remaining Owner judgment and route
+
+Owner review should decide whether to approve the exact proposed entry-bound marker plus active-entry memory mechanism and the required continuity-before-public-ID-removal sequence. Review the proposal alongside the frozen A/B baseline facts. If approved, admit only the three named runtime owners and focused future QA-3 cases. If implementation shows guide, boot, another runtime owner, a persistence schema, random/session key, or TTL is necessary, STOP and return to Owner.
+
+### Final individual specialist handoff
+
+- **Agent:** RobQA `/root/qa_final`.
+- **Task requested:** independently challenge the mutable design/harness, then inspect exact candidate `bdaac18ac177c877ae6df239a9461ad9002df957`, select proportionate QA-3 evidence, and append only candidate-bound evidence without implementing the reviewed work or replacing Owner judgment.
+- **Files reviewed:** RobQA authority and applicable workflow/task packet; full accepted-main-to-candidate scope; proposal; browser/catalog scripts, fixtures, and implementer handoffs; card; package commands; generated views; coordinator handoff; and the strictly relevant unchanged source contracts described above.
+- **Files changed:** `docs/handoffs/2026-10-04-0010-robqa-vm678-baseline-continuity-review.md` only, as append-only post-candidate evidence.
+- **What changed:** appended this exact-candidate QA-3/QA-0 decision and durable evidence binding.
+- **Why it changed:** mutable early review could challenge the work but could not grant candidate-bound engineering PASS. The frozen candidate required independent reproduction of both artifacts and exact scope/freshness/link/fingerprint checks before Owner review.
+- **Decisions made:** engineering PASS for the concrete design/baseline candidate; runtime implementation remains unproven and unauthorized; Owner judgment remains pending; known-red facts remain defects, not approved expectations.
+- **Risks / uncertainties:** the history-marker mechanism has no implementation evidence; deterministic browser I/O is local; current unsafe returns and wrong-owner Findings are intentionally present; candidate card state still awaits post-evidence accounting.
+- **Tests run:** exact scope/ancestry/runtime exclusion; diff whitespace; index freshness; both script syntax checks; catalog package check; real-browser package check; artifact counts/uniqueness/Find ownership/fingerprints; all changed-document local links; current proposal line anchors.
+- **Not touched:** frozen candidate prose; product runtime; harnesses and fixtures; package/card/generated views; data/catalogs; Git candidate/history; remote refs; browser storage outside ephemeral test contexts; Owner state; integration; deployment.
+- **Follow-up recommendations:** coordinator should Git-account this append-only evidence and present the exact proposal/baseline to Owner. Runtime work may begin only after explicit proposal approval and fresh admission; later independent QA must review a separately frozen changed-runtime candidate.
+- **Next suggested agent:** coordinator `/root` for final evidence accounting and Owner handoff, then Owner for the mechanism/sequencing decision.

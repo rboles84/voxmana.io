@@ -2,7 +2,7 @@
 
 ID: VM-678
 Title: URL and Security Reconnaissance
-Status: In Progress
+Status: Owner Review
 Type: Staged URL/security repair — continuity proposal and Slice 1 baseline
 Area: Archscry-to-Maze URL handoff, navigation and security
 Priority: High
@@ -59,11 +59,11 @@ Current Owner request: recon and deep dive on how to fix the supplied Mardu and 
 
 ### Owner-selected continuity proposal and Slice 1 baseline
 
-- [ ] The narrow proposal compares alternatives, preserves the exact reading ID, defines activation/reload/history/return/multiple-tab/stale/storage/interrupted behavior and fail-safe association, and names every affected owner without default boot/guide expansion.
-- [ ] The programmatic baseline enumerates all applicable identities, paths, threads and contexts and captures href, canonical query/Plain pair, classification, request construction and the exact normal-reading ID contract.
-- [ ] Real headless evidence exercises primary, Ctrl, middle and keyboard activation, comparison tabs, unchanged source document/URL/history, independent destinations, reload, Back/Forward, shared-handoff replacement, exact A/B Finds ownership, fresh/copied/legacy and later adversarial inputs.
-- [ ] Frozen machine-readable artifacts rerun deterministically, distinguish known-red current behavior from future repairs, and fail unexpected semantic or ownership drift.
-- [ ] The complete proposal/harness candidate receives separate independent review; all runtime/source files remain byte-identical to accepted main and Owner proposal approval remains PENDING.
+- [x] The narrow proposal compares alternatives, preserves the exact reading ID, defines activation/reload/history/return/multiple-tab/stale/storage/interrupted behavior and fail-safe association, and names every affected owner without default boot/guide expansion.
+- [x] The programmatic baseline enumerates all applicable identities, paths, threads and contexts and captures href, canonical query/Plain pair, classification, request construction and the exact normal-reading ID contract.
+- [x] Real headless evidence exercises primary, Ctrl, middle and keyboard activation, comparison tabs, unchanged source document/URL/history, independent destinations, reload, Back/Forward, shared-handoff replacement, exact A/B Finds ownership, fresh/copied/legacy and later adversarial inputs.
+- [x] Frozen machine-readable artifacts rerun deterministically, distinguish known-red current behavior from future repairs, and fail unexpected semantic or ownership drift.
+- [x] The complete proposal/harness candidate receives separate independent review; all runtime/source files remain byte-identical to accepted main and Owner proposal approval remains PENDING.
 
 ## Files Likely Impacted
 
@@ -105,8 +105,8 @@ Apply RobDev and the current Owner Option 1 decision. Complete the admitted narr
 Record version: 1
 Branch: codex/vm-678-url-security-recon
 Admission baseline: a436a845cb0a67bbe738fb283966ea6d832f1b39
-Candidate: PENDING
-RobQA: PENDING for continuity proposal and Slice 1 baseline; the historical QA-0 PASS at 65f81dc42a6a03cf11e7ba3a3854016cf36694b3 remains bound only to the completed Slice 0 documentation
+Candidate: bdaac18ac177c877ae6df239a9461ad9002df957
+RobQA: PASS at bdaac18ac177c877ae6df239a9461ad9002df957 — separate QA-3/QA-0 for the frozen proposal and unchanged-runtime baseline; no mechanism approval or changed-runtime certification
 Owner: PENDING
 Integration: PENDING
 Runtime stage: STOP pending concrete continuity-proposal approval. Owner selected exact ordinary same-tab association; proposal and Slice 1 baseline are authorized and underway. Continuity, serializer, ingress and return-security runtime implementation remain unauthorized.
