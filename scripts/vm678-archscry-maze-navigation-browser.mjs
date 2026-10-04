@@ -9,14 +9,18 @@ import puppeteer from "puppeteer-core";
 const root = process.cwd();
 const host = "127.0.0.1";
 const requested = process.argv.slice(2);
+const preparationProbe = requested.includes("--preparation-probe");
 const writeArgument = requested.find((value) => value.startsWith("--write="));
 const checkArgument = requested.find((value) => value.startsWith("--check="));
 const catalogArgument = requested.find((value) => value.startsWith("--catalog="));
 if (writeArgument && checkArgument) throw new Error("Use one of --write=<artifact> or --check=<artifact>.");
-assert.equal(requested.length, Number(Boolean(writeArgument)) + Number(Boolean(checkArgument)) + Number(Boolean(catalogArgument)), "Supported arguments: --write=<artifact> or --check=<artifact>, optionally --catalog=<current parity artifact>.");
-for (const argument of requested) assert(argument.slice(argument.indexOf("=") + 1), "Artifact arguments require nonempty paths.");
+assert.equal(requested.length, Number(preparationProbe) + Number(Boolean(writeArgument)) + Number(Boolean(checkArgument)) + Number(Boolean(catalogArgument)), "Supported arguments: --preparation-probe, --write=<artifact> or --check=<artifact>, optionally --catalog=<current parity artifact>.");
+assert(!preparationProbe || requested.length === 1, "--preparation-probe cannot be combined with artifact options.");
+for (const argument of requested.filter((value) => value.includes("="))) assert(argument.slice(argument.indexOf("=") + 1), "Artifact arguments require nonempty paths.");
 const artifactPath = path.resolve(root, (writeArgument || checkArgument || "").split("=")[1] || "tests/fixtures/vm678-navigation-baseline.json");
+if (writeArgument && artifactPath === path.resolve(root, "tests/fixtures/vm678-navigation-baseline.json")) throw new Error("The historical Slice 1 browser artifact is frozen; write to a separately named artifact.");
 const catalogArtifactPath = path.resolve(root, catalogArgument?.slice("--catalog=".length) || "tests/fixtures/vm678-url-parity-baseline.json");
+const preparationReports = [];
 const baselineMain = "a436a845cb0a67bbe738fb283966ea6d832f1b39";
 const chromeCandidates = [
   process.env.LIGHTHOUSE_CHROME_PATH,
@@ -52,6 +56,16 @@ function startServer() {
   const server = http.createServer(async (request, response) => {
     try {
       const pathname = decodeURIComponent(new URL(request.url || "/", `http://${host}`).pathname);
+      if (pathname === "/__vm678_preparation_witness") {
+        let body = "";
+        for await (const chunk of request) body += chunk;
+        preparationReports.push(JSON.parse(body));
+        response.writeHead(204).end(); return;
+      }
+      if (pathname === "/__vm678_preparation.html") {
+        response.writeHead(200, { "content-type": "text/html", "cache-control": "no-store" });
+        response.end("<!doctype html><button id='vm678-probe-launch'>Launch diagnostic</button><script>(" + preparationSource.toString() + ")();</script>"); return;
+      }
       if (pathname === "/__vm678_blank.html") { response.writeHead(200, { "content-type": "text/html" }); response.end("<!doctype html><head></head><body></body>"); return; }
       if (pathname === "/__vm678_scryfall") {
         response.writeHead(200, { "content-type": "application/json", "cache-control": "no-store" });
@@ -307,8 +321,62 @@ async function runCatalogNavigationMatrix(browser, baseUrl) {
   };
   const records = (await Promise.all(chunks.map(runChunk))).flat().sort((left, right) => left.intentKey.localeCompare(right.intentKey));
   assert.equal(records.length, fixture.counts.publicContextRecords, "Catalog matrix silently skipped a public record.");
-  return { contexts: 4, records, counts: { executed: records.length, normalReading: records.filter((record) => record.contextMode === "normal-reading").length, identityExplore: records.filter((record) => record.contextMode === "identity-explore").length } };
+  // Four parallel BrowserContexts execute two public modes: 501 normal + 501 explore.
+  return { isolatedBrowserContexts: 4, records, counts: { executed: records.length, normalReading: records.filter((record) => record.contextMode === "normal-reading").length, identityExplore: records.filter((record) => record.contextMode === "identity-explore").length } };
 }
+
+// These isolated diagnostic documents model the rejected transport; they do not
+// execute Vox Mana runtime, create Finds, or certify a continuity candidate.
+function preparationSource() {
+  const mode = new URL(location.href).searchParams.get("mode");
+  addEventListener("beforeunload", (event) => {
+    if (mode === "beforeunload" && history.state?.vm678SameTabLaunch) {
+      history.replaceState({ vm678SameTabLaunch: { ...history.state.vm678SameTabLaunch, phase: "active" } }, "", location.href);
+      event.preventDefault(); event.returnValue = "";
+    }
+  });
+  document.getElementById("vm678-probe-launch").onclick = () => {
+    const marker = { version: 1, phase: "pending", readingId: "exact-A", fit: "WU", pathType: "commanders-that-fit", threadId: "" };
+    history.pushState({ vm678SameTabLaunch: marker }, "", "/__vm678_blank.html?from=archscry&fit=WU&pathType=commanders-that-fit");
+    if (mode === "pagehide") addEventListener("pagehide", () => {
+      let error = "";
+      try { history.replaceState({ vm678SameTabLaunch: { ...marker, phase: "active" } }, "", location.href); }
+      catch (cause) { error = cause.name + ":" + cause.message; }
+      navigator.sendBeacon("/__vm678_preparation_witness", JSON.stringify({ event: "pagehide", error, marker: history.state?.vm678SameTabLaunch }));
+    }, { once: true });
+    location.reload();
+  };
+}
+async function runPreparationProbe(browser, baseUrl) {
+  progress("history-preparation-diagnostic"); preparationReports.length = 0;
+  const cases = [];
+  for (const mode of ["beforeunload", "pagehide"]) {
+    const page = await browser.newPage(); let dialogs = 0;
+    const dialogHandled = new Promise((resolve) => page.on("dialog", async (dialog) => { dialogs += 1; await dialog.dismiss(); resolve(); }));
+    try {
+      await page.goto(baseUrl + "/__vm678_preparation.html?mode=" + mode);
+      if (mode === "beforeunload") {
+        await Promise.all([page.click("#vm678-probe-launch"), Promise.race([dialogHandled, new Promise((_, reject) => setTimeout(() => reject(new Error("Expected canceled beforeunload dialog")), 5000))])]);
+      } else await Promise.all([page.waitForNavigation({ waitUntil: "domcontentloaded" }), page.click("#vm678-probe-launch")]);
+      const observed = await page.evaluate(() => ({ sourceDocumentRemains: Boolean(document.getElementById("vm678-probe-launch")), marker: history.state?.vm678SameTabLaunch || null, urlHasReadingId: new URL(location.href).searchParams.has("readingId") }));
+      assert.equal(observed.urlHasReadingId, false);
+      assert.equal(observed.marker?.readingId, "exact-A");
+      if (mode === "beforeunload") {
+        assert.equal(dialogs, 1); assert.equal(observed.sourceDocumentRemains, true); assert.equal(observed.marker.phase, "active");
+      } else {
+        assert.equal(dialogs, 0); assert.equal(observed.sourceDocumentRemains, false); assert.equal(observed.marker.phase, "pending");
+      }
+      cases.push({ mode, dialogs, observed });
+    } finally { await page.close(); }
+  }
+  const deadline = Date.now() + 5000;
+  while (!preparationReports.length && Date.now() < deadline) await new Promise((resolve) => setTimeout(resolve, 10));
+  assert.equal(preparationReports.length, 1, "Outgoing pagehide witness missing or duplicated.");
+  assert.equal(preparationReports[0].error, "");
+  assert.equal(preparationReports[0].marker.phase, "active");
+  return { status: "PASS — expected lifecycle failure witnesses", task: "VM-678", scope: "isolated generic history protocol, no product navigation or persisted Finds proof", engine: await browser.version(), cases, outgoingPagehide: preparationReports[0], verdict: "STOP: tested early and late commit boundaries do not satisfy safe interrupted preparation plus exact successful continuity" };
+}
+
 async function main() {
   const catalog = await readFile(path.join(root, "data/dossier/maze-discovery-profiles.catalog.json"));
   const runtimeFiles = ["assets/js/archscry/archscry-presentation.js", "assets/js/archscry/runtime/dossier-view.js", "assets/js/maze/research-init.js"];
@@ -319,12 +387,29 @@ async function main() {
     progress("launch-browser");
     launched = await ChromeLauncher.launch({ chromePath: await browserPath(), chromeFlags: ["--headless=new", "--no-sandbox", "--disable-dev-shm-usage", "--disable-gpu", "--disable-background-timer-throttling", "--disable-renderer-backgrounding", "--disable-backgrounding-occluded-windows"], logLevel: "silent" });
     browser = await puppeteer.connect({ browserURL: `http://${host}:${launched.port}` });
+    if (preparationProbe) {
+      console.log(JSON.stringify(await runPreparationProbe(browser, baseUrl), null, 2));
+      return;
+    }
     progress("ordinary-click");
     const pointer = await runCase(browser, baseUrl, "pointer"); const keyboard = await runCase(browser, baseUrl, "keyboard"); const ctrl = await runCase(browser, baseUrl, "ctrl"); const middle = await runCase(browser, baseUrl, "middle");
     const result = { schemaVersion: 1, task: "VM-678", baseline: { mainRuntime: baselineMain, catalogSha256: digest(catalog), runtimeFingerprints }, browser: { required: true, engine: "Edge-or-Chrome via ChromeLauncher/Puppeteer", fixtureTransport: "server installs passive witness and redirects constructed Scryfall fetch URLs to local fixture before all document modules, including native popup tabs" }, coverage: { pointer, keyboard, ctrl, middle, history: await runHistory(browser, baseUrl), comparisonTabs: await runComparisonTabs(browser, baseUrl), normalAB: await runNormalAB(browser, baseUrl), knownRed: await runKnownRed(browser, baseUrl), transportProbes: await runTransportProbes(browser, baseUrl), catalogNavigationMatrix: await runCatalogNavigationMatrix(browser, baseUrl) }, preservedRules: ["native anchors", "modified source document and URL remain unchanged", "Scryfall response I/O is fixture-intercepted; request construction and runtime cache remain observable", "dangerous schemes are never navigated"], status: "BASELINE_CAPTURED" };
     const normalized = JSON.stringify(stable(normalizeArtifact(result, baseUrl)), null, 2) + "\n";
     if (writeArgument) { await (await import("node:fs/promises")).writeFile(artifactPath, normalized); }
-    if (!writeArgument) { const expected = await readFile(artifactPath, "utf8"); assert.equal(expected, normalized, "VM-678 browser baseline differs; rerun with explicit --write only when intentionally refreshing the unchanged-runtime baseline."); }
+    if (!writeArgument) {
+      const expected = JSON.parse(await readFile(artifactPath, "utf8"));
+      const matrix = expected.coverage.catalogNavigationMatrix;
+      // The historical artifact stays byte-frozen. This sole metadata rename is
+      // approved; every semantic, transport, ownership and error record stays exact.
+      if (Object.hasOwn(matrix, "contexts")) {
+        assert.equal(matrix.contexts, 4, "Historical worker count changed.");
+        assert.equal(matrix.counts.normalReading, 501);
+        assert.equal(matrix.counts.identityExplore, 501);
+        matrix.isolatedBrowserContexts = matrix.contexts;
+        delete matrix.contexts;
+      }
+      assert.equal(JSON.stringify(stable(expected), null, 2) + "\n", normalized, "VM-678 historical regression drift beyond the approved browser-worker metadata clarification.");
+    }
     console.log(JSON.stringify({ status: writeArgument ? "WRITTEN" : "PASS", artifact: path.relative(root, artifactPath), catalogNavigations: result.coverage.catalogNavigationMatrix.counts, nativeActivations: ["pointer", "keyboard", "ctrl", "middle"], simultaneousComparisonTabs: 2, transportProbes: result.coverage.transportProbes.length, hostileReturnFixtures: Object.keys(result.coverage.knownRed.unsafeReturnKnownRed).length, normalAB: result.coverage.normalAB }, null, 2));
   } finally { if (browser) await Promise.race([browser.close().catch(() => browser.disconnect()), new Promise((resolve) => setTimeout(resolve, 2000))]); if (launched) { try { await launched.kill(); } catch {} } server.closeAllConnections?.(); await new Promise((resolve) => server.close(resolve)); }
 }

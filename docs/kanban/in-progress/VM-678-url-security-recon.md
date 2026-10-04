@@ -2,8 +2,8 @@
 
 ID: VM-678
 Title: URL and Security Reconnaissance
-Status: Owner Review
-Type: Staged URL/security repair — continuity proposal and Slice 1 baseline
+Status: In Progress
+Type: Staged URL/security repair — continuity preparation STOP and harness clarification
 Area: Archscry-to-Maze URL handoff, navigation and security
 Priority: High
 Created: 2026-10-03
@@ -17,6 +17,8 @@ Owner clarification, 2026-10-03: development identifiers should not appear in pu
 Owner refinement, 2026-10-03: the URL/security goals are approved, but the prior keyed history/session/boot proposal is not the default implementation. Slice 0 must first prove whether existing machinery preserves established behavior. A genuine conflict requiring broader state ownership stops and returns to Owner before implementation. Native Ctrl-click, middle-click and new-tab/window activation must leave the source tab intact; exact cross-tab Reading Finds association is explicitly not required merely because Ctrl-click was used. The refined direction supersedes the prior implementation proposal and its future test requirements where they conflict.
 
 Owner decision, 2026-10-04: select Option 1 and preserve the exact existing ordinary same-tab Reading Finds association. Making those launches public/unassociated is rejected. Authorize two bounded tracks now: the smallest continuity proposal for Owner approval, and the programmatic plus real-headless pre-runtime baseline. The direct continuity investigation is limited to `archscry-presentation.js`, `dossier-view.js` and `research-init.js`; expansion, including boot or guide ownership, requires STOP and Owner review. No product runtime change, task acceptance, integration or deployment is authorized.
+
+Owner approval, 2026-10-04: implement only the approved destination-history-entry marker carrying exact existing readingId and canonical selector tuple, with validated entry-local Maze memory. Prove the bridge on clean selector-only destinations before production URL ID removal. Historical baselines remain frozen; compare semantic parity and approved deltas. No serializer, legacy ingress, return hardening, integration or deployment approval.
 
 ## Source
 
@@ -63,7 +65,16 @@ Current Owner request: recon and deep dive on how to fix the supplied Mardu and 
 - [x] The programmatic baseline enumerates all applicable identities, paths, threads and contexts and captures href, canonical query/Plain pair, classification, request construction and the exact normal-reading ID contract.
 - [x] Real headless evidence exercises primary, Ctrl, middle and keyboard activation, comparison tabs, unchanged source document/URL/history, independent destinations, reload, Back/Forward, shared-handoff replacement, exact A/B Finds ownership, fresh/copied/legacy and later adversarial inputs.
 - [x] Frozen machine-readable artifacts rerun deterministically, distinguish known-red current behavior from future repairs, and fail unexpected semantic or ownership drift.
-- [x] The complete proposal/harness candidate receives separate independent review; all runtime/source files remain byte-identical to accepted main and Owner proposal approval remains PENDING.
+- [x] The frozen proposal/harness candidate received separate independent review with runtime/source byte-identical to accepted main. Proposal approval was pending at that historical freeze and was subsequently granted for the narrow continuity slice.
+
+### Approved narrow continuity slice
+
+- [ ] Exact existing A is carried by the destination history entry and protected from B before/after launch on a clean selector-only proof URL.
+- [ ] Reload, Back/Forward, independent successors and eligible Restore activate or clear entry association truthfully without altering query truth.
+- [ ] Native modified/new-tab activations preserve the source document and independent public comparison tabs.
+- [ ] Missing, invalid, stale or failed/interrupted preparation is public/unassociated; persisted Finds never receive B or a fabricated reading ID.
+- [ ] Frozen 1,002-record historical oracles remain unchanged; candidate semantic parity and approved deltas pass with unambiguous two-public-mode/four-browser-worker metadata.
+- [ ] Exact candidate receives independent SEPARATE QA-3 review and returns to Owner before the serializer slice.
 
 ## Files Likely Impacted
 
@@ -98,21 +109,21 @@ Current Owner request: recon and deep dive on how to fix the supplied Mardu and 
 
 ## Implementation Prompt
 
-Apply RobDev and the current Owner Option 1 decision. Complete the admitted narrow continuity proposal and Slice 1 baseline against unchanged product runtime. Use the canonical catalog and actual browser-native activation, record every applicable identity/path/thread/context and actual persisted Finds ownership, and distinguish existing known-red failures from protected successful behavior. The concrete proposal recommends exact-ID history-entry state plus entry-local memory, confined to the three named owners; it requires an explicit Owner continuity-before-ID-removal sequencing decision. Return the proposal before all runtime edits. Independent RobQA reviews the frozen design/harness candidate; that engineering PASS does not approve the mechanism or certify changed runtime. Future implementation must preserve selectors/query/Plain/request semantics and native modified activation, fail closed without a wrong reading, and STOP if boot/guide/another owner is required. No task acceptance, integration or deployment is authorized.
+Apply RobDev to the explicitly approved narrow same-tab continuity slice. Carry exact existing readingId and canonical tuple only in the destination history-entry marker, then validated entry-local Maze memory. Prove actual no-readingId selector-only bridge, A/B races, persisted Finds, reload/history, independent/Restore, native tabs and safe partial/preparation failure. Keep the two historical baseline JSONs byte-frozen; compare all 1,002 records semantically and only approved ownership deltas. Do not remove production public readingId or change legacy/return handling. STOP if another runtime owner, guide/boot, persistence or broad state refactor is required. Freeze the exact candidate and obtain independent QA-3 before Owner review; no integration or deployment.
 
 ## Delivery
 
 Record version: 1
 Branch: codex/vm-678-url-security-recon
 Admission baseline: a436a845cb0a67bbe738fb283966ea6d832f1b39
-Candidate: bdaac18ac177c877ae6df239a9461ad9002df957
-RobQA: PASS at bdaac18ac177c877ae6df239a9461ad9002df957 — SEPARATE QA-3/QA-0 for the frozen proposal and unchanged-runtime baseline; no mechanism approval or changed-runtime certification
+Candidate: PENDING
+RobQA: PENDING — independent SEPARATE QA-0 for the non-runtime STOP/harness candidate; continuity QA-3 unavailable
 Owner: PENDING
 Integration: PENDING
-Runtime stage: STOP pending concrete continuity-proposal approval. Owner selected exact ordinary same-tab association; proposal and Slice 1 baseline are authorized and underway. Continuity, serializer, ingress and return-security runtime implementation remain unauthorized.
+Runtime stage: STOP at interrupted-entry preparation: the tested pushState/reload commit boundaries cannot satisfy exact successful continuity plus interrupted public/unassociated behavior. No runtime patch retained. Revised activation/commit protocol requires Owner review; production serializer, legacy ingress, return hardening, integration and deployment remain STOP.
 Dependencies: None
 Decisions: Owner requested recon and recommendations, with no runtime repair or deployment. Admission start was ELIGIBLE at synchronized local/live main a436a845cb0a67bbe738fb283966ea6d832f1b39. Preserve current VM-674 request/provenance ownership and the existing canonical catalog; URL shortening must be proposed at the existing producer/adapter layer. Scope amendment: Owner clarification on 2026-10-03 requests deeper reconnaissance and a concrete how/where/why/what repair plan for review before implementation approval. Admit only the Planning Architect and independent plan-review handoffs; runtime changes, integration and deployment remain unauthorized. The original report candidate and its PASS remain historical evidence, not approval of the new plan. Scope amendment: Owner's refined direction on 2026-10-03 supersedes the earlier implementation proposal with ordered, reversible Slices 0–5, native modified-click protection and automated parity gates. Admit the bounded Slice 0 feasibility report and individual role handoffs first. The new instruction conditionally authorizes later bounded implementation after feasibility and baseline gates, but this amendment admits documentation only; runtime/test paths require a subsequent dedicated scope amendment. A genuine established-behavior conflict requiring broader state machinery stops before runtime changes and returns to Owner. No default keyed history/session/boot protocol, integration or deployment is authorized. Scope amendment: Owner decision on 2026-10-04 selects Option 1, preserves exact ordinary same-tab Reading Finds association, and authorizes a narrow continuity proposal plus the deterministic programmatic and real-headless Slice 1 baseline. Admit only the named harness/fixture/package-command and proposal/evidence paths below. The continuity investigation is limited to archscry-presentation.js, dossier-view.js and research-init.js; expansion requires an Owner STOP. No continuity mechanism, serializer, ingress normalization or return-security runtime change is authorized before proposal approval. No task acceptance, integration or deployment is authorized. Scope amendment: Owner review on 2026-10-04 approves only the narrow destination-history-entry marker and validated entry-local same-tab Reading Finds continuity slice plus independent proof. Admit the three named runtime owners and the continuity candidate fixture and individual role handoffs. Keep production public readingId serialization, legacy ingress and return security unchanged; freeze both historical Slice 1 JSON baselines. Candidate comparison must use semantic parity and explicitly approved deltas, clarify four parallel browser contexts versus two public context modes, and prove clean no-readingId bridge, failures and native tabs. STOP for another runtime owner, guide/boot, new persistence or broader semantic/state refactor. No acceptance, integration or deployment is authorized.
-Evidence: The [current narrow proposal](../../handoffs/2026-10-04-0010-planning-architect-vm678-same-tab-continuity.md), [catalog baseline handoff](../../handoffs/2026-10-04-0010-robdev-vm678-catalog-baseline.md), [real-browser baseline handoff](../../handoffs/2026-10-04-0010-robdev-vm678-browser-baseline.md), [independent review](../../handoffs/2026-10-04-0010-robqa-vm678-baseline-continuity-review.md) and [coordinator handoff](../../handoffs/2026-10-04-0010-codex-vm678-baseline-continuity.md) govern this material candidate. Programmatic and real-headless checks pass for 1,002 records, including persisted Finds. Current full A preserves A at launch; late B and clean selector-only A contamination are frozen known-red facts, alongside unsafe returns/malformed initialization. Thread records use existing Maze actions; projected thread URLs do not establish current ingress support. The [Slice 0 report](../../reports/2026-10-03-vm678-slice0-feasibility.md) remains historical evidence. Prior broad private-state proposals and historical QA bindings are superseded. Runtime remains STOP; no changed-runtime QA, Owner acceptance, integration or deployment is claimed.
+Evidence: Frozen Slice 1 artifacts and proposal candidate bdaac18ac177c877ae6df239a9461ad9002df957 remain historical. The [runtime STOP handoff](../../handoffs/2026-10-04-1000-robdev-vm678-continuity-runtime.md), [browser handoff](../../handoffs/2026-10-04-1000-robdev-vm678-continuity-browser.md), [independent review](../../handoffs/2026-10-04-1000-robqa-vm678-continuity-review.md) and [coordinator report](../../handoffs/2026-10-04-1000-codex-vm678-continuity.md) record the current bounded findings. Generic Edge diagnostics prove canceled beforeunload can strand active state, while outgoing pagehide state replacement does not reach the successful incoming reload. Runtime restored; no continuity implementation or QA-3 PASS. Browser metadata now distinguishes four isolated workers from two public context modes; frozen JSONs are unchanged. No Owner acceptance, integration or deployment.
 
 ## Admission Scope
 
