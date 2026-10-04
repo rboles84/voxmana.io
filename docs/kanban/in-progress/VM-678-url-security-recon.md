@@ -2,7 +2,7 @@
 
 ID: VM-678
 Title: URL and Security Reconnaissance
-Status: In Progress
+Status: Owner Review
 Type: Staged URL/security repair — red-team correction and native-navigation fit review
 Area: Archscry-to-Maze URL handoff, navigation and security
 Priority: High
@@ -116,8 +116,8 @@ Runtime remains paused after the Owner-requested red team. Correct the prior ove
 Record version: 1
 Branch: codex/vm-678-url-security-recon
 Admission baseline: a436a845cb0a67bbe738fb283966ea6d832f1b39
-Candidate: PENDING
-RobQA: PENDING
+Candidate: f6aaf8a3e11f43c86cb34f77acdefe4d1c226db9
+RobQA: PASS at f6aaf8a3e11f43c86cb34f77acdefe4d1c226db9 — SEPARATE QA-0 for corrected red-team documentation only; no runtime continuity QA-3
 Owner: PENDING
 Integration: PENDING
 Runtime stage: PAUSED for corrected red-team Owner review. Prior pending/unload probes reject those added protocols, not every complete marker. Complete exact-A transport is observed in generic launch/reload, but native-controlled pushState/reload Back shows source URL with destination DOM; unchanged technique must not resume. No runtime patch retained, replacement selected, persistence added or continuity QA-3 PASS. Production serializer, legacy ingress, return hardening, integration and deployment remain STOP.
