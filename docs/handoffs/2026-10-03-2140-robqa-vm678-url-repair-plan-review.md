@@ -211,3 +211,51 @@ Checks completed for this candidate:
 CPU-heavy validation: **NOT REQUIRED**. Browser, runtime, security, and state-transition tests were intentionally not executed for this documentation candidate.
 
 Owner Review for the approval extension is not ready on `09d98a67828f3d2710f32686b6aa90d9979637ad`. Correct the same plan/branch, freeze a new exact documentation candidate, and rerun only these two bounded consistency checks plus normal QA-0 diff/scope/freshness verification. This BLOCKED verdict does not alter the historical reconnaissance PASS.
+
+## Final exact-candidate QA
+
+Task: VM-678
+
+Candidate: 66b1dbaa873e771a9233dba873ad365741704751
+
+RobQA: PASS
+
+Execution: SEPARATE
+
+Reviewer: /root/url_qa
+
+Implementer: /root/url_planning (root coordinator made separate minor documentation updates)
+
+**RobQAPass PASS** is bound only to exact documentation candidate `66b1dbaa873e771a9233dba873ad365741704751`, baseline/main `a436a845cb0a67bbe738fb283966ea6d832f1b39`, and candidate tree `619c0a82c2345bffd9dabd9cade98a7afbf2e74e`. The frozen approval-plan blob is `5084d0f7b2a66e05e01ad1ec1dadc5dce6e3c02f`; the frozen review-history blob is `f7d4133977823316ef69ad63c124332fcd3f3fad`; the card blob is `0dd7cc6c5d652cdd6d29e5168e6d43d3b61ae530`.
+
+The correction from `09d98a67...` resolves both prior blockers:
+
+- public fallback is conditioned on an absent or invalid destination-entry key. Fresh/new, copied/shared, or pasted navigation without a valid key is public; reload or same-address navigation on an existing valid keyed entry intentionally remains private. The plan no longer claims physical paste can always be detected independently of history-entry state.
+- a new focused `scripts/vm678-archscry-maze-handoff-browser.mjs` is the required assertion-bearing Chrome/Puppeteer proof for real pointer/keyboard interception, prepared destination state, `pushState` plus reload, modifier/middle/new-tab behavior, same-address keyed reload, Back/Forward, and exact-return boot precedence. DOM checks may protect unsafe `href` values but cannot replace this browser evidence. An unavailable or non-asserting browser harness explicitly blocks future runtime RobQA.
+
+### Final QA-0 evidence
+
+- Exact baseline-to-candidate scope: **PASS** — nine Git paths, all under `docs/`; no runtime or test path changed.
+- Approval extension after historical evidence commit `3e7adf11`: **PASS** — six documentation paths: plan, review, coordinator appendix, card, board, and handoff index.
+- `git diff --check a436a845...66b1dbaa`: **PASS**.
+- `npm.cmd run task -- indexes --check`: **PASS** — generated views fresh (`cards: 717`, `handoffs: 1178`).
+- Required plan structure: **PASS** — all 14 sections plus compact handoff are present.
+- Source traceability: **PASS** for the material plan claims reviewed, including `initializeResearchArchives` at line 948 and its parser/catalog awaits at lines 949–950, render-time handoff ownership, guide-return state, return sinks, feedback capture, Reading Finds equality, and Archscry cached-result precedence.
+- Public URL contract: **PASS** — stable catalog selectors only; `sourceFaction`, developer-review state, VM-547 values, model-derived `readingId`, labels, duplicate query/copy fields, raw return, and nested return are excluded from ordinary public links.
+- Examples and truthfulness: **PASS** — supplied MARDU is correctly identity exploration; RG normal and stretch are distinct; fixed return examples omit `readingId`, `returnUrl`, and `mazeReturnUrl`; absent private return state falls back to public exploration before another cached reading can be substituted.
+- Private continuity design: **PASS for plan sufficiency** — activation-time snapshots are bound to cryptographically random destination history-entry keys plus versioned two-hour session records; mutable global render-time handoff is not launch proof; refresh/Back/Forward, cloned storage, new entries, guide precedence, exact-reading return, and storage/crypto failure have explicit dispositions.
+- Ingress and migration: **PASS for plan sufficiency** — forbidden metadata cleanup precedes asynchronous initialization and guide early return; catalog-unavailable cleanup occurs only after availability is known; valid selectors rehydrate from the current catalog; selectorless legacy executable state becomes one bounded `q`; custom query and VM-674 current-request ownership remain distinct.
+- File/function map and action sequence: **PASS** — serializer, dossier activation, Maze ingress/return/guide, Archscry nested-return removal, boot precedence, asset-version references, focused tests, and same-task workflow are concrete.
+- Test selection: **PASS for future requirements** — proportionate unit/DOM checks plus the mandatory real-browser boundary are specified; dangerous schemes are asserted without navigation; broad placement, visual, penetration, hosting, and unrelated regression suites remain excluded.
+
+No runtime, browser, security, or state-transition test was executed for this QA-0 document review. The future command list is a required evidence plan, not proof that the repair works. CPU-heavy validation: **NOT REQUIRED**.
+
+### Stateful-adversarial disposition
+
+The plan-document artifact has no runtime state. For the future implementation, the plan now identifies and tests the distinct public URL, destination history entry, private session snapshot, active Maze context, guide-return record, current-request source, Reading Finds store, fixed return entry, Archscry boot selection, and feedback capture seams. It requires forward and reverse navigation, perturb/restore, explicit replacement, same-visible-route/different-history comparison, representation cleanup, two-tab/wrong-reading cases, and structurally different thread/stretch representatives. This is sufficient planning coverage; implementation evidence remains mandatory.
+
+### Exit and Owner boundary
+
+No blocker or major correctness defect remains in the approval plan. This PASS permits the exact proposal to enter Owner Review. It does not approve implementation, certify a live repair, prove browser security, authorize runtime edits, accept or integrate a future candidate, change hosting policy, or deploy anything.
+
+Owner judgment remains: approve, revise, or reject the proposed selector-only public contract; keyed same-tab private continuity and exact-reading return; two-hour private record lifetime; guide-return entry binding; legacy compatibility; fixed return behavior; exact file scope; and mandatory focused browser evidence. If approved, implementation must return through RobDev and independent exact-candidate QA-3/security/stateful review before any acceptance or integration.

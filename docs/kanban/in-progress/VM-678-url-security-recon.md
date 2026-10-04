@@ -2,7 +2,7 @@
 
 ID: VM-678
 Title: URL and Security Reconnaissance
-Status: In Progress
+Status: Owner Review
 Type: Read-only runtime investigation and documentation delivery
 Area: Archscry-to-Maze URL handoff, navigation and security
 Priority: High
@@ -47,7 +47,7 @@ Current Owner request: recon and deep dive on how to fix the supplied Mardu and 
 - [x] The proposed public URL field contract removes development task/model identifiers and copied diagnostics, including nested return URLs, without hiding them in a different public field.
 - [x] Each proposed code change has an owning file/function, reason, before/after behavior and bounded compatibility strategy.
 - [x] Saved-reading/Finds association, public sharing, multiple-tab/stale state, refresh/history, custom query backing and unavailable storage/catalog behavior are specified honestly.
-- [ ] Independent review challenges the approval plan and selected future validation; no implementation, integration or deployment is authorized before Owner approval.
+- [x] Independent review challenges the approval plan and selected future validation; no implementation, integration or deployment is authorized before Owner approval.
 
 ## Files Likely Impacted
 
@@ -75,13 +75,13 @@ Apply RobDev for grounding and the documentation proposal. Trace current owners 
 Record version: 1
 Branch: codex/vm-678-url-security-recon
 Admission baseline: a436a845cb0a67bbe738fb283966ea6d832f1b39
-Candidate: PENDING
-RobQA: PENDING — approval-plan extension; historical reconnaissance PASS at 30735c5ac44273c4d7d47c2e09f6a0bf46195d2a remains in its original handoff
+Candidate: 66b1dbaa873e771a9233dba873ad365741704751
+RobQA: PASS at 66b1dbaa873e771a9233dba873ad365741704751 — SEPARATE QA-0 approval-plan review; historical reconnaissance PASS at 30735c5ac44273c4d7d47c2e09f6a0bf46195d2a remains in its original handoff
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Decisions: Owner requested recon and recommendations, with no runtime repair or deployment. Admission start was ELIGIBLE at synchronized local/live main a436a845cb0a67bbe738fb283966ea6d832f1b39. Preserve current VM-674 request/provenance ownership and the existing canonical catalog; URL shortening must be proposed at the existing producer/adapter layer. Scope amendment: Owner clarification on 2026-10-03 requests deeper reconnaissance and a concrete how/where/why/what repair plan for review before implementation approval. Admit only the Planning Architect and independent plan-review handoffs; runtime changes, integration and deployment remain unauthorized. The original report candidate and its PASS remain historical evidence, not approval of the new plan.
-Evidence: [Reconnaissance report](../../reports/2026-10-03-vm678-url-security-recon.md), [RobDev handoff](../../handoffs/2026-10-03-1658-robdev-vm678-url-security-recon.md), and [coordinator handoff](../../handoffs/2026-10-03-1658-codex-vm678-url-security-recon.md) preserve the original source traces and independently reviewed report. The [approval plan](../../handoffs/2026-10-03-2140-planning-architect-vm678-url-repair-approval.md) and [independent plan review](../../handoffs/2026-10-03-2140-robqa-vm678-url-repair-plan-review.md) own the proposed extension; new exact-candidate QA and Owner approval remain PENDING.
+Evidence: [Reconnaissance report](../../reports/2026-10-03-vm678-url-security-recon.md), [RobDev handoff](../../handoffs/2026-10-03-1658-robdev-vm678-url-security-recon.md), and [coordinator handoff](../../handoffs/2026-10-03-1658-codex-vm678-url-security-recon.md) preserve the original source traces and independently reviewed report. The [approval plan](../../handoffs/2026-10-03-2140-planning-architect-vm678-url-repair-approval.md) and [independent plan review](../../handoffs/2026-10-03-2140-robqa-vm678-url-repair-plan-review.md#final-exact-candidate-qa) bind QA-0 PASS to the exact proposal above. Owner implementation approval remains PENDING; no runtime repair or future implementation QA is claimed.
 
 ## Admission Scope
 

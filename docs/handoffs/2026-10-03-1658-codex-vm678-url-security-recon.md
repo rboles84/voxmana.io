@@ -96,3 +96,21 @@ Delegation for this extension: Planning Architect through configured RobDev Terr
 Developer verification is documentation/source-only: read the proposal against the Owner clarification and current owners, require the 14 Planning Architect sections, check formatting and the Git-derived documentation-only diff, and refresh both generated views. Future runtime tests in the plan are selected requirements, not executed evidence. No runtime, test, generated catalog, placement, persistence migration, host configuration, production or remote repository change is authorized by this extension.
 
 Material candidate and new independent QA remain PENDING at this pre-freeze snapshot. Owner and integration remain PENDING. The next action is exact documentation review, followed by a concise proposal for the Owner to approve or revise; approval of implementation is distinct from acceptance/integration of a repaired runtime candidate.
+
+## Approval-plan candidate and separate review
+
+Task: VM-678
+Candidate: 66b1dbaa873e771a9233dba873ad365741704751
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: /root/url_qa
+Owner: PENDING
+Integration: PENDING
+
+Independent QA passed the exact approval-plan candidate after a same-branch correction. The initial freeze at `09d98a67828f3d2710f32686b6aa90d9979637ad` was BLOCKED because optional browser evidence contradicted the proposed history mechanism and categorical paste detection overstated browser behavior. The corrected plan requires assertion-bearing real-browser evidence for the future repair, with an uncovered browser boundary blocking future runtime QA. Public fallback is conditioned on absent/invalid keyed entry; refresh of a valid private entry intentionally retains its association. The review handoff preserves the first verdict and binds the final PASS to the frozen proposal.
+
+This is QA-0 documentation PASS only. Runtime/security/browser-state behavior remains unimplemented and untested; Owner implementation approval remains pending. If approved, continue the same card and branch with an admitted runtime scope, implement through RobDev, then submit a new exact candidate to separate QA-3/security/stateful review and Owner acceptance before integration.
+
+Git-derived material accounting is nine documentation paths from the original baseline to this candidate. [The approval-plan change report](C:/Users/obake/.codex/visualizations/2026/10/03/01a103fa-3335-7e63-b042-3da8a30f60c3/vm678-url-repair-plan-git-change-report.md) records full baseline/candidate/evidence-head bindings, material paths, evidence delta and total branch scope separately. Original reconnaissance accounting remains in its earlier artifact; neither historical record is rewritten as current Owner consent.
+
+Final checks are exact baseline-to-candidate whitespace, documentation-only scope, generated-view freshness, authentic separate QA binding, Git change-report validation and the candidate-stage delivery checker. Final Git confirms a clean local worktree after consolidated evidence, no remote task branch and live main at the original baseline; no push, merge or deployment was performed. The coordinator reviews the exact post-candidate delta as append-only QA/coordinator observations, card lifecycle/checkbox outcomes and generated summaries before stage validation.
