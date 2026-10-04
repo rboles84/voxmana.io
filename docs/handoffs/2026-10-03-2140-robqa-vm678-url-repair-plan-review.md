@@ -170,3 +170,44 @@ No runtime, test, report, card, generated view, Git history, public route, stora
 After the Planning Architect incorporates or explicitly dispositions these findings, the coordinator must freeze an exact documentation candidate. RobQA will inspect that immutable candidate and append a candidate-bound PASS or BLOCKED decision here. Until then, Owner-review readiness for the new approval plan is **PENDING**.
 
 Terminology clarification: “approved reconnaissance” above means the prior documentation candidate received exact-candidate engineering QA PASS. It does not mean Owner acceptance, implementation authorization, integration, deployment, or security certification.
+
+## Exact-candidate plan review — first freeze
+
+Task: VM-678
+
+Candidate: 09d98a67828f3d2710f32686b6aa90d9979637ad
+
+RobQA: BLOCKED
+
+Execution: SEPARATE
+
+Reviewer: /root/url_qa
+
+Implementer: /root/url_planning (root coordinator made separate minor documentation updates)
+
+Plan-document classification: QA-0. Future implementation classification remains QA-3/security plus stateful-adversarial coverage. No runtime behavior was executed or certified.
+
+Two evidence/contract defects block this exact plan candidate:
+
+1. The design correctly says a real browser must prove pointer/keyboard interception and destination `history.state` survival across `pushState` plus reload, but the selected verification permits an unavailable VM-674 browser harness to be replaced by targeted DOM cases. DOM/Node evidence cannot prove real activation modality, navigation-entry state survival, modified/middle/new-tab behavior, refresh, or Back/Forward. The plan must require a focused assertion-bearing real-browser case for those contracts. If no usable browser evidence is available, the future runtime candidate is BLOCKED rather than waived or proven by DOM substitution.
+2. The plan categorically groups pasted navigation with entries that lack a destination key. A same-URL address-bar navigation can be treated by the browser as refresh/current-entry navigation and retain valid `history.state`. The truthful contract must be conditional: copied/shared navigation elsewhere, a fresh entry, or a paste that produces an entry without a valid key is public; a valid active keyed history entry remains private across refresh/same-entry navigation. Physical paste cannot be claimed as independently detectable. Future browser evidence must cover this boundary.
+
+Checks completed for this candidate:
+
+- exact branch candidate `09d98a67828f3d2710f32686b6aa90d9979637ad`, tree `6b0a4c19d70b0f4ec59c4fb84f5243b78d3e573b` — inspected;
+- baseline `a436a845cb0a67bbe738fb283966ea6d832f1b39` through candidate — nine documentation paths and no runtime path;
+- approval extension after historical evidence commit `3e7adf11` — six documentation paths;
+- exact baseline-to-candidate `git diff --check` — PASS;
+- `npm.cmd run task -- indexes --check` — PASS (`cards: 717`, `handoffs: 1178`);
+- 14 required plan sections — present;
+- source anchors for synchronous initializer cleanup — exact: initializer line 948 and parser/catalog awaits lines 949–950;
+- public contract removes `sourceFaction`, VM-547 fields, model-derived reading ID, duplicated executable/copy fields, raw return, and nested return;
+- supplied MARDU example is correctly classified as identity exploration;
+- fixed return examples omit `readingId`, `returnUrl`, and `mazeReturnUrl`;
+- private exact-reading return restores before generic cached-result selection and missing private state explicitly becomes public exploration;
+- guide/launch/return keys, activation-time snapshots, expiry, precedence, synchronous cleanup, custom-query protection, legacy fallback, file ownership, same-task workflow, and Owner-approval boundary — materially resolved;
+- plan consistently states that its future checks are selected requirements, not evidence of an implemented repair.
+
+CPU-heavy validation: **NOT REQUIRED**. Browser, runtime, security, and state-transition tests were intentionally not executed for this documentation candidate.
+
+Owner Review for the approval extension is not ready on `09d98a67828f3d2710f32686b6aa90d9979637ad`. Correct the same plan/branch, freeze a new exact documentation candidate, and rerun only these two bounded consistency checks plus normal QA-0 diff/scope/freshness verification. This BLOCKED verdict does not alter the historical reconnaissance PASS.
