@@ -1190,14 +1190,19 @@ function updateReadingContextDisclosure() {
   const pathLabel = ARCHSCRY_PATH_LABELS[retainedHandoff?.pathType] || "";
   const returnUrl = dossierReturnUrlForHandoff(retainedHandoff);
 
+  returnLink.removeAttribute("href");
+  returnLink.classList.add("hidden");
+
   if (!retainedFactionName) {
     context.hidden = true;
     return;
   }
 
-  returnLink.href = returnUrl || retainedHandoff?.returnUrl || "../archscry/";
+  if (returnUrl) {
+    returnLink.href = returnUrl;
+    returnLink.classList.remove("hidden");
+  }
   returnLink.textContent = `Return to ${retainedFactionName} dossier`;
-  returnLink.classList.toggle("hidden", !returnUrl && !retainedHandoff?.returnUrl);
   action.classList.add("hidden");
 
   if (retainedExplorationContext) {
@@ -4788,14 +4793,26 @@ function currentDossierReturnUrl() {
 }
 
 function dossierReturnUrlForHandoff(handoff) {
-  if (!handoff?.returnUrl) return "";
-  const fit = handoff.fit || handoff.guild || "";
-  return appendReturnUrlParams(handoff.returnUrl, {
-    from: "maze",
-    view: fit,
-    readingId: handoff.readingId || "",
-    mazeReturnUrl: `${location.pathname}${location.search}`
-  });
+  const fit = resolveDossierActiveKey(handoff?.fit || handoff?.guild || "");
+  if (!fit || !resolveMazeDiscoveryProfile(mazeDiscoveryProfileCatalog, fit)) return "";
+  const contextMode = String(handoff?.contextMode || "").trim();
+  const reviewIdentity = resolveDossierActiveKey(handoff?.reviewIdentity || "");
+  const exploreIdentity = resolveDossierActiveKey(handoff?.exploreIdentity || "");
+  const params = new URLSearchParams({ from: "maze" });
+  if (contextMode === IDENTITY_EXPLORE_CONTEXT_MODE) {
+    if (exploreIdentity !== fit) return "";
+    params.set("explore", fit.toLowerCase());
+    params.set("panel", "maze-discovery");
+  } else if (contextMode === DOSSIER_REVIEW_CONTEXT_MODE) {
+    if (reviewIdentity !== fit) return "";
+    params.set("view", fit);
+    params.set("vm-dev-review", "1");
+    params.set("reviewIdentity", fit);
+  } else {
+    if (contextMode && contextMode !== "normal-reading") return "";
+    params.set("view", fit);
+  }
+  return `../archscry/index.html?${params.toString()}#maze-discovery-paths`;
 }
 
 function updateStashDrawerCount(count = getScratchpadTotalQuantity()) {

@@ -13,12 +13,16 @@ const preparationProbe = requested.includes("--preparation-probe");
 const writeArgument = requested.find((value) => value.startsWith("--write="));
 const checkArgument = requested.find((value) => value.startsWith("--check="));
 const catalogArgument = requested.find((value) => value.startsWith("--catalog="));
+const sliceACandidateArgument = requested.find((value) => value.startsWith("--slice-a-candidate="));
 if (writeArgument && checkArgument) throw new Error("Use one of --write=<artifact> or --check=<artifact>.");
-assert.equal(requested.length, Number(preparationProbe) + Number(Boolean(writeArgument)) + Number(Boolean(checkArgument)) + Number(Boolean(catalogArgument)), "Supported arguments: --preparation-probe, --write=<artifact> or --check=<artifact>, optionally --catalog=<current parity artifact>.");
+assert.equal(requested.length, Number(preparationProbe) + Number(Boolean(writeArgument)) + Number(Boolean(checkArgument)) + Number(Boolean(catalogArgument)) + Number(Boolean(sliceACandidateArgument)), "Supported arguments: --preparation-probe, --write=<artifact> or --check=<artifact>, --slice-a-candidate=<artifact>, optionally --catalog=<current parity artifact>.");
 assert(!preparationProbe || requested.length === 1, "--preparation-probe cannot be combined with artifact options.");
+assert(!sliceACandidateArgument || requested.length === 1, "--slice-a-candidate cannot be combined with historical baseline options.");
 for (const argument of requested.filter((value) => value.includes("="))) assert(argument.slice(argument.indexOf("=") + 1), "Artifact arguments require nonempty paths.");
 const artifactPath = path.resolve(root, (writeArgument || checkArgument || "").split("=")[1] || "tests/fixtures/vm678-navigation-baseline.json");
 if (writeArgument && artifactPath === path.resolve(root, "tests/fixtures/vm678-navigation-baseline.json")) throw new Error("The historical Slice 1 browser artifact is frozen; write to a separately named artifact.");
+const sliceACandidatePath = path.resolve(root, sliceACandidateArgument?.slice("--slice-a-candidate=".length) || "tests/fixtures/vm678-slice-a-navigation-candidate.json");
+if (sliceACandidateArgument) assert(!["tests/fixtures/vm678-navigation-baseline.json", "tests/fixtures/vm678-url-parity-baseline.json"].includes(path.relative(root, sliceACandidatePath).replaceAll("\\", "/")), "Slice A candidate observations cannot overwrite a frozen VM-678 oracle.");
 const catalogArtifactPath = path.resolve(root, catalogArgument?.slice("--catalog=".length) || "tests/fixtures/vm678-url-parity-baseline.json");
 const preparationReports = [];
 const baselineMain = "a436a845cb0a67bbe738fb283966ea6d832f1b39";
@@ -377,6 +381,41 @@ async function runPreparationProbe(browser, baseUrl) {
   return { status: "PASS — expected lifecycle failure witnesses", task: "VM-678", scope: "isolated generic history protocol, no product navigation or persisted Finds proof", engine: await browser.version(), cases, outgoingPagehide: preparationReports[0], verdict: "STOP: tested early and late commit boundaries do not satisfy safe interrupted preparation plus exact successful continuity" };
 }
 
+function candidateReturnHref(baseUrl, query) {
+  return new URL(`../archscry/index.html?${query}#maze-discovery-paths`, `${baseUrl}/maze/index.html`).href;
+}
+async function runSliceANavigationCandidate(browser, baseUrl) {
+  const cases = [
+    { name: "normal", expectedReturn: candidateReturnHref(baseUrl, "from=maze&view=WU"), open: async (page) => openNormalSource(page, baseUrl) },
+    { name: "explore", expectedReturn: candidateReturnHref(baseUrl, "from=maze&explore=azorius&panel=maze-discovery"), open: async (page) => { await page.goto(sourceUrl(baseUrl), { waitUntil: "domcontentloaded" }); await waitSource(page); } },
+    { name: "review", expectedReturn: candidateReturnHref(baseUrl, "from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU"), open: async (page) => { await page.goto(`${baseUrl}/archscry/?vm-dev-review=1&reviewIdentity=WU&panel=maze-discovery#maze-discovery-paths`, { waitUntil: "domcontentloaded" }); await waitSource(page); } },
+  ];
+  const observations = [];
+  for (const candidate of cases) {
+    progress(`slice-a-navigation-${candidate.name}`);
+    const page = await configure(browser, baseUrl);
+    try {
+      await candidate.open(page);
+      const link = await sourceLink(page, "commanders-that-fit");
+      const params = new URL(link.href).searchParams;
+      await nativeActivate(page, "commanders-that-fit", "pointer");
+      await waitMaze(page, link);
+      const observed = await page.evaluate(() => {
+        const inspect = (id) => { const node = document.getElementById(id); return { href: node?.href || "", hidden: Boolean(node?.hidden), classHidden: node?.classList.contains("hidden") || false }; };
+        return { banner: inspect("maze-reading-context-return"), scratchpad: inspect("scratchpad-return-dossier"), errors: [...window.__vm678NavigationWitness.consoleErrors] };
+      });
+      assert.deepEqual(observed.errors, [], `${candidate.name}: runtime errors during local return construction.`);
+      for (const [surface, value] of Object.entries({ banner: observed.banner, scratchpad: observed.scratchpad })) {
+        assert.equal(value.href, candidate.expectedReturn, `${candidate.name}/${surface}: return href was not locally constructed.`);
+        assert.equal(value.hidden || value.classHidden, false, `${candidate.name}/${surface}: valid retained context hid its return link.`);
+        for (const forbidden of ["q", "operatorQuery", "plainReadingQuery", "returnUrl", "mazeReturnUrl", "sourceFaction", "factionName", "readingTitle", "readingId", "vm547Runtime", "vm547Catalog", "vm547Profile"]) assert(!new URL(value.href).searchParams.has(forbidden), `${candidate.name}/${surface}: local return exported ${forbidden}.`);
+      }
+      observations.push({ name: candidate.name, launch: "native-pointer", protectedOutgoingMazeParams: [...params.keys()].sort(), returnHref: candidate.expectedReturn, localReturnExportsNoQueryOrProvenance: true, bothSurfacesVisible: true });
+    } finally { await page.close(); }
+  }
+  return { schemaVersion: 1, task: "VM-678", slice: "A-navigation", sourceOfTruth: "candidate-runtime", cases: observations, protectedHistoricalMode: "default invocation still compares the frozen navigation baseline" };
+}
+
 async function main() {
   const catalog = await readFile(path.join(root, "data/dossier/maze-discovery-profiles.catalog.json"));
   const runtimeFiles = ["assets/js/archscry/archscry-presentation.js", "assets/js/archscry/runtime/dossier-view.js", "assets/js/maze/research-init.js"];
@@ -389,6 +428,12 @@ async function main() {
     browser = await puppeteer.connect({ browserURL: `http://${host}:${launched.port}` });
     if (preparationProbe) {
       console.log(JSON.stringify(await runPreparationProbe(browser, baseUrl), null, 2));
+      return;
+    }
+    if (sliceACandidateArgument) {
+      const observation = await runSliceANavigationCandidate(browser, baseUrl);
+      await (await import("node:fs/promises")).writeFile(sliceACandidatePath, JSON.stringify(stable(normalizeArtifact(observation, baseUrl)), null, 2) + "\n");
+      console.log(JSON.stringify({ status: "WRITTEN", artifact: path.relative(root, sliceACandidatePath), cases: observation.cases.length, protectedHistoricalMode: true }, null, 2));
       return;
     }
     progress("ordinary-click");
