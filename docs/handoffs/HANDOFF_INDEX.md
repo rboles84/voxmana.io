@@ -1,4 +1,4 @@
-<!-- task-view-sha256:dd9aacae889ccf0f08f2a246798055e54954a50f8c800f266fb4956161ad8221 -->
+<!-- task-view-sha256:d99a4de6a94ac2d03456d40762418e1063ee9d4dca89ec8a4542704176a69b2d -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -8,6 +8,9 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 
 | Authored / filename date | Agent | Handoff | Related task references | Diagnostics |
 |---|---|---|---|---|
+| 2026-10-04T17:25:03Z (authored) | /root | [VM-678 — red-team correction and vanilla multi-page navigation fit](2026-10-04-1100-codex-vm678-redteam.md) | VM-678 | Identity displayed from heading; not admission metadata. |
+| 2026-10-04T11:14:02-06:00 (authored) | /root/baseline_catalog | [RobDev red-team — VM-678 same-tab continuity fit](2026-10-04-1100-robdev-vm678-redteam.md) | VM-678 | Identity displayed from heading; not admission metadata. |
+| 2026-10-04T11:13:48-06:00 (authored) | /root/qa_final | [VM-678 — independent red-team of continuity STOP](2026-10-04-1100-robqa-vm678-redteam.md) | VM-678 | Identity displayed from heading; not admission metadata. |
 | 2026-10-04T16:38:00Z (authored) | `/root/baseline_browser` — configured Terra medium route; backend-effective model identity unverified. | [RobDev handoff — VM-678 continuity browser probe](2026-10-04-1000-robdev-vm678-continuity-browser.md) | VM-678 | Identity displayed from heading; not admission metadata. |
 | 2026-10-04T16:34:00Z (authored) | /root | [VM-678 — interrupted preparation STOP and browser metadata clarification](2026-10-04-1000-codex-vm678-continuity.md) | VM-678 | Identity displayed from heading; not admission metadata. |
 | 2026-10-04T10:20:46-06:00 (authored) | /root/qa_final | [VM-678 — RobQA continuity implementation review](2026-10-04-1000-robqa-vm678-continuity-review.md) | VM-678 | Identity displayed from heading; not admission metadata. |
