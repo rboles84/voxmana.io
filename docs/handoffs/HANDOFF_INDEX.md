@@ -1,4 +1,4 @@
-<!-- task-view-sha256:df3288d8df301fde7cd25104540422ffabc0c2996eee7f71aa67d89ded1706f7 -->
+<!-- task-view-sha256:b5bd42ea92fb100d90fbee62746611a9540fe36f159d5895d4244bb05dc81f21 -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -8,6 +8,8 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 
 | Authored / filename date | Agent | Handoff | Related task references | Diagnostics |
 |---|---|---|---|---|
+| 2026-10-03T21:40:00Z (filename) | Unknown | [VM-678 URL repair approval plan](2026-10-03-2140-planning-architect-vm678-url-repair-approval.md) | VM-678 | Identity displayed from heading; not admission metadata. |
+| 2026-10-03T21:40:00Z (filename) | RobQA `/root/url_qa` (configured `robqa` role; Sol medium requested under repository routing, host accepted the dispatch arguments, backend-effective identity unverified) | [VM-678 — Independent RobQA review of URL-repair approval plan](2026-10-03-2140-robqa-vm678-url-repair-plan-review.md) | VM-678 | Identity displayed from heading; not admission metadata. Invalid authored date; filename fallback or undated ordering used. |
 | 2026-10-03T16:58:00Z (filename) | Codex coordinator | [Coordinator handoff — VM-678 URL and security reconnaissance](2026-10-03-1658-codex-vm678-url-security-recon.md) | VM-678 | Identity displayed from heading; not admission metadata. Invalid authored date; filename fallback or undated ordering used. |
 | 2026-10-03T16:58:00Z (filename) | Unknown | [RobDev handoff — VM-678 URL and security reconnaissance](2026-10-03-1658-robdev-vm678-url-security-recon.md) | VM-678 | Identity displayed from heading; not admission metadata. |
 | 2026-10-03T16:58:00Z (filename) | RobQA `/root/url_qa` (configured `robqa` role; Sol medium requested by governing routing, host accepted dispatch arguments, backend-effective identity unverified) | [VM-678 — Independent RobQA URL/security reconnaissance review](2026-10-03-1658-robqa-vm678-url-security-recon.md) | VM-678 | Identity displayed from heading; not admission metadata. Invalid authored date; filename fallback or undated ordering used. |
