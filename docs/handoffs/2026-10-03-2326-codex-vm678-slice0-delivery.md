@@ -51,10 +51,6 @@ CPU-heavy testing is not required for this documentation candidate. No screensho
 
 Runtime, catalog/source data, test assertions/harness, package dependencies, Reading Finds schema, guide/session contracts, boot, hosting, database, PRs, remote refs and deployment. Preserve the one active card/branch. Next agent: Owner for the concrete scope choice, then RobDev for the smallest permitted proposal and future Slice 1; separate RobQA only after the resulting material candidate is frozen.
 
-## Material candidate
+## Accounting status before freeze
 
-Git accounting will be bound after the documentation candidate is committed. This draft is not an authoritative changed-file report.
-
-## Files changed
-
-Pending Git-derived baseline-to-candidate accounting.
+The final Git-derived material/evidence accounting will be appended after the documentation candidate is committed. This pre-freeze record is not yet an authoritative changed-file report.
