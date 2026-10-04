@@ -2,7 +2,7 @@
 
 ID: VM-678
 Title: URL and Security Reconnaissance
-Status: In Progress
+Status: Owner Review
 Type: Staged URL/security repair — Slice 0 feasibility documentation
 Area: Archscry-to-Maze URL handoff, navigation and security
 Priority: High
@@ -83,14 +83,14 @@ Apply RobDev for grounding. Start with the Owner-refined Slice 0 before any runt
 Record version: 1
 Branch: codex/vm-678-url-security-recon
 Admission baseline: a436a845cb0a67bbe738fb283966ea6d832f1b39
-Candidate: PENDING
-RobQA: PENDING for the Owner-refined Slice 0 documentation candidate; historical SEPARATE QA-0 approval-plan PASS at 66b1dbaa873e771a9233dba873ad365741704751 and reconnaissance PASS at 30735c5ac44273c4d7d47c2e09f6a0bf46195d2a do not approve a runtime repair or the superseding direction
+Candidate: 65f81dc42a6a03cf11e7ba3a3854016cf36694b3
+RobQA: PASS at 65f81dc42a6a03cf11e7ba3a3854016cf36694b3 — SEPARATE QA-0 Slice 0 documentation review by /root/qa_final; runtime remains STOP, with no runtime QA-3 or continuity-design approval. Earlier proposal/reconnaissance PASS bindings are historical only
 Owner: PENDING
 Integration: PENDING
 Runtime stage: STOP at Slice 0 — removing URL readingId makes an ordinary same-tab launch from reading A use overwritten global reading B or a new ID; no baseline harness or runtime slice has begun. Owner must resolve the protected same-tab Reading Finds association before implementation resumes.
 Dependencies: None
 Decisions: Owner requested recon and recommendations, with no runtime repair or deployment. Admission start was ELIGIBLE at synchronized local/live main a436a845cb0a67bbe738fb283966ea6d832f1b39. Preserve current VM-674 request/provenance ownership and the existing canonical catalog; URL shortening must be proposed at the existing producer/adapter layer. Scope amendment: Owner clarification on 2026-10-03 requests deeper reconnaissance and a concrete how/where/why/what repair plan for review before implementation approval. Admit only the Planning Architect and independent plan-review handoffs; runtime changes, integration and deployment remain unauthorized. The original report candidate and its PASS remain historical evidence, not approval of the new plan. Scope amendment: Owner's refined direction on 2026-10-03 supersedes the earlier implementation proposal with ordered, reversible Slices 0–5, native modified-click protection and automated parity gates. Admit the bounded Slice 0 feasibility report and individual role handoffs first. The new instruction conditionally authorizes later bounded implementation after feasibility and baseline gates, but this amendment admits documentation only; runtime/test paths require a subsequent dedicated scope amendment. A genuine established-behavior conflict requiring broader state machinery stops before runtime changes and returns to Owner. No default keyed history/session/boot protocol, integration or deployment is authorized.
-Evidence: [Reconnaissance report](../../reports/2026-10-03-vm678-url-security-recon.md), [original RobDev handoff](../../handoffs/2026-10-03-1658-robdev-vm678-url-security-recon.md), and [original coordinator handoff](../../handoffs/2026-10-03-1658-codex-vm678-url-security-recon.md) preserve historical source traces. The [approval plan](../../handoffs/2026-10-03-2140-planning-architect-vm678-url-repair-approval.md) and [plan review](../../handoffs/2026-10-03-2140-robqa-vm678-url-repair-plan-review.md#final-exact-candidate-qa) are superseded proposal evidence, not authorization for their private-state architecture. The [Slice 0 report](../../reports/2026-10-03-vm678-slice0-feasibility.md), [current RobDev handoff](../../handoffs/2026-10-03-2326-robdev-vm678-slice0-feasibility.md), [independent review](../../handoffs/2026-10-03-2326-robqa-vm678-slice0-review.md), and [current coordinator handoff](../../handoffs/2026-10-03-2326-codex-vm678-slice0-delivery.md) own the refined-direction evidence. Runtime work is stopped; no baseline artifact, runtime QA, Owner acceptance, integration or deployment is claimed.
+Evidence: The [Slice 0 report](../../reports/2026-10-03-vm678-slice0-feasibility.md) and [current RobDev handoff](../../handoffs/2026-10-03-2326-robdev-vm678-slice0-feasibility.md) establish the refined-direction conflict. [Final exact-candidate QA](../../handoffs/2026-10-03-2326-robqa-vm678-slice0-review.md#final-exact-candidate-qa) binds documentation PASS to 65f81dc42a6a03cf11e7ba3a3854016cf36694b3; the [current coordinator handoff](../../handoffs/2026-10-03-2326-codex-vm678-slice0-delivery.md) accounts for material and append-only evidence. The [original reconnaissance](../../reports/2026-10-03-vm678-url-security-recon.md), [approval plan](../../handoffs/2026-10-03-2140-planning-architect-vm678-url-repair-approval.md) and [plan review](../../handoffs/2026-10-03-2140-robqa-vm678-url-repair-plan-review.md#final-exact-candidate-qa) remain historical; their private-state proposal is superseded and not authorized by this PASS. Runtime remains STOP; no baseline artifact, runtime QA, Owner acceptance, integration or deployment is claimed.
 
 ## Admission Scope
 

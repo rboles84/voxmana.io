@@ -54,3 +54,52 @@ Runtime, catalog/source data, test assertions/harness, package dependencies, Rea
 ## Accounting status before freeze
 
 The final Git-derived material/evidence accounting will be appended after the documentation candidate is committed. This pre-freeze record is not yet an authoritative changed-file report.
+
+## Final candidate disposition
+
+Separate non-authoring reviewer `/root/qa_final` (configured RobQA, Sol medium; backend unverified) issued QA-0 PASS for `65f81dc42a6a03cf11e7ba3a3854016cf36694b3`, with evidence appended in the [final QA section](2026-10-03-2326-robqa-vm678-slice0-review.md#final-exact-candidate-qa). Its direct diff/scope, freshness, 42 current links, 27 source anchors, ancestry and ownership checks passed. Documentation enters Owner Review with Owner PENDING. Runtime remains STOP at Slice 0; none of Slices 1–5, runtime QA-3, acceptance, integration or deployment is claimed.
+
+Additional strategy-author command disclosed after freeze: `node --test tests/governance/task-context.test.mjs tests/governance/workflow-instructions.test.mjs` failed with exit 1 because sandbox Temp fixture `git init -q` could not write `.git/config`. Output was truncated, so no separate `workflow-instructions` result is claimed. No rerun or repair occurred. This unrelated environment failure does not supply or replace the direct green documentation/freshness checks.
+
+## Material candidate
+
+- Baseline: `a436a845cb0a67bbe738fb283966ea6d832f1b39`
+- Candidate: `65f81dc42a6a03cf11e7ba3a3854016cf36694b3`
+- Changed paths: `13`
+
+The list below is derived from `git diff --name-status --find-renames <baseline>..<candidate>`. It includes the earlier reconnaissance/proposal work already on this same task branch. The refined Slice 0 session changes seven of these documentation paths; four are new records. No runtime or test path is in the material change set.
+
+## Files changed
+
+- `docs/handoffs/2026-10-03-1658-codex-vm678-url-security-recon.md`
+- `docs/handoffs/2026-10-03-1658-robdev-vm678-url-security-recon.md`
+- `docs/handoffs/2026-10-03-1658-robqa-vm678-url-security-recon.md`
+- `docs/handoffs/2026-10-03-2140-planning-architect-vm678-url-repair-approval.md`
+- `docs/handoffs/2026-10-03-2140-robqa-vm678-url-repair-plan-review.md`
+- `docs/handoffs/2026-10-03-2326-codex-vm678-slice0-delivery.md`
+- `docs/handoffs/2026-10-03-2326-robdev-vm678-slice0-feasibility.md`
+- `docs/handoffs/2026-10-03-2326-robqa-vm678-slice0-review.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-678-url-security-recon.md`
+- `docs/reports/2026-10-03-vm678-slice0-feasibility.md`
+- `docs/reports/2026-10-03-vm678-url-security-recon.md`
+
+## Evidence delta
+
+- Material candidate: `65f81dc42a6a03cf11e7ba3a3854016cf36694b3`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `4`
+
+This evidence-only delta is not the full task diff. It appends the independent QA verdict and coordinator accounting, binds existing card lifecycle fields, and regenerates the board. Existing material handoff prose and report/source/criteria/scope/decisions remain unchanged. `HEAD` resolves to the evidence commit containing this appendix; the final full evidence SHA is reported from Git at handoff.
+
+## Evidence-only paths
+
+- `docs/handoffs/2026-10-03-2326-codex-vm678-slice0-delivery.md`
+- `docs/handoffs/2026-10-03-2326-robqa-vm678-slice0-review.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-678-url-security-recon.md`
+
+## Final branch and repository state
+
+Final baseline-to-evidence branch scope is 13 documentation paths; the four evidence paths update existing material paths. Branch: `codex/vm-678-url-security-recon`. Local main and origin/main remain `a436a845cb0a67bbe738fb283966ea6d832f1b39`. The live `git ls-remote --heads origin refs/heads/codex/vm-678-url-security-recon` observation returned no feature ref. No push, PR write, merge or deployment was performed. The final clean worktree, candidate-stage check and Git-report validation are to be verified after committing this evidence appendix; their results belong in the final user handoff, not an inferred PASS here.
