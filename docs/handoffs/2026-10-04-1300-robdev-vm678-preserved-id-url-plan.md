@@ -22,7 +22,7 @@ The frozen ordinary WU pointer/keyboard evidence carries the existing ID `vm678-
 
 The minimal implementation needs three owners: the presentation serializer, dossier source context/anchor renderer, and Maze ingress/active association owner. Keep exact `readingId` as a normal-reading exception in the public handoff while reducing transport to the required selector/context tuple. Preserve `from`, `fit`, `pathType`, optional `threadId`, and valid public explore/review context selectors. Do not export copied `q`, `operatorQuery`, `plainReadingQuery`, labels, VM-547 provenance, `sourceFaction`, or raw `returnUrl`.
 
-`readingId` remains absent for identity-explore and gated review contexts. Modified/native new-tab behavior, catalog query/display pairing, VM-674 request ownership, historical legacy URLs, Reading Finds schema, and normal return panel semantics are protected until their named owner is deliberately changed.
+`readingId` remains absent for identity-explore only. Gated `dossier-review` retains its existing exact `dossier-review-${activeKey.toLowerCase()}` ID; this is compatibility preservation, not a new ID or store policy. `dossier-view.js:1881–1900` assigns that existing review ID, while Maze `scratchpadContext` at `research-init.js:4543–4556` blanks only identity-explore. `tests/archscry/archscry-dev-review-tests.js:369` verifies that a review Reading Find persists the review ID. Modified/native new-tab behavior, catalog query/display pairing, VM-674 request ownership, historical legacy URLs, Reading Finds schema, and normal return panel semantics are protected until their named owner is deliberately changed.
 
 ## Return boundary
 
