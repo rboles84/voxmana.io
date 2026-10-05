@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 2,
+  "task": "VM-678 A0",
+  "status": "READ_ONLY_FEASIBILITY",
+  "replay": "docs/handoffs/2026-10-04-1640-robdev-vm678-a0-alias-feasibility.md#exact-assertion-replay",
+  "algorithm": "actual atlas then slug; hypothetical actual then exact uppercase key; alias requestedSlug=entry.slug",
+  "counts": { "entries": 37, "currentKeyAliasHits": 22, "currentKeyAliasMisses": 15 },
+  "collisions": { "duplicateKeys": [], "duplicateSlugs": [], "keyAliasesOtherSlug": [], "reservedAtlas": [] },
+  "urlParameterCases": [
+    ["?explore=atlas", "atlas", "atlas", "atlas"],
+    ["?explore=", "", "invalid:(empty)", "invalid:(empty)"],
+    ["", null, "null", "null"],
+    ["?explore=not-real", "not-real", "invalid:not-real", "invalid:not-real"],
+    ["?explore=azorius&explore=wu", "azorius", "WU", "WU"],
+    ["?explore=wu&explore=azorius", "wu", "invalid:wu", "WU"],
+    ["?explore=&explore=azorius", "", "invalid:(empty)", "invalid:(empty)"],
+    ["?explore=not-real&explore=azorius", "not-real", "invalid:not-real", "invalid:not-real"],
+    ["?explore=azorius&explore=not-real", "azorius", "WU", "WU"],
+    ["?explore=azorius&explore=", "azorius", "WU", "WU"]
+  ],
+  "caseColumns": ["search", "URLSearchParams.get(explore)", "actual", "hypothetical"],
+  "matrixColumns": ["key", "canonicalSlug", "group", "currentKeyAliasResolves", "hypotheticalAliasEntryKey", "fullRequestEqualsCanonicalSlugRequest"],
+  "matrix": [
+    ["W", "white", "color", false, "W", true], ["U", "blue", "color", false, "U", true], ["B", "black", "color", false, "B", true], ["R", "red", "color", false, "R", true], ["G", "green", "color", false, "G", true],
+    ["WU", "azorius", "guild", false, "WU", true], ["WR", "boros", "guild", false, "WR", true], ["UB", "dimir", "guild", false, "UB", true], ["BG", "golgari", "guild", false, "BG", true], ["RG", "gruul", "guild", false, "RG", true], ["UR", "izzet", "guild", false, "UR", true], ["WB", "orzhov", "guild", false, "WB", true], ["BR", "rakdos", "guild", false, "BR", true], ["WG", "selesnya", "guild", false, "WG", true], ["UG", "simic", "guild", false, "UG", true],
+    ["LOREHOLD", "lorehold", "college", true, "LOREHOLD", true], ["PRISMARI", "prismari", "college", true, "PRISMARI", true], ["QUANDRIX", "quandrix", "college", true, "QUANDRIX", true], ["SILVERQUILL", "silverquill", "college", true, "SILVERQUILL", true], ["WITHERBLOOM", "witherbloom", "college", true, "WITHERBLOOM", true],
+    ["BANT", "bant", "shard", true, "BANT", true], ["ESPER", "esper", "shard", true, "ESPER", true], ["GRIXIS", "grixis", "shard", true, "GRIXIS", true], ["JUND", "jund", "shard", true, "JUND", true], ["NAYA", "naya", "shard", true, "NAYA", true],
+    ["ABZAN", "abzan", "wedge", true, "ABZAN", true], ["JESKAI", "jeskai", "wedge", true, "JESKAI", true], ["MARDU", "mardu", "wedge", true, "MARDU", true], ["SULTAI", "sultai", "wedge", true, "SULTAI", true], ["TEMUR", "temur", "wedge", true, "TEMUR", true],
+    ["DUNE", "dune", "four_color", true, "DUNE", true], ["GLINT", "glint", "four_color", true, "GLINT", true], ["INK", "ink", "four_color", true, "INK", true], ["WITCH", "witch", "four_color", true, "WITCH", true], ["YORE", "yore", "four_color", true, "YORE", true],
+    ["COLORLESS", "colorless", "colorless", true, "COLORLESS", true], ["WUBRG", "wubrg", "five_color", true, "WUBRG", true]
+  ],
+  "actualObservation": "WU=wu is invalid Atlas; azorius resolves WU",
+  "hypotheticalOnly": true
+}

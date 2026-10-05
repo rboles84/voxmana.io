@@ -1,0 +1,2089 @@
+{
+  "schemaVersion": 2,
+  "task": "VM-678",
+  "experiment": "generic session-scoped native-navigation feasibility",
+  "genericOnly": true,
+  "actualProductFindsProof": false,
+  "mechanism": {
+    "source": "ordinary unmodified same-tab normal-reading anchor writes one sessionStorage record",
+    "destination": "capture, validate, immediately delete; use exact record only when validation and deletion succeed",
+    "recordFields": [
+      "version",
+      "readingId",
+      "fit",
+      "pathType",
+      "optional threadId",
+      "sourceContext.expectedNormalArchscry",
+      "sourceContext.sourceURL"
+    ],
+    "excluded": [
+      "preventDefault",
+      "pushState",
+      "reload orchestration",
+      "mechanism timers",
+      "unload hooks",
+      "TTL",
+      "random token",
+      "target change",
+      "second handoff persistence"
+    ]
+  },
+  "environment": {
+    "browser": "Edg/154.0.4258.53",
+    "executable": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+    "platform": "win32",
+    "loopbackOrigin": "http://127.0.0.1:60222"
+  },
+  "frozenEvidence": {
+    "before": {
+      "navigation": {
+        "path": "tests/fixtures/vm678-navigation-baseline.json",
+        "bytes": 1162499,
+        "sha256": "55b519b79c595312786a9cb960d16c1178c9463ccc69ec5f8b649f31dabfffe8"
+      },
+      "urlParity": {
+        "path": "tests/fixtures/vm678-url-parity-baseline.json",
+        "bytes": 7410202,
+        "sha256": "6d82a747be47bc1b6e1f6a40daad5494a66b97e55096b885a9dfeca7f6d21002"
+      },
+      "semanticFixtures": {
+        "path": "tests/fixtures/maze-semantic-state-contract-fixtures.js",
+        "bytes": 38249,
+        "sha256": "34b2101fd83700b193c63efaddb267202034db8d131eb111781f4c2b94d475c4",
+        "count": 18
+      },
+      "navigationCounts": {
+        "executed": 1002,
+        "identityExplore": 501,
+        "normalReading": 501
+      }
+    },
+    "after": {
+      "navigation": {
+        "path": "tests/fixtures/vm678-navigation-baseline.json",
+        "bytes": 1162499,
+        "sha256": "55b519b79c595312786a9cb960d16c1178c9463ccc69ec5f8b649f31dabfffe8"
+      },
+      "urlParity": {
+        "path": "tests/fixtures/vm678-url-parity-baseline.json",
+        "bytes": 7410202,
+        "sha256": "6d82a747be47bc1b6e1f6a40daad5494a66b97e55096b885a9dfeca7f6d21002"
+      },
+      "semanticFixtures": {
+        "path": "tests/fixtures/maze-semantic-state-contract-fixtures.js",
+        "bytes": 38249,
+        "sha256": "34b2101fd83700b193c63efaddb267202034db8d131eb111781f4c2b94d475c4",
+        "count": 18
+      }
+    },
+    "unchanged": {
+      "navigation": true,
+      "urlParity": true,
+      "semanticFixtures": true,
+      "expectedCounts": true
+    }
+  },
+  "cases": {
+    "decisive-stale-a-source-storage-unavailable-same-url-same-tuple-b": {
+      "execution": "COMPLETED",
+      "expected": "native navigation usable and public/unassociated",
+      "canceledA": {
+        "url": "http://127.0.0.1:60222/archscry/",
+        "documentToken": "generic-archscry-document",
+        "documentTimeOrigin": 1791139224357.4,
+        "renderedReadingId": "vm678-generic-a",
+        "historyLength": 2,
+        "historyState": null,
+        "pending": "{\"version\":1,\"readingId\":\"vm678-generic-a\",\"fit\":\"ABZAN\",\"pathType\":\"commanders-that-fit\",\"threadId\":\"ancestor-obligation\",\"sourceContext\":{\"expectedNormalArchscry\":true,\"sourceURL\":\"http://127.0.0.1:60222/archscry/\"}}",
+        "storageError": null,
+        "writerErrors": [],
+        "cleanupErrors": [],
+        "contextMenuCount": 0
+      },
+      "sourceB": {
+        "url": "http://127.0.0.1:60222/archscry/",
+        "documentToken": "generic-archscry-document",
+        "documentTimeOrigin": 1791139224357.4,
+        "renderedReadingId": "vm678-generic-b",
+        "historyLength": 2,
+        "historyState": null,
+        "writerErrors": [],
+        "cleanupErrors": [
+          "SecurityError: source getter unavailable"
+        ],
+        "contextMenuCount": 0,
+        "sameURL": true,
+        "sameTuple": true,
+        "exactReadingId": "vm678-generic-b"
+      },
+      "faultTiming": "source getter unavailable before B render and cleanup attempt",
+      "pageErrors": [
+        "DOMException: SecurityError: source getter unavailable"
+      ],
+      "destinationBeforeFind": {
+        "url": "http://127.0.0.1:60222/maze/?from=archscry&fit=ABZAN&pathType=commanders-that-fit&threadId=ancestor-obligation",
+        "documentToken": "generic-maze-document",
+        "documentTimeOrigin": 1791139224415.2,
+        "referrer": "http://127.0.0.1:60222/archscry/",
+        "historyLength": 3,
+        "historyState": {
+          "vm678Entry": {
+            "version": 1,
+            "readingId": "vm678-generic-a",
+            "fit": "ABZAN",
+            "pathType": "commanders-that-fit",
+            "threadId": "ancestor-obligation",
+            "sourceContext": {
+              "expectedNormalArchscry": true,
+              "sourceURL": "http://127.0.0.1:60222/archscry/"
+            }
+          }
+        },
+        "capturedRaw": "{\"version\":1,\"readingId\":\"vm678-generic-a\",\"fit\":\"ABZAN\",\"pathType\":\"commanders-that-fit\",\"threadId\":\"ancestor-obligation\",\"sourceContext\":{\"expectedNormalArchscry\":true,\"sourceURL\":\"http://127.0.0.1:60222/archscry/\"}}",
+        "captureSucceeded": true,
+        "deleteSucceeded": true,
+        "pendingValid": true,
+        "pending": null,
+        "pendingReadError": null,
+        "associationSource": "validated-pending",
+        "readingId": "vm678-generic-a",
+        "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+        "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+        "errors": [],
+        "opener": false,
+        "sharedReadingId": "",
+        "genericRows": []
+      },
+      "destinationAfterFind": {
+        "url": "http://127.0.0.1:60222/maze/?from=archscry&fit=ABZAN&pathType=commanders-that-fit&threadId=ancestor-obligation",
+        "documentToken": "generic-maze-document",
+        "documentTimeOrigin": 1791139224415.2,
+        "referrer": "http://127.0.0.1:60222/archscry/",
+        "historyLength": 3,
+        "historyState": {
+          "vm678Entry": {
+            "version": 1,
+            "readingId": "vm678-generic-a",
+            "fit": "ABZAN",
+            "pathType": "commanders-that-fit",
+            "threadId": "ancestor-obligation",
+            "sourceContext": {
+              "expectedNormalArchscry": true,
+              "sourceURL": "http://127.0.0.1:60222/archscry/"
+            }
+          }
+        },
+        "capturedRaw": "{\"version\":1,\"readingId\":\"vm678-generic-a\",\"fit\":\"ABZAN\",\"pathType\":\"commanders-that-fit\",\"threadId\":\"ancestor-obligation\",\"sourceContext\":{\"expectedNormalArchscry\":true,\"sourceURL\":\"http://127.0.0.1:60222/archscry/\"}}",
+        "captureSucceeded": true,
+        "deleteSucceeded": true,
+        "pendingValid": true,
+        "pending": null,
+        "pendingReadError": null,
+        "associationSource": "validated-pending",
+        "readingId": "vm678-generic-a",
+        "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+        "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+        "errors": [],
+        "opener": false,
+        "sharedReadingId": "",
+        "genericRows": [
+          {
+            "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "sourceContext": {
+              "readingId": "vm678-generic-a"
+            }
+          }
+        ]
+      },
+      "genericPersistedRow": {
+        "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+        "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+        "sourceContext": {
+          "readingId": "vm678-generic-a"
+        }
+      },
+      "nativeNavigationUsable": true,
+      "expectedBlank": false,
+      "observedWrongA": true,
+      "conclusion": "FAIL: same URL, tuple, normal context, and full referrer cannot distinguish stale A from actual B activation"
+    },
+    "ordinary-pointer-a-find-shared-b-reload-back-forward-successor": {
+      "execution": "COMPLETED",
+      "source": {
+        "url": "http://127.0.0.1:60222/archscry/",
+        "documentToken": "generic-archscry-document",
+        "documentTimeOrigin": 1791139224502.5,
+        "renderedReadingId": "vm678-generic-a",
+        "historyLength": 2,
+        "historyState": null,
+        "pending": null,
+        "storageError": null,
+        "writerErrors": [],
+        "cleanupErrors": [],
+        "contextMenuCount": 0
+      },
+      "initial": {
+        "url": "http://127.0.0.1:60222/maze/?from=archscry&fit=ABZAN&pathType=commanders-that-fit&threadId=ancestor-obligation",
+        "documentToken": "generic-maze-document",
+        "documentTimeOrigin": 1791139224542.8,
+        "referrer": "http://127.0.0.1:60222/archscry/",
+        "historyLength": 3,
+        "historyState": {
+          "vm678Entry": {
+            "version": 1,
+            "readingId": "vm678-generic-a",
+            "fit": "ABZAN",
+            "pathType": "commanders-that-fit",
+            "threadId": "ancestor-obligation",
+            "sourceContext": {
+              "expectedNormalArchscry": true,
+              "sourceURL": "http://127.0.0.1:60222/archscry/"
+            }
+          }
+        },
+        "capturedRaw": "{\"version\":1,\"readingId\":\"vm678-generic-a\",\"fit\":\"ABZAN\",\"pathType\":\"commanders-that-fit\",\"threadId\":\"ancestor-obligation\",\"sourceContext\":{\"expectedNormalArchscry\":true,\"sourceURL\":\"http://127.0.0.1:60222/archscry/\"}}",
+        "captureSucceeded": true,
+        "deleteSucceeded": true,
+        "pendingValid": true,
+        "pending": null,
+        "pendingReadError": null,
+        "associationSource": "validated-pending",
+        "readingId": "vm678-generic-a",
+        "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+        "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+        "errors": [],
+        "opener": false,
+        "sharedReadingId": "",
+        "genericRows": [
+          {
+            "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "sourceContext": {
+              "readingId": "vm678-generic-a"
+            }
+          }
+        ]
+      },
+      "afterFind": {
+        "url": "http://127.0.0.1:60222/maze/?from=archscry&fit=ABZAN&pathType=commanders-that-fit&threadId=ancestor-obligation",
+        "documentToken": "generic-maze-document",
+        "documentTimeOrigin": 1791139224542.8,
+        "referrer": "http://127.0.0.1:60222/archscry/",
+        "historyLength": 3,
+        "historyState": {
+          "vm678Entry": {
+            "version": 1,
+            "readingId": "vm678-generic-a",
+            "fit": "ABZAN",
+            "pathType": "commanders-that-fit",
+            "threadId": "ancestor-obligation",
+            "sourceContext": {
+              "expectedNormalArchscry": true,
+              "sourceURL": "http://127.0.0.1:60222/archscry/"
+            }
+          }
+        },
+        "capturedRaw": "{\"version\":1,\"readingId\":\"vm678-generic-a\",\"fit\":\"ABZAN\",\"pathType\":\"commanders-that-fit\",\"threadId\":\"ancestor-obligation\",\"sourceContext\":{\"expectedNormalArchscry\":true,\"sourceURL\":\"http://127.0.0.1:60222/archscry/\"}}",
+        "captureSucceeded": true,
+        "deleteSucceeded": true,
+        "pendingValid": true,
+        "pending": null,
+        "pendingReadError": null,
+        "associationSource": "validated-pending",
+        "readingId": "vm678-generic-a",
+        "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+        "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+        "errors": [],
+        "opener": false,
+        "sharedReadingId": "vm678-generic-b",
+        "genericRows": [
+          {
+            "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "sourceContext": {
+              "readingId": "vm678-generic-a"
+            }
+          },
+          {
+            "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "sourceContext": {
+              "readingId": "vm678-generic-a"
+            }
+          }
+        ]
+      },
+      "genericPersistedRow": {
+        "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+        "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+        "sourceContext": {
+          "readingId": "vm678-generic-a"
+        }
+      },
+      "reload": {
+        "url": "http://127.0.0.1:60222/maze/?from=archscry&fit=ABZAN&pathType=commanders-that-fit&threadId=ancestor-obligation",
+        "documentToken": "generic-maze-document",
+        "documentTimeOrigin": 1791139224601.4,
+        "referrer": "http://127.0.0.1:60222/archscry/",
+        "historyLength": 3,
+        "historyState": {
+          "vm678Entry": {
+            "version": 1,
+            "readingId": "vm678-generic-a",
+            "fit": "ABZAN",
+            "pathType": "commanders-that-fit",
+            "threadId": "ancestor-obligation",
+            "sourceContext": {
+              "expectedNormalArchscry": true,
+              "sourceURL": "http://127.0.0.1:60222/archscry/"
+            }
+          }
+        },
+        "capturedRaw": null,
+        "captureSucceeded": true,
+        "deleteSucceeded": true,
+        "pendingValid": false,
+        "pending": null,
+        "pendingReadError": null,
+        "associationSource": "retained-current-entry",
+        "readingId": "vm678-generic-a",
+        "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+        "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+        "errors": [],
+        "opener": false,
+        "sharedReadingId": "vm678-generic-b",
+        "genericRows": [
+          {
+            "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "sourceContext": {
+              "readingId": "vm678-generic-a"
+            }
+          },
+          {
+            "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "sourceContext": {
+              "readingId": "vm678-generic-a"
+            }
+          }
+        ]
+      },
+      "back": {
+        "url": "http://127.0.0.1:60222/archscry/",
+        "documentToken": "generic-archscry-document",
+        "documentTimeOrigin": 1791139224626.7,
+        "renderedReadingId": "vm678-generic-a",
+        "historyLength": 3,
+        "historyState": null,
+        "pending": null,
+        "storageError": null,
+        "writerErrors": [],
+        "cleanupErrors": [],
+        "contextMenuCount": 0
+      },
+      "forward": {
+        "url": "http://127.0.0.1:60222/maze/?from=archscry&fit=ABZAN&pathType=commanders-that-fit&threadId=ancestor-obligation",
+        "documentToken": "generic-maze-document",
+        "documentTimeOrigin": 1791139224654.1,
+        "referrer": "http://127.0.0.1:60222/archscry/",
+        "historyLength": 3,
+        "historyState": {
+          "vm678Entry": {
+            "version": 1,
+            "readingId": "vm678-generic-a",
+            "fit": "ABZAN",
+            "pathType": "commanders-that-fit",
+            "threadId": "ancestor-obligation",
+            "sourceContext": {
+              "expectedNormalArchscry": true,
+              "sourceURL": "http://127.0.0.1:60222/archscry/"
+            }
+          }
+        },
+        "capturedRaw": null,
+        "captureSucceeded": true,
+        "deleteSucceeded": true,
+        "pendingValid": false,
+        "pending": null,
+        "pendingReadError": null,
+        "associationSource": "retained-current-entry",
+        "readingId": "vm678-generic-a",
+        "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+        "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+        "errors": [],
+        "opener": false,
+        "sharedReadingId": "vm678-generic-b",
+        "genericRows": [
+          {
+            "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "sourceContext": {
+              "readingId": "vm678-generic-a"
+            }
+          },
+          {
+            "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "sourceContext": {
+              "readingId": "vm678-generic-a"
+            }
+          }
+        ]
+      },
+      "successor": {
+        "url": "http://127.0.0.1:60222/maze/?from=archscry&fit=ABZAN&pathType=flavor-echoes&threadId=story-vocabulary",
+        "documentToken": "generic-maze-document",
+        "documentTimeOrigin": 1791139224679.1,
+        "referrer": "",
+        "historyLength": 4,
+        "historyState": null,
+        "capturedRaw": null,
+        "captureSucceeded": true,
+        "deleteSucceeded": true,
+        "pendingValid": false,
+        "pending": null,
+        "pendingReadError": null,
+        "associationSource": "public-blank",
+        "readingId": "",
+        "query": "id<=wbg f:commander (ft:Abzan OR ft:ancestor OR ft:family OR ft:endure)",
+        "display": "id<=wbg f:commander (ft:Abzan OR ft:ancestor OR ft:family OR ft:endure)",
+        "errors": [],
+        "opener": false,
+        "sharedReadingId": "vm678-generic-b",
+        "genericRows": [
+          {
+            "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "sourceContext": {
+              "readingId": "vm678-generic-a"
+            }
+          },
+          {
+            "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "sourceContext": {
+              "readingId": "vm678-generic-a"
+            }
+          }
+        ]
+      },
+      "checks": {
+        "consumedExactA": true,
+        "frozenQueryDisplay": true,
+        "genericRowA": true,
+        "sharedBNoOverride": true,
+        "reloadRetainsA": true,
+        "backArchscryDOM": true,
+        "forwardMazeA": true,
+        "successorBlank": true
+      },
+      "note": "generic row is experimental, not actual product Findings proof"
+    },
+    "ordinary-enter-a": {
+      "execution": "COMPLETED",
+      "destination": {
+        "url": "http://127.0.0.1:60222/maze/?from=archscry&fit=ABZAN&pathType=commanders-that-fit&threadId=ancestor-obligation",
+        "documentToken": "generic-maze-document",
+        "documentTimeOrigin": 1791139224809.9,
+        "referrer": "http://127.0.0.1:60222/archscry/",
+        "historyLength": 3,
+        "historyState": {
+          "vm678Entry": {
+            "version": 1,
+            "readingId": "vm678-generic-a",
+            "fit": "ABZAN",
+            "pathType": "commanders-that-fit",
+            "threadId": "ancestor-obligation",
+            "sourceContext": {
+              "expectedNormalArchscry": true,
+              "sourceURL": "http://127.0.0.1:60222/archscry/"
+            }
+          }
+        },
+        "capturedRaw": "{\"version\":1,\"readingId\":\"vm678-generic-a\",\"fit\":\"ABZAN\",\"pathType\":\"commanders-that-fit\",\"threadId\":\"ancestor-obligation\",\"sourceContext\":{\"expectedNormalArchscry\":true,\"sourceURL\":\"http://127.0.0.1:60222/archscry/\"}}",
+        "captureSucceeded": true,
+        "deleteSucceeded": true,
+        "pendingValid": true,
+        "pending": null,
+        "pendingReadError": null,
+        "associationSource": "validated-pending",
+        "readingId": "vm678-generic-a",
+        "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+        "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+        "errors": [],
+        "opener": false,
+        "sharedReadingId": "vm678-generic-b",
+        "genericRows": [
+          {
+            "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "sourceContext": {
+              "readingId": "vm678-generic-a"
+            }
+          },
+          {
+            "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "sourceContext": {
+              "readingId": "vm678-generic-a"
+            }
+          }
+        ]
+      },
+      "passed": true
+    },
+    "cancel-source-reload-retry-a": {
+      "execution": "COMPLETED",
+      "before": {
+        "url": "http://127.0.0.1:60222/archscry/",
+        "documentToken": "generic-archscry-document",
+        "documentTimeOrigin": 1791139224886.4,
+        "renderedReadingId": "vm678-generic-a",
+        "historyLength": 2,
+        "historyState": null,
+        "pending": null,
+        "storageError": null,
+        "writerErrors": [],
+        "cleanupErrors": [],
+        "contextMenuCount": 0
+      },
+      "canceled": {
+        "url": "http://127.0.0.1:60222/archscry/",
+        "documentToken": "generic-archscry-document",
+        "documentTimeOrigin": 1791139224886.4,
+        "renderedReadingId": "vm678-generic-a",
+        "historyLength": 2,
+        "historyState": null,
+        "pending": "{\"version\":1,\"readingId\":\"vm678-generic-a\",\"fit\":\"ABZAN\",\"pathType\":\"commanders-that-fit\",\"threadId\":\"ancestor-obligation\",\"sourceContext\":{\"expectedNormalArchscry\":true,\"sourceURL\":\"http://127.0.0.1:60222/archscry/\"}}",
+        "storageError": null,
+        "writerErrors": [],
+        "cleanupErrors": [],
+        "contextMenuCount": 0
+      },
+      "sourceReload": {
+        "url": "http://127.0.0.1:60222/archscry/",
+        "documentToken": "generic-archscry-document",
+        "documentTimeOrigin": 1791139224935.4,
+        "renderedReadingId": "vm678-generic-a",
+        "historyLength": 2,
+        "historyState": null,
+        "pending": "{\"version\":1,\"readingId\":\"vm678-generic-a\",\"fit\":\"ABZAN\",\"pathType\":\"commanders-that-fit\",\"threadId\":\"ancestor-obligation\",\"sourceContext\":{\"expectedNormalArchscry\":true,\"sourceURL\":\"http://127.0.0.1:60222/archscry/\"}}",
+        "storageError": null,
+        "writerErrors": [],
+        "cleanupErrors": [],
+        "contextMenuCount": 0
+      },
+      "destination": {
+        "url": "http://127.0.0.1:60222/maze/?from=archscry&fit=ABZAN&pathType=commanders-that-fit&threadId=ancestor-obligation",
+        "documentToken": "generic-maze-document",
+        "documentTimeOrigin": 1791139224958.6,
+        "referrer": "http://127.0.0.1:60222/archscry/",
+        "historyLength": 3,
+        "historyState": {
+          "vm678Entry": {
+            "version": 1,
+            "readingId": "vm678-generic-a",
+            "fit": "ABZAN",
+            "pathType": "commanders-that-fit",
+            "threadId": "ancestor-obligation",
+            "sourceContext": {
+              "expectedNormalArchscry": true,
+              "sourceURL": "http://127.0.0.1:60222/archscry/"
+            }
+          }
+        },
+        "capturedRaw": "{\"version\":1,\"readingId\":\"vm678-generic-a\",\"fit\":\"ABZAN\",\"pathType\":\"commanders-that-fit\",\"threadId\":\"ancestor-obligation\",\"sourceContext\":{\"expectedNormalArchscry\":true,\"sourceURL\":\"http://127.0.0.1:60222/archscry/\"}}",
+        "captureSucceeded": true,
+        "deleteSucceeded": true,
+        "pendingValid": true,
+        "pending": null,
+        "pendingReadError": null,
+        "associationSource": "validated-pending",
+        "readingId": "vm678-generic-a",
+        "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+        "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+        "errors": [],
+        "opener": false,
+        "sharedReadingId": "vm678-generic-b",
+        "genericRows": [
+          {
+            "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "sourceContext": {
+              "readingId": "vm678-generic-a"
+            }
+          },
+          {
+            "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "sourceContext": {
+              "readingId": "vm678-generic-a"
+            }
+          }
+        ]
+      },
+      "checks": {
+        "canceledOnSource": true,
+        "pendingA": true,
+        "sourceReloadRetainsA": true,
+        "sourceReloadCreatedNewDocument": true,
+        "retryA": true
+      }
+    },
+    "cancel-immediate-retry-a": {
+      "execution": "COMPLETED",
+      "before": {
+        "url": "http://127.0.0.1:60222/archscry/",
+        "documentToken": "generic-archscry-document",
+        "documentTimeOrigin": 1791139225041.1,
+        "renderedReadingId": "vm678-generic-a",
+        "historyLength": 2,
+        "historyState": null,
+        "pending": null,
+        "storageError": null,
+        "writerErrors": [],
+        "cleanupErrors": [],
+        "contextMenuCount": 0
+      },
+      "canceled": {
+        "url": "http://127.0.0.1:60222/archscry/",
+        "documentToken": "generic-archscry-document",
+        "documentTimeOrigin": 1791139225041.1,
+        "renderedReadingId": "vm678-generic-a",
+        "historyLength": 2,
+        "historyState": null,
+        "pending": "{\"version\":1,\"readingId\":\"vm678-generic-a\",\"fit\":\"ABZAN\",\"pathType\":\"commanders-that-fit\",\"threadId\":\"ancestor-obligation\",\"sourceContext\":{\"expectedNormalArchscry\":true,\"sourceURL\":\"http://127.0.0.1:60222/archscry/\"}}",
+        "storageError": null,
+        "writerErrors": [],
+        "cleanupErrors": [],
+        "contextMenuCount": 0
+      },
+      "destination": {
+        "url": "http://127.0.0.1:60222/maze/?from=archscry&fit=ABZAN&pathType=commanders-that-fit&threadId=ancestor-obligation",
+        "documentToken": "generic-maze-document",
+        "documentTimeOrigin": 1791139225134.5,
+        "referrer": "http://127.0.0.1:60222/archscry/",
+        "historyLength": 3,
+        "historyState": {
+          "vm678Entry": {
+            "version": 1,
+            "readingId": "vm678-generic-a",
+            "fit": "ABZAN",
+            "pathType": "commanders-that-fit",
+            "threadId": "ancestor-obligation",
+            "sourceContext": {
+              "expectedNormalArchscry": true,
+              "sourceURL": "http://127.0.0.1:60222/archscry/"
+            }
+          }
+        },
+        "capturedRaw": "{\"version\":1,\"readingId\":\"vm678-generic-a\",\"fit\":\"ABZAN\",\"pathType\":\"commanders-that-fit\",\"threadId\":\"ancestor-obligation\",\"sourceContext\":{\"expectedNormalArchscry\":true,\"sourceURL\":\"http://127.0.0.1:60222/archscry/\"}}",
+        "captureSucceeded": true,
+        "deleteSucceeded": true,
+        "pendingValid": true,
+        "pending": null,
+        "pendingReadError": null,
+        "associationSource": "validated-pending",
+        "readingId": "vm678-generic-a",
+        "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+        "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+        "errors": [],
+        "opener": false,
+        "sharedReadingId": "vm678-generic-b",
+        "genericRows": [
+          {
+            "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "sourceContext": {
+              "readingId": "vm678-generic-a"
+            }
+          },
+          {
+            "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "sourceContext": {
+              "readingId": "vm678-generic-a"
+            }
+          }
+        ]
+      },
+      "checks": {
+        "canceledOnSameDocument": true,
+        "pendingA": true,
+        "retryA": true
+      }
+    },
+    "canceled-source-back-forward": {
+      "execution": "COMPLETED",
+      "start": {
+        "url": "http://127.0.0.1:60222/start/",
+        "documentToken": "generic-archscry-document",
+        "documentTimeOrigin": 1791139225237.1,
+        "renderedReadingId": "vm678-generic-a",
+        "historyLength": 2,
+        "historyState": null,
+        "pending": null,
+        "storageError": null,
+        "writerErrors": [],
+        "cleanupErrors": [],
+        "contextMenuCount": 0
+      },
+      "canceled": {
+        "url": "http://127.0.0.1:60222/archscry/",
+        "documentToken": "generic-archscry-document",
+        "documentTimeOrigin": 1791139225266.5,
+        "renderedReadingId": "vm678-generic-a",
+        "historyLength": 3,
+        "historyState": null,
+        "pending": "{\"version\":1,\"readingId\":\"vm678-generic-a\",\"fit\":\"ABZAN\",\"pathType\":\"commanders-that-fit\",\"threadId\":\"ancestor-obligation\",\"sourceContext\":{\"expectedNormalArchscry\":true,\"sourceURL\":\"http://127.0.0.1:60222/archscry/\"}}",
+        "storageError": null,
+        "writerErrors": [],
+        "cleanupErrors": [],
+        "contextMenuCount": 0
+      },
+      "back": {
+        "url": "http://127.0.0.1:60222/start/",
+        "documentToken": "generic-archscry-document",
+        "documentTimeOrigin": 1791139225320.5,
+        "renderedReadingId": "vm678-generic-a",
+        "historyLength": 3,
+        "historyState": null,
+        "pending": "{\"version\":1,\"readingId\":\"vm678-generic-a\",\"fit\":\"ABZAN\",\"pathType\":\"commanders-that-fit\",\"threadId\":\"ancestor-obligation\",\"sourceContext\":{\"expectedNormalArchscry\":true,\"sourceURL\":\"http://127.0.0.1:60222/archscry/\"}}",
+        "storageError": null,
+        "writerErrors": [],
+        "cleanupErrors": [],
+        "contextMenuCount": 0
+      },
+      "forward": {
+        "url": "http://127.0.0.1:60222/archscry/",
+        "documentToken": "generic-archscry-document",
+        "documentTimeOrigin": 1791139225343.6,
+        "renderedReadingId": "vm678-generic-a",
+        "historyLength": 3,
+        "historyState": null,
+        "pending": "{\"version\":1,\"readingId\":\"vm678-generic-a\",\"fit\":\"ABZAN\",\"pathType\":\"commanders-that-fit\",\"threadId\":\"ancestor-obligation\",\"sourceContext\":{\"expectedNormalArchscry\":true,\"sourceURL\":\"http://127.0.0.1:60222/archscry/\"}}",
+        "storageError": null,
+        "writerErrors": [],
+        "cleanupErrors": [],
+        "contextMenuCount": 0
+      },
+      "pendingAfterForward": "vm678-generic-a",
+      "canceledDocumentRestored": false
+    },
+    "different-eligible-path-replaces-canceled-a": {
+      "execution": "COMPLETED",
+      "canceledA": {
+        "url": "http://127.0.0.1:60222/archscry/",
+        "documentToken": "generic-archscry-document",
+        "documentTimeOrigin": 1791139225425.1,
+        "renderedReadingId": "vm678-generic-a",
+        "historyLength": 2,
+        "historyState": null,
+        "pending": "{\"version\":1,\"readingId\":\"vm678-generic-a\",\"fit\":\"ABZAN\",\"pathType\":\"commanders-that-fit\",\"threadId\":\"ancestor-obligation\",\"sourceContext\":{\"expectedNormalArchscry\":true,\"sourceURL\":\"http://127.0.0.1:60222/archscry/\"}}",
+        "storageError": null,
+        "writerErrors": [],
+        "cleanupErrors": [],
+        "contextMenuCount": 0
+      },
+      "destination": {
+        "url": "http://127.0.0.1:60222/maze/?from=archscry&fit=ABZAN&pathType=flavor-echoes&threadId=story-vocabulary",
+        "documentToken": "generic-maze-document",
+        "documentTimeOrigin": 1791139225526.6,
+        "referrer": "http://127.0.0.1:60222/archscry/",
+        "historyLength": 3,
+        "historyState": {
+          "vm678Entry": {
+            "version": 1,
+            "readingId": "vm678-generic-a-different-path",
+            "fit": "ABZAN",
+            "pathType": "flavor-echoes",
+            "threadId": "story-vocabulary",
+            "sourceContext": {
+              "expectedNormalArchscry": true,
+              "sourceURL": "http://127.0.0.1:60222/archscry/"
+            }
+          }
+        },
+        "capturedRaw": "{\"version\":1,\"readingId\":\"vm678-generic-a-different-path\",\"fit\":\"ABZAN\",\"pathType\":\"flavor-echoes\",\"threadId\":\"story-vocabulary\",\"sourceContext\":{\"expectedNormalArchscry\":true,\"sourceURL\":\"http://127.0.0.1:60222/archscry/\"}}",
+        "captureSucceeded": true,
+        "deleteSucceeded": true,
+        "pendingValid": true,
+        "pending": null,
+        "pendingReadError": null,
+        "associationSource": "validated-pending",
+        "readingId": "vm678-generic-a-different-path",
+        "query": "id<=wbg f:commander (ft:Abzan OR ft:ancestor OR ft:family OR ft:endure)",
+        "display": "id<=wbg f:commander (ft:Abzan OR ft:ancestor OR ft:family OR ft:endure)",
+        "errors": [],
+        "opener": false,
+        "sharedReadingId": "vm678-generic-b",
+        "genericRows": [
+          {
+            "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "sourceContext": {
+              "readingId": "vm678-generic-a"
+            }
+          },
+          {
+            "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "sourceContext": {
+              "readingId": "vm678-generic-a"
+            }
+          }
+        ]
+      },
+      "passed": true
+    },
+    "same-tuple-b-ordinary-replaces-canceled-a": {
+      "execution": "COMPLETED",
+      "canceledA": {
+        "url": "http://127.0.0.1:60222/archscry/",
+        "documentToken": "generic-archscry-document",
+        "documentTimeOrigin": 1791139225644.7,
+        "renderedReadingId": "vm678-generic-a",
+        "historyLength": 2,
+        "historyState": null,
+        "pending": "{\"version\":1,\"readingId\":\"vm678-generic-a\",\"fit\":\"ABZAN\",\"pathType\":\"commanders-that-fit\",\"threadId\":\"ancestor-obligation\",\"sourceContext\":{\"expectedNormalArchscry\":true,\"sourceURL\":\"http://127.0.0.1:60222/archscry/\"}}",
+        "storageError": null,
+        "writerErrors": [],
+        "cleanupErrors": [],
+        "contextMenuCount": 0
+      },
+      "source": {
+        "url": "http://127.0.0.1:60222/archscry/",
+        "documentToken": "generic-archscry-document",
+        "documentTimeOrigin": 1791139225644.7,
+        "renderedReadingId": "vm678-generic-b",
+        "historyLength": 2,
+        "historyState": null,
+        "pending": "{\"version\":1,\"readingId\":\"vm678-generic-a\",\"fit\":\"ABZAN\",\"pathType\":\"commanders-that-fit\",\"threadId\":\"ancestor-obligation\",\"sourceContext\":{\"expectedNormalArchscry\":true,\"sourceURL\":\"http://127.0.0.1:60222/archscry/\"}}",
+        "storageError": null,
+        "writerErrors": [],
+        "cleanupErrors": [],
+        "contextMenuCount": 0
+      },
+      "destination": {
+        "url": "http://127.0.0.1:60222/maze/?from=archscry&fit=ABZAN&pathType=commanders-that-fit&threadId=ancestor-obligation",
+        "documentToken": "generic-maze-document",
+        "documentTimeOrigin": 1791139225700,
+        "referrer": "http://127.0.0.1:60222/archscry/",
+        "historyLength": 3,
+        "historyState": {
+          "vm678Entry": {
+            "version": 1,
+            "readingId": "vm678-generic-b",
+            "fit": "ABZAN",
+            "pathType": "commanders-that-fit",
+            "threadId": "ancestor-obligation",
+            "sourceContext": {
+              "expectedNormalArchscry": true,
+              "sourceURL": "http://127.0.0.1:60222/archscry/"
+            }
+          }
+        },
+        "capturedRaw": "{\"version\":1,\"readingId\":\"vm678-generic-b\",\"fit\":\"ABZAN\",\"pathType\":\"commanders-that-fit\",\"threadId\":\"ancestor-obligation\",\"sourceContext\":{\"expectedNormalArchscry\":true,\"sourceURL\":\"http://127.0.0.1:60222/archscry/\"}}",
+        "captureSucceeded": true,
+        "deleteSucceeded": true,
+        "pendingValid": true,
+        "pending": null,
+        "pendingReadError": null,
+        "associationSource": "validated-pending",
+        "readingId": "vm678-generic-b",
+        "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+        "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+        "errors": [],
+        "opener": false,
+        "sharedReadingId": "vm678-generic-b",
+        "genericRows": [
+          {
+            "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "sourceContext": {
+              "readingId": "vm678-generic-a"
+            }
+          },
+          {
+            "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "sourceContext": {
+              "readingId": "vm678-generic-a"
+            }
+          }
+        ]
+      },
+      "genericPersistedRow": {
+        "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+        "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+        "sourceContext": {
+          "readingId": "vm678-generic-b"
+        }
+      },
+      "passed": true
+    },
+    "optional-thread-parent": {
+      "execution": "COMPLETED",
+      "destination": {
+        "url": "http://127.0.0.1:60222/maze/?from=archscry&fit=ABZAN&pathType=commanders-that-fit",
+        "documentToken": "generic-maze-document",
+        "documentTimeOrigin": 1791139225839.5,
+        "referrer": "http://127.0.0.1:60222/archscry/",
+        "historyLength": 3,
+        "historyState": {
+          "vm678Entry": {
+            "version": 1,
+            "readingId": "vm678-generic-parent-no-thread",
+            "fit": "ABZAN",
+            "pathType": "commanders-that-fit",
+            "sourceContext": {
+              "expectedNormalArchscry": true,
+              "sourceURL": "http://127.0.0.1:60222/archscry/"
+            }
+          }
+        },
+        "capturedRaw": "{\"version\":1,\"readingId\":\"vm678-generic-parent-no-thread\",\"fit\":\"ABZAN\",\"pathType\":\"commanders-that-fit\",\"sourceContext\":{\"expectedNormalArchscry\":true,\"sourceURL\":\"http://127.0.0.1:60222/archscry/\"}}",
+        "captureSucceeded": true,
+        "deleteSucceeded": true,
+        "pendingValid": true,
+        "pending": null,
+        "pendingReadError": null,
+        "associationSource": "validated-pending",
+        "readingId": "vm678-generic-parent-no-thread",
+        "query": "id=wbg is:commander f:commander",
+        "display": "Abzan Houses Commander-legal commanders with exactly white-black-green identity",
+        "errors": [],
+        "opener": false,
+        "sharedReadingId": "vm678-generic-b",
+        "genericRows": [
+          {
+            "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "sourceContext": {
+              "readingId": "vm678-generic-a"
+            }
+          },
+          {
+            "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "sourceContext": {
+              "readingId": "vm678-generic-a"
+            }
+          },
+          {
+            "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "sourceContext": {
+              "readingId": "vm678-generic-b"
+            }
+          }
+        ]
+      },
+      "passed": true
+    },
+    "direct-paste-a-url-after-canceled-a-same-tab": {
+      "execution": "COMPLETED",
+      "canceledA": {
+        "url": "http://127.0.0.1:60222/archscry/",
+        "documentToken": "generic-archscry-document",
+        "documentTimeOrigin": 1791139225930.5,
+        "renderedReadingId": "vm678-generic-a",
+        "historyLength": 2,
+        "historyState": null,
+        "pending": "{\"version\":1,\"readingId\":\"vm678-generic-a\",\"fit\":\"ABZAN\",\"pathType\":\"commanders-that-fit\",\"threadId\":\"ancestor-obligation\",\"sourceContext\":{\"expectedNormalArchscry\":true,\"sourceURL\":\"http://127.0.0.1:60222/archscry/\"}}",
+        "storageError": null,
+        "writerErrors": [],
+        "cleanupErrors": [],
+        "contextMenuCount": 0
+      },
+      "destination": {
+        "url": "http://127.0.0.1:60222/maze/?from=archscry&fit=ABZAN&pathType=commanders-that-fit&threadId=ancestor-obligation",
+        "documentToken": "generic-maze-document",
+        "documentTimeOrigin": 1791139225981.5,
+        "referrer": "",
+        "historyLength": 3,
+        "historyState": null,
+        "capturedRaw": "{\"version\":1,\"readingId\":\"vm678-generic-a\",\"fit\":\"ABZAN\",\"pathType\":\"commanders-that-fit\",\"threadId\":\"ancestor-obligation\",\"sourceContext\":{\"expectedNormalArchscry\":true,\"sourceURL\":\"http://127.0.0.1:60222/archscry/\"}}",
+        "captureSucceeded": true,
+        "deleteSucceeded": true,
+        "pendingValid": false,
+        "pending": null,
+        "pendingReadError": null,
+        "associationSource": "public-blank",
+        "readingId": "",
+        "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+        "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+        "errors": [],
+        "opener": false,
+        "sharedReadingId": "vm678-generic-b",
+        "genericRows": [
+          {
+            "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "sourceContext": {
+              "readingId": "vm678-generic-a"
+            }
+          },
+          {
+            "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "sourceContext": {
+              "readingId": "vm678-generic-a"
+            }
+          },
+          {
+            "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "sourceContext": {
+              "readingId": "vm678-generic-b"
+            }
+          }
+        ]
+      },
+      "expected": "public blank",
+      "passed": true
+    },
+    "native-ctrl-middle-shift-after-canceled-a": {
+      "execution": "COMPLETED",
+      "canceled": {
+        "url": "http://127.0.0.1:60222/archscry/",
+        "documentToken": "generic-archscry-document",
+        "documentTimeOrigin": 1791139226064.2,
+        "renderedReadingId": "vm678-generic-a",
+        "historyLength": 2,
+        "historyState": null,
+        "pending": "{\"version\":1,\"readingId\":\"vm678-generic-a\",\"fit\":\"ABZAN\",\"pathType\":\"commanders-that-fit\",\"threadId\":\"ancestor-obligation\",\"sourceContext\":{\"expectedNormalArchscry\":true,\"sourceURL\":\"http://127.0.0.1:60222/archscry/\"}}",
+        "storageError": null,
+        "writerErrors": [],
+        "cleanupErrors": [],
+        "contextMenuCount": 0
+      },
+      "ctrl": {
+        "destination": {
+          "url": "http://127.0.0.1:60222/maze/?from=archscry&fit=ABZAN&pathType=commanders-that-fit&threadId=ancestor-obligation",
+          "documentToken": "generic-maze-document",
+          "documentTimeOrigin": 1791139226121,
+          "referrer": "http://127.0.0.1:60222/archscry/",
+          "historyLength": 1,
+          "historyState": null,
+          "capturedRaw": null,
+          "captureSucceeded": true,
+          "deleteSucceeded": true,
+          "pendingValid": false,
+          "pending": null,
+          "pendingReadError": null,
+          "associationSource": "public-blank",
+          "readingId": "",
+          "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+          "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+          "errors": [],
+          "opener": false,
+          "sharedReadingId": "vm678-generic-b",
+          "genericRows": [
+            {
+              "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "sourceContext": {
+                "readingId": "vm678-generic-a"
+              }
+            },
+            {
+              "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "sourceContext": {
+                "readingId": "vm678-generic-a"
+              }
+            },
+            {
+              "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "sourceContext": {
+                "readingId": "vm678-generic-b"
+              }
+            }
+          ]
+        },
+        "source": {
+          "url": "http://127.0.0.1:60222/archscry/",
+          "documentToken": "generic-archscry-document",
+          "documentTimeOrigin": 1791139226064.2,
+          "renderedReadingId": "vm678-generic-a",
+          "historyLength": 2,
+          "historyState": null,
+          "pending": "{\"version\":1,\"readingId\":\"vm678-generic-a\",\"fit\":\"ABZAN\",\"pathType\":\"commanders-that-fit\",\"threadId\":\"ancestor-obligation\",\"sourceContext\":{\"expectedNormalArchscry\":true,\"sourceURL\":\"http://127.0.0.1:60222/archscry/\"}}",
+          "storageError": null,
+          "writerErrors": [],
+          "cleanupErrors": [],
+          "contextMenuCount": 0
+        }
+      },
+      "middle": {
+        "destination": {
+          "url": "http://127.0.0.1:60222/maze/?from=archscry&fit=ABZAN&pathType=flavor-echoes&threadId=story-vocabulary",
+          "documentToken": "generic-maze-document",
+          "documentTimeOrigin": 1791139226193.2,
+          "referrer": "http://127.0.0.1:60222/archscry/",
+          "historyLength": 1,
+          "historyState": null,
+          "capturedRaw": null,
+          "captureSucceeded": true,
+          "deleteSucceeded": true,
+          "pendingValid": false,
+          "pending": null,
+          "pendingReadError": null,
+          "associationSource": "public-blank",
+          "readingId": "",
+          "query": "id<=wbg f:commander (ft:Abzan OR ft:ancestor OR ft:family OR ft:endure)",
+          "display": "id<=wbg f:commander (ft:Abzan OR ft:ancestor OR ft:family OR ft:endure)",
+          "errors": [],
+          "opener": false,
+          "sharedReadingId": "vm678-generic-b",
+          "genericRows": [
+            {
+              "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "sourceContext": {
+                "readingId": "vm678-generic-a"
+              }
+            },
+            {
+              "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "sourceContext": {
+                "readingId": "vm678-generic-a"
+              }
+            },
+            {
+              "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "sourceContext": {
+                "readingId": "vm678-generic-b"
+              }
+            }
+          ]
+        },
+        "source": {
+          "url": "http://127.0.0.1:60222/archscry/",
+          "documentToken": "generic-archscry-document",
+          "documentTimeOrigin": 1791139226064.2,
+          "renderedReadingId": "vm678-generic-a",
+          "historyLength": 2,
+          "historyState": null,
+          "pending": "{\"version\":1,\"readingId\":\"vm678-generic-a\",\"fit\":\"ABZAN\",\"pathType\":\"commanders-that-fit\",\"threadId\":\"ancestor-obligation\",\"sourceContext\":{\"expectedNormalArchscry\":true,\"sourceURL\":\"http://127.0.0.1:60222/archscry/\"}}",
+          "storageError": null,
+          "writerErrors": [],
+          "cleanupErrors": [],
+          "contextMenuCount": 0
+        }
+      },
+      "shiftWindowGesture": {
+        "destination": {
+          "url": "http://127.0.0.1:60222/maze/?from=archscry&fit=ABZAN&pathType=commanders-that-fit&threadId=ancestor-obligation",
+          "documentToken": "generic-maze-document",
+          "documentTimeOrigin": 1791139226302.5,
+          "referrer": "http://127.0.0.1:60222/archscry/",
+          "historyLength": 1,
+          "historyState": null,
+          "capturedRaw": null,
+          "captureSucceeded": true,
+          "deleteSucceeded": true,
+          "pendingValid": false,
+          "pending": null,
+          "pendingReadError": null,
+          "associationSource": "public-blank",
+          "readingId": "",
+          "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+          "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+          "errors": [],
+          "opener": false,
+          "sharedReadingId": "vm678-generic-b",
+          "genericRows": [
+            {
+              "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "sourceContext": {
+                "readingId": "vm678-generic-a"
+              }
+            },
+            {
+              "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "sourceContext": {
+                "readingId": "vm678-generic-a"
+              }
+            },
+            {
+              "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "sourceContext": {
+                "readingId": "vm678-generic-b"
+              }
+            }
+          ]
+        },
+        "source": {
+          "url": "http://127.0.0.1:60222/archscry/",
+          "documentToken": "generic-archscry-document",
+          "documentTimeOrigin": 1791139226064.2,
+          "renderedReadingId": "vm678-generic-a",
+          "historyLength": 2,
+          "historyState": null,
+          "pending": "{\"version\":1,\"readingId\":\"vm678-generic-a\",\"fit\":\"ABZAN\",\"pathType\":\"commanders-that-fit\",\"threadId\":\"ancestor-obligation\",\"sourceContext\":{\"expectedNormalArchscry\":true,\"sourceURL\":\"http://127.0.0.1:60222/archscry/\"}}",
+          "storageError": null,
+          "writerErrors": [],
+          "cleanupErrors": [],
+          "contextMenuCount": 0
+        },
+        "classification": "native Shift gesture; not context-menu New Window"
+      },
+      "sourceChecks": {
+        "ctrl": true,
+        "middle": true,
+        "shift": true
+      },
+      "destinationChecks": {
+        "ctrl": true,
+        "middle": true,
+        "shiftWindowGesture": true
+      },
+      "distinctQueries": true,
+      "comparisonTabsKeptOpenDuringMeasurement": true
+    },
+    "meta-windows-native-semantics-after-canceled-a": {
+      "execution": "COMPLETED",
+      "platform": "win32",
+      "canceledA": {
+        "url": "http://127.0.0.1:60222/archscry/",
+        "documentToken": "generic-archscry-document",
+        "documentTimeOrigin": 1791139226471.5,
+        "renderedReadingId": "vm678-generic-a",
+        "historyLength": 2,
+        "historyState": null,
+        "pending": "{\"version\":1,\"readingId\":\"vm678-generic-a\",\"fit\":\"ABZAN\",\"pathType\":\"commanders-that-fit\",\"threadId\":\"ancestor-obligation\",\"sourceContext\":{\"expectedNormalArchscry\":true,\"sourceURL\":\"http://127.0.0.1:60222/archscry/\"}}",
+        "storageError": null,
+        "writerErrors": [],
+        "cleanupErrors": [],
+        "contextMenuCount": 0
+      },
+      "after": null,
+      "targetOutcome": "no-new-target",
+      "navigationOutcome": "same-tab-navigation",
+      "destination": {
+        "url": "http://127.0.0.1:60222/maze/?from=archscry&fit=ABZAN&pathType=commanders-that-fit&threadId=ancestor-obligation",
+        "documentToken": "generic-maze-document",
+        "documentTimeOrigin": 1791139226542.2,
+        "referrer": "http://127.0.0.1:60222/archscry/",
+        "historyLength": 3,
+        "historyState": {
+          "vm678Entry": {
+            "version": 1,
+            "readingId": "vm678-generic-a",
+            "fit": "ABZAN",
+            "pathType": "commanders-that-fit",
+            "threadId": "ancestor-obligation",
+            "sourceContext": {
+              "expectedNormalArchscry": true,
+              "sourceURL": "http://127.0.0.1:60222/archscry/"
+            }
+          }
+        },
+        "capturedRaw": "{\"version\":1,\"readingId\":\"vm678-generic-a\",\"fit\":\"ABZAN\",\"pathType\":\"commanders-that-fit\",\"threadId\":\"ancestor-obligation\",\"sourceContext\":{\"expectedNormalArchscry\":true,\"sourceURL\":\"http://127.0.0.1:60222/archscry/\"}}",
+        "captureSucceeded": true,
+        "deleteSucceeded": true,
+        "pendingValid": true,
+        "pending": null,
+        "pendingReadError": null,
+        "associationSource": "validated-pending",
+        "readingId": "vm678-generic-a",
+        "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+        "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+        "errors": [],
+        "opener": false,
+        "sharedReadingId": "vm678-generic-b",
+        "genericRows": [
+          {
+            "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "sourceContext": {
+              "readingId": "vm678-generic-a"
+            }
+          },
+          {
+            "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "sourceContext": {
+              "readingId": "vm678-generic-a"
+            }
+          },
+          {
+            "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "sourceContext": {
+              "readingId": "vm678-generic-b"
+            }
+          }
+        ]
+      },
+      "classification": "Meta navigated same tab",
+      "macOSCmdNewTabProof": "UNAVAILABLE: this is Windows Meta behavior only"
+    },
+    "context-menu-new-tab-and-new-window-after-canceled-a": {
+      "execution": "COMPLETED",
+      "boundedAttempt": "actual right-click on unmodified anchor after canceled pending A",
+      "canceledA": {
+        "url": "http://127.0.0.1:60222/archscry/",
+        "documentToken": "generic-archscry-document",
+        "documentTimeOrigin": 1791139229089.5,
+        "renderedReadingId": "vm678-generic-a",
+        "historyLength": 2,
+        "historyState": null,
+        "pending": "{\"version\":1,\"readingId\":\"vm678-generic-a\",\"fit\":\"ABZAN\",\"pathType\":\"commanders-that-fit\",\"threadId\":\"ancestor-obligation\",\"sourceContext\":{\"expectedNormalArchscry\":true,\"sourceURL\":\"http://127.0.0.1:60222/archscry/\"}}",
+        "storageError": null,
+        "writerErrors": [],
+        "cleanupErrors": [],
+        "contextMenuCount": 0
+      },
+      "afterRightClick": {
+        "url": "http://127.0.0.1:60222/archscry/",
+        "documentToken": "generic-archscry-document",
+        "documentTimeOrigin": 1791139229089.5,
+        "renderedReadingId": "vm678-generic-a",
+        "historyLength": 2,
+        "historyState": null,
+        "pending": "{\"version\":1,\"readingId\":\"vm678-generic-a\",\"fit\":\"ABZAN\",\"pathType\":\"commanders-that-fit\",\"threadId\":\"ancestor-obligation\",\"sourceContext\":{\"expectedNormalArchscry\":true,\"sourceURL\":\"http://127.0.0.1:60222/archscry/\"}}",
+        "storageError": null,
+        "writerErrors": [],
+        "cleanupErrors": [],
+        "contextMenuCount": 1
+      },
+      "rightClickReachedPage": true,
+      "targetObservation": "no-target-from-right-click",
+      "sourceUnchanged": true,
+      "newTab": "UNAVAILABLE",
+      "newWindow": "UNAVAILABLE",
+      "substitutionsUsed": [],
+      "note": "No Target.createTarget, newPage, window.open, target change, or Shift substitution"
+    },
+    "invalid-pending-matrix": {
+      "execution": "COMPLETED",
+      "observations": {
+        "malformedJson": {
+          "url": "http://127.0.0.1:60222/maze/?from=archscry&fit=ABZAN&pathType=commanders-that-fit&threadId=ancestor-obligation",
+          "documentToken": "generic-maze-document",
+          "documentTimeOrigin": 1791139230714.4,
+          "referrer": "http://127.0.0.1:60222/archscry/",
+          "historyLength": 3,
+          "historyState": null,
+          "capturedRaw": "{",
+          "captureSucceeded": true,
+          "deleteSucceeded": true,
+          "pendingValid": false,
+          "pending": null,
+          "pendingReadError": null,
+          "associationSource": "public-blank",
+          "readingId": "",
+          "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+          "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+          "errors": [
+            {
+              "phase": "parse",
+              "error": "SyntaxError: Expected property name or '}' in JSON at position 1 (line 1 column 2)"
+            }
+          ],
+          "opener": false,
+          "sharedReadingId": "vm678-generic-b",
+          "genericRows": [
+            {
+              "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "sourceContext": {
+                "readingId": "vm678-generic-a"
+              }
+            },
+            {
+              "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "sourceContext": {
+                "readingId": "vm678-generic-a"
+              }
+            },
+            {
+              "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "sourceContext": {
+                "readingId": "vm678-generic-b"
+              }
+            }
+          ]
+        },
+        "wrongVersion": {
+          "url": "http://127.0.0.1:60222/maze/?from=archscry&fit=ABZAN&pathType=commanders-that-fit&threadId=ancestor-obligation",
+          "documentToken": "generic-maze-document",
+          "documentTimeOrigin": 1791139230826.9,
+          "referrer": "http://127.0.0.1:60222/archscry/",
+          "historyLength": 3,
+          "historyState": null,
+          "capturedRaw": "{\"version\":2,\"fit\":\"ABZAN\",\"pathType\":\"commanders-that-fit\",\"threadId\":\"ancestor-obligation\",\"query\":\"id=wbg is:commander f:commander (o:return o:graveyard)\",\"display\":\"id=wbg is:commander f:commander (o:return o:graveyard)\",\"readingId\":\"vm678-generic-a\",\"sourceContext\":{\"expectedNormalArchscry\":true,\"sourceURL\":\"http://127.0.0.1:60222/archscry/\"}}",
+          "captureSucceeded": true,
+          "deleteSucceeded": true,
+          "pendingValid": false,
+          "pending": null,
+          "pendingReadError": null,
+          "associationSource": "public-blank",
+          "readingId": "",
+          "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+          "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+          "errors": [],
+          "opener": false,
+          "sharedReadingId": "vm678-generic-b",
+          "genericRows": [
+            {
+              "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "sourceContext": {
+                "readingId": "vm678-generic-a"
+              }
+            },
+            {
+              "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "sourceContext": {
+                "readingId": "vm678-generic-a"
+              }
+            },
+            {
+              "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "sourceContext": {
+                "readingId": "vm678-generic-b"
+              }
+            }
+          ]
+        },
+        "emptyReadingId": {
+          "url": "http://127.0.0.1:60222/maze/?from=archscry&fit=ABZAN&pathType=commanders-that-fit&threadId=ancestor-obligation",
+          "documentToken": "generic-maze-document",
+          "documentTimeOrigin": 1791139230940.1,
+          "referrer": "http://127.0.0.1:60222/archscry/",
+          "historyLength": 3,
+          "historyState": null,
+          "capturedRaw": "{\"version\":1,\"fit\":\"ABZAN\",\"pathType\":\"commanders-that-fit\",\"threadId\":\"ancestor-obligation\",\"query\":\"id=wbg is:commander f:commander (o:return o:graveyard)\",\"display\":\"id=wbg is:commander f:commander (o:return o:graveyard)\",\"readingId\":\"\",\"sourceContext\":{\"expectedNormalArchscry\":true,\"sourceURL\":\"http://127.0.0.1:60222/archscry/\"}}",
+          "captureSucceeded": true,
+          "deleteSucceeded": true,
+          "pendingValid": false,
+          "pending": null,
+          "pendingReadError": null,
+          "associationSource": "public-blank",
+          "readingId": "",
+          "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+          "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+          "errors": [],
+          "opener": false,
+          "sharedReadingId": "vm678-generic-b",
+          "genericRows": [
+            {
+              "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "sourceContext": {
+                "readingId": "vm678-generic-a"
+              }
+            },
+            {
+              "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "sourceContext": {
+                "readingId": "vm678-generic-a"
+              }
+            },
+            {
+              "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "sourceContext": {
+                "readingId": "vm678-generic-b"
+              }
+            }
+          ]
+        },
+        "wrongSourceURL": {
+          "url": "http://127.0.0.1:60222/maze/?from=archscry&fit=ABZAN&pathType=commanders-that-fit&threadId=ancestor-obligation",
+          "documentToken": "generic-maze-document",
+          "documentTimeOrigin": 1791139231050.2,
+          "referrer": "http://127.0.0.1:60222/archscry/",
+          "historyLength": 3,
+          "historyState": null,
+          "capturedRaw": "{\"version\":1,\"fit\":\"ABZAN\",\"pathType\":\"commanders-that-fit\",\"threadId\":\"ancestor-obligation\",\"query\":\"id=wbg is:commander f:commander (o:return o:graveyard)\",\"display\":\"id=wbg is:commander f:commander (o:return o:graveyard)\",\"readingId\":\"vm678-generic-a\",\"sourceContext\":{\"expectedNormalArchscry\":true,\"sourceURL\":\"http://127.0.0.1:60222/archscry/?other=1\"}}",
+          "captureSucceeded": true,
+          "deleteSucceeded": true,
+          "pendingValid": false,
+          "pending": null,
+          "pendingReadError": null,
+          "associationSource": "public-blank",
+          "readingId": "",
+          "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+          "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+          "errors": [],
+          "opener": false,
+          "sharedReadingId": "vm678-generic-b",
+          "genericRows": [
+            {
+              "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "sourceContext": {
+                "readingId": "vm678-generic-a"
+              }
+            },
+            {
+              "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "sourceContext": {
+                "readingId": "vm678-generic-a"
+              }
+            },
+            {
+              "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "sourceContext": {
+                "readingId": "vm678-generic-b"
+              }
+            }
+          ]
+        },
+        "abnormalContext": {
+          "url": "http://127.0.0.1:60222/maze/?from=archscry&fit=ABZAN&pathType=commanders-that-fit&threadId=ancestor-obligation",
+          "documentToken": "generic-maze-document",
+          "documentTimeOrigin": 1791139231163.4,
+          "referrer": "http://127.0.0.1:60222/archscry/",
+          "historyLength": 3,
+          "historyState": null,
+          "capturedRaw": "{\"version\":1,\"fit\":\"ABZAN\",\"pathType\":\"commanders-that-fit\",\"threadId\":\"ancestor-obligation\",\"query\":\"id=wbg is:commander f:commander (o:return o:graveyard)\",\"display\":\"id=wbg is:commander f:commander (o:return o:graveyard)\",\"readingId\":\"vm678-generic-a\",\"sourceContext\":{\"expectedNormalArchscry\":false,\"sourceURL\":\"http://127.0.0.1:60222/archscry/\"}}",
+          "captureSucceeded": true,
+          "deleteSucceeded": true,
+          "pendingValid": false,
+          "pending": null,
+          "pendingReadError": null,
+          "associationSource": "public-blank",
+          "readingId": "",
+          "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+          "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+          "errors": [],
+          "opener": false,
+          "sharedReadingId": "vm678-generic-b",
+          "genericRows": [
+            {
+              "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "sourceContext": {
+                "readingId": "vm678-generic-a"
+              }
+            },
+            {
+              "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "sourceContext": {
+                "readingId": "vm678-generic-a"
+              }
+            },
+            {
+              "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "sourceContext": {
+                "readingId": "vm678-generic-b"
+              }
+            }
+          ]
+        },
+        "duplicateSelector": {
+          "url": "http://127.0.0.1:60222/maze/?from=archscry&fit=ABZAN&pathType=commanders-that-fit&threadId=ancestor-obligation&fit=RG",
+          "documentToken": "generic-maze-document",
+          "documentTimeOrigin": 1791139231269.4,
+          "referrer": "http://127.0.0.1:60222/archscry/",
+          "historyLength": 3,
+          "historyState": null,
+          "capturedRaw": "{\"version\":1,\"readingId\":\"vm678-generic-a\",\"fit\":\"ABZAN\",\"pathType\":\"commanders-that-fit\",\"threadId\":\"ancestor-obligation\",\"sourceContext\":{\"expectedNormalArchscry\":true,\"sourceURL\":\"http://127.0.0.1:60222/archscry/\"}}",
+          "captureSucceeded": true,
+          "deleteSucceeded": true,
+          "pendingValid": false,
+          "pending": null,
+          "pendingReadError": null,
+          "associationSource": "public-blank",
+          "readingId": "",
+          "query": "",
+          "display": "",
+          "errors": [],
+          "opener": false,
+          "sharedReadingId": "vm678-generic-b",
+          "genericRows": [
+            {
+              "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "sourceContext": {
+                "readingId": "vm678-generic-a"
+              }
+            },
+            {
+              "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "sourceContext": {
+                "readingId": "vm678-generic-a"
+              }
+            },
+            {
+              "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "sourceContext": {
+                "readingId": "vm678-generic-b"
+              }
+            }
+          ]
+        },
+        "catalogInvalid": {
+          "url": "http://127.0.0.1:60222/maze/?from=archscry&fit=ABZAN&pathType=commanders-that-fit&threadId=not-in-catalog",
+          "documentToken": "generic-maze-document",
+          "documentTimeOrigin": 1791139231383,
+          "referrer": "http://127.0.0.1:60222/archscry/",
+          "historyLength": 3,
+          "historyState": null,
+          "capturedRaw": "{\"version\":1,\"readingId\":\"vm678-generic-a\",\"fit\":\"ABZAN\",\"pathType\":\"commanders-that-fit\",\"threadId\":\"not-in-catalog\",\"sourceContext\":{\"expectedNormalArchscry\":true,\"sourceURL\":\"http://127.0.0.1:60222/archscry/\"}}",
+          "captureSucceeded": true,
+          "deleteSucceeded": true,
+          "pendingValid": false,
+          "pending": null,
+          "pendingReadError": null,
+          "associationSource": "public-blank",
+          "readingId": "",
+          "query": "",
+          "display": "",
+          "errors": [],
+          "opener": false,
+          "sharedReadingId": "vm678-generic-b",
+          "genericRows": [
+            {
+              "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "sourceContext": {
+                "readingId": "vm678-generic-a"
+              }
+            },
+            {
+              "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "sourceContext": {
+                "readingId": "vm678-generic-a"
+              }
+            },
+            {
+              "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "sourceContext": {
+                "readingId": "vm678-generic-b"
+              }
+            }
+          ]
+        }
+      },
+      "allPublicBlank": true
+    },
+    "storage-failure-matrix": {
+      "execution": "COMPLETED",
+      "observations": {
+        "source-getter": {
+          "errors": [
+            "DOMException: SecurityError: source getter unavailable"
+          ],
+          "destination": {
+            "url": "http://127.0.0.1:60222/maze/?from=archscry&fit=ABZAN&pathType=commanders-that-fit&threadId=ancestor-obligation",
+            "documentToken": "generic-maze-document",
+            "documentTimeOrigin": 1791139231508.3,
+            "referrer": "http://127.0.0.1:60222/archscry/",
+            "historyLength": 3,
+            "historyState": null,
+            "capturedRaw": null,
+            "captureSucceeded": true,
+            "deleteSucceeded": true,
+            "pendingValid": false,
+            "pending": null,
+            "pendingReadError": null,
+            "associationSource": "public-blank",
+            "readingId": "",
+            "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "errors": [],
+            "opener": false,
+            "sharedReadingId": "vm678-generic-b",
+            "genericRows": [
+              {
+                "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+                "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+                "sourceContext": {
+                  "readingId": "vm678-generic-a"
+                }
+              },
+              {
+                "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+                "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+                "sourceContext": {
+                  "readingId": "vm678-generic-a"
+                }
+              },
+              {
+                "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+                "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+                "sourceContext": {
+                  "readingId": "vm678-generic-b"
+                }
+              }
+            ]
+          },
+          "blank": true,
+          "nativeNavigationUsable": true
+        },
+        "source-setItem": {
+          "errors": [
+            "DOMException: QuotaExceededError: source setItem unavailable"
+          ],
+          "destination": {
+            "url": "http://127.0.0.1:60222/maze/?from=archscry&fit=ABZAN&pathType=commanders-that-fit&threadId=ancestor-obligation",
+            "documentToken": "generic-maze-document",
+            "documentTimeOrigin": 1791139231618.2,
+            "referrer": "http://127.0.0.1:60222/archscry/",
+            "historyLength": 3,
+            "historyState": null,
+            "capturedRaw": null,
+            "captureSucceeded": true,
+            "deleteSucceeded": true,
+            "pendingValid": false,
+            "pending": null,
+            "pendingReadError": null,
+            "associationSource": "public-blank",
+            "readingId": "",
+            "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "errors": [],
+            "opener": false,
+            "sharedReadingId": "vm678-generic-b",
+            "genericRows": [
+              {
+                "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+                "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+                "sourceContext": {
+                  "readingId": "vm678-generic-a"
+                }
+              },
+              {
+                "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+                "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+                "sourceContext": {
+                  "readingId": "vm678-generic-a"
+                }
+              },
+              {
+                "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+                "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+                "sourceContext": {
+                  "readingId": "vm678-generic-b"
+                }
+              }
+            ]
+          },
+          "blank": true,
+          "nativeNavigationUsable": true
+        },
+        "destination-getter": {
+          "destination": {
+            "url": "http://127.0.0.1:60222/maze/?from=archscry&fit=ABZAN&pathType=commanders-that-fit&threadId=ancestor-obligation&storageFault=getter",
+            "documentToken": "generic-maze-document",
+            "documentTimeOrigin": 1791139231730.4,
+            "referrer": "http://127.0.0.1:60222/archscry/",
+            "historyLength": 3,
+            "historyState": null,
+            "capturedRaw": null,
+            "captureSucceeded": false,
+            "deleteSucceeded": false,
+            "pendingValid": false,
+            "pending": null,
+            "pendingReadError": "SecurityError: destination getter unavailable",
+            "associationSource": "public-blank",
+            "readingId": "",
+            "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "errors": [
+              {
+                "phase": "capture",
+                "error": "SecurityError: destination getter unavailable"
+              }
+            ],
+            "opener": false,
+            "sharedReadingId": "vm678-generic-b",
+            "genericRows": [
+              {
+                "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+                "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+                "sourceContext": {
+                  "readingId": "vm678-generic-a"
+                }
+              },
+              {
+                "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+                "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+                "sourceContext": {
+                  "readingId": "vm678-generic-a"
+                }
+              },
+              {
+                "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+                "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+                "sourceContext": {
+                  "readingId": "vm678-generic-b"
+                }
+              }
+            ]
+          },
+          "blank": true,
+          "nativeNavigationUsable": true
+        },
+        "destination-getItem": {
+          "destination": {
+            "url": "http://127.0.0.1:60222/maze/?from=archscry&fit=ABZAN&pathType=commanders-that-fit&threadId=ancestor-obligation&storageFault=getItem",
+            "documentToken": "generic-maze-document",
+            "documentTimeOrigin": 1791139231837.8,
+            "referrer": "http://127.0.0.1:60222/archscry/",
+            "historyLength": 3,
+            "historyState": null,
+            "capturedRaw": null,
+            "captureSucceeded": false,
+            "deleteSucceeded": true,
+            "pendingValid": false,
+            "pending": null,
+            "pendingReadError": "SecurityError: destination getItem unavailable",
+            "associationSource": "public-blank",
+            "readingId": "",
+            "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "errors": [
+              {
+                "phase": "capture",
+                "error": "SecurityError: destination getItem unavailable"
+              }
+            ],
+            "opener": false,
+            "sharedReadingId": "vm678-generic-b",
+            "genericRows": [
+              {
+                "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+                "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+                "sourceContext": {
+                  "readingId": "vm678-generic-a"
+                }
+              },
+              {
+                "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+                "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+                "sourceContext": {
+                  "readingId": "vm678-generic-a"
+                }
+              },
+              {
+                "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+                "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+                "sourceContext": {
+                  "readingId": "vm678-generic-b"
+                }
+              }
+            ]
+          },
+          "blank": true,
+          "nativeNavigationUsable": true
+        },
+        "destination-removeItem": {
+          "destination": {
+            "url": "http://127.0.0.1:60222/maze/?from=archscry&fit=ABZAN&pathType=commanders-that-fit&threadId=ancestor-obligation&storageFault=removeItem",
+            "documentToken": "generic-maze-document",
+            "documentTimeOrigin": 1791139231948.5,
+            "referrer": "http://127.0.0.1:60222/archscry/",
+            "historyLength": 3,
+            "historyState": null,
+            "capturedRaw": "{\"version\":1,\"readingId\":\"vm678-generic-a\",\"fit\":\"ABZAN\",\"pathType\":\"commanders-that-fit\",\"threadId\":\"ancestor-obligation\",\"sourceContext\":{\"expectedNormalArchscry\":true,\"sourceURL\":\"http://127.0.0.1:60222/archscry/\"}}",
+            "captureSucceeded": true,
+            "deleteSucceeded": false,
+            "pendingValid": true,
+            "pending": "{\"version\":1,\"readingId\":\"vm678-generic-a\",\"fit\":\"ABZAN\",\"pathType\":\"commanders-that-fit\",\"threadId\":\"ancestor-obligation\",\"sourceContext\":{\"expectedNormalArchscry\":true,\"sourceURL\":\"http://127.0.0.1:60222/archscry/\"}}",
+            "pendingReadError": null,
+            "associationSource": "public-blank",
+            "readingId": "",
+            "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "errors": [
+              {
+                "phase": "delete",
+                "error": "SecurityError: destination removeItem unavailable"
+              }
+            ],
+            "opener": false,
+            "sharedReadingId": "vm678-generic-b",
+            "genericRows": [
+              {
+                "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+                "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+                "sourceContext": {
+                  "readingId": "vm678-generic-a"
+                }
+              },
+              {
+                "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+                "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+                "sourceContext": {
+                  "readingId": "vm678-generic-a"
+                }
+              },
+              {
+                "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+                "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+                "sourceContext": {
+                  "readingId": "vm678-generic-b"
+                }
+              }
+            ]
+          },
+          "blank": true,
+          "nativeNavigationUsable": true
+        }
+      },
+      "allUsableAndBlank": true
+    }
+  },
+  "failures": [
+    {
+      "name": "decisive-stale-a-source-storage-unavailable-same-url-same-tuple-b",
+      "message": "source B native launch consumed stale A and persisted generic wrong-A row",
+      "details": {
+        "afterFind": {
+          "url": "http://127.0.0.1:60222/maze/?from=archscry&fit=ABZAN&pathType=commanders-that-fit&threadId=ancestor-obligation",
+          "documentToken": "generic-maze-document",
+          "documentTimeOrigin": 1791139224415.2,
+          "referrer": "http://127.0.0.1:60222/archscry/",
+          "historyLength": 3,
+          "historyState": {
+            "vm678Entry": {
+              "version": 1,
+              "readingId": "vm678-generic-a",
+              "fit": "ABZAN",
+              "pathType": "commanders-that-fit",
+              "threadId": "ancestor-obligation",
+              "sourceContext": {
+                "expectedNormalArchscry": true,
+                "sourceURL": "http://127.0.0.1:60222/archscry/"
+              }
+            }
+          },
+          "capturedRaw": "{\"version\":1,\"readingId\":\"vm678-generic-a\",\"fit\":\"ABZAN\",\"pathType\":\"commanders-that-fit\",\"threadId\":\"ancestor-obligation\",\"sourceContext\":{\"expectedNormalArchscry\":true,\"sourceURL\":\"http://127.0.0.1:60222/archscry/\"}}",
+          "captureSucceeded": true,
+          "deleteSucceeded": true,
+          "pendingValid": true,
+          "pending": null,
+          "pendingReadError": null,
+          "associationSource": "validated-pending",
+          "readingId": "vm678-generic-a",
+          "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+          "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+          "errors": [],
+          "opener": false,
+          "sharedReadingId": "",
+          "genericRows": [
+            {
+              "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+              "sourceContext": {
+                "readingId": "vm678-generic-a"
+              }
+            }
+          ]
+        },
+        "row": {
+          "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+          "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+          "sourceContext": {
+            "readingId": "vm678-generic-a"
+          }
+        }
+      }
+    },
+    {
+      "name": "meta-windows-native-semantics-after-canceled-a",
+      "message": "Meta destination consumed stale pending A",
+      "details": {
+        "url": "http://127.0.0.1:60222/maze/?from=archscry&fit=ABZAN&pathType=commanders-that-fit&threadId=ancestor-obligation",
+        "documentToken": "generic-maze-document",
+        "documentTimeOrigin": 1791139226542.2,
+        "referrer": "http://127.0.0.1:60222/archscry/",
+        "historyLength": 3,
+        "historyState": {
+          "vm678Entry": {
+            "version": 1,
+            "readingId": "vm678-generic-a",
+            "fit": "ABZAN",
+            "pathType": "commanders-that-fit",
+            "threadId": "ancestor-obligation",
+            "sourceContext": {
+              "expectedNormalArchscry": true,
+              "sourceURL": "http://127.0.0.1:60222/archscry/"
+            }
+          }
+        },
+        "capturedRaw": "{\"version\":1,\"readingId\":\"vm678-generic-a\",\"fit\":\"ABZAN\",\"pathType\":\"commanders-that-fit\",\"threadId\":\"ancestor-obligation\",\"sourceContext\":{\"expectedNormalArchscry\":true,\"sourceURL\":\"http://127.0.0.1:60222/archscry/\"}}",
+        "captureSucceeded": true,
+        "deleteSucceeded": true,
+        "pendingValid": true,
+        "pending": null,
+        "pendingReadError": null,
+        "associationSource": "validated-pending",
+        "readingId": "vm678-generic-a",
+        "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+        "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+        "errors": [],
+        "opener": false,
+        "sharedReadingId": "vm678-generic-b",
+        "genericRows": [
+          {
+            "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "sourceContext": {
+              "readingId": "vm678-generic-a"
+            }
+          },
+          {
+            "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "sourceContext": {
+              "readingId": "vm678-generic-a"
+            }
+          },
+          {
+            "query": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "display": "id=wbg is:commander f:commander (o:return o:graveyard)",
+            "sourceContext": {
+              "readingId": "vm678-generic-b"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "unavailable": [
+    {
+      "capability": "context-menu New Tab",
+      "status": "UNAVAILABLE",
+      "reason": "headless Edge exposed actual right-click but Puppeteer cannot select browser-chrome context-menu commands"
+    },
+    {
+      "capability": "context-menu New Window",
+      "status": "UNAVAILABLE",
+      "reason": "headless Edge exposed actual right-click but Puppeteer cannot select browser-chrome context-menu commands"
+    }
+  ],
+  "viable": false,
+  "status": "STOP_FAILED",
+  "decisiveFinding": "FAIL: same URL, tuple, normal context, and full referrer cannot distinguish stale A from actual B activation",
+  "recommendation": "STOP: do not adopt this sessionStorage launch mechanism; association safety is disproved or required evidence failed."
+}

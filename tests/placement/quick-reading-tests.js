@@ -2749,10 +2749,32 @@ assert.ok(duneMazePaths.every((path) => !/\bid(?:<)?=wbrg\b/i.test(path.operator
     url: `/maze/?q=${encodeURIComponent(query)}`,
   }], context, "http://localhost");
   const url = new URL(link.url, "http://localhost/archscry/index.html");
-  assert.equal(url.searchParams.get("guild"), key);
-  assert.equal(url.searchParams.get("fit"), key);
-  assert.equal(url.searchParams.get("factionName"), label);
-  assert.equal(url.searchParams.get("sourceFaction"), source);
+  const readingId = `reading-archscry-${source.toLowerCase()}-64`;
+  assert.equal(link.operatorQuery, query);
+  assert.equal(link.plainReadingQuery, `Commanders that fit this reading from ${label}`);
+  assert.deepEqual(
+    [...url.searchParams.entries()],
+    [
+      ["from", "archscry"],
+      ["fit", key],
+      ["pathType", "commanders-that-fit-this-reading"],
+      ["readingId", readingId],
+    ]
+  );
+  [
+    "guild",
+    "factionName",
+    "sourceFaction",
+    "q",
+    "operatorQuery",
+    "plainReadingQuery",
+    "readingTitle",
+    "vm547Runtime",
+    "vm547Catalog",
+    "vm547Profile",
+    "returnUrl",
+    "mazeReturnUrl",
+  ].forEach((name) => assert.equal(url.searchParams.has(name), false));
 
   const sameSourceContext = buildArchscryMazeContext({
     result: { faction: key, confidence: 0.64 },
@@ -2770,10 +2792,32 @@ assert.ok(duneMazePaths.every((path) => !/\bid(?:<)?=wbrg\b/i.test(path.operator
     url: `/maze/?q=${encodeURIComponent(query)}`,
   }], sameSourceContext, "http://localhost");
   const sameSourceUrl = new URL(sameSourceLink.url, "http://localhost/archscry/index.html");
-  assert.equal(sameSourceUrl.searchParams.get("guild"), key);
-  assert.equal(sameSourceUrl.searchParams.get("fit"), key);
-  assert.equal(sameSourceUrl.searchParams.get("factionName"), label);
-  assert.equal(sameSourceUrl.searchParams.has("sourceFaction"), false);
+  const sameSourceReadingId = `reading-archscry-${key.toLowerCase()}-64`;
+  assert.equal(sameSourceLink.operatorQuery, query);
+  assert.equal(sameSourceLink.plainReadingQuery, `Commanders that fit this reading from ${label}`);
+  assert.deepEqual(
+    [...sameSourceUrl.searchParams.entries()],
+    [
+      ["from", "archscry"],
+      ["fit", key],
+      ["pathType", "commanders-that-fit-this-reading"],
+      ["readingId", sameSourceReadingId],
+    ]
+  );
+  [
+    "guild",
+    "factionName",
+    "sourceFaction",
+    "q",
+    "operatorQuery",
+    "plainReadingQuery",
+    "readingTitle",
+    "vm547Runtime",
+    "vm547Catalog",
+    "vm547Profile",
+    "returnUrl",
+    "mazeReturnUrl",
+  ].forEach((name) => assert.equal(sameSourceUrl.searchParams.has(name), false));
 });
 
 });

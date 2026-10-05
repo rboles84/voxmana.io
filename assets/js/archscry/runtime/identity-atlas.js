@@ -30,9 +30,12 @@ export function resolveIdentityExploreRequest(search, entries = []) {
   if (requestedSlug === "atlas") {
     return { type: "atlas", requestedSlug, invalidSlug: "", entry: null };
   }
-  const entry = resolveIdentityDirectorySlug(entries, requestedSlug);
+  const entry = resolveIdentityDirectorySlug(entries, requestedSlug)
+    || (requestedSlug
+      ? entries.find((candidate) => String(candidate?.key || "").trim().toLowerCase() === requestedSlug) || null
+      : null);
   if (entry) {
-    return { type: "identity", requestedSlug, invalidSlug: "", entry };
+    return { type: "identity", requestedSlug: entry.slug, invalidSlug: "", entry };
   }
   return { type: "atlas", requestedSlug, invalidSlug: requestedSlug || "(empty)", entry: null };
 }

@@ -1310,11 +1310,11 @@ function normalizeUrlBase(base = "http://localhost") {
   return /^https?:\/\/[^/]+$/i.test(base) ? `${base}/` : base;
 }
 
-function appendUrlParams(url, params, origin = "http://localhost") {
+function buildFreshMazeUrl(params, origin = "http://localhost") {
   const base = normalizeUrlBase(
     typeof window !== "undefined" ? window.location.href : origin
   );
-  const parsed = new URL(url, base);
+  const parsed = new URL("../maze/index.html", base);
   Object.entries(params).forEach(([key, value]) => {
     if (value !== null && value !== undefined && value !== "") {
       parsed.searchParams.set(key, value);
@@ -1368,30 +1368,28 @@ export function withArchscryMazeContext(links = [], context, origin = "http://lo
       factionName: context.factionName,
       pathLabel: MAZE_PATH_LABELS[pathType] || "Maze path",
     });
+    const contextMode = String(context.contextMode || "").trim();
+    const launchParams = {
+      from: "archscry",
+      fit: context.fit,
+      pathType,
+    };
+    if (contextMode === "identity-explore") {
+      launchParams.contextMode = contextMode;
+      launchParams.exploreIdentity = context.exploreIdentity;
+    } else if (contextMode === "dossier-review") {
+      launchParams.contextMode = contextMode;
+      launchParams.reviewIdentity = context.reviewIdentity;
+      launchParams.readingId = context.readingId;
+    } else {
+      launchParams.readingId = context.readingId;
+    }
     return {
       ...link,
       pathType,
       plainReadingQuery,
       operatorQuery,
-      url: appendUrlParams(mazeUrl, {
-        from: "archscry",
-        readingId: context.readingId,
-        guild: context.guild,
-        sourceFaction: context.sourceFaction,
-        fit: context.fit,
-        factionName: context.factionName,
-        readingTitle: context.readingTitle,
-        contextMode: context.contextMode,
-        reviewIdentity: context.reviewIdentity,
-        exploreIdentity: context.exploreIdentity,
-        pathType,
-        plainReadingQuery,
-        operatorQuery,
-        vm547Runtime: link.vm547RuntimeRevision,
-        vm547Catalog: link.vm547CatalogFingerprint,
-        vm547Profile: link.profileKey,
-        returnUrl: context.returnUrl,
-      }, origin),
+      url: buildFreshMazeUrl(launchParams, origin),
     };
   });
 }

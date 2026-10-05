@@ -1,4 +1,4 @@
-<!-- task-view-sha256:aaf05b303e723ec5cb5bc7c7c6e67f71ba47279b3cdf36ce0ccd8a18db165fcd -->
+<!-- task-view-sha256:a3f03bfc93a809f705a5c1e0fee92046f517e426f6f8baee47aed1edd0920dc0 -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -28,6 +28,7 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | VM-628 | [Archscry Portable Reading Recovery](backlog/VM-628-archscry-portable-reading-recovery.md) | Backlog |  |
 | VM-629 | [Placement Language Repetition Reduction](backlog/VM-629-placement-language-repetition-reduction.md) | Backlog |  |
 | VM-630 | [CRIT-001 Live Provenance Pointer Normalization](backlog/VM-630-crit001-live-provenance-pointer-normalization.md) | Backlog |  |
+| VM-679 | [Remove project-task-derived identifiers from runtime/public Reading provenance](backlog/VM-679-product-reading-identifiers.md) | Backlog |  |
 
 ## Ready
 
@@ -49,6 +50,7 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | ID | Card | Declared status | Diagnostics |
 |---|---|---|---|
 | VM-661 | [Maze Modernization Implementation Specification](in-progress/VM-661-maze-modernization-spec.md) | Accepted |  |
+| VM-678 | [URL and Security Reconnaissance](in-progress/VM-678-url-security-recon.md) | Accepted |  |
 
 ## Integrated
 

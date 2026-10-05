@@ -82,6 +82,8 @@
     "test:vm619-guided-reading": "node scripts/vm619-guide-walkthrough-tests.mjs",
     "test:vm619-guided-reading-browser": "node scripts/vm619-guide-walkthrough-browser.mjs",
     "test:vm674-azorius-repeat-search": "node scripts/vm674-archscry-azorius-repeat-search-browser.mjs",
+    "test:vm678-url-parity": "node scripts/vm678-url-parity-baseline.mjs --check=tests/fixtures/vm678-url-parity-baseline.json",
+    "test:vm678-navigation-baseline": "node scripts/vm678-archscry-maze-navigation-browser.mjs --check=tests/fixtures/vm678-navigation-baseline.json",
     "test:vm620-guide-beacon": "node scripts/vm620-guide-beacon-tests.mjs",
     "test:vm620-guide-beacon-browser": "node scripts/vm620-guide-beacon-browser.mjs",
     "test:vm621-guided-reading": "node scripts/vm621-guide-walkthrough-tests.mjs",

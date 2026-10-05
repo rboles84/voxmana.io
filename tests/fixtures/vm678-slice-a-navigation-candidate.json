@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "task": "VM-678",
+  "slice": "A-navigation",
+  "status": "FAILED_STOP",
+  "provenance": "Retrospective failed observation authored from the actual partial headless-browser assertions and tool output. It is not a complete automatic capture and does not claim unexecuted browser coverage.",
+  "execution": {
+    "engine": "Edge-or-Chrome via ChromeLauncher/Puppeteer",
+    "transport": "loopback fixture only",
+    "command": "node scripts/vm678-archscry-maze-navigation-browser.mjs --slice-a-candidate=tests/fixtures/vm678-slice-a-navigation-candidate.json",
+    "completed": false,
+    "stoppedAt": "slice-a-navigation-explore"
+  },
+  "sourceFingerprints": {
+    "recordingTimeRuntime": {
+      "assets/js/maze/research-init.js": "ad6e7155c574c10eaba2ed340ac7488dc07d29daefab4233d4e99aa077178a14"
+    },
+    "recordingTimeCandidateHarness": {
+      "scripts/vm678-archscry-maze-navigation-browser.mjs": "20ce0065bf6dfc2635aadfcbc5b2fd3797a2609692cd7a615ead8b4782f78b97"
+    }
+  },
+  "observations": [
+    {
+      "name": "normal",
+      "sourceUrl": "/archscry/?panel=maze-discovery#maze-discovery-paths",
+      "result": "PASS",
+      "returnHref": "/archscry/index.html?from=maze&view=WU#maze-discovery-paths",
+      "surfaces": ["maze-reading-context-return", "scratchpad-return-dossier"],
+      "rawReturnQueryOrProvenanceExport": false
+    },
+    {
+      "name": "explore",
+      "sourceUrl": "/archscry/?explore=azorius&panel=maze-discovery#maze-discovery-paths",
+      "result": "FAIL",
+      "expectedReturnHref": "/archscry/index.html?from=maze&explore=azorius&panel=maze-discovery#maze-discovery-paths",
+      "actualReturnHref": "/archscry/index.html?from=maze&explore=wu&panel=maze-discovery#maze-discovery-paths",
+      "failure": "Canonical identity key is not a safe substitute for the source explore slug: independent QA observed explore=wu opens Atlas while explore=azorius restores the WU explore dossier and Maze panel.",
+      "mazeHref": "not captured before assertion failure",
+      "currentQuery": "not captured before assertion failure",
+      "findsReadingId": "not observed",
+      "runtimeErrors": []
+    }
+  ],
+  "unexecuted": [
+    "review local return",
+    "hostile/raw/stored fallback return cases",
+    "native return pointer and Enter activation",
+    "return reload and Back/Forward",
+    "full native activation/history/comparison/A-B/transport suite",
+    "full 1,002-record catalog navigation matrix",
+    "browser protected-field comparison"
+  ],
+  "historicalArtifacts": "unchanged"
+}
