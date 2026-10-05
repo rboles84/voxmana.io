@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import crypto from "node:crypto";
 import fs from "node:fs";
 import http from "node:http";
 import path from "node:path";
@@ -39,11 +40,25 @@ const livePlacementWitnesses = JSON.parse(fs.readFileSync(
 ));
 const savedAzoriusPlacement = livePlacementWitnesses.rows.find((entry) => entry.identity_key === "WU")?.result;
 const entries = buildIdentityDirectoryEntries({ identityLayers, factions });
+const candidatePath = process.env.VM678_A0_OBSERVATIONS
+  ? path.resolve(process.env.VM678_A0_OBSERVATIONS)
+  : path.join(root, "tests", "fixtures", "vm678-a0-identity-alias-candidate.json");
+const fingerprint = (value) => crypto.createHash("sha256").update(value).digest("hex");
+let resolverEvidence = [];
+let browserAliasEvidence = [];
+let browserControlEvidence = {};
 
 assert.equal(entries.length, 37, "Atlas must expose exactly 37 active registry destinations");
 assert.equal(entries.filter((entry) => !entry.isStrixhavenExpression).length, 32);
 assert.equal(entries.filter((entry) => entry.isStrixhavenExpression).length, 5);
 assert.equal(new Set(entries.map((entry) => entry.slug)).size, 37, "Atlas slugs must be unique");
+assert.equal(new Set(entries.map((entry) => entry.key.trim().toLowerCase())).size, 37, "Atlas canonical keys must be unique after resolver normalization");
+assert.ok(entries.every((entry) => entry.key.trim().toLowerCase() !== "atlas"), "no canonical identity key may collide with the reserved Atlas route");
+for (const entry of entries) {
+  const normalizedKey = entry.key.trim().toLowerCase();
+  const collidingSlug = entries.find((candidate) => candidate !== entry && candidate.slug === normalizedKey);
+  assert.equal(collidingSlug, undefined, `${entry.key} may not collide with another identity's canonical slug`);
+}
 assert.deepEqual(
   entries.map((entry) => entry.kind),
   [
@@ -143,6 +158,58 @@ assert.deepEqual(resolveIdentityExploreRequest("?explore=not-real", entries), {
   entry: null,
 });
 
+const entrySnapshotBeforeResolverChecks = JSON.stringify(entries);
+resolverEvidence = entries.map((entry) => {
+  const slugRequest = resolveIdentityExploreRequest(`?explore=${encodeURIComponent(entry.slug)}`, entries);
+  const keyRequest = resolveIdentityExploreRequest(`?explore=${encodeURIComponent(entry.key)}`, entries);
+  assert.strictEqual(slugRequest.entry, entry, `${entry.key} slug route must reuse the existing directory entry object`);
+  assert.strictEqual(keyRequest.entry, entry, `${entry.key} alias route must reuse the existing directory entry object`);
+  assert.deepEqual(keyRequest, slugRequest, `${entry.key} alias route must retain the exact successful slug-route request semantics`);
+  assert.deepEqual(keyRequest, {
+    type: "identity",
+    requestedSlug: entry.slug,
+    invalidSlug: "",
+    entry,
+  }, `${entry.key} alias route must retain canonical slug metadata`);
+  return {
+    key: entry.key,
+    slug: entry.slug,
+    keyUrl: `?explore=${encodeURIComponent(entry.key)}`,
+    slugUrl: `?explore=${encodeURIComponent(entry.slug)}`,
+    currentSlugHit: entry.key.trim().toLowerCase() === entry.slug,
+    request: { type: keyRequest.type, requestedSlug: keyRequest.requestedSlug, invalidSlug: keyRequest.invalidSlug, entryKey: keyRequest.entry?.key || null },
+  };
+});
+assert.equal(JSON.stringify(entries), entrySnapshotBeforeResolverChecks, "resolver compatibility aliases must not mutate directory entries or state");
+assert.equal(resolverEvidence.filter((row) => !row.currentSlugHit).length, 15, "A0 must enable exactly the 15 current non-slug canonical keys");
+
+const azorius = entries.find((entry) => entry.key === "WU");
+assert.ok(azorius, "A0 requires the existing WU/Azorius directory entry");
+assert.deepEqual(resolveIdentityExploreRequest("?explore=%20Wu%20", entries), resolveIdentityExploreRequest("?explore=azorius", entries), "canonical key aliases retain current case and trim normalization");
+assert.equal(resolveIdentityExploreRequest("", entries), null, "missing explore remains outside Atlas routing");
+assert.deepEqual(resolveIdentityExploreRequest("?explore=", entries), {
+  type: "atlas", requestedSlug: "", invalidSlug: "(empty)", entry: null,
+}, "empty first explore value remains invalid");
+assert.deepEqual(resolveIdentityExploreRequest("?explore=not-real&explore=azorius", entries), {
+  type: "atlas", requestedSlug: "not-real", invalidSlug: "not-real", entry: null,
+}, "invalid first duplicate may not scan a later valid value");
+assert.deepEqual(resolveIdentityExploreRequest("?explore=azorius&explore=not-real", entries), resolveIdentityExploreRequest("?explore=azorius", entries), "valid first duplicate retains current first-value semantics");
+assert.deepEqual(resolveIdentityExploreRequest("?explore=&explore=azorius", entries), {
+  type: "atlas", requestedSlug: "", invalidSlug: "(empty)", entry: null,
+}, "empty first duplicate may not scan a later valid value");
+const slugFirstSyntheticEntries = [
+  { key: "ALPHA", slug: "beta" },
+  { key: "BETA", slug: "other" },
+];
+const slugFirstSyntheticRequest = resolveIdentityExploreRequest("?explore=beta", slugFirstSyntheticEntries);
+assert.strictEqual(slugFirstSyntheticRequest.entry, slugFirstSyntheticEntries[0], "canonical directory slug lookup remains authoritative ahead of a later matching key");
+assert.equal(slugFirstSyntheticRequest.requestedSlug, "beta");
+
+if (process.env.VM678_A0_UNIT_ONLY === "1") {
+  console.log("Identity Atlas resolver assertions passed.");
+  process.exit(0);
+}
+
 assert.equal(savedAzoriusPlacement?.faction, "WU", "saved-reading isolation test requires the accepted Azorius witness");
 
 const mimeTypes = new Map([
@@ -241,6 +308,106 @@ try {
     return { page, errors };
   }
 
+  async function observeIdentityExplorePage(url, entry, { fresh = true } = {}) {
+    const session = await newPage(url, { fresh });
+    const page = session.page;
+    await page.waitForSelector(`[data-dossier-console][data-identity-explore='true'][data-dossier-identity-key='${entry.key}']`, { timeout: 15000 });
+    const observation = await page.evaluate(() => {
+      const mazeLink = document.querySelector("[data-dossier-panel='maze-discovery'] a[data-service='maze']");
+      const mazeUrl = mazeLink ? new URL(mazeLink.href) : null;
+      return {
+        finalUrl: location.href,
+        finalSearch: location.search,
+        identityKey: document.querySelector("[data-dossier-console]")?.dataset.dossierIdentityKey || null,
+        exploreMode: document.querySelector("[data-dossier-console]")?.dataset.identityExplore === "true",
+        dossierText: document.getElementById("result-inner")?.innerText?.replace(/\s+/g, " ").trim() || "",
+        mazePanel: Boolean(document.querySelector("[data-dossier-panel='maze-discovery']")),
+        maze: mazeUrl ? {
+          contextMode: mazeUrl.searchParams.get("contextMode"),
+          exploreIdentity: mazeUrl.searchParams.get("exploreIdentity"),
+          fit: mazeUrl.searchParams.get("fit"),
+        } : null,
+        storage: {
+          savedReading: localStorage.getItem("vm_archscry_saved_reading_v1"),
+          profile: sessionStorage.getItem("vm_profile"),
+          handoff: localStorage.getItem("vm_archscry_maze_handoff_v1"),
+          owner: localStorage.getItem("vm625-owner-state"),
+        },
+      };
+    });
+    assert.equal(observation.finalSearch, new URL(url).search, `${entry.key} alias must not rewrite the supplied URL`);
+    assert.equal(observation.identityKey, entry.key, `${entry.key} alias must render its directory identity`);
+    assert.equal(observation.exploreMode, true, `${entry.key} alias must render identity-explore mode`);
+    assert.equal(observation.mazePanel, true, `${entry.key} alias must render the Maze-discovery surface`);
+    assert.equal(observation.maze?.contextMode, "identity-explore", `${entry.key} alias must retain the existing Maze context`);
+    assert.equal(observation.maze?.exploreIdentity, entry.key, `${entry.key} alias must retain the existing Maze identity`);
+    assert.equal(observation.maze?.fit, entry.key, `${entry.key} alias must retain the existing Maze fit`);
+    assert.equal(observation.storage.savedReading, null, `${entry.key} alias must not create a saved reading`);
+    assert.equal(observation.storage.profile, null, `${entry.key} alias must not create a profile`);
+    assert.equal(observation.storage.handoff, null, `${entry.key} alias must not create a handoff`);
+    assert.equal(observation.storage.owner, "preserve-me", `${entry.key} alias must preserve unrelated local storage`);
+    assert.deepEqual(session.errors, [], `${entry.key} alias browser errors: ${session.errors.join(" | ")}`);
+    await page.close();
+    return observation;
+  }
+
+  const newAliasEntries = entries.filter((entry) => entry.key.trim().toLowerCase() !== entry.slug);
+  assert.equal(newAliasEntries.length, 15, "browser proof must exercise the exact current non-slug canonical-key set");
+  for (const entry of newAliasEntries) {
+    const url = `http://${host}:${port}/archscry/?explore=${encodeURIComponent(entry.key)}`;
+    const observation = await observeIdentityExplorePage(url, entry);
+    browserAliasEvidence.push({ key: entry.key, slug: entry.slug, suppliedUrl: url, ...observation });
+  }
+
+  const wuAliasEvidence = browserAliasEvidence.find((row) => row.key === "WU");
+  assert.ok(wuAliasEvidence, "all newly enabled alias browser coverage must include WU");
+  const wuSlugUrl = `http://${host}:${port}/archscry/?explore=${encodeURIComponent(azorius.slug)}`;
+  const wuSlugEvidence = await observeIdentityExplorePage(wuSlugUrl, azorius);
+  assert.deepEqual({
+    identityKey: wuAliasEvidence.identityKey,
+    exploreMode: wuAliasEvidence.exploreMode,
+    dossierText: wuAliasEvidence.dossierText,
+    mazePanel: wuAliasEvidence.mazePanel,
+    maze: wuAliasEvidence.maze,
+    storage: wuAliasEvidence.storage,
+  }, {
+    identityKey: wuSlugEvidence.identityKey,
+    exploreMode: wuSlugEvidence.exploreMode,
+    dossierText: wuSlugEvidence.dossierText,
+    mazePanel: wuSlugEvidence.mazePanel,
+    maze: wuSlugEvidence.maze,
+    storage: wuSlugEvidence.storage,
+  }, "WU and azorius must render the exact same exploration destination while retaining their supplied URLs");
+
+  const aliasHistorySession = await newPage(`http://${host}:${port}/archscry/?explore=atlas`, { fresh: true });
+  const aliasHistoryPage = aliasHistorySession.page;
+  await aliasHistoryPage.goto(`http://${host}:${port}/archscry/?explore=WU`, { waitUntil: "networkidle0", timeout: 30000 });
+  await aliasHistoryPage.waitForSelector("[data-dossier-console][data-identity-explore='true'][data-dossier-identity-key='WU']");
+  const aliasBeforeReloadUrl = await aliasHistoryPage.evaluate(() => location.href);
+  await aliasHistoryPage.reload({ waitUntil: "networkidle0", timeout: 30000 });
+  await aliasHistoryPage.waitForSelector("[data-dossier-console][data-identity-explore='true'][data-dossier-identity-key='WU']");
+  await aliasHistoryPage.goBack({ waitUntil: "networkidle0", timeout: 30000 });
+  await aliasHistoryPage.waitForSelector("[data-identity-atlas]");
+  const aliasBackUrl = await aliasHistoryPage.evaluate(() => location.href);
+  await aliasHistoryPage.goForward({ waitUntil: "networkidle0", timeout: 30000 });
+  await aliasHistoryPage.waitForSelector("[data-dossier-console][data-identity-explore='true'][data-dossier-identity-key='WU']");
+  const aliasForwardUrl = await aliasHistoryPage.evaluate(() => location.href);
+  assert.equal(aliasBeforeReloadUrl, `http://${host}:${port}/archscry/?explore=WU`, "WU alias reload must retain its supplied URL");
+  assert.equal(aliasBackUrl, `http://${host}:${port}/archscry/?explore=atlas`, "Back from WU alias must restore the Atlas document and URL");
+  assert.equal(aliasForwardUrl, `http://${host}:${port}/archscry/?explore=WU`, "Forward to WU alias must restore the supplied alias URL and dossier");
+  assert.deepEqual(aliasHistorySession.errors, [], `WU alias history browser errors: ${aliasHistorySession.errors.join(" | ")}`);
+  await aliasHistoryPage.close();
+  browserControlEvidence = {
+    wuEquivalence: {
+      aliasUrl: wuAliasEvidence.suppliedUrl,
+      slugUrl: wuSlugUrl,
+      aliasFinalUrl: wuAliasEvidence.finalUrl,
+      slugFinalUrl: wuSlugEvidence.finalUrl,
+      sameProductDestination: true,
+    },
+    aliasHistory: { beforeReloadUrl: aliasBeforeReloadUrl, backUrl: aliasBackUrl, forwardUrl: aliasForwardUrl },
+  };
+
   const atlasSession = await newPage(`http://${host}:${port}/archscry/?explore=atlas`, {
     savedPlacement: savedAzoriusPlacement,
   });
@@ -302,6 +469,15 @@ try {
     pagerGapOk: true,
     overflow: false,
   });
+  browserControlEvidence = {
+    ...browserControlEvidence,
+    atlas: {
+      url: `http://${host}:${port}/archscry/?explore=atlas`,
+      cards: atlasState.cards,
+      visiblePanels: atlasState.visiblePanels,
+      savedLink: atlasState.savedLink,
+    },
+  };
 
   await atlasPage.click('[data-atlas-move="1"]');
   await atlasPage.waitForFunction(() => document.querySelector("[data-atlas-panel][data-active] h2")?.textContent?.trim() === "Guilds");
@@ -404,6 +580,16 @@ try {
   assert.equal(jundBrowse.allIdentitiesHref, "?explore=atlas");
   assert.equal(jundBrowse.savedReturn, "Return to your saved reading");
   assert.doesNotMatch(jundBrowse.text, /your identity|your placement|your result|we placed you|based on your answers|your reading found|your strongest match/i);
+  browserControlEvidence = {
+    ...browserControlEvidence,
+    representativeSlug: {
+      suppliedUrl: `http://${host}:${port}/archscry/?explore=jund`,
+      finalSearch: jundBrowse.url,
+      identityKey: "JUND",
+      exploreMode: true,
+      mazePanel: true,
+    },
+  };
   assert.deepEqual(await atlasPage.evaluate(() => ({
     savedReading: localStorage.getItem("vm_archscry_saved_reading_v1"),
     legacyResult: sessionStorage.getItem("vm_last_result"),
@@ -521,5 +707,46 @@ try {
   }
   await new Promise((resolve) => server.close(resolve));
 }
+
+const candidateEvidence = {
+  schema: "vm678-a0-identity-alias-candidate/v1",
+  task: "VM-678 prerequisite A0",
+  scope: {
+    runtimeOwner: "assets/js/archscry/runtime/identity-atlas.js",
+    testOwner: "tests/archscry/identity-atlas-tests.js",
+    excluded: ["Maze return security", "URL serializer", "ingress normalization", "Reading Finds", "storage contracts"],
+  },
+  command: "npm run test:identity-atlas",
+  engine: {
+    browser: browserCandidates[0],
+    headless: true,
+    host,
+  },
+  fingerprints: {
+    runtime: fingerprint(fs.readFileSync(path.join(root, "assets", "js", "archscry", "runtime", "identity-atlas.js"))),
+    test: fingerprint(fs.readFileSync(path.join(root, "tests", "archscry", "identity-atlas-tests.js"))),
+    directoryData: fingerprint(JSON.stringify(entries)),
+  },
+  resolver: {
+    total: resolverEvidence.length,
+    newAliasCount: resolverEvidence.filter((row) => !row.currentSlugHit).length,
+    rows: resolverEvidence,
+    namespace: {
+      uniqueKeys: true,
+      uniqueSlugs: true,
+      noOtherSlugCollisions: true,
+      reservedAtlasAvailable: true,
+      slugFirstSyntheticPrecedence: true,
+    },
+  },
+  browser: {
+    newAliasCount: browserAliasEvidence.length,
+    aliases: browserAliasEvidence,
+    controls: browserControlEvidence,
+  },
+  result: "PASS",
+};
+fs.mkdirSync(path.dirname(candidatePath), { recursive: true });
+fs.writeFileSync(candidatePath, `${JSON.stringify(candidateEvidence, null, 2)}\n`);
 
 console.log("Identity Atlas tests passed.");
