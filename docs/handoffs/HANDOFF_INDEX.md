@@ -1,4 +1,4 @@
-<!-- task-view-sha256:09d65a9da18171b07c628cdb2dc382716af45d5bccbe41d65d243239204f6b65 -->
+<!-- task-view-sha256:d55379cbfe51bd8bcd9381e5f26eed22a641497ce95d70e6ea0ca0e6317429db -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -8,10 +8,12 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 
 | Authored / filename date | Agent | Handoff | Related task references | Diagnostics |
 |---|---|---|---|---|
+| 2026-10-04T21:00:00-06:00 (authored) | /root/qa_final | [VM-678 Slice A return-security retry — independent RobQA](2026-10-04-2100-robqa-vm678-slice-a-retry.md) | VM-678 | Identity displayed from heading; not admission metadata. |
 | 2026-10-04T19:00:00-06:00 (authored) | /root/qa_final | [VM-678 A0 evidence completion — independent RobQA](2026-10-04-1900-robqa-vm678-a0-evidence.md) | VM-678 | Identity displayed from heading; not admission metadata. |
 | 2026-10-05T00:36:47Z (authored) | `/root/qa_final` (configured RobQA Sol medium; backend-effective identity unverified) | [RobQA handoff — VM-678 A0 identity-key alias implementation](2026-10-04-1740-robqa-vm678-a0-review.md) | VM-678 | Identity displayed from heading; not admission metadata. |
 | 2026-10-04T22:46:17Z (authored) | `/root/qa_final` (configured RobQA Sol medium; backend-effective identity unverified) | [RobQA handoff — VM-678 A0 identity-key alias feasibility](2026-10-04-1640-robqa-vm678-a0-alias-feasibility.md) | VM-678 | Identity displayed from heading; not admission metadata. |
 | 2026-10-04T22:04:14Z (authored) | `/root/qa_final` (configured RobQA Sol medium; backend-effective identity unverified) | [RobQA handoff — VM-678 Slice A local return security](2026-10-04-1555-robqa-vm678-slice-a-return-security.md) | VM-678 | Identity displayed from heading; not admission metadata. |
+| 2026-10-04T21:00:00Z (filename) | /root | [VM-678 Slice A retry — file-mode STOP candidate](2026-10-04-2100-codex-vm678-slice-a-retry.md) | VM-678 | Identity displayed from heading; not admission metadata. Invalid authored date; filename fallback or undated ordering used. |
 | 2026-10-04T19:26:00Z (authored) | `/root/qa_final` (configured RobQA Sol medium; backend-effective identity unverified) | [RobQA handoff — VM-678 preserved-ID URL plan review](2026-10-04-1300-robqa-vm678-preserved-id-plan-review.md) | VM-678 | Identity displayed from heading; not admission metadata. |
 | 2026-10-04T19:00:00Z (filename) | /root | [VM-678 A0 — completed evidence candidate](2026-10-04-1900-codex-vm678-a0-evidence.md) | VM-678 | Identity displayed from heading; not admission metadata. Invalid authored date; filename fallback or undated ordering used. |
 | 2026-10-04T19:00:00Z (filename) | `/root/a0_tests` — configured RobDev Terra medium; backend-effective identity unverified. | [RobDev evidence handoff — VM-678 A0 identity-key aliases](2026-10-04-1900-robdev-vm678-a0-evidence.md) | VM-678 | Identity displayed from heading; not admission metadata. Invalid authored date; filename fallback or undated ordering used. |

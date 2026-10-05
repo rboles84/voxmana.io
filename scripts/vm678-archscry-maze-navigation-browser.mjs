@@ -5,10 +5,12 @@ import path from "node:path";
 import crypto from "node:crypto";
 import * as ChromeLauncher from "chrome-launcher";
 import puppeteer from "puppeteer-core";
+import { pathToFileURL } from "node:url";
 
 const root = process.cwd();
 const host = "127.0.0.1";
-const requested = process.argv.slice(2);
+const isMain = import.meta.url === pathToFileURL(process.argv[1]).href;
+const requested = isMain ? process.argv.slice(2) : [];
 const preparationProbe = requested.includes("--preparation-probe");
 const writeArgument = requested.find((value) => value.startsWith("--write="));
 const checkArgument = requested.find((value) => value.startsWith("--check="));
@@ -458,4 +460,5 @@ async function main() {
     console.log(JSON.stringify({ status: writeArgument ? "WRITTEN" : "PASS", artifact: path.relative(root, artifactPath), catalogNavigations: result.coverage.catalogNavigationMatrix.counts, nativeActivations: ["pointer", "keyboard", "ctrl", "middle"], simultaneousComparisonTabs: 2, transportProbes: result.coverage.transportProbes.length, hostileReturnFixtures: Object.keys(result.coverage.knownRed.unsafeReturnKnownRed).length, normalAB: result.coverage.normalAB }, null, 2));
   } finally { if (browser) await Promise.race([browser.close().catch(() => browser.disconnect()), new Promise((resolve) => setTimeout(resolve, 2000))]); if (launched) { try { await launched.kill(); } catch {} } server.closeAllConnections?.(); await new Promise((resolve) => server.close(resolve)); }
 }
-main().catch((error) => { console.error(`VM-678 browser baseline FAILED at ${phase}: ${error.stack || error.message}`); process.exitCode = 1; });
+export { startServer, browserPath, browserInstrumentation, configure, sourceUrl, openNormalSource, waitSource, sourceLink, waitMaze, mazeState, nativeActivate, awaitNewPage, addFindAndRead, runCase, runHistory, runComparisonTabs, runNormalAB, runTransportProbes, runCatalogNavigationMatrix, normalizeArtifact, stable, fixtureCard };
+if (isMain) main().catch((error) => { console.error(`VM-678 browser baseline FAILED at ${phase}: ${error.stack || error.message}`); process.exitCode = 1; });

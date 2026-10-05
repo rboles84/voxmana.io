@@ -1175,6 +1175,8 @@ function updateReadingContextDisclosure() {
   const returnLink = document.getElementById("maze-reading-context-return");
   const action = document.getElementById("maze-reading-context-action");
   if (!context || !label || !returnLink || !action) return;
+  returnLink.removeAttribute("href");
+  returnLink.classList.add("hidden");
   if (currentMode === "builder") {
     context.hidden = true;
     return;
@@ -1195,9 +1197,9 @@ function updateReadingContextDisclosure() {
     return;
   }
 
-  returnLink.href = returnUrl || retainedHandoff?.returnUrl || "../archscry/";
+  if (returnUrl) returnLink.href = returnUrl;
   returnLink.textContent = `Return to ${retainedFactionName} dossier`;
-  returnLink.classList.toggle("hidden", !returnUrl && !retainedHandoff?.returnUrl);
+  returnLink.classList.toggle("hidden", !returnUrl);
   action.classList.add("hidden");
 
   if (retainedExplorationContext) {
@@ -3155,7 +3157,7 @@ function initializeArchscryMazeHandoff(urlParams) {
   if (urlParams.get("independent") === "1") return;
   if (urlParams.get("from") !== "archscry") {
     const existing = readArchscryMazeHandoff();
-    if (existing?.returnUrl && !existing.returnBannerDismissed) {
+    if (dossierReturnUrlForHandoff(existing) && !existing.returnBannerDismissed) {
       updateReadingContextDisclosure();
     }
     return;
@@ -4788,14 +4790,27 @@ function currentDossierReturnUrl() {
 }
 
 function dossierReturnUrlForHandoff(handoff) {
-  if (!handoff?.returnUrl) return "";
-  const fit = handoff.fit || handoff.guild || "";
-  return appendReturnUrlParams(handoff.returnUrl, {
-    from: "maze",
-    view: fit,
-    readingId: handoff.readingId || "",
-    mazeReturnUrl: `${location.pathname}${location.search}`
-  });
+  if (handoff?.from !== "archscry") return "";
+  const profile = resolveMazeDiscoveryProfile(mazeDiscoveryProfileCatalog, handoff.fit || handoff.guild);
+  if (!profile) return "";
+  const identity = profile.identity_key;
+  const parameters = new URLSearchParams({ from: "maze" });
+  if (handoff.contextMode === IDENTITY_EXPLORE_CONTEXT_MODE) {
+    const explore = resolveMazeDiscoveryProfile(mazeDiscoveryProfileCatalog, handoff.exploreIdentity);
+    if (explore?.identity_key !== identity) return "";
+    parameters.set("explore", identity);
+    parameters.set("panel", "maze-discovery");
+  } else if (handoff.contextMode === DOSSIER_REVIEW_CONTEXT_MODE) {
+    const review = resolveMazeDiscoveryProfile(mazeDiscoveryProfileCatalog, handoff.reviewIdentity);
+    if (review?.identity_key !== identity) return "";
+    parameters.set("view", identity);
+    parameters.set("vm-dev-review", "1");
+    parameters.set("reviewIdentity", identity);
+  } else {
+    if (handoff.contextMode && handoff.contextMode !== "normal-reading") return "";
+    parameters.set("view", identity);
+  }
+  return `../archscry/index.html?${parameters.toString()}#maze-discovery-paths`;
 }
 
 function updateStashDrawerCount(count = getScratchpadTotalQuantity()) {

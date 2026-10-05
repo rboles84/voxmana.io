@@ -1,0 +1,2720 @@
+{
+  "builders": {
+    "invalidChecks": 11,
+    "legacyNormalContextAndGuildFallback": true,
+    "rawPropertiesNeverRead": true,
+    "records": [
+      {
+        "identity": "WU",
+        "routes": {
+          "dossier-review": "../archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "identity-explore": "../archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "normal-reading": "../archscry/index.html?from=maze&view=WU#maze-discovery-paths"
+        }
+      },
+      {
+        "identity": "UB",
+        "routes": {
+          "dossier-review": "../archscry/index.html?from=maze&view=UB&vm-dev-review=1&reviewIdentity=UB#maze-discovery-paths",
+          "identity-explore": "../archscry/index.html?from=maze&explore=UB&panel=maze-discovery#maze-discovery-paths",
+          "normal-reading": "../archscry/index.html?from=maze&view=UB#maze-discovery-paths"
+        }
+      },
+      {
+        "identity": "BR",
+        "routes": {
+          "dossier-review": "../archscry/index.html?from=maze&view=BR&vm-dev-review=1&reviewIdentity=BR#maze-discovery-paths",
+          "identity-explore": "../archscry/index.html?from=maze&explore=BR&panel=maze-discovery#maze-discovery-paths",
+          "normal-reading": "../archscry/index.html?from=maze&view=BR#maze-discovery-paths"
+        }
+      },
+      {
+        "identity": "RG",
+        "routes": {
+          "dossier-review": "../archscry/index.html?from=maze&view=RG&vm-dev-review=1&reviewIdentity=RG#maze-discovery-paths",
+          "identity-explore": "../archscry/index.html?from=maze&explore=RG&panel=maze-discovery#maze-discovery-paths",
+          "normal-reading": "../archscry/index.html?from=maze&view=RG#maze-discovery-paths"
+        }
+      },
+      {
+        "identity": "WG",
+        "routes": {
+          "dossier-review": "../archscry/index.html?from=maze&view=WG&vm-dev-review=1&reviewIdentity=WG#maze-discovery-paths",
+          "identity-explore": "../archscry/index.html?from=maze&explore=WG&panel=maze-discovery#maze-discovery-paths",
+          "normal-reading": "../archscry/index.html?from=maze&view=WG#maze-discovery-paths"
+        }
+      },
+      {
+        "identity": "WB",
+        "routes": {
+          "dossier-review": "../archscry/index.html?from=maze&view=WB&vm-dev-review=1&reviewIdentity=WB#maze-discovery-paths",
+          "identity-explore": "../archscry/index.html?from=maze&explore=WB&panel=maze-discovery#maze-discovery-paths",
+          "normal-reading": "../archscry/index.html?from=maze&view=WB#maze-discovery-paths"
+        }
+      },
+      {
+        "identity": "UR",
+        "routes": {
+          "dossier-review": "../archscry/index.html?from=maze&view=UR&vm-dev-review=1&reviewIdentity=UR#maze-discovery-paths",
+          "identity-explore": "../archscry/index.html?from=maze&explore=UR&panel=maze-discovery#maze-discovery-paths",
+          "normal-reading": "../archscry/index.html?from=maze&view=UR#maze-discovery-paths"
+        }
+      },
+      {
+        "identity": "BG",
+        "routes": {
+          "dossier-review": "../archscry/index.html?from=maze&view=BG&vm-dev-review=1&reviewIdentity=BG#maze-discovery-paths",
+          "identity-explore": "../archscry/index.html?from=maze&explore=BG&panel=maze-discovery#maze-discovery-paths",
+          "normal-reading": "../archscry/index.html?from=maze&view=BG#maze-discovery-paths"
+        }
+      },
+      {
+        "identity": "UG",
+        "routes": {
+          "dossier-review": "../archscry/index.html?from=maze&view=UG&vm-dev-review=1&reviewIdentity=UG#maze-discovery-paths",
+          "identity-explore": "../archscry/index.html?from=maze&explore=UG&panel=maze-discovery#maze-discovery-paths",
+          "normal-reading": "../archscry/index.html?from=maze&view=UG#maze-discovery-paths"
+        }
+      },
+      {
+        "identity": "WR",
+        "routes": {
+          "dossier-review": "../archscry/index.html?from=maze&view=WR&vm-dev-review=1&reviewIdentity=WR#maze-discovery-paths",
+          "identity-explore": "../archscry/index.html?from=maze&explore=WR&panel=maze-discovery#maze-discovery-paths",
+          "normal-reading": "../archscry/index.html?from=maze&view=WR#maze-discovery-paths"
+        }
+      },
+      {
+        "identity": "LOREHOLD",
+        "routes": {
+          "dossier-review": "../archscry/index.html?from=maze&view=LOREHOLD&vm-dev-review=1&reviewIdentity=LOREHOLD#maze-discovery-paths",
+          "identity-explore": "../archscry/index.html?from=maze&explore=LOREHOLD&panel=maze-discovery#maze-discovery-paths",
+          "normal-reading": "../archscry/index.html?from=maze&view=LOREHOLD#maze-discovery-paths"
+        }
+      },
+      {
+        "identity": "PRISMARI",
+        "routes": {
+          "dossier-review": "../archscry/index.html?from=maze&view=PRISMARI&vm-dev-review=1&reviewIdentity=PRISMARI#maze-discovery-paths",
+          "identity-explore": "../archscry/index.html?from=maze&explore=PRISMARI&panel=maze-discovery#maze-discovery-paths",
+          "normal-reading": "../archscry/index.html?from=maze&view=PRISMARI#maze-discovery-paths"
+        }
+      },
+      {
+        "identity": "WITHERBLOOM",
+        "routes": {
+          "dossier-review": "../archscry/index.html?from=maze&view=WITHERBLOOM&vm-dev-review=1&reviewIdentity=WITHERBLOOM#maze-discovery-paths",
+          "identity-explore": "../archscry/index.html?from=maze&explore=WITHERBLOOM&panel=maze-discovery#maze-discovery-paths",
+          "normal-reading": "../archscry/index.html?from=maze&view=WITHERBLOOM#maze-discovery-paths"
+        }
+      },
+      {
+        "identity": "QUANDRIX",
+        "routes": {
+          "dossier-review": "../archscry/index.html?from=maze&view=QUANDRIX&vm-dev-review=1&reviewIdentity=QUANDRIX#maze-discovery-paths",
+          "identity-explore": "../archscry/index.html?from=maze&explore=QUANDRIX&panel=maze-discovery#maze-discovery-paths",
+          "normal-reading": "../archscry/index.html?from=maze&view=QUANDRIX#maze-discovery-paths"
+        }
+      },
+      {
+        "identity": "SILVERQUILL",
+        "routes": {
+          "dossier-review": "../archscry/index.html?from=maze&view=SILVERQUILL&vm-dev-review=1&reviewIdentity=SILVERQUILL#maze-discovery-paths",
+          "identity-explore": "../archscry/index.html?from=maze&explore=SILVERQUILL&panel=maze-discovery#maze-discovery-paths",
+          "normal-reading": "../archscry/index.html?from=maze&view=SILVERQUILL#maze-discovery-paths"
+        }
+      },
+      {
+        "identity": "W",
+        "routes": {
+          "dossier-review": "../archscry/index.html?from=maze&view=W&vm-dev-review=1&reviewIdentity=W#maze-discovery-paths",
+          "identity-explore": "../archscry/index.html?from=maze&explore=W&panel=maze-discovery#maze-discovery-paths",
+          "normal-reading": "../archscry/index.html?from=maze&view=W#maze-discovery-paths"
+        }
+      },
+      {
+        "identity": "U",
+        "routes": {
+          "dossier-review": "../archscry/index.html?from=maze&view=U&vm-dev-review=1&reviewIdentity=U#maze-discovery-paths",
+          "identity-explore": "../archscry/index.html?from=maze&explore=U&panel=maze-discovery#maze-discovery-paths",
+          "normal-reading": "../archscry/index.html?from=maze&view=U#maze-discovery-paths"
+        }
+      },
+      {
+        "identity": "B",
+        "routes": {
+          "dossier-review": "../archscry/index.html?from=maze&view=B&vm-dev-review=1&reviewIdentity=B#maze-discovery-paths",
+          "identity-explore": "../archscry/index.html?from=maze&explore=B&panel=maze-discovery#maze-discovery-paths",
+          "normal-reading": "../archscry/index.html?from=maze&view=B#maze-discovery-paths"
+        }
+      },
+      {
+        "identity": "R",
+        "routes": {
+          "dossier-review": "../archscry/index.html?from=maze&view=R&vm-dev-review=1&reviewIdentity=R#maze-discovery-paths",
+          "identity-explore": "../archscry/index.html?from=maze&explore=R&panel=maze-discovery#maze-discovery-paths",
+          "normal-reading": "../archscry/index.html?from=maze&view=R#maze-discovery-paths"
+        }
+      },
+      {
+        "identity": "G",
+        "routes": {
+          "dossier-review": "../archscry/index.html?from=maze&view=G&vm-dev-review=1&reviewIdentity=G#maze-discovery-paths",
+          "identity-explore": "../archscry/index.html?from=maze&explore=G&panel=maze-discovery#maze-discovery-paths",
+          "normal-reading": "../archscry/index.html?from=maze&view=G#maze-discovery-paths"
+        }
+      },
+      {
+        "identity": "BANT",
+        "routes": {
+          "dossier-review": "../archscry/index.html?from=maze&view=BANT&vm-dev-review=1&reviewIdentity=BANT#maze-discovery-paths",
+          "identity-explore": "../archscry/index.html?from=maze&explore=BANT&panel=maze-discovery#maze-discovery-paths",
+          "normal-reading": "../archscry/index.html?from=maze&view=BANT#maze-discovery-paths"
+        }
+      },
+      {
+        "identity": "ESPER",
+        "routes": {
+          "dossier-review": "../archscry/index.html?from=maze&view=ESPER&vm-dev-review=1&reviewIdentity=ESPER#maze-discovery-paths",
+          "identity-explore": "../archscry/index.html?from=maze&explore=ESPER&panel=maze-discovery#maze-discovery-paths",
+          "normal-reading": "../archscry/index.html?from=maze&view=ESPER#maze-discovery-paths"
+        }
+      },
+      {
+        "identity": "GRIXIS",
+        "routes": {
+          "dossier-review": "../archscry/index.html?from=maze&view=GRIXIS&vm-dev-review=1&reviewIdentity=GRIXIS#maze-discovery-paths",
+          "identity-explore": "../archscry/index.html?from=maze&explore=GRIXIS&panel=maze-discovery#maze-discovery-paths",
+          "normal-reading": "../archscry/index.html?from=maze&view=GRIXIS#maze-discovery-paths"
+        }
+      },
+      {
+        "identity": "JUND",
+        "routes": {
+          "dossier-review": "../archscry/index.html?from=maze&view=JUND&vm-dev-review=1&reviewIdentity=JUND#maze-discovery-paths",
+          "identity-explore": "../archscry/index.html?from=maze&explore=JUND&panel=maze-discovery#maze-discovery-paths",
+          "normal-reading": "../archscry/index.html?from=maze&view=JUND#maze-discovery-paths"
+        }
+      },
+      {
+        "identity": "NAYA",
+        "routes": {
+          "dossier-review": "../archscry/index.html?from=maze&view=NAYA&vm-dev-review=1&reviewIdentity=NAYA#maze-discovery-paths",
+          "identity-explore": "../archscry/index.html?from=maze&explore=NAYA&panel=maze-discovery#maze-discovery-paths",
+          "normal-reading": "../archscry/index.html?from=maze&view=NAYA#maze-discovery-paths"
+        }
+      },
+      {
+        "identity": "ABZAN",
+        "routes": {
+          "dossier-review": "../archscry/index.html?from=maze&view=ABZAN&vm-dev-review=1&reviewIdentity=ABZAN#maze-discovery-paths",
+          "identity-explore": "../archscry/index.html?from=maze&explore=ABZAN&panel=maze-discovery#maze-discovery-paths",
+          "normal-reading": "../archscry/index.html?from=maze&view=ABZAN#maze-discovery-paths"
+        }
+      },
+      {
+        "identity": "TEMUR",
+        "routes": {
+          "dossier-review": "../archscry/index.html?from=maze&view=TEMUR&vm-dev-review=1&reviewIdentity=TEMUR#maze-discovery-paths",
+          "identity-explore": "../archscry/index.html?from=maze&explore=TEMUR&panel=maze-discovery#maze-discovery-paths",
+          "normal-reading": "../archscry/index.html?from=maze&view=TEMUR#maze-discovery-paths"
+        }
+      },
+      {
+        "identity": "SULTAI",
+        "routes": {
+          "dossier-review": "../archscry/index.html?from=maze&view=SULTAI&vm-dev-review=1&reviewIdentity=SULTAI#maze-discovery-paths",
+          "identity-explore": "../archscry/index.html?from=maze&explore=SULTAI&panel=maze-discovery#maze-discovery-paths",
+          "normal-reading": "../archscry/index.html?from=maze&view=SULTAI#maze-discovery-paths"
+        }
+      },
+      {
+        "identity": "MARDU",
+        "routes": {
+          "dossier-review": "../archscry/index.html?from=maze&view=MARDU&vm-dev-review=1&reviewIdentity=MARDU#maze-discovery-paths",
+          "identity-explore": "../archscry/index.html?from=maze&explore=MARDU&panel=maze-discovery#maze-discovery-paths",
+          "normal-reading": "../archscry/index.html?from=maze&view=MARDU#maze-discovery-paths"
+        }
+      },
+      {
+        "identity": "JESKAI",
+        "routes": {
+          "dossier-review": "../archscry/index.html?from=maze&view=JESKAI&vm-dev-review=1&reviewIdentity=JESKAI#maze-discovery-paths",
+          "identity-explore": "../archscry/index.html?from=maze&explore=JESKAI&panel=maze-discovery#maze-discovery-paths",
+          "normal-reading": "../archscry/index.html?from=maze&view=JESKAI#maze-discovery-paths"
+        }
+      },
+      {
+        "identity": "YORE",
+        "routes": {
+          "dossier-review": "../archscry/index.html?from=maze&view=YORE&vm-dev-review=1&reviewIdentity=YORE#maze-discovery-paths",
+          "identity-explore": "../archscry/index.html?from=maze&explore=YORE&panel=maze-discovery#maze-discovery-paths",
+          "normal-reading": "../archscry/index.html?from=maze&view=YORE#maze-discovery-paths"
+        }
+      },
+      {
+        "identity": "GLINT",
+        "routes": {
+          "dossier-review": "../archscry/index.html?from=maze&view=GLINT&vm-dev-review=1&reviewIdentity=GLINT#maze-discovery-paths",
+          "identity-explore": "../archscry/index.html?from=maze&explore=GLINT&panel=maze-discovery#maze-discovery-paths",
+          "normal-reading": "../archscry/index.html?from=maze&view=GLINT#maze-discovery-paths"
+        }
+      },
+      {
+        "identity": "DUNE",
+        "routes": {
+          "dossier-review": "../archscry/index.html?from=maze&view=DUNE&vm-dev-review=1&reviewIdentity=DUNE#maze-discovery-paths",
+          "identity-explore": "../archscry/index.html?from=maze&explore=DUNE&panel=maze-discovery#maze-discovery-paths",
+          "normal-reading": "../archscry/index.html?from=maze&view=DUNE#maze-discovery-paths"
+        }
+      },
+      {
+        "identity": "INK",
+        "routes": {
+          "dossier-review": "../archscry/index.html?from=maze&view=INK&vm-dev-review=1&reviewIdentity=INK#maze-discovery-paths",
+          "identity-explore": "../archscry/index.html?from=maze&explore=INK&panel=maze-discovery#maze-discovery-paths",
+          "normal-reading": "../archscry/index.html?from=maze&view=INK#maze-discovery-paths"
+        }
+      },
+      {
+        "identity": "WITCH",
+        "routes": {
+          "dossier-review": "../archscry/index.html?from=maze&view=WITCH&vm-dev-review=1&reviewIdentity=WITCH#maze-discovery-paths",
+          "identity-explore": "../archscry/index.html?from=maze&explore=WITCH&panel=maze-discovery#maze-discovery-paths",
+          "normal-reading": "../archscry/index.html?from=maze&view=WITCH#maze-discovery-paths"
+        }
+      },
+      {
+        "identity": "COLORLESS",
+        "routes": {
+          "dossier-review": "../archscry/index.html?from=maze&view=COLORLESS&vm-dev-review=1&reviewIdentity=COLORLESS#maze-discovery-paths",
+          "identity-explore": "../archscry/index.html?from=maze&explore=COLORLESS&panel=maze-discovery#maze-discovery-paths",
+          "normal-reading": "../archscry/index.html?from=maze&view=COLORLESS#maze-discovery-paths"
+        }
+      },
+      {
+        "identity": "WUBRG",
+        "routes": {
+          "dossier-review": "../archscry/index.html?from=maze&view=WUBRG&vm-dev-review=1&reviewIdentity=WUBRG#maze-discovery-paths",
+          "identity-explore": "../archscry/index.html?from=maze&explore=WUBRG&panel=maze-discovery#maze-discovery-paths",
+          "normal-reading": "../archscry/index.html?from=maze&view=WUBRG#maze-discovery-paths"
+        }
+      }
+    ],
+    "validChecks": 111
+  },
+  "engine": "Edg/154.0.4258.53",
+  "file": {
+    "error": "Waiting failed: 15000ms exceeded",
+    "establishedBrowserFlag": "--allow-file-access-from-files",
+    "failedRequests": [
+      {
+        "error": "net::ERR_FILE_NOT_FOUND",
+        "url": "file:///C:/assets/img/overlays/overlay-vignette-shadow-01.svg"
+      },
+      {
+        "error": "net::ERR_FILE_NOT_FOUND",
+        "url": "file:///C:/assets/img/overlays/overlay-fog-soft-01.svg"
+      },
+      {
+        "error": "net::ERR_FILE_NOT_FOUND",
+        "url": "file:///C:/assets/img/overlays/overlay-arcane-glow-teal-01.svg"
+      },
+      {
+        "error": "net::ERR_FILE_NOT_FOUND",
+        "url": "file:///C:/assets/fonts/lora-variable-latin.woff2"
+      },
+      {
+        "error": "net::ERR_FILE_NOT_FOUND",
+        "url": "file:///C:/assets/fonts/cormorant-sc-700-latin.woff2"
+      },
+      {
+        "error": "net::ERR_FILE_NOT_FOUND",
+        "url": "file:///C:/assets/fonts/outfit-variable-latin.woff2"
+      },
+      {
+        "error": "net::ERR_FILE_NOT_FOUND",
+        "url": "file:///C:/assets/fonts/plex-mono-400.woff2"
+      },
+      {
+        "error": "net::ERR_FILE_NOT_FOUND",
+        "url": "file:///C:/assets/fonts/almendra-700-latin.woff2"
+      },
+      {
+        "error": "net::ERR_FILE_NOT_FOUND",
+        "url": "file:///C:/assets/img/overlays/overlay-vignette-shadow-01.svg"
+      },
+      {
+        "error": "net::ERR_FILE_NOT_FOUND",
+        "url": "file:///C:/assets/img/overlays/overlay-fog-soft-01.svg"
+      },
+      {
+        "error": "net::ERR_FILE_NOT_FOUND",
+        "url": "file:///C:/assets/img/overlays/overlay-arcane-glow-teal-01.svg"
+      },
+      {
+        "error": "net::ERR_FILE_NOT_FOUND",
+        "url": "file:///C:/data/maze/scryfall-parser-seed-2026.json"
+      },
+      {
+        "error": "net::ERR_FILE_NOT_FOUND",
+        "url": "file:///C:/data/scryfall/grounding/scryfall-grounding.json"
+      },
+      {
+        "error": "net::ERR_FILE_NOT_FOUND",
+        "url": "file:///C:/data/scryfall/grounding/plain-reading-semantics.json"
+      },
+      {
+        "error": "net::ERR_FILE_NOT_FOUND",
+        "url": "file:///C:/data/dossier/maze-discovery-profiles.catalog.json"
+      }
+    ],
+    "observed": {
+      "banner": {
+        "absoluteHref": "file:///C:/dev/voxmana.io/archscry/index.html",
+        "hidden": false,
+        "href": "../archscry/index.html",
+        "rendered": false
+      },
+      "contextHidden": true,
+      "contextState": "",
+      "errors": [
+        "VM-547 canonical dossier route could not resolve profile: WU"
+      ],
+      "obsoleteBannerPresent": false,
+      "query": "",
+      "scratchpad": {
+        "absoluteHref": "file:///C:/dev/voxmana.io/archscry/",
+        "hidden": true,
+        "href": "../archscry/",
+        "rendered": false
+      }
+    },
+    "pageErrors": [
+      "VM-547 canonical dossier route could not resolve profile: WU"
+    ],
+    "requests": [
+      "file:///C:/dev/voxmana.io/maze/index.html?from=archscry&fit=WU&pathType=commanders-that-fit&contextMode=identity-explore&exploreIdentity=WU&returnUrl=https%3A%2F%2Fexample.invalid",
+      "file:///C:/dev/voxmana.io/assets/js/shared/shared.js",
+      "file:///C:/dev/voxmana.io/assets/css/tokens.css?v=vm635",
+      "file:///C:/dev/voxmana.io/assets/css/fonts.css?v=vm612",
+      "file:///C:/dev/voxmana.io/assets/css/layout.css?v=vm635",
+      "file:///C:/dev/voxmana.io/assets/css/topbar.css?v=vm618",
+      "file:///C:/dev/voxmana.io/assets/css/atmosphere.css?v=vm635",
+      "file:///C:/dev/voxmana.io/assets/css/components.css?v=vm612",
+      "file:///C:/dev/voxmana.io/assets/vendor/mana/css/mana.min.css",
+      "file:///C:/dev/voxmana.io/assets/css/guide-beacon.css?v=vm620",
+      "file:///C:/dev/voxmana.io/assets/css/maze.css?v=vm663r4",
+      "file:///C:/dev/voxmana.io/assets/css/site-skin.css?v=vm652",
+      "file:///C:/dev/voxmana.io/assets/img/vox-mana-header-logo.svg",
+      "file:///C:/dev/voxmana.io/assets/js/maze/research-init.js?v=vm674r9",
+      "file:///C:/dev/voxmana.io/assets/js/shared/vm-rich-atmosphere.js",
+      "file:///C:/dev/voxmana.io/assets/js/shared/reduce-motion.js",
+      "file:///C:/dev/voxmana.io/assets/js/shared/guide-beacon.js?v=vm620",
+      "file:///C:/dev/voxmana.io/assets/js/shared/vm-feedback.js",
+      "file:///C:/dev/voxmana.io/assets/js/shared/vm-topbar.js?v=vm618",
+      "file:///C:/dev/voxmana.io/assets/css/animations.css",
+      "file:///C:/assets/img/overlays/overlay-vignette-shadow-01.svg",
+      "file:///C:/assets/img/overlays/overlay-fog-soft-01.svg",
+      "file:///C:/assets/img/overlays/overlay-arcane-glow-teal-01.svg",
+      "file:///C:/assets/fonts/lora-variable-latin.woff2",
+      "file:///C:/assets/fonts/cormorant-sc-700-latin.woff2",
+      "file:///C:/assets/fonts/outfit-variable-latin.woff2",
+      "file:///C:/assets/fonts/plex-mono-400.woff2",
+      "file:///C:/dev/voxmana.io/assets/vendor/mana/fonts/mana.woff?v=1.18.0",
+      "file:///C:/assets/fonts/almendra-700-latin.woff2",
+      "file:///C:/dev/voxmana.io/assets/js/maze/scryfall-dictionary.js",
+      "file:///C:/dev/voxmana.io/assets/js/maze/scryfall-parser.js",
+      "file:///C:/dev/voxmana.io/assets/js/maze/research-builder.js?v=vm627",
+      "file:///C:/dev/voxmana.io/assets/js/maze/scryfall-grounded-compiler.js",
+      "file:///C:/dev/voxmana.io/assets/js/maze/research-syntax-language.js?v=vm627",
+      "file:///C:/dev/voxmana.io/assets/js/maze/maze-query-core.js?v=vm636",
+      "file:///C:/dev/voxmana.io/assets/js/maze/research-mode.js?v=vm627",
+      "file:///C:/dev/voxmana.io/assets/js/maze/research-search.js",
+      "file:///C:/dev/voxmana.io/assets/js/maze/research-ui.js?v=vm620",
+      "file:///C:/dev/voxmana.io/assets/js/maze/maze-handoff.js?v=vm674r3",
+      "file:///C:/dev/voxmana.io/assets/js/maze/maze-scratchpad-store.js",
+      "file:///C:/dev/voxmana.io/assets/js/shared/scryfall-transform-faces.js",
+      "file:///C:/dev/voxmana.io/assets/js/maze/maze-handoff.js?v=vm636",
+      "file:///C:/assets/img/overlays/overlay-vignette-shadow-01.svg",
+      "file:///C:/assets/img/overlays/overlay-fog-soft-01.svg",
+      "file:///C:/assets/img/overlays/overlay-arcane-glow-teal-01.svg",
+      "file:///C:/data/maze/scryfall-parser-seed-2026.json",
+      "file:///C:/data/scryfall/grounding/scryfall-grounding.json",
+      "file:///C:/data/scryfall/grounding/plain-reading-semantics.json",
+      "file:///C:/dev/voxmana.io/assets/img/vox-mana-header-logo.svg",
+      "file:///C:/data/dossier/maze-discovery-profiles.catalog.json"
+    ],
+    "returnActivation": "NOT REACHED — real Maze initialization failed",
+    "sourceUrl": "file:///C:/dev/voxmana.io/maze/index.html?from=archscry&fit=WU&pathType=commanders-that-fit&contextMode=identity-explore&exploreIdentity=WU&returnUrl=https%3A%2F%2Fexample.invalid",
+    "status": "FAIL",
+    "unflaggedEdgeAndInAppBrowser": "NOT CLAIMED"
+  },
+  "inheritedBannerClassification": "Obsolete selector absent from current product. Current visible return context is exercised in every return/security case; independent exact-parent control separately preserved.",
+  "modifiedReturns": {
+    "browserChromeOpenInNewTab": "UNAVAILABLE — no synthetic substitute",
+    "browserChromeOpenInNewWindow": "UNAVAILABLE — native Shift gesture measured separately",
+    "meta": "UNAVAILABLE — Windows engine",
+    "records": [
+      {
+        "destination": {
+          "errors": [],
+          "explore": true,
+          "heading": "Azorius Senate",
+          "identity": "WU",
+          "initial": {
+            "activePanel": "maze-discovery",
+            "directReview": false,
+            "reviewGate": false,
+            "url": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WU&panel=maze-discovery"
+          },
+          "mazeActionHref": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dwu+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-azorius&guild=WU&fit=WU&factionName=Azorius+Senate&readingTitle=Azorius+Senate+dossier&contextMode=identity-explore&exploreIdentity=WU&pathType=commanders-that-fit&plainReadingQuery=Azorius+Senate+Commander-legal+commanders+with+exactly+white-blue+identity&operatorQuery=id%3Dwu+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=WU&returnUrl=..%2Farchscry%2Findex.html%3Fexplore%3Dazorius%26panel%3Dmaze-discovery%23maze-discovery-paths",
+          "mazePanelVisible": true,
+          "pathname": "/archscry/index.html",
+          "philosophy": "Azorius trusts law, information, documentation, and procedure to make civic life legible and protected, while recognizing that process must remain accountable to people.",
+          "tagline": "Law, procedure, and enforceable structure protect civic order when they stay accountable to the people they govern.",
+          "url": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WU&panel=maze-discovery"
+        },
+        "kind": "ctrl",
+        "nativeNewTarget": true,
+        "sourceUnchanged": true
+      },
+      {
+        "destination": {
+          "errors": [],
+          "explore": true,
+          "heading": "Azorius Senate",
+          "identity": "WU",
+          "initial": {
+            "activePanel": "maze-discovery",
+            "directReview": false,
+            "reviewGate": false,
+            "url": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WU&panel=maze-discovery"
+          },
+          "mazeActionHref": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dwu+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-azorius&guild=WU&fit=WU&factionName=Azorius+Senate&readingTitle=Azorius+Senate+dossier&contextMode=identity-explore&exploreIdentity=WU&pathType=commanders-that-fit&plainReadingQuery=Azorius+Senate+Commander-legal+commanders+with+exactly+white-blue+identity&operatorQuery=id%3Dwu+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=WU&returnUrl=..%2Farchscry%2Findex.html%3Fexplore%3Dazorius%26panel%3Dmaze-discovery%23maze-discovery-paths",
+          "mazePanelVisible": true,
+          "pathname": "/archscry/index.html",
+          "philosophy": "Azorius trusts law, information, documentation, and procedure to make civic life legible and protected, while recognizing that process must remain accountable to people.",
+          "tagline": "Law, procedure, and enforceable structure protect civic order when they stay accountable to the people they govern.",
+          "url": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WU&panel=maze-discovery"
+        },
+        "kind": "middle",
+        "nativeNewTarget": true,
+        "sourceUnchanged": true
+      },
+      {
+        "destination": {
+          "errors": [],
+          "explore": true,
+          "heading": "Azorius Senate",
+          "identity": "WU",
+          "initial": {
+            "activePanel": "maze-discovery",
+            "directReview": false,
+            "reviewGate": false,
+            "url": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WU&panel=maze-discovery"
+          },
+          "mazeActionHref": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dwu+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-azorius&guild=WU&fit=WU&factionName=Azorius+Senate&readingTitle=Azorius+Senate+dossier&contextMode=identity-explore&exploreIdentity=WU&pathType=commanders-that-fit&plainReadingQuery=Azorius+Senate+Commander-legal+commanders+with+exactly+white-blue+identity&operatorQuery=id%3Dwu+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=WU&returnUrl=..%2Farchscry%2Findex.html%3Fexplore%3Dazorius%26panel%3Dmaze-discovery%23maze-discovery-paths",
+          "mazePanelVisible": true,
+          "pathname": "/archscry/index.html",
+          "philosophy": "Azorius trusts law, information, documentation, and procedure to make civic life legible and protected, while recognizing that process must remain accountable to people.",
+          "tagline": "Law, procedure, and enforceable structure protect civic order when they stay accountable to the people they govern.",
+          "url": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WU&panel=maze-discovery"
+        },
+        "kind": "shift",
+        "nativeNewTarget": true,
+        "sourceUnchanged": true
+      }
+    ],
+    "simultaneousTargets": 3
+  },
+  "returns": [
+    {
+      "activatedSurface": "maze-reading-context-return",
+      "destination": {
+        "errors": [],
+        "explore": true,
+        "heading": "White",
+        "identity": "W",
+        "initial": {
+          "activePanel": "maze-discovery",
+          "directReview": false,
+          "reviewGate": false,
+          "url": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=W&panel=maze-discovery"
+        },
+        "mazeActionHref": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dw+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-white&guild=W&fit=W&factionName=White&readingTitle=White+dossier&contextMode=identity-explore&exploreIdentity=W&pathType=commanders-that-fit&plainReadingQuery=White+Commander-legal+commanders+with+exactly+white+identity&operatorQuery=id%3Dw+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=W&returnUrl=..%2Farchscry%2Findex.html%3Fexplore%3Dwhite%26panel%3Dmaze-discovery%23maze-discovery-paths",
+        "mazePanelVisible": true,
+        "pathname": "/archscry/index.html",
+        "philosophy": "White believes peace is not a mood. It is a structure: rules that hold, shelter that lasts, and obligations people can trust under pressure.",
+        "tagline": "Safety is built, not assumed.",
+        "url": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=W&panel=maze-discovery"
+      },
+      "documentRequests": [
+        "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=W&panel=maze-discovery#maze-discovery-paths"
+      ],
+      "existingArchscryHashConsumption": true,
+      "expectedFindReadingId": "",
+      "key": "W",
+      "launchHref": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dw+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-white&guild=W&fit=W&factionName=White&readingTitle=White+dossier&contextMode=identity-explore&exploreIdentity=W&pathType=commanders-that-fit&plainReadingQuery=White+Commander-legal+commanders+with+exactly+white+identity&operatorQuery=id%3Dw+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=W&returnUrl=..%2Farchscry%2Findex.html%3Fexplore%3Dwhite%26panel%3Dmaze-discovery%23maze-discovery-paths",
+      "mode": "identity-explore",
+      "persistedFindReadingId": "",
+      "reload": null,
+      "returns": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=W&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=W&panel=maze-discovery#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "dossier",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=w is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=W&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=W&panel=maze-discovery#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    },
+    {
+      "activatedSurface": "maze-reading-context-return",
+      "destination": {
+        "errors": [],
+        "explore": true,
+        "heading": "Blue",
+        "identity": "U",
+        "initial": {
+          "activePanel": "maze-discovery",
+          "directReview": false,
+          "reviewGate": false,
+          "url": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=U&panel=maze-discovery"
+        },
+        "mazeActionHref": "http://vm678-baseline.invalid/maze/index.html?q=id%3Du+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-blue&guild=U&fit=U&factionName=Blue&readingTitle=Blue+dossier&contextMode=identity-explore&exploreIdentity=U&pathType=commanders-that-fit&plainReadingQuery=Blue+Commander-legal+commanders+with+exactly+blue+identity&operatorQuery=id%3Du+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=U&returnUrl=..%2Farchscry%2Findex.html%3Fexplore%3Dblue%26panel%3Dmaze-discovery%23maze-discovery-paths",
+        "mazePanelVisible": true,
+        "pathname": "/archscry/index.html",
+        "philosophy": "Blue believes no one is finished by default. Knowledge, practice, and precise systems let people and worlds become more than their starting shape.",
+        "tagline": "Possibility opens when the pattern is understood.",
+        "url": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=U&panel=maze-discovery"
+      },
+      "documentRequests": [
+        "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=U&panel=maze-discovery#maze-discovery-paths"
+      ],
+      "existingArchscryHashConsumption": true,
+      "expectedFindReadingId": "",
+      "key": "U",
+      "launchHref": "http://vm678-baseline.invalid/maze/index.html?q=id%3Du+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-blue&guild=U&fit=U&factionName=Blue&readingTitle=Blue+dossier&contextMode=identity-explore&exploreIdentity=U&pathType=commanders-that-fit&plainReadingQuery=Blue+Commander-legal+commanders+with+exactly+blue+identity&operatorQuery=id%3Du+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=U&returnUrl=..%2Farchscry%2Findex.html%3Fexplore%3Dblue%26panel%3Dmaze-discovery%23maze-discovery-paths",
+      "mode": "identity-explore",
+      "persistedFindReadingId": "",
+      "reload": null,
+      "returns": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=U&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=U&panel=maze-discovery#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "dossier",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=u is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=U&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=U&panel=maze-discovery#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    },
+    {
+      "activatedSurface": "maze-reading-context-return",
+      "destination": {
+        "errors": [],
+        "explore": true,
+        "heading": "Black",
+        "identity": "B",
+        "initial": {
+          "activePanel": "maze-discovery",
+          "directReview": false,
+          "reviewGate": false,
+          "url": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=B&panel=maze-discovery"
+        },
+        "mazeActionHref": "http://vm678-baseline.invalid/maze/index.html?q=id%3Db+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-black&guild=B&fit=B&factionName=Black&readingTitle=Black+dossier&contextMode=identity-explore&exploreIdentity=B&pathType=commanders-that-fit&plainReadingQuery=Black+Commander-legal+commanders+with+exactly+black+identity&operatorQuery=id%3Db+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=B&returnUrl=..%2Farchscry%2Findex.html%3Fexplore%3Dblack%26panel%3Dmaze-discovery%23maze-discovery-paths",
+        "mazePanelVisible": true,
+        "pathname": "/archscry/index.html",
+        "philosophy": "Black believes the world offers no guaranteed fairness. It secures agency by treating life, death, loyalty, and resources as costs that can be paid for control.",
+        "tagline": "Power is protection when no one is coming to save you.",
+        "url": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=B&panel=maze-discovery"
+      },
+      "documentRequests": [
+        "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=B&panel=maze-discovery#maze-discovery-paths"
+      ],
+      "existingArchscryHashConsumption": true,
+      "expectedFindReadingId": "",
+      "key": "B",
+      "launchHref": "http://vm678-baseline.invalid/maze/index.html?q=id%3Db+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-black&guild=B&fit=B&factionName=Black&readingTitle=Black+dossier&contextMode=identity-explore&exploreIdentity=B&pathType=commanders-that-fit&plainReadingQuery=Black+Commander-legal+commanders+with+exactly+black+identity&operatorQuery=id%3Db+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=B&returnUrl=..%2Farchscry%2Findex.html%3Fexplore%3Dblack%26panel%3Dmaze-discovery%23maze-discovery-paths",
+      "mode": "identity-explore",
+      "persistedFindReadingId": "",
+      "reload": null,
+      "returns": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=B&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=B&panel=maze-discovery#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "dossier",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=b is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=B&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=B&panel=maze-discovery#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    },
+    {
+      "activatedSurface": "maze-reading-context-return",
+      "destination": {
+        "errors": [],
+        "explore": true,
+        "heading": "Red",
+        "identity": "R",
+        "initial": {
+          "activePanel": "maze-discovery",
+          "directReview": false,
+          "reviewGate": false,
+          "url": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=R&panel=maze-discovery"
+        },
+        "mazeActionHref": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dr+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-red&guild=R&fit=R&factionName=Red&readingTitle=Red+dossier&contextMode=identity-explore&exploreIdentity=R&pathType=commanders-that-fit&plainReadingQuery=Red+Commander-legal+commanders+with+exactly+red+identity&operatorQuery=id%3Dr+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=R&returnUrl=..%2Farchscry%2Findex.html%3Fexplore%3Dred%26panel%3Dmaze-discovery%23maze-discovery-paths",
+        "mazePanelVisible": true,
+        "pathname": "/archscry/index.html",
+        "philosophy": "Red believes feeling is a form of truth. Freedom becomes real when the impulse is allowed to move now, before fear, permission, or overthinking can smother it.",
+        "tagline": "The honest spark moves before the cage closes.",
+        "url": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=R&panel=maze-discovery"
+      },
+      "documentRequests": [
+        "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=R&panel=maze-discovery#maze-discovery-paths"
+      ],
+      "existingArchscryHashConsumption": true,
+      "expectedFindReadingId": "",
+      "key": "R",
+      "launchHref": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dr+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-red&guild=R&fit=R&factionName=Red&readingTitle=Red+dossier&contextMode=identity-explore&exploreIdentity=R&pathType=commanders-that-fit&plainReadingQuery=Red+Commander-legal+commanders+with+exactly+red+identity&operatorQuery=id%3Dr+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=R&returnUrl=..%2Farchscry%2Findex.html%3Fexplore%3Dred%26panel%3Dmaze-discovery%23maze-discovery-paths",
+      "mode": "identity-explore",
+      "persistedFindReadingId": "",
+      "reload": null,
+      "returns": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=R&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=R&panel=maze-discovery#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "dossier",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=r is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=R&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=R&panel=maze-discovery#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    },
+    {
+      "activatedSurface": "maze-reading-context-return",
+      "destination": {
+        "errors": [],
+        "explore": true,
+        "heading": "Green",
+        "identity": "G",
+        "initial": {
+          "activePanel": "maze-discovery",
+          "directReview": false,
+          "reviewGate": false,
+          "url": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=G&panel=maze-discovery"
+        },
+        "mazeActionHref": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dg+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-green&guild=G&fit=G&factionName=Green&readingTitle=Green+dossier&contextMode=identity-explore&exploreIdentity=G&pathType=commanders-that-fit&plainReadingQuery=Green+Commander-legal+commanders+with+exactly+green+identity&operatorQuery=id%3Dg+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=G&returnUrl=..%2Farchscry%2Findex.html%3Fexplore%3Dgreen%26panel%3Dmaze-discovery%23maze-discovery-paths",
+        "mazePanelVisible": true,
+        "pathname": "/archscry/index.html",
+        "philosophy": "Green believes the world is not an unsolved machine. It is a living order already holding each creature's place, and strength comes from accepting nature, rooting deeply, and letting time reveal what was always in the seed.",
+        "tagline": "The seed remembers what it is becoming.",
+        "url": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=G&panel=maze-discovery"
+      },
+      "documentRequests": [
+        "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=G&panel=maze-discovery#maze-discovery-paths"
+      ],
+      "existingArchscryHashConsumption": true,
+      "expectedFindReadingId": "",
+      "key": "G",
+      "launchHref": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dg+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-green&guild=G&fit=G&factionName=Green&readingTitle=Green+dossier&contextMode=identity-explore&exploreIdentity=G&pathType=commanders-that-fit&plainReadingQuery=Green+Commander-legal+commanders+with+exactly+green+identity&operatorQuery=id%3Dg+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=G&returnUrl=..%2Farchscry%2Findex.html%3Fexplore%3Dgreen%26panel%3Dmaze-discovery%23maze-discovery-paths",
+      "mode": "identity-explore",
+      "persistedFindReadingId": "",
+      "reload": null,
+      "returns": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=G&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=G&panel=maze-discovery#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "dossier",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=g is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=G&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=G&panel=maze-discovery#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    },
+    {
+      "activatedSurface": "scratchpad-return-dossier",
+      "azoriusControl": {
+        "errors": [],
+        "explore": true,
+        "heading": "Azorius Senate",
+        "identity": "WU",
+        "initial": {
+          "activePanel": "maze-discovery",
+          "directReview": false,
+          "reviewGate": false,
+          "url": "http://vm678-baseline.invalid/archscry/index.html?explore=azorius&panel=maze-discovery"
+        },
+        "mazeActionHref": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dwu+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-azorius&guild=WU&fit=WU&factionName=Azorius+Senate&readingTitle=Azorius+Senate+dossier&contextMode=identity-explore&exploreIdentity=WU&pathType=commanders-that-fit&plainReadingQuery=Azorius+Senate+Commander-legal+commanders+with+exactly+white-blue+identity&operatorQuery=id%3Dwu+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=WU&returnUrl=..%2Farchscry%2Findex.html%3Fexplore%3Dazorius%26panel%3Dmaze-discovery%23maze-discovery-paths",
+        "mazePanelVisible": true,
+        "pathname": "/archscry/index.html",
+        "philosophy": "Azorius trusts law, information, documentation, and procedure to make civic life legible and protected, while recognizing that process must remain accountable to people.",
+        "tagline": "Law, procedure, and enforceable structure protect civic order when they stay accountable to the people they govern.",
+        "url": "http://vm678-baseline.invalid/archscry/index.html?explore=azorius&panel=maze-discovery"
+      },
+      "destination": {
+        "errors": [],
+        "explore": true,
+        "heading": "Azorius Senate",
+        "identity": "WU",
+        "initial": {
+          "activePanel": "maze-discovery",
+          "directReview": false,
+          "reviewGate": false,
+          "url": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WU&panel=maze-discovery"
+        },
+        "mazeActionHref": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dwu+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-azorius&guild=WU&fit=WU&factionName=Azorius+Senate&readingTitle=Azorius+Senate+dossier&contextMode=identity-explore&exploreIdentity=WU&pathType=commanders-that-fit&plainReadingQuery=Azorius+Senate+Commander-legal+commanders+with+exactly+white-blue+identity&operatorQuery=id%3Dwu+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=WU&returnUrl=..%2Farchscry%2Findex.html%3Fexplore%3Dazorius%26panel%3Dmaze-discovery%23maze-discovery-paths",
+        "mazePanelVisible": true,
+        "pathname": "/archscry/index.html",
+        "philosophy": "Azorius trusts law, information, documentation, and procedure to make civic life legible and protected, while recognizing that process must remain accountable to people.",
+        "tagline": "Law, procedure, and enforceable structure protect civic order when they stay accountable to the people they govern.",
+        "url": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WU&panel=maze-discovery"
+      },
+      "documentRequests": [
+        "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+        "http://vm678-baseline.invalid/archscry/index.html?explore=azorius&panel=maze-discovery#maze-discovery-paths"
+      ],
+      "existingArchscryHashConsumption": true,
+      "expectedFindReadingId": "",
+      "key": "WU",
+      "launchHref": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dwu+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-azorius&guild=WU&fit=WU&factionName=Azorius+Senate&readingTitle=Azorius+Senate+dossier&contextMode=identity-explore&exploreIdentity=WU&pathType=commanders-that-fit&plainReadingQuery=Azorius+Senate+Commander-legal+commanders+with+exactly+white-blue+identity&operatorQuery=id%3Dwu+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=WU&returnUrl=..%2Farchscry%2Findex.html%3Fexplore%3Dazorius%26panel%3Dmaze-discovery%23maze-discovery-paths",
+      "mode": "identity-explore",
+      "persistedFindReadingId": "",
+      "reload": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "dossier",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=wu is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "rendered": false
+        }
+      },
+      "returns": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "dossier",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=wu is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    },
+    {
+      "activatedSurface": "maze-reading-context-return",
+      "destination": {
+        "errors": [],
+        "explore": true,
+        "heading": "Boros Legion",
+        "identity": "WR",
+        "initial": {
+          "activePanel": "maze-discovery",
+          "directReview": false,
+          "reviewGate": false,
+          "url": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WR&panel=maze-discovery"
+        },
+        "mazeActionHref": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dwr+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-boros&guild=WR&fit=WR&factionName=Boros+Legion&readingTitle=Boros+Legion+dossier&contextMode=identity-explore&exploreIdentity=WR&pathType=commanders-that-fit&plainReadingQuery=Boros+Legion+Commander-legal+commanders+with+exactly+white-red+identity&operatorQuery=id%3Dwr+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=WR&returnUrl=..%2Farchscry%2Findex.html%3Fexplore%3Dboros%26panel%3Dmaze-discovery%23maze-discovery-paths",
+        "mazePanelVisible": true,
+        "pathname": "/archscry/index.html",
+        "philosophy": "Boros philosophy joins civic order with urgent protection. Its best expression acts when harm is present, but remains accountable to the public duty it claims to serve.",
+        "tagline": "Public protection. Disciplined action.",
+        "url": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WR&panel=maze-discovery"
+      },
+      "documentRequests": [
+        "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WR&panel=maze-discovery#maze-discovery-paths"
+      ],
+      "existingArchscryHashConsumption": true,
+      "expectedFindReadingId": "",
+      "key": "WR",
+      "launchHref": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dwr+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-boros&guild=WR&fit=WR&factionName=Boros+Legion&readingTitle=Boros+Legion+dossier&contextMode=identity-explore&exploreIdentity=WR&pathType=commanders-that-fit&plainReadingQuery=Boros+Legion+Commander-legal+commanders+with+exactly+white-red+identity&operatorQuery=id%3Dwr+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=WR&returnUrl=..%2Farchscry%2Findex.html%3Fexplore%3Dboros%26panel%3Dmaze-discovery%23maze-discovery-paths",
+      "mode": "identity-explore",
+      "persistedFindReadingId": "",
+      "reload": null,
+      "returns": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WR&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=WR&panel=maze-discovery#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "dossier",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=wr is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WR&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=WR&panel=maze-discovery#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    },
+    {
+      "activatedSurface": "maze-reading-context-return",
+      "destination": {
+        "errors": [],
+        "explore": true,
+        "heading": "House Dimir",
+        "identity": "UB",
+        "initial": {
+          "activePanel": "maze-discovery",
+          "directReview": false,
+          "reviewGate": false,
+          "url": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=UB&panel=maze-discovery"
+        },
+        "mazeActionHref": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dub+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-dimir&guild=UB&fit=UB&factionName=House+Dimir&readingTitle=House+Dimir+dossier&contextMode=identity-explore&exploreIdentity=UB&pathType=commanders-that-fit&plainReadingQuery=House+Dimir+Commander-legal+commanders+with+exactly+blue-black+identity&operatorQuery=id%3Dub+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=UB&returnUrl=..%2Farchscry%2Findex.html%3Fexplore%3Ddimir%26panel%3Dmaze-discovery%23maze-discovery-paths",
+        "mazePanelVisible": true,
+        "pathname": "/archscry/index.html",
+        "philosophy": "Dimir turns information into hidden leverage through secrecy, backroom dealing, observation, and delayed disclosure.",
+        "tagline": "Secrets, backroom deals, and hidden information leverage.",
+        "url": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=UB&panel=maze-discovery"
+      },
+      "documentRequests": [
+        "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=UB&panel=maze-discovery#maze-discovery-paths"
+      ],
+      "existingArchscryHashConsumption": true,
+      "expectedFindReadingId": "",
+      "key": "UB",
+      "launchHref": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dub+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-dimir&guild=UB&fit=UB&factionName=House+Dimir&readingTitle=House+Dimir+dossier&contextMode=identity-explore&exploreIdentity=UB&pathType=commanders-that-fit&plainReadingQuery=House+Dimir+Commander-legal+commanders+with+exactly+blue-black+identity&operatorQuery=id%3Dub+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=UB&returnUrl=..%2Farchscry%2Findex.html%3Fexplore%3Ddimir%26panel%3Dmaze-discovery%23maze-discovery-paths",
+      "mode": "identity-explore",
+      "persistedFindReadingId": "",
+      "reload": null,
+      "returns": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=UB&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=UB&panel=maze-discovery#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "dossier",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=ub is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=UB&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=UB&panel=maze-discovery#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    },
+    {
+      "activatedSurface": "maze-reading-context-return",
+      "destination": {
+        "errors": [],
+        "explore": true,
+        "heading": "Golgari Swarm",
+        "identity": "BG",
+        "initial": {
+          "activePanel": "maze-discovery",
+          "directReview": false,
+          "reviewGate": false,
+          "url": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=BG&panel=maze-discovery"
+        },
+        "mazeActionHref": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dbg+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-golgari&guild=BG&fit=BG&factionName=Golgari+Swarm&readingTitle=Golgari+Swarm+dossier&contextMode=identity-explore&exploreIdentity=BG&pathType=commanders-that-fit&plainReadingQuery=Golgari+Swarm+Commander-legal+commanders+with+exactly+black-green+identity&operatorQuery=id%3Dbg+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=BG&returnUrl=..%2Farchscry%2Findex.html%3Fexplore%3Dgolgari%26panel%3Dmaze-discovery%23maze-discovery-paths",
+        "mazePanelVisible": true,
+        "pathname": "/archscry/index.html",
+        "philosophy": "Golgari treats death, decay, and discarded matter as useful material inside a living cycle: undercity survival, food production, graveyard resources, and renewal rather than generic morbidity.",
+        "tagline": "What is discarded can feed the next cycle.",
+        "url": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=BG&panel=maze-discovery"
+      },
+      "documentRequests": [
+        "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=BG&panel=maze-discovery#maze-discovery-paths"
+      ],
+      "existingArchscryHashConsumption": true,
+      "expectedFindReadingId": "",
+      "key": "BG",
+      "launchHref": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dbg+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-golgari&guild=BG&fit=BG&factionName=Golgari+Swarm&readingTitle=Golgari+Swarm+dossier&contextMode=identity-explore&exploreIdentity=BG&pathType=commanders-that-fit&plainReadingQuery=Golgari+Swarm+Commander-legal+commanders+with+exactly+black-green+identity&operatorQuery=id%3Dbg+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=BG&returnUrl=..%2Farchscry%2Findex.html%3Fexplore%3Dgolgari%26panel%3Dmaze-discovery%23maze-discovery-paths",
+      "mode": "identity-explore",
+      "persistedFindReadingId": "",
+      "reload": null,
+      "returns": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=BG&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=BG&panel=maze-discovery#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "dossier",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=bg is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=BG&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=BG&panel=maze-discovery#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    },
+    {
+      "activatedSurface": "maze-reading-context-return",
+      "destination": {
+        "errors": [],
+        "explore": true,
+        "heading": "Gruul Clans",
+        "identity": "RG",
+        "initial": {
+          "activePanel": "maze-discovery",
+          "directReview": false,
+          "reviewGate": false,
+          "url": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=RG&panel=maze-discovery"
+        },
+        "mazeActionHref": "http://vm678-baseline.invalid/maze/index.html?q=id%3Drg+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-gruul&guild=RG&fit=RG&factionName=Gruul+Clans&readingTitle=Gruul+Clans+dossier&contextMode=identity-explore&exploreIdentity=RG&pathType=commanders-that-fit&plainReadingQuery=Gruul+Clans+Commander-legal+commanders+with+exactly+red-green+identity&operatorQuery=id%3Drg+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=RG&returnUrl=..%2Farchscry%2Findex.html%3Fexplore%3Dgruul%26panel%3Dmaze-discovery%23maze-discovery-paths",
+        "mazePanelVisible": true,
+        "pathname": "/archscry/index.html",
+        "philosophy": "The Gruul were assigned Ravnica's wild places, then urban expansion and other guilds eroded that role. Their red-green identity centers loose clans, Rubblebelt territory, direct action, riot and bloodrush pressure, and anger at imposed civilization.",
+        "tagline": "Wild places lost. The clans answer directly.",
+        "url": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=RG&panel=maze-discovery"
+      },
+      "documentRequests": [
+        "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=RG&panel=maze-discovery#maze-discovery-paths"
+      ],
+      "existingArchscryHashConsumption": true,
+      "expectedFindReadingId": "",
+      "key": "RG",
+      "launchHref": "http://vm678-baseline.invalid/maze/index.html?q=id%3Drg+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-gruul&guild=RG&fit=RG&factionName=Gruul+Clans&readingTitle=Gruul+Clans+dossier&contextMode=identity-explore&exploreIdentity=RG&pathType=commanders-that-fit&plainReadingQuery=Gruul+Clans+Commander-legal+commanders+with+exactly+red-green+identity&operatorQuery=id%3Drg+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=RG&returnUrl=..%2Farchscry%2Findex.html%3Fexplore%3Dgruul%26panel%3Dmaze-discovery%23maze-discovery-paths",
+      "mode": "identity-explore",
+      "persistedFindReadingId": "",
+      "reload": null,
+      "returns": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=RG&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=RG&panel=maze-discovery#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "dossier",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=rg is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=RG&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=RG&panel=maze-discovery#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    },
+    {
+      "activatedSurface": "maze-reading-context-return",
+      "destination": {
+        "errors": [],
+        "explore": true,
+        "heading": "Izzet League",
+        "identity": "UR",
+        "initial": {
+          "activePanel": "maze-discovery",
+          "directReview": false,
+          "reviewGate": false,
+          "url": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=UR&panel=maze-discovery"
+        },
+        "mazeActionHref": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dur+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-izzet&guild=UR&fit=UR&factionName=Izzet+League&readingTitle=Izzet+League+dossier&contextMode=identity-explore&exploreIdentity=UR&pathType=commanders-that-fit&plainReadingQuery=Izzet+League+Commander-legal+commanders+with+exactly+blue-red+identity&operatorQuery=id%3Dur+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=UR&returnUrl=..%2Farchscry%2Findex.html%3Fexplore%3Dizzet%26panel%3Dmaze-discovery%23maze-discovery-paths",
+        "mazePanelVisible": true,
+        "pathname": "/archscry/index.html",
+        "philosophy": "The Izzet League turns blue-red curiosity into elemental magic, mizzium technology, civic engineering, spell engines, and prototypes. Its best work makes discovery useful; its pressure point is volatile experimentation that can outrun care, procedure, or restraint.",
+        "tagline": "Invent first. Stabilize what the experiment teaches.",
+        "url": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=UR&panel=maze-discovery"
+      },
+      "documentRequests": [
+        "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=UR&panel=maze-discovery#maze-discovery-paths"
+      ],
+      "existingArchscryHashConsumption": true,
+      "expectedFindReadingId": "",
+      "key": "UR",
+      "launchHref": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dur+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-izzet&guild=UR&fit=UR&factionName=Izzet+League&readingTitle=Izzet+League+dossier&contextMode=identity-explore&exploreIdentity=UR&pathType=commanders-that-fit&plainReadingQuery=Izzet+League+Commander-legal+commanders+with+exactly+blue-red+identity&operatorQuery=id%3Dur+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=UR&returnUrl=..%2Farchscry%2Findex.html%3Fexplore%3Dizzet%26panel%3Dmaze-discovery%23maze-discovery-paths",
+      "mode": "identity-explore",
+      "persistedFindReadingId": "",
+      "reload": null,
+      "returns": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=UR&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=UR&panel=maze-discovery#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "dossier",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=ur is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=UR&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=UR&panel=maze-discovery#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    },
+    {
+      "activatedSurface": "maze-reading-context-return",
+      "destination": {
+        "errors": [],
+        "explore": true,
+        "heading": "Orzhov Syndicate",
+        "identity": "WB",
+        "initial": {
+          "activePanel": "maze-discovery",
+          "directReview": false,
+          "reviewGate": false,
+          "url": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WB&panel=maze-discovery"
+        },
+        "mazeActionHref": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dwb+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-orzhov&guild=WB&fit=WB&factionName=Orzhov+Syndicate&readingTitle=Orzhov+Syndicate+dossier&contextMode=identity-explore&exploreIdentity=WB&pathType=commanders-that-fit&plainReadingQuery=Orzhov+Syndicate+Commander-legal+commanders+with+exactly+white-black+identity&operatorQuery=id%3Dwb+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=WB&returnUrl=..%2Farchscry%2Findex.html%3Fexplore%3Dorzhov%26panel%3Dmaze-discovery%23maze-discovery-paths",
+        "mazePanelVisible": true,
+        "pathname": "/archscry/index.html",
+        "philosophy": "Orzhov is the white-black Ravnican guild where religious legitimacy, deal-making business, debt, and cartel hierarchy overlap. Vox Mana reads it through collectible obligation and institutional leverage, not generic WB attrition, lifegain/drain, taxes, sacrifice, recursion, or removal mechanics alone.",
+        "tagline": "Debt, deals, and hierarchy made official.",
+        "url": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WB&panel=maze-discovery"
+      },
+      "documentRequests": [
+        "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WB&panel=maze-discovery#maze-discovery-paths"
+      ],
+      "existingArchscryHashConsumption": true,
+      "expectedFindReadingId": "",
+      "key": "WB",
+      "launchHref": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dwb+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-orzhov&guild=WB&fit=WB&factionName=Orzhov+Syndicate&readingTitle=Orzhov+Syndicate+dossier&contextMode=identity-explore&exploreIdentity=WB&pathType=commanders-that-fit&plainReadingQuery=Orzhov+Syndicate+Commander-legal+commanders+with+exactly+white-black+identity&operatorQuery=id%3Dwb+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=WB&returnUrl=..%2Farchscry%2Findex.html%3Fexplore%3Dorzhov%26panel%3Dmaze-discovery%23maze-discovery-paths",
+      "mode": "identity-explore",
+      "persistedFindReadingId": "",
+      "reload": null,
+      "returns": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WB&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=WB&panel=maze-discovery#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "dossier",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=wb is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WB&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=WB&panel=maze-discovery#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    },
+    {
+      "activatedSurface": "maze-reading-context-return",
+      "destination": {
+        "errors": [],
+        "explore": true,
+        "heading": "Cult of Rakdos",
+        "identity": "BR",
+        "initial": {
+          "activePanel": "maze-discovery",
+          "directReview": false,
+          "reviewGate": false,
+          "url": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=BR&panel=maze-discovery"
+        },
+        "mazeActionHref": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dbr+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-rakdos&guild=BR&fit=BR&factionName=Cult+of+Rakdos&readingTitle=Cult+of+Rakdos+dossier&contextMode=identity-explore&exploreIdentity=BR&pathType=commanders-that-fit&plainReadingQuery=Cult+of+Rakdos+Commander-legal+commanders+with+exactly+black-red+identity&operatorQuery=id%3Dbr+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=BR&returnUrl=..%2Farchscry%2Findex.html%3Fexplore%3Drakdos%26panel%3Dmaze-discovery%23maze-discovery-paths",
+        "mazePanelVisible": true,
+        "pathname": "/archscry/index.html",
+        "philosophy": "Rakdos turns black-red appetite into public spectacle: performance, provocation, sensation, and visible cost become the way restraint is mocked and hidden pressure is exposed. It is not generic evil or random disruption; the signal is the act, the audience, and the consequence.",
+        "tagline": "Performance makes appetite, cost, and consequence visible.",
+        "url": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=BR&panel=maze-discovery"
+      },
+      "documentRequests": [
+        "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=BR&panel=maze-discovery#maze-discovery-paths"
+      ],
+      "existingArchscryHashConsumption": true,
+      "expectedFindReadingId": "",
+      "key": "BR",
+      "launchHref": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dbr+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-rakdos&guild=BR&fit=BR&factionName=Cult+of+Rakdos&readingTitle=Cult+of+Rakdos+dossier&contextMode=identity-explore&exploreIdentity=BR&pathType=commanders-that-fit&plainReadingQuery=Cult+of+Rakdos+Commander-legal+commanders+with+exactly+black-red+identity&operatorQuery=id%3Dbr+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=BR&returnUrl=..%2Farchscry%2Findex.html%3Fexplore%3Drakdos%26panel%3Dmaze-discovery%23maze-discovery-paths",
+      "mode": "identity-explore",
+      "persistedFindReadingId": "",
+      "reload": null,
+      "returns": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=BR&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=BR&panel=maze-discovery#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "dossier",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=br is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=BR&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=BR&panel=maze-discovery#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    },
+    {
+      "activatedSurface": "maze-reading-context-return",
+      "destination": {
+        "errors": [],
+        "explore": true,
+        "heading": "Selesnya Conclave",
+        "identity": "WG",
+        "initial": {
+          "activePanel": "maze-discovery",
+          "directReview": false,
+          "reviewGate": false,
+          "url": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WG&panel=maze-discovery"
+        },
+        "mazeActionHref": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dwg+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-selesnya&guild=WG&fit=WG&factionName=Selesnya+Conclave&readingTitle=Selesnya+Conclave+dossier&contextMode=identity-explore&exploreIdentity=WG&pathType=commanders-that-fit&plainReadingQuery=Selesnya+Conclave+Commander-legal+commanders+with+exactly+white-green+identity&operatorQuery=id%3Dwg+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=WG&returnUrl=..%2Farchscry%2Findex.html%3Fexplore%3Dselesnya%26panel%3Dmaze-discovery%23maze-discovery-paths",
+        "mazePanelVisible": true,
+        "pathname": "/archscry/index.html",
+        "philosophy": "Belonging becomes sacred when individual voice joins a greater living community.",
+        "tagline": "A communal voice rooted in nature and shared purpose.",
+        "url": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WG&panel=maze-discovery"
+      },
+      "documentRequests": [
+        "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WG&panel=maze-discovery#maze-discovery-paths"
+      ],
+      "existingArchscryHashConsumption": true,
+      "expectedFindReadingId": "",
+      "key": "WG",
+      "launchHref": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dwg+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-selesnya&guild=WG&fit=WG&factionName=Selesnya+Conclave&readingTitle=Selesnya+Conclave+dossier&contextMode=identity-explore&exploreIdentity=WG&pathType=commanders-that-fit&plainReadingQuery=Selesnya+Conclave+Commander-legal+commanders+with+exactly+white-green+identity&operatorQuery=id%3Dwg+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=WG&returnUrl=..%2Farchscry%2Findex.html%3Fexplore%3Dselesnya%26panel%3Dmaze-discovery%23maze-discovery-paths",
+      "mode": "identity-explore",
+      "persistedFindReadingId": "",
+      "reload": null,
+      "returns": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WG&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=WG&panel=maze-discovery#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "dossier",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=wg is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WG&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=WG&panel=maze-discovery#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    },
+    {
+      "activatedSurface": "maze-reading-context-return",
+      "destination": {
+        "errors": [],
+        "explore": true,
+        "heading": "Simic Combine",
+        "identity": "UG",
+        "initial": {
+          "activePanel": "maze-discovery",
+          "directReview": false,
+          "reviewGate": false,
+          "url": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=UG&panel=maze-discovery"
+        },
+        "mazeActionHref": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dug+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-simic&guild=UG&fit=UG&factionName=Simic+Combine&readingTitle=Simic+Combine+dossier&contextMode=identity-explore&exploreIdentity=UG&pathType=commanders-that-fit&plainReadingQuery=Simic+Combine+Commander-legal+commanders+with+exactly+blue-green+identity&operatorQuery=id%3Dug+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=UG&returnUrl=..%2Farchscry%2Findex.html%3Fexplore%3Dsimic%26panel%3Dmaze-discovery%23maze-discovery-paths",
+        "mazePanelVisible": true,
+        "pathname": "/archscry/index.html",
+        "philosophy": "Simic treats nature as living systems to preserve, heal, study, adapt, and improve through biology, clade practice, and experimentation.",
+        "tagline": "Life studied as an adaptive, improvable system.",
+        "url": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=UG&panel=maze-discovery"
+      },
+      "documentRequests": [
+        "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=UG&panel=maze-discovery#maze-discovery-paths"
+      ],
+      "existingArchscryHashConsumption": true,
+      "expectedFindReadingId": "",
+      "key": "UG",
+      "launchHref": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dug+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-simic&guild=UG&fit=UG&factionName=Simic+Combine&readingTitle=Simic+Combine+dossier&contextMode=identity-explore&exploreIdentity=UG&pathType=commanders-that-fit&plainReadingQuery=Simic+Combine+Commander-legal+commanders+with+exactly+blue-green+identity&operatorQuery=id%3Dug+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=UG&returnUrl=..%2Farchscry%2Findex.html%3Fexplore%3Dsimic%26panel%3Dmaze-discovery%23maze-discovery-paths",
+      "mode": "identity-explore",
+      "persistedFindReadingId": "",
+      "reload": null,
+      "returns": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=UG&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=UG&panel=maze-discovery#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "dossier",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=ug is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=UG&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=UG&panel=maze-discovery#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    },
+    {
+      "activatedSurface": "maze-reading-context-return",
+      "destination": {
+        "errors": [],
+        "explore": true,
+        "heading": "Lorehold College",
+        "identity": "LOREHOLD",
+        "initial": {
+          "activePanel": "maze-discovery",
+          "directReview": false,
+          "reviewGate": false,
+          "url": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=LOREHOLD&panel=maze-discovery"
+        },
+        "mazeActionHref": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dwr+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-lorehold&guild=LOREHOLD&fit=LOREHOLD&factionName=Lorehold+College&readingTitle=Lorehold+College+dossier&contextMode=identity-explore&exploreIdentity=LOREHOLD&pathType=commanders-that-fit&plainReadingQuery=Lorehold+College+Commander-legal+commanders+with+exactly+white-red+identity&operatorQuery=id%3Dwr+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=LOREHOLD&returnUrl=..%2Farchscry%2Findex.html%3Fexplore%3Dlorehold%26panel%3Dmaze-discovery%23maze-discovery-paths",
+        "mazePanelVisible": true,
+        "pathname": "/archscry/index.html",
+        "philosophy": "Lorehold treats history as something to recover, question, and put to use. Its scholars pore over artifacts and ancient texts, summon spirits as witnesses, and investigate what surviving records leave behind. White looks for preservation, precedent, and order; Red follows discovery, experience, and messy truths that refuse to stay neatly cataloged.",
+        "tagline": "Leave no stone unturned.",
+        "url": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=LOREHOLD&panel=maze-discovery"
+      },
+      "documentRequests": [
+        "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=LOREHOLD&panel=maze-discovery#maze-discovery-paths"
+      ],
+      "existingArchscryHashConsumption": true,
+      "expectedFindReadingId": "",
+      "key": "LOREHOLD",
+      "launchHref": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dwr+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-lorehold&guild=LOREHOLD&fit=LOREHOLD&factionName=Lorehold+College&readingTitle=Lorehold+College+dossier&contextMode=identity-explore&exploreIdentity=LOREHOLD&pathType=commanders-that-fit&plainReadingQuery=Lorehold+College+Commander-legal+commanders+with+exactly+white-red+identity&operatorQuery=id%3Dwr+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=LOREHOLD&returnUrl=..%2Farchscry%2Findex.html%3Fexplore%3Dlorehold%26panel%3Dmaze-discovery%23maze-discovery-paths",
+      "mode": "identity-explore",
+      "persistedFindReadingId": "",
+      "reload": null,
+      "returns": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=LOREHOLD&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=LOREHOLD&panel=maze-discovery#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "dossier",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=wr is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=LOREHOLD&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=LOREHOLD&panel=maze-discovery#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    },
+    {
+      "activatedSurface": "maze-reading-context-return",
+      "destination": {
+        "errors": [],
+        "explore": true,
+        "heading": "Jund",
+        "identity": "JUND",
+        "initial": {
+          "activePanel": "maze-discovery",
+          "directReview": false,
+          "reviewGate": false,
+          "url": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=JUND&panel=maze-discovery"
+        },
+        "mazeActionHref": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dbrg+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-jund&guild=JUND&fit=JUND&factionName=Jund&readingTitle=Jund+dossier&contextMode=identity-explore&exploreIdentity=JUND&pathType=commanders-that-fit&plainReadingQuery=Jund+Commander-legal+commanders+with+exactly+black-red-green+identity&operatorQuery=id%3Dbrg+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=JUND&returnUrl=..%2Farchscry%2Findex.html%3Fexplore%3Djund%26panel%3Dmaze-discovery%23maze-discovery-paths",
+        "mazePanelVisible": true,
+        "pathname": "/archscry/index.html",
+        "philosophy": "Jund treats feeling as a compass. Red supplies self-truth and action, Black honors appetite and self-interest, and Green strips away overthinking until instinct can move.",
+        "tagline": "Trust the feeling. Feed the hunger. Bear the consequence.",
+        "url": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=JUND&panel=maze-discovery"
+      },
+      "documentRequests": [
+        "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=JUND&panel=maze-discovery#maze-discovery-paths"
+      ],
+      "existingArchscryHashConsumption": true,
+      "expectedFindReadingId": "",
+      "key": "JUND",
+      "launchHref": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dbrg+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-jund&guild=JUND&fit=JUND&factionName=Jund&readingTitle=Jund+dossier&contextMode=identity-explore&exploreIdentity=JUND&pathType=commanders-that-fit&plainReadingQuery=Jund+Commander-legal+commanders+with+exactly+black-red-green+identity&operatorQuery=id%3Dbrg+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=JUND&returnUrl=..%2Farchscry%2Findex.html%3Fexplore%3Djund%26panel%3Dmaze-discovery%23maze-discovery-paths",
+      "mode": "identity-explore",
+      "persistedFindReadingId": "",
+      "reload": null,
+      "returns": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=JUND&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=JUND&panel=maze-discovery#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "dossier",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=brg is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=JUND&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=JUND&panel=maze-discovery#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    },
+    {
+      "activatedSurface": "maze-reading-context-return",
+      "destination": {
+        "errors": [],
+        "explore": true,
+        "heading": "Dune / Aggression",
+        "identity": "DUNE",
+        "initial": {
+          "activePanel": "maze-discovery",
+          "directReview": false,
+          "reviewGate": false,
+          "url": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=DUNE&panel=maze-discovery"
+        },
+        "mazeActionHref": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dbrgw+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-dune&guild=DUNE&fit=DUNE&factionName=Dune&readingTitle=Dune+dossier&contextMode=identity-explore&exploreIdentity=DUNE&pathType=commanders-that-fit&plainReadingQuery=Dune+Commander-legal+commanders+with+exactly+black-red-green-white+identity&operatorQuery=id%3Dbrgw+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=DUNE&returnUrl=..%2Farchscry%2Findex.html%3Fexplore%3Ddune%26panel%3Dmaze-discovery%23maze-discovery-paths",
+        "mazePanelVisible": true,
+        "pathname": "/archscry/index.html",
+        "philosophy": "Dune believes presence should claim ground before detached contemplation can cool the moment. White holds the line, Black authorizes the cost, Red keeps ignition immediate, and Green keeps bodies and pressure multiplying.",
+        "tagline": "Take the field. Keep the line moving.",
+        "url": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=DUNE&panel=maze-discovery"
+      },
+      "documentRequests": [
+        "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=DUNE&panel=maze-discovery#maze-discovery-paths"
+      ],
+      "existingArchscryHashConsumption": true,
+      "expectedFindReadingId": "",
+      "key": "DUNE",
+      "launchHref": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dbrgw+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-dune&guild=DUNE&fit=DUNE&factionName=Dune&readingTitle=Dune+dossier&contextMode=identity-explore&exploreIdentity=DUNE&pathType=commanders-that-fit&plainReadingQuery=Dune+Commander-legal+commanders+with+exactly+black-red-green-white+identity&operatorQuery=id%3Dbrgw+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=DUNE&returnUrl=..%2Farchscry%2Findex.html%3Fexplore%3Ddune%26panel%3Dmaze-discovery%23maze-discovery-paths",
+      "mode": "identity-explore",
+      "persistedFindReadingId": "",
+      "reload": null,
+      "returns": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=DUNE&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=DUNE&panel=maze-discovery#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "dossier",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=brgw is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=DUNE&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=DUNE&panel=maze-discovery#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    },
+    {
+      "activatedSurface": "maze-reading-context-return",
+      "destination": {
+        "errors": [],
+        "explore": true,
+        "heading": "Colorless",
+        "identity": "COLORLESS",
+        "initial": {
+          "activePanel": "maze-discovery",
+          "directReview": false,
+          "reviewGate": false,
+          "url": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=COLORLESS&panel=maze-discovery"
+        },
+        "mazeActionHref": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dc+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-colorless&guild=COLORLESS&fit=COLORLESS&factionName=Colorless&readingTitle=Colorless+dossier&contextMode=identity-explore&exploreIdentity=COLORLESS&pathType=colorless-identity&plainReadingQuery=Colorless+Commander-legal+commanders+with+exactly+colorless+identity&operatorQuery=id%3Dc+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=COLORLESS&returnUrl=..%2Farchscry%2Findex.html%3Fexplore%3Dcolorless%26panel%3Dmaze-discovery%23maze-discovery-paths",
+        "mazePanelVisible": true,
+        "pathname": "/archscry/index.html",
+        "philosophy": "Colorless asks what remains when the five colors are not the grammar of the answer: the artifact that acts without appetite, the void that does not negotiate, the Wastes where colored mana has been stripped away, and the detached perspective that must not become superiority over color.",
+        "tagline": "Outside the wheel. Not above it.",
+        "url": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=COLORLESS&panel=maze-discovery"
+      },
+      "documentRequests": [
+        "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=COLORLESS&panel=maze-discovery#maze-discovery-paths"
+      ],
+      "existingArchscryHashConsumption": true,
+      "expectedFindReadingId": "",
+      "key": "COLORLESS",
+      "launchHref": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dc+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-colorless&guild=COLORLESS&fit=COLORLESS&factionName=Colorless&readingTitle=Colorless+dossier&contextMode=identity-explore&exploreIdentity=COLORLESS&pathType=colorless-identity&plainReadingQuery=Colorless+Commander-legal+commanders+with+exactly+colorless+identity&operatorQuery=id%3Dc+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=COLORLESS&returnUrl=..%2Farchscry%2Findex.html%3Fexplore%3Dcolorless%26panel%3Dmaze-discovery%23maze-discovery-paths",
+      "mode": "identity-explore",
+      "persistedFindReadingId": "",
+      "reload": null,
+      "returns": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=COLORLESS&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=COLORLESS&panel=maze-discovery#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "dossier",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=c is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=COLORLESS&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=COLORLESS&panel=maze-discovery#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    },
+    {
+      "activatedSurface": "maze-reading-context-return",
+      "destination": {
+        "errors": [],
+        "explore": true,
+        "heading": "Five-Color",
+        "identity": "WUBRG",
+        "initial": {
+          "activePanel": "maze-discovery",
+          "directReview": false,
+          "reviewGate": false,
+          "url": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WUBRG&panel=maze-discovery"
+        },
+        "mazeActionHref": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dwubrg+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-wubrg&guild=WUBRG&fit=WUBRG&factionName=Five-Color&readingTitle=Five-Color+dossier&contextMode=identity-explore&exploreIdentity=WUBRG&pathType=commanders-that-fit&plainReadingQuery=Five-Color+Commander-legal+commanders+with+exactly+white-blue-black-red-green+identity&operatorQuery=id%3Dwubrg+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=WUBRG&returnUrl=..%2Farchscry%2Findex.html%3Fexplore%3Dwubrg%26panel%3Dmaze-discovery%23maze-discovery-paths",
+        "mazePanelVisible": true,
+        "pathname": "/archscry/index.html",
+        "philosophy": "Five-Color gives access to White, Blue, Black, Red, and Green. It does not establish one unified philosophy by itself; the commander, tribe, mechanic, theme, toolbox, or deck plan determines why all five colors are present.",
+        "tagline": "All five colors are available. What brings them together depends on the deck.",
+        "url": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WUBRG&panel=maze-discovery"
+      },
+      "documentRequests": [
+        "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WUBRG&panel=maze-discovery#maze-discovery-paths"
+      ],
+      "existingArchscryHashConsumption": true,
+      "expectedFindReadingId": "",
+      "key": "WUBRG",
+      "launchHref": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dwubrg+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-wubrg&guild=WUBRG&fit=WUBRG&factionName=Five-Color&readingTitle=Five-Color+dossier&contextMode=identity-explore&exploreIdentity=WUBRG&pathType=commanders-that-fit&plainReadingQuery=Five-Color+Commander-legal+commanders+with+exactly+white-blue-black-red-green+identity&operatorQuery=id%3Dwubrg+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=WUBRG&returnUrl=..%2Farchscry%2Findex.html%3Fexplore%3Dwubrg%26panel%3Dmaze-discovery%23maze-discovery-paths",
+      "mode": "identity-explore",
+      "persistedFindReadingId": "",
+      "reload": null,
+      "returns": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WUBRG&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=WUBRG&panel=maze-discovery#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "dossier",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=wubrg is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WUBRG&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=WUBRG&panel=maze-discovery#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    },
+    {
+      "activatedSurface": "maze-reading-context-return",
+      "destination": {
+        "errors": [],
+        "explore": false,
+        "heading": "Azorius Senate",
+        "identity": "WU",
+        "initial": {
+          "activePanel": "maze-discovery",
+          "directReview": false,
+          "reviewGate": false,
+          "url": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU"
+        },
+        "mazeActionHref": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dwu+is%3Acommander+f%3Acommander&from=archscry&readingId=vm678-browser-fixture-vm678-browser-fixture-wu-76&guild=WU&fit=WU&factionName=Azorius+Senate&readingTitle=Azorius+Senate+dossier&pathType=commanders-that-fit&plainReadingQuery=Azorius+Senate+Commander-legal+commanders+with+exactly+white-blue+identity&operatorQuery=id%3Dwu+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=WU&returnUrl=..%2Farchscry%2Findex.html%3Ffrom%3Dmaze%26view%3DWU%26readingId%3Dvm678-browser-fixture-vm678-browser-fixture-wu-76%23maze-discovery-paths",
+        "mazePanelVisible": true,
+        "pathname": "/archscry/index.html",
+        "philosophy": "In this authored identity, Azorius combines White's standards with Blue's planning and timing. Your recorded answers contributed toward that rule-setting frame; they do not establish personality, skill, or one required deck style.",
+        "tagline": "Law, procedure, and enforceable structure protect civic order when they stay accountable to the people they govern.",
+        "url": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU"
+      },
+      "documentRequests": [
+        "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU#maze-discovery-paths"
+      ],
+      "existingArchscryHashConsumption": true,
+      "expectedFindReadingId": "vm678-browser-fixture-vm678-browser-fixture-wu-76",
+      "key": "WU",
+      "launchHref": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dwu+is%3Acommander+f%3Acommander&from=archscry&readingId=vm678-browser-fixture-vm678-browser-fixture-wu-76&guild=WU&fit=WU&factionName=Azorius+Senate&readingTitle=Azorius+Senate+dossier&pathType=commanders-that-fit&plainReadingQuery=Azorius+Senate+Commander-legal+commanders+with+exactly+white-blue+identity&operatorQuery=id%3Dwu+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=WU&returnUrl=..%2Farchscry%2Findex.html%3Ffrom%3Dmaze%26view%3DWU%26readingId%3Dvm678-browser-fixture-vm678-browser-fixture-wu-76%23maze-discovery-paths",
+      "mode": "normal-reading",
+      "persistedFindReadingId": "vm678-browser-fixture-vm678-browser-fixture-wu-76",
+      "reload": null,
+      "returns": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&view=WU#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "reading",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=wu is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&view=WU#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    },
+    {
+      "activatedSurface": "maze-reading-context-return",
+      "destination": {
+        "errors": [],
+        "explore": false,
+        "heading": "Azorius Senate",
+        "identity": "WU",
+        "initial": {
+          "activePanel": "start",
+          "directReview": true,
+          "reviewGate": true,
+          "url": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths"
+        },
+        "mazeActionHref": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dwu+is%3Acommander+f%3Acommander&from=archscry&readingId=dossier-review-wu&guild=WU&fit=WU&factionName=Azorius+Senate&readingTitle=Azorius+Senate+dossier+review&contextMode=dossier-review&reviewIdentity=WU&pathType=commanders-that-fit&plainReadingQuery=Azorius+Senate+Commander-legal+commanders+with+exactly+white-blue+identity&operatorQuery=id%3Dwu+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=WU&returnUrl=..%2Farchscry%2Findex.html%3Fvm-dev-review%3D1%26reviewIdentity%3DWU%23maze-discovery-paths",
+        "mazePanelVisible": true,
+        "pathname": "/archscry/index.html",
+        "philosophy": "Azorius trusts law, information, documentation, and procedure to make civic life legible and protected, while recognizing that process must remain accountable to people.",
+        "tagline": "Law, procedure, and enforceable structure protect civic order when they stay accountable to the people they govern.",
+        "url": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU&panel=maze-discovery&layout=focus#maze-discovery-paths"
+      },
+      "documentRequests": [
+        "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+        "http://vm678-baseline.invalid/archscry/index.html?vm-dev-review=1&reviewIdentity=WU&from=maze&view=WU&readingId=dossier-review-wu&mazeReturnUrl=%2Fmaze%2Findex.html%3Fq%3Did%253Dwu%2Bis%253Acommander%2Bf%253Acommander%26from%3Darchscry%26readingId%3Ddossier-review-wu%26guild%3DWU%26fit%3DWU%26factionName%3DAzorius%2BSenate%26readingTitle%3DAzorius%2BSenate%2Bdossier%2Breview%26contextMode%3Ddossier-review%26reviewIdentity%3DWU%26pathType%3Dcommanders-that-fit%26plainReadingQuery%3DAzorius%2BSenate%2BCommander-legal%2Bcommanders%2Bwith%2Bexactly%2Bwhite-blue%2Bidentity%26operatorQuery%3Did%253Dwu%2Bis%253Acommander%2Bf%253Acommander%26vm547Runtime%3Dvm547-runtime-v5%26vm547Catalog%3De19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db%26vm547Profile%3DWU%26returnUrl%3D..%252Farchscry%252Findex.html%253Fvm-dev-review%253D1%2526reviewIdentity%253DWU%2523maze-discovery-paths#maze-discovery-paths"
+      ],
+      "existingArchscryHashConsumption": false,
+      "expectedFindReadingId": "dossier-review-wu",
+      "key": "WU",
+      "launchHref": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dwu+is%3Acommander+f%3Acommander&from=archscry&readingId=dossier-review-wu&guild=WU&fit=WU&factionName=Azorius+Senate&readingTitle=Azorius+Senate+dossier+review&contextMode=dossier-review&reviewIdentity=WU&pathType=commanders-that-fit&plainReadingQuery=Azorius+Senate+Commander-legal+commanders+with+exactly+white-blue+identity&operatorQuery=id%3Dwu+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=WU&returnUrl=..%2Farchscry%2Findex.html%3Fvm-dev-review%3D1%26reviewIdentity%3DWU%23maze-discovery-paths",
+      "mode": "dossier-review",
+      "persistedFindReadingId": "dossier-review-wu",
+      "previousReviewRouteControl": {
+        "errors": [],
+        "explore": false,
+        "heading": "Azorius Senate",
+        "identity": "WU",
+        "initial": {
+          "activePanel": "start",
+          "directReview": true,
+          "reviewGate": true,
+          "url": "http://vm678-baseline.invalid/archscry/index.html?vm-dev-review=1&reviewIdentity=WU&from=maze&view=WU&readingId=dossier-review-wu&mazeReturnUrl=%2Fmaze%2Findex.html%3Fq%3Did%253Dwu%2Bis%253Acommander%2Bf%253Acommander%26from%3Darchscry%26readingId%3Ddossier-review-wu%26guild%3DWU%26fit%3DWU%26factionName%3DAzorius%2BSenate%26readingTitle%3DAzorius%2BSenate%2Bdossier%2Breview%26contextMode%3Ddossier-review%26reviewIdentity%3DWU%26pathType%3Dcommanders-that-fit%26plainReadingQuery%3DAzorius%2BSenate%2BCommander-legal%2Bcommanders%2Bwith%2Bexactly%2Bwhite-blue%2Bidentity%26operatorQuery%3Did%253Dwu%2Bis%253Acommander%2Bf%253Acommander%26vm547Runtime%3Dvm547-runtime-v5%26vm547Catalog%3De19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db%26vm547Profile%3DWU%26returnUrl%3D..%252Farchscry%252Findex.html%253Fvm-dev-review%253D1%2526reviewIdentity%253DWU%2523maze-discovery-paths#maze-discovery-paths"
+        },
+        "mazeActionHref": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dwu+is%3Acommander+f%3Acommander&from=archscry&readingId=dossier-review-wu&guild=WU&fit=WU&factionName=Azorius+Senate&readingTitle=Azorius+Senate+dossier+review&contextMode=dossier-review&reviewIdentity=WU&pathType=commanders-that-fit&plainReadingQuery=Azorius+Senate+Commander-legal+commanders+with+exactly+white-blue+identity&operatorQuery=id%3Dwu+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=WU&returnUrl=..%2Farchscry%2Findex.html%3Fvm-dev-review%3D1%26reviewIdentity%3DWU%23maze-discovery-paths",
+        "mazePanelVisible": true,
+        "pathname": "/archscry/index.html",
+        "philosophy": "Azorius trusts law, information, documentation, and procedure to make civic life legible and protected, while recognizing that process must remain accountable to people.",
+        "tagline": "Law, procedure, and enforceable structure protect civic order when they stay accountable to the people they govern.",
+        "url": "http://vm678-baseline.invalid/archscry/index.html?vm-dev-review=1&reviewIdentity=WU&from=maze&view=WU&readingId=dossier-review-wu&mazeReturnUrl=%2Fmaze%2Findex.html%3Fq%3Did%253Dwu%2Bis%253Acommander%2Bf%253Acommander%26from%3Darchscry%26readingId%3Ddossier-review-wu%26guild%3DWU%26fit%3DWU%26factionName%3DAzorius%2BSenate%26readingTitle%3DAzorius%2BSenate%2Bdossier%2Breview%26contextMode%3Ddossier-review%26reviewIdentity%3DWU%26pathType%3Dcommanders-that-fit%26plainReadingQuery%3DAzorius%2BSenate%2BCommander-legal%2Bcommanders%2Bwith%2Bexactly%2Bwhite-blue%2Bidentity%26operatorQuery%3Did%253Dwu%2Bis%253Acommander%2Bf%253Acommander%26vm547Runtime%3Dvm547-runtime-v5%26vm547Catalog%3De19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db%26vm547Profile%3DWU%26returnUrl%3D..%252Farchscry%252Findex.html%253Fvm-dev-review%253D1%2526reviewIdentity%253DWU%2523maze-discovery-paths&panel=maze-discovery&layout=focus#maze-discovery-paths"
+      },
+      "reload": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "reading",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=wu is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "rendered": false
+        }
+      },
+      "returns": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "reading",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=wu is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    }
+  ],
+  "runtimeSha256": "0a5dabdfb607525383033939fafb56e8bdd1fbb2175bcad4077418273f0f1bb4",
+  "schemaVersion": 1,
+  "security": [
+    {
+      "inputUrl": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dwu+is%3Acommander+f%3Acommander&from=archscry&readingId=vm678-baseline-catalog-wu-100&guild=WU&fit=WU&factionName=Azorius+Senate&readingTitle=Azorius+Senate+dossier&contextMode=normal-reading&pathType=commanders-that-fit&plainReadingQuery=Azorius+Senate+Commander-legal+commanders+with+exactly+white-blue+identity&operatorQuery=id%3Dwu+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=WU&returnUrl=https%3A%2F%2Fexample.invalid%2Freturn",
+      "mode": "normal-reading",
+      "name": "external",
+      "observed": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&view=WU#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "reading",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=wu is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&view=WU#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    },
+    {
+      "inputUrl": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dwu+is%3Acommander+f%3Acommander&from=archscry&readingId=vm678-baseline-catalog-wu-100&guild=WU&fit=WU&factionName=Azorius+Senate&readingTitle=Azorius+Senate+dossier&contextMode=normal-reading&pathType=commanders-that-fit&plainReadingQuery=Azorius+Senate+Commander-legal+commanders+with+exactly+white-blue+identity&operatorQuery=id%3Dwu+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=WU&returnUrl=%2F%2Fexample.invalid%2Fpath",
+      "mode": "normal-reading",
+      "name": "protocol-relative",
+      "observed": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&view=WU#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "reading",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=wu is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&view=WU#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    },
+    {
+      "inputUrl": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dwu+is%3Acommander+f%3Acommander&from=archscry&readingId=vm678-baseline-catalog-wu-100&guild=WU&fit=WU&factionName=Azorius+Senate&readingTitle=Azorius+Senate+dossier&contextMode=normal-reading&pathType=commanders-that-fit&plainReadingQuery=Azorius+Senate+Commander-legal+commanders+with+exactly+white-blue+identity&operatorQuery=id%3Dwu+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=WU&returnUrl=javascript%3Aalert%281%29",
+      "mode": "normal-reading",
+      "name": "javascript",
+      "observed": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&view=WU#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "reading",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=wu is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&view=WU#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    },
+    {
+      "inputUrl": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dwu+is%3Acommander+f%3Acommander&from=archscry&readingId=vm678-baseline-catalog-wu-100&guild=WU&fit=WU&factionName=Azorius+Senate&readingTitle=Azorius+Senate+dossier&contextMode=normal-reading&pathType=commanders-that-fit&plainReadingQuery=Azorius+Senate+Commander-legal+commanders+with+exactly+white-blue+identity&operatorQuery=id%3Dwu+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=WU&returnUrl=data%3Atext%2Fhtml%2Chostile",
+      "mode": "normal-reading",
+      "name": "data",
+      "observed": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&view=WU#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "reading",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=wu is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&view=WU#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    },
+    {
+      "inputUrl": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dwu+is%3Acommander+f%3Acommander&from=archscry&readingId=vm678-baseline-catalog-wu-100&guild=WU&fit=WU&factionName=Azorius+Senate&readingTitle=Azorius+Senate+dossier&contextMode=normal-reading&pathType=commanders-that-fit&plainReadingQuery=Azorius+Senate+Commander-legal+commanders+with+exactly+white-blue+identity&operatorQuery=id%3Dwu+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=WU&returnUrl=http%3A%2F%2F%5B",
+      "mode": "normal-reading",
+      "name": "malformed",
+      "observed": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&view=WU#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "reading",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=wu is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&view=WU#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    },
+    {
+      "inputUrl": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dwu+is%3Acommander+f%3Acommander&from=archscry&readingId=vm678-baseline-catalog-wu-100&guild=WU&fit=WU&factionName=Azorius+Senate&readingTitle=Azorius+Senate+dossier&contextMode=normal-reading&pathType=commanders-that-fit&plainReadingQuery=Azorius+Senate+Commander-legal+commanders+with+exactly+white-blue+identity&operatorQuery=id%3Dwu+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=WU&returnUrl=..%2Farchscry%2Findex.html%3FmazeReturnUrl%3Dhttps%25253A%25252F%25252Fexample.invalid%25252F",
+      "mode": "normal-reading",
+      "name": "encoded-nested",
+      "observed": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&view=WU#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "reading",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=wu is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&view=WU#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    },
+    {
+      "inputUrl": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dwu+is%3Acommander+f%3Acommander&from=archscry&readingId=vm678-baseline-catalog-wu-100&guild=WU&fit=WU&factionName=Azorius+Senate&readingTitle=Azorius+Senate+dossier&contextMode=normal-reading&pathType=commanders-that-fit&plainReadingQuery=Azorius+Senate+Commander-legal+commanders+with+exactly+white-blue+identity&operatorQuery=id%3Dwu+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=WU&returnUrl=https%3A%2F%2Fexample.invalid%2Fa&returnUrl=javascript%3Aalert%281%29",
+      "mode": "normal-reading",
+      "name": "duplicate-return",
+      "observed": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&view=WU#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "reading",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=wu is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&view=WU#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    },
+    {
+      "inputUrl": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dwu+is%3Acommander+f%3Acommander&from=archscry&readingId=vm678-baseline-catalog-wu-100&guild=WU&fit=WU&factionName=Azorius+Senate&readingTitle=Azorius+Senate+dossier&contextMode=normal-reading&pathType=commanders-that-fit&plainReadingQuery=Azorius+Senate+Commander-legal+commanders+with+exactly+white-blue+identity&operatorQuery=id%3Dwu+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=WU&mazeReturnUrl=https%3A%2F%2Fexample.invalid%2Fa&mazeReturnUrl=%2F%2Fexample.invalid%2Fb",
+      "mode": "normal-reading",
+      "name": "duplicate-maze-return",
+      "observed": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&view=WU#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "reading",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=wu is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&view=WU#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    },
+    {
+      "inputUrl": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dwu+is%3Acommander+f%3Acommander&from=archscry&readingId=vm678-baseline-catalog-wu-100&guild=WU&fit=WU&factionName=Azorius+Senate&readingTitle=Azorius+Senate+dossier&contextMode=normal-reading&pathType=commanders-that-fit&plainReadingQuery=Azorius+Senate+Commander-legal+commanders+with+exactly+white-blue+identity&operatorQuery=id%3Dwu+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=WU&returnUrl=data%3Atext%2Fhtml%2Cx&mazeReturnUrl=javascript%3Aalert%281%29",
+      "mode": "normal-reading",
+      "name": "conflicting",
+      "observed": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&view=WU#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "reading",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=wu is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&view=WU#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    },
+    {
+      "inputUrl": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dwu+is%3Acommander+f%3Acommander&from=archscry&readingId=vm678-baseline-catalog-wu-100&guild=WU&fit=WU&factionName=Azorius+Senate&readingTitle=Azorius+Senate+dossier&contextMode=normal-reading&pathType=commanders-that-fit&plainReadingQuery=Azorius+Senate+Commander-legal+commanders+with+exactly+white-blue+identity&operatorQuery=id%3Dwu+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=WU",
+      "mode": "normal-reading",
+      "name": "absent",
+      "observed": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&view=WU#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "reading",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=wu is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&view=WU#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    },
+    {
+      "inputUrl": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dwu+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-wu&guild=WU&fit=WU&factionName=Azorius+Senate&readingTitle=Azorius+Senate+dossier&contextMode=identity-explore&exploreIdentity=WU&pathType=commanders-that-fit&plainReadingQuery=Azorius+Senate+Commander-legal+commanders+with+exactly+white-blue+identity&operatorQuery=id%3Dwu+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=WU&returnUrl=https%3A%2F%2Fexample.invalid%2Freturn",
+      "mode": "identity-explore",
+      "name": "external",
+      "observed": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "dossier",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=wu is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    },
+    {
+      "inputUrl": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dwu+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-wu&guild=WU&fit=WU&factionName=Azorius+Senate&readingTitle=Azorius+Senate+dossier&contextMode=identity-explore&exploreIdentity=WU&pathType=commanders-that-fit&plainReadingQuery=Azorius+Senate+Commander-legal+commanders+with+exactly+white-blue+identity&operatorQuery=id%3Dwu+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=WU&returnUrl=%2F%2Fexample.invalid%2Fpath",
+      "mode": "identity-explore",
+      "name": "protocol-relative",
+      "observed": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "dossier",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=wu is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    },
+    {
+      "inputUrl": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dwu+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-wu&guild=WU&fit=WU&factionName=Azorius+Senate&readingTitle=Azorius+Senate+dossier&contextMode=identity-explore&exploreIdentity=WU&pathType=commanders-that-fit&plainReadingQuery=Azorius+Senate+Commander-legal+commanders+with+exactly+white-blue+identity&operatorQuery=id%3Dwu+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=WU&returnUrl=javascript%3Aalert%281%29",
+      "mode": "identity-explore",
+      "name": "javascript",
+      "observed": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "dossier",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=wu is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    },
+    {
+      "inputUrl": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dwu+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-wu&guild=WU&fit=WU&factionName=Azorius+Senate&readingTitle=Azorius+Senate+dossier&contextMode=identity-explore&exploreIdentity=WU&pathType=commanders-that-fit&plainReadingQuery=Azorius+Senate+Commander-legal+commanders+with+exactly+white-blue+identity&operatorQuery=id%3Dwu+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=WU&returnUrl=data%3Atext%2Fhtml%2Chostile",
+      "mode": "identity-explore",
+      "name": "data",
+      "observed": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "dossier",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=wu is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    },
+    {
+      "inputUrl": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dwu+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-wu&guild=WU&fit=WU&factionName=Azorius+Senate&readingTitle=Azorius+Senate+dossier&contextMode=identity-explore&exploreIdentity=WU&pathType=commanders-that-fit&plainReadingQuery=Azorius+Senate+Commander-legal+commanders+with+exactly+white-blue+identity&operatorQuery=id%3Dwu+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=WU&returnUrl=http%3A%2F%2F%5B",
+      "mode": "identity-explore",
+      "name": "malformed",
+      "observed": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "dossier",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=wu is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    },
+    {
+      "inputUrl": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dwu+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-wu&guild=WU&fit=WU&factionName=Azorius+Senate&readingTitle=Azorius+Senate+dossier&contextMode=identity-explore&exploreIdentity=WU&pathType=commanders-that-fit&plainReadingQuery=Azorius+Senate+Commander-legal+commanders+with+exactly+white-blue+identity&operatorQuery=id%3Dwu+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=WU&returnUrl=..%2Farchscry%2Findex.html%3FmazeReturnUrl%3Dhttps%25253A%25252F%25252Fexample.invalid%25252F",
+      "mode": "identity-explore",
+      "name": "encoded-nested",
+      "observed": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "dossier",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=wu is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    },
+    {
+      "inputUrl": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dwu+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-wu&guild=WU&fit=WU&factionName=Azorius+Senate&readingTitle=Azorius+Senate+dossier&contextMode=identity-explore&exploreIdentity=WU&pathType=commanders-that-fit&plainReadingQuery=Azorius+Senate+Commander-legal+commanders+with+exactly+white-blue+identity&operatorQuery=id%3Dwu+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=WU&returnUrl=https%3A%2F%2Fexample.invalid%2Fa&returnUrl=javascript%3Aalert%281%29",
+      "mode": "identity-explore",
+      "name": "duplicate-return",
+      "observed": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "dossier",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=wu is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    },
+    {
+      "inputUrl": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dwu+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-wu&guild=WU&fit=WU&factionName=Azorius+Senate&readingTitle=Azorius+Senate+dossier&contextMode=identity-explore&exploreIdentity=WU&pathType=commanders-that-fit&plainReadingQuery=Azorius+Senate+Commander-legal+commanders+with+exactly+white-blue+identity&operatorQuery=id%3Dwu+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=WU&mazeReturnUrl=https%3A%2F%2Fexample.invalid%2Fa&mazeReturnUrl=%2F%2Fexample.invalid%2Fb",
+      "mode": "identity-explore",
+      "name": "duplicate-maze-return",
+      "observed": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "dossier",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=wu is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    },
+    {
+      "inputUrl": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dwu+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-wu&guild=WU&fit=WU&factionName=Azorius+Senate&readingTitle=Azorius+Senate+dossier&contextMode=identity-explore&exploreIdentity=WU&pathType=commanders-that-fit&plainReadingQuery=Azorius+Senate+Commander-legal+commanders+with+exactly+white-blue+identity&operatorQuery=id%3Dwu+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=WU&returnUrl=data%3Atext%2Fhtml%2Cx&mazeReturnUrl=javascript%3Aalert%281%29",
+      "mode": "identity-explore",
+      "name": "conflicting",
+      "observed": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "dossier",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=wu is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    },
+    {
+      "inputUrl": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dwu+is%3Acommander+f%3Acommander&from=archscry&readingId=identity-explore-wu&guild=WU&fit=WU&factionName=Azorius+Senate&readingTitle=Azorius+Senate+dossier&contextMode=identity-explore&exploreIdentity=WU&pathType=commanders-that-fit&plainReadingQuery=Azorius+Senate+Commander-legal+commanders+with+exactly+white-blue+identity&operatorQuery=id%3Dwu+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=WU",
+      "mode": "identity-explore",
+      "name": "absent",
+      "observed": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "dossier",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=wu is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    },
+    {
+      "inputUrl": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dwu+is%3Acommander+f%3Acommander&from=archscry&readingId=dossier-review-wu&guild=WU&fit=WU&factionName=Azorius+Senate&readingTitle=Azorius+Senate+dossier+review&contextMode=dossier-review&reviewIdentity=WU&pathType=commanders-that-fit&plainReadingQuery=Azorius+Senate+Commander-legal+commanders+with+exactly+white-blue+identity&operatorQuery=id%3Dwu+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=WU&returnUrl=https%3A%2F%2Fexample.invalid%2Freturn",
+      "mode": "dossier-review",
+      "name": "external",
+      "observed": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "reading",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=wu is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    },
+    {
+      "inputUrl": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dwu+is%3Acommander+f%3Acommander&from=archscry&readingId=dossier-review-wu&guild=WU&fit=WU&factionName=Azorius+Senate&readingTitle=Azorius+Senate+dossier+review&contextMode=dossier-review&reviewIdentity=WU&pathType=commanders-that-fit&plainReadingQuery=Azorius+Senate+Commander-legal+commanders+with+exactly+white-blue+identity&operatorQuery=id%3Dwu+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=WU&returnUrl=%2F%2Fexample.invalid%2Fpath",
+      "mode": "dossier-review",
+      "name": "protocol-relative",
+      "observed": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "reading",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=wu is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    },
+    {
+      "inputUrl": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dwu+is%3Acommander+f%3Acommander&from=archscry&readingId=dossier-review-wu&guild=WU&fit=WU&factionName=Azorius+Senate&readingTitle=Azorius+Senate+dossier+review&contextMode=dossier-review&reviewIdentity=WU&pathType=commanders-that-fit&plainReadingQuery=Azorius+Senate+Commander-legal+commanders+with+exactly+white-blue+identity&operatorQuery=id%3Dwu+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=WU&returnUrl=javascript%3Aalert%281%29",
+      "mode": "dossier-review",
+      "name": "javascript",
+      "observed": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "reading",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=wu is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    },
+    {
+      "inputUrl": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dwu+is%3Acommander+f%3Acommander&from=archscry&readingId=dossier-review-wu&guild=WU&fit=WU&factionName=Azorius+Senate&readingTitle=Azorius+Senate+dossier+review&contextMode=dossier-review&reviewIdentity=WU&pathType=commanders-that-fit&plainReadingQuery=Azorius+Senate+Commander-legal+commanders+with+exactly+white-blue+identity&operatorQuery=id%3Dwu+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=WU&returnUrl=data%3Atext%2Fhtml%2Chostile",
+      "mode": "dossier-review",
+      "name": "data",
+      "observed": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "reading",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=wu is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    },
+    {
+      "inputUrl": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dwu+is%3Acommander+f%3Acommander&from=archscry&readingId=dossier-review-wu&guild=WU&fit=WU&factionName=Azorius+Senate&readingTitle=Azorius+Senate+dossier+review&contextMode=dossier-review&reviewIdentity=WU&pathType=commanders-that-fit&plainReadingQuery=Azorius+Senate+Commander-legal+commanders+with+exactly+white-blue+identity&operatorQuery=id%3Dwu+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=WU&returnUrl=http%3A%2F%2F%5B",
+      "mode": "dossier-review",
+      "name": "malformed",
+      "observed": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "reading",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=wu is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    },
+    {
+      "inputUrl": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dwu+is%3Acommander+f%3Acommander&from=archscry&readingId=dossier-review-wu&guild=WU&fit=WU&factionName=Azorius+Senate&readingTitle=Azorius+Senate+dossier+review&contextMode=dossier-review&reviewIdentity=WU&pathType=commanders-that-fit&plainReadingQuery=Azorius+Senate+Commander-legal+commanders+with+exactly+white-blue+identity&operatorQuery=id%3Dwu+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=WU&returnUrl=..%2Farchscry%2Findex.html%3FmazeReturnUrl%3Dhttps%25253A%25252F%25252Fexample.invalid%25252F",
+      "mode": "dossier-review",
+      "name": "encoded-nested",
+      "observed": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "reading",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=wu is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    },
+    {
+      "inputUrl": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dwu+is%3Acommander+f%3Acommander&from=archscry&readingId=dossier-review-wu&guild=WU&fit=WU&factionName=Azorius+Senate&readingTitle=Azorius+Senate+dossier+review&contextMode=dossier-review&reviewIdentity=WU&pathType=commanders-that-fit&plainReadingQuery=Azorius+Senate+Commander-legal+commanders+with+exactly+white-blue+identity&operatorQuery=id%3Dwu+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=WU&returnUrl=https%3A%2F%2Fexample.invalid%2Fa&returnUrl=javascript%3Aalert%281%29",
+      "mode": "dossier-review",
+      "name": "duplicate-return",
+      "observed": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "reading",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=wu is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    },
+    {
+      "inputUrl": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dwu+is%3Acommander+f%3Acommander&from=archscry&readingId=dossier-review-wu&guild=WU&fit=WU&factionName=Azorius+Senate&readingTitle=Azorius+Senate+dossier+review&contextMode=dossier-review&reviewIdentity=WU&pathType=commanders-that-fit&plainReadingQuery=Azorius+Senate+Commander-legal+commanders+with+exactly+white-blue+identity&operatorQuery=id%3Dwu+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=WU&mazeReturnUrl=https%3A%2F%2Fexample.invalid%2Fa&mazeReturnUrl=%2F%2Fexample.invalid%2Fb",
+      "mode": "dossier-review",
+      "name": "duplicate-maze-return",
+      "observed": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "reading",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=wu is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    },
+    {
+      "inputUrl": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dwu+is%3Acommander+f%3Acommander&from=archscry&readingId=dossier-review-wu&guild=WU&fit=WU&factionName=Azorius+Senate&readingTitle=Azorius+Senate+dossier+review&contextMode=dossier-review&reviewIdentity=WU&pathType=commanders-that-fit&plainReadingQuery=Azorius+Senate+Commander-legal+commanders+with+exactly+white-blue+identity&operatorQuery=id%3Dwu+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=WU&returnUrl=data%3Atext%2Fhtml%2Cx&mazeReturnUrl=javascript%3Aalert%281%29",
+      "mode": "dossier-review",
+      "name": "conflicting",
+      "observed": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "reading",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=wu is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    },
+    {
+      "inputUrl": "http://vm678-baseline.invalid/maze/index.html?q=id%3Dwu+is%3Acommander+f%3Acommander&from=archscry&readingId=dossier-review-wu&guild=WU&fit=WU&factionName=Azorius+Senate&readingTitle=Azorius+Senate+dossier+review&contextMode=dossier-review&reviewIdentity=WU&pathType=commanders-that-fit&plainReadingQuery=Azorius+Senate+Commander-legal+commanders+with+exactly+white-blue+identity&operatorQuery=id%3Dwu+is%3Acommander+f%3Acommander&vm547Runtime=vm547-runtime-v5&vm547Catalog=e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db&vm547Profile=WU",
+      "mode": "dossier-review",
+      "name": "absent",
+      "observed": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "reading",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=wu is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "rendered": false
+        }
+      }
+    },
+    {
+      "name": "stored-normal-reading",
+      "observed": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&view=WU#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "reading",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=wu is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&view=WU#maze-discovery-paths",
+          "rendered": false
+        }
+      },
+      "retainedContext": {
+        "contextMode": "normal-reading",
+        "factionName": "Azorius Senate",
+        "fit": "WU",
+        "from": "archscry",
+        "guild": "WU",
+        "mazeReturnUrl": "javascript:alert(1)",
+        "readingId": "exact-existing-fixture-reading",
+        "returnUrl": "https://example.invalid/stored"
+      }
+    },
+    {
+      "name": "stored-identity-explore",
+      "observed": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "dossier",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=wu is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&explore=WU&panel=maze-discovery#maze-discovery-paths",
+          "rendered": false
+        }
+      },
+      "retainedContext": {
+        "contextMode": "identity-explore",
+        "exploreIdentity": "WU",
+        "factionName": "Azorius Senate",
+        "fit": "WU",
+        "from": "archscry",
+        "guild": "WU",
+        "mazeReturnUrl": "javascript:alert(1)",
+        "readingId": "exact-existing-fixture-reading",
+        "returnUrl": "https://example.invalid/stored"
+      }
+    },
+    {
+      "name": "stored-dossier-review",
+      "observed": {
+        "banner": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "rendered": true
+        },
+        "contextHidden": false,
+        "contextState": "reading",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=wu is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "http://vm678-baseline.invalid/archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "hidden": false,
+          "href": "../archscry/index.html?from=maze&view=WU&vm-dev-review=1&reviewIdentity=WU#maze-discovery-paths",
+          "rendered": false
+        }
+      },
+      "retainedContext": {
+        "contextMode": "dossier-review",
+        "factionName": "Azorius Senate",
+        "fit": "WU",
+        "from": "archscry",
+        "guild": "WU",
+        "mazeReturnUrl": "javascript:alert(1)",
+        "readingId": "exact-existing-fixture-reading",
+        "returnUrl": "https://example.invalid/stored",
+        "reviewIdentity": "WU"
+      }
+    },
+    {
+      "name": "stored-invalid-3",
+      "observed": {
+        "banner": {
+          "absoluteHref": "",
+          "hidden": true,
+          "href": null,
+          "rendered": false
+        },
+        "contextHidden": false,
+        "contextState": "reading",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=wu is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "",
+          "hidden": true,
+          "href": null,
+          "rendered": false
+        }
+      },
+      "retainedContext": {
+        "contextMode": "normal-reading",
+        "factionName": "Azorius Senate",
+        "fit": "WU",
+        "from": "other",
+        "guild": "WU",
+        "mazeReturnUrl": "javascript:alert(1)",
+        "readingId": "exact-existing-fixture-reading",
+        "returnUrl": "https://example.invalid/stored"
+      }
+    },
+    {
+      "name": "stored-invalid-4",
+      "observed": {
+        "banner": {
+          "absoluteHref": "",
+          "hidden": true,
+          "href": null,
+          "rendered": false
+        },
+        "contextHidden": false,
+        "contextState": "reading",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=wu is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "",
+          "hidden": true,
+          "href": null,
+          "rendered": false
+        }
+      },
+      "retainedContext": {
+        "contextMode": "normal-reading",
+        "factionName": "Azorius Senate",
+        "fit": "invalid",
+        "from": "archscry",
+        "guild": "invalid",
+        "mazeReturnUrl": "javascript:alert(1)",
+        "readingId": "exact-existing-fixture-reading",
+        "returnUrl": "https://example.invalid/stored"
+      }
+    },
+    {
+      "name": "stored-invalid-5",
+      "observed": {
+        "banner": {
+          "absoluteHref": "",
+          "hidden": true,
+          "href": null,
+          "rendered": false
+        },
+        "contextHidden": false,
+        "contextState": "reading",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=wu is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "",
+          "hidden": true,
+          "href": null,
+          "rendered": false
+        }
+      },
+      "retainedContext": {
+        "contextMode": "unexpected",
+        "factionName": "Azorius Senate",
+        "fit": "WU",
+        "from": "archscry",
+        "guild": "WU",
+        "mazeReturnUrl": "javascript:alert(1)",
+        "readingId": "exact-existing-fixture-reading",
+        "returnUrl": "https://example.invalid/stored"
+      }
+    },
+    {
+      "name": "stored-invalid-6",
+      "observed": {
+        "banner": {
+          "absoluteHref": "",
+          "hidden": true,
+          "href": null,
+          "rendered": false
+        },
+        "contextHidden": false,
+        "contextState": "dossier",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=wu is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "",
+          "hidden": true,
+          "href": null,
+          "rendered": false
+        }
+      },
+      "retainedContext": {
+        "contextMode": "identity-explore",
+        "exploreIdentity": "RG",
+        "factionName": "Azorius Senate",
+        "fit": "WU",
+        "from": "archscry",
+        "guild": "WU",
+        "mazeReturnUrl": "javascript:alert(1)",
+        "readingId": "exact-existing-fixture-reading",
+        "returnUrl": "https://example.invalid/stored"
+      }
+    },
+    {
+      "name": "stored-invalid-7",
+      "observed": {
+        "banner": {
+          "absoluteHref": "",
+          "hidden": true,
+          "href": null,
+          "rendered": false
+        },
+        "contextHidden": false,
+        "contextState": "reading",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=wu is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "",
+          "hidden": true,
+          "href": null,
+          "rendered": false
+        }
+      },
+      "retainedContext": {
+        "contextMode": "dossier-review",
+        "factionName": "Azorius Senate",
+        "fit": "WU",
+        "from": "archscry",
+        "guild": "WU",
+        "mazeReturnUrl": "javascript:alert(1)",
+        "readingId": "exact-existing-fixture-reading",
+        "returnUrl": "https://example.invalid/stored",
+        "reviewIdentity": "RG"
+      }
+    },
+    {
+      "name": "stored-invalid-8",
+      "observed": {
+        "banner": {
+          "absoluteHref": "",
+          "hidden": true,
+          "href": null,
+          "rendered": false
+        },
+        "contextHidden": true,
+        "contextState": "",
+        "errors": [],
+        "obsoleteBannerPresent": false,
+        "query": "id=wu is:commander f:commander",
+        "scratchpad": {
+          "absoluteHref": "",
+          "hidden": true,
+          "href": null,
+          "rendered": false
+        }
+      },
+      "retainedContext": {
+        "mazeReturnUrl": "javascript:alert(1)",
+        "returnUrl": "https://example.invalid/stored"
+      }
+    }
+  ],
+  "slice": "A-retry-return-security",
+  "status": "STOP — supported file-mode gate failed",
+  "task": "VM-678"
+}
