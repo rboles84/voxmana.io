@@ -165,3 +165,24 @@ Git owns whole-task scope. The narrow correction is one material test file (52 a
 - Changed paths: `88`
 
 The exact full frozen SHA is bound by the independent original QA artifact and delivery observations. Main remains a436a845cb0a67bbe738fb283966ea6d832f1b39; PR69 is reused. Runtime, all fixtures/baselines and VM-679 are unchanged from accepted product1720711c. Required new QA and CI are pending. No integration, closeout, deployment or branch cleanup has occurred.
+
+## Owner conditional acceptance receipt
+
+Task: VM-678
+Candidate: 83e237f1e6a329ecad58561bc29060e05667ddd8
+Owner: ACCEPT
+Decision reference: Genuine Owner message received 2026-10-05 in Codex chat 01a1055d-98f7-78c1-b9b0-0d7cc7a1abf3, opening "Owner review complete. I authorize a narrow test-contract correction only", including "If the corrected exact candidate receives independent PASS and required CI becomes green, continue the previously authorized normal VM-678 integration/closeout flow."
+
+The coordinator applies that explicit conditional authorization to the exact corrected candidate above only after directly verifying both required conditions. This does not claim the Owner typed the subsequently generated SHA. The material correction is the single approved placement assertion block; accepted product1720711c runtime, every fixture/baseline and VM-679 remain byte-identical.
+
+Condition 1: Original separate independent RobQA PASS at83e237f1, reviewer /root/qa_final and implementer /root/placement_contract. Original external verdict raw SHA-256 d87008fa097009b23f7324db19f90fde89324f524cb8a6a0599f49109d593652; preserved unchanged in the QA handoff appendix. Independent admission, syntax, placement37/37, diff-check, 88-path report, views and protected equality all PASS. Normal candidate delivery gate PASS with authentic durable-QA binding.
+
+Condition 2: Required [Deterministic Validation](https://github.com/rboles84/voxmana.io/actions/runs/37355883556/job/111918041518) completed successfully at exact83e237f1e6a329ecad58561bc29060e05667ddd8. The complete required workflow ran normally; no bypass, skip, policy change or test relaxation. Product runtime remains1720711c; the fixed stale serialization assertion no longer blocks required CI.
+
+Normal integration remains subject to fresh PR/main/tree/commit/check parity and server-side expected-head guarded squash. The appended receipt and original QA copy plus allowed card/derived-view records are evidence-only after the material candidate. Any material change invalidates this binding and returns to Owner. No VM-679, inherited-debt, additional feature or deployment work is authorized.
+
+## Reconciliation and validation record
+
+The initial unpublished preparation history incorrectly combined the scope amendment with implementation. Independent QA reported BLOCKED, and no PASS, push or merge used it. Its exact tree/patch was preserved externally. Only unpublished history was reconciled: dedicated card-only fdba8519 changes Admission Scope and Decisions;83e237f1 contains the permitted implementation/governance records. The final tree is identical to the earlier inspected preparation tree. Canonical admission then passed; all working bytes and accepted runtime were preserved. Historical protected prose was not rewritten to mask the failure.
+
+Independent QA and current Git confirm the correction has seven paths relative to the integration STOP, with one material test path. Whole task material count88 and current report validation PASS. The old product/STOP records remain historical; this later receipt and current Delivery fields govern the corrected candidate's readiness. The accepted expensive browser matrix is reused only because unchanged protected runtime/data/fixture bytes were proven.
