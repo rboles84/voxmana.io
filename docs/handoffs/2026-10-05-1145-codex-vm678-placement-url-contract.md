@@ -204,3 +204,24 @@ The approved GitHub connector performed a squash merge with its atomic expected-
 Accepted product runtime 1720711c30c9772427594fceb7d780a13858f0aa, historical baselines/candidate fixtures, VM-679 and inherited debt remain byte-unchanged. Post-merge work changes only lifecycle records and derived views. VM-679 remains Backlog; no deployment is performed.
 
 The strict integration gate first rejected the previous evidence commit f45eb29790a31333be318db7c5e64b8661727147 solely for an added EOF newline on protected card content. That original commit is preserved in an external Git bundle and its original QA receipt remains historical. The announced latest-evidence-only amendment removed that newline with N unchanged, used an explicit remote-head lease, obtained a new independent N-to-54dd content review, and reran ordinary required CI and the integration gate to PASS. No gate was bypassed.
+
+
+## Final closeout receipt
+
+Task: VM-678
+Candidate: 83e237f1e6a329ecad58561bc29060e05667ddd8
+Accepted product runtime: 1720711c30c9772427594fceb7d780a13858f0aa
+PR: PR69
+Evidence head: 54ddccb9993347661b636f74fac17833a97f340c
+Merge: d1e7d2b4193d0ac37cac336a6517d3fb679e317f
+Initial closeout: PASS at a4160284d3248363e4eccc4c87390008be5cd1af
+
+The required closeout checker passed on clean synchronized main with the actual squash parent/tree, authentic exact QA/Owner bindings, separately reviewed post-merge lifecycle delta, complete host scope/CI facts, fresh generated views, Git-derived report and protected-boundary evidence. That PASS authorized recording Done; the final committed Done state must be rechecked before completion is reported.
+
+Cleanup is complete: the live remote feature ref was already absent after the GitHub merge; the attempted guarded deletion returned that exact absence, which a fresh live Git read confirmed. The local feature branch and stale tracking ref were then removed after exact tree preservation. The checkout remains main, and unrelated local VM-670/VM-675 branch refs are preserved. There is no extra feature worktree. The complete integrated feature history is preserved in C:/Users/obake/AppData/Local/Temp/vm678-integrated-feature-history.bundle; the earlier rejected documentation head has its separate historical bundle.
+
+Material scope is 88 paths from the admission baseline to candidate N; evidence-only scope is four paths from N to the merged PR head and is not the full task diff; original final branch scope is 88 paths. Final main accounting is recorded separately in the external canonical report using the actual final commit. The narrow placement assertion correction is 52 added and eight removed lines in its sole authorized test owner. Syntax, placement, deterministic accepted-artifact parity, independent QA and required CI PASS.
+
+VM-678 is recorded Done at the existing exact accepted candidate. Product runtime, frozen baselines/candidate browser evidence, VM-679 Backlog and inherited direct-file/Atlas/dev-review/A-B debts are unchanged. No runtime change, future identifier work, unrelated repair, deployment or new manual regression cycle occurred during integration.
+
+Related final card: [VM-678](../kanban/done/VM-678-url-security-recon.md). Required deferred work: [VM-679](../kanban/backlog/VM-679-product-reading-identifiers.md).
