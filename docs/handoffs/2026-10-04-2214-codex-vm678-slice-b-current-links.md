@@ -267,3 +267,31 @@ Owner instructions retained verbatim:
 Fresh deterministic candidate gate PASS binds the original separate QA verdict at this exact SHA. Local worktree was clean; freshly fetched local/live main is a436a845cb0a67bbe738fb283966ea6d832f1b39. The authenticated GitHub connector has repository access as rboles84 and guarded squash capability; no matching task PR exists before creation. Native Git owns fetch/push; the connector is the approved PR read/create/merge route. Live branch-settings visibility is supplemental under workflow main-protection policy; discovered connector tools do not expose those settings. Required Deterministic Validation, exact PR head/base/scope and server-side expected-head guard remain mandatory.
 
 Next action: append only this lifecycle evidence, bind Accepted on the card, regenerate required views, obtain exact evidence-delta review, then create the single post-ACCEPT PR. No runtime, tools, tests, fixtures, semantic contracts or deferred-work records change in this delta.
+## Integration STOP — required CI contract conflict
+
+Task: VM-678
+Candidate: 1720711c30c9772427594fceb7d780a13858f0aa
+Integration: BLOCKED
+PR: https://github.com/rboles84/voxmana.io/pull/69
+Observed PR head: f327be8fdb330b77b45290975cd686caad9412b5
+Main: a436a845cb0a67bbe738fb283966ea6d832f1b39
+
+The single post-ACCEPT PR is open, non-draft and unmerged. Full authenticated host scope matches all 84 paths and all 50 ordered commits; complete untruncated base/head trees supply full blob identities. The material candidate remains exact, with four paths of independently reviewed evidence-only acceptance recording. Canonical change-report validation passes 84 material / 4 evidence / 84 total paths. Candidate delivery gate passed before acceptance records. Original independent QA and genuine Owner acceptance remain unchanged.
+
+Required GitHub job [Deterministic Validation](https://github.com/rboles84/voxmana.io/actions/runs/37341347219/job/111868916359) completed with failure at exact PR head f327be8fdb330b77b45290975cd686caad9412b5. All earlier deterministic commands completed, including parser's 226 cases. test:placement fails in section Maze Handoff Context And Dune Query Hygiene:
+
+```text
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+null !== 'YORE'
+at tests/placement/quick-reading-tests.js:2752:10
+```
+
+One bounded causal inspection confirms that assertion reads url.searchParams.get("guild") and requires the identity key. Subsequent assertions in the same loop also require the removed factionName and sourceFaction URL copies. These URL requirements conflict with the accepted fresh-allowlist contract, which intentionally removes those non-authoritative fields while retaining fit. This is separate from the previously disclosed dev-review placement-memory failure. The product proof is not being relabeled failed, and required CI is not being relabeled passed.
+
+No CI bypass, merge, runtime change, test-contract change, fixture change, repeated regression loop, closeout, main push or feature-branch deletion was performed. Correcting this integration failure requires a changed test contract or runtime and therefore a new candidate loop; the Owner explicitly prohibits either during this integration authorization. STOP for Owner decision. The card remains Accepted with Integration BLOCKED; VM-679 remains byte-identical Backlog intake only.
+
+The initial integration checker also exposed a record-format issue: a semicolon immediately after the SHA does not satisfy its whitespace-delimited exact-binding grammar. Only allowed lifecycle Delivery fields were corrected to use a space before parenthetical details; no QA/Owner meaning or material bytes change. The earlier card Runtime stage and earlier HEAD/zero-evidence freeze report remain protected historical event-time prose; current Delivery fields, this later appendix and the separately validated current report are authoritative for integration status.
+
+Capability observation correction: further bounded discovery found the approved connector's generic GET operation and obtained complete PR/commit/tree/check data. Its authenticated main branch-protection GET returned 403 Resource not accessible by integration, confirming unavailable supplemental administration visibility. No alternate credentials, browser login, CLI auth probe or repository-setting change was attempted. That optional observation is not the integration blocker; required CI failure is decisive.
+
+Final receipt must state no merge/final-main advance, no closeout PASS, and preservation of the open PR, accepted candidate and feature branch for the next Owner decision.
