@@ -134,7 +134,12 @@ async function mazeState(page) {
     return { url: location.href, pathname: location.pathname, query: document.getElementById("qi-query")?.textContent?.trim() || "", display: document.getElementById("search-input")?.value || "", profile: document.documentElement.dataset.vm547Profile || "", disposition: document.documentElement.dataset.vm547IncomingDisposition || "", readingId: handoff.readingId || "", fit: handoff.fit || "", pathType: new URL(location.href).searchParams.get("pathType") || "", sharedHandoffPathType: handoff.pathType || "", contextMode: handoff.contextMode || "normal-reading", scryfallHref: search?.href || "", witness: window.__vm678NavigationWitness || null };
   });
 }
-async function waitMaze(page, link) { const expected = new URL(link.href).searchParams.get("operatorQuery"); try { await page.waitForFunction((query) => document.getElementById("qi-query")?.textContent?.trim() === query, { timeout: 15000 }, expected); } catch (error) { console.error(JSON.stringify({ phase, expected, url: page.url(), state: await mazeState(page), body: (await page.evaluate(() => document.body.innerText)).slice(-1500) })); throw error; } }
+async function waitMaze(page, link, expectedQuery = null) {
+  const expected = expectedQuery || new URL(link.href).searchParams.get("operatorQuery");
+  assert(expected, "Maze wait requires a catalog-derived expected query when the launch href omits operatorQuery.");
+  try { await page.waitForFunction((query) => document.getElementById("qi-query")?.textContent?.trim() === query, { timeout: 15000 }, expected); }
+  catch (error) { console.error(JSON.stringify({ phase, expected, url: page.url(), state: await mazeState(page), body: (await page.evaluate(() => document.body.innerText)).slice(-1500) })); throw error; }
+}
 async function nativeActivate(page, pathType, kind) {
   await page.bringToFront();
   const selector = `#maze-discovery-paths .deck-link[data-service='maze'][href*='pathType=${pathType}']`;
@@ -145,17 +150,20 @@ async function nativeActivate(page, pathType, kind) {
   if (kind === "pointer") { const navigation = page.waitForNavigation({ waitUntil: "domcontentloaded", timeout: 15000 }); await page.mouse.click(box.x + box.width / 2, box.y + box.height / 2); await navigation; return; }
   if (kind === "keyboard") { await page.focus(selector); const navigation = page.waitForNavigation({ waitUntil: "domcontentloaded", timeout: 30000 }); await page.keyboard.press("Enter"); await navigation; return; }
   if (kind === "ctrl") await page.keyboard.down("Control");
+  if (kind === "shift") await page.keyboard.down("Shift");
   try { await page.mouse.click(box.x + box.width / 2, box.y + box.height / 2, { button: kind === "middle" ? "middle" : "left" }); }
-  finally { if (kind === "ctrl") await page.keyboard.up("Control"); }
+  finally { if (kind === "ctrl") await page.keyboard.up("Control"); if (kind === "shift") await page.keyboard.up("Shift"); }
 }
 async function awaitNewPage(browser, before, baseUrl) { const target = await browser.waitForTarget((candidate) => candidate.type() === "page" && !before.has(candidate), { timeout: 10000 }); const page = await target.page(); assert(page, "Native modified click did not create a usable target page."); page.vm678Errors = []; page.on("pageerror", (error) => page.vm678Errors.push(error.message)); await page.bringToFront(); await page.setViewport({ width: 1440, height: 1000 }); return page; }
 async function addFindAndRead(page, cardIndex = 0) { await page.bringToFront(); await page.waitForSelector("[data-action='add-card-to-scratchpad']", { timeout: 15000 }); await page.$$eval("[data-action='add-card-to-scratchpad']", (nodes, index) => nodes[index].click(), cardIndex); const oracleId = [fixtureCard, secondFixtureCard, thirdFixtureCard][cardIndex].oracle_id; await page.waitForFunction((id) => { const draft = JSON.parse(localStorage.getItem("vm_maze_reading_finds_v1") || "{}"); return Object.values(draft.sections || {}).flat().some((entry) => entry.oracleId === id); }, { timeout: 10000 }, oracleId); return page.evaluate((id) => { const draft = JSON.parse(localStorage.getItem("vm_maze_reading_finds_v1") || "{}"); return Object.values(draft.sections || {}).flat().find((entry) => entry.oracleId === id).sourceContext?.readingId || ""; }, oracleId); }
-async function exactDestination(page, link, { addFind = true, allowCached = false } = {}) {
-  await waitMaze(page, link); const state = await mazeState(page); const expected = new URL(link.href);
+async function exactDestination(page, link, { addFind = true, allowCached = false, expectedQuery = null } = {}) {
+  const expected = new URL(link.href); const canonicalQuery = expectedQuery || expected.searchParams.get("operatorQuery");
+  assert(canonicalQuery, "Maze destination assertion requires a catalog-derived expected query when the launch href omits operatorQuery.");
+  await waitMaze(page, link, canonicalQuery); const state = await mazeState(page);
   assert.deepEqual(state.witness.consoleErrors, [], "Normal navigation produced an unexpected runtime error.");
   assert.equal(state.profile, expected.searchParams.get("fit"), "Maze identity changed during canonical load.");
   assert.equal(state.pathType, expected.searchParams.get("pathType"), "Maze path changed during canonical load.");
-  assert.equal(state.query, expected.searchParams.get("operatorQuery"), "Maze query changed during canonical load.");
+  assert.equal(state.query, canonicalQuery, "Maze query changed during canonical load.");
   assert.equal(apiQuery(state.scryfallHref), state.query, "Scryfall request did not carry Maze canonical query.");
   if (allowCached) await page.waitForSelector("#card-grid .card-item", { timeout: 15000 });
   else await page.waitForFunction((query) => window.__vm678NavigationWitness.requests.some((url) => new URL(url).searchParams.get("q") === query), { timeout: 15000 }, state.query);
