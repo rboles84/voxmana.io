@@ -135,10 +135,25 @@ async function mazeState(page) {
   });
 }
 async function waitMaze(page, link, expectedQuery = null) {
-  const expected = expectedQuery || new URL(link.href).searchParams.get("operatorQuery");
+  const expected = expectedQuery || new URL(link.href).searchParams.get("operatorQuery") || (await frozenParentForLink(link)).operatorQuery;
   assert(expected, "Maze wait requires a catalog-derived expected query when the launch href omits operatorQuery.");
   try { await page.waitForFunction((query) => document.getElementById("qi-query")?.textContent?.trim() === query, { timeout: 15000 }, expected); }
   catch (error) { console.error(JSON.stringify({ phase, expected, url: page.url(), state: await mazeState(page), body: (await page.evaluate(() => document.body.innerText)).slice(-1500) })); throw error; }
+}
+
+let parentOracles;
+async function frozenParentForLink(link) {
+  if (!parentOracles) {
+    const baseline = JSON.parse(await readFile("tests/fixtures/vm678-navigation-baseline.json", "utf8"));
+    parentOracles = new Map(baseline.coverage.catalogNavigationMatrix.records
+      .filter((row) => !row.threadId).map((row) => [row.intentKey, row]));
+  }
+  const params = new URL(link.href).searchParams;
+  const mode = params.get("contextMode") === "identity-explore" ? "identity-explore" : "normal-reading";
+  const key = `${params.get("fit")}/${params.get("pathType")}/top-level/${mode}`;
+  const oracle = parentOracles.get(key);
+  assert(oracle, `No frozen current-parent oracle for ${key}.`);
+  return oracle;
 }
 async function nativeActivate(page, pathType, kind) {
   await page.bringToFront();
@@ -157,7 +172,9 @@ async function nativeActivate(page, pathType, kind) {
 async function awaitNewPage(browser, before, baseUrl) { const target = await browser.waitForTarget((candidate) => candidate.type() === "page" && !before.has(candidate), { timeout: 10000 }); const page = await target.page(); assert(page, "Native modified click did not create a usable target page."); page.vm678Errors = []; page.on("pageerror", (error) => page.vm678Errors.push(error.message)); await page.bringToFront(); await page.setViewport({ width: 1440, height: 1000 }); return page; }
 async function addFindAndRead(page, cardIndex = 0) { await page.bringToFront(); await page.waitForSelector("[data-action='add-card-to-scratchpad']", { timeout: 15000 }); await page.$$eval("[data-action='add-card-to-scratchpad']", (nodes, index) => nodes[index].click(), cardIndex); const oracleId = [fixtureCard, secondFixtureCard, thirdFixtureCard][cardIndex].oracle_id; await page.waitForFunction((id) => { const draft = JSON.parse(localStorage.getItem("vm_maze_reading_finds_v1") || "{}"); return Object.values(draft.sections || {}).flat().some((entry) => entry.oracleId === id); }, { timeout: 10000 }, oracleId); return page.evaluate((id) => { const draft = JSON.parse(localStorage.getItem("vm_maze_reading_finds_v1") || "{}"); return Object.values(draft.sections || {}).flat().find((entry) => entry.oracleId === id).sourceContext?.readingId || ""; }, oracleId); }
 async function exactDestination(page, link, { addFind = true, allowCached = false, expectedQuery = null } = {}) {
-  const expected = new URL(link.href); const canonicalQuery = expectedQuery || expected.searchParams.get("operatorQuery");
+  const expected = new URL(link.href);
+  const shortLinkOracle = expected.searchParams.has("operatorQuery") ? null : await frozenParentForLink(link);
+  const canonicalQuery = expectedQuery || expected.searchParams.get("operatorQuery") || shortLinkOracle.operatorQuery;
   assert(canonicalQuery, "Maze destination assertion requires a catalog-derived expected query when the launch href omits operatorQuery.");
   await waitMaze(page, link, canonicalQuery); const state = await mazeState(page);
   assert.deepEqual(state.witness.consoleErrors, [], "Normal navigation produced an unexpected runtime error.");
@@ -172,6 +189,14 @@ async function exactDestination(page, link, { addFind = true, allowCached = fals
   for (const request of capturedRequests) assert.equal(apiQuery(request), state.query);
   const findReadingId = addFind ? await addFindAndRead(page) : "";
   if (addFind) assert.equal(findReadingId, state.readingId, "Real Reading Finds row did not retain the active handoff readingId.");
+  if (shortLinkOracle) {
+    assert.equal(state.url, expected.href, "Short current anchor changed during native navigation.");
+    assert.equal(state.display, shortLinkOracle.display, "Short current link changed the rendered frozen display.");
+    assert.deepEqual(page.vm678Errors || [], [], "Short current navigation produced a page error.");
+    assert.equal(state.contextMode, expected.searchParams.get("contextMode") || "normal-reading");
+    for (const request of capturedRequests) assert.equal(request, shortLinkOracle.scryfallRequest, "Short current link changed Scryfall request construction.");
+    if (addFind) assert.equal(findReadingId, expected.searchParams.get("readingId") || "", "Short current link changed exact Reading ownership.");
+  }
   return { ...state, constructedScryfallRequests: capturedRequests, cachedResultAllowed: allowCached, findReadingId };
 }
 async function runNormalAB(browser, baseUrl) {
@@ -191,11 +216,12 @@ async function runNormalAB(browser, baseUrl) {
 async function runCase(browser, baseUrl, kind) {
   progress(kind);
   const source = await configure(browser, baseUrl); await openNormalSource(source, baseUrl); const link = await sourceLink(source, "commanders-that-fit");
-  const before = await source.evaluate(() => ({ url: location.href, witness: structuredClone(window.__vm678NavigationWitness) }));
+  const before = await source.evaluate(() => ({ url: location.href, historyLength: history.length, witness: structuredClone(window.__vm678NavigationWitness) }));
   if (kind === "pointer" || kind === "keyboard") { await nativeActivate(source, "commanders-that-fit", kind); const destination = await exactDestination(source, link); assert.equal(destination.findReadingId, new URL(link.href).searchParams.get("readingId")); const pageErrors = source.vm678Errors; await source.close(); return { kind, link, destination, sourcePreserved: null, pageErrors }; }
   const newPagePromise = awaitNewPage(browser, new Set(browser.targets()), baseUrl); await nativeActivate(source, "commanders-that-fit", kind); const destinationPage = await newPagePromise;
-  const destination = await exactDestination(destinationPage, link); const after = await source.evaluate(() => ({ url: location.href, witness: structuredClone(window.__vm678NavigationWitness) }));
+  const destination = await exactDestination(destinationPage, link); const after = await source.evaluate(() => ({ url: location.href, historyLength: history.length, witness: structuredClone(window.__vm678NavigationWitness) }));
   assert.equal(after.url, before.url, `${kind}: source URL changed.`); assert.equal(after.witness.token, before.witness.token, `${kind}: source document reloaded.`); assert.deepEqual(after.witness.events, before.witness.events, `${kind}: source history/unload counters changed.`);
+  assert.equal(after.historyLength, before.historyLength, `${kind}: source history length changed.`);
   await destinationPage.close(); await source.close(); return { kind, link, destination, sourcePreserved: { sourceUrl: before.url, documentTokenUnchanged: true, sourceEventsUnchanged: true }, pageErrors: 0 };
 }
 async function runHistory(browser, baseUrl) {
@@ -205,11 +231,11 @@ async function runHistory(browser, baseUrl) {
 async function runComparisonTabs(browser, baseUrl) {
   progress("simultaneous-comparison-tabs");
   const source = await configure(browser, baseUrl); await openNormalSource(source, baseUrl); const first = await sourceLink(source, "commanders-that-fit"); const second = await sourceLink(source, "weird-stretch-commanders");
-  const before = await source.evaluate(() => ({ url: location.href, witness: structuredClone(window.__vm678NavigationWitness) }));
+  const before = await source.evaluate(() => ({ url: location.href, historyLength: history.length, witness: structuredClone(window.__vm678NavigationWitness) }));
   const open = async (pathType, link, kind) => { const pending = awaitNewPage(browser, new Set(browser.targets()), baseUrl); await nativeActivate(source, pathType, kind); const tab = await pending; const state = await exactDestination(tab, link, { addFind: false }); return { tab, state }; };
   const a = await open("commanders-that-fit", first, "ctrl"); const b = await open("weird-stretch-commanders", second, "middle"); assert(!a.tab.isClosed() && !b.tab.isClosed()); assert.notEqual(a.state.query, b.state.query, "Comparison paths collapsed to one query.");
   for (const { tab, state } of [a, b]) { await tab.bringToFront(); await tab.reload({ waitUntil: "domcontentloaded" }); await waitMaze(tab, { href: state.url }); assert.equal((await mazeState(tab)).query, state.query); }
-  const after = await source.evaluate(() => ({ url: location.href, witness: structuredClone(window.__vm678NavigationWitness) })); assert.deepEqual(after, before, "Comparison clicks changed source document, URL, history, or requests.");
+  const after = await source.evaluate(() => ({ url: location.href, historyLength: history.length, witness: structuredClone(window.__vm678NavigationWitness) })); assert.deepEqual(after, before, "Comparison clicks changed source document, URL, history, or requests.");
   await a.tab.close(); await b.tab.close(); await source.close(); return { newTargets: 2, simultaneouslyOpen: true, independentReloads: true, sourceUrl: before.url, sourceDocumentAndHistoryUnchanged: true, a: { pathType: a.state.pathType, query: a.state.query }, b: { pathType: b.state.pathType, query: b.state.query } };
 }
 async function runKnownRed(browser, baseUrl) {

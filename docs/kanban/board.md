@@ -1,4 +1,4 @@
-<!-- task-view-sha256:e367d6d8c8671593ac4d028bce5ece39c3ef086304ff4ec27c04a9f1545e3e75 -->
+<!-- task-view-sha256:00915d5afd12afc899c5416894da64bc1ca2f156f8ba52ac3472684e8359c4fb -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -28,6 +28,7 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | VM-628 | [Archscry Portable Reading Recovery](backlog/VM-628-archscry-portable-reading-recovery.md) | Backlog |  |
 | VM-629 | [Placement Language Repetition Reduction](backlog/VM-629-placement-language-repetition-reduction.md) | Backlog |  |
 | VM-630 | [CRIT-001 Live Provenance Pointer Normalization](backlog/VM-630-crit001-live-provenance-pointer-normalization.md) | Backlog |  |
+| VM-679 | [Remove project-task-derived identifiers from runtime/public Reading provenance](backlog/VM-679-product-reading-identifiers.md) | Backlog |  |
 
 ## Ready
 

@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
+import { tmpdir } from "node:os";
 import { pathToFileURL } from "node:url";
 import { createHash } from "node:crypto";
 import vm from "node:vm";
@@ -17,15 +18,31 @@ import {
 const root = process.cwd();
 const args = process.argv.slice(2);
 const navigation = args.includes("--navigation");
-assert(args.every((arg) => arg === "--navigation" || arg.startsWith("--output=")), "Use --output=<separate artifact> and optionally --navigation.");
+const currentLinks = args.includes("--current-links");
+const servedOnly = args.includes("--served-only");
+assert(!servedOnly || currentLinks, "--served-only requires --current-links.");
+assert(args.every((arg) => ["--navigation", "--current-links", "--served-only"].includes(arg) || arg.startsWith("--output=")), "Use --output=<separate artifact> with optional current-link flags.");
 const output = args.find((arg) => arg.startsWith("--output="))?.slice(9);
 assert(output, "An explicit separate output artifact is required.");
 const outputPath = path.resolve(output);
 const forbiddenOutputs = ["vm678-navigation-baseline.json", "vm678-url-parity-baseline.json", "vm678-a0-identity-alias-candidate.json", "vm678-slice-a-navigation-candidate.json", "vm678-slice-a-url-parity-candidate.json"];
 assert(!forbiddenOutputs.includes(path.basename(outputPath)), "Historical observations are frozen.");
+if (currentLinks) {
+  const candidateName = "vm678-slice-b-current-links-return-security.json";
+  const contained = (base, target) => {
+    const relative = path.relative(path.resolve(base), target);
+    return relative !== "" && relative !== ".." && !relative.startsWith(`..${path.sep}`) && !path.isAbsolute(relative);
+  };
+  const tempRoots = [tmpdir(), ...(process.env.LOCALAPPDATA ? [path.join(process.env.LOCALAPPDATA, "Temp")] : [])];
+  assert(outputPath === path.resolve(root, "tests/fixtures", candidateName)
+    || (path.basename(outputPath) === candidateName && !contained(root, outputPath) && tempRoots.some((directory) => contained(directory, outputPath))),
+  "Current-links observations require their new admitted artifact or same-basename external Temp output.");
+}
 const catalog = JSON.parse(await readFile("data/dossier/maze-discovery-profiles.catalog.json", "utf8"));
 const factions = JSON.parse(await readFile("data/factions.json", "utf8")).factions;
 const parity = JSON.parse(await readFile("tests/fixtures/vm678-url-parity-baseline.json", "utf8"));
+const sliceARetry = JSON.parse(await readFile("tests/fixtures/vm678-slice-a-retry-return-security.json", "utf8"));
+const frozenNavigation = JSON.parse(await readFile("tests/fixtures/vm678-navigation-baseline.json", "utf8"));
 const source = await readFile("assets/js/maze/research-init.js", "utf8");
 const hash = (value) => createHash("sha256").update(value).digest("hex");
 const normalizedText = (value) => String(value || "").replace(/\s+/g, " ").trim();
@@ -147,7 +164,23 @@ async function openContext(page, baseUrl, key, mode) {
   const selected = parents.find((row) => row.pathType === "commanders-that-fit") || parents[0];
   assert(selected, `${key}: no applicable current catalog path`);
   const link = await sourceLink(page, selected.pathType);
-  await nativeActivate(page, selected.pathType, "pointer"); await waitMaze(page, link);
+  if (currentLinks) {
+    const url = new URL(link.href);
+    const allowed = mode === "normal-reading" ? ["from", "fit", "pathType", "readingId"]
+      : mode === "identity-explore" ? ["from", "fit", "pathType", "contextMode", "exploreIdentity"]
+      : ["from", "fit", "pathType", "contextMode", "reviewIdentity", "readingId"];
+    assert.equal(url.pathname, "/maze/index.html");
+    assert.deepEqual([...url.searchParams.keys()], allowed, `${key}/${mode}: current anchor allowlist changed.`);
+    assert.equal(url.searchParams.get("from"), "archscry");
+    assert.equal(url.searchParams.get("fit"), key);
+    assert.equal(url.searchParams.get("pathType"), selected.pathType);
+    if (mode !== "normal-reading") {
+      assert.equal(url.searchParams.get("contextMode"), mode);
+      assert.equal(url.searchParams.get(mode === "identity-explore" ? "exploreIdentity" : "reviewIdentity"), key);
+    }
+    if (mode === "dossier-review") assert.equal(url.searchParams.get("readingId"), `dossier-review-${key.toLowerCase()}`);
+  }
+  await nativeActivate(page, selected.pathType, "pointer"); await waitMaze(page, link, selected.operatorQuery);
   return link;
 }
 async function runReturns(browser, baseUrl) {
@@ -159,10 +192,13 @@ async function runReturns(browser, baseUrl) {
     const context = await browser.createBrowserContext(); const page = await configure(context, baseUrl);
     try {
       const link = await openContext(page, baseUrl, key, mode);
+      const launchParams = new URL(link.href).searchParams;
+      const expectedQuery = parity.records.find((row) => row.identityKey === key && row.pathType === launchParams.get("pathType") && !row.threadId && row.contextMode === (mode === "identity-explore" ? mode : "normal-reading"))?.operatorQuery;
+      assert(expectedQuery, `${key}/${mode}: frozen catalog oracle missing.`);
       const observed = await inspectReturns(page); assertReturns(observed, key, mode, baseUrl);
       let reload = null;
       if (key === "WU" && mode !== "normal-reading") {
-        await page.reload({ waitUntil: "domcontentloaded" }); await waitMaze(page, link);
+        await page.reload({ waitUntil: "domcontentloaded" }); await waitMaze(page, link, expectedQuery);
         reload = await inspectReturns(page); assertReturns(reload, key, mode, baseUrl);
         assert.equal(reload.query, observed.query);
       }
@@ -191,9 +227,11 @@ async function runReturns(browser, baseUrl) {
       }
       records.push({ key, mode, launchHref: link.href, expectedFindReadingId: expectedFind, persistedFindReadingId: find, returns: observed, reload, activatedSurface: surface, documentRequests, existingArchscryHashConsumption: mode !== "dossier-review", destination: returned });
       if (mode === "dossier-review") {
-        // Actual previous return shape from the unchanged source anchor; only Maze's builder changes.
-        const input = new URL(link.href); const old = new URL(input.searchParams.get("returnUrl"), link.href);
-        Object.entries({ from: "maze", view: key, readingId: expectedFind, mazeReturnUrl: input.pathname + input.search }).forEach(([name, value]) => old.searchParams.set(name, value));
+        // Historical verbose control is frozen separately; current anchors no longer transport returnUrl.
+        const frozenReview = sliceARetry.returns.find((row) => row.key === key && row.mode === "dossier-review");
+        assert(frozenReview?.previousReviewRouteControl?.initial?.url, "Frozen Slice A review control missing its actual Archscry route.");
+        const historical = new URL(frozenReview.previousReviewRouteControl.initial.url);
+        const old = new URL(historical.pathname + historical.search + historical.hash, baseUrl);
         await page.goto(old.href, { waitUntil: "domcontentloaded" });
         const control = await destination(page, key, mode);
         for (const field of ["identity", "explore", "heading", "mazePanelVisible"]) assert.deepEqual(returned[field], control[field], `Review parent-control ${field} drift`);
@@ -210,7 +248,7 @@ async function runReturns(browser, baseUrl) {
   }
   return records;
 }
-async function runSecurity(browser, baseUrl, reviewLink) {
+async function runSecurity(browser, baseUrl, reviewLink, currentLaunches = null) {
   const attacks = [
     ["external", [["returnUrl", "https://example.invalid/return"]]], ["protocol-relative", [["returnUrl", "//example.invalid/path"]]],
     ["javascript", [["returnUrl", "javascript:alert(1)"]]], ["data", [["returnUrl", "data:text/html,hostile"]]],
@@ -221,17 +259,19 @@ async function runSecurity(browser, baseUrl, reviewLink) {
   ];
   const records = [];
   for (const mode of ["normal-reading", "identity-explore", "dossier-review"]) {
-    const parent = parity.records.find((row) => row.identityKey === "WU" && row.pathType === "commanders-that-fit" && !row.threadId && row.contextMode === mode);
-    const input = mode === "dossier-review" ? reviewLink : new URL(parent.currentGeneratedHref, baseUrl).href;
+    const parent = parity.records.find((row) => row.identityKey === "WU" && row.pathType === "commanders-that-fit" && !row.threadId && row.contextMode === (mode === "identity-explore" ? mode : "normal-reading"));
+    assert(parent, `${mode}: frozen parent query oracle missing.`);
+    const input = currentLaunches ? currentLaunches.find((row) => row.mode === mode && row.key === "WU")?.launchHref : mode === "dossier-review" ? reviewLink : new URL(parent.currentGeneratedHref, baseUrl).href;
+    assert(input, `${mode}: current launch href unavailable`);
     for (const [name, values] of attacks) {
       progress(`hostile-${mode}-${name}`);
       const context = await browser.createBrowserContext(); const page = await configure(context, baseUrl);
       try {
         const url = new URL(input); url.searchParams.delete("returnUrl"); url.searchParams.delete("mazeReturnUrl");
         values.forEach(([key, value]) => url.searchParams.append(key, value));
-        await page.goto(url.href, { waitUntil: "domcontentloaded" }); await waitMaze(page, { href: input });
+        await page.goto(url.href, { waitUntil: "domcontentloaded" }); await waitMaze(page, { href: input }, parent.operatorQuery);
         const observed = await inspectReturns(page); assertReturns(observed, "WU", mode, baseUrl);
-        assert.equal(observed.query, new URL(input).searchParams.get("operatorQuery"));
+        assert.equal(observed.query, parent.operatorQuery);
         records.push({ name, mode, inputUrl: url.href, observed });
       } finally { await context.close(); }
     }
@@ -244,7 +284,7 @@ async function runSecurity(browser, baseUrl, reviewLink) {
       const stored = { ...value, returnUrl: "https://example.invalid/stored", mazeReturnUrl: "javascript:alert(1)" };
       await page.evaluate((value) => localStorage.setItem("vm_archscry_maze_handoff_v1", JSON.stringify(value)), stored);
       await page.goto(`${baseUrl}/maze/index.html?q=id%3Dwu%20is%3Acommander%20f%3Acommander`, { waitUntil: "domcontentloaded" });
-      await waitMaze(page, { href: `${baseUrl}/maze/index.html?operatorQuery=id%3Dwu%20is%3Acommander%20f%3Acommander` });
+      await waitMaze(page, { href: `${baseUrl}/maze/index.html` }, "id=wu is:commander f:commander");
       await page.waitForSelector("#card-grid .card-item");
       const observed = await inspectReturns(page);
       assert.deepEqual(observed.errors, []);
@@ -322,6 +362,25 @@ function compareNavigation(result, baseline, baseUrl) {
   return { semanticRecords: 1002, normalReading: 501, identityExplore: 501, nativeAndHistoryParity: true, knownABRedsUnchanged: true, transportProbes: probes.length, approvedDelta: "Locally constructed return destinations only; obsolete four-worker metadata clarified separately" };
 }
 
+function compareCurrentNative(coverage, baseUrl) {
+  const actual = stable(normalizeArtifact(coverage, baseUrl));
+  const baseline = frozenNavigation.coverage;
+  const fields = ["profile", "pathType", "query", "display", "contextMode", "readingId", "findReadingId", "constructedScryfallRequests"];
+  for (const kind of ["pointer", "keyboard", "ctrl", "middle"]) {
+    for (const field of fields) assert.deepEqual(actual[kind].destination[field], baseline[kind].destination[field], `${kind}: protected ${field} drifted.`);
+  }
+  assert.deepEqual(actual.comparisonTabs, baseline.comparisonTabs, "Comparison-tab semantics or source preservation changed.");
+  assert.deepEqual(actual.normalAB, baseline.normalAB, "Historical A/B ownership facts changed.");
+  for (const field of fields) assert.deepEqual(actual.history.primary[field], baseline.history.primary[field], `History: protected ${field} drifted.`);
+  assert.deepEqual(actual.history.reload, baseline.history.reload);
+  assert.deepEqual(actual.history.backForward, baseline.history.backForward);
+  assert.equal(actual.history.sourceReturn.sameReadingId, baseline.history.sourceReturn.sameReadingId);
+  const probes = structuredClone(actual.transportProbes); const frozenProbes = structuredClone(baseline.transportProbes);
+  for (const rows of [probes, frozenProbes]) rows.forEach((row) => { row.returnHref = "APPROVED_LOCAL_RETURN_DELTA"; });
+  assert.deepEqual(probes, frozenProbes, "Legacy, duplicate or copied-URL behavior changed.");
+  return { protectedNativeKinds: ["pointer", "keyboard", "ctrl", "middle"], shiftNewTargetObserved: true, comparisonTabs: 2, reloadBackForward: true, knownABRedsUnchanged: true, transportProbes: probes.length, approvedDeltas: ["fresh shorter current href", "accepted locally constructed return href"] };
+}
+
 async function main() {
   const builders = checkBuilders(); const server = await startServer(); let launched; let browser;
   try {
@@ -329,7 +388,7 @@ async function main() {
     launched = await ChromeLauncher.launch({ chromePath: await browserPath(), chromeFlags: ["--headless=new", "--no-sandbox", "--disable-gpu", "--disable-background-timer-throttling", "--disable-renderer-backgrounding", "--disable-backgrounding-occluded-windows", "--allow-file-access-from-files"], logLevel: "silent" });
     browser = await puppeteer.connect({ browserURL: `http://127.0.0.1:${launched.port}` });
     let result;
-    if (navigation) {
+    if (navigation && !currentLinks) {
       const coverage = {};
       for (const kind of ["pointer", "keyboard", "ctrl", "middle"]) coverage[kind] = await runCase(browser, baseUrl, kind);
       coverage.history = await runHistory(browser, baseUrl); coverage.comparisonTabs = await runComparisonTabs(browser, baseUrl);
@@ -340,10 +399,12 @@ async function main() {
       result = { schemaVersion: 1, task: "VM-678", slice: "A-retry-navigation", runtimeSha256: hash(source), engine: await browser.version(), coverage, comparison, status: "PASS" };
     } else {
       const returns = await runReturns(browser, baseUrl);
-      const security = await runSecurity(browser, baseUrl, returns.find((row) => row.mode === "dossier-review").launchHref);
+      const security = await runSecurity(browser, baseUrl, returns.find((row) => row.mode === "dossier-review").launchHref, currentLinks ? returns : null);
       const modifiedReturns = await runModifiedReturns(browser, baseUrl);
-      const file = await runFile(browser);
-      result = { schemaVersion: 1, task: "VM-678", slice: "A-retry-return-security", runtimeSha256: hash(source), engine: await browser.version(), builders, returns, security, modifiedReturns, file, inheritedBannerClassification: "Obsolete selector absent from current product. Current visible return context is exercised in every return/security case; independent exact-parent control separately preserved.", status: file.status === "PASS" ? "PASS" : "STOP — supported file-mode gate failed" };
+      const focusedNative = currentLinks && navigation ? { pointer: await runCase(browser, baseUrl, "pointer"), keyboard: await runCase(browser, baseUrl, "keyboard"), ctrl: await runCase(browser, baseUrl, "ctrl"), middle: await runCase(browser, baseUrl, "middle"), shift: await runCase(browser, baseUrl, "shift"), history: await runHistory(browser, baseUrl), comparisonTabs: await runComparisonTabs(browser, baseUrl), normalAB: await runNormalAB(browser, baseUrl), transportProbes: await runTransportProbes(browser, baseUrl) } : null;
+      const comparison = focusedNative ? compareCurrentNative(focusedNative, baseUrl) : null;
+      const file = servedOnly ? { status: "NOT RUN — current-links served-only mode" } : await runFile(browser);
+      result = { schemaVersion: 1, task: "VM-678", slice: currentLinks ? "B-current-links-return-security" : "A-retry-return-security", runtimeSha256: hash(source), engine: await browser.version(), builders, returns, security, modifiedReturns, focusedNative, comparison, file, inheritedBannerClassification: "Obsolete selector absent from current product. Current visible return context is exercised in every return/security case; independent exact-parent control separately preserved.", status: servedOnly || file.status === "PASS" ? "PASS" : "STOP — supported file-mode gate failed" };
     }
     await writeFile(outputPath, JSON.stringify(stable(normalizeArtifact(result, baseUrl)), null, 2) + "\n");
     console.log(JSON.stringify({ status: result.status, output, ...(navigation ? result.comparison : { builderIdentities: builders.records.length, explorationReturns: result.returns.filter((row) => row.mode === "identity-explore").length, securityCases: result.security.length, nativeModifiedReturns: result.modifiedReturns.records.length, fileMode: result.file.status }) }, null, 2));

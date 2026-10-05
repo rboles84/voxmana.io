@@ -1373,7 +1373,6 @@ export function withArchscryMazeContext(links = [], context, origin = "http://lo
       from: "archscry",
       fit: context.fit,
       pathType,
-      threadId: link.threadId,
     };
     if (contextMode === "identity-explore") {
       launchParams.contextMode = contextMode;
