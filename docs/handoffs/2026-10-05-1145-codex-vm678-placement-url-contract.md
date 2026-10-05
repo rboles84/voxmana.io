@@ -186,3 +186,21 @@ Normal integration remains subject to fresh PR/main/tree/commit/check parity and
 The initial unpublished preparation history incorrectly combined the scope amendment with implementation. Independent QA reported BLOCKED, and no PASS, push or merge used it. Its exact tree/patch was preserved externally. Only unpublished history was reconciled: dedicated card-only fdba8519 changes Admission Scope and Decisions;83e237f1 contains the permitted implementation/governance records. The final tree is identical to the earlier inspected preparation tree. Canonical admission then passed; all working bytes and accepted runtime were preserved. Historical protected prose was not rewritten to mask the failure.
 
 Independent QA and current Git confirm the correction has seven paths relative to the integration STOP, with one material test path. Whole task material count88 and current report validation PASS. The old product/STOP records remain historical; this later receipt and current Delivery fields govern the corrected candidate's readiness. The accepted expensive browser matrix is reused only because unchanged protected runtime/data/fixture bytes were proven.
+
+## Verified integration receipt
+
+Task: VM-678
+Candidate: 83e237f1e6a329ecad58561bc29060e05667ddd8
+PR: PR69
+Evidence head: 54ddccb9993347661b636f74fac17833a97f340c
+Merge: d1e7d2b4193d0ac37cac336a6517d3fb679e317f
+Baseline parent: a436a845cb0a67bbe738fb283966ea6d832f1b39
+Integrated tree: 5f17325d00554e62d4c1d09f038b06bf504f93ff
+
+The normal integration stage PASS verified the genuine conditional Owner acceptance, original separate exact-candidate QA, 88 material paths, four evidence-only paths and 88 total branch paths. Required Deterministic Validation completed successfully at the exact merged PR head: https://github.com/rboles84/voxmana.io/actions/runs/37357657956/job/111924052239 .
+
+The approved GitHub connector performed a squash merge with its atomic expected-head guard. GitHub returned merged=true and the exact merge SHA above. Fresh authenticated PR/main reads confirmed PR69 closed and merged. Local main was fast-forwarded to that result; its sole parent is the verified baseline and its tree is byte-identical to the merged evidence head.
+
+Accepted product runtime 1720711c30c9772427594fceb7d780a13858f0aa, historical baselines/candidate fixtures, VM-679 and inherited debt remain byte-unchanged. Post-merge work changes only lifecycle records and derived views. VM-679 remains Backlog; no deployment is performed.
+
+The strict integration gate first rejected the previous evidence commit f45eb29790a31333be318db7c5e64b8661727147 solely for an added EOF newline on protected card content. That original commit is preserved in an external Git bundle and its original QA receipt remains historical. The announced latest-evidence-only amendment removed that newline with N unchanged, used an explicit remote-head lease, obtained a new independent N-to-54dd content review, and reran ordinary required CI and the integration gate to PASS. No gate was bypassed.
