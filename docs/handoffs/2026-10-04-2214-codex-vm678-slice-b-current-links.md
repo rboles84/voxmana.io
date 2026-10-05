@@ -236,3 +236,34 @@ Git owns this full-task accounting. The corrected review delta from failed f01b7
 - Changed paths: `84`
 
 Material 84 paths; additional evidence-only commits zero; total branch 84 paths. Candidate and final HEAD are the same frozen commit; its full SHA is delivered externally with the original independent QA binding. Live/local main remain a436a845cb0a67bbe738fb283966ea6d832f1b39. Canonical admission continue passed after the record updates; single active branch/worktree is codex/vm-678-url-security-recon at C:/dev/voxmana.io. Remote related branch lookup found none. No PR, push, merge, integration or deployment occurred. The staged scope is explicit; final clean status and report/index validation must be confirmed after commit. Required generated views are fresh.
+
+## Owner acceptance and integration authorization
+
+Task: VM-678
+Candidate: 1720711c30c9772427594fceb7d780a13858f0aa
+Owner: ACCEPT
+Decision reference: Owner message received 2026-10-05 in Codex chat 01a1055d-98f7-78c1-b9b0-0d7cc7a1abf3, opening "Owner review complete. I ACCEPT VM-678 at exact candidate" and naming the exact SHA above.
+
+The acting coordinator read the genuine Owner message. It accepts the original independent QA-3 PASS and authorizes the normal exact-candidate integration/merge and lifecycle-only closeout. No additional manual regression cycle is required. It authorizes no product-runtime edit, candidate regeneration, inherited-debt repair or VM-679 work. A material integration change must STOP for Owner review.
+
+Owner instructions retained verbatim:
+
+> I ACCEPT VM-678 at exact candidate:
+>
+> `1720711c30c9772427594fceb7d780a13858f0aa`
+>
+> Independent QA-3 PASS for the exact candidate is accepted.
+>
+> Proceed with the repository's normal exact-candidate integration/merge workflow for:
+>
+> `1720711c30c9772427594fceb7d780a13858f0aa`
+>
+> Do not make product-runtime changes during integration.
+>
+> VM-679 remains the required separate future story for replacing project/task-derived Reading identifiers.
+>
+> Do not begin VM-679 as part of VM-678 closeout.
+
+Fresh deterministic candidate gate PASS binds the original separate QA verdict at this exact SHA. Local worktree was clean; freshly fetched local/live main is a436a845cb0a67bbe738fb283966ea6d832f1b39. The authenticated GitHub connector has repository access as rboles84 and guarded squash capability; no matching task PR exists before creation. Native Git owns fetch/push; the connector is the approved PR read/create/merge route. Live branch-settings visibility is supplemental under workflow main-protection policy; discovered connector tools do not expose those settings. Required Deterministic Validation, exact PR head/base/scope and server-side expected-head guard remain mandatory.
+
+Next action: append only this lifecycle evidence, bind Accepted on the card, regenerate required views, obtain exact evidence-delta review, then create the single post-ACCEPT PR. No runtime, tools, tests, fixtures, semantic contracts or deferred-work records change in this delta.

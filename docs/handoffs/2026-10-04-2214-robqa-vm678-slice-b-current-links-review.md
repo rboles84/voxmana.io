@@ -107,3 +107,79 @@ QA-3 remains PENDING until an exact corrected candidate and complete evidence fr
 - CPU-heavy validation: the full 1,002 browser workflow is justified because the shared current-link serializer changes every shipped parent anchor and projected semantics must remain reachable through the supported UI. Unrelated placement, mutation and visual suites are not required.
 - Reviewer: `/root/qa_final`.
 - Implementers: runtime and test workers are separate; `/root` coordinates admission and freeze. This reviewer authors no runtime, harness or candidate fixture.
+
+
+## Accepted candidate original QA-3 verdict
+
+Original independent source: C:/Users/obake/AppData/Local/Temp/vm678-slice-b-current-links-1720711c-original-qa.md; raw SHA-256 b013fa81f181cb1a83b0bd84ce51b8d713de048876e4962a5eb3dca2d34fccc8. The following is an unchanged copy of that reviewer's original verdict, preserved for durable integration evidence. The external original remains byte-frozen.
+
+Task: VM-678
+Candidate: 1720711c30c9772427594fceb7d780a13858f0aa
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: /root/qa_final
+Implementer: /root
+
+# Independent exact-candidate QA-3 — Slice B current parent links
+
+## Decision
+
+PASS applies to the exact clean candidate above under the corrected Owner contract: Archscry emits fresh parent-path Maze links, while projected thread semantics are reached through existing Maze controls. This engineering verdict does not certify direct public thread deep links, Owner acceptance, integration, deployment, or VM-679 work.
+
+The reviewer authored no runtime, harness, or candidate fixture. Runtime and evidence workers were /root/baseline_browser and /root/slice_a_retry_tests; /root coordinated the frozen candidate.
+
+## Exact candidate and scope
+
+- Git HEAD and reviewed candidate: 1720711c30c9772427594fceb7d780a13858f0aa; worktree clean.
+- Candidate tree: 73ac689f733d28cc359abf2bfde4fc447c7459cc.
+- Baseline, local main, remote main, and merge base: a436a845cb0a67bbe738fb283966ea6d832f1b39.
+- Admission continuation: PASS after an escalated read-only remote check. The first sandboxed attempt failed only because GitHub name resolution could not start; it did not produce an engineering failure.
+- Change-report validation: PASS, 84 material paths and 84 final paths.
+- Generated views: fresh, 718 cards and 1,225 handoffs.
+- Git diff check: PASS.
+- Relative to accepted Slice A, the only product runtime delta is assets/js/archscry/archscry-presentation.js: fresh local Maze URL construction and removal of threadId emission. Accepted A0 identity-atlas runtime, accepted Slice A research-init runtime, historical 1,002 baselines, all 18 semantic fixtures, and accepted A0/Slice A artifacts are unchanged.
+- The final change from the prior freeze 9b491c0d89750bbedc03f7600bd9dea4d16c144f is one corrected checksum character in the 2214 browser handoff. Runtime, harness, and candidate artifacts are identical.
+
+## Independent executions
+
+1. Programmatic current-link driver — PASS.
+   - 1,002 unique records.
+   - 294 actual current anchors: 147 normal and 147 explore.
+   - 708 projected thread rows: 354 normal and 354 explore, all with candidateHref null.
+   - Total public contexts: 501 normal and 501 explore.
+   - Temp artifact SHA-256 equals the committed artifact: c062aee0b9f7698d8c23717e2ff4cbaa3034ba46288eb1a1c1809ff16d57d4c7.
+
+2. Full supported real-browser workflow — PASS.
+   - 1,002 cases executed in loopback Edge/Chromium through four isolated BrowserContexts.
+   - 294 short parent anchors and 708 parent-then-real-thread-control flows.
+   - 708 trusted exact-control clicks: 634 changed-query actions with a new request and 74 cache-retained same-query actions.
+   - Every clicked control was bound to the frozen thread ID, path, Operator query, and Plain Reading metadata and hit-tested before trusted mouse activation.
+   - Counts: 501 normal, 501 explore; zero recorded runtime errors.
+   - The mandatory Abzan ancestor-obligation normal and explore paths showed the parent query before activation and the frozen graveyard-return query/API afterward.
+   - The independent artifact differs from the committed raw SHA only in the ephemeral loopback port embedded in fullPath. Recursive comparison is exactly equal after normalizing that port. Committed raw SHA-256: 4c6e54ddff5174278630b2b89082593ed3ca826aa7ac37e114058b7980a860e2.
+
+3. Focused served native, history, Finds, review, and return-security browser proof — PASS.
+   - Temp artifact is byte-identical to the committed artifact, SHA-256 2692a03d8e41979086bc5114a8e333361f13986f526a9cfa4b8aa688e8fcc459.
+   - 37 fixed return builders; 22 actual returns comprising 20 exploration identities, normal WU, and gated review WU.
+   - 39 hostile raw, nested, duplicate, retained-storage, absent, and invalid-context cases.
+   - Exact normal/review Reading ownership and blank exploration association.
+   - Actual short-anchor pointer, Enter, Ctrl, middle, and available Windows Shift activation; three modified return targets; two simultaneous comparison tabs; independent reload; genuine Back/Forward; ten copied, legacy, and duplicate probes.
+   - Protected native fields, actual Scryfall requests, supported-runtime errors, accepted local returns, and historical A/B known-red observations all matched their frozen contracts.
+
+4. Semantic state contract — PASS.
+   - All 18 authority-audited fixtures passed, including provenance without changed query truth.
+
+5. Static and governance checks — PASS.
+   - Node syntax passed for the runtime and three relevant harness files.
+   - The three Owner before/after URL witnesses match the fresh allowlists: normal retains the established Reading ID; exploration has no Reading ID; gated review retains the established dossier-review ID; none emits threadId or copied query/display/diagnostic/return fields.
+   - VM-679 is a backlog intake record for the mandatory future identifier design and migration review. No VM-679 admission, branch, design, runtime change, or migration began.
+
+## Risk assessment and limits
+
+The changed serializer no longer depends on copied query or display values. Catalog resolution, actual UI selection, API request construction, context classification, and Finds ownership were verified independently against frozen authority. Same-query cached thread actions have no public selected-thread DOM marker; evidence therefore binds the exact rendered control metadata, trusted hit-tested activation, and valid resulting public state without claiming a new request or private-variable observation.
+
+Browser-chrome context-menu Open in New Tab/Window and macOS Meta were unavailable in this Windows headless environment and are not claimed as PASS. Native Ctrl, middle, and Shift targets were measured. Scryfall response bodies were fixture-intercepted; request URLs and cache behavior were observed. Real navigation ran over served HTTP loopback; fixed relative URLs preserve the active HTTP or HTTPS origin, but this review makes no TLS, production-host, or deployment claim.
+
+Inherited direct-file Maze startup debt, the obsolete Identity Atlas banner assertion, the dev-review placement-memory assertion, and historical A/B ownership reds were not repaired or relabeled. Direct public projected-thread replay remains outside the corrected contract. No broader engine, placement, mutation, integration, or deployment suite was warranted by this serializer-only change.
+
+Engineering QA is complete for this exact candidate. Owner review remains a separate decision.
