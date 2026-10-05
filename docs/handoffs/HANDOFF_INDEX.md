@@ -1,4 +1,4 @@
-<!-- task-view-sha256:5fa91f77dc9565e2152351196a65d21c2515eb5dfd590b77eadcf1ae983cf877 -->
+<!-- task-view-sha256:0aba9fa5a277d33a01e8fe1e17bcdbe80ff655164c3ede5d53d1a9825106ada6 -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -8,6 +8,9 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 
 | Authored / filename date | Agent | Handoff | Related task references | Diagnostics |
 |---|---|---|---|---|
+| 2026-10-05T11:45:00-06:00 (authored) | /root/qa_final | [VM-678 placement URL contract correction — independent RobQA](2026-10-05-1145-robqa-vm678-placement-url-contract.md) | VM-678 | Identity displayed from heading; not admission metadata. |
+| 2026-10-05T11:45:00Z (filename) | /root | [VM-678 — placement URL test-contract correction](2026-10-05-1145-codex-vm678-placement-url-contract.md) | VM-678 | Identity displayed from heading; not admission metadata. |
+| 2026-10-05T11:45:00Z (filename) | `/root/placement_contract` (RobDev) | [RobDev handoff — VM-678 placement URL contract correction](2026-10-05-1145-robdev-vm678-placement-url-contract.md) | VM-678 | Identity displayed from heading; not admission metadata. |
 | 2026-10-04T22:14:00-06:00 (authored) | /root/qa_final | [VM-678 Slice B current links — independent RobQA](2026-10-04-2214-robqa-vm678-slice-b-current-links-review.md) | VM-678 | Identity displayed from heading; not admission metadata. |
 | 2026-10-04T22:00:00-06:00 (authored) | /root/qa_final | [VM-678 Slice B serializer — independent RobQA](2026-10-04-2200-robqa-vm678-slice-b-review.md) | VM-678 | Identity displayed from heading; not admission metadata. |
 | 2026-10-04T21:00:00-06:00 (authored) | /root/qa_final | [VM-678 Slice A return-security retry — independent RobQA](2026-10-04-2100-robqa-vm678-slice-a-retry.md) | VM-678 | Identity displayed from heading; not admission metadata. |
