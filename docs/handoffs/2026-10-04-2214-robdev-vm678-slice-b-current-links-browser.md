@@ -29,7 +29,7 @@ The focused current-links return and native proof passed after this matrix hando
 
 `node scripts/vm678-return-security-browser.mjs --current-links --served-only --navigation --output=tests/fixtures/vm678-slice-b-current-links-return-security.json`
 
-Artifact SHA-256: `692a03d8e41979086bc5114a8e333361f13986f526a9cfa4b8aa688e8fcc459`.
+Artifact SHA-256: `2692a03d8e41979086bc5114a8e333361f13986f526a9cfa4b8aa688e8fcc459`.
 
 Evidence includes 37 builder checks; 22 real returns (20 explore, normal WU, review WU); 39 hostile, retained-storage, and invalid-context cases; three modified return targets (Ctrl, middle, Shift); actual short-anchor pointer, Enter, Ctrl, middle, and Shift activation; two simultaneous comparison tabs; reload and Back/Forward; ten legacy/duplicate/copied probes; and strict frozen native protected-fields plus known A/B parity.
 
