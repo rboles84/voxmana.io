@@ -1,4 +1,4 @@
-<!-- task-view-sha256:4781cd4e4ca3d8588877a1ae1d317ea383f2881a5ac9b4c20b1f210cd270164d -->
+<!-- task-view-sha256:09d65a9da18171b07c628cdb2dc382716af45d5bccbe41d65d243239204f6b65 -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -8,10 +8,13 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 
 | Authored / filename date | Agent | Handoff | Related task references | Diagnostics |
 |---|---|---|---|---|
+| 2026-10-04T19:00:00-06:00 (authored) | /root/qa_final | [VM-678 A0 evidence completion — independent RobQA](2026-10-04-1900-robqa-vm678-a0-evidence.md) | VM-678 | Identity displayed from heading; not admission metadata. |
 | 2026-10-05T00:36:47Z (authored) | `/root/qa_final` (configured RobQA Sol medium; backend-effective identity unverified) | [RobQA handoff — VM-678 A0 identity-key alias implementation](2026-10-04-1740-robqa-vm678-a0-review.md) | VM-678 | Identity displayed from heading; not admission metadata. |
 | 2026-10-04T22:46:17Z (authored) | `/root/qa_final` (configured RobQA Sol medium; backend-effective identity unverified) | [RobQA handoff — VM-678 A0 identity-key alias feasibility](2026-10-04-1640-robqa-vm678-a0-alias-feasibility.md) | VM-678 | Identity displayed from heading; not admission metadata. |
 | 2026-10-04T22:04:14Z (authored) | `/root/qa_final` (configured RobQA Sol medium; backend-effective identity unverified) | [RobQA handoff — VM-678 Slice A local return security](2026-10-04-1555-robqa-vm678-slice-a-return-security.md) | VM-678 | Identity displayed from heading; not admission metadata. |
 | 2026-10-04T19:26:00Z (authored) | `/root/qa_final` (configured RobQA Sol medium; backend-effective identity unverified) | [RobQA handoff — VM-678 preserved-ID URL plan review](2026-10-04-1300-robqa-vm678-preserved-id-plan-review.md) | VM-678 | Identity displayed from heading; not admission metadata. |
+| 2026-10-04T19:00:00Z (filename) | /root | [VM-678 A0 — completed evidence candidate](2026-10-04-1900-codex-vm678-a0-evidence.md) | VM-678 | Identity displayed from heading; not admission metadata. Invalid authored date; filename fallback or undated ordering used. |
+| 2026-10-04T19:00:00Z (filename) | `/root/a0_tests` — configured RobDev Terra medium; backend-effective identity unverified. | [RobDev evidence handoff — VM-678 A0 identity-key aliases](2026-10-04-1900-robdev-vm678-a0-evidence.md) | VM-678 | Identity displayed from heading; not admission metadata. Invalid authored date; filename fallback or undated ordering used. |
 | 2026-10-04T18:31:16Z (authored) | `/root/qa_final` (configured RobQA Sol medium; backend-effective identity unverified) | [RobQA handoff — VM-678 native/session launch feasibility](2026-10-04-1200-robqa-vm678-session-feasibility.md) | VM-678 | Identity displayed from heading; not admission metadata. |
 | 2026-10-04T18:22:49Z (authored) | /root | [VM-678 — final native/session launch feasibility](2026-10-04-1200-codex-vm678-session-feasibility.md) | VM-678 | Identity displayed from heading; not admission metadata. |
 | 2026-10-04T12:00:00-06:00 (authored) | `/root/session_probe_completion`. Repository routing began with a configured Terra-medium worker. The coordinator announced and assigned a bounded escalation to Sol medium after two incomplete Owner-matrix attempts; backend-effective model identity is not independently observable. | [RobDev handoff — VM-678 session launch feasibility](2026-10-04-1200-robdev-vm678-session-feasibility.md) | VM-678 | Identity displayed from heading; not admission metadata. |

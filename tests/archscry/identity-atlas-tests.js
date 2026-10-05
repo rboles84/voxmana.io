@@ -44,9 +44,37 @@ const candidatePath = process.env.VM678_A0_OBSERVATIONS
   ? path.resolve(process.env.VM678_A0_OBSERVATIONS)
   : path.join(root, "tests", "fixtures", "vm678-a0-identity-alias-candidate.json");
 const fingerprint = (value) => crypto.createHash("sha256").update(value).digest("hex");
+const normalizedText = (value) => String(value || "").replace(/\s+/g, " ").trim();
 let resolverEvidence = [];
 let browserAliasEvidence = [];
+let browserCanonicalEvidence = [];
 let browserControlEvidence = {};
+const a0Only = process.env.VM678_A0_ONLY === "1";
+const expectedProtectedStorage = (placement) => ({
+  savedReading: JSON.stringify(placement),
+  handoff: JSON.stringify({
+    sentinel: "vm625-stale-azorius-handoff",
+    placementResult: placement,
+    fit: placement.faction,
+  }),
+  owner: "preserve-me",
+});
+const protectedStorage = (storage) => ({
+  savedReading: storage.savedReading,
+  handoff: storage.handoff,
+  owner: storage.owner,
+});
+const explorationMeaning = (observation) => ({
+  identityKey: observation.identityKey,
+  exploreMode: observation.exploreMode,
+  initialDossier: observation.initialDossier,
+  identityHeading: observation.identityHeading,
+  dossierText: observation.dossierText,
+  mazePanel: observation.mazePanel,
+  maze: observation.maze,
+  storage: observation.after,
+  pageErrors: observation.pageErrors,
+});
 
 assert.equal(entries.length, 37, "Atlas must expose exactly 37 active registry destinations");
 assert.equal(entries.filter((entry) => !entry.isStrixhavenExpression).length, 32);
@@ -260,8 +288,9 @@ try {
     logLevel: "silent",
   });
   browser = await puppeteer.connect({ browserURL: `http://${host}:${launchedChrome.port}` });
+  const browserVersion = await browser.version();
 
-  async function newPage(url, { savedPlacement = null, fresh = false, width = 1280, height = 900 } = {}) {
+  async function newPage(url, { savedPlacement = null, fresh = false, captureStorageBeforeNavigation = false, width = 1280, height = 900 } = {}) {
     const page = await browser.newPage();
     const errors = [];
     page.on("pageerror", (error) => errors.push(error.message));
@@ -304,80 +333,203 @@ try {
       }
       request.abort();
     });
+    let storageBefore = null;
+    if (captureStorageBeforeNavigation) {
+      await page.goto(`http://${host}:${port}/archscry/?explore=atlas`, { waitUntil: "networkidle0", timeout: 30000 });
+      storageBefore = await page.evaluate(() => ({
+        savedReading: localStorage.getItem("vm_archscry_saved_reading_v1"),
+        legacyResult: sessionStorage.getItem("vm_last_result"),
+        profile: sessionStorage.getItem("vm_profile"),
+        handoff: localStorage.getItem("vm_archscry_maze_handoff_v1"),
+        owner: localStorage.getItem("vm625-owner-state"),
+      }));
+    }
     await page.goto(url, { waitUntil: "networkidle0", timeout: 30000 });
-    return { page, errors };
+    return { page, errors, storageBefore };
   }
 
-  async function observeIdentityExplorePage(url, entry, { fresh = true } = {}) {
-    const session = await newPage(url, { fresh });
+  async function observeIdentityExplorePage(url, entry, { fresh = true, savedPlacement = null } = {}) {
+    const expectedIdentityHeading = entry.key === "WUBRG"
+      ? entry.name
+      : factions[entry.key]?.name || entry.name;
+    const session = await newPage(url, { fresh, savedPlacement, captureStorageBeforeNavigation: Boolean(savedPlacement) });
     const page = session.page;
     await page.waitForSelector(`[data-dossier-console][data-identity-explore='true'][data-dossier-identity-key='${entry.key}']`, { timeout: 15000 });
+    const suppliedLocation = await page.evaluate(() => ({ href: location.href, pathname: location.pathname, search: location.search, hash: location.hash }));
+    const expectedUrl = new URL(url);
+    assert.deepEqual(suppliedLocation, {
+      href: expectedUrl.href,
+      pathname: expectedUrl.pathname,
+      search: expectedUrl.search,
+      hash: expectedUrl.hash,
+    }, `${entry.key} route must preserve every supplied URL component before native panel activation`);
+    const initialDossier = await page.evaluate(() => ({
+      identityHeading: document.querySelector(".guild-banner[data-identity-explore='true'] .guild-name")?.textContent?.trim() || "",
+      tagline: document.querySelector(".guild-banner[data-identity-explore='true'] .guild-tagline")?.textContent?.trim() || "",
+      philosophy: document.querySelector(".guild-banner[data-identity-explore='true'] .guild-philosophy")?.textContent?.replace(/\s+/g, " ").trim() || "",
+      dossierText: document.getElementById("result-inner")?.innerText?.replace(/\s+/g, " ").trim() || "",
+      readingFindsPanelPresent: Boolean(document.querySelector("[data-reading-finds-panel]")),
+    }));
+    assert.equal(initialDossier.identityHeading, expectedIdentityHeading, `${entry.key} alias must render the expected existing faction heading before panel activation`);
+    assert.ok(initialDossier.dossierText.length > 0 && initialDossier.dossierText.includes(expectedIdentityHeading), `${entry.key} alias dossier content must be nonempty and identify ${expectedIdentityHeading} before panel activation`);
+    assert.equal(initialDossier.tagline, normalizedText(factions[entry.key]?.tagline), `${entry.key} alias must render the current faction tagline before panel activation`);
+    assert.equal(initialDossier.philosophy, normalizedText(factions[entry.key]?.philosophy), `${entry.key} alias must render the current faction philosophy before panel activation`);
+    assert.ok(initialDossier.philosophy.length > 0, `${entry.key} alias must render meaningful identity philosophy content before panel activation`);
+    assert.equal(initialDossier.readingFindsPanelPresent, false, `${entry.key} identity exploration must not render saved Reading Finds`);
+    await page.click("#dossier-tab-rail-maze-discovery");
+    await page.waitForFunction(() => !document.querySelector("[data-dossier-panel='maze-discovery']")?.hidden);
     const observation = await page.evaluate(() => {
       const mazeLink = document.querySelector("[data-dossier-panel='maze-discovery'] a[data-service='maze']");
       const mazeUrl = mazeLink ? new URL(mazeLink.href) : null;
+      const mazePanel = document.querySelector("[data-dossier-panel='maze-discovery']");
+      mazePanel?.scrollIntoView({ block: "center" });
+      const panelRect = mazePanel?.getBoundingClientRect();
+      const linkRect = mazeLink?.getBoundingClientRect();
+      const actionPoint = linkRect ? document.elementFromPoint(linkRect.left + linkRect.width / 2, linkRect.top + linkRect.height / 2) : null;
+      const panelStyle = mazePanel ? getComputedStyle(mazePanel) : null;
+      const linkStyle = mazeLink ? getComputedStyle(mazeLink) : null;
       return {
-        finalUrl: location.href,
-        finalSearch: location.search,
+        panelLocation: { href: location.href, pathname: location.pathname, search: location.search, hash: location.hash },
         identityKey: document.querySelector("[data-dossier-console]")?.dataset.dossierIdentityKey || null,
         exploreMode: document.querySelector("[data-dossier-console]")?.dataset.identityExplore === "true",
         dossierText: document.getElementById("result-inner")?.innerText?.replace(/\s+/g, " ").trim() || "",
-        mazePanel: Boolean(document.querySelector("[data-dossier-panel='maze-discovery']")),
+        identityHeading: document.querySelector(".guild-banner[data-identity-explore='true'] .guild-name")?.textContent?.trim() || "",
+        readingFindsPanelPresent: Boolean(document.querySelector("[data-reading-finds-panel]")),
+        mazePanel: {
+          exists: Boolean(mazePanel),
+          hidden: Boolean(mazePanel?.hidden),
+          ariaHidden: mazePanel?.getAttribute("aria-hidden"),
+          rendered: Boolean(panelRect && panelRect.width > 0 && panelRect.height > 0 && panelStyle?.display !== "none" && panelStyle?.visibility !== "hidden"),
+          inViewport: Boolean(panelRect && panelRect.bottom > 0 && panelRect.top < innerHeight),
+          actionUsable: Boolean(mazeLink && linkRect && linkRect.width > 0 && linkRect.height > 0 && linkStyle?.display !== "none" && linkStyle?.visibility !== "hidden" && !mazeLink.matches(":disabled") && mazeLink.getAttribute("aria-disabled") !== "true" && mazeLink.getAttribute("href") && mazeLink.tabIndex >= 0 && actionPoint && mazeLink.contains(actionPoint)),
+          action: mazeLink ? { href: mazeLink.getAttribute("href"), ariaDisabled: mazeLink.getAttribute("aria-disabled"), tabIndex: mazeLink.tabIndex } : null,
+        },
         maze: mazeUrl ? {
+          href: mazeUrl.href,
           contextMode: mazeUrl.searchParams.get("contextMode"),
           exploreIdentity: mazeUrl.searchParams.get("exploreIdentity"),
           fit: mazeUrl.searchParams.get("fit"),
+          readingId: mazeUrl.searchParams.get("readingId"),
         } : null,
         storage: {
           savedReading: localStorage.getItem("vm_archscry_saved_reading_v1"),
+          legacyResult: sessionStorage.getItem("vm_last_result"),
           profile: sessionStorage.getItem("vm_profile"),
           handoff: localStorage.getItem("vm_archscry_maze_handoff_v1"),
           owner: localStorage.getItem("vm625-owner-state"),
         },
       };
     });
-    assert.equal(observation.finalSearch, new URL(url).search, `${entry.key} alias must not rewrite the supplied URL`);
+    const expectedPanelUrl = new URL(url);
+    expectedPanelUrl.searchParams.set("panel", "maze-discovery");
+    expectedPanelUrl.searchParams.set("layout", "focus");
+    assert.deepEqual(observation.panelLocation, {
+      href: expectedPanelUrl.href,
+      pathname: expectedPanelUrl.pathname,
+      search: expectedPanelUrl.search,
+      hash: expectedPanelUrl.hash,
+    }, `${entry.key} native panel activation must add only the established panel and layout selectors`);
     assert.equal(observation.identityKey, entry.key, `${entry.key} alias must render its directory identity`);
     assert.equal(observation.exploreMode, true, `${entry.key} alias must render identity-explore mode`);
-    assert.equal(observation.mazePanel, true, `${entry.key} alias must render the Maze-discovery surface`);
+    assert.equal(observation.identityHeading, expectedIdentityHeading, `${entry.key} alias must render the expected existing faction heading`);
+    assert.ok(observation.dossierText.length > 0 && observation.dossierText.includes(expectedIdentityHeading), `${entry.key} alias dossier content must be nonempty and identify ${expectedIdentityHeading}`);
+    assert.deepEqual({
+      exists: observation.mazePanel.exists,
+      hidden: observation.mazePanel.hidden,
+      ariaHidden: observation.mazePanel.ariaHidden,
+      rendered: observation.mazePanel.rendered,
+      inViewport: observation.mazePanel.inViewport,
+      actionUsable: observation.mazePanel.actionUsable,
+      ariaDisabled: observation.mazePanel.action?.ariaDisabled,
+      hasHref: Boolean(observation.mazePanel.action?.href),
+      tabIndex: observation.mazePanel.action?.tabIndex,
+    }, { exists: true, hidden: false, ariaHidden: null, rendered: true, inViewport: true, actionUsable: true, ariaDisabled: null, hasHref: true, tabIndex: 0 }, `${entry.key} alias Maze-discovery panel must be actually visible and usable`);
     assert.equal(observation.maze?.contextMode, "identity-explore", `${entry.key} alias must retain the existing Maze context`);
     assert.equal(observation.maze?.exploreIdentity, entry.key, `${entry.key} alias must retain the existing Maze identity`);
     assert.equal(observation.maze?.fit, entry.key, `${entry.key} alias must retain the existing Maze fit`);
-    assert.equal(observation.storage.savedReading, null, `${entry.key} alias must not create a saved reading`);
-    assert.equal(observation.storage.profile, null, `${entry.key} alias must not create a profile`);
-    assert.equal(observation.storage.handoff, null, `${entry.key} alias must not create a handoff`);
-    assert.equal(observation.storage.owner, "preserve-me", `${entry.key} alias must preserve unrelated local storage`);
+    assert.equal(observation.maze?.readingId, `identity-explore-${entry.slug}`, `${entry.key} identity exploration must retain its established unassociated exploration marker`);
+    assert.equal(observation.readingFindsPanelPresent, false, `${entry.key} identity exploration must not render saved Reading Finds after panel activation`);
+    if (savedPlacement) {
+      const expectedStorage = expectedProtectedStorage(savedPlacement);
+      assert.deepEqual(protectedStorage(session.storageBefore), expectedStorage, `${entry.key} route must begin with the nonempty protected reading and handoff sentinels`);
+      assert.deepEqual(protectedStorage(observation.storage), expectedStorage, `${entry.key} route must preserve the nonempty protected reading and handoff sentinels byte-for-byte`);
+      assert.deepEqual(observation.storage, session.storageBefore, `${entry.key} route must preserve the complete app-ready storage snapshot`);
+      assert.equal(observation.storage.profile, session.storageBefore.profile, `${entry.key} route must preserve the app-ready profile value`);
+      assert.equal(observation.storage.legacyResult, session.storageBefore.legacyResult, `${entry.key} route must preserve the app-ready legacy-result value`);
+    }
     assert.deepEqual(session.errors, [], `${entry.key} alias browser errors: ${session.errors.join(" | ")}`);
     await page.close();
-    return observation;
+    return { before: session.storageBefore, after: observation.storage, pageErrors: [...session.errors], suppliedLocation, initialDossier, ...observation };
   }
 
   const newAliasEntries = entries.filter((entry) => entry.key.trim().toLowerCase() !== entry.slug);
   assert.equal(newAliasEntries.length, 15, "browser proof must exercise the exact current non-slug canonical-key set");
+  assert.deepEqual(newAliasEntries.map((entry) => entry.key), ["W", "U", "B", "R", "G", "WU", "WR", "UB", "BG", "RG", "UR", "WB", "BR", "WG", "UG"], "browser proof must exercise the exact approved A0 alias key set");
   for (const entry of newAliasEntries) {
     const url = `http://${host}:${port}/archscry/?explore=${encodeURIComponent(entry.key)}`;
-    const observation = await observeIdentityExplorePage(url, entry);
+    const observation = await observeIdentityExplorePage(url, entry, { savedPlacement: savedAzoriusPlacement });
     browserAliasEvidence.push({ key: entry.key, slug: entry.slug, suppliedUrl: url, ...observation });
+    const canonicalUrl = `http://${host}:${port}/archscry/?explore=${encodeURIComponent(entry.slug)}`;
+    const canonicalObservation = await observeIdentityExplorePage(canonicalUrl, entry, { savedPlacement: savedAzoriusPlacement });
+    browserCanonicalEvidence.push({ key: entry.key, slug: entry.slug, suppliedUrl: canonicalUrl, ...canonicalObservation });
+    assert.deepEqual(explorationMeaning(observation), explorationMeaning(canonicalObservation), `${entry.key} alias and canonical slug must resolve to the same meaningful exploration destination`);
   }
 
   const wuAliasEvidence = browserAliasEvidence.find((row) => row.key === "WU");
   assert.ok(wuAliasEvidence, "all newly enabled alias browser coverage must include WU");
-  const wuSlugUrl = `http://${host}:${port}/archscry/?explore=${encodeURIComponent(azorius.slug)}`;
-  const wuSlugEvidence = await observeIdentityExplorePage(wuSlugUrl, azorius);
-  assert.deepEqual({
-    identityKey: wuAliasEvidence.identityKey,
-    exploreMode: wuAliasEvidence.exploreMode,
-    dossierText: wuAliasEvidence.dossierText,
-    mazePanel: wuAliasEvidence.mazePanel,
-    maze: wuAliasEvidence.maze,
-    storage: wuAliasEvidence.storage,
-  }, {
-    identityKey: wuSlugEvidence.identityKey,
-    exploreMode: wuSlugEvidence.exploreMode,
-    dossierText: wuSlugEvidence.dossierText,
-    mazePanel: wuSlugEvidence.mazePanel,
-    maze: wuSlugEvidence.maze,
-    storage: wuSlugEvidence.storage,
-  }, "WU and azorius must render the exact same exploration destination while retaining their supplied URLs");
+  const wuSlugEvidence = browserCanonicalEvidence.find((row) => row.key === "WU");
+  assert.ok(wuSlugEvidence, "all 15 canonical controls must include Azorius for the WU equivalence witness");
+  assert.deepEqual(explorationMeaning(wuAliasEvidence), explorationMeaning(wuSlugEvidence), "WU and azorius must render the exact same exploration destination while retaining their supplied URLs");
+
+  const representativeSlugEntries = [
+    entries.find((entry) => entry.key === "WU"),
+    entries.find((entry) => entry.key === "LOREHOLD"),
+    entries.find((entry) => entry.key === "JUND"),
+    entries.find((entry) => entry.kind === "four_color"),
+    entries.find((entry) => entry.key === "COLORLESS"),
+    entries.find((entry) => entry.key === "WUBRG"),
+  ];
+  const representativeSlugEvidence = [];
+  for (const entry of representativeSlugEntries) {
+    assert.ok(entry, "missing required representative canonical slug control");
+    const url = `http://${host}:${port}/archscry/?explore=${encodeURIComponent(entry.slug)}`;
+    representativeSlugEvidence.push({ key: entry.key, kind: entry.kind, slug: entry.slug, suppliedUrl: url, ...await observeIdentityExplorePage(url, entry, { savedPlacement: savedAzoriusPlacement }) });
+  }
+
+  async function observeAtlasRecoveryPage(url, { invalid = false } = {}) {
+    const session = await newPage(url, { fresh: true, savedPlacement: savedAzoriusPlacement, captureStorageBeforeNavigation: true });
+    const page = session.page;
+    await page.waitForSelector("[data-identity-atlas]", { timeout: 15000 });
+    const observation = await page.evaluate(() => ({
+      location: { href: location.href, pathname: location.pathname, search: location.search, hash: location.hash },
+      dossier: Boolean(document.querySelector("[data-dossier-console]")),
+      recovery: document.querySelector(".identity-atlas-recovery")?.textContent?.replace(/\s+/g, " ").trim() || "",
+      storage: {
+        savedReading: localStorage.getItem("vm_archscry_saved_reading_v1"),
+        legacyResult: sessionStorage.getItem("vm_last_result"),
+        profile: sessionStorage.getItem("vm_profile"),
+        handoff: localStorage.getItem("vm_archscry_maze_handoff_v1"),
+        owner: localStorage.getItem("vm625-owner-state"),
+      },
+    }));
+    const expectedUrl = new URL(url);
+    assert.deepEqual(observation.location, { href: expectedUrl.href, pathname: expectedUrl.pathname, search: expectedUrl.search, hash: expectedUrl.hash }, "Atlas recovery controls must preserve their supplied URLs");
+    assert.equal(observation.dossier, false, "Atlas recovery controls must not render an exploration dossier");
+    assert.equal(Boolean(observation.recovery), invalid, "only invalid exploration must show recovery copy");
+    if (invalid) assert.match(observation.recovery, /requested identity was unavailable/i);
+    const expectedStorage = expectedProtectedStorage(savedAzoriusPlacement);
+    assert.deepEqual(protectedStorage(session.storageBefore), expectedStorage, "Atlas recovery control must begin with nonempty protected sentinels");
+    assert.deepEqual(protectedStorage(observation.storage), expectedStorage, "Atlas recovery control must preserve protected sentinels byte-for-byte");
+    assert.deepEqual(observation.storage, session.storageBefore, "Atlas recovery control must preserve the complete app-ready storage snapshot");
+    assert.deepEqual(session.errors, [], `Atlas recovery browser errors: ${session.errors.join(" | ")}`);
+    await page.close();
+    return { before: session.storageBefore, after: observation.storage, pageErrors: [...session.errors], ...observation };
+  }
+
+  const atlasControlUrl = `http://${host}:${port}/archscry/?explore=atlas`;
+  const invalidControlUrl = `http://${host}:${port}/archscry/?explore=not-real`;
+  const atlasControlEvidence = await observeAtlasRecoveryPage(atlasControlUrl);
+  const invalidControlEvidence = await observeAtlasRecoveryPage(invalidControlUrl, { invalid: true });
 
   const aliasHistorySession = await newPage(`http://${host}:${port}/archscry/?explore=atlas`, { fresh: true });
   const aliasHistoryPage = aliasHistorySession.page;
@@ -386,6 +538,7 @@ try {
   const aliasBeforeReloadUrl = await aliasHistoryPage.evaluate(() => location.href);
   await aliasHistoryPage.reload({ waitUntil: "networkidle0", timeout: 30000 });
   await aliasHistoryPage.waitForSelector("[data-dossier-console][data-identity-explore='true'][data-dossier-identity-key='WU']");
+  const aliasAfterReloadUrl = await aliasHistoryPage.evaluate(() => location.href);
   await aliasHistoryPage.goBack({ waitUntil: "networkidle0", timeout: 30000 });
   await aliasHistoryPage.waitForSelector("[data-identity-atlas]");
   const aliasBackUrl = await aliasHistoryPage.evaluate(() => location.href);
@@ -393,6 +546,7 @@ try {
   await aliasHistoryPage.waitForSelector("[data-dossier-console][data-identity-explore='true'][data-dossier-identity-key='WU']");
   const aliasForwardUrl = await aliasHistoryPage.evaluate(() => location.href);
   assert.equal(aliasBeforeReloadUrl, `http://${host}:${port}/archscry/?explore=WU`, "WU alias reload must retain its supplied URL");
+  assert.equal(aliasAfterReloadUrl, `http://${host}:${port}/archscry/?explore=WU`, "WU alias must retain its supplied URL after reload");
   assert.equal(aliasBackUrl, `http://${host}:${port}/archscry/?explore=atlas`, "Back from WU alias must restore the Atlas document and URL");
   assert.equal(aliasForwardUrl, `http://${host}:${port}/archscry/?explore=WU`, "Forward to WU alias must restore the supplied alias URL and dossier");
   assert.deepEqual(aliasHistorySession.errors, [], `WU alias history browser errors: ${aliasHistorySession.errors.join(" | ")}`);
@@ -400,13 +554,55 @@ try {
   browserControlEvidence = {
     wuEquivalence: {
       aliasUrl: wuAliasEvidence.suppliedUrl,
-      slugUrl: wuSlugUrl,
-      aliasFinalUrl: wuAliasEvidence.finalUrl,
-      slugFinalUrl: wuSlugEvidence.finalUrl,
+      slugUrl: wuSlugEvidence.suppliedUrl,
+      aliasSuppliedLocation: wuAliasEvidence.suppliedLocation,
+      slugSuppliedLocation: wuSlugEvidence.suppliedLocation,
+      aliasPanelLocation: wuAliasEvidence.panelLocation,
+      slugPanelLocation: wuSlugEvidence.panelLocation,
       sameProductDestination: true,
     },
-    aliasHistory: { beforeReloadUrl: aliasBeforeReloadUrl, backUrl: aliasBackUrl, forwardUrl: aliasForwardUrl },
+    aliasHistory: { beforeReloadUrl: aliasBeforeReloadUrl, afterReloadUrl: aliasAfterReloadUrl, backUrl: aliasBackUrl, forwardUrl: aliasForwardUrl },
+    representativeSlugs: representativeSlugEvidence,
+    atlas: atlasControlEvidence,
+    invalid: invalidControlEvidence,
   };
+
+  assert.equal(browserAliasEvidence.length, 15, "candidate artifact requires all 15 raw alias observations");
+  assert.equal(browserCanonicalEvidence.length, 15, "candidate artifact requires all 15 raw canonical control observations");
+  const candidateEvidence = {
+    schema: "vm678-a0-identity-alias-candidate/v2",
+    task: "VM-678 prerequisite A0 evidence-only proof",
+    execution: a0Only ? "dedicated-a0-only" : "full-identity-atlas-before-legacy-suite",
+    command: a0Only ? "$env:VM678_A0_ONLY='1'; npm run test:identity-atlas" : "npm run test:identity-atlas",
+    engine: { browser: browserCandidates[0], version: browserVersion, headless: true, host },
+    fingerprints: {
+      runtime: fingerprint(fs.readFileSync(path.join(root, "assets", "js", "archscry", "runtime", "identity-atlas.js"))),
+      test: fingerprint(fs.readFileSync(path.join(root, "tests", "archscry", "identity-atlas-tests.js"))),
+      directoryData: fingerprint(JSON.stringify(entries)),
+    },
+    resolver: {
+      total: resolverEvidence.length,
+      newAliasCount: resolverEvidence.filter((row) => !row.currentSlugHit).length,
+      rows: resolverEvidence,
+      namespace: { uniqueKeys: true, uniqueSlugs: true, noOtherSlugCollisions: true, reservedAtlasAvailable: true, slugFirstSyntheticPrecedence: true },
+    },
+    browser: {
+      completion: {
+        aliases: { expected: 15, completed: browserAliasEvidence.length },
+        canonicalControls: { expected: 15, completed: browserCanonicalEvidence.length },
+        representativeSlugs: { expected: 6, completed: browserControlEvidence.representativeSlugs.length },
+        atlasInvalidControls: { expected: 2, completed: 2 },
+      },
+      aliases: browserAliasEvidence,
+      canonicalControls: browserCanonicalEvidence,
+      controls: browserControlEvidence,
+    },
+    result: "PASS",
+  };
+  fs.mkdirSync(path.dirname(candidatePath), { recursive: true });
+  fs.writeFileSync(candidatePath, `${JSON.stringify(candidateEvidence, null, 2)}\n`);
+
+  if (!a0Only) {
 
   const atlasSession = await newPage(`http://${host}:${port}/archscry/?explore=atlas`, {
     savedPlacement: savedAzoriusPlacement,
@@ -696,6 +892,7 @@ try {
   }, "mobile pager must end at the combined Colorless and Five-Color block");
   assert.deepEqual(freshSession.errors, [], `fresh Identity Atlas browser errors: ${freshSession.errors.join(" | ")}`);
   await freshPage.close();
+  }
 } finally {
   if (browser) await browser.close();
   if (launchedChrome) {
@@ -708,45 +905,4 @@ try {
   await new Promise((resolve) => server.close(resolve));
 }
 
-const candidateEvidence = {
-  schema: "vm678-a0-identity-alias-candidate/v1",
-  task: "VM-678 prerequisite A0",
-  scope: {
-    runtimeOwner: "assets/js/archscry/runtime/identity-atlas.js",
-    testOwner: "tests/archscry/identity-atlas-tests.js",
-    excluded: ["Maze return security", "URL serializer", "ingress normalization", "Reading Finds", "storage contracts"],
-  },
-  command: "npm run test:identity-atlas",
-  engine: {
-    browser: browserCandidates[0],
-    headless: true,
-    host,
-  },
-  fingerprints: {
-    runtime: fingerprint(fs.readFileSync(path.join(root, "assets", "js", "archscry", "runtime", "identity-atlas.js"))),
-    test: fingerprint(fs.readFileSync(path.join(root, "tests", "archscry", "identity-atlas-tests.js"))),
-    directoryData: fingerprint(JSON.stringify(entries)),
-  },
-  resolver: {
-    total: resolverEvidence.length,
-    newAliasCount: resolverEvidence.filter((row) => !row.currentSlugHit).length,
-    rows: resolverEvidence,
-    namespace: {
-      uniqueKeys: true,
-      uniqueSlugs: true,
-      noOtherSlugCollisions: true,
-      reservedAtlasAvailable: true,
-      slugFirstSyntheticPrecedence: true,
-    },
-  },
-  browser: {
-    newAliasCount: browserAliasEvidence.length,
-    aliases: browserAliasEvidence,
-    controls: browserControlEvidence,
-  },
-  result: "PASS",
-};
-fs.mkdirSync(path.dirname(candidatePath), { recursive: true });
-fs.writeFileSync(candidatePath, `${JSON.stringify(candidateEvidence, null, 2)}\n`);
-
-console.log("Identity Atlas tests passed.");
+console.log(a0Only ? "Identity Atlas A0 evidence tests passed." : "Identity Atlas tests passed.");
