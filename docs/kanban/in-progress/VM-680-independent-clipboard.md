@@ -56,7 +56,7 @@ RobQA: PENDING
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
-Decisions: Owner authorizes Clipboard implementation from the approved recon at 59f2d959bb5e5f6bc2a6c74f4e721c13c8df0a0f in this chat. New Clipboard task starts from verified main, preserving VM-679's documentation branch. Current session implements; separate independent candidate QA follows. Preserve generated links byte-for-byte and leave identifier-value cleanup pending. No push, merge or deploy. Scope amendment: include public HTML shared-asset version references so existing cached top-bar JavaScript/CSS cannot hide the approved Clipboard.
+Decisions: Owner authorizes Clipboard implementation from the approved recon at 59f2d959bb5e5f6bc2a6c74f4e721c13c8df0a0f in this chat. New Clipboard task starts from verified main, preserving VM-679's documentation branch. Current session implements; separate independent candidate QA follows. Preserve generated links byte-for-byte and leave identifier-value cleanup pending. No push, merge or deploy. Scope amendment: include public HTML shared-asset version references so existing cached top-bar JavaScript/CSS cannot hide the approved Clipboard. Scope amendment: align the required HTML validator with the approved shared-asset cache versions after independent QA found its obsolete vm618 literals.
 Evidence: Approved recon Git reference above; implementation and QA handoffs are pending.
 
 ## Admission Scope
@@ -98,6 +98,8 @@ Evidence: Approved recon Git reference above; implementation and QA handoffs are
 - `strategium/before-game/index.html`
 - `strategium/during-game/index.html`
 - `strategium/find-a-table/index.html`
+
+- `scripts/validate-frontend-html.mjs`
 
 ## Notes
 
