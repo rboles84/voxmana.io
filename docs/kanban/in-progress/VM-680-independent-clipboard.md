@@ -56,7 +56,7 @@ RobQA: PENDING
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
-Decisions: Owner authorizes Clipboard implementation from the approved recon at 59f2d959bb5e5f6bc2a6c74f4e721c13c8df0a0f in this chat. New Clipboard task starts from verified main, preserving VM-679's documentation branch. Current session implements; separate independent candidate QA follows. Preserve generated links byte-for-byte and leave identifier-value cleanup pending. No push, merge or deploy.
+Decisions: Owner authorizes Clipboard implementation from the approved recon at 59f2d959bb5e5f6bc2a6c74f4e721c13c8df0a0f in this chat. New Clipboard task starts from verified main, preserving VM-679's documentation branch. Current session implements; separate independent candidate QA follows. Preserve generated links byte-for-byte and leave identifier-value cleanup pending. No push, merge or deploy. Scope amendment: include public HTML shared-asset version references so existing cached top-bar JavaScript/CSS cannot hide the approved Clipboard.
 Evidence: Approved recon Git reference above; implementation and QA handoffs are pending.
 
 ## Admission Scope
@@ -84,6 +84,20 @@ Evidence: Approved recon Git reference above; implementation and QA handoffs are
 - `tests/archscry/archscry-dev-review-tests.js`
 - `scripts/vm616-maze-context-recovery-tests.mjs`
 - `scripts/vm680-clipboard-browser.mjs`
+
+- `index.html`
+- `archscry/index.html`
+- `apocrypha/index.html`
+- `library/index.html`
+- `privacy/index.html`
+- `terms/index.html`
+- `guide/reading/index.html`
+- `strategium/index.html`
+- `strategium/console/index.html`
+- `strategium/review/index.html`
+- `strategium/before-game/index.html`
+- `strategium/during-game/index.html`
+- `strategium/find-a-table/index.html`
 
 ## Notes
 
