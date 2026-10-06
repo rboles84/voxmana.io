@@ -233,7 +233,7 @@ Continuation admission passed at ebbd50ae457e48bb2f0c77cd6c24c5da438a315b; live 
 Shortest Owner test: reload Archscry, compare the unboxed Lore/count with Guide and Feedback, hover and keyboard-focus it, then open and Escape-close the same Clipboard. Acceptance and integration remain pending; no push, merge or deployment.
 
 
-## Current independent engineering decision
+## Historical current independent engineering decision — utility styling revision
 
 Candidate: f65bf0de73ba20a5d9b4409941f3231fcdf84142
 RobQA: PASS
@@ -247,7 +247,7 @@ Independent QA confirmed the only runtime revision since the prior Lore candidat
 
 Existing feature and glyph evidence was reused for unchanged owners. No screenshot, viewport matrix, full browser journey or placement suite was necessary for QA-1. The configured RobQA route was reused; no new effective backend claim is made. Current verdict is in `Utility style candidate review` in the separate QA handoff. Local preview responds HTTP 200; visual balance remains Owner judgment.
 
-## Material candidate
+## Historical material candidate — utility styling revision
 
 - Baseline: `8cee92d103f28c2ca23c21f20bb35f47a849b4f6`
 - Candidate: `f65bf0de73ba20a5d9b4409941f3231fcdf84142`
@@ -255,7 +255,7 @@ Existing feature and glyph evidence was reused for unchanged owners. No screensh
 
 This is the full Clipboard branch, including previously reviewed feature, Lore glyph and current utility styling. The latest runtime revision changes only `assets/css/topbar.css`.
 
-## Files changed
+## Historical files changed — utility styling revision
 
 - `apocrypha/index.html`
 - `archscry/index.html`
@@ -292,7 +292,7 @@ This is the full Clipboard branch, including previously reviewed feature, Lore g
 - `tests/archscry/archscry-dev-review-tests.js`
 - `tests/shared/clipboard-tests.js`
 
-## Evidence delta
+## Historical evidence delta — utility styling revision
 
 - Material candidate: `f65bf0de73ba20a5d9b4409941f3231fcdf84142`
 - Evidence head: `HEAD`
@@ -300,9 +300,22 @@ This is the full Clipboard branch, including previously reviewed feature, Lore g
 
 Appended exact-QA/report evidence, card lifecycle fields and regenerated board are evidence-only and **not the full task diff**. Candidate prose and all decisions/scope remain unchanged. Owner acceptance and integration remain pending; no push, merge or deployment.
 
-## Evidence-only paths
+## Historical evidence-only paths — utility styling revision
 
 - `docs/handoffs/2026-10-05-2211-codex-vm680-clipboard.md`
 - `docs/handoffs/2026-10-05-2211-robqa-vm680-clipboard.md`
 - `docs/kanban/board.md`
 - `docs/kanban/in-progress/VM-680-independent-clipboard.md`
+
+
+## Owner scrollbar correction and EDHREC review — 2026-10-06
+
+Owner requests removal of the white native Clipboard scrollbar and a review of EDHREC’s Clipboard to recommend improvements. This correction changes only `assets/css/topbar.css` runtime bytes: scoped thin dark-track/muted-gold-thumb standards and WebKit fallback, adapted from the existing Strategium lesson-dialog treatment. It preserves the native scroll container, overflow, keyboard behavior, max-height, panel layout and all state/navigation owners. No custom scrollbar JavaScript, new dependency, new store or wider layout implementation. Continuation admission passed at 62fad56d24edf745b0e9bcd608a39a075aabad46 with recorded main unchanged. Prior QA is historical; same branch/card, new exact candidate pending. Reuse already-read RobDev/RobQA authority. QA-1: exact CSS/source checks plus an overflowing representative dialog witness proving styled scrollbar, real scrolling/reachability and unchanged close/focus; no full feature journey or screenshots.
+
+### EDHREC comparison and proposed next interior pass
+
+Review basis: Owner’s current screenshots, official EDHREC page https://edhrec.com/precon and current guide https://edhrec.com/guides/how-to-use-edhrec. Official guide confirms device-cached collection, shared Add/count and text/deckbuilder export. The supplied screenshot shows compact card rows, one right-side preview and separate bottom actions; the historical official feature article https://edhrec.com/articles/new-edhrec-feature-a-clipboard-for-cards documents name selection updating the preview and a separate external link. Do not claim a live authenticated clipboard or exercised external export integration.
+
+Recommended next pass, for Owner choice: (1) fixed header/footer with only card list scrolling, so Close/Undo/Clear/Copy stay reachable; (2) compact desktop rows with card name, quantity controls, small section selector and remove, eliminating repeated full-name Preview lines; (3) one selected-card preview on desktop with explicit keyboard/touch selection and inline preview on narrow screens; (4) collection title in the header with an edit affordance, retaining existing custom-title storage; (5) distinguish Copy list and Export text/download so copy confirmation does not force a large always-visible textarea. Preserve quantities, Finds/Sparks/Anchors and current export representation throughout. These are recommendations, not implemented or accepted new scope. Pricing/recommendation/crown integrations are not needed to solve the observed usability problem.
+
+Scrollbar references: https://developer.chrome.com/docs/css-ui/scrollbar-styling and https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Scrollbars_styling. Short Owner check: reload with the existing six cards, open Clipboard, confirm dark rail/muted-gold thumb, scroll to the last row and Export/Copy, then close with Escape. Owner visual judgment/acceptance and integration remain pending; no push, merge or deployment.

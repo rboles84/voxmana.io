@@ -1210,7 +1210,13 @@ dialog.vm-clipboard-dialog {
   font: 0.9rem/1.5 var(--font-ui, system-ui, sans-serif);
   overflow: auto;
   overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: #8f7844 #090b0d;
 }
+dialog.vm-clipboard-dialog::-webkit-scrollbar { width: 12px; }
+dialog.vm-clipboard-dialog::-webkit-scrollbar-track { background: #090b0d; }
+dialog.vm-clipboard-dialog::-webkit-scrollbar-thumb { border: 3px solid #090b0d; border-radius: 6px; background: #8f7844; }
+dialog.vm-clipboard-dialog::-webkit-scrollbar-thumb:hover { background: var(--site-gold, #d2b370); }
 .vm-clipboard-dialog::backdrop { background: rgba(0, 0, 0, 0.7); }
 .vm-clipboard-dialog [hidden] { display: none !important; }
 .vm-clipboard-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
