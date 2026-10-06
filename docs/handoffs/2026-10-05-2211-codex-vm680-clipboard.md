@@ -491,3 +491,7 @@ Appended exact-QA/report evidence, card lifecycle/delivery observations and chec
 - `docs/handoffs/2026-10-05-2211-robqa-vm680-clipboard.md`
 - `docs/kanban/board.md`
 - `docs/kanban/in-progress/VM-680-independent-clipboard.md`
+
+### Final delivery record correction
+
+The read-only candidate checker required the card's declared QA execution token to match the authentic review's literal SEPARATE mode. Corrected that lifecycle observation from lowercase “separate” to SEPARATE; runtime, candidate and independent decision remain unchanged. This appended delivery observation is evidence-only.

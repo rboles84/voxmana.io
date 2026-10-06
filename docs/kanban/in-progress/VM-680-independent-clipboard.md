@@ -54,7 +54,7 @@ Record version: 1
 Branch: codex/vm-680-independent-clipboard
 Admission baseline: 8cee92d103f28c2ca23c21f20bb35f47a849b4f6
 Candidate: c84e3a0e4e3bf57487f191c876b8e7729e32b2e5
-RobQA: PASS at c84e3a0e4e3bf57487f191c876b8e7729e32b2e5 — separate independent review in docs/handoffs/2026-10-05-2211-robqa-vm680-clipboard.md, Interior exact-candidate recheck
+RobQA: PASS at c84e3a0e4e3bf57487f191c876b8e7729e32b2e5 — SEPARATE independent review in docs/handoffs/2026-10-05-2211-robqa-vm680-clipboard.md, Interior exact-candidate recheck
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
