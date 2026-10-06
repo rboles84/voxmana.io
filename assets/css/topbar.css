@@ -1171,23 +1171,30 @@ body.vm-feedback-open {
 .vm-utility > .vm-clipboard-trigger {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.4rem;
   min-height: 44px;
   min-width: 44px;
-  padding: 0.4rem 0.65rem;
-  border: 1px solid var(--gold, #d4b461);
+  padding: 8px;
+  border: 0;
   border-radius: 4px;
   background: transparent;
-  color: var(--gold-l, #f4dda0);
+  box-shadow: none;
+  color: var(--site-copy, var(--text-dim, #bbb));
   font: 0.7rem var(--font-ui, system-ui, sans-serif);
   cursor: pointer;
   white-space: nowrap;
+  transition: color var(--dur-fast, 120ms) var(--ease-out, ease-out);
+}
+.vm-utility > .vm-clipboard-trigger:hover,
+.vm-utility > .vm-clipboard-trigger:focus-visible {
+  color: var(--site-gold, var(--gold-l, #f4dda0));
 }
 .vm-clipboard-trigger .vm-clipboard-icon {
-  font: normal 20px/1 "VM Clipboard Mana";
+  font: normal 18px/1 "VM Clipboard Mana";
 }
 .vm-clipboard-trigger .vm-clipboard-icon::before { content: "\e936"; }
-.vm-clipboard-count { font-variant-numeric: tabular-nums; }
+.vm-clipboard-count { font-size: 0.625rem; font-variant-numeric: tabular-nums; opacity: 0.7; }
 .vm-clipboard-unavailable { color: var(--text-dim, #bbb); font: 0.7rem var(--font-ui, system-ui, sans-serif); }
 dialog.vm-clipboard-dialog {
   box-sizing: border-box;

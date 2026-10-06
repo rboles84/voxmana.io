@@ -151,7 +151,7 @@ The prior candidate and all prior evidence sections above are historical. The sa
 Owner check: reload the local Archscry preview, confirm the Lore icon replaces the word beside the count, hover for Clipboard, and open/close the same panel. Check one page without its own Mana stylesheet, such as Privacy, for the same icon.
 
 
-## Current independent engineering decision
+## Historical current independent engineering decision — Lore icon revision
 
 Candidate: f7b76f89d2c7bd1d98de3326102a34133160b501
 RobQA: PASS
@@ -163,7 +163,7 @@ Integration: PENDING
 
 Independent QA re-read the actual full branch diff and reused its prior full-feature evidence for unchanged behavior. Lint, focused Clipboard contracts including 441 unchanged links, and an isolated objective Edge probe passed. Archscry and Privacy at 390px both loaded the bundled font, emitted U+E936, displayed only the count beside the decorative icon, retained tooltip and accessible count name, measured a 44px square target, opened the same panel, and returned focus after Escape. Source and browser evidence are recorded under `Lore icon candidate review` in the separate reviewer handoff. No full journey rerun, screenshot or heavy suite was warranted by this QA-1 presentation delta. Original configured RobQA route was reused; no new effective backend model claim is made.
 
-## Material candidate
+## Historical material candidate — Lore icon revision
 
 - Baseline: `8cee92d103f28c2ca23c21f20bb35f47a849b4f6`
 - Candidate: `f7b76f89d2c7bd1d98de3326102a34133160b501`
@@ -171,7 +171,7 @@ Independent QA re-read the actual full branch diff and reused its prior full-fea
 
 This is the full Clipboard branch diff, including the surgical icon revision and previously reviewed feature. The current icon revision changes only its shared component/style owners at runtime.
 
-## Files changed
+## Historical files changed — Lore icon revision
 
 - `apocrypha/index.html`
 - `archscry/index.html`
@@ -208,7 +208,7 @@ This is the full Clipboard branch diff, including the surgical icon revision and
 - `tests/archscry/archscry-dev-review-tests.js`
 - `tests/shared/clipboard-tests.js`
 
-## Evidence delta
+## Historical evidence delta — Lore icon revision
 
 - Material candidate: `f7b76f89d2c7bd1d98de3326102a34133160b501`
 - Evidence head: `HEAD`
@@ -216,9 +216,18 @@ This is the full Clipboard branch diff, including the surgical icon revision and
 
 The appended exact-QA/report evidence, card lifecycle fields and regenerated board are evidence-only and **not the full task diff**. Existing candidate prose is preserved. Owner acceptance and integration remain pending; no push, merge or deployment.
 
-## Evidence-only paths
+## Historical evidence-only paths — Lore icon revision
 
 - `docs/handoffs/2026-10-05-2211-codex-vm680-clipboard.md`
 - `docs/handoffs/2026-10-05-2211-robqa-vm680-clipboard.md`
 - `docs/kanban/board.md`
 - `docs/kanban/in-progress/VM-680-independent-clipboard.md`
+
+
+## Owner utility styling revision — 2026-10-06
+
+Owner found the boxed Lore icon still visually separate from the rest of the top bar and authorized the proposed surgical styling change. Only `assets/css/topbar.css` changes runtime bytes: no trigger border/shadow, existing muted utility text token with fallback, gold hover/focus, 18px Lore symbol, a smaller 0.625rem count at 0.7 opacity, centered content and preserved minimum 44px target. Existing keyboard focus outline remains. The bundled font, glyph, decorative semantics, accessible name/count, tooltip, panel, collection, Add/Undo/export, quiz and navigation owners remain byte-unchanged. No shared token, route, dependency or unrelated control changes.
+
+Continuation admission passed at ebbd50ae457e48bb2f0c77cd6c24c5da438a315b; live main remains the recorded baseline. Same VM-680 branch/card; previous candidate verdicts are historical, Candidate/RobQA reset to PENDING. Governing RobDev and RobQA authority remains unchanged and is reused. QA-1 delta: inspect the exact style diff, existing HTML guards, and focused computed-style/target/hover/focus assertions; reuse the separate reviewer’s unchanged feature evidence. No new tests mirroring implementation, broad journey rerun, screenshot or engine suite is needed. Owner retains optical judgment.
+
+Shortest Owner test: reload Archscry, compare the unboxed Lore/count with Guide and Feedback, hover and keyboard-focus it, then open and Escape-close the same Clipboard. Acceptance and integration remain pending; no push, merge or deployment.

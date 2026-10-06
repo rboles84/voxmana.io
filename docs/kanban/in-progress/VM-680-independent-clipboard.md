@@ -2,7 +2,7 @@
 
 ID: VM-680
 Title: Independent site-wide Clipboard
-Status: Owner Review
+Status: In Progress
 Type: Implementation
 Area: Shared top bar, saved-card collection and Maze adapters
 Priority: High
@@ -32,7 +32,7 @@ Owner explicitly approved Clipboard implementation in the current chat on 2026-1
 - [x] Preview, editing, Add/Remove Undo, Clear Undo and ordinary export/copy are reachable and keyboard usable.
 - [x] Quiz retake, refinement, changing result and Forget cannot change Clipboard membership; no Reading ownership panel/wording remains.
 - [x] Same-state generated Archscry → Maze links are byte-for-byte unchanged; search paths, target anchor, native navigation, accepted returns and quiz lifecycle remain intact.
-- [x] Independent QA binds engineering PASS to an exact candidate; Owner acceptance/integration remain pending.
+- [ ] Independent QA binds engineering PASS to an exact candidate; Owner acceptance/integration remain pending.
 
 ## Files Likely Impacted
 
@@ -51,13 +51,13 @@ Implement only the approved Clipboard recon in this session. Reuse the existing 
 Record version: 1
 Branch: codex/vm-680-independent-clipboard
 Admission baseline: 8cee92d103f28c2ca23c21f20bb35f47a849b4f6
-Candidate: f7b76f89d2c7bd1d98de3326102a34133160b501
-RobQA: PASS at f7b76f89d2c7bd1d98de3326102a34133160b501 — SEPARATE independent reviewer; docs/handoffs/2026-10-05-2211-robqa-vm680-clipboard.md#lore-icon-candidate-review
+Candidate: PENDING
+RobQA: PENDING
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
-Decisions: Owner authorizes Clipboard implementation from the approved recon at 59f2d959bb5e5f6bc2a6c74f4e721c13c8df0a0f in this chat. New Clipboard task starts from verified main, preserving VM-679's documentation branch. Current session implements; separate independent candidate QA follows. Preserve generated links byte-for-byte and leave identifier-value cleanup pending. No push, merge or deploy. Scope amendment: include public HTML shared-asset version references so existing cached top-bar JavaScript/CSS cannot hide the approved Clipboard. Scope amendment: align the required HTML validator with the approved shared-asset cache versions after independent QA found its obsolete vm618 literals. Owner revision 2026-10-06: replace only the top-bar word Clipboard with the bundled Mana Lore counter icon; retain count, accessible label, tooltip, shared control behavior and saved data.
-Evidence: Lore icon candidate review PASS at f7b76f89d2c7bd1d98de3326102a34133160b501; prior full-feature QA preserved for unchanged behavior. Owner requested the bounded revision on 2026-10-06. Current exact-candidate QA: docs/handoffs/2026-10-05-2211-robqa-vm680-clipboard.md#lore-icon-candidate-review. docs/handoffs/2026-10-05-2211-codex-vm680-clipboard.md; docs/handoffs/2026-10-05-2211-robqa-vm680-clipboard.md#exact-candidate-recheck. Focused Clipboard state, 441-link baseline parity, store/recovery, HTML/JS lint and isolated Edge interaction checks PASS. Owner acceptance and integration remain pending.
+Decisions: Owner authorizes Clipboard implementation from the approved recon at 59f2d959bb5e5f6bc2a6c74f4e721c13c8df0a0f in this chat. New Clipboard task starts from verified main, preserving VM-679's documentation branch. Current session implements; separate independent candidate QA follows. Preserve generated links byte-for-byte and leave identifier-value cleanup pending. No push, merge or deploy. Scope amendment: include public HTML shared-asset version references so existing cached top-bar JavaScript/CSS cannot hide the approved Clipboard. Scope amendment: align the required HTML validator with the approved shared-asset cache versions after independent QA found its obsolete vm618 literals. Owner revision 2026-10-06: replace only the top-bar word Clipboard with the bundled Mana Lore counter icon; retain count, accessible label, tooltip, shared control behavior and saved data. Owner styling revision 2026-10-06: remove the Clipboard trigger border/shadow, match muted utility text, use gold on hover/focus, reduce the Lore icon to 18px and soften the count; retain the 44px target, visible focus and all behavior.
+Evidence: Prior exact-candidate QA is preserved as historical evidence in the implementation and RobQA handoffs. Owner requested the bounded top-bar styling revision on 2026-10-06; new exact-candidate QA pending.
 
 ## Admission Scope
 
