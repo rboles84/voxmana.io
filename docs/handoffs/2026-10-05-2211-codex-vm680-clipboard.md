@@ -66,3 +66,77 @@ PASS if top-bar access and review feel coherent, Add feels unchanged, data follo
 The separate RobQA reviewer blocked candidate `8ad251ce1ad9150a9d2b923169f78606b46272ec` on required HTML validation while passing the focused runtime/browser checks. `scripts/validate-frontend-html.mjs` still searched for the old `vm618` topbar cache keys. A dedicated admission amendment permits the two literal updates to the approved `vm680` JavaScript URL and Home stylesheet-order lookup. Runtime is unchanged from that reviewed candidate. The original BLOCKED report is retained in the QA handoff; the corrected commit requires a new exact-candidate QA verdict. No Owner acceptance or integration is inferred.
 
 Owner preview is running locally at `http://127.0.0.1:8680/maze/?q=sol+ring`. As before, browser storage belongs to its origin; use your normal local preview origin to inspect cards already saved there.
+
+## Recorded engineering decision
+
+Task: VM-680
+Candidate: e1d096f34be821242722c9b6a5980b70ae34fd23
+RobQA: PASS — SEPARATE, /root/clipboard_candidate_qa; see the QA handoff, Exact-candidate recheck section.
+Owner: PENDING
+Integration: PENDING
+
+The reviewer reran the corrected exact candidate and resolved the required HTML validator blocker. Requested configured role/model/effort: RobQA / gpt-5.6-sol / medium; host selected the named robqa role and returned the distinct reviewer agent. No independently measured model settings are claimed. Original BLOCKED evidence is preserved as history.
+
+## Material candidate
+
+- Baseline: `8cee92d103f28c2ca23c21f20bb35f47a849b4f6`
+- Candidate: `e1d096f34be821242722c9b6a5980b70ae34fd23`
+- Changed paths: `34`
+
+Git name-status with rename detection owns this full Clipboard material accounting, including admission, runtime, related copy, focused tests, the bounded required-validator correction and historical QA records.
+
+## Files changed
+
+- `apocrypha/index.html`
+- `archscry/index.html`
+- `assets/css/maze.css`
+- `assets/css/topbar.css`
+- `assets/js/archscry/runtime/dossier-view.js`
+- `assets/js/guide/maze-walkthrough.js`
+- `assets/js/maze/maze-scratchpad-store.js`
+- `assets/js/maze/research-init.js`
+- `assets/js/shared/vm-clipboard.js`
+- `assets/js/shared/vm-topbar.js`
+- `docs/handoffs/2026-10-05-2211-codex-vm680-clipboard.md`
+- `docs/handoffs/2026-10-05-2211-robqa-vm680-clipboard.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-680-independent-clipboard.md`
+- `guide/index.html`
+- `guide/maze/index.html`
+- `guide/reading/index.html`
+- `index.html`
+- `library/index.html`
+- `maze/index.html`
+- `privacy/index.html`
+- `scripts/validate-frontend-html.mjs`
+- `scripts/vm616-maze-context-recovery-tests.mjs`
+- `scripts/vm680-clipboard-browser.mjs`
+- `strategium/before-game/index.html`
+- `strategium/console/index.html`
+- `strategium/during-game/index.html`
+- `strategium/find-a-table/index.html`
+- `strategium/index.html`
+- `strategium/review/index.html`
+- `terms/index.html`
+- `tests/archscry/archscry-dev-review-tests.js`
+- `tests/shared/clipboard-tests.js`
+
+## Evidence delta
+
+- Material candidate: `e1d096f34be821242722c9b6a5980b70ae34fd23`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `4`
+
+This consolidated exact-QA/lifecycle/report delta is evidence-only and **not the full task diff**. Existing handoff prose is preserved; new evidence is appended. The task card changes only lifecycle/delivery observations and criterion checkboxes; generated views follow their unchanged producer. The final evidence-head SHA is resolved by the validator and reported to Owner.
+
+## Evidence-only paths
+
+- `docs/handoffs/2026-10-05-2211-codex-vm680-clipboard.md`
+- `docs/handoffs/2026-10-05-2211-robqa-vm680-clipboard.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-680-independent-clipboard.md`
+
+## Final branch accounting and boundaries
+
+Git baseline-to-evidence-head scope totals 34 paths. Owner acceptance, integration, VM-679 identifier cleanup and later delivery remain pending. No push, PR, merge or deployment was performed; remote admission inventory has no matching task branch. Worktree cleanliness, generated-view freshness, change-report validation and candidate readiness are checked after committing this evidence. The local preview is an Owner inspection aid, not deployment.

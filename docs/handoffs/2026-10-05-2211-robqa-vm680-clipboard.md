@@ -90,3 +90,34 @@ FAIL if the trigger/panel feels misplaced or crowded, controls are hard to under
 ## Recheck boundary
 
 After the validator correction and a new candidate freeze, rerun `npm run lint:html`, `npm run lint:js`, `node tests/shared/clipboard-tests.js`, the focused store/recovery checks, `git diff --check`, and the dedicated Clipboard browser journey. Bind the next verdict to the new full SHA. Do not treat this BLOCKED record as PASS for a descendant candidate.
+
+## Exact-candidate recheck
+
+Task: VM-680
+Candidate: e1d096f34be821242722c9b6a5980b70ae34fd23
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: Codex RobQA `/root/clipboard_candidate_qa`
+Implementer: Codex root/current session
+Owner: PENDING
+Integration: PENDING
+
+The corrected exact candidate passes independent engineering QA. Compared with blocked candidate `8ad251ce1ad9150a9d2b923169f78606b46272ec`, admitted material behavior changes only in `scripts/validate-frontend-html.mjs`: its shared topbar JavaScript assertion and Home stylesheet-order lookup now use the approved `vm680` URLs. Clipboard runtime, styles, product tests and browser harness are byte-unchanged from the prior review. The remaining delta consists of the preserved BLOCKED record and bounded task/handoff/index evidence. The branch was clean at recheck start and resolved exactly to the candidate above.
+
+### Recheck evidence
+
+- `git diff --check 8cee92d103f28c2ca23c21f20bb35f47a849b4f6..e1d096f34be821242722c9b6a5980b70ae34fd23` — PASS.
+- `npm run lint:html` — PASS. All public HTML, shared topbar asset references and Home stylesheet ordering satisfy the required validator; the prior blocker is resolved.
+- `npm run lint:js` — PASS for 37 frontend JavaScript files.
+- `node tests/shared/clipboard-tests.js` — PASS. Shared state, source precedence, failed-write truth, Undo invalidation, public header coverage and protected-source contracts pass; 441 normal/review/explore links remain byte-identical to accepted main.
+- `node tests/maze/maze-scratchpad-store-tests.js` — PASS.
+- `node scripts/vm616-maze-context-recovery-tests.mjs` — PASS.
+- `node scripts/vm680-clipboard-browser.mjs` — PASS in a fresh isolated local Edge profile with fixture network and no screenshots. The exact candidate passed 15 public-family routes plus Maze, real pointer Add and hit area, keyboard increment, Add/Remove/Clear Undo, quantity/section/title controls, preview failure, copy success/fallback, persistence across navigation/reload/Back/Forward, Library alias, 390px containment, dialog focus boundaries, native Archscry launch/return, distinct direct/dossier cards and retake/result/refinement/Forget isolation.
+
+The browser rerun remained proportionate because pointer geometry, native dialog focus, narrow containment, cross-page persistence and native navigation/return are objective changed risks that lower-layer assertions cannot fully prove. No CPU-heavy, exhaustive placement/scoring, screenshot, visual-regression or viewport-matrix suite was required. Protected scoring and identifier production remain unchanged; the 441-link baseline parity check is sufficient for their relevant boundary.
+
+Stateful adversarial sufficiency remains PASS: forward Add, reverse Remove/Clear/Add Undo, quantity/section/title perturbation, navigation/reload restoration, stale-Undo invalidation after edits/storage refresh, current-over-legacy source precedence, two distinct source histories converging on one Clipboard, export representation, byte-stable executed links and quiz/Forget ownership isolation were all exercised at the lowest reliable layer or in the focused browser where real interaction was material.
+
+No blocker or major correctness defect remains. One nonblocking harness wording note remains: the validator's diagnostic text says “VM-618 shared topbar runtime cache key” while its executable assertion correctly checks `vm680`. This does not alter validation behavior, product behavior or evidence sufficiency; it may be corrected as routine maintenance without reopening the reviewed runtime scope.
+
+Owner judgment remains limited to the visual balance, spacing, tone, responsive feel and everyday usefulness described in the existing shortest Owner check above. This PASS permits Owner Review for exact candidate `e1d096f34be821242722c9b6a5980b70ae34fd23`; it does not claim Owner acceptance, integration or deployment.

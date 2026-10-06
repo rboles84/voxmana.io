@@ -2,7 +2,7 @@
 
 ID: VM-680
 Title: Independent site-wide Clipboard
-Status: In Progress
+Status: Owner Review
 Type: Implementation
 Area: Shared top bar, saved-card collection and Maze adapters
 Priority: High
@@ -26,13 +26,13 @@ Owner explicitly approved Clipboard implementation in the current chat on 2026-1
 
 ## Acceptance Criteria
 
-- [ ] Clipboard button/count and the same editable panel work across Home, Archscry, Maze, Apocrypha, Strategium hub/console/review/lifecycle routes, Guide hub/Reading/Maze and legal pages; Library alias remains intact.
-- [ ] Existing Add appearance, hit area and ordinary increment/saved-feedback behavior are preserved; direct and dossier searches add to one collection.
-- [ ] Existing cards, quantities, sections, custom titles, storage key/schema and lifetime remain available and editable through navigation/reload; historical sources are not indiscriminately combined.
-- [ ] Preview, editing, Add/Remove Undo, Clear Undo and ordinary export/copy are reachable and keyboard usable.
-- [ ] Quiz retake, refinement, changing result and Forget cannot change Clipboard membership; no Reading ownership panel/wording remains.
-- [ ] Same-state generated Archscry → Maze links are byte-for-byte unchanged; search paths, target anchor, native navigation, accepted returns and quiz lifecycle remain intact.
-- [ ] Independent QA binds engineering PASS to an exact candidate; Owner acceptance/integration remain pending.
+- [x] Clipboard button/count and the same editable panel work across Home, Archscry, Maze, Apocrypha, Strategium hub/console/review/lifecycle routes, Guide hub/Reading/Maze and legal pages; Library alias remains intact.
+- [x] Existing Add appearance, hit area and ordinary increment/saved-feedback behavior are preserved; direct and dossier searches add to one collection.
+- [x] Existing cards, quantities, sections, custom titles, storage key/schema and lifetime remain available and editable through navigation/reload; historical sources are not indiscriminately combined.
+- [x] Preview, editing, Add/Remove Undo, Clear Undo and ordinary export/copy are reachable and keyboard usable.
+- [x] Quiz retake, refinement, changing result and Forget cannot change Clipboard membership; no Reading ownership panel/wording remains.
+- [x] Same-state generated Archscry → Maze links are byte-for-byte unchanged; search paths, target anchor, native navigation, accepted returns and quiz lifecycle remain intact.
+- [x] Independent QA binds engineering PASS to an exact candidate; Owner acceptance/integration remain pending.
 
 ## Files Likely Impacted
 
@@ -51,13 +51,13 @@ Implement only the approved Clipboard recon in this session. Reuse the existing 
 Record version: 1
 Branch: codex/vm-680-independent-clipboard
 Admission baseline: 8cee92d103f28c2ca23c21f20bb35f47a849b4f6
-Candidate: PENDING
-RobQA: PENDING
+Candidate: e1d096f34be821242722c9b6a5980b70ae34fd23
+RobQA: PASS at e1d096f34be821242722c9b6a5980b70ae34fd23 — separate independent reviewer; docs/handoffs/2026-10-05-2211-robqa-vm680-clipboard.md#exact-candidate-recheck
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Decisions: Owner authorizes Clipboard implementation from the approved recon at 59f2d959bb5e5f6bc2a6c74f4e721c13c8df0a0f in this chat. New Clipboard task starts from verified main, preserving VM-679's documentation branch. Current session implements; separate independent candidate QA follows. Preserve generated links byte-for-byte and leave identifier-value cleanup pending. No push, merge or deploy. Scope amendment: include public HTML shared-asset version references so existing cached top-bar JavaScript/CSS cannot hide the approved Clipboard. Scope amendment: align the required HTML validator with the approved shared-asset cache versions after independent QA found its obsolete vm618 literals.
-Evidence: Approved recon Git reference above; implementation and QA handoffs are pending.
+Evidence: docs/handoffs/2026-10-05-2211-codex-vm680-clipboard.md; docs/handoffs/2026-10-05-2211-robqa-vm680-clipboard.md#exact-candidate-recheck. Focused Clipboard state, 441-link baseline parity, store/recovery, HTML/JS lint and isolated Edge interaction checks PASS. Owner acceptance and integration remain pending.
 
 ## Admission Scope
 
