@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="../../assets/css/tokens.css?v=vm635">
 <link rel="stylesheet" href="../../assets/css/fonts.css?v=vm612">
 <link rel="stylesheet" href="../../assets/css/layout.css?v=vm635">
-<link rel="stylesheet" href="../../assets/css/topbar.css?v=vm618">
+<link rel="stylesheet" href="../../assets/css/topbar.css?v=vm680">
 <link rel="stylesheet" href="../../assets/css/atmosphere.css?v=vm635">
 <link rel="stylesheet" href="../../assets/css/components.css?v=vm612">
 <link rel="stylesheet" href="../../assets/vendor/mana/css/mana.min.css">
@@ -109,14 +109,14 @@
       <header class="maze-guide-section-head">
         <span class="guide-kicker">II // What is affecting this search?</span>
         <h2 id="context-title" tabindex="-1">Context is visible; filters stay literal.</h2>
-        <p>A reading may keep a return path and associate new Reading Finds without adding hidden filters. A dossier thread can supply the query that opened the Maze. <strong>Search independently</strong> keeps the current query but does not use the retained reading: new Finds are not attached to that reading, while the reading and its existing Finds remain unchanged. Use <strong>Restore reading context</strong> or Back to return.</p>
+        <p>A reading may keep a return path without adding hidden filters. A dossier thread can supply the query that opened the Maze. <strong>Search independently</strong> keeps the current query while setting aside the retained reading context. Use <strong>Restore reading context</strong> or Back to return. Cards from every search join the same Clipboard.</p>
       </header>
       <div class="maze-context-grid">
         <div class="maze-context-states" aria-label="Supported Maze context states">
           <article><span>Standalone search</span><p>No reading is changing this query.</p></article>
-          <article><span>Reading available</span><p>The return path and new Finds association remain; the query is unchanged.</p></article>
+          <article><span>Reading available</span><p>The return path remains; the query is unchanged.</p></article>
           <article><span>Dossier thread</span><p>The query came from the dossier; no extra reading filters are added.</p></article>
-          <article><span>Searching independently</span><p>The retained reading and its existing Finds remain unchanged; new Finds are standalone until you restore the reading context.</p></article>
+          <article><span>Searching independently</span><p>The retained reading stays available; Clipboard is unchanged when you set aside or restore reading context.</p></article>
         </div>
         <figure class="guide-specimen maze-color-specimen">
           <figcaption><span>Commander color relation</span><strong>Eligibility, not exact printed color</strong></figcaption>
@@ -156,7 +156,7 @@
       <div>
         <span class="guide-kicker">IV // Useful results</span>
         <h2 id="maze-next-title" tabindex="-1">Inspect, refine, or carry the thread forward.</h2>
-        <p>Open a card for detail, refine the visible query, set a useful card aside, or open the same query in Scryfall. Reading Finds keeps useful cards together locally. Finds saved with reading context can stay attached to that reading; independent Finds remain standalone. It is not a deckbuilder.</p>
+        <p>Open a card for detail, refine the visible query, set a useful card aside, or open the same query in Scryfall. Clipboard keeps useful cards together on this device across searches, pages and reloads. Open it from the top bar to review cards, change quantities, undo removal or clearing, and export a card list. It is not a deckbuilder.</p>
       </div>
       <a class="guide-cta" data-guide-cta="maze" href="../../maze/index.html">Return to the Implicit Maze <span aria-hidden="true">→</span></a>
     </section>
@@ -171,7 +171,7 @@
 <script src="../../assets/js/shared/vm-rich-atmosphere.js" defer></script>
 <script src="../../assets/js/shared/reduce-motion.js" defer></script>
 <script src="../../assets/js/shared/vm-feedback.js" defer></script>
-<script src="../../assets/js/shared/vm-topbar.js?v=vm618" defer></script>
+<script src="../../assets/js/shared/vm-topbar.js?v=vm680" defer></script>
 <script type="module" src="../../assets/js/guide/maze-walkthrough.js"></script>
 </body>
 </html>

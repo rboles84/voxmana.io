@@ -22,12 +22,11 @@ import {
   resolveMazeLaunchState,
 } from "./maze-handoff.js?v=vm674r3";
 import {
-  DEFAULT_READING_FINDS_TITLE,
   READING_FIND_SECTION_CONFIG,
   READING_FIND_SECTION_IDS,
-  getCardIdentityKey,
-  initScratchpad
+  getCardIdentityKey
 } from "./maze-scratchpad-store.js";
+import { getClipboard, initializeClipboard, addClipboardCard, openClipboard, closeClipboard, setClipboardReturnUrl } from "../shared/vm-clipboard.js";
 import {
   createScryfallResultFaceState,
   flipScryfallResultFaceState
@@ -67,7 +66,6 @@ let scratchpadStore = null;
 let scratchpadState = null;
 let activeModalCard = null;
 let modalReturnFocusEl = null;
-let stashDragState = null;
 let activeKeywordSuggestionIndex = -1;
 let pendingSuggestedSearch = null;
 let suggestionReturnDraft = null;
@@ -1188,7 +1186,7 @@ function updateReadingContextDisclosure() {
     retainedHandoff?.factionName || DOSSIER_DISPLAY_NAMES.get(retainedDossierKey) || retainedHandoff?.fit || retainedHandoff?.guild || ""
   ).trim();
   const retainedExplorationContext = retainedHandoff?.contextMode === IDENTITY_EXPLORE_CONTEXT_MODE;
-  const associatesFinds = Boolean(retainedHandoff?.readingId) && !retainedExplorationContext;
+  const hasReadingContext = Boolean(retainedHandoff?.readingId) && !retainedExplorationContext;
   const pathLabel = ARCHSCRY_PATH_LABELS[retainedHandoff?.pathType] || "";
   const returnUrl = dossierReturnUrlForHandoff(retainedHandoff);
 
@@ -1205,18 +1203,18 @@ function updateReadingContextDisclosure() {
   if (retainedExplorationContext) {
     context.dataset.state = "dossier";
     label.textContent = `From ${retainedFactionName} dossier${pathLabel ? ` · ${pathLabel}` : ""}`;
-  } else if (independent && associatesFinds) {
+  } else if (independent && hasReadingContext) {
     context.dataset.state = "independent";
-    label.textContent = `From ${retainedFactionName} reading · New Finds are standalone`;
+    label.textContent = `From ${retainedFactionName} reading · Searching independently`;
     action.dataset.action = "restore-reading-context";
-    action.textContent = `Attach new Finds to ${retainedFactionName}`;
+    action.textContent = `Restore reading context for ${retainedFactionName}`;
     action.classList.remove("hidden");
   } else {
     context.dataset.state = "reading";
-    label.textContent = `From ${retainedFactionName} reading${pathLabel ? ` · ${pathLabel}` : ""} · New Finds stay with this reading`;
-    if (associatesFinds) {
+    label.textContent = `From ${retainedFactionName} reading${pathLabel ? ` · ${pathLabel}` : ""}`;
+    if (hasReadingContext) {
       action.dataset.action = "search-independently";
-      action.textContent = "Save new Finds separately";
+      action.textContent = "Search independently";
       action.classList.remove("hidden");
     }
   }
@@ -2098,8 +2096,8 @@ function makeCardEl(card) {
     className: `card-stash-btn${stashed ? " on" : ""}`,
     text: stashed ? "Saved" : "Save",
     action: "add-card-to-scratchpad",
-    title: stashed ? `Set aside another ${card.name || "card"} in Reading Finds` : `Set aside ${card.name || "card"} in Reading Finds`,
-    ariaLabel: stashed ? `Set aside another ${card.name || "card"} in Reading Finds` : `Set aside ${card.name || "card"} in Reading Finds`
+    title: stashed ? `Set aside another ${card.name || "card"} in Clipboard` : `Set aside ${card.name || "card"} in Clipboard`,
+    ariaLabel: stashed ? `Set aside another ${card.name || "card"} in Clipboard` : `Set aside ${card.name || "card"} in Clipboard`
   });
   stashButton.dataset.cardName = card.name || "card";
   stashButton.dataset.mark = stashed ? "✓" : "Save";
@@ -2272,7 +2270,7 @@ function openModal(card, opener = document.activeElement) {
     text: "Set aside",
     action: "modal-scratchpad-add",
     dataset: { section: READING_FIND_SECTION_IDS.finds },
-    ariaLabel: `Set aside ${displayName} in Reading Finds`
+    ariaLabel: `Set aside ${displayName} in Clipboard`
   }));
   detailCol.appendChild(actions);
 
@@ -4490,299 +4488,54 @@ function renderNoResultsCard(card) {
   }
 }
 
-// Reading Finds state, rendering, and export helpers.
+// Maze adapters share the site-wide Clipboard controller and existing Add control.
 function initializeScratchpad() {
   try {
-    scratchpadStore = initScratchpad();
-    scratchpadState = scratchpadStore.getState();
-    scratchpadStore.subscribe((state) => {
-      scratchpadState = state;
-      renderScratchpad();
+    const clipboard = getClipboard();
+    scratchpadStore = clipboard.store;
+    scratchpadState = clipboard.getState();
+    clipboard.subscribe(() => {
+      scratchpadState = clipboard.getState();
       refreshScratchpadButtons();
     });
-    renderScratchpad();
+    initializeClipboard();
+    updateScratchpadReturnLink();
     refreshScratchpadButtons();
-    if (scratchpadStore.storageStatus === "corrupt") {
-      showToast("Reading Finds reset after storage issue");
-    }
   } catch (error) {
     scratchpadStore = null;
     scratchpadState = null;
-    renderScratchpadUnavailable();
     refreshScratchpadButtons();
-    console.warn("Reading Finds failed to initialize", error);
+    console.warn("Clipboard failed to initialize", error);
   }
 }
 
-function scratchpadCardKey(card) {
-  return getCardIdentityKey(card);
-}
-
-function getScratchpadRows(sectionId) {
-  return scratchpadState?.sections?.[sectionId] || [];
-}
-
-function getScratchpadTotalQuantity() {
-  if (!scratchpadState) return 0;
-  return STASH_SECTIONS.reduce((total, section) => {
-    return total + getScratchpadRows(section.id).reduce((sum, row) => sum + Math.max(Number.parseInt(row.quantity, 10) || 1, 1), 0);
-  }, 0);
-}
-
+function scratchpadCardKey(card) { return getCardIdentityKey(card); }
+function getScratchpadRows(sectionId) { return scratchpadState?.sections?.[sectionId] || []; }
 function scratchpadContainsKey(key) {
-  if (!key || !scratchpadState) return false;
-  return STASH_SECTIONS.some((section) => getScratchpadRows(section.id).some((row) => scratchpadCardKey(row) === key));
+  return Boolean(key && scratchpadState && STASH_SECTIONS.some(section => getScratchpadRows(section.id).some(row => scratchpadCardKey(row) === key)));
 }
-
-function findScratchpadRow(sectionId, key) {
-  return getScratchpadRows(sectionId).find((row) => scratchpadCardKey(row) === key);
-}
-
-function isCardInScratchpad(card) {
-  const key = scratchpadCardKey(card);
-  return Boolean(scratchpadStore?.containsCard?.(card) || scratchpadContainsKey(key));
-}
-
+function isCardInScratchpad(card) { return Boolean(scratchpadStore?.containsCard(card)); }
 function scratchpadContext() {
-  const handoff = readActiveArchscryMazeHandoff() || {};
-  const explorationContext = handoff.contextMode === IDENTITY_EXPLORE_CONTEXT_MODE;
-  return {
-    sourceContext: {
-      context: "maze",
-      query: currentQuery || "",
-      readingId: explorationContext ? "" : handoff.readingId || "",
-      fit: handoff.pathType || "",
-      factionName: handoff.factionName || "",
-      pathType: handoff.pathType || "",
-      plainReadingQuery: handoff.plainReadingQuery || "",
-      operatorQuery: handoff.operatorQuery || ""
-    }
-  };
+  return { sourceContext: { context: "maze", query: currentQuery || "" } };
 }
-
 function addCardToScratchpad(card, sectionId = READING_FIND_SECTION_IDS.finds) {
-  if (!scratchpadStore) {
-    showToast("Reading Finds is unavailable");
-    return;
-  }
-  const key = scratchpadCardKey(card);
-  const beforeRow = findScratchpadRow(sectionId, key);
-  const beforeQuantity = beforeRow ? beforeRow.quantity : 0;
-  const result = scratchpadStore.addCard(card, sectionId, scratchpadContext());
+  if (!scratchpadStore) { showToast("Clipboard is unavailable"); return; }
+  const result = addClipboardCard(card, sectionId, scratchpadContext());
   if (!result?.row) return;
   const name = result.row.name || card?.name || "Card";
-  showToast(result.created ? `Set aside ${name}` : `Set aside another ${name}`, {
+  const clipboard = getClipboard();
+  showToast(clipboard.persisted ? (result.created ? `Set aside ${name}` : `Set aside another ${name}`) : clipboard.message, {
     undoLabel: "Undo",
     onUndo: () => {
-      if (beforeRow) scratchpadStore.setQuantity(key, sectionId, beforeQuantity);
-      else scratchpadStore.removeCard(key, sectionId);
-      showToast("Undo applied");
+      if (clipboard.undo()) showToast(clipboard.persisted ? "Undo applied" : clipboard.message);
     }
   });
 }
-
 function addModalCardToScratchpad(sectionId) {
-  if (!activeModalCard) return;
-  addCardToScratchpad(activeModalCard, sectionId);
+  if (activeModalCard) addCardToScratchpad(activeModalCard, sectionId);
 }
-
-function moveScratchpadCard(key, fromSection, toSection) {
-  if (!scratchpadStore || !key || fromSection === toSection) return;
-  const movedRow = findScratchpadRow(fromSection, key);
-  const result = scratchpadStore.moveCard(key, fromSection, toSection);
-  if (!result?.row) return;
-  const section = STASH_SECTIONS.find((entry) => entry.id === toSection);
-  showToast(`Moved ${movedRow?.name || result.row.name || "card"} to ${section?.label || "section"}`);
-  requestAnimationFrame(() => focusScratchpadControl(key, toSection, "move"));
-}
-
-function setScratchpadQuantity(key, sectionId, quantity, focusDelta = "") {
-  if (!scratchpadStore || !key) return;
-  const row = scratchpadStore.setQuantity(key, sectionId, quantity);
-  if (!row) return;
-  showToast(`Updated ${row.name || "card"} quantity`);
-  requestAnimationFrame(() => focusScratchpadControl(key, sectionId, "quantity", focusDelta));
-}
-
-function removeScratchpadCard(key, sectionId) {
-  if (!scratchpadStore || !key) return;
-  const removed = scratchpadStore.removeCard(key, sectionId);
-  if (!removed?.row) return;
-  showToast(`Removed ${removed.row.name || "card"}`, {
-    undoLabel: "Undo",
-    onUndo: () => {
-      scratchpadStore.addCard(removed.row, removed.section, { sourceContext: "maze:undo" });
-      showToast("Undo applied");
-    }
-  });
-  requestAnimationFrame(() => focusScratchpadSection(sectionId));
-}
-
-function clearScratchpad() {
-  if (!scratchpadStore) return;
-  scratchpadStore.clearSection("all");
-  showToast("Reading Finds cleared");
-}
-
-function renameScratchpadDeck(title) {
-  if (!scratchpadStore) return;
-  scratchpadStore.renameDeck(title);
-  showToast("Reading Finds renamed");
-}
-
-function renderScratchpad() {
-  const body = document.getElementById("stash-body");
-  const countEl = document.getElementById("stash-count");
-  const titleInput = document.getElementById("scratchpad-title-input");
-  if (!body || !countEl) return;
-
-  const total = getScratchpadTotalQuantity();
-  countEl.textContent = String(total);
-  updateStashDrawerCount(total);
-  if (titleInput && "value" in titleInput) {
-    titleInput.disabled = false;
-    if (document.activeElement !== titleInput) titleInput.value = scratchpadState?.title || DEFAULT_READING_FINDS_TITLE;
-  }
-
-  clearNode(body);
-  if (!total) {
-    const empty = document.createElement("p");
-    empty.className = "stash-empty";
-    empty.id = "scratchpad-empty-message";
-    empty.textContent = "Set aside a card from this search to begin.";
-    body.appendChild(empty);
-  }
-
-  STASH_SECTIONS.filter((section) => getScratchpadRows(section.id).length > 0).forEach((section) => {
-    body.appendChild(createScratchpadSection(section));
-  });
-
-  updateScratchpadReturnLink();
-}
-
-function renderScratchpadUnavailable() {
-  const body = document.getElementById("stash-body");
-  const countEl = document.getElementById("stash-count");
-  const titleInput = document.getElementById("scratchpad-title-input");
-  if (countEl) countEl.textContent = "0";
-  updateStashDrawerCount(0);
-  if (titleInput && "disabled" in titleInput) titleInput.disabled = true;
-  if (!body) return;
-  clearNode(body);
-  const empty = document.createElement("p");
-  empty.className = "stash-empty";
-  empty.textContent = "Reading Finds is unavailable. Maze search, card results, and card details still work.";
-  body.appendChild(empty);
-  updateScratchpadReturnLink(true);
-}
-
-function createScratchpadSection(section) {
-  const rows = getScratchpadRows(section.id);
-  const count = rows.reduce((sum, row) => sum + Math.max(Number.parseInt(row.quantity, 10) || 1, 1), 0);
-  const group = document.createElement("details");
-  group.className = "stash-group";
-  group.open = true;
-  group.dataset.section = section.id;
-
-  const summary = document.createElement("summary");
-  summary.className = "stash-section-title";
-  const label = document.createElement("span");
-  label.textContent = section.label;
-  const badge = document.createElement("span");
-  badge.className = "stash-section-count";
-  badge.textContent = String(count);
-  appendContent(summary, label, badge);
-  group.appendChild(summary);
-
-  const list = document.createElement("ul");
-  list.className = "stash-list";
-
-  rows.forEach((row) => list.appendChild(createScratchpadRow(row, section)));
-
-  group.appendChild(list);
-  return group;
-}
-
-function createScratchpadRow(row, section) {
-  const key = scratchpadCardKey(row);
-  const item = document.createElement("li");
-  item.className = "stash-item";
-  item.dataset.scratchpadKey = key;
-  item.dataset.section = section.id;
-
-  const name = createLink({
-    className: "stash-name",
-    href: scratchpadCardHref(row),
-    text: row.name || "Unknown card",
-    target: "_blank",
-    rel: "noopener"
-  });
-
-  const controls = document.createElement("div");
-  controls.className = "stash-item-controls";
-  appendContent(
-    controls,
-    createQuantityControls(row, section.id, key),
-    createActionButton({
-      className: "stash-remove",
-      text: "×",
-      action: "scratchpad-remove-card",
-      dataset: { scratchpadKey: key, section: section.id },
-      ariaLabel: `Remove ${row.name || "card"} from ${section.label}`
-    })
-  );
-
-  appendContent(item, name, controls);
-  return item;
-}
-
-function createQuantityControls(row, sectionId, key) {
-  const quantity = Math.max(Number.parseInt(row.quantity, 10) || 1, 1);
-  const wrap = document.createElement("div");
-  wrap.className = "stash-qty";
-  wrap.setAttribute("aria-label", `${row.name || "Card"} quantity controls`);
-  appendContent(
-    wrap,
-    createActionButton({
-      className: "stash-qty-btn",
-      text: "-",
-      action: "scratchpad-quantity",
-      dataset: { scratchpadKey: key, section: sectionId, quantity: String(quantity - 1), delta: "decrease" },
-      ariaLabel: `Decrease ${row.name || "card"} quantity`
-    }),
-    (() => {
-      const value = document.createElement("span");
-      value.className = "stash-qty-value";
-      value.textContent = `Qty ${quantity}`;
-      return value;
-    })(),
-    createActionButton({
-      className: "stash-qty-btn",
-      text: "+",
-      action: "scratchpad-quantity",
-      dataset: { scratchpadKey: key, section: sectionId, quantity: String(quantity + 1), delta: "increase" },
-      ariaLabel: `Increase ${row.name || "card"} quantity`
-    })
-  );
-  return wrap;
-}
-
-function scratchpadCardHref(row) {
-  if (row.scryfallUri) return row.scryfallUri;
-  return `https://scryfall.com/search?q=${encodeURIComponent(`!"${row.name || ""}"`)}`;
-}
-
 function updateScratchpadReturnLink(forceHidden = false) {
-  const link = document.getElementById("scratchpad-return-dossier");
-  if (!link) return;
-  const returnUrl = forceHidden ? "" : currentDossierReturnUrl();
-  if (!returnUrl) {
-    link.classList.add("hidden");
-    link.removeAttribute("href");
-    return;
-  }
-  link.href = returnUrl;
-  link.classList.remove("hidden");
+  setClipboardReturnUrl(forceHidden ? "" : currentDossierReturnUrl());
 }
 
 function currentDossierReturnUrl() {
@@ -4813,126 +4566,9 @@ function dossierReturnUrlForHandoff(handoff) {
   return `../archscry/index.html?${parameters.toString()}#maze-discovery-paths`;
 }
 
-function updateStashDrawerCount(count = getScratchpadTotalQuantity()) {
-  document.querySelectorAll("[data-stash-toggle-count]").forEach((node) => {
-    node.textContent = String(count);
-  });
-}
-
-function setStashDrawerOpen(open) {
-  const focusWasInside = document.activeElement?.closest?.("#stash-panel");
-  document.body.dataset.stashOpen = open ? "true" : "false";
-  document.querySelectorAll('[data-action="toggle-stash-drawer"]').forEach((toggle) => {
-    toggle.setAttribute("aria-expanded", open ? "true" : "false");
-  });
-  if (!open && focusWasInside) document.getElementById("stash-drawer-toggle")?.focus();
-}
-
-function toggleStashDrawer() {
-  const open = document.body.dataset.stashOpen !== "true";
-  setStashDrawerOpen(open);
-  if (open) {
-    placeStashDrawerOnOpen();
-    document.querySelector(".stash-drawer-close")?.focus();
-  }
-}
-
-function placeStashDrawerOnOpen() {
-  if (!window.matchMedia("(min-width: 821px) and (pointer: fine)").matches) return;
-  const rail = document.querySelector(".stash-rail");
-  if (!(rail instanceof HTMLElement) || rail.style.left) return;
-  const panel = rail.getBoundingClientRect();
-  const resultGrid = document.querySelector("#card-grid:not(.hidden)");
-  const protectedSurface = resultGrid instanceof HTMLElement
-    ? resultGrid.getBoundingClientRect()
-    : document.querySelector(".r-main")?.getBoundingClientRect();
-  const viewportWidth = document.documentElement.clientWidth;
-  const viewportHeight = document.documentElement.clientHeight;
-  const margin = 12;
-  const width = panel.width;
-  const height = panel.height;
-  const maxLeft = Math.max(margin, viewportWidth - width - margin);
-  const maxTop = Math.max(margin, viewportHeight - height - margin);
-  const topbarBottom = document.querySelector(".vm-topbar")?.getBoundingClientRect().bottom || 0;
-  const preferredTop = Math.max(protectedSurface?.top || 0, topbarBottom + margin);
-  const top = Math.min(Math.max(margin, preferredTop), maxTop);
-  const candidates = [maxLeft, margin]
-    .concat(protectedSurface ? [protectedSurface.right + margin, protectedSurface.left - width - margin] : [])
-    .map(left => Math.min(Math.max(margin, left), maxLeft))
-    .filter((left, index, values) => values.indexOf(left) === index);
-  const overlapArea = left => {
-    if (!protectedSurface) return 0;
-    const overlapWidth = Math.max(0, Math.min(left + width, protectedSurface.right) - Math.max(left, protectedSurface.left));
-    const overlapHeight = Math.max(0, Math.min(top + height, protectedSurface.bottom) - Math.max(top, protectedSurface.top));
-    return overlapWidth * overlapHeight;
-  };
-  const left = candidates.reduce((best, candidate) => overlapArea(candidate) < overlapArea(best) ? candidate : best, candidates[0]);
-  rail.style.left = `${Math.round(left)}px`;
-  rail.style.top = `${Math.round(top)}px`;
-  rail.style.right = "auto";
-  rail.dataset.stashPlacement = "default";
-}
-
-function beginStashDrag(event) {
-  if (event.button !== 0 || !window.matchMedia("(min-width: 821px) and (pointer: fine)").matches) return;
-  if (event.target.closest("button, input, a, textarea, select")) return;
-  const rail = document.querySelector(".stash-rail");
-  if (!(rail instanceof HTMLElement)) return;
-  const rect = rail.getBoundingClientRect();
-  stashDragState = {
-    pointerId: event.pointerId,
-    offsetX: event.clientX - rect.left,
-    offsetY: event.clientY - rect.top
-  };
-  rail.style.left = `${Math.round(rect.left)}px`;
-  rail.style.top = `${Math.round(rect.top)}px`;
-  rail.style.right = "auto";
-  rail.dataset.stashPlacement = "user";
-  rail.classList.add("is-dragging");
-  event.currentTarget.setPointerCapture?.(event.pointerId);
-  event.preventDefault();
-}
-
-function moveStashDrag(event) {
-  if (!stashDragState || event.pointerId !== stashDragState.pointerId) return;
-  const rail = document.querySelector(".stash-rail");
-  if (!(rail instanceof HTMLElement)) return;
-  const margin = 8;
-  const width = rail.offsetWidth;
-  const height = rail.offsetHeight;
-  const maxLeft = Math.max(margin, document.documentElement.clientWidth - width - margin);
-  const maxTop = Math.max(margin, document.documentElement.clientHeight - height - margin);
-  const left = Math.min(Math.max(margin, event.clientX - stashDragState.offsetX), maxLeft);
-  const top = Math.min(Math.max(margin, event.clientY - stashDragState.offsetY), maxTop);
-  rail.style.left = `${Math.round(left)}px`;
-  rail.style.top = `${Math.round(top)}px`;
-}
-
-function endStashDrag(event) {
-  if (!stashDragState || event.pointerId !== stashDragState.pointerId) return;
-  document.querySelector(".stash-rail")?.classList.remove("is-dragging");
-  stashDragState = null;
-}
-
-function resetStashDragForMobile() {
-  const rail = document.querySelector(".stash-rail");
-  if (!(rail instanceof HTMLElement)) return;
-  if (window.innerWidth <= 820) {
-    rail.style.removeProperty("left");
-    rail.style.removeProperty("top");
-    rail.style.removeProperty("right");
-    delete rail.dataset.stashPlacement;
-    rail.classList.remove("is-dragging");
-    stashDragState = null;
-    return;
-  }
-  if (!rail.style.left || document.body.dataset.stashOpen !== "true") return;
-  const margin = 8;
-  const maxLeft = Math.max(margin, document.documentElement.clientWidth - rail.offsetWidth - margin);
-  const maxTop = Math.max(margin, document.documentElement.clientHeight - rail.offsetHeight - margin);
-  rail.style.left = `${Math.round(Math.min(Math.max(margin, Number.parseFloat(rail.style.left) || margin), maxLeft))}px`;
-  rail.style.top = `${Math.round(Math.min(Math.max(margin, Number.parseFloat(rail.style.top) || margin), maxTop))}px`;
-}
+// Compatibility entry points now open the same shared panel.
+function setStashDrawerOpen(open) { if (open) openClipboard(); else closeClipboard(); }
+function toggleStashDrawer() { setStashDrawerOpen(!document.getElementById("vm-clipboard-panel")?.open); }
 
 function refreshScratchpadButtons() {
   document.querySelectorAll(".card-item").forEach((node) => {
@@ -4941,33 +4577,13 @@ function refreshScratchpadButtons() {
     if (!key || !button) return;
     const saved = scratchpadContainsKey(key);
     const cardName = button.dataset.cardName || "card";
-    const label = saved ? `Set aside another ${cardName} in Reading Finds` : `Set aside ${cardName} in Reading Finds`;
+    const label = saved ? `Set aside another ${cardName} in Clipboard` : `Set aside ${cardName} in Clipboard`;
     button.classList.toggle("on", saved);
     button.textContent = saved ? "Saved" : "Save";
     button.dataset.mark = saved ? "✓" : "Save";
     button.title = label;
     button.setAttribute("aria-label", label);
   });
-}
-
-function escapeSelectorValue(value) {
-  if (typeof CSS !== "undefined" && typeof CSS.escape === "function") {
-    return CSS.escape(String(value || ""));
-  }
-  return String(value || "").replace(/["\\]/g, "\\$&");
-}
-
-function focusScratchpadControl(key, sectionId, control, delta = "") {
-  const selector = control === "move"
-    ? `[data-action="scratchpad-move-card"][data-scratchpad-key="${escapeSelectorValue(key)}"][data-section="${escapeSelectorValue(sectionId)}"]`
-    : `[data-action="scratchpad-quantity"][data-scratchpad-key="${escapeSelectorValue(key)}"][data-section="${escapeSelectorValue(sectionId)}"][data-delta="${escapeSelectorValue(delta)}"]`;
-  const target = document.querySelector(selector);
-  if (target instanceof HTMLElement) target.focus();
-}
-
-function focusScratchpadSection(sectionId) {
-  const target = document.querySelector(`.stash-group[data-section="${escapeSelectorValue(sectionId)}"] .stash-section-title`);
-  if (target instanceof HTMLElement) target.focus();
 }
 
 function copyTextToClipboard(text, successMessage, options = {}) {
@@ -5016,11 +4632,6 @@ function bindMazeControls() {
   document.getElementById("modal-bg")?.addEventListener("click", handleMazeActionClick);
   document.addEventListener("keydown", handleMazeGlobalKeydown);
   document.addEventListener("click", handleMazeDocumentClick);
-  document.querySelector(".stash-head")?.addEventListener("pointerdown", beginStashDrag);
-  window.addEventListener("pointermove", moveStashDrag);
-  window.addEventListener("pointerup", endStashDrag);
-  window.addEventListener("pointercancel", endStashDrag);
-  window.addEventListener("resize", resetStashDragForMobile);
 
   document.getElementById("search-input")?.addEventListener("keydown", handleSearchInputKeydown);
   MODE_IDS.forEach((id) => document.getElementById(`mode-${id}`)?.addEventListener("keydown", handleModeTabKeydown));
@@ -5046,12 +4657,6 @@ function bindMazeControls() {
     changeOrder(event.target.value, event.target.selectedOptions[0]?.dataset.dir);
   });
   window.addEventListener("popstate", refreshReadingContextPresentation);
-  document.getElementById("scratchpad-title-input")?.addEventListener("keydown", (event) => {
-    if (event.key === "Enter") {
-      event.preventDefault();
-      event.currentTarget.blur();
-    }
-  });
   document.getElementById("modal-bg")?.addEventListener("click", (event) => {
     if (event.target === event.currentTarget) closeModal();
   });
@@ -5186,9 +4791,6 @@ function handleMazeActionClick(event) {
     case "load-more":
       loadMore();
       return;
-    case "clear-stash":
-      clearScratchpad();
-      return;
     case "toggle-card-stash":
     case "add-card-to-scratchpad": {
       event.stopPropagation();
@@ -5211,18 +4813,6 @@ function handleMazeActionClick(event) {
     case "modal-scratchpad-add":
       addModalCardToScratchpad(actionNode.dataset.section || READING_FIND_SECTION_IDS.finds);
       return;
-    case "remove-stash-card":
-    case "scratchpad-remove-card":
-      removeScratchpadCard(actionNode.dataset.scratchpadKey || actionNode.dataset.stashKey || "", actionNode.dataset.section || READING_FIND_SECTION_IDS.finds);
-      return;
-    case "scratchpad-quantity":
-      setScratchpadQuantity(
-        actionNode.dataset.scratchpadKey || "",
-        actionNode.dataset.section || READING_FIND_SECTION_IDS.finds,
-        actionNode.dataset.quantity || "1",
-        actionNode.dataset.delta || ""
-      );
-      return;
     default:
   }
 }
@@ -5232,21 +4822,12 @@ function handleMazeActionChange(event) {
   if (!(actionNode instanceof HTMLElement)) return;
 
   switch (actionNode.dataset.action) {
-    case "scratchpad-move-card":
-      moveScratchpadCard(
-        actionNode.dataset.scratchpadKey || "",
-        actionNode.dataset.section || READING_FIND_SECTION_IDS.finds,
-        actionNode.value || READING_FIND_SECTION_IDS.finds
-      );
-      return;
-    case "rename-scratchpad":
-      renameScratchpadDeck(actionNode.value || "");
-      return;
     default:
   }
 }
 
 function handleMazeGlobalKeydown(event) {
+  if (document.getElementById("vm-clipboard-panel")?.open) return;
   const colorRelationPicker = document.getElementById("color-relation-picker");
   const modeHelp = document.getElementById("maze-mode-help");
   if (event.key === "Escape" && modeHelp?.open) {
@@ -5281,11 +4862,6 @@ function handleMazeGlobalKeydown(event) {
     document.getElementById("kw-input")?.focus?.();
     return;
   }
-  if (event.key === "Escape" && document.body.dataset.stashOpen === "true" && !isModalOpen()) {
-    event.preventDefault();
-    setStashDrawerOpen(false);
-    return;
-  }
   if (!isModalOpen()) return;
   if (event.key === "Escape") {
     event.preventDefault();
@@ -5298,6 +4874,7 @@ function handleMazeGlobalKeydown(event) {
 }
 
 function handleMazeDocumentClick(event) {
+  if (document.getElementById("vm-clipboard-panel")?.open) return;
   const modeHelp = document.getElementById("maze-mode-help");
   if (modeHelp?.open && !modeHelp.contains(event.target)) {
     modeHelp.open = false;
@@ -5380,7 +4957,7 @@ function showToast(message, options = {}) {
     const undo = createActionButton({
       className: "maze-toast-undo",
       text: options.undoLabel || "Undo",
-      ariaLabel: `${options.undoLabel || "Undo"} last Reading Finds action`
+      ariaLabel: `${options.undoLabel || "Undo"} last Clipboard action`
     });
     undo.addEventListener("click", () => {
       options.onUndo();

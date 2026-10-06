@@ -19,6 +19,7 @@ const [grounding, semantics, mazeHtml, mazeCss, mazeRuntime, mazeUi, guideHtml, 
   readFile(new URL("./check-route-metadata.mjs", import.meta.url), "utf8"),
   readFile(new URL("./validate-frontend-html.mjs", import.meta.url), "utf8"),
 ]);
+const clipboardSource = await readFile(new URL("../assets/js/shared/vm-clipboard.js", import.meta.url), "utf8");
 
 setScryfallGrounding(grounding);
 setPlainReadingSemanticRegistry(semantics);
@@ -82,9 +83,9 @@ assert.match(
 );
 assert.doesNotMatch(mazeHtml, /id="maze-reading-context"[\s\S]*?Standalone search/, "Maze must not restore the retired permanent standalone-search context");
 assert.match(mazeHtml, /id="search-btn" type="button" data-action="search">Search<\/button>/, "Maze must retain its independent canonical Search action");
-assert.match(mazeHtml, /then keep local Reading Finds to revisit later\./);
+assert.match(mazeHtml, /then keep useful cards in Clipboard to revisit later\./);
 assert.doesNotMatch(mazeHtml, /Finds saved with a reading stay linked to it; standalone Finds remain standalone\./, "Maze must not retain the retired permanent Reading Finds copy");
-assert.match(guideHtml, /Finds saved with reading context can stay attached to that reading; independent Finds remain standalone\./, "Maze Guide must retain the current conditional Reading Finds contract");
+assert.match(guideHtml, /Cards from every search join the same Clipboard\./, "Maze Guide must describe one independent Clipboard");
 assert.match(mazeHtml, /Fits Commander colors includes cards whose color identity stays within the selected colors; a card does not need every selected color\./);
 assert.doesNotMatch(mazeHtml, /id="loom-dossier-context"/);
 assert.equal((mazeUi.match(/href="\.\.\/guide\/maze\/\?guided=maze-search"/g) || []).length, 1, "working Maze should expose one opt-in guided-reading invitation");
@@ -98,14 +99,15 @@ const guideBeaconSignalSeam = guideBeaconJs;
 assert.doesNotMatch(guideBeaconSignalSeam, /localStorage|sessionStorage/, "Guide Beacon signal must remain page-visit state only");
 assert.match(mazeUi, /Maze could not map part of this request\.[\s\S]*?Rephrase or remove one unresolved term, then search again\./);
 assert.match(mazeRuntime, /The query ran, but no cards matched\.[\s\S]*?Broaden or remove one constraint, then search again\./);
-assert.match(mazeRuntime, /Set aside a card from this search to begin\./);
+assert.match(clipboardSource, /Add a card from a search to begin your Clipboard\./);
 assert.doesNotMatch(mazeRuntime, /revisit with the reading/);
 assert.match(mazeRuntime, /function classifyRecoveryDiagnostics[\s\S]*?parser_unresolved_term[\s\S]*?level === "warning"[\s\S]*?return "valid"/);
 assert.match(mazeRuntime, /url\.searchParams\.set\("independent", "1"\)/);
 assert.match(mazeRuntime, /history\.pushState[\s\S]*?refreshReadingContextPresentation/);
 assert.match(mazeRuntime, /function readActiveArchscryMazeHandoff\(\)[\s\S]*?isIndependentSearch\(\) \? null : readArchscryMazeHandoff\(\)/);
-assert.match(mazeRuntime, /independent && associatesFinds[\s\S]*?New Finds are standalone[\s\S]*?action\.dataset\.action = "restore-reading-context"[\s\S]*?Attach new Finds to/, "Independent reading state must make new Finds standalone and offer the current reattach action");
-assert.match(mazeRuntime, /context\.dataset\.state = "reading"[\s\S]*?New Finds stay with this reading[\s\S]*?action\.dataset\.action = "search-independently"[\s\S]*?Save new Finds separately/, "Reading state must retain the current conditional separate-Finds action");
+assert.match(mazeRuntime, /independent && hasReadingContext[\s\S]*?Searching independently[\s\S]*?action\.dataset\.action = "restore-reading-context"[\s\S]*?Restore reading context for/, "Independent reading state must retain its restore action without claiming card ownership");
+assert.match(mazeRuntime, /context\.dataset\.state = "reading"[\s\S]*?hasReadingContext[\s\S]*?action\.dataset\.action = "search-independently"/, "Reading state must retain the context action");
+assert.doesNotMatch(mazeRuntime, /New Finds are standalone|New Finds stay with this reading|Attach new Finds to|Save new Finds separately/);
 assert.match(mazeRuntime, /function restoreReadingContext\(\)[\s\S]*?searchParams\.delete\("independent"\)[\s\S]*?history\.pushState/);
 const independentAction = mazeRuntime.slice(mazeRuntime.indexOf("function searchIndependently"), mazeRuntime.indexOf("function refreshReadingContextPresentation"));
 assert.doesNotMatch(independentAction, /localStorage\.(?:setItem|removeItem|clear)/, "independent search must not rewrite handoff or saved-reading storage");
@@ -121,11 +123,11 @@ assert.match(guideHtml, /Black Lotus with mana value 99 in Commander[\s\S]*?c:b 
 assert.match(guideHtml, /f:commander mv=99/);
 assert.match(guideHtml, /id="recovery"/, "internal recovery anchor should remain available for direct/reference links");
 assert.match(guideHtml, /Standalone search[\s\S]*?Reading available[\s\S]*?Dossier thread[\s\S]*?Searching independently/);
-assert.match(guideHtml, /new Finds are not attached to that reading[\s\S]*?existing Finds remain unchanged[\s\S]*?Restore reading context/);
+assert.match(guideHtml, /setting aside the retained reading context[\s\S]*?Restore reading context[\s\S]*?Cards from every search join the same Clipboard/);
 assert.match(guideHtml, /White \+ blue includes cards whose color identity stays within WU/);
-assert.match(guideHtml, /Reading Finds keeps useful cards together locally\. Finds saved with reading context can stay attached to that reading; independent Finds remain standalone\. It is not a deckbuilder\./);
+assert.match(guideHtml, /Clipboard keeps useful cards together on this device across searches, pages and reloads\./);
 assert.doesNotMatch(guideHtml, /Reading Finds keeps useful cards with the current reading trail/);
-assert.match(generalGuideHtml, /finds saved from a reading can return with it, while fresh-search finds stay standalone\./);
+assert.match(generalGuideHtml, /Clipboard keeps useful cards together on this device[\s\S]*?Open it from the top bar on any page\./);
 assert.equal((guideHtml.match(/class="guide-cta"/g) || []).length, 1, "Maze Guide should end with one working-product CTA");
 assert.ok(!guideHtml.includes("VM-616"), "public Guide copy must not expose the work-item ID");
 assert.doesNotMatch(guideHtml, /parser contract|semantic-state|calibration|storage key|handoff JSON/i);

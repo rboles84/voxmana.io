@@ -1,4 +1,4 @@
-<!-- task-view-sha256:7cc9a1e733b9713f8ff1154c9f55fc63b4a23bfe2c99f0b984751f1f93fbdc55 -->
+<!-- task-view-sha256:fbb6ff4541b4523c3dbbba6b55439b2d73f6362038684629317cf0058a698fa1 -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -8,6 +8,7 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 
 | Authored / filename date | Agent | Handoff | Related task references | Diagnostics |
 |---|---|---|---|---|
+| 2026-10-05T22:11:00Z (filename) | Unknown | [VM-680 — Clipboard implementation handoff](2026-10-05-2211-codex-vm680-clipboard.md) | VM-680 | Identity displayed from heading; not admission metadata. |
 | 2026-10-05T11:45:00-06:00 (authored) | /root/qa_final | [VM-678 placement URL contract correction — independent RobQA](2026-10-05-1145-robqa-vm678-placement-url-contract.md) | VM-678 | Identity displayed from heading; not admission metadata. |
 | 2026-10-05T11:45:00Z (filename) | /root | [VM-678 — placement URL test-contract correction](2026-10-05-1145-codex-vm678-placement-url-contract.md) | VM-678, VM-679 | Identity displayed from heading; not admission metadata. |
 | 2026-10-05T11:45:00Z (filename) | `/root/placement_contract` (RobDev) | [RobDev handoff — VM-678 placement URL contract correction](2026-10-05-1145-robdev-vm678-placement-url-contract.md) | VM-678 | Identity displayed from heading; not admission metadata. |

@@ -500,8 +500,20 @@ export function initScratchpad({
     storageKey: READING_FINDS_STORAGE_KEY,
     legacyDeckIdeaStorageKey: LEGACY_DECK_IDEA_STORAGE_KEY,
     legacyStorageKey: LEGACY_STASH_STORAGE_KEY,
-    storageStatus,
+    get storageStatus() { return storageStatus; },
     getState() {
+      return cloneDraft(draft);
+    },
+    restoreDraft(snapshot) {
+      draft = sanitizeDraft(snapshot, now);
+      persist("restore");
+      return cloneDraft(draft);
+    },
+    refreshFromStorage() {
+      loadResult = loadDraft(storage, now);
+      draft = loadResult.draft;
+      storageStatus = loadResult.status;
+      notify({ type: "reload", persisted: true });
       return cloneDraft(draft);
     },
     subscribe(listener) {

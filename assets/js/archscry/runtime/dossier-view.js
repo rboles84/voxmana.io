@@ -1,11 +1,4 @@
 import {
-  READING_FINDS_STORAGE_KEY,
-  READING_FIND_SECTION_CONFIG,
-  getRowsForReading,
-  hasRowsForOtherReadings,
-} from "../../maze/maze-scratchpad-store.js?v=vm636";
-
-import {
   MAZE_PATH_LABELS,
   buildArchscryMazeContext,
   buildHeroNarrative,
@@ -1465,89 +1458,7 @@ export function buildDossierInterpretationHtml({ dossier, faction, result }) {
     </div>`;
 }
 
-export function readLocalReadingFindsDraft() {
-  try {
-    const raw = localStorage.getItem(READING_FINDS_STORAGE_KEY);
-    if (!raw) return { status: "empty", draft: null };
-    const parsed = JSON.parse(raw);
-    return parsed && typeof parsed === "object"
-      ? { status: "loaded", draft: parsed }
-      : { status: "empty", draft: null };
-  } catch (_) {
-    return { status: "unavailable", draft: null };
-  }
-}
-
-export function humanizeReadingFindLabel(value = "") {
-  return String(value || "")
-    .replace(/[-_]+/g, " ")
-    .replace(/\s+/g, " ")
-    .trim()
-    .replace(/\b\w/g, (letter) => letter.toUpperCase());
-}
-
-export function readingFindSourceLabels(rows = []) {
-  const labels = rows
-    .map((row) => row.sourceContext?.pathType || row.sourceContext?.fit || "")
-    .filter(Boolean)
-    .map((pathType) => MAZE_PATH_LABELS[pathType] || humanizeReadingFindLabel(pathType));
-  return [...new Set(labels)].slice(0, 3);
-}
-
-export function readingFindTagLabels(tagRefs = []) {
-  return [...new Set((tagRefs || [])
-    .map((ref) => humanizeReadingFindLabel(ref?.tag || ""))
-    .filter(Boolean))]
-    .slice(0, 3);
-}
-
-export function buildReadingFindReflectionCopy(rows = [], tagRefs = []) {
-  const sources = readingFindSourceLabels(rows);
-  const tags = readingFindTagLabels(tagRefs);
-  const sourceCopy = sources.length ? ` through ${sources.join(", ")}` : "";
-  const tagCopy = tags.length ? ` and line up with ${tags.join(", ")}` : "";
-  return `These finds echo this reading${sourceCopy}${tagCopy}. Treat them as local notes from Maze, not as a complete conclusion.`;
-}
-
-export function buildReadingFindRowsHtml(rows = []) {
-  return READING_FIND_SECTION_CONFIG.map((section) => {
-    const sectionRows = rows.filter((row) => row.section === section.id);
-    if (!sectionRows.length) return "";
-    return `
-      <div class="maze-finds-group">
-        <h4>${escapeHtml(section.label)}</h4>
-        <ul>
-          ${sectionRows.map((row) => `
-            <li>
-              <span>${escapeHtml(`${row.quantity || 1} ${row.name || "Unknown card"}`)}</span>
-            </li>`).join("")}
-        </ul>
-      </div>`;
-  }).filter(Boolean).join("");
-}
-
-export function buildReadingFindsHtml({ readingId = "", tagRefs = [] } = {}) {
-  const localFinds = readLocalReadingFindsDraft();
-  if (localFinds.status === "unavailable") return "";
-
-  const rows = localFinds.draft ? getRowsForReading(localFinds.draft, readingId) : [];
-  const hasMismatch = localFinds.draft && !rows.length && hasRowsForOtherReadings(localFinds.draft, readingId);
-  const message = hasMismatch
-    ? "These finds were saved locally, but they do not appear to belong to this reading."
-    : "No Maze finds have been set aside for this reading yet.";
-
-  return `
-    <div class="maze-finds-card" data-reading-finds-panel>
-      <div class="starter-title">Your Maze Finds</div>
-      ${rows.length
-        ? `<p class="starter-copy">${escapeHtml(buildReadingFindReflectionCopy(rows, tagRefs))}</p>
-          <div class="maze-finds-list">${buildReadingFindRowsHtml(rows)}</div>`
-        : `<p class="starter-copy">${escapeHtml(message)}</p>`}
-    </div>`;
-}
-
-export function buildMazeDiscoveryHtml(paths = [], readingFindsHtml = "") {
-  if (!paths.length && !readingFindsHtml) return "";
+export function buildMazeDiscoveryHtml(paths = []) {
   const title = stablePhrase("mazeTitle", paths.map((path) => path.pathType || path.label).join("|"));
   const canonicalPath = paths.find((path) => path.profileKey) || null;
   const vm547Attrs = canonicalPath
@@ -1563,7 +1474,6 @@ export function buildMazeDiscoveryHtml(paths = [], readingFindsHtml = "") {
           <div class="starter-links">${buildLinkButtons(paths)}</div>
         </div>
       </div>
-      ${readingFindsHtml}
     </div>`;
 }
 
@@ -1943,8 +1853,7 @@ export function renderResult(viewKey, { mode = "placement", exploreSlug = "", ha
   const dossierInterpretationHtml = buildDossierInterpretationHtml({ dossier, faction, result, tagRefs: readingTagRefs });
   const flavorEchoesHtml = buildFlavorEchoesHtml(flavorEchoes, faction);
   const cardVoicesHtml = buildCardVoicesHtml(cardVoices, faction, { availability: cardVoiceAvailability });
-  const readingFindsHtml = identityOnlyMode ? "" : buildReadingFindsHtml({ readingId: mazeContext.readingId, tagRefs: readingTagRefs });
-  const mazeDiscoveryHtml = buildMazeDiscoveryHtml(personalizedMazePaths, readingFindsHtml);
+  const mazeDiscoveryHtml = buildMazeDiscoveryHtml(personalizedMazePaths);
   const apocryphaHtml = buildApocryphaHtml(faction);
   const heroNarrative = identityOnlyMode
     ? faction.philosophy

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vox Mana - The Implicit Maze</title>
-<meta name="description" content="Search Magic cards from a reading, rules text, syntax, or visual query shape, then keep local Reading Finds to revisit later.">
+<meta name="description" content="Search Magic cards from a reading, rules text, syntax, or visual query shape, then keep useful cards in Clipboard to revisit later.">
 <link rel="canonical" href="https://voxmana.io/maze/">
 <meta property="og:site_name" content="Vox Mana">
 <meta property="og:type" content="website">
@@ -23,7 +23,7 @@
 <link rel="stylesheet" href="../assets/css/tokens.css?v=vm635">
 <link rel="stylesheet" href="../assets/css/fonts.css?v=vm612">
 <link rel="stylesheet" href="../assets/css/layout.css?v=vm635">
-<link rel="stylesheet" href="../assets/css/topbar.css?v=vm618">
+<link rel="stylesheet" href="../assets/css/topbar.css?v=vm680">
 <link rel="stylesheet" href="../assets/css/atmosphere.css?v=vm635">
 <link rel="stylesheet" href="../assets/css/components.css?v=vm612">
 <link rel="stylesheet" href="../assets/vendor/mana/css/mana.min.css">
@@ -31,7 +31,7 @@
 <link rel="stylesheet" href="../assets/css/maze.css?v=vm663r4">
 <link rel="stylesheet" href="../assets/css/site-skin.css?v=vm652">
 </head>
-<body class="vm-site-skin vm-maze-route" data-page="maze" data-vm-current="maze" data-bg="medium" data-vm-atmosphere="rich" data-maze-mode="ai" data-stash-open="false" data-pending-suggestion="false">
+<body class="vm-site-skin vm-maze-route" data-page="maze" data-vm-current="maze" data-bg="medium" data-vm-atmosphere="rich" data-maze-mode="ai" data-pending-suggestion="false">
 
 <div class="vm-bg" aria-hidden="true">
   <!-- VM-635: black backdrop; painted image assets preserved for rollback. -->
@@ -115,10 +115,6 @@
           <summary id="maze-mode-help-summary" aria-label="About Plain Reading"><i class="ms ms-ability-collect-evidence" aria-hidden="true"></i><span>About</span></summary>
           <p id="maze-mode-help-copy">Describe the card you want in human language. Maze will translate the intent into Scryfall syntax before searching.</p>
         </details>
-        <button class="query-action-btn stash-drawer-toggle" id="stash-drawer-toggle" type="button" data-action="toggle-stash-drawer" aria-controls="stash-panel" aria-expanded="false">
-          <span>Reading Finds</span>
-          <span class="stash-drawer-count" data-stash-toggle-count>0</span>
-        </button>
       </div>
     </div>
 
@@ -409,25 +405,6 @@
     </div>
   </section>
 
-  <aside class="stash-rail" aria-labelledby="maze-stash-title">
-    <section class="stash-panel" id="stash-panel" aria-labelledby="maze-stash-title">
-      <div class="stash-head">
-        <span class="stash-drag-grip" aria-hidden="true"></span>
-        <div class="stash-title-block">
-          <h2 class="stash-title" id="maze-stash-title">Reading Finds</h2>
-          <label class="visually-hidden" for="scratchpad-title-input">Reading Finds title</label>
-          <input class="stash-title-input" id="scratchpad-title-input" type="text" value="Reading Finds" data-action="rename-scratchpad">
-        </div>
-        <div class="stash-count" id="stash-count" aria-label="Cards in Reading Finds">0</div>
-        <button class="stash-drawer-close" type="button" data-action="close-stash-drawer" aria-label="Collapse Reading Finds">&times;</button>
-      </div>
-      <div class="stash-body" id="stash-body"></div>
-      <div class="stash-actions">
-        <a class="stash-copy stash-return-link hidden" id="scratchpad-return-dossier" href="../archscry/" data-scratchpad-return-link>Return to Dossier with Finds</a>
-        <button class="stash-copy" type="button" data-action="clear-stash">Clear</button>
-      </div>
-    </section>
-  </aside>
 </div>
 </main><!-- .page -->
 
@@ -444,11 +421,11 @@
   </div>
 </div>
 <div class="maze-toast" id="toast" role="status" aria-live="polite"></div>
-<script type="module" src="../assets/js/maze/research-init.js?v=vm674r9"></script>
+<script type="module" src="../assets/js/maze/research-init.js?v=vm680"></script>
 <script src="../assets/js/shared/vm-rich-atmosphere.js" defer></script>
 <script src="../assets/js/shared/reduce-motion.js" defer></script>
 <script src="../assets/js/shared/guide-beacon.js?v=vm620" defer></script>
 <script src="../assets/js/shared/vm-feedback.js" defer></script>
-<script src="../assets/js/shared/vm-topbar.js?v=vm618" defer></script>
+<script src="../assets/js/shared/vm-topbar.js?v=vm680" defer></script>
 </body>
 </html>

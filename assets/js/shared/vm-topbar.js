@@ -9,6 +9,7 @@
 
 (function () {
   "use strict";
+  var clipboardModuleUrl = new URL("./vm-clipboard.js", document.currentScript.src).href;
 
   function getMenuPanel() {
     return document.querySelector("[data-vm-menu-panel]");
@@ -222,6 +223,11 @@
     setupMenu();
     setupReduceMotionToggle();
     setupFeedback();
+    import(clipboardModuleUrl).then(function (clipboard) {
+      clipboard.initializeClipboard();
+    }).catch(function (error) {
+      console.warn("Clipboard could not initialize", error);
+    });
   }
 
   if (document.readyState === "loading") {
