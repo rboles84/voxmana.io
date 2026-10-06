@@ -321,7 +321,7 @@ Recommended next pass, for Owner choice: (1) fixed header/footer with only card 
 Scrollbar references: https://developer.chrome.com/docs/css-ui/scrollbar-styling and https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Scrollbars_styling. Short Owner check: reload with the existing six cards, open Clipboard, confirm dark rail/muted-gold thumb, scroll to the last row and Export/Copy, then close with Escape. Owner visual judgment/acceptance and integration remain pending; no push, merge or deployment.
 
 
-## Current independent engineering decision
+## Historical current independent engineering decision — scrollbar revision
 
 Candidate: b2fa303b08decdca1927b14f6630d0dfafd3c927
 RobQA: PASS
@@ -337,7 +337,7 @@ Harness disclosure: computed WebKit hover pseudo-state is unreliable while stand
 
 The EDHREC comparison and five proposed layout improvements above remain recommendations only. No wider layout or export behavior is implemented in this candidate.
 
-## Material candidate
+## Historical material candidate — scrollbar revision
 
 - Baseline: `8cee92d103f28c2ca23c21f20bb35f47a849b4f6`
 - Candidate: `b2fa303b08decdca1927b14f6630d0dfafd3c927`
@@ -345,7 +345,7 @@ The EDHREC comparison and five proposed layout improvements above remain recomme
 
 This is the full Clipboard branch, including prior feature/icon/utility revisions and the current scrollbar correction. The latest runtime revision changes only `assets/css/topbar.css`.
 
-## Files changed
+## Historical files changed — scrollbar revision
 
 - `apocrypha/index.html`
 - `archscry/index.html`
@@ -382,7 +382,7 @@ This is the full Clipboard branch, including prior feature/icon/utility revision
 - `tests/archscry/archscry-dev-review-tests.js`
 - `tests/shared/clipboard-tests.js`
 
-## Evidence delta
+## Historical evidence delta — scrollbar revision
 
 - Material candidate: `b2fa303b08decdca1927b14f6630d0dfafd3c927`
 - Evidence head: `HEAD`
@@ -390,9 +390,29 @@ This is the full Clipboard branch, including prior feature/icon/utility revision
 
 Appended exact-QA/report evidence, card lifecycle/delivery fields and regenerated board are evidence-only and **not the full task diff**. Existing candidate prose and scope/decisions remain preserved. Owner acceptance and integration remain pending; no push, merge or deployment.
 
-## Evidence-only paths
+## Historical evidence-only paths — scrollbar revision
 
 - `docs/handoffs/2026-10-05-2211-codex-vm680-clipboard.md`
 - `docs/handoffs/2026-10-05-2211-robqa-vm680-clipboard.md`
 - `docs/kanban/board.md`
 - `docs/kanban/in-progress/VM-680-independent-clipboard.md`
+
+
+## Approved five-step Clipboard interior — 2026-10-06
+
+Owner explicitly said “proceed with this plan” for all five bounded steps supplied in the current chat. Same VM-680 branch/card; continuation admission PASS at a65c1f1dca18f9e458af013ab397b913753ba7e0 with live main matching the recorded baseline. Prior candidate evidence is historical; new Candidate/RobQA PENDING. Already-read governing RobDev/RobQA authority is reused.
+
+Implementation owners: shared `vm-clipboard.js` and `topbar.css`; adapt admitted `scripts/vm680-clipboard-browser.mjs` to the approved DOM/interaction contract and add focused interior assertions there. Native dialog shell, existing controller/store, single collection, quantities/sections/titles, Undo and export formatter remain. Temporary preview selection/title-editor state is per-page UI only. Desktop uses compact rows and a stable preview column; narrow layout has two-line controls and one inline selected preview. Header/footer remain visible while the themed list scrolls. Title uses existing rename normalization with Save/Cancel/Enter/Escape. Copy success does not expose export text; fallback is selectable text. Export opens a text area within the scrolling content, with user-triggered .txt download and object-URL cleanup. Scryfall retains a separate ordinary native link.
+
+Protected boundaries: no new store/schema/key/lifetime, Reading ownership/grouping, quiz history, Add changes, route/search/return/identifier producer edits, external integrations, dependencies or global style changes. Current browser harness must replace retired Preview/title-change/combined-copy selectors rather than introduce parallel contract tests. QA-2/shared interaction risk warrants separate exact-candidate QA, targeted empty/populated/overflow, long-name, preview selection/failure, title save/cancel, copy/fallback/download, quantity/move/remove/Clear Undo and focus/resize checks. Reuse unchanged feature source/URL tests; do not reopen placement/scoring or architecture. Stop at Owner Review; no push/merge/deploy.
+
+
+### Interior developer evidence and candidate packet
+
+Runtime implemented in the two admitted shared owners only. The controller block, store, Maze Add adapter, quiz/search/navigation/return/identifier owners remain byte-unchanged from the prior reviewed candidate. Temporary preview selection is keyed by existing card identity plus section and reconciled after moves/removal/Clear; resized preview is moved as one DOM instance. Title draft survives unrelated renders, commits only through existing rename, and Cancel does not write. Native form Enter/Escape and explicit Save/Cancel return focus. Header/title/preview text is visually bounded in short viewports with full text retained for accessibility/tooltip; card-row names wrap. Footer stays outside the list/export scroller. Copy completion is guarded against changed state, newer copy requests and closed/reopened dialog; modern success leaves export collapsed, failure provides selected text. Download is a real user-triggered Blob/text file using existing formatter, sanitized filename from custom title, and object-URL cleanup.
+
+Developer checks PASS: HTML/JS lint; existing Clipboard state/source contracts and 441 exact-link parity; existing store tests; existing context/recovery static tests; adapted focused isolated Edge browser harness. Browser exercises all public families/native Library alias, original pointer/keyboard Add and shared Add Undo, quantity/move/remove/Clear Undo, saved title/navigation/reload/BackForward, native Archscry launch/accepted return and quiz isolation. New interior witnesses cover empty state, single selected image/failure, Enter Save/Escape Cancel, explicit Save/Cancel with unchanged draft bytes, overflowing 14-row long-name fixture, actual native wheel plus End to bottom, fixed header/footer geometry, section move/removal selection/focus and Undo, desktop→390px single-node preview continuity, 44px targets, short desktop title-editor/preview/footer containment, successful Copy without text expansion, fallback selection, delayed copy completion after close/reopen, real .txt download exact bytes and object-URL revocation, and Clear/Undo restoring one preview. No screenshots, visual claims, viewport matrix, full scoring/placement or new storage owner.
+
+Implementation risk is shared DOM/focus/scroll plus temporary UI reconciliation, not scoring or persistence migration. Separate RobQA must inspect the exact full candidate, rerun the focused browser against the final bytes, and review whether the changed risk needs any additional targeted adversarial witness. Prior scrollbar exact-bottom harness debt is superseded for the new explicitly focusable list scroller: the adapted current harness successfully reached its real bottom with native End. Old evidence remains historical.
+
+Shortest Owner test: reload local Archscry with existing cards; check desktop rows and preview, scroll while Close/Copy remain visible; select a card and resize/narrow; Save then Cancel a title; adjust/move/remove a card and Undo, Clear and Undo; Copy list, Export, Download .txt; navigate/reload and confirm the same collection. Owner judges density, optical balance and mobile feel. Current session implements; configured existing independent RobQA reviewer follows the frozen candidate. No push, merge or deployment.

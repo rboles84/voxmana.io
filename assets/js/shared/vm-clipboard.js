@@ -94,14 +94,20 @@ function rowNode(row, section) {
   const item = element("li", "vm-clipboard-row");
   item.dataset.key = getCardIdentityKey(row);
   item.dataset.section = section.id;
-  const link = element("a", "vm-clipboard-card-name", row.name);
+  const name = button(row.name, "preview", `Preview ${row.name}`);
+  name.className = "vm-clipboard-card-name";
+  const link = element("a", "vm-clipboard-card-link", "↗");
+  link.setAttribute("aria-label", `Open ${row.name} on Scryfall`);
+  link.title = "Open on Scryfall";
+  link.dataset.clipboardAction = "open-card";
   link.href = safeWebUrl(row.scryfallUri, `https://scryfall.com/search?q=${encodeURIComponent(`!"${row.name}"`)}`);
   link.target = "_blank";
   link.rel = "noopener";
   const controls = element("div", "vm-clipboard-row-controls");
   const decrease = button("−", "decrease", `Decrease ${row.name} quantity`);
   decrease.disabled = row.quantity <= 1;
-  const quantity = element("span", "vm-clipboard-quantity", `Qty ${row.quantity}`);
+  const quantity = element("span", "vm-clipboard-quantity", String(row.quantity));
+  quantity.setAttribute("aria-label", `Quantity ${row.quantity}`);
   const increase = button("+", "increase", `Increase ${row.name} quantity`);
   const remove = button("×", "remove", `Remove ${row.name}`);
   const sectionSelect = element("select", "vm-clipboard-section");
@@ -114,20 +120,61 @@ function rowNode(row, section) {
     sectionSelect.append(option);
   });
   controls.append(decrease, quantity, increase, sectionSelect, remove);
-  const preview = element("details", "vm-clipboard-preview");
-  preview.append(element("summary", "", `Preview ${row.name}`));
-  const imageUrl = safeWebUrl(row.imageUri);
-  const unavailable = element("p", "", "Image unavailable. The card link opens Scryfall.");
-  if (imageUrl) {
-    const image = element("img", "vm-clipboard-image");
-    image.src = imageUrl;
-    image.alt = `${row.name} card image`;
-    image.loading = "lazy";
-    image.addEventListener("error", () => { image.remove(); preview.append(unavailable); }, { once: true });
-    preview.append(image);
-  } else preview.append(unavailable);
-  item.append(link, controls, preview);
+  const identity = element("div", "vm-clipboard-row-name");
+  identity.append(name, link);
+  item.append(identity, controls);
   return item;
+}
+
+function displayTitle(draft) {
+  return draft.title === DEFAULT_READING_FINDS_TITLE ? "Clipboard" : draft.title;
+}
+
+function previewRows(draft) {
+  return READING_FIND_SECTION_CONFIG.flatMap(section => draft.sections[section.id].map(row => ({ row, section: section.id, key: getCardIdentityKey(row) })));
+}
+
+function renderPreview(draft = getClipboard().getState()) {
+  const rows = previewRows(draft);
+  let selected = rows.find(row => row.key === view.selected?.key && row.section === view.selected.section);
+  if (!selected) selected = rows[Math.min(view.selectedIndex, rows.length - 1)];
+  view.selected = selected ? { key: selected.key, section: selected.section } : null;
+  view.selectedIndex = selected ? rows.indexOf(selected) : 0;
+  view.previewPane.hidden = !selected;
+  view.workspace.classList.toggle("vm-clipboard-workspace--empty", !selected);
+  let selectedNode;
+  [...view.list.querySelectorAll(".vm-clipboard-row")].forEach(node => {
+    const current = Boolean(selected && node.dataset.key === selected.key && node.dataset.section === selected.section);
+    node.classList.toggle("vm-clipboard-row--selected", current);
+    node.querySelector('[data-clipboard-action="preview"]').setAttribute("aria-pressed", String(current));
+    if (current) selectedNode = node;
+  });
+  if (!selected) {
+    view.preview.replaceChildren();
+    view.previewToken = "";
+    view.previewPane.append(view.preview);
+    return;
+  }
+  const { row } = selected;
+  const token = JSON.stringify([selected.key, row.name, row.imageUri, row.scryfallUri]);
+  if (view.previewToken !== token) {
+    view.previewToken = token;
+    view.preview.setAttribute("aria-label", `Preview ${row.name}`);
+    const heading = element("h3", "", row.name);
+    heading.title = row.name;
+    const media = element("div", "vm-clipboard-preview-media");
+    const imageUrl = safeWebUrl(row.imageUri);
+    const unavailable = () => media.append(element("p", "", "Image unavailable. Open the card on Scryfall."));
+    if (imageUrl) {
+      const image = element("img", "vm-clipboard-image");
+      image.src = imageUrl;
+      image.alt = `${row.name} card image`;
+      image.addEventListener("error", () => { image.remove(); unavailable(); }, { once: true });
+      media.append(image);
+    } else unavailable();
+    view.preview.replaceChildren(heading, media);
+  }
+  (view.wide.matches ? view.previewPane : selectedNode).append(view.preview);
 }
 
 function render() {
@@ -136,12 +183,19 @@ function render() {
   const draft = clipboard.getState();
   const active = document.activeElement;
   const focusedRow = active?.closest?.(".vm-clipboard-row");
-  const focus = focusedRow ? { key: focusedRow.dataset.key, section: focusedRow.dataset.section, action: active.dataset.clipboardAction } : null;
+  const focusedIndex = focusedRow ? [...view.list.querySelectorAll(".vm-clipboard-row")].indexOf(focusedRow) : -1;
+  const focus = view.focusAfterRender || (focusedRow ? { key: focusedRow.dataset.key, section: focusedRow.dataset.section, action: active.dataset.clipboardAction } : null);
+  view.focusAfterRender = null;
+  const scrollTop = view.body.scrollTop;
+  view.revision += 1;
   view.count.textContent = String(clipboard.total);
   view.trigger.setAttribute("aria-label", `Clipboard, ${clipboard.total} cards`);
-  if (active !== view.title) view.title.value = draft.title === DEFAULT_READING_FINDS_TITLE ? "Clipboard" : draft.title;
-  view.body.replaceChildren();
-  if (!clipboard.total) view.body.append(element("p", "vm-clipboard-empty", "Add a card from a search to begin your Clipboard."));
+  view.heading.textContent = displayTitle(draft);
+  view.heading.title = displayTitle(draft);
+  view.heading.setAttribute("aria-label", displayTitle(draft) === "Clipboard" ? "Clipboard" : `Clipboard: ${displayTitle(draft)}`);
+  if (view.titleEditor.hidden) view.title.value = displayTitle(draft);
+  view.list.replaceChildren();
+  if (!clipboard.total) view.list.append(element("p", "vm-clipboard-empty", "Add a card from a search to begin your Clipboard."));
   READING_FIND_SECTION_CONFIG.forEach(section => {
     const rows = draft.sections[section.id];
     if (!rows.length) return;
@@ -150,12 +204,15 @@ function render() {
     const list = element("ul", "vm-clipboard-list");
     rows.forEach(row => list.append(rowNode(row, section)));
     group.append(list);
-    view.body.append(group);
+    view.list.append(group);
   });
+  renderPreview(draft);
   view.status.textContent = clipboard.message;
   view.undo.hidden = !clipboard.canUndo;
   view.clear.disabled = !clipboard.total;
   view.export.disabled = !clipboard.total;
+  view.copy.disabled = !clipboard.total;
+  view.download.disabled = !clipboard.total;
   view.exportText.value = clipboard.exportText();
   view.returnLink.hidden = !returnUrl;
   if (returnUrl) view.returnLink.href = returnUrl;
@@ -163,8 +220,11 @@ function render() {
   if (focus && view.dialog.open) {
     const row = [...view.body.querySelectorAll(".vm-clipboard-row")].find(node => node.dataset.key === focus.key && node.dataset.section === focus.section);
     const target = row?.querySelector(`[data-clipboard-action="${focus.action}"]`);
-    (target && !target.disabled ? target : view.close).focus({ preventScroll: true });
+    const rows = [...view.list.querySelectorAll(".vm-clipboard-row")];
+    const next = rows[Math.min(focusedIndex, rows.length - 1)] || rows.find(node => node.dataset.key === view.selected?.key && node.dataset.section === view.selected.section);
+    (target && !target.disabled ? target : next?.querySelector('[data-clipboard-action="preview"]') || view.close).focus({ preventScroll: true });
   }
+  view.body.scrollTop = scrollTop;
 }
 
 export function setClipboardReturnUrl(url = "") {
@@ -197,19 +257,55 @@ export function addClipboardCard(card, section, context) {
 async function copyExport() {
   const text = getClipboard().exportText();
   if (!text) return;
-  view.exportText.hidden = false;
-  view.exportText.value = text;
+  const revision = view.revision;
+  const request = ++view.copyRequest;
+  const current = () => view.dialog.open && view.revision === revision && view.copyRequest === request;
   try {
     if (!navigator.clipboard?.writeText) throw new Error("Copy unavailable");
     await navigator.clipboard.writeText(text);
-    view.status.textContent = "Clipboard copied";
+    if (current()) view.status.textContent = "Clipboard copied";
   } catch (_) {
+    if (!current()) return;
+    showExport(true);
+    view.exportText.value = text;
     view.exportText.focus();
     view.exportText.select();
     let copied = false;
     try { copied = Boolean(document.execCommand?.("copy")); } catch (_) { /* Selectable text remains available. */ }
     view.status.textContent = copied ? "Clipboard copied" : "Copy unavailable. Export text is selected.";
   }
+}
+
+function showExport(show) {
+  view.exportPanel.hidden = !show;
+  view.export.setAttribute("aria-expanded", String(show));
+  if (show) {
+    view.exportText.value = getClipboard().exportText();
+    view.exportPanel.scrollIntoView({ block: "nearest" });
+    view.exportText.focus({ preventScroll: true });
+  } else view.export.focus({ preventScroll: true });
+}
+
+function finishTitleEdit(save) {
+  if (save) getClipboard().rename(view.title.value);
+  view.titleEditor.hidden = true;
+  view.editTitle.setAttribute("aria-expanded", "false");
+  view.title.value = displayTitle(getClipboard().getState());
+  view.editTitle.focus({ preventScroll: true });
+}
+
+function downloadExport() {
+  const text = getClipboard().exportText();
+  if (!text) return;
+  const url = URL.createObjectURL(new Blob([text], { type: "text/plain;charset=utf-8" }));
+  const link = element("a");
+  link.href = url;
+  link.download = `${displayTitle(getClipboard().getState()).replace(/[<>:"/\\|?*\u0000-\u001f]/g, "_").replace(/[. ]+$/g, "").slice(0, 100) || "Clipboard"}.txt`;
+  document.body.append(link);
+  link.click();
+  link.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+  view.status.textContent = "Text download started";
 }
 
 export function initializeClipboard() {
@@ -242,16 +338,40 @@ export function initializeClipboard() {
   const heading = element("h2", "", "Clipboard");
   heading.id = "vm-clipboard-heading";
   const close = button("×", "close", "Close Clipboard");
+  const editTitle = button("Edit title", "edit-title");
+  editTitle.setAttribute("aria-expanded", "false");
+  editTitle.setAttribute("aria-controls", "vm-clipboard-title-editor");
+  const titleEditor = element("form", "vm-clipboard-title-editor");
+  titleEditor.id = "vm-clipboard-title-editor";
+  titleEditor.hidden = true;
   const titleLabel = element("label", "vm-clipboard-title-label", "Collection title");
   const title = element("input", "vm-clipboard-title");
   title.type = "text";
   titleLabel.append(title);
-  header.append(heading, close);
+  const titleActions = element("div", "vm-clipboard-actions");
+  const saveTitle = button("Save", "save-title");
+  saveTitle.type = "submit";
+  const cancelTitle = button("Cancel", "cancel-title");
+  titleActions.append(saveTitle, cancelTitle);
+  titleEditor.append(titleLabel, titleActions);
+  header.append(heading, editTitle, close);
+  const workspace = element("div", "vm-clipboard-workspace");
   const body = element("div", "vm-clipboard-body");
+  body.tabIndex = 0;
+  body.setAttribute("role", "region");
+  body.setAttribute("aria-label", "Clipboard cards");
+  const list = element("div", "vm-clipboard-card-list");
+  const previewPane = element("div", "vm-clipboard-preview-pane");
+  const preview = element("section", "vm-clipboard-preview");
+  previewPane.append(preview);
+  const footer = element("footer", "vm-clipboard-footer");
   const actions = element("div", "vm-clipboard-actions");
   const clear = button("Clear", "clear");
   const undo = button("Undo", "undo");
-  const exportButton = button("Export / Copy", "export");
+  const copy = button("Copy list", "copy");
+  const exportButton = button("Export", "export");
+  exportButton.setAttribute("aria-expanded", "false");
+  exportButton.setAttribute("aria-controls", "vm-clipboard-export-panel");
   const returnLink = element("a", "vm-clipboard-return", "Return to Dossier");
   returnLink.id = "scratchpad-return-dossier";
   returnLink.hidden = true;
@@ -259,21 +379,38 @@ export function initializeClipboard() {
   status.setAttribute("role", "status");
   const exportText = element("textarea", "vm-clipboard-export");
   exportText.readOnly = true;
-  exportText.hidden = true;
   exportText.setAttribute("aria-label", "Clipboard export text");
-  actions.append(clear, undo, exportButton);
-  dialog.append(header, titleLabel, body, actions, returnLink, status, exportText);
+  const exportPanel = element("section", "vm-clipboard-export-panel");
+  exportPanel.id = "vm-clipboard-export-panel";
+  exportPanel.hidden = true;
+  const exportActions = element("div", "vm-clipboard-actions");
+  const download = button("Download .txt", "download");
+  const hideExport = button("Hide text", "hide-export");
+  exportActions.append(download, hideExport);
+  exportPanel.append(element("h3", "", "Export text"), exportText, exportActions);
+  body.append(list, exportPanel);
+  workspace.append(body, previewPane);
+  actions.append(clear, undo, copy, exportButton);
+  footer.append(actions, returnLink, status);
+  dialog.append(header, titleEditor, workspace, footer);
   document.body.append(dialog);
-  view = { trigger, count, dialog, close, title, body, clear, undo, export: exportButton, status, returnLink, exportText };
+  view = { trigger, count, dialog, close, heading, title, titleEditor, editTitle, workspace, body, list, preview, previewPane,
+    clear, undo, copy, export: exportButton, status, returnLink, exportText, exportPanel, download,
+    selected: null, selectedIndex: 0, previewToken: "", revision: 0, copyRequest: 0, wide: window.matchMedia("(min-width: 900px)") };
   trigger.addEventListener("click", openClipboard);
   close.addEventListener("click", closeClipboard);
   dialog.addEventListener("close", () => {
+    view.revision += 1;
+    titleEditor.hidden = true;
+    editTitle.setAttribute("aria-expanded", "false");
+    exportPanel.hidden = true;
+    exportButton.setAttribute("aria-expanded", "false");
     trigger.setAttribute("aria-expanded", "false");
     trigger.focus({ preventScroll: true });
   });
   dialog.addEventListener("keydown", event => {
     if (event.key !== "Tab") return;
-    const controls = [...dialog.querySelectorAll('button, input, select, textarea, summary, a[href]')]
+    const controls = [...dialog.querySelectorAll('button, input, select, textarea, a[href], [tabindex="0"]')]
       .filter(node => !node.disabled && node.getClientRects().length > 0);
     const first = controls[0];
     const last = controls.at(-1);
@@ -290,11 +427,25 @@ export function initializeClipboard() {
     const rect = dialog.getBoundingClientRect();
     if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) closeClipboard();
   });
-  title.addEventListener("change", () => clipboard.rename(title.value));
-  title.addEventListener("keydown", event => { if (event.key === "Enter") { event.preventDefault(); title.blur(); } });
-  clear.addEventListener("click", () => clipboard.clear());
+  editTitle.addEventListener("click", () => {
+    title.value = displayTitle(clipboard.getState());
+    titleEditor.hidden = false;
+    editTitle.setAttribute("aria-expanded", "true");
+    title.focus({ preventScroll: true });
+    title.select();
+  });
+  titleEditor.addEventListener("submit", event => { event.preventDefault(); finishTitleEdit(true); });
+  cancelTitle.addEventListener("click", () => finishTitleEdit(false));
+  titleEditor.addEventListener("keydown", event => {
+    if (event.key === "Escape") { event.preventDefault(); event.stopPropagation(); finishTitleEdit(false); }
+  });
+  clear.addEventListener("click", () => { if (clipboard.clear()) undo.focus({ preventScroll: true }); });
   undo.addEventListener("click", () => clipboard.undo());
-  exportButton.addEventListener("click", copyExport);
+  copy.addEventListener("click", copyExport);
+  exportButton.addEventListener("click", () => showExport(exportPanel.hidden));
+  hideExport.addEventListener("click", () => showExport(false));
+  download.addEventListener("click", downloadExport);
+  view.wide.addEventListener("change", () => renderPreview());
   body.addEventListener("click", event => {
     const control = event.target.closest("[data-clipboard-action]");
     const row = control?.closest(".vm-clipboard-row");
@@ -302,6 +453,10 @@ export function initializeClipboard() {
     const { key, section } = row.dataset;
     const saved = clipboard.getState().sections[section].find(card => getCardIdentityKey(card) === key);
     if (!saved) return;
+    if (control.dataset.clipboardAction === "preview") {
+      view.selected = { key, section };
+      renderPreview();
+    }
     if (control.dataset.clipboardAction === "remove") clipboard.remove(key, section);
     if (control.dataset.clipboardAction === "decrease") clipboard.setQuantity(key, section, saved.quantity - 1);
     if (control.dataset.clipboardAction === "increase") clipboard.setQuantity(key, section, saved.quantity + 1);
@@ -309,7 +464,12 @@ export function initializeClipboard() {
   body.addEventListener("change", event => {
     const control = event.target.closest('[data-clipboard-action="move"]');
     const row = control?.closest(".vm-clipboard-row");
-    if (row) clipboard.move(row.dataset.key, row.dataset.section, control.value);
+    if (row) {
+      const key = row.dataset.key;
+      if (view.selected?.key === key && view.selected.section === row.dataset.section) view.selected.section = control.value;
+      view.focusAfterRender = { key, section: control.value, action: "move" };
+      clipboard.move(key, row.dataset.section, control.value);
+    }
   });
   clipboard.subscribe(render);
   window.addEventListener("storage", event => { if (event.key === READING_FINDS_STORAGE_KEY || event.key === null) clipboard.refresh(); });

@@ -1198,7 +1198,7 @@ body.vm-feedback-open {
 .vm-clipboard-unavailable { color: var(--text-dim, #bbb); font: 0.7rem var(--font-ui, system-ui, sans-serif); }
 dialog.vm-clipboard-dialog {
   box-sizing: border-box;
-  width: min(560px, calc(100vw - 24px));
+  width: min(960px, calc(100vw - 24px));
   max-width: calc(100vw - 24px);
   max-height: calc(100dvh - 32px);
   padding: 1rem;
@@ -1208,19 +1208,45 @@ dialog.vm-clipboard-dialog {
   background: #090b0d;
   color: var(--text, #eee8d8);
   font: 0.9rem/1.5 var(--font-ui, system-ui, sans-serif);
+  overflow: hidden;
+}
+dialog.vm-clipboard-dialog[open] { display: flex; flex-direction: column; }
+.vm-clipboard-workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 240px;
+  grid-template-rows: minmax(0, 1fr);
+  gap: 1rem;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+.vm-clipboard-workspace--empty { grid-template-columns: minmax(0, 1fr); }
+.vm-clipboard-body {
+  min-width: 0;
+  min-height: 0;
   overflow: auto;
   overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+  padding-right: 0.4rem;
+}
+.vm-clipboard-body,
+.vm-clipboard-export {
   scrollbar-width: thin;
   scrollbar-color: #8f7844 #090b0d;
 }
-dialog.vm-clipboard-dialog::-webkit-scrollbar { width: 12px; }
-dialog.vm-clipboard-dialog::-webkit-scrollbar-track { background: #090b0d; }
-dialog.vm-clipboard-dialog::-webkit-scrollbar-thumb { border: 3px solid #090b0d; border-radius: 6px; background: #8f7844; }
-dialog.vm-clipboard-dialog::-webkit-scrollbar-thumb:hover { background: var(--site-gold, #d2b370); }
+.vm-clipboard-body::-webkit-scrollbar,
+.vm-clipboard-export::-webkit-scrollbar { width: 12px; }
+.vm-clipboard-body::-webkit-scrollbar-track,
+.vm-clipboard-export::-webkit-scrollbar-track { background: #090b0d; }
+.vm-clipboard-body::-webkit-scrollbar-thumb,
+.vm-clipboard-export::-webkit-scrollbar-thumb { border: 3px solid #090b0d; border-radius: 6px; background: #8f7844; }
+.vm-clipboard-body::-webkit-scrollbar-thumb:hover,
+.vm-clipboard-export::-webkit-scrollbar-thumb:hover { background: var(--site-gold, #d2b370); }
 .vm-clipboard-dialog::backdrop { background: rgba(0, 0, 0, 0.7); }
 .vm-clipboard-dialog [hidden] { display: none !important; }
-.vm-clipboard-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
-.vm-clipboard-head h2 { margin: 0; color: var(--gold-l, #f4dda0); font: 1.35rem var(--font-display, serif); }
+.vm-clipboard-head { display: flex; align-items: center; gap: 0.5rem; flex: 0 0 auto; padding-bottom: 0.75rem; }
+.vm-clipboard-head h2 { flex: 1; min-width: 0; margin: 0; overflow-wrap: anywhere; color: var(--gold-l, #f4dda0); font: 1.35rem var(--font-display, serif); }
+.vm-clipboard-head h2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.vm-clipboard-title-editor { flex: 0 0 auto; padding-bottom: 0.75rem; }
 .vm-clipboard-title-label { display: grid; gap: 0.3rem; margin-block: 0.75rem 1rem; }
 .vm-clipboard-title,
 .vm-clipboard-section,
@@ -1235,12 +1261,18 @@ dialog.vm-clipboard-dialog::-webkit-scrollbar-thumb:hover { background: var(--si
   font: inherit;
 }
 .vm-clipboard-title { width: 100%; }
-.vm-clipboard-group h3 { margin: 1rem 0 0.5rem; font-size: 0.95rem; color: var(--gold-l, #f4dda0); }
+.vm-clipboard-group h3 { margin: 0.75rem 0 0.35rem; font-size: 0.95rem; color: var(--gold-l, #f4dda0); }
+.vm-clipboard-group:first-child h3 { margin-top: 0; }
 .vm-clipboard-list { list-style: none; padding: 0; margin: 0; }
-.vm-clipboard-row { padding-block: 0.75rem; border-top: 1px solid #34342f; }
-.vm-clipboard-card-name,
+.vm-clipboard-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 0.5rem; padding: 0.3rem; border-top: 1px solid #34342f; }
+.vm-clipboard-row--selected { background: rgba(212, 180, 97, 0.06); box-shadow: inset 2px 0 var(--site-gold, #d2b370); }
+.vm-clipboard-row-name { display: flex; align-items: center; min-width: 0; gap: 0.25rem; }
+.vm-clipboard-card-name { flex: 1; min-width: 0; min-height: 44px; padding: 0.25rem; border: 0; background: transparent; color: inherit; font: inherit; line-height: 1.4; text-align: left; overflow-wrap: anywhere; cursor: pointer; }
+.vm-clipboard-card-name:hover { color: var(--gold-l, #f4dda0); }
+.vm-clipboard-card-link { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; text-decoration: none; }
+.vm-clipboard-card-link,
 .vm-clipboard-return { color: var(--gold-l, #f4dda0); overflow-wrap: anywhere; }
-.vm-clipboard-row-controls { display: grid; grid-template-columns: 44px minmax(3.4rem, auto) 44px minmax(0, 1fr) 44px; align-items: center; gap: 0.4rem; margin-top: 0.5rem; }
+.vm-clipboard-row-controls { display: grid; grid-template-columns: 44px 26px 44px 104px 44px; align-items: center; gap: 0.25rem; font-size: 0.75rem; }
 .vm-clipboard-button {
   min-width: 44px;
   min-height: 44px;
@@ -1253,20 +1285,40 @@ dialog.vm-clipboard-dialog::-webkit-scrollbar-thumb:hover { background: var(--si
   cursor: pointer;
 }
 .vm-clipboard-button:disabled { opacity: 0.5; cursor: default; }
+.vm-clipboard-row-controls .vm-clipboard-button { width: 44px; padding: 0; }
+.vm-clipboard-head [data-clipboard-action="close"] { width: 44px; padding: 0; }
 .vm-clipboard-trigger:focus-visible,
 .vm-clipboard-dialog :focus-visible { outline: 2px solid var(--gold-l, #f4dda0); outline-offset: 3px; }
 .vm-clipboard-section { min-height: 44px; width: 100%; }
 .vm-clipboard-quantity { text-align: center; font-variant-numeric: tabular-nums; }
-.vm-clipboard-preview { margin-top: 0.5rem; }
-.vm-clipboard-preview summary { min-height: 44px; cursor: pointer; overflow-wrap: anywhere; }
-.vm-clipboard-image { display: block; width: min(240px, 100%); height: auto; margin: 0.5rem auto; }
-.vm-clipboard-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-block: 1rem 0.5rem; }
+.vm-clipboard-preview-pane { min-width: 0; min-height: 0; padding-left: 0.75rem; border-left: 1px solid #34342f; }
+.vm-clipboard-preview-pane > .vm-clipboard-preview { display: flex; flex-direction: column; height: 100%; min-height: 0; }
+.vm-clipboard-preview-pane .vm-clipboard-preview-media { display: flex; justify-content: center; align-items: flex-start; flex: 1; min-height: 0; }
+.vm-clipboard-preview-pane .vm-clipboard-image { max-height: 100%; margin: 0; }
+.vm-clipboard-preview h3 { margin: 0 0 0.5rem; font-size: 0.95rem; overflow-wrap: anywhere; }
+.vm-clipboard-preview-pane h3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; flex-shrink: 0; }
+.vm-clipboard-preview p { overflow-wrap: anywhere; }
+.vm-clipboard-image { display: block; width: min(240px, 100%); height: auto; max-height: 34dvh; object-fit: contain; margin: 0.5rem auto; }
+.vm-clipboard-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0; }
+.vm-clipboard-footer { flex: 0 0 auto; padding-top: 0.75rem; border-top: 1px solid #34342f; }
 .vm-clipboard-return { display: inline-block; margin-top: 0.5rem; }
-.vm-clipboard-status { margin-block: 0.5rem; }
+.vm-clipboard-status { margin: 0.4rem 0 0; font-size: 0.8rem; }
+.vm-clipboard-status:empty { display: none; }
+.vm-clipboard-empty { margin-block: 1rem; }
+.vm-clipboard-export-panel { border-top: 1px solid #34342f; padding-block: 0.75rem; }
+.vm-clipboard-export-panel h3 { margin: 0 0 0.5rem; font-size: 0.95rem; }
+.vm-clipboard-export-panel .vm-clipboard-actions { margin-top: 0.5rem; }
 .vm-clipboard-export { display: block; width: 100%; min-height: 10rem; resize: vertical; }
+@media (max-width: 899px) {
+  dialog.vm-clipboard-dialog { width: min(640px, calc(100vw - 24px)); }
+  .vm-clipboard-workspace { grid-template-columns: minmax(0, 1fr); }
+  .vm-clipboard-preview-pane { display: none; }
+  .vm-clipboard-row { grid-template-columns: minmax(0, 1fr); gap: 0.25rem; }
+  .vm-clipboard-row-controls { grid-template-columns: 44px 26px 44px minmax(0, 1fr) 44px; }
+  .vm-clipboard-row > .vm-clipboard-preview { grid-column: 1 / -1; margin-top: 0.5rem; }
+  .vm-clipboard-row > .vm-clipboard-preview h3 { display: none; }
+}
 @media (max-width: 420px) {
   .vm-utility > .vm-clipboard-trigger { padding-inline: 0.4rem; font-size: 0.65rem; }
-  .vm-clipboard-row-controls { grid-template-columns: 44px minmax(0, 1fr) 44px 44px; }
-  .vm-clipboard-section { grid-row: 2; grid-column: 1 / -1; }
   dialog.vm-clipboard-dialog { padding: 0.75rem; }
 }
