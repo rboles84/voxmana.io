@@ -149,3 +149,76 @@ Owner requested a surgical replacement of the visible top-bar word Clipboard wit
 The prior candidate and all prior evidence sections above are historical. The same task and branch return to In Progress with Candidate and RobQA PENDING. Scope is already admitted; continuation admission PASS at 3f9e3bad8a8a0ca61da9a222ff4308d18435458b with live main still 8cee92d103f28c2ca23c21f20bb35f47a849b4f6. QA-1 changed risk is icon rendering, accessible naming and top-bar control size; reuse prior independent unchanged-behavior evidence and perform a separate exact-candidate delta review. Owner visual judgment remains pending; no push, merge or deployment.
 
 Owner check: reload the local Archscry preview, confirm the Lore icon replaces the word beside the count, hover for Clipboard, and open/close the same panel. Check one page without its own Mana stylesheet, such as Privacy, for the same icon.
+
+
+## Current independent engineering decision
+
+Candidate: f7b76f89d2c7bd1d98de3326102a34133160b501
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: Codex RobQA `/root/clipboard_candidate_qa`
+Implementer: Codex root/current session
+Owner: PENDING
+Integration: PENDING
+
+Independent QA re-read the actual full branch diff and reused its prior full-feature evidence for unchanged behavior. Lint, focused Clipboard contracts including 441 unchanged links, and an isolated objective Edge probe passed. Archscry and Privacy at 390px both loaded the bundled font, emitted U+E936, displayed only the count beside the decorative icon, retained tooltip and accessible count name, measured a 44px square target, opened the same panel, and returned focus after Escape. Source and browser evidence are recorded under `Lore icon candidate review` in the separate reviewer handoff. No full journey rerun, screenshot or heavy suite was warranted by this QA-1 presentation delta. Original configured RobQA route was reused; no new effective backend model claim is made.
+
+## Material candidate
+
+- Baseline: `8cee92d103f28c2ca23c21f20bb35f47a849b4f6`
+- Candidate: `f7b76f89d2c7bd1d98de3326102a34133160b501`
+- Changed paths: `34`
+
+This is the full Clipboard branch diff, including the surgical icon revision and previously reviewed feature. The current icon revision changes only its shared component/style owners at runtime.
+
+## Files changed
+
+- `apocrypha/index.html`
+- `archscry/index.html`
+- `assets/css/maze.css`
+- `assets/css/topbar.css`
+- `assets/js/archscry/runtime/dossier-view.js`
+- `assets/js/guide/maze-walkthrough.js`
+- `assets/js/maze/maze-scratchpad-store.js`
+- `assets/js/maze/research-init.js`
+- `assets/js/shared/vm-clipboard.js`
+- `assets/js/shared/vm-topbar.js`
+- `docs/handoffs/2026-10-05-2211-codex-vm680-clipboard.md`
+- `docs/handoffs/2026-10-05-2211-robqa-vm680-clipboard.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-680-independent-clipboard.md`
+- `guide/index.html`
+- `guide/maze/index.html`
+- `guide/reading/index.html`
+- `index.html`
+- `library/index.html`
+- `maze/index.html`
+- `privacy/index.html`
+- `scripts/validate-frontend-html.mjs`
+- `scripts/vm616-maze-context-recovery-tests.mjs`
+- `scripts/vm680-clipboard-browser.mjs`
+- `strategium/before-game/index.html`
+- `strategium/console/index.html`
+- `strategium/during-game/index.html`
+- `strategium/find-a-table/index.html`
+- `strategium/index.html`
+- `strategium/review/index.html`
+- `terms/index.html`
+- `tests/archscry/archscry-dev-review-tests.js`
+- `tests/shared/clipboard-tests.js`
+
+## Evidence delta
+
+- Material candidate: `f7b76f89d2c7bd1d98de3326102a34133160b501`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `4`
+
+The appended exact-QA/report evidence, card lifecycle fields and regenerated board are evidence-only and **not the full task diff**. Existing candidate prose is preserved. Owner acceptance and integration remain pending; no push, merge or deployment.
+
+## Evidence-only paths
+
+- `docs/handoffs/2026-10-05-2211-codex-vm680-clipboard.md`
+- `docs/handoffs/2026-10-05-2211-robqa-vm680-clipboard.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-680-independent-clipboard.md`

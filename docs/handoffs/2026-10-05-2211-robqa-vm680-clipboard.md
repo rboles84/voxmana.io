@@ -121,3 +121,37 @@ Stateful adversarial sufficiency remains PASS: forward Add, reverse Remove/Clear
 No blocker or major correctness defect remains. One nonblocking harness wording note remains: the validator's diagnostic text says “VM-618 shared topbar runtime cache key” while its executable assertion correctly checks `vm680`. This does not alter validation behavior, product behavior or evidence sufficiency; it may be corrected as routine maintenance without reopening the reviewed runtime scope.
 
 Owner judgment remains limited to the visual balance, spacing, tone, responsive feel and everyday usefulness described in the existing shortest Owner check above. This PASS permits Owner Review for exact candidate `e1d096f34be821242722c9b6a5980b70ae34fd23`; it does not claim Owner acceptance, integration or deployment.
+
+## Lore icon candidate review
+
+Task: VM-680
+Candidate: f7b76f89d2c7bd1d98de3326102a34133160b501
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: Codex RobQA `/root/clipboard_candidate_qa`
+Implementer: Codex root/current session
+Owner: PENDING
+Integration: PENDING
+
+### Classification and scope
+
+QA-1 presentation/accessibility delta. The Owner-requested material change replaces only the visible topbar word `Clipboard` with the bundled Mana Lore counter glyph while retaining the visible count, tooltip, dynamic accessible name, minimum target size and existing dialog behavior. Relative to the prior independently passed material candidate `e1d096f34be821242722c9b6a5980b70ae34fd23`, runtime changes are limited to `assets/js/shared/vm-clipboard.js` and `assets/css/topbar.css`; controller, storage, Add, Undo, export, quiz, navigation, URL producers, tests, dependencies and vendored font bytes are unchanged. The remaining candidate delta records the Owner revision, historical evidence and generated lifecycle views.
+
+Separate execution remains satisfied by the same non-implementing reviewer. This review reuses the prior full-feature PASS for unchanged owners and independently verifies the exact display delta at the lowest reliable layers.
+
+### Exact-candidate evidence
+
+- `git diff --check 8cee92d103f28c2ca23c21f20bb35f47a849b4f6..f7b76f89d2c7bd1d98de3326102a34133160b501` — PASS.
+- Baseline-to-candidate and prior-PASS-to-candidate diffs — inspected. The presentation delta creates a decorative `aria-hidden` `ms-counter-lore` span, retains the count, title and dynamic Clipboard accessible name, loads unchanged vendored Mana 1.18.0 WOFF through component family `VM Clipboard Mana`, maps the glyph to `U+E936`, renders it at 20px and gives the trigger a 44px minimum width and height.
+- `npm run lint:js` — PASS for 37 frontend JavaScript files.
+- `npm run lint:html` — PASS.
+- `node tests/shared/clipboard-tests.js` — PASS; shared state/source contracts remain green and all 441 normal/review/explore links remain byte-identical to accepted main.
+- [Focused external browser probe](C:/Users/obake/.codex/visualizations/2026/10/06/01a10f52-df47-77b1-b8a3-2c204efa4a9d/vm680-lore-icon-probe.mjs) — PASS in a fresh isolated Edge profile with a temporary read-only local server, no screenshots and no user storage. At 390×844, Archscry with route Mana CSS and Privacy without route Mana CSS both reported the component font face `loaded`, `document.fonts.check(...) === true`, pseudo-element code point `U+E936`, 20px icon with positive width, visible count only, decorative icon semantics, `Clipboard, 0 cards` accessible name, `Clipboard` tooltip, exact 44×44 trigger, viewport containment, reachable dialog and focus return after Escape.
+
+The stated localhost preview was not listening on the first probe attempt, producing `ERR_CONNECTION_REFUSED` before product code loaded. One causal check identified the environment boundary; the self-contained read-only server then passed the same probe. This is environment setup, not a product or harness correctness failure.
+
+### Sufficiency and Owner boundary
+
+No blocker or major correctness defect remains. Full feature browser journeys, placement/scoring suites, screenshots, visual regression and viewport matrices were intentionally skipped: the shared component behavior and protected owners are byte-unchanged from the prior exact-candidate PASS, while the new objective risks are fully covered by source/lint contracts and the two-route browser witness. CPU-heavy validation: NOT REQUIRED. Stateful adversarial coverage: reused from the prior PASS because this revision changes no state owner or transition.
+
+Owner review should reload Archscry and Privacy, judge whether the Lore symbol is the desired visual choice beside the count, hover for `Clipboard`, and open/close the same panel. Aesthetic fit and optical balance remain Owner judgment. This engineering PASS is bound only to `f7b76f89d2c7bd1d98de3326102a34133160b501`; Owner acceptance, integration and deployment remain pending.
