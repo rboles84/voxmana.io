@@ -1,0 +1,92 @@
+# VM-680 — Independent Clipboard RobQA
+
+Task: VM-680
+Candidate: 8ad251ce1ad9150a9d2b923169f78606b46272ec
+Admission baseline: 8cee92d103f28c2ca23c21f20bb35f47a849b4f6
+RobQA: BLOCKED
+Execution: SEPARATE
+Reviewer: Codex RobQA `/root/clipboard_candidate_qa`
+Implementer: Codex root/current session
+Owner: PENDING
+Integration: PENDING
+
+## Decision
+
+The exact frozen candidate is **BLOCKED** from engineering PASS. Runtime and focused interaction evidence is green, but the candidate intentionally changes the shared topbar JavaScript and CSS cache keys from `vm618` to `vm680` without updating the repository's required HTML validator. `npm run lint:html` therefore fails for all 16 public entry pages and falsely reports the unchanged Home stylesheet order because that check also searches for the retired `vm618` topbar URL. `.github/workflows/validation.yml` runs `lint:html` in required Deterministic Validation, so this exact candidate is guaranteed to fail integration CI.
+
+This is candidate-caused test-contract drift, not a rendered-product defect. It is not eligible for the unrelated/ambiguous harness-debt allowance: the intended cache-key change directly triggers the stale assertions. The shortest correction is to admit and update `scripts/validate-frontend-html.mjs` so its shared topbar runtime and Home order assertions recognize the approved `vm680` URLs, freeze a new candidate, and rerun the focused checks below. No runtime correction is requested by this review.
+
+## Change classification
+
+- QA tier: QA-2 component interaction plus QA-3 navigation, persistence and state transitions.
+- Changed behavior: one shared editable Clipboard in the public top bar; Maze Add adapters; quantity, section, title, preview, remove/Clear Undo and export/copy; persistence and refresh; neutral Clipboard copy; removal of Reading-owned collection presentation.
+- Protected behavior intentionally untouched: identifier and URL producers, Archscry/Maze handoff serialization, accepted-return navigation owners, quiz placement/scoring, saved-result ownership and Forget behavior.
+- Execution reason: `SEPARATE` is required for a site-wide shared component, persistent state ownership, protected navigation boundaries and substantive integration risk. The reviewer did not implement the material candidate.
+- Exact evidence binding: this decision and every result below apply to `8ad251ce1ad9150a9d2b923169f78606b46272ec` only. The worktree was clean at review start and remained at that SHA until this QA evidence file was authored.
+
+## Finding
+
+**BLOCKER — required deterministic HTML validation is stale and fails the candidate.**
+
+Expected: the approved `vm680` shared topbar runtime and stylesheet references pass the repository HTML contract, including the existing Home order `topbar.css` → Keyrune → `home.css`.
+
+Actual: `scripts/validate-frontend-html.mjs` hard-codes `assets/js/shared/vm-topbar.js?v=vm618` at its public-page assertion and `./assets/css/topbar.css?v=vm618` in the Home order lookup. `npm run lint:html` reports 16 runtime-cache-key failures plus one Home order failure. Source inspection confirms the candidate changed only the cache keys in that ordering sequence; the physical stylesheet order remains correct.
+
+Defect class: a version-pinned validation contract was not advanced with the intentionally versioned public asset references.
+
+Required invariant: the frontend HTML validator must assert the current approved shared topbar cache key consistently for every public entry page and use that same current URL when checking stylesheet order.
+
+## Selected evidence
+
+- `git diff --check 8cee92d103f28c2ca23c21f20bb35f47a849b4f6..8ad251ce1ad9150a9d2b923169f78606b46272ec` — PASS. No whitespace errors.
+- `node tests/shared/clipboard-tests.js` — PASS. Existing rows, metadata, quantities, sections and title survive; identity merging, Undo invalidation, failed-write truth, current/v2/v1 precedence, singleton controller and public header coverage pass. All 441 generated normal/review/explore links match the accepted baseline byte for byte, and protected navigation/quiz owners match baseline source.
+- `node tests/maze/maze-scratchpad-store-tests.js` — PASS. Existing schema-v1 store behavior and legacy precedence pass.
+- `node scripts/vm616-maze-context-recovery-tests.mjs` — PASS. Search/context recovery and collection-neutral guidance pass.
+- `npm run lint:js` — PASS for 37 frontend JavaScript files.
+- `npm run lint:html` — **FAIL** with the blocker above. One causal inspection found exact `vm618` literals at the failing runtime and Home-order assertions; the candidate's DOM order is unchanged apart from the approved `vm680` cache key. The failure was not retried or weakened.
+- `node scripts/vm680-clipboard-browser.mjs` — PASS in an isolated local Edge profile with fixture network and no screenshots. It exercised 15 public-family routes plus Maze; real pointer travel and Add hit area; keyboard increment; shared Add Undo; quantity/section/title controls; preview success then missing-image fallback; Remove/Clear Undo; copy success and selectable-text fallback; navigation, reload, Back/Forward and Library alias; 390px reachability/containment; Enter, Escape, Shift+Tab and focus return; native Archscry launch/accepted return; distinct direct/dossier cards; retake, changed-result/refinement restoration and Forget isolation.
+
+The browser run was justified because real pointer geometry, native dialog focus, narrow containment, cross-page persistence and native navigation/return cannot be protected reliably by source/unit assertions alone. It collected objective DOM/state evidence only and made no visual-quality claim.
+
+## Stateful adversarial coverage
+
+- Relevant owners and changed seams: canonical schema-v1 localStorage draft; shared Clipboard controller; Maze Add adapter; storage/BFCache refresh; Archscry/Maze return context; quiz/saved-reading owners.
+- Forward transition: direct and dossier-origin Add actions join the same Clipboard and preserve ordinary search metadata without assigning Reading ownership — PASS.
+- Reverse transition: Remove and Clear followed by Undo restore the complete prior state; Add followed by toast Undo restores the prior quantity — PASS.
+- Perturb/restore: quantity, section and title were changed, navigated across public families, reloaded and traversed through Back/Forward with the saved collection retained — PASS.
+- Replacement/reset: an intervening edit and a storage refresh invalidate stale Undo; current storage wins over overlapping legacy ancestors; retake, result replacement/refinement restoration and Forget cannot reclaim or delete Clipboard ownership — PASS.
+- Same visible state/different history: current, v2 and v1 sources were seeded separately; overlapping ancestors were not unioned; navigation/reload restored the same authoritative saved draft — PASS.
+- Representation round-trip: existing store state → shared editor → ordinary Clipboard export preserved quantities, sections and custom title behavior; preview failure returned to an editable row — PASS.
+- Visible/current versus executed state: all 441 same-state generated Archscry → Maze links are byte-identical to baseline; production navigation owners remain source-identical — PASS.
+- Structurally different representative: one direct Maze card and a distinct dossier-origin card exercised separate source histories in the same shared collection — PASS.
+- Sensitivity/causal control: the stale HTML validator's exact `vm618` literals explain its failure while the actual candidate order remains correct. No mutation test was necessary.
+
+## Tests intentionally skipped
+
+- Full placement/scoring, mutation, exhaustive journey and all-37 engine certification: not required because scoring, ranking, qualification and identifier production did not change; protected URL producers were checked directly against the accepted baseline.
+- Visual regression, screenshots and viewport matrices: not required under OWNER-VISUAL mode. The focused browser run checked only objective interaction and one relevant narrow containment case.
+- Broad legacy browser suites: not required after the dedicated Clipboard journey covered the changed component and state seams. The accepted-return heading's below-viewport placement is an unchanged baseline observation; panel activation, href, target and anchor consumption remain protected and passed.
+- CPU-heavy validation: NOT REQUIRED.
+
+## Remaining risk and Owner judgment
+
+No runtime correctness finding remains from this review. The candidate cannot advance until the deterministic validator blocker is corrected in a new exact candidate. The Owner still owns visual balance, spacing, tone, responsive feel and whether Clipboard feels natural in everyday use; this BLOCKED decision does not request Owner acceptance of the stale candidate.
+
+## Shortest Owner check after a new RobQA PASS
+
+Purpose: judge the shared Clipboard's everyday feel while confirming the requested journey.
+
+Open: `/maze/?q=sol+ring` on the local candidate preview. Existing saved cards may remain; do not clear storage.
+
+1. Open Clipboard from the top bar, preview a card, and close with Escape.
+2. Use the existing Add control twice on one search card, then edit its quantity or section in Clipboard.
+3. Navigate to another public page and back or reload; confirm the same title, rows and quantities remain.
+4. Remove a card and Undo, then Clear and Undo; use Export / Copy once.
+
+PASS if the panel feels coherent and readable, controls are easy to reach, focus returns naturally, and the collection remains the same across navigation/reload until an explicit card action changes it.
+
+FAIL if the trigger/panel feels misplaced or crowded, controls are hard to understand or reach, focus is stranded, or saved membership changes because of navigation or Reading/quiz actions.
+
+## Recheck boundary
+
+After the validator correction and a new candidate freeze, rerun `npm run lint:html`, `npm run lint:js`, `node tests/shared/clipboard-tests.js`, the focused store/recovery checks, `git diff --check`, and the dedicated Clipboard browser journey. Bind the next verdict to the new full SHA. Do not treat this BLOCKED record as PASS for a descendant candidate.

@@ -60,3 +60,9 @@ Starting state: existing saved cards are welcome; no storage clearing is needed.
 6. Export / Copy and inspect/paste the ordinary sectioned quantity/card-name list.
 
 PASS if top-bar access and review feel coherent, Add feels unchanged, data follows navigation/reload, quiz changes leave it alone, Undo restores intended cards, and export is useful. FAIL if cards disappear/split by Reading, editing or keyboard access breaks, or the shared panel feels wrong. Owner decision remains pending for the exact reviewed candidate.
+
+## Candidate correction after independent QA
+
+The separate RobQA reviewer blocked candidate `8ad251ce1ad9150a9d2b923169f78606b46272ec` on required HTML validation while passing the focused runtime/browser checks. `scripts/validate-frontend-html.mjs` still searched for the old `vm618` topbar cache keys. A dedicated admission amendment permits the two literal updates to the approved `vm680` JavaScript URL and Home stylesheet-order lookup. Runtime is unchanged from that reviewed candidate. The original BLOCKED report is retained in the QA handoff; the corrected commit requires a new exact-candidate QA verdict. No Owner acceptance or integration is inferred.
+
+Owner preview is running locally at `http://127.0.0.1:8680/maze/?q=sol+ring`. As before, browser storage belongs to its origin; use your normal local preview origin to inspect cards already saved there.
