@@ -422,3 +422,72 @@ Shortest Owner test: reload local Archscry with existing cards; check desktop ro
 Independent RobQA blocked fd0295255537990d41f9e959a48958aa84382ccb for preview requests while the native dialog was closed and no retry of the same failed selection after reopening. The original BLOCKED decision and isolated witness remain preserved in the QA handoff. Restore the old lazy image-loading behavior and invalidate only the temporary preview token on actual open, allowing a failed selected image to retry. Successful footer Undo now returns focus to enabled Clear (or Close if empty), rather than leaving focus on the hidden Undo control. No storage, Add, quiz, identifier, navigation or return owner changed.
 
 The existing focused browser harness now counts real fixture requests: zero requests after a closed-dialog Add and closed reload, then one on open; a separate transient 503 image retries successfully on reopen with exactly two requests. It also asserts visible footer focus after Undo. Final corrected full browser harness PASS; current HTML/JS lint, Clipboard/store/context tests and 441 generated-link parity PASS. A sandbox-local browser connection was unavailable; the same isolated harness ran successfully through the authorized escalated local runtime. Continuation admission PASS at fd029525 with live main unchanged. Independent exact-candidate recheck follows the next stable commit.
+
+
+## Current independent engineering decision
+
+RobQA PASS, QA-2, Execution SEPARATE, bound to `c84e3a0e4e3bf57487f191c876b8e7729e32b2e5` under Interior exact-candidate recheck in the existing RobQA handoff. Original independent witness proves zero preview requests after closed Add/reload, one after open and successful transient retry on reopen (two requests). Full final isolated Edge harness and frontend JS lint independently PASS; earlier focused state/store/recovery/HTML/441-link evidence applies to unchanged owners. Undo returns visible footer focus. No blocker remains; Owner judges density, title/preview balance, mobile feel and scrollbar appearance.
+
+Owner Review: PENDING. Integration: PENDING. No push, PR, merge or deployment. Local preview HTTP 200 at http://127.0.0.1:8680/archscry/index.html. Same branch codex/vm-680-independent-clipboard; working runtime uses this material candidate. VM-679 identifier change remains pending.
+
+Shortest Owner test: (1) reload Archscry and open the Lore icon/count in the top bar; (2) use ordinary Maze Add, review/select previews, adjust quantity/section and Save/Cancel title; (3) scroll a long list and narrow the window, checking fixed Close/actions and the single preview; (4) navigate/reload and retake/Forget a quiz, confirming collection continuity and quiz independence; (5) remove/Undo and Clear/Undo, then Copy and Export/Download the same card list. Owner acceptance is not inferred from engineering PASS.
+
+## Material candidate
+
+- Baseline: `8cee92d103f28c2ca23c21f20bb35f47a849b4f6`
+- Candidate: `c84e3a0e4e3bf57487f191c876b8e7729e32b2e5`
+- Changed paths: `34`
+
+The complete baseline-to-candidate branch has 34 Git-derived paths. This includes the original shared Clipboard, related markup/Guide/test updates, prior top-bar icon/style/scrollbar revisions, approved interior and its focused preview correction. Interior runtime changes are confined to the existing shared component and CSS; existing browser harness was adapted. Saved collection/store and protected navigation/quiz/identifier owners remain preserved. The implementation and QA records retain all earlier decisions.
+
+## Files changed
+
+- `apocrypha/index.html`
+- `archscry/index.html`
+- `assets/css/maze.css`
+- `assets/css/topbar.css`
+- `assets/js/archscry/runtime/dossier-view.js`
+- `assets/js/guide/maze-walkthrough.js`
+- `assets/js/maze/maze-scratchpad-store.js`
+- `assets/js/maze/research-init.js`
+- `assets/js/shared/vm-clipboard.js`
+- `assets/js/shared/vm-topbar.js`
+- `docs/handoffs/2026-10-05-2211-codex-vm680-clipboard.md`
+- `docs/handoffs/2026-10-05-2211-robqa-vm680-clipboard.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-680-independent-clipboard.md`
+- `guide/index.html`
+- `guide/maze/index.html`
+- `guide/reading/index.html`
+- `index.html`
+- `library/index.html`
+- `maze/index.html`
+- `privacy/index.html`
+- `scripts/validate-frontend-html.mjs`
+- `scripts/vm616-maze-context-recovery-tests.mjs`
+- `scripts/vm680-clipboard-browser.mjs`
+- `strategium/before-game/index.html`
+- `strategium/console/index.html`
+- `strategium/during-game/index.html`
+- `strategium/find-a-table/index.html`
+- `strategium/index.html`
+- `strategium/review/index.html`
+- `terms/index.html`
+- `tests/archscry/archscry-dev-review-tests.js`
+- `tests/shared/clipboard-tests.js`
+
+## Evidence delta
+
+- Material candidate: `c84e3a0e4e3bf57487f191c876b8e7729e32b2e5`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `4`
+
+Appended exact-QA/report evidence, card lifecycle/delivery observations and checkbox results, and regenerated board are evidence-only and **not the full task diff**. Existing candidate prose, scope, decisions and dependencies remain preserved. Owner acceptance and integration remain pending.
+
+## Evidence-only paths
+
+- `docs/handoffs/2026-10-05-2211-codex-vm680-clipboard.md`
+- `docs/handoffs/2026-10-05-2211-robqa-vm680-clipboard.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-680-independent-clipboard.md`

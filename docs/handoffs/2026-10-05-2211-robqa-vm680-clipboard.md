@@ -232,3 +232,25 @@ QA-2 shared-component and stateful interaction review. Relative to the prior evi
 The exact browser harness exercises the main coupled interaction risks and passed after the implementer's final focus adjustment, but it did not cover preview resource timing or retry. Source inspection and the targeted witness establish a material regression: `initializeClipboard()` renders the new selected preview while the dialog is closed, the new image omits the prior `loading="lazy"`, and the unchanged preview token prevents a failed image from being rebuilt when the dialog is reopened. Users with saved cards therefore initiate remote image traffic on every public-page initialization without opening Clipboard, and a transient image failure remains unavailable for that page session unless selection changes or the page reloads.
 
 This candidate is BLOCKED pending a bounded correction that prevents closed Clipboard initialization from eagerly fetching the preview and allows the same selected preview to retry after a dialog reopen. The focused interaction suites should be rerun on a newly frozen SHA, along with this resource/retry witness or equivalent exact assertions. Screenshots, optical approval, broad placement/scoring tests, a viewport matrix and CPU-heavy validation remain unwarranted: the Owner retains judgment over density, preview balance, mobile feel and title presentation, while unchanged route/scoring owners retain prior evidence. This BLOCKED decision is bound only to `fd0295255537990d41f9e959a48958aa84382ccb`; Owner acceptance, integration and deployment remain pending.
+
+## Interior exact-candidate recheck
+
+Task: VM-680
+Candidate: c84e3a0e4e3bf57487f191c876b8e7729e32b2e5
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: Codex RobQA `/root/clipboard_candidate_qa`
+Implementer: Codex root/current session
+Owner: PENDING
+Integration: PENDING
+
+QA-2 exact-candidate recheck. The correction delta from blocked candidate `fd0295255537990d41f9e959a48958aa84382ccb` changes the admitted shared Clipboard module and existing focused browser harness, plus preserved handoff evidence. Preview images regain native lazy loading; actual open invalidates only the transient preview render token so the same selected card can retry after a failed request; successful footer Undo moves focus from the newly hidden Undo control to enabled Clear or, if empty, Close. Store, schema, controller semantics, Add, route/search/quiz/return and protected identifier owners remain unchanged.
+
+### Recheck evidence
+
+- Exact blocked-candidate-to-candidate diff and candidate identity — inspected at clean `c84e3a0e4e3bf57487f191c876b8e7729e32b2e5`; `git diff --check` — PASS.
+- `npm run lint:js` — PASS for 37 frontend files.
+- `node scripts/vm680-clipboard-browser.mjs` — PASS in a fresh isolated Edge profile against the exact final bytes. The full focused interior journey passed, including zero preview requests after closed Add and closed reload, one request after open, transient 503 recovery on same-selection reopen with exactly two requests, and visible footer focus after Undo.
+- [Independent closed-preview recheck](C:/Users/obake/.codex/visualizations/2026/10/06/01a10f52-df47-77b1-b8a3-2c204efa4a9d/vm680-closed-preview-recheck.mjs) — PASS in a separate fresh isolated Edge profile: `{dialogOpenAtLoad:false, afterAddClosed:0, afterClosedReload:0, afterOpen:1, failedPreviewRequestsAfterReopen:2}`.
+
+The two prior blockers are corrected: saved cards do not initiate preview image traffic while Clipboard remains closed, opening loads the selected preview, and reopening retries the same selection after a transient failure. The connected hidden-Undo focus concern is also covered by the exact harness and passed. Prior exact-candidate state/source, 441-link parity, store, recovery, HTML lint and broader interior evidence are reused because their owners did not change; root also reran them successfully on this candidate. No additional probe, screenshot, visual claim, placement/scoring suite or viewport matrix is warranted. No blocker or major correctness defect remains. This PASS is bound only to `c84e3a0e4e3bf57487f191c876b8e7729e32b2e5`; Owner acceptance, integration and deployment remain pending.
