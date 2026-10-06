@@ -77,7 +77,7 @@ Integration: PENDING
 
 The reviewer reran the corrected exact candidate and resolved the required HTML validator blocker. Requested configured role/model/effort: RobQA / gpt-5.6-sol / medium; host selected the named robqa role and returned the distinct reviewer agent. No independently measured model settings are claimed. Original BLOCKED evidence is preserved as history.
 
-## Material candidate
+## Historical material candidate
 
 - Baseline: `8cee92d103f28c2ca23c21f20bb35f47a849b4f6`
 - Candidate: `e1d096f34be821242722c9b6a5980b70ae34fd23`
@@ -85,7 +85,7 @@ The reviewer reran the corrected exact candidate and resolved the required HTML 
 
 Git name-status with rename detection owns this full Clipboard material accounting, including admission, runtime, related copy, focused tests, the bounded required-validator correction and historical QA records.
 
-## Files changed
+## Historical files changed
 
 - `apocrypha/index.html`
 - `archscry/index.html`
@@ -122,7 +122,7 @@ Git name-status with rename detection owns this full Clipboard material accounti
 - `tests/archscry/archscry-dev-review-tests.js`
 - `tests/shared/clipboard-tests.js`
 
-## Evidence delta
+## Historical evidence delta
 
 - Material candidate: `e1d096f34be821242722c9b6a5980b70ae34fd23`
 - Evidence head: `HEAD`
@@ -130,13 +130,22 @@ Git name-status with rename detection owns this full Clipboard material accounti
 
 This consolidated exact-QA/lifecycle/report delta is evidence-only and **not the full task diff**. Existing handoff prose is preserved; new evidence is appended. The task card changes only lifecycle/delivery observations and criterion checkboxes; generated views follow their unchanged producer. The final evidence-head SHA is resolved by the validator and reported to Owner.
 
-## Evidence-only paths
+## Historical evidence-only paths
 
 - `docs/handoffs/2026-10-05-2211-codex-vm680-clipboard.md`
 - `docs/handoffs/2026-10-05-2211-robqa-vm680-clipboard.md`
 - `docs/kanban/board.md`
 - `docs/kanban/in-progress/VM-680-independent-clipboard.md`
 
-## Final branch accounting and boundaries
+## Historical final branch accounting and boundaries
 
 Git baseline-to-evidence-head scope totals 34 paths. Owner acceptance, integration, VM-679 identifier cleanup and later delivery remain pending. No push, PR, merge or deployment was performed; remote admission inventory has no matching task branch. Worktree cleanliness, generated-view freshness, change-report validation and candidate readiness are checked after committing this evidence. The local preview is an Owner inspection aid, not deployment.
+
+
+## Owner icon revision — 2026-10-06
+
+Owner requested a surgical replacement of the visible top-bar word Clipboard with Mana’s Lore counter symbol. Only `assets/js/shared/vm-clipboard.js` and `assets/css/topbar.css` change runtime presentation: decorative `ms-counter-lore` glyph, Clipboard tooltip, existing accessible count label, 20px icon and a minimum 44px control. The shared stylesheet loads the existing vendored Mana 1.18.0 WOFF under a component-specific family so routes without the full Mana stylesheet render the same icon. No dependency or vendor bytes change. The count remains visible; panel heading, controller, storage, Add, Undo, export, quiz and protected navigation/URL producers remain untouched.
+
+The prior candidate and all prior evidence sections above are historical. The same task and branch return to In Progress with Candidate and RobQA PENDING. Scope is already admitted; continuation admission PASS at 3f9e3bad8a8a0ca61da9a222ff4308d18435458b with live main still 8cee92d103f28c2ca23c21f20bb35f47a849b4f6. QA-1 changed risk is icon rendering, accessible naming and top-bar control size; reuse prior independent unchanged-behavior evidence and perform a separate exact-candidate delta review. Owner visual judgment remains pending; no push, merge or deployment.
+
+Owner check: reload the local Archscry preview, confirm the Lore icon replaces the word beside the count, hover for Clipboard, and open/close the same panel. Check one page without its own Mana stylesheet, such as Privacy, for the same icon.

@@ -1162,11 +1162,18 @@ body.vm-feedback-open {
 }
 
 /* Clipboard is shared by every public topbar; it owns no route/search styles. */
+@font-face {
+  font-family: "VM Clipboard Mana";
+  src: url("../vendor/mana/fonts/mana.woff?v=1.18.0") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
 .vm-utility > .vm-clipboard-trigger {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
   min-height: 44px;
+  min-width: 44px;
   padding: 0.4rem 0.65rem;
   border: 1px solid var(--gold, #d4b461);
   border-radius: 4px;
@@ -1176,6 +1183,10 @@ body.vm-feedback-open {
   cursor: pointer;
   white-space: nowrap;
 }
+.vm-clipboard-trigger .vm-clipboard-icon {
+  font: normal 20px/1 "VM Clipboard Mana";
+}
+.vm-clipboard-trigger .vm-clipboard-icon::before { content: "\e936"; }
 .vm-clipboard-count { font-variant-numeric: tabular-nums; }
 .vm-clipboard-unavailable { color: var(--text-dim, #bbb); font: 0.7rem var(--font-ui, system-ui, sans-serif); }
 dialog.vm-clipboard-dialog {

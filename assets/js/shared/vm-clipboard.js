@@ -229,8 +229,11 @@ export function initializeClipboard() {
   trigger.setAttribute("aria-haspopup", "dialog");
   trigger.setAttribute("aria-controls", "vm-clipboard-panel");
   trigger.setAttribute("aria-expanded", "false");
+  trigger.title = "Clipboard";
   const count = element("span", "vm-clipboard-count", "0");
-  trigger.append(element("span", "", "Clipboard"), count);
+  const icon = element("span", "vm-clipboard-icon ms ms-counter-lore");
+  icon.setAttribute("aria-hidden", "true");
+  trigger.append(icon, count);
   utility.prepend(trigger);
   const dialog = element("dialog", "vm-clipboard-dialog");
   dialog.id = "vm-clipboard-panel";
