@@ -155,3 +155,28 @@ The stated localhost preview was not listening on the first probe attempt, produ
 No blocker or major correctness defect remains. Full feature browser journeys, placement/scoring suites, screenshots, visual regression and viewport matrices were intentionally skipped: the shared component behavior and protected owners are byte-unchanged from the prior exact-candidate PASS, while the new objective risks are fully covered by source/lint contracts and the two-route browser witness. CPU-heavy validation: NOT REQUIRED. Stateful adversarial coverage: reused from the prior PASS because this revision changes no state owner or transition.
 
 Owner review should reload Archscry and Privacy, judge whether the Lore symbol is the desired visual choice beside the count, hover for `Clipboard`, and open/close the same panel. Aesthetic fit and optical balance remain Owner judgment. This engineering PASS is bound only to `f7b76f89d2c7bd1d98de3326102a34133160b501`; Owner acceptance, integration and deployment remain pending.
+
+## Utility style candidate review
+
+Task: VM-680
+Candidate: f65bf0de73ba20a5d9b4409941f3231fcdf84142
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: Codex RobQA `/root/clipboard_candidate_qa`
+Implementer: Codex root/current session
+Owner: PENDING
+Integration: PENDING
+
+QA-1 styling delta. Relative to prior independently passed candidate `f7b76f89d2c7bd1d98de3326102a34133160b501`, the only runtime change is a bounded `assets/css/topbar.css` block: centered borderless/shadowless trigger, muted utility color at rest, gold hover/focus, 18px Lore icon and smaller lower-opacity count. The existing 44px minimum target, focus outline, accessible name, tooltip, glyph/font, count and dialog behavior remain. JavaScript, storage, navigation, quiz, protected URL owners, tests, dependencies and vendored assets are byte-unchanged; prior independent feature and Lore-icon evidence remains valid for those owners.
+
+### Exact-candidate evidence
+
+- Actual prior-candidate-to-candidate and baseline-to-candidate diffs — inspected; no unexpected runtime owner changed.
+- `git diff --check 8cee92d103f28c2ca23c21f20bb35f47a849b4f6..f65bf0de73ba20a5d9b4409941f3231fcdf84142` — PASS.
+- `npm run lint:js` — PASS for 37 frontend JavaScript files.
+- `npm run lint:html` — PASS.
+- [Focused external browser probe](C:/Users/obake/.codex/visualizations/2026/10/06/01a10f52-df47-77b1-b8a3-2c204efa4a9d/vm680-utility-style-probe.mjs) — PASS in a fresh isolated Edge profile with a temporary read-only local server, no screenshots and no user storage. At 390×844 on both Archscry and Privacy, rest color exactly matched the resolved muted utility variable; hover and `:focus-visible` exactly matched the resolved gold variable; all borders computed to 0px, shadow to `none`, background to transparent, icon to 18px, count to 10px/0.7 opacity, and trigger to 44×44 within the viewport. Focus retained a visible 2px solid gold outline. Enter opened the same dialog and Escape returned focus to the trigger.
+
+The probe's first run assumed authored 8px inline padding would remain exact at 390px. The unchanged max-420px responsive rule correctly resolves inline padding to `0.4rem` (6.4px) while preserving the 44px target. The assertion was narrowed to the actual Owner contract—positive compact padding plus the exact target/containment guarantees—and the single recheck passed. This was a harness assumption, not a product defect or runtime correction.
+
+No blocker or major correctness defect remains. Full feature journeys, shared state/link suites, screenshots, visual regression, viewport matrices and CPU-heavy validation were intentionally skipped because this revision changes only presentation CSS and unchanged behavior retains prior exact-candidate evidence. Stateful adversarial coverage is unchanged and reused. Owner review remains responsible for whether the quieter treatment and optical balance feel right. This PASS is bound only to `f65bf0de73ba20a5d9b4409941f3231fcdf84142`; Owner acceptance, integration and deployment remain pending.

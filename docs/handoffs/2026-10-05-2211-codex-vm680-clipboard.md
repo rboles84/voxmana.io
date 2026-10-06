@@ -231,3 +231,78 @@ Owner found the boxed Lore icon still visually separate from the rest of the top
 Continuation admission passed at ebbd50ae457e48bb2f0c77cd6c24c5da438a315b; live main remains the recorded baseline. Same VM-680 branch/card; previous candidate verdicts are historical, Candidate/RobQA reset to PENDING. Governing RobDev and RobQA authority remains unchanged and is reused. QA-1 delta: inspect the exact style diff, existing HTML guards, and focused computed-style/target/hover/focus assertions; reuse the separate reviewer’s unchanged feature evidence. No new tests mirroring implementation, broad journey rerun, screenshot or engine suite is needed. Owner retains optical judgment.
 
 Shortest Owner test: reload Archscry, compare the unboxed Lore/count with Guide and Feedback, hover and keyboard-focus it, then open and Escape-close the same Clipboard. Acceptance and integration remain pending; no push, merge or deployment.
+
+
+## Current independent engineering decision
+
+Candidate: f65bf0de73ba20a5d9b4409941f3231fcdf84142
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: Codex RobQA `/root/clipboard_candidate_qa`
+Implementer: Codex root/current session
+Owner: PENDING
+Integration: PENDING
+
+Independent QA confirmed the only runtime revision since the prior Lore candidate is bounded shared Clipboard CSS. Exact diff/whitespace, HTML and JS lint passed. The isolated two-route Edge probe at 390px passed muted default color, gold hover/focus, no border/shadow, transparent background, 18px icon, 10px count at opacity 0.7, 44px square contained target, visible 2px keyboard focus outline, Enter opening and Escape focus return. The first probe over-assumed base 8px padding at narrow width; one causal inspection confirmed the unchanged responsive 0.4rem rule computes 6.4px, preserving the 44px target. Only the external probe was narrowed to the actual Owner contract; one recheck passed. No runtime defect or source correction.
+
+Existing feature and glyph evidence was reused for unchanged owners. No screenshot, viewport matrix, full browser journey or placement suite was necessary for QA-1. The configured RobQA route was reused; no new effective backend claim is made. Current verdict is in `Utility style candidate review` in the separate QA handoff. Local preview responds HTTP 200; visual balance remains Owner judgment.
+
+## Material candidate
+
+- Baseline: `8cee92d103f28c2ca23c21f20bb35f47a849b4f6`
+- Candidate: `f65bf0de73ba20a5d9b4409941f3231fcdf84142`
+- Changed paths: `34`
+
+This is the full Clipboard branch, including previously reviewed feature, Lore glyph and current utility styling. The latest runtime revision changes only `assets/css/topbar.css`.
+
+## Files changed
+
+- `apocrypha/index.html`
+- `archscry/index.html`
+- `assets/css/maze.css`
+- `assets/css/topbar.css`
+- `assets/js/archscry/runtime/dossier-view.js`
+- `assets/js/guide/maze-walkthrough.js`
+- `assets/js/maze/maze-scratchpad-store.js`
+- `assets/js/maze/research-init.js`
+- `assets/js/shared/vm-clipboard.js`
+- `assets/js/shared/vm-topbar.js`
+- `docs/handoffs/2026-10-05-2211-codex-vm680-clipboard.md`
+- `docs/handoffs/2026-10-05-2211-robqa-vm680-clipboard.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-680-independent-clipboard.md`
+- `guide/index.html`
+- `guide/maze/index.html`
+- `guide/reading/index.html`
+- `index.html`
+- `library/index.html`
+- `maze/index.html`
+- `privacy/index.html`
+- `scripts/validate-frontend-html.mjs`
+- `scripts/vm616-maze-context-recovery-tests.mjs`
+- `scripts/vm680-clipboard-browser.mjs`
+- `strategium/before-game/index.html`
+- `strategium/console/index.html`
+- `strategium/during-game/index.html`
+- `strategium/find-a-table/index.html`
+- `strategium/index.html`
+- `strategium/review/index.html`
+- `terms/index.html`
+- `tests/archscry/archscry-dev-review-tests.js`
+- `tests/shared/clipboard-tests.js`
+
+## Evidence delta
+
+- Material candidate: `f65bf0de73ba20a5d9b4409941f3231fcdf84142`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `4`
+
+Appended exact-QA/report evidence, card lifecycle fields and regenerated board are evidence-only and **not the full task diff**. Candidate prose and all decisions/scope remain unchanged. Owner acceptance and integration remain pending; no push, merge or deployment.
+
+## Evidence-only paths
+
+- `docs/handoffs/2026-10-05-2211-codex-vm680-clipboard.md`
+- `docs/handoffs/2026-10-05-2211-robqa-vm680-clipboard.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-680-independent-clipboard.md`
