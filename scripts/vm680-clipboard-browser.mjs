@@ -13,11 +13,21 @@ const profile = await mkdtemp(path.join(os.tmpdir(), "vm680-clipboard-"));
 const card = { object: "card", name: "Clipboard Browser Fixture", id: "68000000-0000-4000-8000-000000000001", oracle_id: "68010000-0000-4000-8000-000000000001", mana_cost: "{2}", cmc: 2, type_line: "Artifact", oracle_text: "Test fixture.", colors: [], color_identity: [], legalities: { commander: "legal" }, rarity: "common", set: "tst", set_name: "Test fixture", collector_number: "680", scryfall_uri: "https://scryfall.com/", image_uris: { normal: "http://127.0.0.1:1/unavailable.png" } };
 const reading = { version: "clipboard-browser-fixture", source_mode: "quick", model_version: "rg-4", faction: "WU", faction_name: "Azorius Senate", result_state: "primary", public_confidence_state: "current-best-fit", alternative_state: "none", confidence: 0.76, confidence_gap: 0.4, top_matches: [{ faction: "WU", score: 8, confidence: 0.76 }], evidence_ledger: [] };
 const storageKey = "vm_maze_reading_finds_v1";
+let closedPreviewRequests = 0;
+let retryPreviewRequests = 0;
 const server = http.createServer(async (req, res) => {
   try {
     const pathname = decodeURIComponent(new URL(req.url, "http://localhost").pathname);
+    if (pathname === "/__vm680_retry_card.svg") {
+      retryPreviewRequests += 1;
+      if (retryPreviewRequests === 1) { res.writeHead(503).end(); return; }
+      res.writeHead(200, { "Content-Type": "image/svg+xml", "Cache-Control": "no-store" });
+      res.end('<svg xmlns="http://www.w3.org/2000/svg" width="244" height="340"/>');
+      return;
+    }
     if (pathname === "/__vm680_card.svg") {
-      res.writeHead(200, { "Content-Type": "image/svg+xml" });
+      if (new URL(req.url, "http://localhost").searchParams.has("closed")) closedPreviewRequests += 1;
+      res.writeHead(200, { "Content-Type": "image/svg+xml", "Cache-Control": "no-store" });
       res.end('<svg xmlns="http://www.w3.org/2000/svg" width="244" height="340"><rect width="244" height="340" fill="#17181c"/></svg>');
       return;
     }
@@ -77,6 +87,33 @@ try {
     assert.equal(await page.evaluate(({ x, y, width, height }) => document.elementFromPoint(x + width / 2, y + height / 2)?.closest("[data-action]")?.dataset.action, geometry), "add-card-to-scratchpad");
     await page.mouse.click(geometry.x + geometry.width / 2, geometry.y + geometry.height / 2);
   };
+  phase = "closed preview deferral and reopen recovery";
+  await goto("/privacy/");
+  await page.evaluate(async fixture => {
+    const { getClipboard } = await import("/assets/js/shared/vm-clipboard.js");
+    getClipboard().add(fixture, "finds");
+  }, { ...card, image_uris: { normal: base + "/__vm680_card.svg?closed=1" } });
+  await new Promise(resolve => setTimeout(resolve, 500));
+  assert.equal(await page.$eval("#vm-clipboard-panel", node => node.open), false);
+  assert.equal(closedPreviewRequests, 0, "adding a saved card while closed does not fetch its preview");
+  await page.reload({ waitUntil: "domcontentloaded" });
+  await page.waitForSelector("#vm-clipboard-trigger");
+  await new Promise(resolve => setTimeout(resolve, 500));
+  assert.equal(closedPreviewRequests, 0, "closed-dialog reload does not fetch the saved preview");
+  await open();
+  await page.waitForFunction(() => { const img = document.querySelector(".vm-clipboard-preview img"); return img?.complete && img.naturalWidth > 0; });
+  assert.equal(closedPreviewRequests, 1, "opening loads the selected preview");
+  await page.evaluate(async fixture => {
+    const { getClipboard } = await import("/assets/js/shared/vm-clipboard.js");
+    getClipboard().clear();
+    getClipboard().add(fixture, "finds");
+  }, { ...card, image_uris: { normal: base + "/__vm680_retry_card.svg" } });
+  await page.waitForFunction(() => document.querySelector(".vm-clipboard-preview")?.textContent.includes("Image unavailable"));
+  await close(); await open();
+  await page.waitForFunction(() => { const img = document.querySelector(".vm-clipboard-preview img"); return img?.complete && img.naturalWidth > 0; });
+  assert.equal(retryPreviewRequests, 2, "reopening retries a transient failure for the same selection");
+  await page.click('[data-clipboard-action="clear"]');
+  await close();
   phase = "real Maze Add and shared state";
   await goto("/maze/?q=f:commander");
   await page.waitForSelector(".card-stash-btn", { timeout: 15000 });
@@ -118,6 +155,7 @@ try {
   assert.equal(await page.$eval(".card-stash-btn", node => node.classList.contains("on")), false);
   await page.click('[data-clipboard-action="undo"]');
   assert.equal(await total(), 2);
+  assert.equal(await page.evaluate(() => document.activeElement.dataset.clipboardAction), "clear", "Undo returns focus to a visible footer control");
   await page.click('[data-clipboard-action="clear"]');
   assert.equal(await total(), 0);
   assert.equal(await page.$eval('[data-clipboard-action="clear"]', node => node.disabled), true);

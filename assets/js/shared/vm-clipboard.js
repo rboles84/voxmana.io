@@ -167,6 +167,7 @@ function renderPreview(draft = getClipboard().getState()) {
     const unavailable = () => media.append(element("p", "", "Image unavailable. Open the card on Scryfall."));
     if (imageUrl) {
       const image = element("img", "vm-clipboard-image");
+      image.loading = "lazy";
       image.src = imageUrl;
       image.alt = `${row.name} card image`;
       image.addEventListener("error", () => { image.remove(); unavailable(); }, { once: true });
@@ -240,6 +241,7 @@ export function setClipboardReturnUrl(url = "") {
 export function openClipboard() {
   initializeClipboard();
   if (!view || view.dialog.open) return;
+  view.previewToken = "";
   render();
   view.dialog.showModal();
   view.trigger.setAttribute("aria-expanded", "true");
@@ -440,7 +442,9 @@ export function initializeClipboard() {
     if (event.key === "Escape") { event.preventDefault(); event.stopPropagation(); finishTitleEdit(false); }
   });
   clear.addEventListener("click", () => { if (clipboard.clear()) undo.focus({ preventScroll: true }); });
-  undo.addEventListener("click", () => clipboard.undo());
+  undo.addEventListener("click", () => {
+    if (clipboard.undo()) (clear.disabled ? close : clear).focus({ preventScroll: true });
+  });
   copy.addEventListener("click", copyExport);
   exportButton.addEventListener("click", () => showExport(exportPanel.hidden));
   hideExport.addEventListener("click", () => showExport(false));

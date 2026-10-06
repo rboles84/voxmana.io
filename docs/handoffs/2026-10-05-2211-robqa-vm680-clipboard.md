@@ -204,3 +204,31 @@ QA-1 presentation delta. Relative to prior independently passed candidate `f65bf
 The probe initially assumed a fixed number of PageDown presses, then a focused close-button End key, would jump the long 14-row fixture to exact maximum scroll. Those shortcut assumptions were not reliable in Chromium even though both wheel and PageDown native movement passed. Under the bounded harness-failure rule, no further whole-probe retry was run. This is disclosed harness sequence debt, not a product defect: the scrollbar revision cannot change scroll range or key handling, the native overflow owner is byte-unchanged, and the computed range includes the last rows and lower actions. Owner's short rendered check remains the most direct confirmation of thumb appearance and everyday reachability.
 
 No blocker or major correctness defect remains. Full Clipboard journeys, shared state/link suites, screenshots, viewport matrices, visual regression and CPU-heavy validation were intentionally skipped because the change is scrollbar presentation only and prior exact-candidate evidence remains valid for unchanged behavior. Stateful adversarial coverage is unchanged and reused. Owner review should judge the dark rail, muted-gold thumb and hover feel while scrolling the existing cards to Export/Copy, then close with Escape. This PASS is bound only to `b2fa303b08decdca1927b14f6630d0dfafd3c927`; Owner acceptance, broader interior recommendations, integration and deployment remain pending.
+
+## Interior candidate review
+
+Task: VM-680
+Candidate: fd0295255537990d41f9e959a48958aa84382ccb
+RobQA: BLOCKED
+Execution: SEPARATE
+Reviewer: Codex RobQA `/root/clipboard_candidate_qa`
+Implementer: Codex root/current session
+Owner: PENDING
+Integration: PENDING
+
+QA-2 shared-component and stateful interaction review. Relative to the prior evidence head `a65c1f1dca18f9e458af013ab397b913753ba7e0`, runtime changes are confined to `assets/js/shared/vm-clipboard.js` and `assets/css/topbar.css`; the admitted browser harness is updated to the approved interior contract. The controller/store schema, Maze Add adapter, route/search/quiz/return and protected identifier owners remain unchanged. The reviewed implementation keeps header and footer outside the focusable native list scroller; reconciles one keyed selected preview across section moves, removal, Undo and viewport changes; uses the existing title/store and export formatter; separates native Scryfall navigation from selection; guards asynchronous copy completion by render revision, request and dialog-open state; and creates/revokes a user-triggered text-download URL. No second collection, new persistence lifetime or Reading owner is introduced.
+
+### Exact-candidate evidence
+
+- Exact prior-head-to-candidate diff and baseline scope — inspected; admitted runtime owners and harness only, with card/handoff/generated-view updates. `git diff --check` — PASS.
+- `npm run lint:html` — PASS.
+- `npm run lint:js` — PASS for 37 frontend files.
+- `node tests/shared/clipboard-tests.js` — PASS for Clipboard state/source contracts and all 441 same-state generated-link comparisons against accepted main.
+- `node tests/maze/maze-scratchpad-store-tests.js` — PASS.
+- `node scripts/vm616-maze-context-recovery-tests.mjs` — PASS.
+- `node scripts/vm680-clipboard-browser.mjs` — PASS against the exact final candidate in a fresh isolated Edge profile. It covered all public page families; pointer/keyboard Add and Undo; quantity, section move, remove, Clear and Undo; persisted navigation/reload/BackForward and native Archscry return; quiz isolation; empty and 14-row long-name states; one selected preview, image failure, section/removal reconciliation and desktop-to-narrow single-node continuity; 44px controls; fixed header/footer with native wheel and End reaching the list bottom; short-height editor/preview/footer containment; Enter/Save and Escape/explicit-Cancel title paths including unchanged cancelled bytes; successful Copy without export expansion, selected-text fallback and stale delayed completion after close/reopen; exact downloaded formatter bytes, sanitized filename and URL revocation; and keyboard containment.
+- [Focused closed-preview network witness](C:/Users/obake/.codex/visualizations/2026/10/06/01a10f52-df47-77b1-b8a3-2c204efa4a9d/vm680-closed-preview-fetch-probe.mjs) — BLOCKER reproduced in a fresh isolated Edge profile. With the dialog closed, the selected saved-card image was requested once immediately after Add and once on a closed-dialog reload. A fixture image that failed once was requested only once after close/reopen and the same selected preview remained unavailable, proving that reopening does not retry it.
+
+The exact browser harness exercises the main coupled interaction risks and passed after the implementer's final focus adjustment, but it did not cover preview resource timing or retry. Source inspection and the targeted witness establish a material regression: `initializeClipboard()` renders the new selected preview while the dialog is closed, the new image omits the prior `loading="lazy"`, and the unchanged preview token prevents a failed image from being rebuilt when the dialog is reopened. Users with saved cards therefore initiate remote image traffic on every public-page initialization without opening Clipboard, and a transient image failure remains unavailable for that page session unless selection changes or the page reloads.
+
+This candidate is BLOCKED pending a bounded correction that prevents closed Clipboard initialization from eagerly fetching the preview and allows the same selected preview to retry after a dialog reopen. The focused interaction suites should be rerun on a newly frozen SHA, along with this resource/retry witness or equivalent exact assertions. Screenshots, optical approval, broad placement/scoring tests, a viewport matrix and CPU-heavy validation remain unwarranted: the Owner retains judgment over density, preview balance, mobile feel and title presentation, while unchanged route/scoring owners retain prior evidence. This BLOCKED decision is bound only to `fd0295255537990d41f9e959a48958aa84382ccb`; Owner acceptance, integration and deployment remain pending.
