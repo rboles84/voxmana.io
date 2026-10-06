@@ -319,3 +319,80 @@ Review basis: Owner’s current screenshots, official EDHREC page https://edhrec
 Recommended next pass, for Owner choice: (1) fixed header/footer with only card list scrolling, so Close/Undo/Clear/Copy stay reachable; (2) compact desktop rows with card name, quantity controls, small section selector and remove, eliminating repeated full-name Preview lines; (3) one selected-card preview on desktop with explicit keyboard/touch selection and inline preview on narrow screens; (4) collection title in the header with an edit affordance, retaining existing custom-title storage; (5) distinguish Copy list and Export text/download so copy confirmation does not force a large always-visible textarea. Preserve quantities, Finds/Sparks/Anchors and current export representation throughout. These are recommendations, not implemented or accepted new scope. Pricing/recommendation/crown integrations are not needed to solve the observed usability problem.
 
 Scrollbar references: https://developer.chrome.com/docs/css-ui/scrollbar-styling and https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Scrollbars_styling. Short Owner check: reload with the existing six cards, open Clipboard, confirm dark rail/muted-gold thumb, scroll to the last row and Export/Copy, then close with Escape. Owner visual judgment/acceptance and integration remain pending; no push, merge or deployment.
+
+
+## Current independent engineering decision
+
+Candidate: b2fa303b08decdca1927b14f6630d0dfafd3c927
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: Codex RobQA `/root/clipboard_candidate_qa`
+Implementer: Codex root/current session
+Owner: PENDING
+Integration: PENDING
+
+Independent QA reviewed the CSS-only runtime correction and reused unchanged feature evidence. Exact diff/whitespace and HTML lint passed. The isolated overflowing Edge dialog computed thin scrollbar with muted-gold thumb/dark track and supported native wheel and PageDown movement; lower actions were geometrically inside the scroll range. The older-WebKit fallback colors, sizing and hover are source-asserted. No runtime defect was found.
+
+Harness disclosure: computed WebKit hover pseudo-state is unreliable while standards styling controls rendering, so fallback was checked at source. Fixed PageDown/End sequences did not consistently hit the exact scroll maximum in the 14-row probe; further whole-probe retries stopped. This is sequence debt, not evidence of a product scrolling defect. Do not claim a completed automated exact-bottom journey or optical approval. The Owner should scroll the existing cards to the last row and Export/Copy, judge the themed rail, then Escape-close. No screenshot, viewport matrix, full feature/state/quiz journey or heavy suite was warranted by QA-1 CSS-only changes. Separate configured reviewer route reused; no effective backend claim.
+
+The EDHREC comparison and five proposed layout improvements above remain recommendations only. No wider layout or export behavior is implemented in this candidate.
+
+## Material candidate
+
+- Baseline: `8cee92d103f28c2ca23c21f20bb35f47a849b4f6`
+- Candidate: `b2fa303b08decdca1927b14f6630d0dfafd3c927`
+- Changed paths: `34`
+
+This is the full Clipboard branch, including prior feature/icon/utility revisions and the current scrollbar correction. The latest runtime revision changes only `assets/css/topbar.css`.
+
+## Files changed
+
+- `apocrypha/index.html`
+- `archscry/index.html`
+- `assets/css/maze.css`
+- `assets/css/topbar.css`
+- `assets/js/archscry/runtime/dossier-view.js`
+- `assets/js/guide/maze-walkthrough.js`
+- `assets/js/maze/maze-scratchpad-store.js`
+- `assets/js/maze/research-init.js`
+- `assets/js/shared/vm-clipboard.js`
+- `assets/js/shared/vm-topbar.js`
+- `docs/handoffs/2026-10-05-2211-codex-vm680-clipboard.md`
+- `docs/handoffs/2026-10-05-2211-robqa-vm680-clipboard.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-680-independent-clipboard.md`
+- `guide/index.html`
+- `guide/maze/index.html`
+- `guide/reading/index.html`
+- `index.html`
+- `library/index.html`
+- `maze/index.html`
+- `privacy/index.html`
+- `scripts/validate-frontend-html.mjs`
+- `scripts/vm616-maze-context-recovery-tests.mjs`
+- `scripts/vm680-clipboard-browser.mjs`
+- `strategium/before-game/index.html`
+- `strategium/console/index.html`
+- `strategium/during-game/index.html`
+- `strategium/find-a-table/index.html`
+- `strategium/index.html`
+- `strategium/review/index.html`
+- `terms/index.html`
+- `tests/archscry/archscry-dev-review-tests.js`
+- `tests/shared/clipboard-tests.js`
+
+## Evidence delta
+
+- Material candidate: `b2fa303b08decdca1927b14f6630d0dfafd3c927`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `4`
+
+Appended exact-QA/report evidence, card lifecycle/delivery fields and regenerated board are evidence-only and **not the full task diff**. Existing candidate prose and scope/decisions remain preserved. Owner acceptance and integration remain pending; no push, merge or deployment.
+
+## Evidence-only paths
+
+- `docs/handoffs/2026-10-05-2211-codex-vm680-clipboard.md`
+- `docs/handoffs/2026-10-05-2211-robqa-vm680-clipboard.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-680-independent-clipboard.md`

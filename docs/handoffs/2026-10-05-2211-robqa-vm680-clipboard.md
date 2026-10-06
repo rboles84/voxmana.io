@@ -180,3 +180,27 @@ QA-1 styling delta. Relative to prior independently passed candidate `f7b76f89d2
 The probe's first run assumed authored 8px inline padding would remain exact at 390px. The unchanged max-420px responsive rule correctly resolves inline padding to `0.4rem` (6.4px) while preserving the 44px target. The assertion was narrowed to the actual Owner contract—positive compact padding plus the exact target/containment guarantees—and the single recheck passed. This was a harness assumption, not a product defect or runtime correction.
 
 No blocker or major correctness defect remains. Full feature journeys, shared state/link suites, screenshots, visual regression, viewport matrices and CPU-heavy validation were intentionally skipped because this revision changes only presentation CSS and unchanged behavior retains prior exact-candidate evidence. Stateful adversarial coverage is unchanged and reused. Owner review remains responsible for whether the quieter treatment and optical balance feel right. This PASS is bound only to `f65bf0de73ba20a5d9b4409941f3231fcdf84142`; Owner acceptance, integration and deployment remain pending.
+
+## Scrollbar candidate review
+
+Task: VM-680
+Candidate: b2fa303b08decdca1927b14f6630d0dfafd3c927
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: Codex RobQA `/root/clipboard_candidate_qa`
+Implementer: Codex root/current session
+Owner: PENDING
+Integration: PENDING
+
+QA-1 presentation delta. Relative to prior independently passed candidate `f65bf0de73ba20a5d9b4409941f3231fcdf84142`, the only runtime change is scoped Clipboard-dialog scrollbar CSS in `assets/css/topbar.css`: standards `thin` width with muted-gold thumb/dark track plus a 12px Strategium-inspired WebKit fallback with rounded inset thumb and gold hover. Dialog structure, `overflow: auto`, max height, JavaScript, state, storage, focus, navigation, quiz and protected owners are byte-unchanged. The EDHREC comparison and interior recommendations are documentation only and explicitly remain unaccepted future scope.
+
+### Exact-candidate evidence
+
+- Actual prior-candidate-to-candidate and baseline-to-candidate diffs — inspected; no unexpected runtime owner changed.
+- `git diff --check 8cee92d103f28c2ca23c21f20bb35f47a849b4f6..b2fa303b08decdca1927b14f6630d0dfafd3c927` — PASS.
+- `npm run lint:html` — PASS.
+- [Focused external browser/source probe](C:/Users/obake/.codex/visualizations/2026/10/06/01a10f52-df47-77b1-b8a3-2c204efa4a9d/vm680-scrollbar-probe.mjs) — bounded objective evidence in a fresh isolated Edge profile with a temporary read-only local server and controller-seeded fixture cards. On Privacy at 390×600, the overflowing native dialog computed `scrollbar-width: thin`, `scrollbar-color: rgb(143, 120, 68) rgb(9, 11, 13)` and retained `overflow-y: auto`; source assertions matched the complete WebKit 12px/dark-track/3px inset/6px radius/muted-thumb/gold-hover fallback. The witness established `scrollHeight > clientHeight`, lower actions within the dialog scroll range, wheel movement increasing dialog `scrollTop`, PageDown increasing dialog `scrollTop`, and unchanged dialog close/focus ownership.
+
+The probe initially assumed a fixed number of PageDown presses, then a focused close-button End key, would jump the long 14-row fixture to exact maximum scroll. Those shortcut assumptions were not reliable in Chromium even though both wheel and PageDown native movement passed. Under the bounded harness-failure rule, no further whole-probe retry was run. This is disclosed harness sequence debt, not a product defect: the scrollbar revision cannot change scroll range or key handling, the native overflow owner is byte-unchanged, and the computed range includes the last rows and lower actions. Owner's short rendered check remains the most direct confirmation of thumb appearance and everyday reachability.
+
+No blocker or major correctness defect remains. Full Clipboard journeys, shared state/link suites, screenshots, viewport matrices, visual regression and CPU-heavy validation were intentionally skipped because the change is scrollbar presentation only and prior exact-candidate evidence remains valid for unchanged behavior. Stateful adversarial coverage is unchanged and reused. Owner review should judge the dark rail, muted-gold thumb and hover feel while scrolling the existing cards to Export/Copy, then close with Escape. This PASS is bound only to `b2fa303b08decdca1927b14f6630d0dfafd3c927`; Owner acceptance, broader interior recommendations, integration and deployment remain pending.
