@@ -762,3 +762,19 @@ Decision reference: Current chat Owner message "check the worktree, local and al
 This latest explicit instruction lifts the prior remote-write/publication hold for this exact accepted Clipboard candidate. Apply normal ACCEPT guarded squash integration and existing main-triggered GitHub Pages publication. No VM-679 identifier change, hosting reconfiguration or unrelated feature is authorized. Local preflight: clean 39f6dd7328fa4fd1d7505f450ddc16721d04097c on admitted branch, one worktree, local/fetched remote main unchanged at 8cee92d103f28c2ca23c21f20bb35f47a849b4f6; other task branches preserved. Authenticated GitHub connector identity rboles84 and repository permissions push/admin observed; branch-specific all-state PR search returned none.
 
 Capability routing approved before operation: Git transport for fetch/push; connector for repository/PR/CI/Git-data reads, PR create/update and expected_head_sha guarded squash merge. Inspected exact schemas: profile, repository, PR search/create/fetch/update, generic approved GET, file/commit/compare and workflow-job resources, and merge expected_head_sha. No authentication retrieval, gh installation or browser credential fallback. Ordinary branch-policy visibility is supplemental under docs/reference/workflow.md#main-protection-and-exceptions; required Deterministic Validation, exact PR input and guarded head remain mandatory. Existing full RobDev/RobQA authority and authentic candidate/evidence review receipts retained; acceptance/preflight edits are lifecycle/evidence only. Actual PR CI/host/tree parity and integration gate must pass before merge.
+
+
+## Verified integration
+
+Task: VM-680
+Candidate: 003a30e7e76ab7d84a3a1ef1b67f2ef0aa09121a
+PR70: https://github.com/rboles84/voxmana.io/pull/70
+Evidence head: e2ecbb872a3660ec6ace5f3767fed852a28e6a46
+Merge: 34aea21745358cff30a62ab5883568ee72de67ce
+Integration: INTEGRATED
+
+Owner's explicit integration/publication authorization applied. Required Deterministic Validation completed success at exact PR head; Git-report and integration stage gate PASS before expected_head_sha guarded squash merge through the approved connector. Authenticated host PR/file/commit and complete untruncated Git-tree reads verified all35paths and26commits with exact base/head blobs, including unchanged material/runtime after independent QA. Host main branch observation reported protected:false with no configured status contexts; the repository-declared Deterministic Validation gate was nevertheless enforced. Existing other branches, including VM-679, were preserved.
+
+Connector merge returned merged:true and the exact squash SHA; authoritative PR reread confirms closed/merged with the same head/base. Local main fetched and fast-forwarded to that merge. Parent is 8cee92d103f28c2ca23c21f20bb35f47a849b4f6; both accepted evidence and merge trees are 62f76cb8b7f5b13fea70a38d539f7892c3f15159; full tree diff empty. The first unquoted PowerShell tree-expression read was parsed as a script block; corrected literal revision reads established the matching trees without product changes.
+
+Initial immediate live publication probe saw the prior deployment: public routes returned200 with old bytes and the new Clipboard module returned404. This is pending Pages rollout, not a product-code or harness correction. Await current-main Pages workflow before claiming production availability; no hosting settings/dependencies/runtime changes made. Integration lifecycle fields and this appended verification are evidence-only; actual live publication and closeout remain pending.
