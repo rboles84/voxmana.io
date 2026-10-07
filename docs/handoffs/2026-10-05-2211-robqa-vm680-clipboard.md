@@ -254,3 +254,26 @@ QA-2 exact-candidate recheck. The correction delta from blocked candidate `fd029
 - [Independent closed-preview recheck](C:/Users/obake/.codex/visualizations/2026/10/06/01a10f52-df47-77b1-b8a3-2c204efa4a9d/vm680-closed-preview-recheck.mjs) — PASS in a separate fresh isolated Edge profile: `{dialogOpenAtLoad:false, afterAddClosed:0, afterClosedReload:0, afterOpen:1, failedPreviewRequestsAfterReopen:2}`.
 
 The two prior blockers are corrected: saved cards do not initiate preview image traffic while Clipboard remains closed, opening loads the selected preview, and reopening retries the same selection after a transient failure. The connected hidden-Undo focus concern is also covered by the exact harness and passed. Prior exact-candidate state/source, 441-link parity, store, recovery, HTML lint and broader interior evidence are reused because their owners did not change; root also reran them successfully on this candidate. No additional probe, screenshot, visual claim, placement/scoring suite or viewport matrix is warranted. No blocker or major correctness defect remains. This PASS is bound only to `c84e3a0e4e3bf57487f191c876b8e7729e32b2e5`; Owner acceptance, integration and deployment remain pending.
+
+## Plain-list export candidate review
+
+Task: VM-680
+Candidate: 41e146db02fec5ac5fa8c7cd4b29524f50b5718b
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: Codex RobQA `/root/clipboard_candidate_qa`
+Implementer: Codex root/current session
+Owner: PENDING
+Integration: PENDING
+
+QA-2 shared output-contract recheck, bounded to the Owner-authorized heading removal. Relative to prior evidence head `75b08d9af1786c6ffaf8ced3f89aa95ae7aef82f`, runtime changes are limited to the existing store formatter starting from an empty line list and the Clipboard controller delegating directly to that formatter. Copy success, copy fallback, Export text and Download continue to consume the same formatter. No external-site link, richer format, import feature, new storage write, UI change or integration is introduced. Existing section iteration and row order, quantities, card names, saved title/sections, Add, preview, quiz, identifiers, navigation and return owners remain unchanged.
+
+### Exact-candidate evidence
+
+- Exact prior-head-to-candidate diff and candidate identity — inspected at clean `41e146db02fec5ac5fa8c7cd4b29524f50b5718b`; `git diff --check` — PASS.
+- `npm run lint:js` — PASS for 37 frontend files.
+- `node tests/maze/maze-scratchpad-store-tests.js` — PASS. Exact multi-section, reduced-section and empty exports contain only quantity/card lines in preserved order, without headings or blank separators.
+- `node tests/shared/clipboard-tests.js` — PASS for exact plain-list output, unchanged saved bytes after export, shared state/source contracts and all 441 same-state generated-link comparisons against accepted main.
+- `node scripts/vm680-clipboard-browser.mjs` — PASS in a fresh isolated Edge profile against the exact candidate. Successful Copy, denied-clipboard selectable fallback, visible Export and real downloaded text bytes use the same heading-free formatter; the single-row/two-quantity output remains nonempty. The existing broader Clipboard journey also passed.
+
+No separate external probe or external import-site test was warranted because all current output consumers share the directly tested formatter and external services remain advice context only. Prior interior, persistence, quiz, navigation and preview evidence is reused for byte-unchanged owners. No blocker or major correctness defect remains. This PASS is bound only to `41e146db02fec5ac5fa8c7cd4b29524f50b5718b`; Owner acceptance, integration and deployment remain pending.

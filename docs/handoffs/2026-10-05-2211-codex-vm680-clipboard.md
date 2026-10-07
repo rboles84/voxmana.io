@@ -504,3 +504,73 @@ Owner explicitly limited this correction to removing Clipboard/Finds and all tit
 Continue admission PASS at 75b08d9af1786c6ffaf8ced3f89aa95ae7aef82f; main unchanged. Reuse already-read unchanged RobDev/RobQA governing authorities. Owning formatter is exportReadingFindsFromDraft in the existing store; all current Copy, fallback, Export and Download consumers route through it. Remove its headings/blank separators and the now-obsolete Clipboard title replacement in the controller. No new formatter, settings, integrations, state owner or storage write. Preserve existing section/row order, quantities, card names, saved titles/sections, Add, preview, quiz, identifiers, navigation and returns. Existing exact output assertions cover populated/multi-section/single-row/empty output and saved-byte continuity; adapt current browser copy/fallback expectations and retain existing real download-byte check. Independent candidate recheck follows the stable SHA.
 
 Developer evidence PASS: existing multi-section/empty store tests, Clipboard saved-byte/state contracts and 441 same-state generated links, frontend JS lint, and current isolated Edge browser harness including exact successful Copy/fallback text and real Download bytes. Export now has no title, section headers or blank separator rows; one card remains a nonempty export. Protected state/navigation/quiz consumers remain unchanged. The full existing browser run adds no new feature or validation suite.
+
+
+## Current independent engineering decision
+
+RobQA PASS, QA-2 shared output contract, Execution SEPARATE, bound to `41e146db02fec5ac5fa8c7cd4b29524f50b5718b` under Plain-list export candidate review in the existing RobQA handoff. Independent checks PASS: exact diff, frontend JS lint, store export tests, Clipboard state/source and saved-byte continuity, 441 exact same-state links, isolated browser successful Copy/fallback/Export/real Download. Single-card, multi-section and empty exports remain correct. Earlier interior/navigation/quiz evidence applies to unchanged owners. All copied/exported text consists only of quantity and card name lines; saved title/sections/order remain intact.
+
+Owner Review: PENDING. Integration: PENDING. Same branch codex/vm-680-independent-clipboard. No push, PR, merge or deployment. External Moxfield/Archidekt links, extra formats, imports and VM-679 remain outside this correction. Recommend keeping manual export now; richer options can be proposed when an actual owner use case requires them.
+
+Shortest Owner test: reload local Archscry, open Clipboard and Copy list into a text field; every line should be quantity plus card name, without Clipboard/Finds/Sparks/Anchors headings or blank separators. Check Export and Download match that list; saved title and section controls stay available.
+
+## Material candidate
+
+- Baseline: `8cee92d103f28c2ca23c21f20bb35f47a849b4f6`
+- Candidate: `41e146db02fec5ac5fa8c7cd4b29524f50b5718b`
+- Changed paths: `35`
+
+The complete baseline-to-candidate branch has 35 Git-derived paths, retaining original Clipboard/top-bar/interior scope and evidence. This follow-up changes only the existing export formatter and removes obsolete title replacement; existing exact assertions are adapted. It adds no external destination, format setting or import feature.
+
+## Files changed
+
+- `apocrypha/index.html`
+- `archscry/index.html`
+- `assets/css/maze.css`
+- `assets/css/topbar.css`
+- `assets/js/archscry/runtime/dossier-view.js`
+- `assets/js/guide/maze-walkthrough.js`
+- `assets/js/maze/maze-scratchpad-store.js`
+- `assets/js/maze/research-init.js`
+- `assets/js/shared/vm-clipboard.js`
+- `assets/js/shared/vm-topbar.js`
+- `docs/handoffs/2026-10-05-2211-codex-vm680-clipboard.md`
+- `docs/handoffs/2026-10-05-2211-robqa-vm680-clipboard.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-680-independent-clipboard.md`
+- `guide/index.html`
+- `guide/maze/index.html`
+- `guide/reading/index.html`
+- `index.html`
+- `library/index.html`
+- `maze/index.html`
+- `privacy/index.html`
+- `scripts/validate-frontend-html.mjs`
+- `scripts/vm616-maze-context-recovery-tests.mjs`
+- `scripts/vm680-clipboard-browser.mjs`
+- `strategium/before-game/index.html`
+- `strategium/console/index.html`
+- `strategium/during-game/index.html`
+- `strategium/find-a-table/index.html`
+- `strategium/index.html`
+- `strategium/review/index.html`
+- `terms/index.html`
+- `tests/archscry/archscry-dev-review-tests.js`
+- `tests/maze/maze-scratchpad-store-tests.js`
+- `tests/shared/clipboard-tests.js`
+
+## Evidence delta
+
+- Material candidate: `41e146db02fec5ac5fa8c7cd4b29524f50b5718b`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `4`
+
+Appended exact-QA/report evidence, card lifecycle/delivery observations and checkbox results, and regenerated board are evidence-only and **not the full task diff**. Existing material candidate prose, scope, decisions and dependencies remain preserved. Owner acceptance and integration remain pending.
+
+## Evidence-only paths
+
+- `docs/handoffs/2026-10-05-2211-codex-vm680-clipboard.md`
+- `docs/handoffs/2026-10-05-2211-robqa-vm680-clipboard.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-680-independent-clipboard.md`
