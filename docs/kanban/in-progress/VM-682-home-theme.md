@@ -50,7 +50,7 @@ Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Predecessor: VM-680
-Decisions: Stage 1 is Home only. Dark is the unconditional fallback; system preference is deliberately ignored until a separately authorized stage. The controller must never touch saved reading, Clipboard, search, or motion keys/data. Preserve accepted VM-680 44px controls, Outfit UI, Clipboard geometry, storage and formatter. No deployment, integration, broader route conversion, palette redesign, or live feedback send is authorized. Owner reconciliation, current root user message 2026-10-07: retain `ce70d4465d96e22b328c67eda458489da8bbba65` as the canonical VM-682 admission; `f5e30e10` and `ace4b66b` are superseded pre-implementation admission attempts, with their Git/reflog evidence retained. This authorizes admission reconciliation only, not the eventual theme candidate.
+Decisions: Stage 1 is Home only. Dark is the unconditional fallback; system preference is deliberately ignored until a separately authorized stage. The controller must never touch saved reading, Clipboard, search, or motion keys/data. Preserve accepted VM-680 44px controls, Outfit UI, Clipboard geometry, storage and formatter. No deployment, integration, broader route conversion, palette redesign, or live feedback send is authorized. Owner reconciliation, current root user message 2026-10-07: retain `ce70d4465d96e22b328c67eda458489da8bbba65` as the canonical VM-682 admission; `f5e30e10` and `ace4b66b` are superseded pre-implementation admission attempts, with their Git/reflog evidence retained. This authorizes admission reconciliation only, not the eventual theme candidate. Scope amendment: admit the narrow Home first-paint exception in `scripts/validate-frontend-html.mjs`; it must permit exactly the one synchronous external Home theme controller before Home styles and preserve the deferred/module rule for every other external script.
 
 ## Admission Scope
 
@@ -62,6 +62,7 @@ Decisions: Stage 1 is Home only. Dark is the unconditional fallback; system pref
 - `assets/css/home-wip.css`
 - `tests/shared/theme-controller-tests.js`
 - `scripts/vm682-home-theme-browser.mjs`
+- `scripts/validate-frontend-html.mjs`
 - `docs/kanban/in-progress/VM-682-home-theme.md`
 - `docs/kanban/board.md`
 - `docs/handoffs/HANDOFF_INDEX.md`
