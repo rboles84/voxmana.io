@@ -183,3 +183,83 @@ The correction gives only the Home-light fixed `.vm-bg` an opaque parchment fall
 The Owner judges whether the corrected parchment now fills the intended Home field; whether warmth, art/effect balance, gold/teal accents and optical glyph centering feel right; and whether desktop/mobile Home, Clipboard and feedback surfaces feel coherent. Engineering has verified the actual layer, readability, dark preservation, interaction states and protected contracts.
 
 Open corrected Home `/`, switch dark → light, and judge the field behind the hero/directory plus Clipboard and feedback. At a narrow width, open the menu and judge resting/hover/focus feel. Switch back to dark once and judge that the established dark presentation is unchanged. No blocker or major correctness defect remains. This new PASS is bound only to `fd3645d7de1718e82bb03daa3ec07801f8ac1128` and permits renewed Owner Review; it does not assert Owner acceptance or authorize integration.
+
+## Light surface and atmosphere review
+
+Task: VM-682
+Candidate: d675abf363dfedeaf9e7609e1028977f0ba88f30
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: Codex RobQA /root/home_theme_qa
+Implementer: Codex RobDev /root/home_theme_dev (runtime CSS); coordinator /root (focused regression harness, card, and handoff)
+Governing role: repository RobQA under `.agents/skills/robqa/SKILL.md` and `docs/qa/RobQAPass.md`
+Requested route: Sol medium
+Backend-effective model/tier: unverified
+
+### Change classification
+
+- QA tier: QA-1 presentation with focused QA-2 interaction and state regression evidence. The visual treatment is CSS-only, but the Owner escape depended on actual canvas compositing plus inherited hover/focus styles.
+- Changed behavior: Home light mode removes detached cream fills and elevation from author, directory, and disclaimer presentation; retains a low-alpha dossier surface; and shows the existing star/orb canvas through a bounded light-only multiply/brightness/opacity treatment. Light link and metadata colors protect readability over the revised surfaces.
+- Protected behavior intentionally untouched: Home content, art, layout, geometry, typography, routes, controller, key namespace, first-paint bootstrap, storage policy, Clipboard/search/motion bytes, feedback transport, `home.js` particle generation and motion, dark styling, and unconverted routes.
+- QA execution mode and reason: SEPARATE. The reviewer implemented neither the runtime CSS nor the regression harness. Shared state/bootstrap/topbar behavior and an Owner-reported rendered escape require independent candidate-bound evidence.
+- Exact candidate and evidence: `d675abf363dfedeaf9e7609e1028977f0ba88f30`; baseline `028f029360ce256fb63bca1266baa199f1f12175`; prior evidence head `0986030021991fd627a0aa8e6b4beb76953c1e44`. Full baseline scope is 15 paths; the refinement delta is six paths.
+
+### Source and contract review
+
+The full baseline-to-candidate diff and the narrow `0986030021991fd627a0aa8e6b4beb76953c1e44..d675abf363dfedeaf9e7609e1028977f0ba88f30` diff were inspected directly. The narrow runtime changes are limited to `assets/css/home.css` and `assets/css/home-wip.css`; all new or changed presentation rules are scoped to `html[data-vm-theme="light"] body.vm-home-preview`. The shared controller, topbar, first-paint bootstrap, validator exception, controller tests, and every JavaScript runtime file are byte-identical to the prior reviewed candidate. `assets/js/home/home.js` has Git object `33d7a78398ba35e0c0cc285b34c3d81fd42b7132` at baseline, the prior corrected candidate, and this candidate.
+
+The source implements the stated hierarchy: author, directory heading and all directory entries, and the hero disclaimer compute transparent with no elevation; the dossier alone retains a `0.22` alpha surface, border, and restrained shadow. The canvas computes `mix-blend-mode: multiply`, `brightness(0.75)`, and `opacity: 0.6` only in Home light. The harness reads actual computed gradient stops and canvas pixels rather than substituting the intended palette.
+
+### Tests selected
+
+- `npm.cmd run validate:admission -- --task=VM-682 --mode=continue` — required exact-candidate ownership/scope and remote-baseline check. PASS: branch, HEAD, local/remote main, merge base, canonical admission, and all 15 scoped Git rows matched.
+- `node scripts/vm682-home-theme-browser.mjs` — required because real canvas pixels, CSS blend/composition, pointer hover, focus modality, and inherited interactive styles cannot be proven reliably by static checks. PASS in an isolated x86 Edge profile. Every non-local request was aborted before transport; feedback success and failure used only the localhost fixture.
+- `node tests/shared/theme-controller-tests.js` — protects the shared theme owner and storage isolation retained by the full feature. PASS.
+- `npm.cmd run lint:html` — protects the narrow synchronous Home bootstrap exception and route markup. PASS.
+- `npm.cmd run lint:js` — protects the shared controller/topbar and focused harness syntax/quality. PASS for 37 files.
+- `node --check scripts/vm682-home-theme-browser.mjs` — direct syntax check of the changed harness. PASS.
+- `npm.cmd run task -- indexes --check` — generated card/handoff views. PASS; no stale views.
+- `git diff --check 028f029360ce256fb63bca1266baa199f1f12175..d675abf363dfedeaf9e7609e1028977f0ba88f30` — patch hygiene. PASS.
+
+### Objective browser evidence
+
+The focused browser run verified the real fixed Home background and opaque gradient endpoints, transparent local editorial surfaces, a bounded translucent dossier, viewport-covering transparent canvas, and nonzero canvas alpha pixels in normal and OS reduced-motion modes. It derived conservative channel-wise darkening factors from the actual painted frame and applied them to every checked text surface at both 1280px and 390px. Covered content included the heading, lede, author, guide, dossier label/title/credit/excerpt/action, directory heading/intro, every one of four directory headings/copies/actions, disclaimer/footer, and representative hover and keyboard-focus states. The dossier action, footer link, guide, and all four directory entries were exercised with real pointer hover and focus-visible state.
+
+The same journey retained the black-background sensitivity control: substituting black for the fixed light owner caused the contrast invariant to fail, removal restored PASS. It also verified actual local fonts, 44px target and 26px ring, dark default under both OS color preferences, saved-light pre-paint restoration, dark/light keyboard reversal, exact complete dark computed-surface equality after reversal, Privacy containment, reload/Back/cross-tab reset and replacement, protected storage bytes, mobile menu hit/focus/current/hover contrast, Clipboard, feedback validation/in-flight/success/failure dialogs, no-JavaScript safety, and absence of browser page errors.
+
+Canvas particles are randomized. The test deliberately does not claim a stable pixel count, a complete temporal animation envelope, or aesthetic strength. It proves that an actual frame is nonempty and applies a conservative within-frame contrast bound; unchanged particle-generation/motion source and exact computed dark reversal protect the remaining engineering contract. The Owner still judges whether the atmosphere and dossier lift look appropriately subtle over time.
+
+### Stateful adversarial coverage (§13A)
+
+- Relevant state owners and seams: `vm-theme.js` owns normalized theme state in `vm_theme_mode_v1`; the synchronous Home script applies first-paint state; the topbar reflects and changes it; Home light CSS consumes `data-vm-theme`; `home.js` owns canvas generation and the existing motion behavior. Only the light CSS consumption seam changed in this refinement.
+- Request/source provenance: explicit saved theme choice remains authoritative; absent, malformed, or unreadable storage remains dark. OS color preference does not become an owner.
+- Forward transition: dark to light by keyboard produced the light surfaces and atmosphere with correct next-mode label/glyph.
+- Reverse transition: light to dark restored a deep-equal snapshot of the complete default dark surface, including body, fixed layer, disabled nebula, canvas style, text-layer colors/backgrounds/images/shadows/opacity/filter/blend/display, and transparent canvas contract.
+- Perturb/restore: the black fixed-background negative control failed the heading contrast invariant and passed after removal; pointer hover/focus perturbations on the affected controls retained readable composed results.
+- Replacement/reset: a second tab replaced light with dark, replaced dark with light, then removed the saved key; the observed page followed each authoritative storage event and reset to dark.
+- Same visible state/different history: saved light survived Home to Privacy to Back and reload; light reached by direct saved initialization and by interactive reversal produced the same controller/theme contract. Dark reached by default, keyboard reversal, and storage reset retained the same protected dark surface contract.
+- Representation round-trip: theme state round-tripped through DOM dataset, accessible next-mode label, glyph, storage, navigation, and cross-tab replacement without mutating reading, Clipboard, search, or motion keys.
+- Visible/current versus executed state: computed theme, label, glyph, storage owner, and painted CSS state agreed after every transition and after settled CSS transitions.
+- Structurally different representative: unconverted Privacy remained dark and exposed no ineffective toggle; desktop and mobile Home exercised different topbar/menu consumers.
+- Sensitivity/causal control: the prior Owner escape is represented by the black fixed-layer control. The refinement escape is represented by actual computed alpha/elevation assertions plus canvas-pixel composition and real inherited hover/focus states.
+- Objective result: PASS. No stale owner, hidden-state divergence, cross-route leakage, or protected-key mutation was observed.
+
+### Manual findings converted to invariants
+
+- Finding: cream editorial boxes stood apart from the parchment field. Defect class: surface hierarchy/presentation ownership. Regression invariant: author, directory heading/entries, and disclaimer have transparent computed backgrounds and no artificial elevation in Home light; only the dossier may retain a bounded subtle surface.
+- Finding: the Owner asked to retain the existing dark-mode atmosphere in light. Defect class: decorative-layer containment/compositing. Regression invariant: the existing canvas must cover the viewport and contain painted alpha pixels in normal and reduced-motion contexts, with light-only bounded blend/filter/opacity and readable actual composited foregrounds.
+- Finding during correction: inherited dark dossier hover fill reduced light contrast. Defect class: cross-theme interactive-state inheritance. Regression invariant: actual hover and focus-visible states for dossier, footer, guide, and every directory entry must retain readable composed foregrounds.
+
+### Tests intentionally skipped
+
+- Screenshot, visual-regression, animation-fidelity, and broad viewport matrices: subjective surface balance and atmosphere strength remain OWNER-VISUAL; objective CSS/compositing and the one responsive breakpoint at risk are covered directly.
+- Broad `npm test`, placement, semantic, Scryfall, journey, mutation, recovery, Lighthouse, and deployment suites: their engines, data, scoring, production configuration, and performance contracts did not change. Existing certification remains applicable.
+- Live feedback: prohibited by scope. The browser fixture covered validation, in-flight, success, and failure with localhost-only transport.
+
+CPU-heavy validation: NOT REQUIRED. This is a bounded Home presentation refinement with focused interaction/compositing risk; exhaustive suites would not add proportionate evidence.
+
+### Short review and remaining Owner judgment
+
+No engineering blocker was found. The objective surface hierarchy, actual canvas presence, conservative sampled-frame contrast, affected interactive states, dark reversal, state seams, accessibility mechanics, and containment pass at the exact candidate. RobQA PASS permits renewed Owner Review and does not mean Owner acceptance, integration, deployment, or stage 2.
+
+Owner review remains intentionally narrow: open `http://127.0.0.1:54762/` with saved light mode and judge whether the transparent editorial regions feel integrated with the parchment, the dossier lift is subtle enough, and the stars/orbs are visible without distracting from reading. Toggle to dark once and confirm the familiar dark appearance. Aesthetic balance, animation feel, and temporal atmosphere remain Owner judgment.

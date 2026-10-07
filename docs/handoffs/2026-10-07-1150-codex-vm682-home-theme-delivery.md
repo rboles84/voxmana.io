@@ -63,3 +63,23 @@ This lifecycle evidence phase appends the authentic independent verdict, binds t
 The existing [local Home preview](http://127.0.0.1:54762/) returns HTTP 200 and serves the corrected background bytes. Reload it, judge light Home's parchment field and text, and inspect mobile hover/focus comfort. Clipboard and feedback can be opened and closed without submitting feedback. All automated sends stayed mocked with nonlocal requests blocked. Subjective appearance remains Owner judgment. CPU-heavy and screenshot suites were not required. Native Git observes the feature ref absent remotely and main unchanged at the admission baseline; no push, rewrite, merge, integration, deployment or stage 2 occurred.
 
 Follow-up: Owner visual/product review of `fd3645d7de1718e82bb03daa3ec07801f8ac1128`. A later finding continues this same task; acceptance/integration is not inferred from this correction. The canonical admission `ce70d4465d96e22b328c67eda458489da8bbba65` and existing superseded admission evidence remain preserved. Next suggested agent: Owner.
+
+## Light refinement — renewed Owner Review
+
+Task: VM-682
+Agent: Codex coordinator /root
+Candidate: d675abf363dfedeaf9e7609e1028977f0ba88f30
+RobQA: PASS
+Execution: SEPARATE
+Owner: PENDING
+Integration: PENDING
+
+The Owner requested research and a bounded trial after finding the cream editorial boxes too detached. The material candidate records the researched surface hierarchy, transparent author/directory/disclaimer, subtle dossier tint/shadow, stronger existing ink for small text, teal link details and a Home-light multiply/brightness/opacity treatment for the original star/orb canvas. The appended [RobDev packet](2026-10-07-1150-robdev-vm682-home-theme.md) owns final palette role assignments, CSS/harness ownership, causal contrast corrections and lessons. Earlier candidates and decisions above remain historical; their verdicts are not this candidate's readiness.
+
+Separate non-implementing `/root/home_theme_qa` independently reviewed the complete baseline-to-candidate feature and narrow refinement, ran the selected admission, browser, controller, lint, syntax, patch and freshness checks, and produced an original external PASS artifact with SHA-256 `f45c8d99ae355a2fa7234da0c6490004ffd7bcd1bf0f49fa286113567cb74574`. The coordinator read the artifact and authentic reviewer result, verified its bytes, and passed the candidate delivery checker at clean `d675abf363dfedeaf9e7609e1028977f0ba88f30` through its durable-QA binding. The original review is appended verbatim in section `Light surface and atmosphere review` of the existing [RobQA handoff](2026-10-07-1150-robqa-vm682-home-theme.md).
+
+Objective evidence includes actual canvas pixels and composed background contrast, normal and OS reduced-motion drawing, transparent editorial surfaces, real link hover/focus states, mobile menu, exact dark computed reversal, fonts/geometry/keyboard, first paint, reload/navigation/cross-tab, protected data, shared dialogs and mocked feedback. Source parity confirms the original canvas/motion/controller remain unchanged. All feedback used localhost mocks with nonlocal requests aborted. Random animation is deliberately not snapshot-tested; the contrast bound is conservative within observed frames, and temporal atmosphere strength remains Owner judgment. Screenshots, broad engine/data suites and CPU-heavy validation were not required.
+
+The existing [local Home preview](http://127.0.0.1:54762/) serves HTTP 200 with the candidate's current CSS and `no-store`. Reload Home in light, judge whether ordinary copy now feels part of the parchment, the dossier lift is subtle enough, and the original stars/orbs remain visible without distracting from reading. Toggle to dark once and inspect the familiar appearance. Clipboard and feedback may be opened and closed for surface review without sending feedback. The original Home-only boundaries remain intact; Owner acceptance of the appearance is PENDING.
+
+This evidence phase records only QA results, unchanged criterion completion, Owner Review lifecycle and generated summaries. The coordinator validates the exact narrative evidence delta, Git accounting and final candidate checker before presenting it. The [refinement Git report](C:/Users/obake/.codex/visualizations/2026/10/07/01a1177e-4c96-7413-8be6-bd86e4a4dbf5/vm682-light-refinement-git-report.md) owns the material/evidence/total-branch path accounting. Native Git observes the feature ref absent remotely and main unchanged at the admission baseline. No push, history rewrite, merge, integration, deployment or stage 2 occurred. Canonical admission and superseded attempt evidence remain preserved. Next suggested agent: Owner for exact-candidate visual/product review.
