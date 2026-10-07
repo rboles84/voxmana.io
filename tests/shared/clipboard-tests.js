@@ -3,12 +3,32 @@ import { readFile } from "node:fs/promises";
 import { execFileSync } from "node:child_process";
 import { pathToFileURL } from "node:url";
 import path from "node:path";
-import { createClipboardController, getClipboard } from "../../assets/js/shared/vm-clipboard.js";
+import { createClipboardController, getClipboard, getClipboardPreviewUrls } from "../../assets/js/shared/vm-clipboard.js";
 import { initScratchpad, READING_FINDS_STORAGE_KEY, LEGACY_DECK_IDEA_STORAGE_KEY, LEGACY_STASH_STORAGE_KEY } from "../../assets/js/maze/maze-scratchpad-store.js";
 import * as presentation from "../../assets/js/archscry/archscry-presentation.js";
 
 const baseline = "8cee92d103f28c2ca23c21f20bb35f47a849b4f6";
 const now = () => "2026-10-06T04:11:00.000Z";
+const imagePath = "back/5/0/50a22ad6-d2a4-48a6-91c9-147c946a60a5";
+const frontImage = `https://cards.scryfall.io/small/${imagePath.replace("back/", "front/")}.jpg?1783904812`;
+assert.deepEqual(getClipboardPreviewUrls(frontImage), [frontImage.replace("/small/", "/large/"), frontImage], "ordinary saved front-face previews retain the same printing");
+for (const [size, extension, target] of [["small", "jpg", "large"], ["normal", "jpg", "large"], ["thumb", "webp", "display"], ["grid", "webp", "display"]]) {
+  const original = `https://cards.scryfall.io/${size}/${imagePath}.${extension}?v=123&face=back#image`;
+  assert.deepEqual(getClipboardPreviewUrls(original), [original.replace(`/${size}/`, `/${target}/`), original], "preview upgrades preserve printing, back face, query and original fallback");
+}
+for (const original of [
+  `https://cards.scryfall.io/large/${imagePath}.jpg`,
+  `https://cards.scryfall.io/png/${imagePath}.png`,
+  `https://cards.scryfall.io/art_crop/${imagePath}.jpg`,
+  `https://example.invalid/small/${imagePath}.jpg`,
+  `https://cards.scryfall.io.example.invalid/small/${imagePath}.jpg`,
+  `http://cards.scryfall.io/small/${imagePath}.jpg`,
+  `https://cards.scryfall.io:8443/small/${imagePath}.jpg`,
+  `https://user@cards.scryfall.io/small/${imagePath}.jpg`,
+  `https://cards.scryfall.io/small/${imagePath}.webp`,
+  "https://cards.scryfall.io/small/not-a-printing.jpg"
+]) assert.deepEqual(getClipboardPreviewUrls(original), [original], "unrecognized paths and hosts keep the original image");
+for (const invalid of [undefined, "", "invalid", "javascript:alert(1)", "data:image/png;base64,AA=="]) assert.deepEqual(getClipboardPreviewUrls(invalid), []);
 function storage(seed = {}) {
   const data = new Map(Object.entries(seed));
   return { data, getItem: key => data.get(key) ?? null, setItem: (key, value) => data.set(key, String(value)) };

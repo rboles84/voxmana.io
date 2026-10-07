@@ -585,7 +585,7 @@ No JavaScript, DOM, formatter, storage/schema, data, Add, navigation/return/quiz
 Developer evidence: HTML lint and exact CSS diff check PASS; runtime delta is Clipboard selectors only. An external isolated Edge style probe matched Home panel/control radius, warm palette, quiet borders, Outfit heading and enabled hover. It then exposed harness defects: initial cleanup masked the result with a delayed Edge profile file lock, scripted pointer focus did not establish :focus-visible, and the focused retry used an unsupported combined Shift+Tab Puppeteer key name. Cleanup now has bounded retries and native Tab/Shift down/Tab/Shift up follows the existing harness pattern. No further root browser retry; independent candidate QA receives the corrected external witness to verify native focus, remaining representative families and narrow overflow. No product defect is inferred from those harness errors; no user data/profile was used. Earlier functional/source/link evidence is reused for byte-unchanged JavaScript and test owners.
 
 
-## Current independent engineering decision
+## Historical current independent engineering decision — look-and-feel revision
 
 RobQA PASS, QA-1 presentation, Execution SEPARATE, bound to `605c475835ac3948d417384080ef7963501cb3bd` under Look-and-feel candidate review in the existing RobQA handoff. Exact CSS delta/HTML lint PASS. Corrected external isolated Edge witness passed once independently across Home, Archscry, Maze, Apocrypha, Strategium, Guide and Privacy, plus Archscry at 390×600: 2px panel/control family, square trigger corner, warm site/Home palette, quiet resting borders/text, enabled gold hover, real Tab keyboard focus-visible, consistent Outfit roles, 44px targets, warm scrollbar, fixed header/footer, no horizontal overflow and End to the exact list bottom. Earlier external probe failures were inspection-harness issues, corrected before the independent run; first stale temporary profile removed through verified literal Temp path. Unchanged JavaScript/state/export/links/quiz/navigation owners retain their prior separate exact-candidate evidence.
 
@@ -593,7 +593,7 @@ Owner Review: PENDING for final optical judgment. Integration: PENDING. Owner ha
 
 Shortest Owner test: reload local Archscry and open Clipboard; review nearly square corners, warm panel/fields, quieter borders and button hover. Tab to an action and check visible focus. Open it on Home or Maze and confirm the same heading/control typography. Narrow the window and scroll, checking fixed Close/actions. Copy the existing list once to confirm unchanged plain card lines. Owner approves the look separately from engineering readiness.
 
-## Material candidate
+## Historical material candidate — look-and-feel revision
 
 - Baseline: `8cee92d103f28c2ca23c21f20bb35f47a849b4f6`
 - Candidate: `605c475835ac3948d417384080ef7963501cb3bd`
@@ -601,7 +601,7 @@ Shortest Owner test: reload local Archscry and open Clipboard; review nearly squ
 
 The complete baseline-to-candidate branch has 35 Git-derived paths, retaining the original Clipboard/interior/plain-export work and evidence. This look-and-feel revision changes runtime only in the shared Clipboard CSS block of topbar.css. DOM, JavaScript, tests, stored data, formatter, layout and route/quiz/identifier owners are unchanged from the prior candidate. No new test suite or global skin change.
 
-## Files changed
+## Historical files changed — look-and-feel revision
 
 - `apocrypha/index.html`
 - `archscry/index.html`
@@ -639,7 +639,7 @@ The complete baseline-to-candidate branch has 35 Git-derived paths, retaining th
 - `tests/maze/maze-scratchpad-store-tests.js`
 - `tests/shared/clipboard-tests.js`
 
-## Evidence delta
+## Historical evidence delta — look-and-feel revision
 
 - Material candidate: `605c475835ac3948d417384080ef7963501cb3bd`
 - Evidence head: `HEAD`
@@ -647,9 +647,22 @@ The complete baseline-to-candidate branch has 35 Git-derived paths, retaining th
 
 Appended authentic exact-QA/report evidence, card lifecycle/delivery observations and completed checkbox, and regenerated board are evidence-only and **not the full task diff**. Existing candidate prose, scope, decisions and dependencies remain preserved. Owner visual acceptance and integration remain pending.
 
-## Evidence-only paths
+## Historical evidence-only paths — look-and-feel revision
 
 - `docs/handoffs/2026-10-05-2211-codex-vm680-clipboard.md`
 - `docs/handoffs/2026-10-05-2211-robqa-vm680-clipboard.md`
 - `docs/kanban/board.md`
 - `docs/kanban/in-progress/VM-680-independent-clipboard.md`
+
+
+## Approved Clipboard preview-resolution correction — 2026-10-06
+
+Owner explicitly approved the recommended surgical image fix. Continuation admission PASS at 525dde775acba2d88854a44b5d33877cbb95f15d; live/main baseline unchanged. Apply already-read full RobDev and RobQA authority. Current store prefers 146×204 small images; the shared renderer displays up to 240px. Official [Scryfall image documentation](https://scryfall.com/docs/api/images) inspected in this session establishes small/normal/large full-card renditions and corresponding thumb/grid/display WEBP variants. Larger sources may still be soft when Scryfall marks the source lowres.
+
+Owning layer and smallest complete slice: shared vm-clipboard.js resolves only recognized HTTPS cards.scryfall.io full-card paths to large JPG/display WEBP at render time. Exact printing UUID, front/back face, extension, query and fragment are retained. Existing saved rows and newly added rows use the same resolver; the original URL is the bounded fallback after upgraded-image failure. Unrecognized hosts, credentials/ports, art/cropped/PNG paths and malformed paths are not transformed; non-web URLs remain rejected. Preserve native lazy loading and actual-open retry, with final existing unavailable message if both attempts fail. No API metadata fetch or new dependency.
+
+Protected: storage and row bytes/schema/key/lifetime, source precedence, quantities/sections/title, ordinary Add, shared controller, plain copy/download, UI layout/styles/hit areas/focus, quiz/search/native return and byte-identical generated links. VM-679 remains pending; no external exports/imports, push, merge or deployment. No architecture reopening. Files reviewed: shared renderer, existing store image selection, shared tests, existing browser harness and current task evidence. Runtime change owner: shared renderer only; store stays byte-unchanged.
+
+QA-2 bounded image-resource/failure interaction; SEPARATE candidate QA required by Owner and shared behavioral contract, reusing configured RobQA worker. Unit URL assertions protect exact same-printing/face transforms, non-Scryfall and unsafe inputs. Focused isolated browser checks are justified by actual image error delivery, lazy-resource timing, fallback exhaustion/reopen, and persisted-row reload; these cannot be proven by URL tests alone. Unchanged broader interaction/style/navigation/quiz evidence is reused. CPU-heavy placement and visual screenshots/matrices NOT REQUIRED. Stateful adversarial scope is the transient preview resource chain only: larger success, large failure/original success, both fail, close/reopen retry and saved-byte comparison; storage ownership and transport remain untouched. Owner judgment is final apparent card sharpness.
+
+Developer verification: URL/state/source suite PASS including all 441 same-state generated-link comparisons; JavaScript lint and diff whitespace check PASS. First focused browser attempt could not connect to its isolated local Edge port under the sandbox (EACCES during launch). The same focused harness run with authorized local process access PASS: lazy closed Add/reload, opening loads, transient failure retries, saved back-face large URL, original fallback, exhaustion then reopen, and byte-identical saved state. No screenshots, optical certification, real Owner browser/profile/data or full functional journey used.

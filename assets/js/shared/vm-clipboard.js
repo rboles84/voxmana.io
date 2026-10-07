@@ -90,6 +90,19 @@ function safeWebUrl(value, fallback = "") {
   } catch (_) { return fallback; }
 }
 
+export function getClipboardPreviewUrls(value) {
+  const original = safeWebUrl(value);
+  if (!original) return [];
+  const url = new URL(original);
+  // Upgrade only Scryfall's full-card paths; retain the exact printing, face and query.
+  const match = url.pathname.match(/^\/(small|normal|thumb|grid)\/(front|back)\/[0-9a-f]\/[0-9a-f]\/[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}\.(jpg|webp)$/i);
+  if (url.protocol !== "https:" || url.hostname !== "cards.scryfall.io" || url.port || url.username || url.password || !match) return [original];
+  const webp = ["thumb", "grid"].includes(match[1]);
+  if (match[3] !== (webp ? "webp" : "jpg")) return [original];
+  url.pathname = url.pathname.replace(/^\/[^/]+\//, webp ? "/display/" : "/large/");
+  return [url.href, original];
+}
+
 function rowNode(row, section) {
   const item = element("li", "vm-clipboard-row");
   item.dataset.key = getCardIdentityKey(row);
@@ -163,14 +176,19 @@ function renderPreview(draft = getClipboard().getState()) {
     const heading = element("h3", "", row.name);
     heading.title = row.name;
     const media = element("div", "vm-clipboard-preview-media");
-    const imageUrl = safeWebUrl(row.imageUri);
+    const imageUrls = getClipboardPreviewUrls(row.imageUri);
     const unavailable = () => media.append(element("p", "", "Image unavailable. Open the card on Scryfall."));
-    if (imageUrl) {
+    if (imageUrls.length) {
       const image = element("img", "vm-clipboard-image");
+      let imageIndex = 0;
       image.loading = "lazy";
-      image.src = imageUrl;
+      image.src = imageUrls[imageIndex];
       image.alt = `${row.name} card image`;
-      image.addEventListener("error", () => { image.remove(); unavailable(); }, { once: true });
+      image.addEventListener("error", () => {
+        imageIndex += 1;
+        if (imageIndex < imageUrls.length) image.src = imageUrls[imageIndex];
+        else { image.remove(); unavailable(); }
+      });
       media.append(image);
     } else unavailable();
     view.preview.replaceChildren(heading, media);

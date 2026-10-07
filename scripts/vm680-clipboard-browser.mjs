@@ -15,6 +15,8 @@ const reading = { version: "clipboard-browser-fixture", source_mode: "quick", mo
 const storageKey = "vm_maze_reading_finds_v1";
 let closedPreviewRequests = 0;
 let retryPreviewRequests = 0;
+const scryfallPreviewRequests = [];
+const previewOnly = process.argv.includes("--preview-only");
 const server = http.createServer(async (req, res) => {
   try {
     const pathname = decodeURIComponent(new URL(req.url, "http://localhost").pathname);
@@ -55,6 +57,13 @@ try {
   await page.setViewport({ width: 1280, height: 900 });
   await page.setRequestInterception(true);
   page.on("request", req => {
+    if (req.url().startsWith("https://cards.scryfall.io/")) {
+      const url = new URL(req.url());
+      scryfallPreviewRequests.push(req.url());
+      const fail = url.searchParams.get("case") === "fallback" && url.pathname.startsWith("/large/") || url.searchParams.get("case") === "exhausted";
+      if (fail) return req.respond({ status: 503, contentType: "text/plain", body: "Unavailable" });
+      return req.respond({ status: 200, contentType: "image/svg+xml", headers: { "cache-control": "no-store" }, body: '<svg xmlns="http://www.w3.org/2000/svg" width="672" height="936"/>' });
+    }
     if (req.url().startsWith("https://api.scryfall.com/")) {
       const resultCard = new URL(req.url()).searchParams.get("q") === "f:commander" ? card : { ...card, name: "Clipboard Dossier Fixture", id: card.id.replace(/1$/, "2"), oracle_id: card.oracle_id.replace(/1$/, "2") };
       return req.respond({ status: 200, contentType: "application/json", headers: { "access-control-allow-origin": "*" }, body: JSON.stringify(req.url().includes("/search") ? { object: "list", total_cards: 1, has_more: false, data: [resultCard] } : card) });
@@ -114,6 +123,42 @@ try {
   assert.equal(retryPreviewRequests, 2, "reopening retries a transient failure for the same selection");
   await page.click('[data-clipboard-action="clear"]');
   await close();
+  phase = "saved Scryfall preview resolution and bounded fallback";
+  const imagePath = "back/5/0/50a22ad6-d2a4-48a6-91c9-147c946a60a5.jpg";
+  for (const scenario of ["sharp", "fallback", "exhausted"]) {
+    const original = `https://cards.scryfall.io/small/${imagePath}?case=${scenario}&v=123`;
+    const large = original.replace("/small/", "/large/");
+    await page.evaluate(async ({ fixture, original }) => {
+      const { getClipboard } = await import("/assets/js/shared/vm-clipboard.js");
+      getClipboard().clear();
+      getClipboard().add({ ...fixture, image_uris: { small: original } });
+    }, { fixture: card, original });
+    const savedBefore = await saved();
+    const start = scryfallPreviewRequests.length;
+    await page.reload({ waitUntil: "domcontentloaded" });
+    await page.waitForSelector("#vm-clipboard-trigger");
+    await new Promise(resolve => setTimeout(resolve, 300));
+    assert.equal(scryfallPreviewRequests.length, start, "stored Scryfall thumbnail stays lazy on closed reload");
+    await open();
+    if (scenario === "exhausted") {
+      await page.waitForFunction(() => document.querySelector(".vm-clipboard-preview")?.textContent.includes("Image unavailable"));
+      assert.deepEqual(scryfallPreviewRequests.slice(start), [large, original], "both failures stop after the original fallback");
+      await close(); await open();
+      await page.waitForFunction(() => document.querySelector(".vm-clipboard-preview")?.textContent.includes("Image unavailable"));
+      assert.deepEqual(scryfallPreviewRequests.slice(start), [large, original, large, original], "reopen retries the larger image and bounded fallback");
+    } else {
+      await page.waitForFunction(() => { const img = document.querySelector(".vm-clipboard-preview img"); return img?.complete && img.naturalWidth > 0; });
+      assert.equal(await page.$eval(".vm-clipboard-preview img", img => img.src), scenario === "sharp" ? large : original);
+      assert.deepEqual(scryfallPreviewRequests.slice(start), scenario === "sharp" ? [large] : [large, original]);
+    }
+    assert.equal(await saved(), savedBefore, "resolution, fallback and reopen never rewrite saved card bytes");
+    await close();
+  }
+  await page.evaluate(async () => { const { getClipboard } = await import("/assets/js/shared/vm-clipboard.js"); getClipboard().clear(); });
+  if (previewOnly) {
+    assert.deepEqual(errors, [], "preview run has no page script errors");
+    console.log("PASS Clipboard preview: closed lazy loading, transient retry, existing saved back-face large image, original fallback, bounded exhaustion/reopen and unchanged saved bytes.");
+  } else {
   phase = "real Maze Add and shared state";
   await goto("/maze/?q=f:commander");
   await page.waitForSelector(".card-stash-btn", { timeout: 15000 });
@@ -371,6 +416,7 @@ try {
   await page.evaluate(async () => { const { getClipboard } = await import("/assets/js/shared/vm-clipboard.js"); getClipboard().store.restoreDraft(window.__vm680BeforeInterior); });
   assert.equal(await total(), 3);
   console.log("PASS Clipboard browser: all public families; Add/Undo, controls, single responsive preview/fallback, title Save/Cancel, fixed header/footer and native overflow, Copy/fallback, real text download/URL cleanup, persistence/native return/quiz isolation and keyboard containment.");
+  }
 } catch (error) {
   console.error(`Clipboard browser FAIL during ${phase}: ${error.message}`);
   if (page) console.error(JSON.stringify({ errors, url: page.url(), state: await page.evaluate(() => ({ input: document.getElementById("search-input")?.value, text: document.getElementById("r-main")?.innerText?.slice(0, 500) })).catch(() => null) }));
