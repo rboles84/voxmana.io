@@ -96,3 +96,90 @@ The Owner judges parchment warmth, ink and accent feel, retained dark-effect/art
 Open Home `/` on the exact candidate. Judge the existing dark presentation, switch once to light from the topbar, and judge the Home, Clipboard and feedback surfaces. At a narrow mobile width, open the menu and judge the visible theme action and overall light-mode comfort. Reload Home once to see the saved choice. These are visual/product judgments only; deterministic persistence, accessibility, state isolation, navigation and failure behavior are covered above.
 
 No blocker or major correctness defect remains. This PASS is bound only to `3749d9677cbad4da3348d3e0dfb2b073fec1cfae` and permits Owner Review; it is not Owner acceptance, integration, push, PR, merge or deployment authorization.
+
+## Owner correction — exact-candidate review
+
+Task: VM-682
+Candidate: fd3645d7de1718e82bb03daa3ec07801f8ac1128
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: Codex RobQA /root/home_theme_qa
+Implementer: Codex RobDev /root/home_theme_dev (runtime CSS); Codex coordinator /root (regression harness and lifecycle evidence)
+
+Date: 2026-10-07
+Branch: `codex/vm-682-home-theme`
+Baseline: `028f029360ce256fb63bca1266baa199f1f12175`
+Governing role: repository-local RobQA with full `docs/qa/RobQAPass.md` authority. Requested independent route: Sol medium; backend-effective identity is unverified. The reviewer did not implement runtime or test changes.
+
+### Decision and historical disposition
+
+The corrected exact candidate passes independent engineering QA. The Owner's report that prior candidate `3749d9677cbad4da3348d3e0dfb2b073fec1cfae` showed dark text over a black Home field invalidated that candidate's delivery PASS. Its earlier section remains historical event-time evidence only and must not be used as readiness for a descendant.
+
+The rejected candidate was independently reproduced from a read-only `dc7b157dd0e6440609e0f1dde1717fd82ad54e32` archive. In saved light mode, `.vm-bg` computed as an opaque fixed black layer covering the full 1265×900 client viewport while the body computed the intended light gradient behind it; body pseudo layers were disabled and the canvas was transparent. Actual contrast against that black owner was 1.23:1 for the hero title and guide action, 1.42:1 for the lede, directory intro and footer, and 3.08:1 for guide context. The earlier harness escaped because it compared text with authored parchment constants rather than the actual painted owner.
+
+The correction gives only the Home-light fixed `.vm-bg` an opaque parchment fallback and gradient. The strengthened witness derives the real fixed background and local solid ancestors, covers twelve representative text surfaces at desktop and mobile, and proves sensitivity by injecting the rejected black owner: the invariant fails at heading contrast, then passes again when the control is removed. It also exposed and corrected inherited pale dark-mode menu accent tokens at 1.67:1 on parchment. Home-light menu gold/teal tokens now keep resting, hover, current-route and keyboard-focus states readable. No JavaScript, schema, HTML, storage, content, route, layout, art, font asset, notice, feedback transport or unconverted-route behavior changed in this correction.
+
+### Change classification and risk
+
+- QA tier: QA-1 presentation correction inside the existing QA-3/QA-2 shared state and component feature. Separate review remains required because this is an Owner-confirmed escape on a shared Home/topbar surface.
+- Narrow changed behavior from the prior evidence head: actual Home-light fixed background paint; Home-light menu interaction-state colors; focused causal regression harness; corrective task/handoff/generated-view evidence.
+- Full material scope: 15 admitted paths from baseline, including the original shared theme state/control work and current correction evidence. Narrow correction scope: six paths from `dc7b157d` to this candidate — `assets/css/home.css`, `assets/css/topbar.css`, `scripts/vm682-home-theme-browser.mjs`, the RobDev handoff, VM-682 card and generated board.
+- Protected behavior intentionally unchanged: unconditional dark default, explicit theme persistence, first paint, cross-tab/BFCache/reload, Home-only opt-in, unconverted routes, protected storage, Clipboard/feedback runtime, typography, art/layout/placement, control geometry, pinned fonts/notices and all decision/data engines.
+- Principal risks reviewed: fixing the body while leaving an opaque decorative owner dark; testing intended colors rather than painted layers; translucent/filtered ancestor composition; uncovered viewport edges; breaking the accepted dark stack; unreadable light menu hover/current/focus states; hiding the defect by moving the pointer; broadening light changes beyond Home.
+- Exact candidate and evidence: `fd3645d7de1718e82bb03daa3ec07801f8ac1128`, this section. Owner acceptance, integration, push, PR, merge, deployment and stage 2 remain PENDING.
+
+### Tests selected and results
+
+- `npm run validate:admission -- --task=VM-682 --mode=continue` — PASS at clean exact candidate. Remote main, local main, admission baseline and merge base remain `028f029360ce256fb63bca1266baa199f1f12175`; all 15 branch rows are admitted.
+- Full `baseline..candidate` plus narrow `dc7b157d..candidate` source/history review — PASS. The correction changes one Home-light background selector and Home-light menu token values; dark rules, theme controller, HTML and unconverted consumers remain unchanged. The card truthfully returned to In Progress/PENDING before correction QA, and prior evidence remains historical.
+- Rejected-candidate causal probe against a read-only archive — PASS as a sensitivity witness. It reproduced the full-viewport black owner and failing actual contrast values listed above without altering the worktree.
+- `node scripts/vm682-home-theme-browser.mjs` — PASS in a disposable x86 Edge profile with every nonlocal request aborted and feedback confined to localhost fixtures. It derives the actual opaque fixed gradient/fallback and local solid ancestor composition; verifies fixed client-viewport coverage, disabled pseudo/nebula owners and transparent canvas; checks twelve Home text representatives at desktop and 390px; proves the black negative control fails then restoration passes; compares the complete computed dark surface/text stack before and after reversal; and covers mobile resting, hovered theme action, current-route hover and keyboard focus/outline contrast. The original first-paint, fonts, navigation, storage, keyboard, Clipboard, feedback success/failure and no-JavaScript cases also pass.
+- `node tests/shared/theme-controller-tests.js` — PASS. The unchanged actual controller still covers no-choice dark, invalid/blocked storage, blocked-write same-page state, forward/reverse, namespaced ownership, replacement/removal and pageshow recovery.
+- `npm run lint:html` and `npm run lint:js` — PASS. HTML validator semantics and the narrow bootstrap exception remain valid; frontend JS lint passes its 37-file scope.
+- `node --check scripts/vm682-home-theme-browser.mjs` — PASS for the changed harness outside the lint list.
+- `git diff --check 028f0293..fd3645d7` and `npm run task -- indexes --check` — PASS; patch hygiene clean and generated views fresh.
+- Corrected Owner preview `http://127.0.0.1:54762/` — coordinator reported and independently scoped evidence records HTTP 200 with corrected CSS. Subjective appearance remains Owner work.
+
+### Tests intentionally skipped and cost gate
+
+- Screenshots, image diffs and viewport matrices: not required. The Owner supplied the visual finding; the regression is protected through computed actual-layer evidence at one desktop and one risk-relevant mobile viewport. The Owner retains aesthetic judgment.
+- Broad repository, placement/scoring, semantic, mutation, recovery and synthetic suites: no corresponding owner changed.
+- Live feedback transport: prohibited. The focused journey used only localhost success/failure fixtures and aborted nonlocal requests.
+- Full legacy Clipboard certification: Clipboard runtime/store/formatter are unchanged; the focused journey retains its valid-byte and dialog checks.
+- CPU-heavy validation: `NOT REQUIRED`. This is a bounded CSS owner/interactive-state correction with no engine or data change.
+
+### Self-QA objective evidence
+
+- Deterministic case: actual Home-light fixed backdrop, ancestor surface composition and representative computed foregrounds are inspected from the browser, without substituting palette constants.
+- Verification layer: exact CSS/source review, read-only rejected-candidate archive witness, and focused browser computation.
+- Browser justification: fixed stacking, viewport coverage, computed gradient endpoints, canvas/pseudo ownership, transitions, hover/focus state and composed contrast cannot be protected reliably through source text alone.
+- Objective result: PASS. Corrected light mode has an opaque light full-viewport owner and readable representative text; the black causal control fails for the intended reason; desktop/mobile and mobile interaction states pass; full dark computed values round-trip exactly.
+
+### Stateful adversarial coverage
+
+- Relevant state owners and seams: unchanged. `vm_theme_mode_v1` remains the only persisted theme owner; Home opt-in authorizes the controller; root theme state drives Home-only CSS; storage/pageshow events refresh it; topbar controls display it. The correction changes only the light presentation reached from that state.
+- Request/source provenance owners: explicit saved/clicked mode owns Home state; system preference remains ignored; unconverted routes never take theme ownership.
+- Forward transition: dark → light reaches the corrected fixed background and readable menu states while retaining protected bytes — PASS.
+- Reverse transition: light → dark produces deep-equal computed body, fixed layer, nebula, canvas, pseudo and twelve representative text/ancestor values relative to the initial dark state — PASS.
+- Perturb/restore: injected black Home-light owner makes the new invariant fail; removing it restores PASS. Existing invalid/blocked storage and reload/Back/pageshow restoration remain green — PASS.
+- Replacement/reset: cross-tab dark/light replacement and key removal remain green in the unchanged focused journey — PASS.
+- Same-visible-state/different-history: clicked, reloaded and cross-tab light converge on the same corrected applied surface; no-choice and explicitly stored dark converge visually while retaining their distinct saved provenance — PASS.
+- Representation round-trip: storage → root state → corrected CSS/background/control state → reverse toggle → original complete dark computed stack — PASS.
+- Visible/current versus executed state and normalization: no request execution exists. Applied root/controller mode and computed presentation agree exactly; valid values receive no normalization — PASS.
+- Structurally different representative: Privacy remains the unconverted shared-topbar route with no theme root/control. Home desktop and mobile exercise distinct layout/interaction branches — PASS.
+- Sensitivity/causal control: required by this Owner escape and completed. The rejected black owner deterministically fails actual heading contrast, while the corrected owner passes; the pointer remains on the mobile action for hover coverage rather than escaping the failing state.
+- Objective result: PASS. State ownership and recovery remain intact, and the Owner-confirmed presentation defect class now has a causal regression invariant.
+
+### Finding-to-invariant record
+
+- Owner finding: light panels/topbar appeared above an opaque black Home field, leaving dark Home copy unreadable.
+- Defect class: theming the intended body/token layer while a separate opaque fixed decorative owner retains its dark fallback; test used assumed rather than painted background.
+- Regression invariant: inspect actual full-viewport fixed owner and opaque gradient endpoints, compose real local surfaces for representative text, require accessible contrast at desktop/mobile, and prove a black owner fails before accepting the corrected state.
+- Connected finding: pale inherited dark-mode menu accents measured 1.67:1 on the light panel during real hover.
+- Connected invariant: retain actual resting/hover/current/focus states and focus outline while measuring their computed colors against the computed panel; never neutralize the witness by moving the pointer before the hover assertion.
+
+### Remaining owner judgment and shortest review
+
+The Owner judges whether the corrected parchment now fills the intended Home field; whether warmth, art/effect balance, gold/teal accents and optical glyph centering feel right; and whether desktop/mobile Home, Clipboard and feedback surfaces feel coherent. Engineering has verified the actual layer, readability, dark preservation, interaction states and protected contracts.
+
+Open corrected Home `/`, switch dark → light, and judge the field behind the hero/directory plus Clipboard and feedback. At a narrow width, open the menu and judge resting/hover/focus feel. Switch back to dark once and judge that the established dark presentation is unchanged. No blocker or major correctness defect remains. This new PASS is bound only to `fd3645d7de1718e82bb03daa3ec07801f8ac1128` and permits renewed Owner Review; it does not assert Owner acceptance or authorize integration.

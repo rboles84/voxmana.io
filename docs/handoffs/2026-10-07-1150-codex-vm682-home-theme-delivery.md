@@ -43,3 +43,23 @@ PASS if the selected parchment, accents, glyph appearance and shared surfaces fe
 Subjective palette warmth, optical glyph centering and desktop/mobile feel remain Owner judgment. No objective blocker remains in independent QA. Content, navigation, artwork, placement/search logic, Reading/Clipboard saved-data contracts, motion, existing control geometry, pinned fonts/notices and unconverted routes retain their protected ownership. No broad test bundle, screenshot comparison or live feedback was substituted for the focused evidence.
 
 Next suggested agent: Owner for visual/product ACCEPT or REJECT of the exact candidate. Integration, push, deployment and stage 2 remain outside this SHIP operation. Related authority: [RobDev](../../.agents/skills/robdev/SKILL.md), [RobQA](../../.agents/skills/robqa/SKILL.md) and [SHIP](../reference/workflow.md#ship-vm-).
+
+## Corrected candidate — Owner Review
+
+Task: VM-682
+Agent: Codex coordinator /root
+Candidate: fd3645d7de1718e82bb03daa3ec07801f8ac1128
+RobQA: PASS
+Execution: SEPARATE
+Owner: PENDING
+Integration: PENDING
+
+The earlier delivery above is historical. The Owner's current screenshot finding reopened the same card/branch and superseded the former candidate for readiness. RobDev corrected Home's fixed opaque background and connected mobile-menu light state tokens. The coordinator replaced assumed palette contrast with actual backdrop composition, a black-layer causal control, and representative resting/hover/focus/current state checks. Runtime and test ownership are recorded in the appended [RobDev packet](2026-10-07-1150-robdev-vm682-home-theme.md); the new material candidate includes those corrections and original scope boundaries.
+
+Separate non-implementing `/root/home_theme_qa` independently passes this exact candidate in the appended section `Owner correction — exact-candidate review` of the [QA handoff](2026-10-07-1150-robqa-vm682-home-theme.md). It reproduced the old source archive's black layer and low contrast, reviewed the full task/correction diffs, and reran the actual fixed-stack desktop/mobile, negative control, dark surface parity, mobile state/focus outline, font, navigation/storage, Clipboard, mocked feedback, no-JS, controller and required lint/admission/index checks. The former exact-SHA verdict is retained as historical evidence; it does not authorize the corrected candidate.
+
+This lifecycle evidence phase appends the authentic independent verdict, binds the card's renewed Owner Review to the corrected material candidate, and regenerates views. It changes no runtime, tests, policy, scope, decisions or acceptance-criterion wording. A separate exact-delta review and candidate delivery checker verify final evidence eligibility. The [corrected Git report](C:/Users/obake/.codex/visualizations/2026/10/07/01a1177e-4c96-7413-8be6-bd86e4a4dbf5/vm682-correction-git-report.md) owns all Git-derived path/count accounting.
+
+The existing [local Home preview](http://127.0.0.1:54762/) returns HTTP 200 and serves the corrected background bytes. Reload it, judge light Home's parchment field and text, and inspect mobile hover/focus comfort. Clipboard and feedback can be opened and closed without submitting feedback. All automated sends stayed mocked with nonlocal requests blocked. Subjective appearance remains Owner judgment. CPU-heavy and screenshot suites were not required. Native Git observes the feature ref absent remotely and main unchanged at the admission baseline; no push, rewrite, merge, integration, deployment or stage 2 occurred.
+
+Follow-up: Owner visual/product review of `fd3645d7de1718e82bb03daa3ec07801f8ac1128`. A later finding continues this same task; acceptance/integration is not inferred from this correction. The canonical admission `ce70d4465d96e22b328c67eda458489da8bbba65` and existing superseded admission evidence remain preserved. Next suggested agent: Owner.
