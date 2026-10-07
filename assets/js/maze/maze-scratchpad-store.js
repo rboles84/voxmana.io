@@ -425,19 +425,17 @@ function loadDraft(storage, now = () => new Date().toISOString()) {
 
 export function exportReadingFindsFromDraft(draft) {
   const safeDraft = sanitizeDraft(draft);
-  const lines = ["Reading Finds"];
+  const lines = [];
 
   READING_FIND_SECTION_CONFIG.forEach((section) => {
     const rows = safeDraft.sections[section.id].filter((row) => cleanCardName(row.name));
     if (!rows.length) return;
-    if (lines.length) lines.push("");
-    lines.push(section.exportHeading);
     rows.forEach((row) => {
       lines.push(`${normalizeQuantity(row.quantity)} ${cleanCardName(row.name)}`);
     });
   });
 
-  return lines.length > 1 ? lines.join("\n").trim() : "";
+  return lines.join("\n");
 }
 
 export function getTotalQuantity(draft, sectionId = "") {
@@ -500,8 +498,20 @@ export function initScratchpad({
     storageKey: READING_FINDS_STORAGE_KEY,
     legacyDeckIdeaStorageKey: LEGACY_DECK_IDEA_STORAGE_KEY,
     legacyStorageKey: LEGACY_STASH_STORAGE_KEY,
-    storageStatus,
+    get storageStatus() { return storageStatus; },
     getState() {
+      return cloneDraft(draft);
+    },
+    restoreDraft(snapshot) {
+      draft = sanitizeDraft(snapshot, now);
+      persist("restore");
+      return cloneDraft(draft);
+    },
+    refreshFromStorage() {
+      loadResult = loadDraft(storage, now);
+      draft = loadResult.draft;
+      storageStatus = loadResult.status;
+      notify({ type: "reload", persisted: true });
       return cloneDraft(draft);
     },
     subscribe(listener) {

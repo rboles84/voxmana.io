@@ -34,7 +34,7 @@ export const MAZE_WALKTHROUGH = Object.freeze({
       target: "#maze-guide-results",
       focusTarget: "#maze-next-title",
       title: "Act on a useful result",
-      description: "Inspect or refine the search, keep a useful card in Reading Finds, or open the same query in Scryfall."
+      description: "Inspect or refine the search, keep a useful card in Clipboard, or open the same query in Scryfall."
     })
   ])
 });

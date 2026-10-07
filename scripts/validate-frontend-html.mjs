@@ -335,7 +335,7 @@ for (const file of canonicalNavPages) {
     `${file} should place Guide before the menu trigger so Feedback can insert between them`
   );
   expect(
-    source.includes("assets/js/shared/vm-topbar.js?v=vm618"),
+    source.includes("assets/js/shared/vm-topbar.js?v=vm680"),
     `${file} should load the VM-618 shared topbar runtime cache key`
   );
 }
@@ -564,7 +564,7 @@ for (const key of ["strategiumConsole", "strategiumReview"]) {
 }
 
 const homeStylesheetHrefs = getStylesheetHrefs(sources.home);
-const homeTopbarLinkIndex = homeStylesheetHrefs.indexOf('./assets/css/topbar.css?v=vm618');
+const homeTopbarLinkIndex = homeStylesheetHrefs.indexOf('./assets/css/topbar.css?v=vm680');
 const homeKeyruneLinkIndex = homeStylesheetHrefs.indexOf('./assets/vendor/keyrune/css/keyrune.min.css?v=3.19.0');
 const homeRouteCssIndex = homeStylesheetHrefs.indexOf('./assets/css/home.css?v=vm635');
 expect(

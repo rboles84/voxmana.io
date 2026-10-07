@@ -348,6 +348,7 @@ try {
     const mazeState = await mazeContextPage.evaluate(() => ({
       returnCopy: document.getElementById("maze-return-copy")?.textContent?.replace(/\s+/g, " ").trim() || "",
       searchInput: document.getElementById("search-input")?.value || "",
+      query: document.getElementById("qi-query")?.textContent?.trim() || "",
       readingPathQueries: [...document.querySelectorAll("#reading-path-list .sb-btn")].map((button) => button.dataset.query || ""),
       placement: sessionStorage.getItem("vm_last_result"),
       profile: sessionStorage.getItem("vm_profile"),
@@ -366,9 +367,9 @@ try {
     const probeFind = Object.values(mazeState.readingFinds?.sections || {})
       .flat()
       .find((row) => row?.name === probeCardName);
-    assert.equal(probeFind?.sourceContext?.readingId, `dossier-review-${reviewCase.key.toLowerCase()}`, `${reviewCase.key} Reading Find used the wrong transient reading id`);
-    assert.equal(probeFind?.sourceContext?.factionName, reviewCase.name, `${reviewCase.key} Reading Find fell back to the saved dossier name`);
-    assert.equal(probeFind?.sourceContext?.pathType, reviewLaunch.params.pathType, `${reviewCase.key} Reading Find lost its originating path`);
+    assert.equal(probeFind?.sourceContext?.readingId, undefined, `${reviewCase.key} Clipboard must not attach a new card to a Reading`);
+    assert.equal(probeFind?.sourceContext?.factionName, undefined, `${reviewCase.key} Clipboard must not assign dossier ownership`);
+    assert.equal(probeFind?.sourceContext?.query, mazeState.query, `${reviewCase.key} Clipboard should retain ordinary search metadata`);
     assert.deepEqual({
       placement: mazeState.placement,
       profile: mazeState.profile,
