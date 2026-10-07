@@ -94,3 +94,15 @@ GitHub Pages run37573041840 completed success at the merge. The 2026-10-07T04:47
 The local VM-681 branch was removed only after proving its exact accepted evidence head, the clean main checkout and equal integrated tree. GitHub had already removed the remote feature branch; fetch --prune removed its tracking ref. One primary worktree remains at C:/dev/voxmana.io and no separate VM-681 worktree exists. Existing VM-670, VM-675 and VM-679 branches retain their observed original heads. No unrelated user work or primary checkout was deleted. All changes in this record are appended evidence and lifecycle observations; material criteria, scope, decisions, dependencies, runtime and test bytes remain unchanged.
 
 Next: validate Integrated closeout against synchronized clean main, then persist Done and repeat the exact recorded-state closeout check. The Owner's acceptance remains bound to the original material SHA; no further product approval is required.
+
+## Final closeout
+
+Task: VM-681
+Candidate: fc4bef194dd5bb3f7af9951b4744a8e4ddd3df5a
+PR71: https://github.com/rboles84/voxmana.io/pull/71
+Merge: bcb410f46cb1dc8d5117511bf2058758b37b4f68
+Integration: INTEGRATED
+
+The Integrated closeout gate passed at synchronized clean main 13cabf5efe4b28f58a6c22119c72708a5502c862, verifying squash parent/tree parity, original exact QA/Owner evidence, full host PR scope/CI, report accounting, current lifecycle observations, feature branch/worktree absence and preserved boundaries. The post-merge main validation run37573042738 also completed success. GitHub Pages publication and actual public Maze HTML/CSS/controller byte equality were already verified above; no product bytes changed during closeout.
+
+This final lifecycle commit moves the canonical card to docs/kanban/done/VM-681-maze-hover-size.md, changes only Status to Done, appends this result and regenerates the board. Historical admission paths, criteria, scope, decisions, dependencies and prior handoff prose are preserved. The final recorded Done/main SHA and Git-derived material/evidence/final-branch/final-main scopes are retained in vm681-review/live-closeout-git-report.md outside the repository; a final exact-delta boundary review and closeout checker bind that current clean main. Other tasks remain untouched. No cleanup deferral or further Owner approval is needed.

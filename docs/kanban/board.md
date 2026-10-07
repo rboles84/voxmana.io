@@ -1,4 +1,4 @@
-<!-- task-view-sha256:f2e6f2ffb15623d7fc7e3f6071f7f53209ed7fe51c9cde2ec7033c304f491947 -->
+<!-- task-view-sha256:bae916a2b76e504043cdd6c8479dab8c9ebfdb6e99062a6ac3129c1e6513d9ea -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -57,7 +57,6 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 |---|---|---|---|
 | VM-658 | [Maze Instrument Frame](in-progress/VM-658-maze-instrument-frame.md) | Integrated |  |
 | VM-660 | [Maze Performance Recon](in-progress/VM-660-maze-performance-recon.md) | Integrated |  |
-| VM-681 | [Maze hover preview — 20% size reduction](in-progress/VM-681-maze-hover-size.md) | Integrated |  |
 
 ## Blocked
 
@@ -697,6 +696,7 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | VM-677 | [RobQA Stateful Adversarial Policy Recovery, Red-Team, and Refinement](done/VM-677-robqa-stash-recon.md) | Done |  |
 | VM-678 | [URL and Security Reconnaissance](done/VM-678-url-security-recon.md) | Done |  |
 | VM-680 | [Independent site-wide Clipboard](done/VM-680-independent-clipboard.md) | Done |  |
+| VM-681 | [Maze hover preview — 20% size reduction](done/VM-681-maze-hover-size.md) | Done |  |
 
 ## Unresolved
 

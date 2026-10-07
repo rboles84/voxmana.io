@@ -2,7 +2,7 @@
 
 ID: VM-681
 Title: Maze hover preview — 20% size reduction
-Status: Integrated
+Status: Done
 Type: Bounded presentation and component geometry
 Area: Maze
 Priority: Normal
