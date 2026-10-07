@@ -666,3 +666,75 @@ Protected: storage and row bytes/schema/key/lifetime, source precedence, quantit
 QA-2 bounded image-resource/failure interaction; SEPARATE candidate QA required by Owner and shared behavioral contract, reusing configured RobQA worker. Unit URL assertions protect exact same-printing/face transforms, non-Scryfall and unsafe inputs. Focused isolated browser checks are justified by actual image error delivery, lazy-resource timing, fallback exhaustion/reopen, and persisted-row reload; these cannot be proven by URL tests alone. Unchanged broader interaction/style/navigation/quiz evidence is reused. CPU-heavy placement and visual screenshots/matrices NOT REQUIRED. Stateful adversarial scope is the transient preview resource chain only: larger success, large failure/original success, both fail, close/reopen retry and saved-byte comparison; storage ownership and transport remain untouched. Owner judgment is final apparent card sharpness.
 
 Developer verification: URL/state/source suite PASS including all 441 same-state generated-link comparisons; JavaScript lint and diff whitespace check PASS. First focused browser attempt could not connect to its isolated local Edge port under the sandbox (EACCES during launch). The same focused harness run with authorized local process access PASS: lazy closed Add/reload, opening loads, transient failure retries, saved back-face large URL, original fallback, exhaustion then reopen, and byte-identical saved state. No screenshots, optical certification, real Owner browser/profile/data or full functional journey used.
+
+
+## Current independent engineering decision
+
+RobQA PASS, QA-2 image-resource/failure interaction, Execution SEPARATE, bound to `003a30e7e76ab7d84a3a1ef1b67f2ef0aa09121a` under Preview-resolution candidate review in the existing RobQA handoff. Reviewer Codex RobQA /root/clipboard_candidate_qa, configured/requested existing Sol medium route; no unverified backend claim. Independent continuation admission, JavaScript lint, focused URL/state/source/441-link suite and isolated Edge --preview-only all PASS. Exact actual image error cases demonstrate large success, original fallback, bounded both-fail/reopen chain, closed lazy loading, same-printing/back-face/query preservation and byte-identical stored collection. Unit representatives cover front/back JPG, WEBP, rejected schemes, lookalike hosts, credentials/ports and unrecognized paths. Existing style, export, Add, other interactions, quiz/search/native return owners remain unchanged; their prior exact QA is reused. CPU-heavy validation and screenshot/viewport matrices NOT REQUIRED.
+
+The original saved thumbnail URL remains stored. Only rendering upgrades it; no re-add, migration or API metadata fetch is necessary. Optical sharpness depends on Scryfall's source scan. Shared controller, selection/layout/focus and fallback wording remain intact. Root local preview check returned HTTP200 after sandbox local-socket restriction was addressed using authorized local access. No Owner browser data was changed.
+
+Owner Review: PENDING. Integration: PENDING. No push, PR, merge or deployment. VM-679 stays pending. Next suggested role: Owner visual review.
+
+Short Owner test: reload http://127.0.0.1:8680/archscry/index.html, open Clipboard and select the already-saved Aang card; confirm the same printing is sharper without adding it again. Select another card, close/reopen and navigate to Maze or reload; cards/count/sections should remain. Copy list once and confirm quantity/name lines only. Owner judges apparent sharpness; deterministic state/resource contracts already passed independently.
+
+## Material candidate
+
+- Baseline: `8cee92d103f28c2ca23c21f20bb35f47a849b4f6`
+- Candidate: `003a30e7e76ab7d84a3a1ef1b67f2ef0aa09121a`
+- Changed paths: `35`
+
+The full baseline-to-candidate scope contains 35 Git-derived paths. This surgical revision changes only shared preview resolution/error fallback plus the existing focused tests and task records; earlier Clipboard work remains in the full branch. Store, CSS, Add, formatter and navigation/quiz/identifier owners are byte-unchanged relative to predecessor evidence head 525dde775acba2d88854a44b5d33877cbb95f15d.
+
+## Files changed
+
+- `apocrypha/index.html`
+- `archscry/index.html`
+- `assets/css/maze.css`
+- `assets/css/topbar.css`
+- `assets/js/archscry/runtime/dossier-view.js`
+- `assets/js/guide/maze-walkthrough.js`
+- `assets/js/maze/maze-scratchpad-store.js`
+- `assets/js/maze/research-init.js`
+- `assets/js/shared/vm-clipboard.js`
+- `assets/js/shared/vm-topbar.js`
+- `docs/handoffs/2026-10-05-2211-codex-vm680-clipboard.md`
+- `docs/handoffs/2026-10-05-2211-robqa-vm680-clipboard.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-680-independent-clipboard.md`
+- `guide/index.html`
+- `guide/maze/index.html`
+- `guide/reading/index.html`
+- `index.html`
+- `library/index.html`
+- `maze/index.html`
+- `privacy/index.html`
+- `scripts/validate-frontend-html.mjs`
+- `scripts/vm616-maze-context-recovery-tests.mjs`
+- `scripts/vm680-clipboard-browser.mjs`
+- `strategium/before-game/index.html`
+- `strategium/console/index.html`
+- `strategium/during-game/index.html`
+- `strategium/find-a-table/index.html`
+- `strategium/index.html`
+- `strategium/review/index.html`
+- `terms/index.html`
+- `tests/archscry/archscry-dev-review-tests.js`
+- `tests/maze/maze-scratchpad-store-tests.js`
+- `tests/shared/clipboard-tests.js`
+
+## Evidence delta
+
+- Material candidate: `003a30e7e76ab7d84a3a1ef1b67f2ef0aa09121a`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `4`
+
+Appended authentic exact-QA/report evidence, lifecycle/delivery observations and checked results, plus regenerated board are evidence-only and **not the full task diff**. Material scope/decisions/criteria wording/dependencies and existing handoff prose remain preserved. Owner acceptance and integration remain pending.
+
+## Evidence-only paths
+
+- `docs/handoffs/2026-10-05-2211-codex-vm680-clipboard.md`
+- `docs/handoffs/2026-10-05-2211-robqa-vm680-clipboard.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-680-independent-clipboard.md`

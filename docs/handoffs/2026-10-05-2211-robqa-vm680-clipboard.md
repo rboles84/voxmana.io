@@ -298,3 +298,26 @@ QA-1 presentation review. Relative to prior evidence head `d22c90f456f80e4b547dc
 - [Focused isolated Edge style witness](C:/Users/obake/.codex/visualizations/2026/10/06/01a10f52-df47-77b1-b8a3-2c204efa4a9d/vm680-look-feel-probe.mjs) — PASS on the corrected witness. Across Home, Archscry, Maze, Apocrypha, Strategium, Guide and Privacy it computed a 2px dialog/button/select/title/export family, warm surface/rule/copy palette, neutral resting controls, enabled gold/warm-wash/ink hover, native keyboard `:focus-visible` with a 2px outline, Outfit dialog headings and fields despite route styles, preserved 44px controls, and the warm thin scrollbar. At 390×600 on Archscry, 14 fixture rows retained fixed header/footer positions, no horizontal overflow, 44px controls and native End reaching the exact list bottom.
 
 The earlier pointer-focus, combined-key-name and profile-cleanup failures were witness defects; the corrected native Tab/Shift sequence and bounded cleanup completed successfully without product changes. Saved Clipboard bytes remained unchanged through style interactions and plain-list Export content remained intact. Prior exact functional, export, state, link, preview and navigation evidence is reused for byte-unchanged owners. No full functional browser journey, placement suite, screenshot matrix or broad viewport run was warranted. No blocker or major correctness defect remains. This PASS is bound only to `605c475835ac3948d417384080ef7963501cb3bd`; Owner visual acceptance, integration and deployment remain pending.
+
+## Preview-resolution candidate review
+
+Task: VM-680
+Candidate: 003a30e7e76ab7d84a3a1ef1b67f2ef0aa09121a
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: Codex RobQA `/root/clipboard_candidate_qa`
+Implementer: Codex root/current session
+Owner: PENDING
+Integration: PENDING
+
+QA-2 bounded image-resource and failure-chain review. Continuation admission independently PASS at the exact candidate with remote/local main and the recorded admission baseline all at `8cee92d103f28c2ca23c21f20bb35f47a849b4f6`. Relative to predecessor evidence head `525dde775acba2d88854a44b5d33877cbb95f15d`, runtime changes are confined to the shared Clipboard preview URL resolver and its bounded image error fallback. Recognized HTTPS `cards.scryfall.io` full-card small/normal JPG paths upgrade to large JPG, thumb/grid WEBP paths upgrade to display WEBP, and the original URL remains the only fallback. Store/schema/data, source precedence, Add, formatter, CSS/layout, quiz, search, navigation/return and protected identifier owners remain unchanged.
+
+### Exact-candidate evidence
+
+- Exact baseline-to-candidate and predecessor-to-candidate diffs — inspected at clean `003a30e7e76ab7d84a3a1ef1b67f2ef0aa09121a`; `git diff --check` — PASS.
+- `npm run task -- check VM-680 --stage=admission --mode=continue` — PASS after authorized remote access; correct branch/worktree, exact candidate, clean tree and unchanged main baseline.
+- `npm run lint:js` — PASS for 37 frontend files.
+- `node tests/shared/clipboard-tests.js` — PASS for resolver/state/source contracts and all 441 same-state generated links against accepted main. Exact URL assertions cover front/back face, printing UUID, query and fragment preservation; small/normal/thumbnail/grid variants; non-Scryfall and lookalike hosts; HTTP, port, credentials, mismatched extensions, art/PNG/already-large/malformed paths; and rejected invalid, JavaScript and data URLs.
+- `node scripts/vm680-clipboard-browser.mjs --preview-only` — PASS in a fresh isolated Edge profile with fixture interception. Resource events prove closed Add/reload remains lazy; open loads the upgraded saved back-face URL; larger-image failure falls back once to the exact original; both failures stop after two requests and retry the same bounded chain after reopen; and all success, fallback, exhaustion and reopen paths preserve saved bytes exactly. The initial developer sandbox EACCES was environmental and did not recur under the authorized isolated launch.
+
+Selected checks target the changed resolver and browser-delivered error chain. The full functional browser journey, store suite, CSS/style probe, placement/scoring tests, screenshots and viewport matrix were skipped because their owners are byte-unchanged and retain prior exact-candidate evidence. No real Scryfall request, Owner browser/profile or saved data was used. No blocker or major correctness defect remains. This PASS is bound only to `003a30e7e76ab7d84a3a1ef1b67f2ef0aa09121a`; apparent sharpness, including genuinely low-resolution source printings, remains Owner visual judgment. Owner acceptance, integration and deployment remain pending.
