@@ -1,4 +1,4 @@
-<!-- task-view-sha256:15c81c489e2c5ecdae7e34b093a303dba09a4fea6425ae31492a563031cb16a3 -->
+<!-- task-view-sha256:3ae8c02279987865d663e164e3cea233f316d5dcb24dccbe6d7b481324dcd84c -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -8,6 +8,9 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 
 | Authored / filename date | Agent | Handoff | Related task references | Diagnostics |
 |---|---|---|---|---|
+| 2026-10-06T21:44:00-06:00 (authored) | Codex coordinator /root | [Maze hover size reduction — implementation plan](2026-10-06-2144-codex-maze-hover-size-plan.md) | VM-662, VM-663 |  |
+| 2026-10-06T21:44:00-06:00 (authored) | /root/hover_plan_redteam; recorded by coordinator /root from its delivered review | [Independent red-team review — Maze hover size plan](2026-10-06-2144-robqa-maze-hover-size-plan-redteam.md) | VM-662, VM-663 |  |
+| 2026-10-06T22:10:00Z (filename) | Unknown | [VM-681 RobDev handoff — Maze hover size](2026-10-06-2210-robdev-vm681-maze-hover-size.md) | VM-681 | Identity displayed from heading; not admission metadata. |
 | 2026-10-05T22:11:00Z (filename) | Unknown | [VM-680 — Clipboard implementation handoff](2026-10-05-2211-codex-vm680-clipboard.md) | VM-680 | Identity displayed from heading; not admission metadata. |
 | 2026-10-05T22:11:00Z (filename) | Unknown | [VM-680 — Independent Clipboard RobQA](2026-10-05-2211-robqa-vm680-clipboard.md) | VM-680 | Identity displayed from heading; not admission metadata. |
 | 2026-10-05T11:45:00-06:00 (authored) | /root/qa_final | [VM-678 placement URL contract correction — independent RobQA](2026-10-05-1145-robqa-vm678-placement-url-contract.md) | VM-678 | Identity displayed from heading; not admission metadata. |

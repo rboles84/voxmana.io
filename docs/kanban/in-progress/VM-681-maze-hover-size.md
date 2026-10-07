@@ -26,13 +26,13 @@ Owner's 2026-10-06 screenshots and reconnaissance request; approved implementati
 
 ## Acceptance Criteria
 
-- [ ] Effective settled media transform and rectangle ratios are 1.6 on both axes; both authored hover declarations agree.
-- [ ] Grid/resting card dimensions and existing center/edge origins remain unchanged.
-- [ ] Settled Save target is 44x44px, top inset 10px and center aligned with the enlarged right border within declared fractional tolerances.
-- [ ] Real intermediate pointer travel, including one early-transition approach, reaches Save, adds exactly one intended card, and does not open the modal.
-- [ ] Genuine keyboard Save, detail opening, two-face flip/flip-back and hover leave/reentry remain correct.
-- [ ] Existing coarse-pointer and reduced-motion behavior is preserved; no unrelated narrow/fine cascade repair.
-- [ ] Only changed CSS receives a fresh route cache key.
+- [x] Effective settled media transform and rectangle ratios are 1.6 on both axes; both authored hover declarations agree.
+- [x] Grid/resting card dimensions and existing center/edge origins remain unchanged.
+- [x] Settled Save target is 44x44px, top inset 10px and center aligned with the enlarged right border within declared fractional tolerances.
+- [x] Real intermediate pointer travel, including one early-transition approach, reaches Save, adds exactly one intended card, and does not open the modal.
+- [x] Genuine keyboard Save, detail opening, two-face flip/flip-back and hover leave/reentry remain correct.
+- [x] Existing coarse-pointer and reduced-motion behavior is preserved; no unrelated narrow/fine cascade repair.
+- [x] Only changed CSS receives a fresh route cache key.
 - [ ] Focused source/rendered evidence and separate exact-candidate RobQA are complete; stop at Owner Review.
 
 ## Files Likely Impacted
