@@ -80,13 +80,20 @@ async function homeBackground(page) {
   return page.evaluate(() => {
     const style = element => {
       const s = getComputedStyle(element), r = element.getBoundingClientRect();
-      return { color: s.color, background: s.backgroundColor, image: s.backgroundImage, opacity: s.opacity, filter: s.filter, blend: s.mixBlendMode, display: s.display, position: s.position, rect: { x: r.x, y: r.y, width: r.width, height: r.height } };
+      return { color: s.color, background: s.backgroundColor, image: s.backgroundImage, shadow: s.boxShadow, opacity: s.opacity, filter: s.filter, blend: s.mixBlendMode, display: s.display, position: s.position, rect: { x: r.x, y: r.y, width: r.width, height: r.height } };
     };
     const selectors = {
       heading: ".vm-hero-title", reading: ".vm-hero-lede", directoryHeading: ".vm-preview-directory-heading h2", directoryIntro: ".vm-section-intro",
       guideContext: ".vm-guide-beacon__context", guideAction: ".vm-guide-beacon__action", footer: ".vm-footer", footerLink: ".vm-footer a",
-      author: ".vm-preview-author p", excerpt: ".vm-preview-excerpt p", destination: ".vm-preview-destination p", note: ".vm-hero-note"
+      author: ".vm-preview-author p", excerpt: ".vm-preview-excerpt p", note: ".vm-hero-note",
+      dossierLabel: ".vm-preview-dossier-label", dossierHeading: ".vm-preview-dossier-heading h2", artCredit: ".vm-preview-art figcaption", dossierLink: ".vm-preview-dossier-link",
+      eyebrow: ".vm-eyebrow", guideEyebrow: ".vm-guide-beacon__eyebrow"
     };
+    document.querySelectorAll(".vm-preview-destination").forEach((element, index) => {
+      selectors[`destinationHeading${index}`] = `.vm-preview-destination:nth-child(${index + 1}) h3`;
+      selectors[`destinationCopy${index}`] = `.vm-preview-destination:nth-child(${index + 1}) p`;
+      selectors[`destinationAction${index}`] = `.vm-preview-destination:nth-child(${index + 1}) .vm-cta`;
+    });
     const text = Object.fromEntries(Object.entries(selectors).map(([label, selector]) => {
       const element = document.querySelector(selector), layers = [];
       // The fixed .vm-bg paints above the body's background; compose local panels over that owner.
@@ -102,7 +109,7 @@ async function homeBackground(page) {
     };
   });
 }
-function lightBackgroundReadable(state) {
+function lightBackgroundReadable(state, atmosphereFactors = [1, 1, 1]) {
   const fixed = state.fixed;
   assert.equal(fixed.position, "fixed");
   assert.deepEqual(fixed.rect, { x: 0, y: 0, ...state.viewport }, "background covers the client viewport");
@@ -121,7 +128,7 @@ function lightBackgroundReadable(state) {
   for (const stop of stops) {
     assert.equal(rgba(stop)[3], 1, "base gradient stops are opaque");
     for (const [label, text] of Object.entries(state.text)) {
-      let background = stop;
+      let background = `rgb(${rgba(stop).slice(0, 3).map((channel, index) => channel * atmosphereFactors[index]).join(",")})`;
       for (const layer of text.layers) {
         assert.equal(layer.image, "none", `${label} local surface is a solid color`);
         assert.equal(layer.opacity, "1", `${label} ancestor opacity`);
@@ -129,14 +136,70 @@ function lightBackgroundReadable(state) {
         assert.equal(layer.blend, "normal", `${label} ancestor blend`);
         background = `rgb(${blend(layer.background, background).join(",")})`;
       }
-      readable(`Home ${label}`, text.foreground, background, /Heading$|^heading$/.test(label) ? 3 : 4.5);
+      readable(`Home ${label}`, text.foreground, background, /Heading|^heading$/.test(label) ? 3 : 4.5);
     }
     assert.ok(luminance(rgba(stop).slice(0, 3)) > 0.5, `light mode paints a light field: ${stop}`);
   }
 }
+async function lightSurfacesAndAtmosphere(page) {
+  const state = await homeBackground(page);
+  const surfaces = await page.evaluate(() => {
+    const pair = element => { const s = getComputedStyle(element); return { background: s.backgroundColor, image: s.backgroundImage, shadow: s.boxShadow, border: s.borderTopStyle }; };
+    return { editorial: Array.from(document.querySelectorAll(".vm-preview-author, .vm-preview-directory-heading, .vm-preview-destination, .vm-hero-note")).map(pair), dossier: pair(document.querySelector(".vm-preview-dossier")) };
+  });
+  for (const surface of surfaces.editorial) {
+    assert.equal(rgba(surface.background)[3], 0, "editorial sections share the page background");
+    assert.equal(surface.image, "none");
+    assert.equal(surface.shadow, "none", "editorial sections have no artificial elevation");
+  }
+  assert.ok(rgba(surfaces.dossier.background)[3] > 0 && rgba(surfaces.dossier.background)[3] <= 0.3, "featured dossier has only a subtle surface tint");
+  assert.equal(surfaces.dossier.border, "solid", "dossier boundary remains defined");
+  assert.equal(state.stars.blend, "multiply");
+  assert.ok(Number(state.stars.opacity) > 0 && Number(state.stars.opacity) <= 0.65, "light atmosphere has bounded opacity");
+  assert.match(state.stars.filter, /^brightness\([\d.]+\)$/);
+  const brightness = Number(state.stars.filter.match(/[\d.]+/)[0]);
+  assert.ok(brightness >= 0.5 && brightness <= 1, "light atmosphere uses only a modest brightness adaptation");
+  assert.equal(state.stars.position, "fixed");
+  assert.equal(state.stars.rect.x, 0);
+  assert.equal(state.stars.rect.y, 0);
+  assert.ok(state.stars.rect.width >= state.viewport.width && state.stars.rect.height === state.viewport.height, "canvas covers the client viewport");
+  const pixels = await page.evaluate(({ opacity, brightness }) => {
+    const canvas = document.querySelector(".vm-bg__stars"), ctx = canvas.getContext("2d");
+    const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+    const factors = [1, 1, 1];
+    let painted = 0;
+    for (let index = 0; index < data.length; index += 4) {
+      if (!data[index + 3]) continue;
+      painted++;
+      const alpha = data[index + 3] / 255 * opacity;
+      for (let channel = 0; channel < 3; channel++) factors[channel] = Math.min(factors[channel], 1 + alpha * (data[index + channel] / 255 * brightness - 1));
+    }
+    return { painted, factors, width: canvas.width, height: canvas.height, expectedWidth: Math.round(innerWidth * devicePixelRatio), expectedHeight: Math.round(innerHeight * devicePixelRatio) };
+  }, { opacity: Number(state.stars.opacity), brightness });
+  assert.ok(pixels.painted > 0, "existing stars/orbs actually draw into the transparent canvas");
+  assert.equal(pixels.width, pixels.expectedWidth);
+  assert.equal(pixels.height, pixels.expectedHeight);
+  // Channel-wise minima are conservative: combine the darkest observed effect with every text surface.
+  lightBackgroundReadable(state, pixels.factors);
+  return pixels;
+}
 function darkSurfaceValues(state) {
-  const colors = layer => ({ color: layer.color, background: layer.background, image: layer.image, opacity: layer.opacity, filter: layer.filter, blend: layer.blend, display: layer.display });
+  const colors = layer => ({ color: layer.color, background: layer.background, image: layer.image, shadow: layer.shadow, opacity: layer.opacity, filter: layer.filter, blend: layer.blend, display: layer.display });
   return { body: colors(state.body), fixed: colors(state.fixed), nebula: colors(state.nebula), stars: colors(state.stars), canvasAlpha: state.canvasAlpha, pseudos: state.pseudos, text: Object.fromEntries(Object.entries(state.text).map(([label, text]) => [label, { foreground: text.foreground, layers: text.layers.map(colors) }])) };
+}
+async function lightLinkStates(page) {
+  const selectors = [".vm-preview-dossier-link", ".vm-footer a", ".vm-guide-beacon", ...Array.from({ length: 4 }, (_, index) => `.vm-preview-destination:nth-child(${index + 1})`)];
+  for (const selector of selectors) {
+    await page.hover(selector);
+    await lightSurfacesAndAtmosphere(page);
+    await page.mouse.move(0, 0);
+    await page.keyboard.press("Tab");
+    await page.$eval(selector, element => element.focus());
+    const focus = await page.$eval(selector, element => ({ visible: element.matches(":focus-visible"), outline: getComputedStyle(element).outlineStyle }));
+    assert.ok(focus.visible && focus.outline !== "none", `${selector} retains visible keyboard focus`);
+    await lightSurfacesAndAtmosphere(page);
+  }
+  await page.evaluate(() => { document.activeElement.blur(); scrollTo(0, 0); });
 }
 async function readableMobileMenu(page, label) {
   await page.waitForFunction(() => !document.getAnimations().some(animation => animation instanceof CSSTransition && ["color", "background-color"].includes(animation.transitionProperty) && animation.playState === "running"), { timeout: 5000 });
@@ -181,7 +244,7 @@ try {
 
   phase = "OS preference and dark default";
   for (const colorScheme of ["light", "dark"]) {
-    await page.emulateMediaFeatures([{ name: "prefers-color-scheme", value: colorScheme }]);
+    await page.emulateMediaFeatures([{ name: "prefers-color-scheme", value: colorScheme }, { name: "prefers-reduced-motion", value: "no-preference" }]);
     await goHome(page);
     await expectMode(page, "dark");
   }
@@ -212,6 +275,9 @@ try {
   const loadedFaces = await page.evaluate(() => Array.from(document.fonts).filter(face => /Mana|Outfit|Lora|Almendra/i.test(face.family) && face.status === "loaded").map(face => face.family.replaceAll('"', "")));
   for (const family of ["Mana", "Outfit", "Lora", "Almendra"]) assert.ok(loadedFaces.some(value => value.toLowerCase() === family.toLowerCase()), `${family} local face loaded`);
   lightBackgroundReadable(await homeBackground(page));
+  assert.equal(await page.evaluate(() => matchMedia("(prefers-reduced-motion: reduce)").matches), false);
+  await lightSurfacesAndAtmosphere(page);
+  await lightLinkStates(page);
   const blackControl = await page.addStyleTag({ content: 'html[data-vm-theme="light"] body.vm-home-preview .vm-bg { background: #000; }' });
   const awaitedBlack = await homeBackground(page);
   assert.throws(() => lightBackgroundReadable(awaitedBlack), /Home heading contrast/);
@@ -270,6 +336,7 @@ try {
   await page.click("[data-vm-menu-panel] [data-vm-theme-toggle]");
   await expectMode(page, "light");
   lightBackgroundReadable(await homeBackground(page));
+  await lightSurfacesAndAtmosphere(page);
   await readableMobileMenu(page, "light mobile theme hover");
   await page.mouse.move(0, 0);
   await readableMobileMenu(page, "light mobile resting/current");
@@ -333,6 +400,17 @@ try {
   statusColor = await feedbackStatus(failedSend);
   readable("Feedback transport error", statusColor.fg, statusColor.bg, 4.5, "rgb(247, 237, 216)");
   await failedSend.close();
+
+  phase = "reduced-motion light atmosphere";
+  const reduced = await browser.newPage();
+  await guardRequests(reduced);
+  await reduced.emulateMediaFeatures([{ name: "prefers-reduced-motion", value: "reduce" }]);
+  await goHome(reduced);
+  await expectMode(reduced, "light");
+  await lightSurfacesAndAtmosphere(reduced);
+  assert.equal(await reduced.evaluate(() => matchMedia("(prefers-reduced-motion: reduce)").matches), true);
+  assert.equal(await reduced.evaluate(() => localStorage.getItem("vm_reduce_motion")), protectedValues.vm_reduce_motion, "theme atmosphere preserves saved motion preference");
+  await reduced.close();
 
   phase = "no-JavaScript containment";
   const noJs = await browser.newPage();
