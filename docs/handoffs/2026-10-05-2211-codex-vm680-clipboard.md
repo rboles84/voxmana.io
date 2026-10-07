@@ -778,3 +778,18 @@ Owner's explicit integration/publication authorization applied. Required Determi
 Connector merge returned merged:true and the exact squash SHA; authoritative PR reread confirms closed/merged with the same head/base. Local main fetched and fast-forwarded to that merge. Parent is 8cee92d103f28c2ca23c21f20bb35f47a849b4f6; both accepted evidence and merge trees are 62f76cb8b7f5b13fea70a38d539f7892c3f15159; full tree diff empty. The first unquoted PowerShell tree-expression read was parsed as a script block; corrected literal revision reads established the matching trees without product changes.
 
 Initial immediate live publication probe saw the prior deployment: public routes returned200 with old bytes and the new Clipboard module returned404. This is pending Pages rollout, not a product-code or harness correction. Await current-main Pages workflow before claiming production availability; no hosting settings/dependencies/runtime changes made. Integration lifecycle fields and this appended verification are evidence-only; actual live publication and closeout remain pending.
+
+
+## Production publication and final closeout
+
+Task: VM-680
+Candidate: 003a30e7e76ab7d84a3a1ef1b67f2ef0aa09121a
+PR70: https://github.com/rboles84/voxmana.io/pull/70
+Merge: 34aea21745358cff30a62ab5883568ee72de67ce
+Integration: INTEGRATED
+
+GitHub Pages run37566928838 completed success, including build, report-build-status and deploy. After that deployment, the cache-busted production probe verified HTTP200 and byte equality against the accepted candidate for Home, Archscry, Maze, Apocrypha, Strategium, Guide and Privacy plus shared Clipboard/topbar/store JavaScript and topbar CSS. The initial rollout lag is resolved. Clipboard is live at https://voxmana.io/ without hosting configuration or further material edits.
+
+Local main and origin/main synchronized at9e44745fb8d7aa5f551fe48adb26fbabd924cd3f, with a clean single worktree. The integrated local feature branch was safely removed after exact-head/tree proof; the remote feature branch was already absent after merge and its stale tracking ref was pruned. Other local task branches, including VM-679, remain intact. Separate QA verified the integrated lifecycle evidence and boundaries. The Integrated closeout gate passed at that exact main head. An earlier external report-format check required plain Head/Changed paths fields; corrected external transport produced PASS without repository or material changes.
+
+This closeout moves the card from in-progress to Done, updates only lifecycle/delivery evidence, appends this publication record and regenerates the board. Historical admission scope, criteria wording, decisions, dependencies and earlier prose remain preserved. Runtime/tests remain byte-identical to the accepted candidate. Final main SHA and Git-derived material/evidence/final-main accounting are recorded in the external final report after this lifecycle commit; separate evidence/boundary review and the final Done closeout gate bind that frozen state. VM-679 identifier cleanup remains pending and separate.
