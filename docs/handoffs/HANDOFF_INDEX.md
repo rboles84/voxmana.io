@@ -1,4 +1,4 @@
-<!-- task-view-sha256:3ae8c02279987865d663e164e3cea233f316d5dcb24dccbe6d7b481324dcd84c -->
+<!-- task-view-sha256:d64ed486ff14719120cf996ab2c29da691daa9a549032052e8e3cf9546f7f78b -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -10,7 +10,9 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 |---|---|---|---|---|
 | 2026-10-06T21:44:00-06:00 (authored) | Codex coordinator /root | [Maze hover size reduction — implementation plan](2026-10-06-2144-codex-maze-hover-size-plan.md) | VM-662, VM-663 |  |
 | 2026-10-06T21:44:00-06:00 (authored) | /root/hover_plan_redteam; recorded by coordinator /root from its delivered review | [Independent red-team review — Maze hover size plan](2026-10-06-2144-robqa-maze-hover-size-plan-redteam.md) | VM-662, VM-663 |  |
+| 2026-10-06T22:10:00Z (filename) | Codex coordinator /root | [VM-681 Owner Review handoff — smaller Maze hover preview](2026-10-06-2210-codex-vm681-owner-review.md) | VM-681 | Identity displayed from heading; not admission metadata. |
 | 2026-10-06T22:10:00Z (filename) | Unknown | [VM-681 RobDev handoff — Maze hover size](2026-10-06-2210-robdev-vm681-maze-hover-size.md) | VM-681 | Identity displayed from heading; not admission metadata. |
+| 2026-10-06T22:10:00Z (filename) | /root/hover_plan_redteam | [VM-681 — Independent RobQA: Maze hover preview size reduction](2026-10-06-2210-robqa-vm681-maze-hover-size.md) | VM-681 | Identity displayed from heading; not admission metadata. Invalid authored date; filename fallback or undated ordering used. |
 | 2026-10-05T22:11:00Z (filename) | Unknown | [VM-680 — Clipboard implementation handoff](2026-10-05-2211-codex-vm680-clipboard.md) | VM-680 | Identity displayed from heading; not admission metadata. |
 | 2026-10-05T22:11:00Z (filename) | Unknown | [VM-680 — Independent Clipboard RobQA](2026-10-05-2211-robqa-vm680-clipboard.md) | VM-680 | Identity displayed from heading; not admission metadata. |
 | 2026-10-05T11:45:00-06:00 (authored) | /root/qa_final | [VM-678 placement URL contract correction — independent RobQA](2026-10-05-1145-robqa-vm678-placement-url-contract.md) | VM-678 | Identity displayed from heading; not admission metadata. |

@@ -2,7 +2,7 @@
 
 ID: VM-681
 Title: Maze hover preview — 20% size reduction
-Status: In Progress
+Status: Owner Review
 Type: Bounded presentation and component geometry
 Area: Maze
 Priority: Normal
@@ -33,7 +33,7 @@ Owner's 2026-10-06 screenshots and reconnaissance request; approved implementati
 - [x] Genuine keyboard Save, detail opening, two-face flip/flip-back and hover leave/reentry remain correct.
 - [x] Existing coarse-pointer and reduced-motion behavior is preserved; no unrelated narrow/fine cascade repair.
 - [x] Only changed CSS receives a fresh route cache key.
-- [ ] Focused source/rendered evidence and separate exact-candidate RobQA are complete; stop at Owner Review.
+- [x] Focused source/rendered evidence and separate exact-candidate RobQA are complete; stop at Owner Review.
 
 ## Files Likely Impacted
 
@@ -57,8 +57,8 @@ Apply the approved plan under RobDev and RobQA. Keep production changes to both 
 Record version: 1
 Branch: codex/vm-681-maze-hover-size
 Admission baseline: a781352e37566c66b8d4a79f9a207c64dba204e2
-Candidate: PENDING
-RobQA: PENDING
+Candidate: fc4bef194dd5bb3f7af9951b4744a8e4ddd3df5a
+RobQA: PASS at fc4bef194dd5bb3f7af9951b4744a8e4ddd3df5a; SEPARATE; docs/handoffs/2026-10-06-2210-robqa-vm681-maze-hover-size.md
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
