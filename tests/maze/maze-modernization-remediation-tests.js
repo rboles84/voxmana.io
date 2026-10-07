@@ -67,7 +67,7 @@ assert.match(initSource, /const MAZE_GUIDE_RETURN_STATE_KEY = "vm_maze_guide_ret
 assert.match(initSource, /pendingSuggestedSearch/);
 assert.match(initSource, /media\.appendChild\(stashButton\)/);
 assert.match(initSource, /wrap\.append\(media, name\)/);
-assert.match(css, /\.card-item:hover \.card-stash-btn\s*\{[\s\S]*?top:\s*5px;[\s\S]*?right:\s*-11px;[\s\S]*?transform:\s*scale\(0\.5\)/);
+assert.match(css, /\.card-item:hover \.card-stash-btn\s*\{[\s\S]*?top:\s*6\.25px;[\s\S]*?right:\s*-13\.75px;[\s\S]*?transform:\s*scale\(0\.625\)/);
 assert.match(uiSource, /Open the Maze guide/);
 assert.doesNotMatch(uiSource, /Walk me through this search/);
 
@@ -426,7 +426,7 @@ try {
     await page.waitForFunction(cardSelector => {
       const transform = getComputedStyle(document.querySelector(`${cardSelector} .transform-card-media`)).transform;
       if (transform === "none") return false;
-      return new DOMMatrixReadOnly(transform).a >= 1.999;
+      return Math.abs(new DOMMatrixReadOnly(transform).a - 1.6) <= 0.005;
     }, {}, selector);
     const pointerTargets = await page.$eval(selector, (card, approachName) => {
       const media = card.querySelector(".transform-card-media").getBoundingClientRect();

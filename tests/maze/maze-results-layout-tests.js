@@ -26,7 +26,8 @@ assert.match(css, /@media \(max-width: 1180px\)[\s\S]*?\.card-grid \{\s*grid-tem
 assert.match(css, /@media \(max-width: 820px\)[\s\S]*?\.card-grid \{\s*grid-template-columns: repeat\(2, minmax\(0, 1fr\)\);/, "mobile results must use two columns");
 assert.match(css, /\.stash-rail \{[\s\S]*?position: fixed;/, "Reading Finds must be an overlay drawer");
 assert.match(css, /\.stash-panel \{[\s\S]*?rgba\(7, 9, 14, 0\.97\)/, "Reading Finds must use an opaque modal-like surface");
-assert.match(css, /@media \(hover: hover\) and \(pointer: fine\)[\s\S]*?\.card-item:hover \.transform-card-media \{[\s\S]*?transform: scale\(2\);/, "desktop hover must magnify artwork in place at 2x");
+assert.match(css, /@media \(hover: hover\) and \(pointer: fine\)[\s\S]*?\.card-item:hover \.transform-card-media\s*\{[^}]*transform:\s*scale\(1\.6\);[^}]*\}/, "desktop hover must magnify artwork in place at 1.6x");
+assert.match(css, /\.card-item \.transform-card-media:hover\s*\{[^}]*transform:\s*scale\(1\.6\);[^}]*\}/, "direct media hover must agree with the card hover scale");
 assert.match(css, /nth-child\(5n \+ 1\)[\s\S]*?transform-origin: left center;[\s\S]*?nth-child\(5n\)[\s\S]*?transform-origin: right center;/, "desktop edge cards must magnify inward");
 assert.match(css, /@media \(max-width: 820px\)[\s\S]*?\.card-item:hover \.transform-card-media \{ transform: none; \}/, "touch-sized layouts must not magnify result artwork");
 assert.match(css, /\.cpip \{[\s\S]*?width: 2\.75rem;[\s\S]*?height: 2\.75rem;/, "Mana pip controls must retain approximately 44px targets");
