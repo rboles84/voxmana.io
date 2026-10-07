@@ -1365,7 +1365,7 @@ dialog.vm-clipboard-dialog :is(.vm-clipboard-head h2, .vm-clipboard-group h3, .v
 .vm-theme-toggle--menu { width: 100%; justify-content: flex-start; padding-inline: 0.75rem; }
 .vm-theme-toggle--menu .vm-theme-toggle-copy { position: static; width: auto; height: auto; overflow: visible; clip: auto; }
 html[data-vm-theme="light"] .vm-topbar { background: rgba(244, 234, 212, 0.94); color: #211b18; border-color: rgba(110, 80, 39, 0.28); }
-html[data-vm-theme="light"] .vm-menu-panel { background: #f4ead4; color: #211b18; border-color: rgba(110, 80, 39, 0.32); }
+html[data-vm-theme="light"] .vm-menu-panel { --gold-l: #8a5b19; --teal-l: #0d6e60; background: #f4ead4; color: #211b18; border-color: rgba(110, 80, 39, 0.32); }
 html[data-vm-theme="light"] .vm-clipboard-dialog { --vm-clipboard-surface: #f7edd8; --vm-clipboard-copy: #211b18; --vm-clipboard-ink: #211b18; --vm-clipboard-rule: rgba(110, 80, 39, 0.32); --vm-clipboard-gold: #8a5b19; }
 html[data-vm-theme="light"] .vm-clipboard-title,
 html[data-vm-theme="light"] .vm-clipboard-section,

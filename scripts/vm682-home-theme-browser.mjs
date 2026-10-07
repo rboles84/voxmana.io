@@ -58,6 +58,7 @@ function theme(page) { return page.evaluate(() => ({ mode: document.documentElem
 function rgba(value) {
   const parts = value.match(/[\d.]+/g)?.map(Number);
   assert.ok(parts?.length >= 3, `unparseable color ${value}`);
+  if (value.startsWith("color(srgb ")) return [...parts.slice(0, 3).map(channel => channel * 255), parts[3] ?? 1];
   if (value.startsWith("oklch(")) {
     const [L, C, hue, alpha = 1] = parts;
     const a = C * Math.cos(hue * Math.PI / 180), b = C * Math.sin(hue * Math.PI / 180);
@@ -73,6 +74,89 @@ function blend(foreground, background) { const f = rgba(foreground), b = rgba(ba
 function luminance(channels) { const linear = channels.map(value => { const c = value / 255; return c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4; }); return linear[0] * 0.2126 + linear[1] * 0.7152 + linear[2] * 0.0722; }
 function contrast(foreground, background, under = "rgb(244, 234, 212)") { const bg = blend(background, under), fg = blend(foreground, `rgb(${bg.join(",")})`); const [light, dark] = [luminance(fg), luminance(bg)].sort((a, b) => b - a); return (light + 0.05) / (dark + 0.05); }
 function readable(label, foreground, background, threshold = 4.5, under) { const ratio = contrast(foreground, background, under); assert.ok(ratio >= threshold, `${label} contrast ${ratio.toFixed(2)} < ${threshold}: ${foreground} / ${background}`); }
+async function homeBackground(page) {
+  // Color transitions are part of the existing link styles; compare settled computed state.
+  await page.waitForFunction(() => !document.getAnimations().some(animation => animation instanceof CSSTransition && ["color", "background-color"].includes(animation.transitionProperty) && animation.playState === "running"), { timeout: 5000 });
+  return page.evaluate(() => {
+    const style = element => {
+      const s = getComputedStyle(element), r = element.getBoundingClientRect();
+      return { color: s.color, background: s.backgroundColor, image: s.backgroundImage, opacity: s.opacity, filter: s.filter, blend: s.mixBlendMode, display: s.display, position: s.position, rect: { x: r.x, y: r.y, width: r.width, height: r.height } };
+    };
+    const selectors = {
+      heading: ".vm-hero-title", reading: ".vm-hero-lede", directoryHeading: ".vm-preview-directory-heading h2", directoryIntro: ".vm-section-intro",
+      guideContext: ".vm-guide-beacon__context", guideAction: ".vm-guide-beacon__action", footer: ".vm-footer", footerLink: ".vm-footer a",
+      author: ".vm-preview-author p", excerpt: ".vm-preview-excerpt p", destination: ".vm-preview-destination p", note: ".vm-hero-note"
+    };
+    const text = Object.fromEntries(Object.entries(selectors).map(([label, selector]) => {
+      const element = document.querySelector(selector), layers = [];
+      // The fixed .vm-bg paints above the body's background; compose local panels over that owner.
+      for (let node = element; node && node !== document.body; node = node.parentElement) layers.unshift(style(node));
+      return [label, { foreground: getComputedStyle(element).color, layers }];
+    }));
+    const canvas = document.querySelector(".vm-bg__stars");
+    return {
+      body: style(document.body), fixed: style(document.querySelector(".vm-bg")), nebula: style(document.querySelector(".vm-bg__nebula")), stars: style(canvas),
+      canvasAlpha: canvas.getContext("2d").getContextAttributes().alpha,
+      pseudos: [getComputedStyle(document.body, "::before").display, getComputedStyle(document.body, "::after").display],
+      viewport: { width: document.documentElement.clientWidth, height: innerHeight }, text
+    };
+  });
+}
+function lightBackgroundReadable(state) {
+  const fixed = state.fixed;
+  assert.equal(fixed.position, "fixed");
+  assert.deepEqual(fixed.rect, { x: 0, y: 0, ...state.viewport }, "background covers the client viewport");
+  assert.equal(fixed.opacity, "1");
+  assert.equal(fixed.filter, "none");
+  assert.equal(fixed.blend, "normal");
+  assert.deepEqual(state.pseudos, ["none", "none"], "legacy dark overlays stay disabled");
+  assert.equal(state.nebula.display, "none", "retained nebula cannot mask the page base");
+  assert.equal(state.stars.image, "none");
+  assert.equal(rgba(state.stars.background)[3], 0);
+  assert.equal(state.canvasAlpha, true, "retained star canvas is transparent");
+  assert.equal(rgba(fixed.background)[3], 1, "fixed background has an opaque fallback");
+  // Use actual opaque computed gradient endpoints, never the intended palette as a stand-in.
+  const stops = fixed.image === "none" ? [fixed.background] : fixed.image.match(/rgba?\([^)]*\)/g);
+  assert.ok(stops?.length, `unsupported actual Home backdrop: ${fixed.image}`);
+  for (const stop of stops) {
+    assert.equal(rgba(stop)[3], 1, "base gradient stops are opaque");
+    for (const [label, text] of Object.entries(state.text)) {
+      let background = stop;
+      for (const layer of text.layers) {
+        assert.equal(layer.image, "none", `${label} local surface is a solid color`);
+        assert.equal(layer.opacity, "1", `${label} ancestor opacity`);
+        assert.equal(layer.filter, "none", `${label} ancestor filter`);
+        assert.equal(layer.blend, "normal", `${label} ancestor blend`);
+        background = `rgb(${blend(layer.background, background).join(",")})`;
+      }
+      readable(`Home ${label}`, text.foreground, background, /Heading$|^heading$/.test(label) ? 3 : 4.5);
+    }
+    assert.ok(luminance(rgba(stop).slice(0, 3)) > 0.5, `light mode paints a light field: ${stop}`);
+  }
+}
+function darkSurfaceValues(state) {
+  const colors = layer => ({ color: layer.color, background: layer.background, image: layer.image, opacity: layer.opacity, filter: layer.filter, blend: layer.blend, display: layer.display });
+  return { body: colors(state.body), fixed: colors(state.fixed), nebula: colors(state.nebula), stars: colors(state.stars), canvasAlpha: state.canvasAlpha, pseudos: state.pseudos, text: Object.fromEntries(Object.entries(state.text).map(([label, text]) => [label, { foreground: text.foreground, layers: text.layers.map(colors) }])) };
+}
+async function readableMobileMenu(page, label) {
+  await page.waitForFunction(() => !document.getAnimations().some(animation => animation instanceof CSSTransition && ["color", "background-color"].includes(animation.transitionProperty) && animation.playState === "running"), { timeout: 5000 });
+  const menu = await page.evaluate(() => {
+    const panel = document.querySelector("[data-vm-menu-panel]");
+    return { background: getComputedStyle(panel).backgroundColor, controls: Array.from(panel.querySelectorAll(".vm-menu-link, .vm-menu-item")).map(element => {
+      const s = getComputedStyle(element), status = element.querySelector("[data-vm-status]");
+      return { foreground: s.color, background: s.backgroundColor, current: element.getAttribute("aria-current"), focus: element.matches(":focus-visible"), outline: s.outlineStyle, outlineWidth: parseFloat(s.outlineWidth), outlineColor: s.outlineColor, status: status && getComputedStyle(status).color };
+    }) };
+  });
+  assert.ok(menu.controls.some(control => control.current === "page"), "mobile menu retains current-route state");
+  for (const control of menu.controls) {
+    readable(`${label} control`, control.foreground, control.background, 4.5, menu.background);
+    if (control.status) readable(`${label} motion status`, control.status, control.background, 4.5, menu.background);
+    if (control.focus) {
+      assert.ok(control.outline !== "none" && control.outlineWidth >= 2, "mobile keyboard focus is visible");
+      readable(`${label} focus outline`, control.outlineColor, control.background, 3, menu.background);
+    }
+  }
+}
 async function guardRequests(target) {
   await target.setRequestInterception(true);
   target.on("request", req => { if (req.url().startsWith(base) || req.url().startsWith("data:")) req.continue(); else req.abort(); });
@@ -101,6 +185,9 @@ try {
     await goHome(page);
     await expectMode(page, "dark");
   }
+  const defaultDark = darkSurfaceValues(await homeBackground(page));
+  assert.equal(defaultDark.fixed.background, "rgb(0, 0, 0)");
+  assert.equal(defaultDark.fixed.image, "none");
   phase = "saved light first-paint bootstrap";
   await page.goto(base + "/privacy/", { waitUntil: "domcontentloaded" });
   await page.evaluate(values => { localStorage.setItem("vm_theme_mode_v1", "light"); for (const [name, value] of Object.entries(values)) localStorage.setItem(name, value); }, protectedValues);
@@ -124,12 +211,12 @@ try {
   assert.deepEqual(await page.evaluate(() => [document.fonts.check('16px "Outfit"'), document.fonts.check('16px "Lora"'), document.fonts.check('700 32px "Almendra"')]), [true, true, true]);
   const loadedFaces = await page.evaluate(() => Array.from(document.fonts).filter(face => /Mana|Outfit|Lora|Almendra/i.test(face.family) && face.status === "loaded").map(face => face.family.replaceAll('"', "")));
   for (const family of ["Mana", "Outfit", "Lora", "Almendra"]) assert.ok(loadedFaces.some(value => value.toLowerCase() === family.toLowerCase()), `${family} local face loaded`);
-  const homeColors = await page.evaluate(() => { const pair = selector => { const el = document.querySelector(selector); return { fg: getComputedStyle(el).color, bg: getComputedStyle(el).backgroundColor }; }; return { heading: pair(".vm-hero-title"), lede: pair(".vm-hero-lede"), author: pair(".vm-preview-author p"), card: pair(".vm-preview-dossier") }; });
-  for (const background of ["rgb(247, 238, 219)", "rgb(234, 220, 193)"]) {
-    readable("Home heading", homeColors.heading.fg, background, 3);
-    readable("Home reading", homeColors.lede.fg, background);
-    readable("Home muted author", homeColors.author.fg, homeColors.card.bg, 4.5, background);
-  }
+  lightBackgroundReadable(await homeBackground(page));
+  const blackControl = await page.addStyleTag({ content: 'html[data-vm-theme="light"] body.vm-home-preview .vm-bg { background: #000; }' });
+  const awaitedBlack = await homeBackground(page);
+  assert.throws(() => lightBackgroundReadable(awaitedBlack), /Home heading contrast/);
+  await blackControl.evaluate(element => element.remove());
+  lightBackgroundReadable(await homeBackground(page));
   await page.waitForSelector("#vm-clipboard-trigger");
   await page.evaluate(async card => { const { getClipboard } = await import("/assets/js/shared/vm-clipboard.js"); getClipboard().add(card, "finds"); }, fixtureCard);
   const clipboardBytes = await page.evaluate(() => localStorage.getItem("vm_maze_reading_finds_v1"));
@@ -146,6 +233,7 @@ try {
   assert.ok(focus.focused && focus.outline !== "none", JSON.stringify(focus));
   await page.keyboard.press("Enter");
   await expectMode(page, "dark");
+  assert.deepEqual(darkSurfaceValues(await homeBackground(page)), defaultDark, "theme reversal preserves the complete dark surface colors");
   await page.keyboard.press("Space");
   await expectMode(page, "light");
   await page.goto(base + "/privacy/", { waitUntil: "domcontentloaded" });
@@ -181,9 +269,17 @@ try {
   assert.equal(await page.$eval("[data-vm-menu-panel] [data-vm-theme-toggle]", button => { const r = button.getBoundingClientRect(); return document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2)?.closest("[data-vm-theme-toggle]") === button; }), true, "mobile theme button is a reachable hit target");
   await page.click("[data-vm-menu-panel] [data-vm-theme-toggle]");
   await expectMode(page, "light");
-  const menuColors = await page.evaluate(() => { const panel = document.querySelector("[data-vm-menu-panel]"); return { background: getComputedStyle(panel).backgroundColor, label: getComputedStyle(panel.querySelector("[data-vm-theme-toggle]")).color, status: getComputedStyle(panel.querySelector("[data-vm-status]")).color }; });
-  readable("mobile theme label", menuColors.label, menuColors.background);
-  readable("mobile motion status", menuColors.status, menuColors.background);
+  lightBackgroundReadable(await homeBackground(page));
+  await readableMobileMenu(page, "light mobile theme hover");
+  await page.mouse.move(0, 0);
+  await readableMobileMenu(page, "light mobile resting/current");
+  await page.hover("[data-vm-menu-panel] .vm-menu-link[aria-current='page']");
+  await readableMobileMenu(page, "light mobile current-route hover");
+  await page.mouse.move(0, 0);
+  await page.keyboard.press("Tab");
+  await page.$eval("[data-vm-menu-panel] [data-vm-theme-toggle]", button => button.focus());
+  assert.equal(await page.$eval("[data-vm-menu-panel] [data-vm-theme-toggle]", button => button.matches(":focus-visible")), true);
+  await readableMobileMenu(page, "light mobile keyboard focus");
   await page.keyboard.press("Escape");
   await page.waitForSelector("#vm-clipboard-trigger");
   await page.click("#vm-clipboard-trigger");

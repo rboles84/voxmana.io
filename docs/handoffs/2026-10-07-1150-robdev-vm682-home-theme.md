@@ -68,3 +68,29 @@ The retained default dark contract is Home body `#000`, topbar `#0c0c0b`, panel 
 - Verify loaded fonts, visible menu controls, and hit targets in the browser.
 - Mock every feedback transport in browser coverage.
 - Never rewrite admission history without explicit Owner authority.
+
+## Owner correction — light background containment
+
+Owner review found the light topbar and panels above a black full-page field, with dark Home copy consequently unreadable. The causal owner is the fixed `.vm-bg` layer in `assets/css/home.css`: it paints `var(--vm-page-base, #000)` behind the page and was not given a light value. The narrow correction sets `--vm-page-base` and the layer background only beneath the existing Home light selector. It does not alter the dark default, route opt-in, artwork/layout, controls, or stored data.
+
+Focused objective follow-up: assert computed light `.vm-bg` background is no longer black and the Home root retains the parchment background, then rerun the existing Home theme browser harness and independent QA's light computed-color checks. Owner retains subjective assessment of the corrected appearance.
+
+This correction remains within the requested/configured Terra-medium RobDev route; backend-effective identity is unverified. Exact changed paths are `assets/css/home.css` and this handoff. Developer self-QA remains pending the coordinator-owned focused computed-stack/contrast witness; no candidate, QA, Owner, integration, or deployment claim is made here.
+
+## Connected mobile-menu correction
+
+The strengthened mobile dark-to-light witness found the hovered menu item resolving the inherited pale `--gold-l` at 1.67:1 against parchment. The causal owner is the shared menu state token, not menu geometry or controller behavior. Home-light `.vm-menu-panel` now locally supplies gold `#8a5b19` and teal `#0d6e60`, covering the existing resting, hover, focus, current, and active-status rules without changing dark or unconverted routes. Self-QA remains pending the coordinator's computed resting/hover/focus/current contrast witness.
+
+## Correction developer evidence and QA packet
+
+The pending self-QA notes above describe the construction state; the focused correction checks now pass. Runtime correction owner: configured Terra-medium RobDev `/root/home_theme_dev`, backend-effective identity unverified. Regression harness and lifecycle owner: coordinator `/root`. Independent reviewer: `/root/home_theme_qa`, configured Sol medium, who did not implement runtime or tests. No escalation was needed for this correction.
+
+The coordinator reviewed the actual fixed background, disabled body pseudo/nebula layers, transparent star canvas, existing CSS color transitions, Home route markup, and shared menu token consumers. Correction paths are `assets/css/home.css`, `assets/css/topbar.css`, `scripts/vm682-home-theme-browser.mjs`, this handoff, the VM-682 card, and producer-generated views. The unchanged palette is now applied to the opaque fixed owner as well as the body. The original canonical admission and superseded attempt evidence remain intact; continuation passed at the previous evidence head without any history repair.
+
+`node scripts/vm682-home-theme-browser.mjs` — PASS in isolated Edge with every nonlocal request aborted and feedback on localhost mocks. The new invariant reads the actual full-viewport fixed layer, opaque gradient endpoints, fallback, disabled overlays and transparent canvas, then composes local panel backgrounds for twelve Home text representatives. Desktop and one mobile viewport pass heading/body/control contrast thresholds. A black fixed-layer causal control must fail the heading contrast assertion, and removing it must restore PASS. Dark surface colors before/after theme reversal compare equal. Mobile resting, hovered theme action, current-route hover and keyboard focus remain readable; focus outline contrast is also checked. The existing first-paint, font, route/storage, keyboard, Clipboard and feedback journey still passes.
+
+The first sandbox attempt could not connect to the isolated browser's localhost control port (`EACCES`); the authorized localhost/browser route resolved it. A new dark-color comparison initially sampled existing CSS link transitions before completion; the harness now waits only for actual color/background-color transitions to settle, with no product animation change. The subsequent hovered mobile failure was a real product defect, corrected in its scoped token owner rather than hidden by moving the pointer away.
+
+`node tests/shared/theme-controller-tests.js`, `npm run lint:html`, `npm run lint:js` (existing 37-file scope), direct harness syntax and `git diff --check` pass. Required view freshness and clean-candidate admission are rerun at freeze. Developer evidence is not an independent QA verdict. CPU-heavy validation is NOT REQUIRED; no protected engine/data owner changed. No screenshot comparison, broad suite, live feedback, remote write, integration, deployment or stage 2 occurred.
+
+Lessons: a computed text token is insufficient unless its actual painted background is part of the witness; opaque fixed decoration can cover a correctly themed body. Preserve a causal negative control for the Owner-found failure class. Check interactive light states while the pointer/focus actually remains on the control. Transfer this packet to separate exact-candidate RobQA, then return the corrected candidate for Owner visual judgment.
