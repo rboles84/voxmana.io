@@ -277,3 +277,24 @@ QA-2 shared output-contract recheck, bounded to the Owner-authorized heading rem
 - `node scripts/vm680-clipboard-browser.mjs` — PASS in a fresh isolated Edge profile against the exact candidate. Successful Copy, denied-clipboard selectable fallback, visible Export and real downloaded text bytes use the same heading-free formatter; the single-row/two-quantity output remains nonempty. The existing broader Clipboard journey also passed.
 
 No separate external probe or external import-site test was warranted because all current output consumers share the directly tested formatter and external services remain advice context only. Prior interior, persistence, quiz, navigation and preview evidence is reused for byte-unchanged owners. No blocker or major correctness defect remains. This PASS is bound only to `41e146db02fec5ac5fa8c7cd4b29524f50b5718b`; Owner acceptance, integration and deployment remain pending.
+
+## Look-and-feel candidate review
+
+Task: VM-680
+Candidate: 605c475835ac3948d417384080ef7963501cb3bd
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: Codex RobQA `/root/clipboard_candidate_qa`
+Implementer: Codex root/current session
+Owner: PENDING
+Integration: PENDING
+
+QA-1 presentation review. Relative to prior evidence head `d22c90f456f80e4b547dc7f6826d8b2aa55bf2b7`, runtime changes are confined to the existing Clipboard selectors in `assets/css/topbar.css`: the approved 2px panel/control family and square invisible trigger, dialog-scoped warm palette fallbacks, neutral resting borders/text, restrained enabled hover/focus state, warm squared scrollbar treatment, and explicit Outfit UI typography. JavaScript, DOM, formatter, storage/schema, data, Add, navigation/return, quiz, identifier, global skin and cache owners remain byte-unchanged. Existing layout, responsive preview behavior, fixed header/footer and 44px targets are preserved.
+
+### Exact-candidate evidence
+
+- Exact prior-head-to-candidate and CSS selector diff — inspected at clean `605c475835ac3948d417384080ef7963501cb3bd`; `git diff --check` — PASS. No runtime owner outside the shared Clipboard CSS block changed.
+- Root `npm run lint:html` — PASS and reused as current exact-candidate developer evidence; HTML bytes are unchanged.
+- [Focused isolated Edge style witness](C:/Users/obake/.codex/visualizations/2026/10/06/01a10f52-df47-77b1-b8a3-2c204efa4a9d/vm680-look-feel-probe.mjs) — PASS on the corrected witness. Across Home, Archscry, Maze, Apocrypha, Strategium, Guide and Privacy it computed a 2px dialog/button/select/title/export family, warm surface/rule/copy palette, neutral resting controls, enabled gold/warm-wash/ink hover, native keyboard `:focus-visible` with a 2px outline, Outfit dialog headings and fields despite route styles, preserved 44px controls, and the warm thin scrollbar. At 390×600 on Archscry, 14 fixture rows retained fixed header/footer positions, no horizontal overflow, 44px controls and native End reaching the exact list bottom.
+
+The earlier pointer-focus, combined-key-name and profile-cleanup failures were witness defects; the corrected native Tab/Shift sequence and bounded cleanup completed successfully without product changes. Saved Clipboard bytes remained unchanged through style interactions and plain-list Export content remained intact. Prior exact functional, export, state, link, preview and navigation evidence is reused for byte-unchanged owners. No full functional browser journey, placement suite, screenshot matrix or broad viewport run was warranted. No blocker or major correctness defect remains. This PASS is bound only to `605c475835ac3948d417384080ef7963501cb3bd`; Owner visual acceptance, integration and deployment remain pending.

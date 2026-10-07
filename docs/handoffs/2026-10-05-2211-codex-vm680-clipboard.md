@@ -583,3 +583,73 @@ Owner explicitly locked current Clipboard behavior/plain-list export and approve
 No JavaScript, DOM, formatter, storage/schema, data, Add, navigation/return/quiz/identifier owner, global skin, dependency or HTML cache owner changes. Existing fixed header/footer, row dimensions, preview relocation, 44px targets and responsive geometry remain. No user saved data touched. QA-1 presentation: focused computed-style/interaction check on representative public families plus desktop/narrow overflow and focus is proportionate; reuse prior exact independent functional and link/state evidence for byte-unchanged owners. No new repository test suite, screenshot matrix or broad runtime rerun. Owner visual approval remains pending for final optical judgment.
 
 Developer evidence: HTML lint and exact CSS diff check PASS; runtime delta is Clipboard selectors only. An external isolated Edge style probe matched Home panel/control radius, warm palette, quiet borders, Outfit heading and enabled hover. It then exposed harness defects: initial cleanup masked the result with a delayed Edge profile file lock, scripted pointer focus did not establish :focus-visible, and the focused retry used an unsupported combined Shift+Tab Puppeteer key name. Cleanup now has bounded retries and native Tab/Shift down/Tab/Shift up follows the existing harness pattern. No further root browser retry; independent candidate QA receives the corrected external witness to verify native focus, remaining representative families and narrow overflow. No product defect is inferred from those harness errors; no user data/profile was used. Earlier functional/source/link evidence is reused for byte-unchanged JavaScript and test owners.
+
+
+## Current independent engineering decision
+
+RobQA PASS, QA-1 presentation, Execution SEPARATE, bound to `605c475835ac3948d417384080ef7963501cb3bd` under Look-and-feel candidate review in the existing RobQA handoff. Exact CSS delta/HTML lint PASS. Corrected external isolated Edge witness passed once independently across Home, Archscry, Maze, Apocrypha, Strategium, Guide and Privacy, plus Archscry at 390×600: 2px panel/control family, square trigger corner, warm site/Home palette, quiet resting borders/text, enabled gold hover, real Tab keyboard focus-visible, consistent Outfit roles, 44px targets, warm scrollbar, fixed header/footer, no horizontal overflow and End to the exact list bottom. Earlier external probe failures were inspection-harness issues, corrected before the independent run; first stale temporary profile removed through verified literal Temp path. Unchanged JavaScript/state/export/links/quiz/navigation owners retain their prior separate exact-candidate evidence.
+
+Owner Review: PENDING for final optical judgment. Integration: PENDING. Owner has locked current Clipboard behavior and plain export; this is a shared CSS-only follow-up. Same branch codex/vm-680-independent-clipboard. No push, PR, merge or deployment. VM-679 and external import/export integrations remain outside scope.
+
+Shortest Owner test: reload local Archscry and open Clipboard; review nearly square corners, warm panel/fields, quieter borders and button hover. Tab to an action and check visible focus. Open it on Home or Maze and confirm the same heading/control typography. Narrow the window and scroll, checking fixed Close/actions. Copy the existing list once to confirm unchanged plain card lines. Owner approves the look separately from engineering readiness.
+
+## Material candidate
+
+- Baseline: `8cee92d103f28c2ca23c21f20bb35f47a849b4f6`
+- Candidate: `605c475835ac3948d417384080ef7963501cb3bd`
+- Changed paths: `35`
+
+The complete baseline-to-candidate branch has 35 Git-derived paths, retaining the original Clipboard/interior/plain-export work and evidence. This look-and-feel revision changes runtime only in the shared Clipboard CSS block of topbar.css. DOM, JavaScript, tests, stored data, formatter, layout and route/quiz/identifier owners are unchanged from the prior candidate. No new test suite or global skin change.
+
+## Files changed
+
+- `apocrypha/index.html`
+- `archscry/index.html`
+- `assets/css/maze.css`
+- `assets/css/topbar.css`
+- `assets/js/archscry/runtime/dossier-view.js`
+- `assets/js/guide/maze-walkthrough.js`
+- `assets/js/maze/maze-scratchpad-store.js`
+- `assets/js/maze/research-init.js`
+- `assets/js/shared/vm-clipboard.js`
+- `assets/js/shared/vm-topbar.js`
+- `docs/handoffs/2026-10-05-2211-codex-vm680-clipboard.md`
+- `docs/handoffs/2026-10-05-2211-robqa-vm680-clipboard.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-680-independent-clipboard.md`
+- `guide/index.html`
+- `guide/maze/index.html`
+- `guide/reading/index.html`
+- `index.html`
+- `library/index.html`
+- `maze/index.html`
+- `privacy/index.html`
+- `scripts/validate-frontend-html.mjs`
+- `scripts/vm616-maze-context-recovery-tests.mjs`
+- `scripts/vm680-clipboard-browser.mjs`
+- `strategium/before-game/index.html`
+- `strategium/console/index.html`
+- `strategium/during-game/index.html`
+- `strategium/find-a-table/index.html`
+- `strategium/index.html`
+- `strategium/review/index.html`
+- `terms/index.html`
+- `tests/archscry/archscry-dev-review-tests.js`
+- `tests/maze/maze-scratchpad-store-tests.js`
+- `tests/shared/clipboard-tests.js`
+
+## Evidence delta
+
+- Material candidate: `605c475835ac3948d417384080ef7963501cb3bd`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `4`
+
+Appended authentic exact-QA/report evidence, card lifecycle/delivery observations and completed checkbox, and regenerated board are evidence-only and **not the full task diff**. Existing candidate prose, scope, decisions and dependencies remain preserved. Owner visual acceptance and integration remain pending.
+
+## Evidence-only paths
+
+- `docs/handoffs/2026-10-05-2211-codex-vm680-clipboard.md`
+- `docs/handoffs/2026-10-05-2211-robqa-vm680-clipboard.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-680-independent-clipboard.md`
