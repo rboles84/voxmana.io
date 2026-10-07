@@ -425,19 +425,17 @@ function loadDraft(storage, now = () => new Date().toISOString()) {
 
 export function exportReadingFindsFromDraft(draft) {
   const safeDraft = sanitizeDraft(draft);
-  const lines = ["Reading Finds"];
+  const lines = [];
 
   READING_FIND_SECTION_CONFIG.forEach((section) => {
     const rows = safeDraft.sections[section.id].filter((row) => cleanCardName(row.name));
     if (!rows.length) return;
-    if (lines.length) lines.push("");
-    lines.push(section.exportHeading);
     rows.forEach((row) => {
       lines.push(`${normalizeQuantity(row.quantity)} ${cleanCardName(row.name)}`);
     });
   });
 
-  return lines.length > 1 ? lines.join("\n").trim() : "";
+  return lines.join("\n");
 }
 
 export function getTotalQuantity(draft, sectionId = "") {

@@ -165,13 +165,13 @@ try {
   await page.evaluate(() => { Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async text => { window.__vm680CopiedText = text; } } }); });
   await page.click('[data-clipboard-action="copy"]');
   await page.waitForFunction(() => Boolean(window.__vm680CopiedText));
-  assert.equal(await page.evaluate(() => window.__vm680CopiedText), "Clipboard\n\nSparks\n2 Clipboard Browser Fixture");
+  assert.equal(await page.evaluate(() => window.__vm680CopiedText), "2 Clipboard Browser Fixture");
   assert.equal(await page.$eval(".vm-clipboard-export-panel", node => node.hidden), true, "successful Copy does not expose export text");
   await page.evaluate(() => { navigator.clipboard.writeText = async () => { throw new Error("denied"); }; document.execCommand = () => false; });
   await page.click('[data-clipboard-action="copy"]');
   await page.waitForFunction(() => !document.querySelector(".vm-clipboard-export-panel").hidden);
-  assert.equal(await page.$eval(".vm-clipboard-export", node => node.value), "Clipboard\n\nSparks\n2 Clipboard Browser Fixture");
-  assert.equal(await page.$eval(".vm-clipboard-export", node => node.selectionEnd - node.selectionStart), "Clipboard\n\nSparks\n2 Clipboard Browser Fixture".length);
+  assert.equal(await page.$eval(".vm-clipboard-export", node => node.value), "2 Clipboard Browser Fixture");
+  assert.equal(await page.$eval(".vm-clipboard-export", node => node.selectionEnd - node.selectionStart), "2 Clipboard Browser Fixture".length);
   await close();
   const collection = await saved();
   phase = "public families and navigation/reload";

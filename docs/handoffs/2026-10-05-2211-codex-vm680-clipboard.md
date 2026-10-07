@@ -424,7 +424,7 @@ Independent RobQA blocked fd0295255537990d41f9e959a48958aa84382ccb for preview r
 The existing focused browser harness now counts real fixture requests: zero requests after a closed-dialog Add and closed reload, then one on open; a separate transient 503 image retries successfully on reopen with exactly two requests. It also asserts visible footer focus after Undo. Final corrected full browser harness PASS; current HTML/JS lint, Clipboard/store/context tests and 441 generated-link parity PASS. A sandbox-local browser connection was unavailable; the same isolated harness ran successfully through the authorized escalated local runtime. Continuation admission PASS at fd029525 with live main unchanged. Independent exact-candidate recheck follows the next stable commit.
 
 
-## Current independent engineering decision
+## Historical current independent engineering decision — interior revision
 
 RobQA PASS, QA-2, Execution SEPARATE, bound to `c84e3a0e4e3bf57487f191c876b8e7729e32b2e5` under Interior exact-candidate recheck in the existing RobQA handoff. Original independent witness proves zero preview requests after closed Add/reload, one after open and successful transient retry on reopen (two requests). Full final isolated Edge harness and frontend JS lint independently PASS; earlier focused state/store/recovery/HTML/441-link evidence applies to unchanged owners. Undo returns visible footer focus. No blocker remains; Owner judges density, title/preview balance, mobile feel and scrollbar appearance.
 
@@ -432,7 +432,7 @@ Owner Review: PENDING. Integration: PENDING. No push, PR, merge or deployment. L
 
 Shortest Owner test: (1) reload Archscry and open the Lore icon/count in the top bar; (2) use ordinary Maze Add, review/select previews, adjust quantity/section and Save/Cancel title; (3) scroll a long list and narrow the window, checking fixed Close/actions and the single preview; (4) navigate/reload and retake/Forget a quiz, confirming collection continuity and quiz independence; (5) remove/Undo and Clear/Undo, then Copy and Export/Download the same card list. Owner acceptance is not inferred from engineering PASS.
 
-## Material candidate
+## Historical material candidate — interior revision
 
 - Baseline: `8cee92d103f28c2ca23c21f20bb35f47a849b4f6`
 - Candidate: `c84e3a0e4e3bf57487f191c876b8e7729e32b2e5`
@@ -440,7 +440,7 @@ Shortest Owner test: (1) reload Archscry and open the Lore icon/count in the top
 
 The complete baseline-to-candidate branch has 34 Git-derived paths. This includes the original shared Clipboard, related markup/Guide/test updates, prior top-bar icon/style/scrollbar revisions, approved interior and its focused preview correction. Interior runtime changes are confined to the existing shared component and CSS; existing browser harness was adapted. Saved collection/store and protected navigation/quiz/identifier owners remain preserved. The implementation and QA records retain all earlier decisions.
 
-## Files changed
+## Historical files changed — interior revision
 
 - `apocrypha/index.html`
 - `archscry/index.html`
@@ -477,7 +477,7 @@ The complete baseline-to-candidate branch has 34 Git-derived paths. This include
 - `tests/archscry/archscry-dev-review-tests.js`
 - `tests/shared/clipboard-tests.js`
 
-## Evidence delta
+## Historical evidence delta — interior revision
 
 - Material candidate: `c84e3a0e4e3bf57487f191c876b8e7729e32b2e5`
 - Evidence head: `HEAD`
@@ -485,7 +485,7 @@ The complete baseline-to-candidate branch has 34 Git-derived paths. This include
 
 Appended exact-QA/report evidence, card lifecycle/delivery observations and checkbox results, and regenerated board are evidence-only and **not the full task diff**. Existing candidate prose, scope, decisions and dependencies remain preserved. Owner acceptance and integration remain pending.
 
-## Evidence-only paths
+## Historical evidence-only paths — interior revision
 
 - `docs/handoffs/2026-10-05-2211-codex-vm680-clipboard.md`
 - `docs/handoffs/2026-10-05-2211-robqa-vm680-clipboard.md`
@@ -495,3 +495,12 @@ Appended exact-QA/report evidence, card lifecycle/delivery observations and chec
 ### Final delivery record correction
 
 The read-only candidate checker required the card's declared QA execution token to match the authentic review's literal SEPARATE mode. Corrected that lifecycle observation from lowercase “separate” to SEPARATE; runtime, candidate and independent decision remain unchanged. This appended delivery observation is evidence-only.
+
+
+## Owner plain-list export correction — 2026-10-06
+
+Owner explicitly limited this correction to removing Clipboard/Finds and all title/section headings from current copied/exported text. The other supplied EDHREC/Archidekt examples and links are context for advice, not implementation authorization. Recommendation: retain manual plain-text export now and defer external import links and richer formats to a separately approved need.
+
+Continue admission PASS at 75b08d9af1786c6ffaf8ced3f89aa95ae7aef82f; main unchanged. Reuse already-read unchanged RobDev/RobQA governing authorities. Owning formatter is exportReadingFindsFromDraft in the existing store; all current Copy, fallback, Export and Download consumers route through it. Remove its headings/blank separators and the now-obsolete Clipboard title replacement in the controller. No new formatter, settings, integrations, state owner or storage write. Preserve existing section/row order, quantities, card names, saved titles/sections, Add, preview, quiz, identifiers, navigation and returns. Existing exact output assertions cover populated/multi-section/single-row/empty output and saved-byte continuity; adapt current browser copy/fallback expectations and retain existing real download-byte check. Independent candidate recheck follows the stable SHA.
+
+Developer evidence PASS: existing multi-section/empty store tests, Clipboard saved-byte/state contracts and 441 same-state generated links, frontend JS lint, and current isolated Edge browser harness including exact successful Copy/fallback text and real Download bytes. Export now has no title, section headers or blank separator rows; one card remains a nonempty export. Protected state/navigation/quiz consumers remain unchanged. The full existing browser run adds no new feature or validation suite.

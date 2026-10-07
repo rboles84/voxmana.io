@@ -145,20 +145,13 @@ function testMoveQuantityRenameClearAndExport() {
   assert.equal(store.renameDeck("   "), "Reading Finds");
 
   assert.equal(store.exportReadingFinds(), [
-    "Reading Finds",
-    "",
-    "Finds",
     "1 Eternal Witness",
-    "",
-    "Sparks",
     "2 Grim Flowering",
-    "",
-    "Anchors",
     "1 Meren of Clan Nel Toth"
   ].join("\n"));
 
   store.clearSection(sparks);
-  assert.equal(store.exportReadingFinds().includes("Sparks"), false);
+  assert.equal(store.exportReadingFinds(), "1 Eternal Witness\n1 Meren of Clan Nel Toth");
   store.clearSection("all");
   assert.equal(store.exportReadingFinds(), "");
 }

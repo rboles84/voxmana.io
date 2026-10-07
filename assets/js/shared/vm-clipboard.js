@@ -59,7 +59,7 @@ export function createClipboardController(options = {}) {
       return edit(() => store.restoreDraft(before), "Undo applied");
     },
     refresh() { return store.refreshFromStorage(); },
-    exportText() { return store.exportReadingFinds().replace(/^Reading Finds\b/, "Clipboard"); }
+    exportText() { return store.exportReadingFinds(); }
   };
 }
 
