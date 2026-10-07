@@ -51,3 +51,20 @@ Reviewed the VM-682 card, canonical workflow/admission and both role passes, Hom
 ## RobQA packet
 
 QA tier: QA-3 state/navigation plus QA-2 interaction, separate reviewer required. Inspect the exact candidate against the stated tests and source boundaries, with special attention to cached Home assets, light computed contrast and `vm682` route isolation. Subjective appearance remains OWNER-VISUAL. Candidate/RobQA/Owner/integration fields remain PENDING for the coordinator's later lifecycle binding.
+
+## Explicit contributors and selected palette
+
+Initial implementation: Codex RobDev `/root/home_theme_dev`. Bounded test completion: Codex worker `/root/home_theme_test_completion`, configured Sol high. Coordinator `/root` made no material code edits.
+
+The Owner-authorized warm direction selected implementation values, not final visual acceptance: parchment base `#f4ead4` with `#f7eedb` to `#eadcc1` body gradient; ink `#211b18`; copy `#31271f`; muted `#685847`; gold `#8a5b19` with secondary `#a66e20`; teal `#0d6e60`; Home panels `#fff9eb` at `0.82`; shared dialogs `#f7edd8`; fields `#fff8e8`; and rule `rgba(110,80,39,0.34)`. Final Owner visual acceptance remains PENDING.
+
+The retained default dark contract is Home body `#000`, topbar `#0c0c0b`, panel `#10100e`, ink `#ede5d4`, copy `#cdc6b8`, muted `#aaa394`, and gold `#d2b370`.
+
+## Lessons
+
+- Resolve the final stylesheet owner before assigning light tokens.
+- Keep the head bootstrap and Home cache versions coherent.
+- Execute controller behavior in tests; do not rely on regex mirroring.
+- Verify loaded fonts, visible menu controls, and hit targets in the browser.
+- Mock every feedback transport in browser coverage.
+- Never rewrite admission history without explicit Owner authority.
