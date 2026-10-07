@@ -2,7 +2,7 @@
 
 ID: VM-681
 Title: Maze hover preview — 20% size reduction
-Status: Owner Review
+Status: Accepted
 Type: Bounded presentation and component geometry
 Area: Maze
 Priority: Normal
@@ -59,7 +59,7 @@ Branch: codex/vm-681-maze-hover-size
 Admission baseline: a781352e37566c66b8d4a79f9a207c64dba204e2
 Candidate: fc4bef194dd5bb3f7af9951b4744a8e4ddd3df5a
 RobQA: PASS at fc4bef194dd5bb3f7af9951b4744a8e4ddd3df5a SEPARATE; docs/handoffs/2026-10-06-2210-robqa-vm681-maze-hover-size.md
-Owner: PENDING
+Owner: ACCEPTED at fc4bef194dd5bb3f7af9951b4744a8e4ddd3df5a docs/handoffs/2026-10-06-2210-codex-vm681-owner-review.md#owner-acceptance
 Integration: PENDING
 Dependencies: None
 Predecessor: VM-662, VM-663

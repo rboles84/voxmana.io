@@ -66,3 +66,14 @@ This is baseline-to-material-candidate scope, not a count of this handoff's indi
 ## Coordinator verification
 
 Admission continuation and the initial candidate delivery gate passed against live main a781352e37566c66b8d4a79f9a207c64dba204e2. The candidate gate authenticated the original separate QA evidence via durable-qa on the clean exact material HEAD. Generated views were fresh; the material Git-report validator passed for both the QA artifact and this handoff. Final recorded-state validation and evidence-delta accounting are retained in the external final Git report, preserving exact material candidate identity.
+
+## Owner acceptance
+
+Task: VM-681
+Candidate: fc4bef194dd5bb3f7af9951b4744a8e4ddd3df5a
+Owner: ACCEPT
+Decision reference: Current Codex chat, Owner message "owner approve, lets clean up local and worktree and push to main and make it live on the site", following the Owner's refreshed 100% and 50% screenshots and the exact-candidate Owner Review handoff.
+
+This genuine Owner decision accepts the reviewed 20% hover-size reduction and authorizes integration, live publication and cleanup of this task's branch/worktree. No material edits occurred after separate RobQA. Existing other task branches and the primary checkout remain preserved. Follow the normal expected-head guarded squash PR path and existing main-triggered GitHub Pages deployment; no hosting reconfiguration is needed.
+
+Current preflight: clean 34340285192c5537c15eee1ccaecb4c38eed59d6 on the admitted branch, one primary worktree, local/live main unchanged at a781352e37566c66b8d4a79f9a207c64dba204e2, no existing VM-681 PR. Authenticated GitHub connector identity rboles84 and repository push/admin permissions were observed. Connector reads and PR creation/update plus expected_head_sha guarded squash merge were discovered and approved before attempts; Git transport remains the fetch/push path. No gh/browser authentication fallback or credential extraction. Host main is unprotected with no configured contexts; repository-required Deterministic Validation is still mandatory before merge. The exact full PR scope/tree/commit facts, CI and integration delivery gate must pass before publication is claimed.
