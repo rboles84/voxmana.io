@@ -45,7 +45,7 @@ Record version: 1
 Branch: codex/vm-682-home-theme
 Admission baseline: 028f029360ce256fb63bca1266baa199f1f12175
 Candidate: d675abf363dfedeaf9e7609e1028977f0ba88f30
-RobQA: PASS at d675abf363dfedeaf9e7609e1028977f0ba88f30 — separate non-implementing /root/home_theme_qa; section Light surface and atmosphere review in docs/handoffs/2026-10-07-1150-robqa-vm682-home-theme.md
+RobQA: PASS at d675abf363dfedeaf9e7609e1028977f0ba88f30 — SEPARATE; non-implementing /root/home_theme_qa; section Light surface and atmosphere review in docs/handoffs/2026-10-07-1150-robqa-vm682-home-theme.md
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
