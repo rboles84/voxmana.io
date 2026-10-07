@@ -738,3 +738,15 @@ Appended authentic exact-QA/report evidence, lifecycle/delivery observations and
 - `docs/handoffs/2026-10-05-2211-robqa-vm680-clipboard.md`
 - `docs/kanban/board.md`
 - `docs/kanban/in-progress/VM-680-independent-clipboard.md`
+
+
+## Owner acceptance
+
+Task: VM-680
+Candidate: 003a30e7e76ab7d84a3a1ef1b67f2ef0aa09121a
+Owner: ACCEPT
+Decision reference: Current Codex chat, Owner message "I formally accept as owner", immediately following confirmation that development, separate QA and the final candidate gate are complete for this exact candidate.
+
+The authentic Owner decision accepts the final Clipboard implementation, plain quantity/name export, look-and-feel and larger same-printing preview correction. No material candidate changes occurred after independent QA. Record the task as Accepted with exact QA/Owner bindings. The Owner's earlier explicit instruction "Do not push, merge, or deploy" remains in force; this message formally accepts the product but does not expressly revoke that constraint. Integration remains PENDING. No remote write, PR creation, merge or deployment is performed. VM-679 identifier work remains pending and separate.
+
+This is a bounded lifecycle/evidence update only: card Status/Owner/Integration/Evidence fields, appended authentic decision evidence and regenerated board. The material candidate, runtime, tests, criteria wording, scope, Decisions, dependencies and earlier handoff prose remain unchanged. The Git-report sections above retain baseline 8cee92d103f28c2ca23c21f20bb35f47a849b4f6, material candidate 003a30e7e76ab7d84a3a1ef1b67f2ef0aa09121a, evidence head HEAD, material35/evidence4/total35 accounting; the new acceptance commit is additional evidence within those same paths. Next step is authorized integration when the existing remote-write restriction is lifted; acceptance remains valid without another product approval.
