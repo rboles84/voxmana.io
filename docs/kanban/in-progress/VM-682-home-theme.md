@@ -1,0 +1,70 @@
+# VM-682 — Home theme, stage 1
+
+ID: VM-682
+Title: Home theme, stage 1
+Status: In Progress
+Type: Bounded shared-shell interaction and Home presentation
+Area: Home and shared top bar
+Priority: High
+Created: 2026-10-07
+
+## Summary
+
+Introduce a saved dark/light theme choice on Home only. Dark remains the unconditional default; an explicit saved light choice restores when the visitor returns to Home. The first stage adds the shared controller and Home top-bar control without opting any other route into the feature.
+
+## Source
+
+Owner task packet for the stage-1, page-by-page rollout. `C:\Users\obake\Downloads\mana-theme-toggle.zip` supplies visual/icon reference only; its installation directions, palette, demo styling, and scripts do not govern this repository.
+
+## Scope
+
+- One defensive shared theme controller using only `vm_theme_mode_v1`.
+- Home-only first-paint bootstrap and route opt-in, with dark as the no-choice default regardless of system preference.
+- A top-bar theme toggle on Home only, using the pinned Mana 1.18.0 White/Black NEXT-mode glyph convention, an accessible next-mode label, 44px hit target, 26px visible ring, and visible keyboard focus.
+- Home light styling: warm parchment background, readable dark text, retained typography, gold/teal accents, artwork, layout, card placement, and dark visual effects.
+- Home mobile menu, Clipboard panel, feedback trigger/dialog/fields/controls/status, focus and scrollbars receive the Home light treatment. Feedback remains mock-only in the focused browser harness.
+- Focused deterministic tests and a separate RobQA review before Owner Review; generated board and handoff index are refreshed only through their producer.
+
+## Acceptance Criteria
+
+- [ ] Home initially renders dark without a valid explicit saved choice, under either system preference; valid saved light restores before first visible paint.
+- [ ] Home toggling persists only `vm_theme_mode_v1`, synchronizes a separate Home tab and refreshes after BFCache/pageshow; malformed, blocked, or unavailable storage safely remains dark.
+- [ ] The Home topbar and mobile menu expose an accessible theme action with a meaningful next-mode glyph/label, 44px target, 26px glyph ring and visible focus; unconverted routes do not expose a dead toggle.
+- [ ] Light Home keeps content, navigation, cards, art placement, search, saved Reading/Clipboard data, motion settings, control geometry and dark-mode appearance intact.
+- [ ] Light styling covers Home scrollbars, Clipboard and feedback modal states without live feedback transport in developer browser verification.
+- [ ] Pinned Mana 1.18.0 assets and existing attribution/notices remain intact; Table Talk palette/demo styles and original script are not copied.
+- [ ] Focused developer evidence and independent exact-candidate RobQA complete; subjective visual acceptance remains Owner work.
+
+## Risks
+
+The top bar has materially different route consumers and dynamically imports Clipboard. Storage failures, early paint, BFCache/cross-tab synchronization, dynamic dialogs, mobile menu focus, and accidental light leakage to unconverted routes require focused coverage. `data-bg="light"` is a legacy Home background marker and is not theme state.
+
+## Delivery
+
+Record version: 1
+Branch: codex/vm-682-home-theme
+Admission baseline: 028f029360ce256fb63bca1266baa199f1f12175
+Candidate: PENDING
+RobQA: PENDING
+Owner: PENDING
+Integration: PENDING
+Dependencies: None
+Predecessor: VM-680
+Decisions: Stage 1 is Home only. Dark is the unconditional fallback; system preference is deliberately ignored until a separately authorized stage. The controller must never touch saved reading, Clipboard, search, or motion keys/data. Preserve accepted VM-680 44px controls, Outfit UI, Clipboard geometry, storage and formatter. No deployment, integration, broader route conversion, palette redesign, or live feedback send is authorized.
+
+## Admission Scope
+
+- `index.html`
+- `assets/js/shared/vm-theme.js`
+- `assets/js/shared/vm-topbar.js`
+- `assets/css/home.css`
+- `assets/css/topbar.css`
+- `assets/css/home-wip.css`
+- `tests/shared/theme-controller-tests.js`
+- `scripts/vm682-home-theme-browser.mjs`
+- `docs/kanban/in-progress/VM-682-home-theme.md`
+- `docs/kanban/board.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/handoffs/2026-10-07-1150-robdev-vm682-home-theme.md`
+- `docs/handoffs/2026-10-07-1150-robqa-vm682-home-theme.md`
+- `docs/handoffs/2026-10-07-1150-codex-vm682-home-theme-delivery.md`
