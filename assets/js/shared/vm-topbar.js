@@ -217,11 +217,49 @@
     }
   }
 
+  function setupThemeToggle() {
+    var theme = window.vmTheme;
+    var utility = document.querySelector(".vm-topbar .vm-utility");
+    var panel = getMenuPanel();
+    if (!theme || !theme.enabled || !utility || !panel) return;
+
+    function button(className) {
+      var node = document.createElement("button");
+      node.type = "button";
+      node.className = className;
+      node.dataset.vmThemeToggle = "true";
+      node.innerHTML = '<span class="vm-theme-toggle-ring" aria-hidden="true"><i class="ms ms-w ms-cost" aria-hidden="true"></i></span><span class="vm-theme-toggle-copy">Theme</span>';
+      node.addEventListener("click", function () { theme.toggle(); });
+      return node;
+    }
+
+    var desktop = button("vm-theme-toggle");
+    var mobile = button("vm-menu-item vm-theme-toggle vm-theme-toggle--menu");
+    utility.insertBefore(desktop, getUtilityGuideLink() || utility.firstChild);
+    panel.appendChild(mobile);
+
+    function render() {
+      var mode = theme.get();
+      var next = mode === "dark" ? "light" : "dark";
+      [desktop, mobile].forEach(function (node) {
+        var icon = node.querySelector("i");
+        icon.className = "ms ms-" + (next === "light" ? "w" : "b") + " ms-cost";
+        node.setAttribute("aria-label", "Switch to " + next + " theme");
+        node.setAttribute("aria-pressed", String(mode === "dark"));
+        node.title = "Switch to " + next + " theme";
+      });
+    }
+    render();
+    window.addEventListener("vm:theme-change", render);
+    window.addEventListener("pageshow", render);
+  }
+
   function init() {
     highlightCurrentPage();
     syncMenuNav();
     setupMenu();
     setupReduceMotionToggle();
+    setupThemeToggle();
     setupFeedback();
     import(clipboardModuleUrl).then(function (clipboard) {
       clipboard.initializeClipboard();

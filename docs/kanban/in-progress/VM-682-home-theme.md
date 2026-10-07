@@ -28,7 +28,7 @@ Owner task packet for the stage-1, page-by-page rollout. `C:\Users\obake\Downloa
 ## Acceptance Criteria
 
 - [ ] Home initially renders dark without a valid explicit saved choice, under either system preference; valid saved light restores before first visible paint.
-- [ ] Home toggling persists only `vm_theme_mode_v1`, synchronizes a separate Home tab and refreshes after BFCache/pageshow; malformed, blocked, or unavailable storage safely remains dark.
+- [ ] Home toggling persists only `vm_theme_mode_v1`, synchronizes a separate Home tab and refreshes after BFCache/pageshow; malformed or unavailable storage starts dark, while a blocked write still changes the current page without promising reload persistence.
 - [ ] The Home topbar and mobile menu expose an accessible theme action with a meaningful next-mode glyph/label, 44px target, 26px glyph ring and visible focus; unconverted routes do not expose a dead toggle.
 - [ ] Light Home keeps content, navigation, cards, art placement, search, saved Reading/Clipboard data, motion settings, control geometry and dark-mode appearance intact.
 - [ ] Light styling covers Home scrollbars, Clipboard and feedback modal states without live feedback transport in developer browser verification.

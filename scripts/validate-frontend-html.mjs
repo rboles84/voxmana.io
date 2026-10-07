@@ -193,8 +193,9 @@ function getAriaLabelledbyValues(tag) {
 
 for (const [key, source] of Object.entries(sources)) {
   for (const tag of getExternalScriptTags(source)) {
+    const homeThemeBootstrap = key === "home" && tag === '<script src="./assets/js/shared/vm-theme.js?v=vm682">';
     expect(
-      scriptIsDeferred(tag),
+      homeThemeBootstrap || scriptIsDeferred(tag),
       `${publicPages[key]} should mark external scripts as type="module" or defer: ${tag}`
     );
   }
@@ -206,6 +207,13 @@ for (const [key, source] of Object.entries(sources)) {
     );
   }
 }
+
+const homeHead = getHeadSource(sources.home);
+const homeThemeBootstrap = '<script src="./assets/js/shared/vm-theme.js?v=vm682">';
+expect(countMatches(sources.home, /assets\/js\/shared\/vm-theme\.js\?v=vm682/g) === 1 && homeHead.includes(homeThemeBootstrap),
+  "index.html should expose exactly one synchronous Home theme bootstrap in head");
+expect(homeHead.indexOf(homeThemeBootstrap) < homeHead.indexOf('<link rel="stylesheet"'),
+  "index.html should load the Home theme bootstrap before Home styles");
 
 for (const file of liveFontRegressionFiles) {
   const source = await readFile(file, "utf8");
