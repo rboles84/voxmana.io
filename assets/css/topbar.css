@@ -1386,3 +1386,5 @@ html[data-vm-theme="light"] .vm-feedback-intro,
 html[data-vm-theme="light"] .vm-feedback-field small,
 html[data-vm-theme="light"] .vm-feedback-count,
 html[data-vm-theme="light"] .vm-feedback-status { color: rgba(48, 38, 29, 0.82); }
+html[data-vm-theme="light"] :is(.vm-feedback-context, .vm-feedback-status, .vm-feedback-close) { background: #fff8e8; color: #211b18; border-color: rgba(110, 80, 39, 0.34); }
+html[data-vm-theme="light"] .vm-feedback-dialog :focus-visible { outline-color: #8a5b19; }

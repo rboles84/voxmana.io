@@ -245,7 +245,7 @@
         var icon = node.querySelector("i");
         icon.className = "ms ms-" + (next === "light" ? "w" : "b") + " ms-cost";
         node.setAttribute("aria-label", "Switch to " + next + " theme");
-        node.setAttribute("aria-pressed", String(mode === "dark"));
+        node.removeAttribute("aria-pressed");
         node.title = "Switch to " + next + " theme";
       });
     }

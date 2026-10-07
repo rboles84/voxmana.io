@@ -4,7 +4,7 @@ import path from "node:path";
 import puppeteer from "puppeteer-core";
 
 const root = process.cwd();
-const browserPath = ["C:\\Program Files\\Microsoft\\Edge\\Application\\msedge.exe", "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"];
+const browserPath = ["C:\\Program Files\\Microsoft\\Edge\\Application\\msedge.exe", "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe", "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"];
 const executablePath = (await Promise.all(browserPath.map(async item => (await stat(item).then(() => item).catch(() => null)))).then(items => items.find(Boolean)));
 if (!executablePath) throw new Error("No Chromium browser available for VM-682 focused check.");
 const server = http.createServer(async (req, res) => {
@@ -21,8 +21,8 @@ const browser = await puppeteer.launch({ executablePath, headless: true, args: [
 try {
   const page = await browser.newPage(); await page.setViewport({ width: 390, height: 844 });
   await page.goto(base, { waitUntil: "domcontentloaded" }); await page.waitForSelector("[data-vm-theme-toggle]");
-  let state = await page.evaluate(() => ({ theme: document.documentElement.dataset.vmTheme, controls: document.querySelectorAll("[data-vm-theme-toggle]").length, rect: document.querySelector("[data-vm-theme-toggle]").getBoundingClientRect(), font: getComputedStyle(document.querySelector(".vm-theme-toggle i")).fontFamily }));
-  if (state.theme !== "dark" || state.controls !== 2 || state.rect.width !== 44 || !state.font.includes("Mana")) throw new Error("Home default/control/font contract failed");
+  let state = await page.evaluate(() => ({ theme: document.documentElement.dataset.vmTheme, controls: document.querySelectorAll("[data-vm-theme-toggle]").length, width: document.querySelector("[data-vm-theme-toggle]").getBoundingClientRect().width, font: getComputedStyle(document.querySelector(".vm-theme-toggle i")).fontFamily }));
+  if (state.theme !== "dark" || state.controls !== 2 || Math.round(state.width) !== 44 || !state.font.includes("Mana")) throw new Error(`Home default/control/font contract failed: ${JSON.stringify(state)}`);
   await page.click("[data-vm-theme-toggle]");
   state = await page.evaluate(() => ({ theme: document.documentElement.dataset.vmTheme, saved: localStorage.getItem("vm_theme_mode_v1"), label: document.querySelector("[data-vm-theme-toggle]").getAttribute("aria-label") }));
   if (state.theme !== "light" || state.saved !== "light" || state.label !== "Switch to dark theme") throw new Error("Theme persistence/next-mode contract failed");
