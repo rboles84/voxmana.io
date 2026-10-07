@@ -343,8 +343,8 @@ for (const file of canonicalNavPages) {
     `${file} should place Guide before the menu trigger so Feedback can insert between them`
   );
   expect(
-    source.includes("assets/js/shared/vm-topbar.js?v=vm680"),
-    `${file} should load the VM-618 shared topbar runtime cache key`
+    source.includes(`assets/js/shared/vm-topbar.js?v=${file === "index.html" ? "vm682" : "vm680"}`),
+    `${file} should load its current shared topbar runtime cache key`
   );
 }
 
@@ -389,7 +389,7 @@ expect(
   'index.html should load the pinned local Keyrune stylesheet'
 );
 expect(
-  sources.home.includes('<link rel="stylesheet" href="./assets/css/home.css?v=vm635" />'),
+  sources.home.includes('<link rel="stylesheet" href="./assets/css/home.css?v=vm682" />'),
   'index.html should load "./assets/css/home.css"'
 );
 expect(
@@ -572,9 +572,9 @@ for (const key of ["strategiumConsole", "strategiumReview"]) {
 }
 
 const homeStylesheetHrefs = getStylesheetHrefs(sources.home);
-const homeTopbarLinkIndex = homeStylesheetHrefs.indexOf('./assets/css/topbar.css?v=vm680');
+const homeTopbarLinkIndex = homeStylesheetHrefs.indexOf('./assets/css/topbar.css?v=vm682');
 const homeKeyruneLinkIndex = homeStylesheetHrefs.indexOf('./assets/vendor/keyrune/css/keyrune.min.css?v=3.19.0');
-const homeRouteCssIndex = homeStylesheetHrefs.indexOf('./assets/css/home.css?v=vm635');
+const homeRouteCssIndex = homeStylesheetHrefs.indexOf('./assets/css/home.css?v=vm682');
 expect(
   homeTopbarLinkIndex !== -1 &&
     homeKeyruneLinkIndex !== -1 &&
@@ -585,7 +585,7 @@ expect(
 );
 expect(
   homeRouteCssIndex < homeStylesheetHrefs.length - 1 &&
-    homeStylesheetHrefs[homeStylesheetHrefs.length - 1] === './assets/css/home-wip.css?v=vm642-r5',
+    homeStylesheetHrefs[homeStylesheetHrefs.length - 1] === './assets/css/home-wip.css?v=vm682',
   "index.html should load the accepted Home skin last, after home.css"
 );
 
