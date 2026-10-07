@@ -77,3 +77,20 @@ Decision reference: Current Codex chat, Owner message "owner approve, lets clean
 This genuine Owner decision accepts the reviewed 20% hover-size reduction and authorizes integration, live publication and cleanup of this task's branch/worktree. No material edits occurred after separate RobQA. Existing other task branches and the primary checkout remain preserved. Follow the normal expected-head guarded squash PR path and existing main-triggered GitHub Pages deployment; no hosting reconfiguration is needed.
 
 Current preflight: clean 34340285192c5537c15eee1ccaecb4c38eed59d6 on the admitted branch, one primary worktree, local/live main unchanged at a781352e37566c66b8d4a79f9a207c64dba204e2, no existing VM-681 PR. Authenticated GitHub connector identity rboles84 and repository push/admin permissions were observed. Connector reads and PR creation/update plus expected_head_sha guarded squash merge were discovered and approved before attempts; Git transport remains the fetch/push path. No gh/browser authentication fallback or credential extraction. Host main is unprotected with no configured contexts; repository-required Deterministic Validation is still mandatory before merge. The exact full PR scope/tree/commit facts, CI and integration delivery gate must pass before publication is claimed.
+
+## Verified integration
+
+Task: VM-681
+Candidate: fc4bef194dd5bb3f7af9951b4744a8e4ddd3df5a
+PR71: https://github.com/rboles84/voxmana.io/pull/71
+Evidence head: 8997cf351eab6bb748046893e313e38ef0c74a4f
+Merge: bcb410f46cb1dc8d5117511bf2058758b37b4f68
+Integration: INTEGRATED
+
+The required Deterministic Validation run37572786099 completed success at the exact PR head. Full untruncated authenticated host base/head Git trees, changed-file and commit collections matched all local PR scope; the integration stage gate passed with exact QA/Owner bindings. The connector submitted expected_head_sha 8997cf351eab6bb748046893e313e38ef0c74a4f and returned merged:true. Authoritative PR reread confirmed closed/merged and the same squash SHA. Squash parent is a781352e37566c66b8d4a79f9a207c64dba204e2; accepted evidence and merged trees both equal fc43b9b1c8a47ac469c0d8d694f3438216d153bf. Local main fetched and fast-forwarded without conflict or runtime changes.
+
+GitHub Pages run37573041840 completed success at the merge. The 2026-10-07T04:47:44Z production probe fetched Maze HTML, maze.css?v=vm681r1 and research-init.js?v=vm680 from https://voxmana.io/ with cache-busting. All returned HTTP200 and matched the approved candidate byte-for-byte. The smaller hover preview is live; no hosting reconfiguration occurred. The exact public-resource SHA-256/byte receipt is retained outside the repository at the task's vm681-review/live-publication.json artifact.
+
+The local VM-681 branch was removed only after proving its exact accepted evidence head, the clean main checkout and equal integrated tree. GitHub had already removed the remote feature branch; fetch --prune removed its tracking ref. One primary worktree remains at C:/dev/voxmana.io and no separate VM-681 worktree exists. Existing VM-670, VM-675 and VM-679 branches retain their observed original heads. No unrelated user work or primary checkout was deleted. All changes in this record are appended evidence and lifecycle observations; material criteria, scope, decisions, dependencies, runtime and test bytes remain unchanged.
+
+Next: validate Integrated closeout against synchronized clean main, then persist Done and repeat the exact recorded-state closeout check. The Owner's acceptance remains bound to the original material SHA; no further product approval is required.
