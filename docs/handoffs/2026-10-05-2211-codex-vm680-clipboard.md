@@ -506,7 +506,7 @@ Continue admission PASS at 75b08d9af1786c6ffaf8ced3f89aa95ae7aef82f; main unchan
 Developer evidence PASS: existing multi-section/empty store tests, Clipboard saved-byte/state contracts and 441 same-state generated links, frontend JS lint, and current isolated Edge browser harness including exact successful Copy/fallback text and real Download bytes. Export now has no title, section headers or blank separator rows; one card remains a nonempty export. Protected state/navigation/quiz consumers remain unchanged. The full existing browser run adds no new feature or validation suite.
 
 
-## Current independent engineering decision
+## Historical current independent engineering decision — plain-list revision
 
 RobQA PASS, QA-2 shared output contract, Execution SEPARATE, bound to `41e146db02fec5ac5fa8c7cd4b29524f50b5718b` under Plain-list export candidate review in the existing RobQA handoff. Independent checks PASS: exact diff, frontend JS lint, store export tests, Clipboard state/source and saved-byte continuity, 441 exact same-state links, isolated browser successful Copy/fallback/Export/real Download. Single-card, multi-section and empty exports remain correct. Earlier interior/navigation/quiz evidence applies to unchanged owners. All copied/exported text consists only of quantity and card name lines; saved title/sections/order remain intact.
 
@@ -514,7 +514,7 @@ Owner Review: PENDING. Integration: PENDING. Same branch codex/vm-680-independen
 
 Shortest Owner test: reload local Archscry, open Clipboard and Copy list into a text field; every line should be quantity plus card name, without Clipboard/Finds/Sparks/Anchors headings or blank separators. Check Export and Download match that list; saved title and section controls stay available.
 
-## Material candidate
+## Historical material candidate — plain-list revision
 
 - Baseline: `8cee92d103f28c2ca23c21f20bb35f47a849b4f6`
 - Candidate: `41e146db02fec5ac5fa8c7cd4b29524f50b5718b`
@@ -522,7 +522,7 @@ Shortest Owner test: reload local Archscry, open Clipboard and Copy list into a 
 
 The complete baseline-to-candidate branch has 35 Git-derived paths, retaining original Clipboard/top-bar/interior scope and evidence. This follow-up changes only the existing export formatter and removes obsolete title replacement; existing exact assertions are adapted. It adds no external destination, format setting or import feature.
 
-## Files changed
+## Historical files changed — plain-list revision
 
 - `apocrypha/index.html`
 - `archscry/index.html`
@@ -560,7 +560,7 @@ The complete baseline-to-candidate branch has 35 Git-derived paths, retaining or
 - `tests/maze/maze-scratchpad-store-tests.js`
 - `tests/shared/clipboard-tests.js`
 
-## Evidence delta
+## Historical evidence delta — plain-list revision
 
 - Material candidate: `41e146db02fec5ac5fa8c7cd4b29524f50b5718b`
 - Evidence head: `HEAD`
@@ -568,9 +568,18 @@ The complete baseline-to-candidate branch has 35 Git-derived paths, retaining or
 
 Appended exact-QA/report evidence, card lifecycle/delivery observations and checkbox results, and regenerated board are evidence-only and **not the full task diff**. Existing material candidate prose, scope, decisions and dependencies remain preserved. Owner acceptance and integration remain pending.
 
-## Evidence-only paths
+## Historical evidence-only paths — plain-list revision
 
 - `docs/handoffs/2026-10-05-2211-codex-vm680-clipboard.md`
 - `docs/handoffs/2026-10-05-2211-robqa-vm680-clipboard.md`
 - `docs/kanban/board.md`
 - `docs/kanban/in-progress/VM-680-independent-clipboard.md`
+
+
+## Approved Clipboard look-and-feel pass — 2026-10-06
+
+Owner explicitly locked current Clipboard behavior/plain-list export and approved the read-only recon recommendation. Continuation admission PASS at d22c90f456f80e4b547dc7f6826d8b2aa55bf2b7 with live main unchanged. Reuse already-read unchanged full RobDev/RobQA authority and task context. Runtime owner is only the admitted shared Clipboard block in topbar.css: 2px panel/buttons/fields, 0px invisible top-bar trigger corner, warm site/Home palette via dialog-scoped existing-token fallbacks, neutral rule borders/resting action text, restrained enabled hover/focus, matching warm scrollbar track/2px thumb and explicit Outfit UI roles protected from route heading/field overrides.
+
+No JavaScript, DOM, formatter, storage/schema, data, Add, navigation/return/quiz/identifier owner, global skin, dependency or HTML cache owner changes. Existing fixed header/footer, row dimensions, preview relocation, 44px targets and responsive geometry remain. No user saved data touched. QA-1 presentation: focused computed-style/interaction check on representative public families plus desktop/narrow overflow and focus is proportionate; reuse prior exact independent functional and link/state evidence for byte-unchanged owners. No new repository test suite, screenshot matrix or broad runtime rerun. Owner visual approval remains pending for final optical judgment.
+
+Developer evidence: HTML lint and exact CSS diff check PASS; runtime delta is Clipboard selectors only. An external isolated Edge style probe matched Home panel/control radius, warm palette, quiet borders, Outfit heading and enabled hover. It then exposed harness defects: initial cleanup masked the result with a delayed Edge profile file lock, scripted pointer focus did not establish :focus-visible, and the focused retry used an unsupported combined Shift+Tab Puppeteer key name. Cleanup now has bounded retries and native Tab/Shift down/Tab/Shift up follows the existing harness pattern. No further root browser retry; independent candidate QA receives the corrected external witness to verify native focus, remaining representative families and narrow overflow. No product defect is inferred from those harness errors; no user data/profile was used. Earlier functional/source/link evidence is reused for byte-unchanged JavaScript and test owners.
