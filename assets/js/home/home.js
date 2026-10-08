@@ -89,6 +89,9 @@ function initArchscryAtmosphere() {
   }
 
   function drawOrbs(animate = true) {
+    const isHomeLightTheme = document.documentElement.dataset.vmThemeOptIn === 'home'
+      && document.documentElement.dataset.vmTheme === 'light';
+
     for (const orb of orbs) {
       if (animate) {
         orb.y -= orb.v;
@@ -100,10 +103,17 @@ function initArchscryAtmosphere() {
         }
       }
 
+      const drawAlpha = isHomeLightTheme
+        ? Math.min(0.32, orb.alpha * 3.2 * (0.84 + Math.sin(tick * 0.018 + orb.phase) * 0.16))
+        : orb.alpha;
       const glow = ctx.createRadialGradient(orb.x, orb.y, 0, orb.x, orb.y, orb.r * 5);
-      glow.addColorStop(0, `rgba(247, 215, 132, ${orb.alpha})`);
-      glow.addColorStop(0.42, `rgba(216, 162, 60, ${orb.alpha * 0.38})`);
-      glow.addColorStop(1, "rgba(216, 162, 60, 0)");
+      glow.addColorStop(0, isHomeLightTheme
+        ? `rgba(138, 91, 25, ${drawAlpha})`
+        : `rgba(247, 215, 132, ${drawAlpha})`);
+      glow.addColorStop(0.42, isHomeLightTheme
+        ? `rgba(166, 110, 32, ${drawAlpha * 0.38})`
+        : `rgba(216, 162, 60, ${drawAlpha * 0.38})`);
+      glow.addColorStop(1, isHomeLightTheme ? "rgba(166, 110, 32, 0)" : "rgba(216, 162, 60, 0)");
 
       ctx.beginPath();
       ctx.fillStyle = glow;

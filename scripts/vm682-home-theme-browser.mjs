@@ -3,6 +3,8 @@ import { readFile, mkdtemp, rm, stat } from "node:fs/promises";
 import http from "node:http";
 import path from "node:path";
 import os from "node:os";
+import vm from "node:vm";
+import { execFileSync } from "node:child_process";
 import puppeteer from "puppeteer-core";
 import * as ChromeLauncher from "chrome-launcher";
 
@@ -16,6 +18,7 @@ const protectedValues = {
   vm_search_query: "fixture-search-byte-string"
 };
 const fixtureCard = { object: "card", name: "VM-682 Clipboard Fixture", id: "68200000-0000-4000-8000-000000000001", oracle_id: "68210000-0000-4000-8000-000000000001", mana_cost: "{2}", cmc: 2, type_line: "Artifact", oracle_text: "Test fixture.", colors: [], color_identity: [], legalities: { commander: "legal" }, rarity: "common", set: "tst", set_name: "Test fixture", collector_number: "682", scryfall_uri: "https://scryfall.com/", image_uris: { normal: "http://127.0.0.1:1/unavailable.png" } };
+await atmosphereDrawingChecks();
 const profile = await mkdtemp(path.join(os.tmpdir(), "vm682-home-theme-"));
 const edge = process.env.LIGHTHOUSE_CHROME_PATH || "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe";
 await stat(edge);
@@ -53,6 +56,83 @@ const base = `http://127.0.0.1:${server.address().port}`;
 let launched, browser, page;
 let phase = "launch";
 const errors = [];
+
+// Execute the actual source with controlled time/randomness; inspect draw commands, not screenshots.
+function atmosphereInstance(source, { mode = "dark", reduced = false, still = false, hidden = false } = {}) {
+  let seed = 682, trace = [], gradients = [];
+  const raf = [], windowEvents = {}, documentEvents = {};
+  const normalize = value => value?.stops ? { gradient: value.args, stops: value.stops } : value;
+  const ctx = {};
+  for (const method of ["setTransform", "beginPath", "arc", "fill", "save", "restore", "moveTo", "lineTo", "stroke", "clearRect"]) ctx[method] = (...args) => trace.push([method, ...args]);
+  for (const key of ["fillStyle", "strokeStyle", "lineWidth", "globalAlpha"]) Object.defineProperty(ctx, key, { set(value) { trace.push([key, normalize(value)]); } });
+  ctx.createRadialGradient = (...args) => {
+    const gradient = { args, stops: [], addColorStop(offset, color) { this.stops.push([offset, color]); trace.push(["colorStop", offset, color]); } };
+    gradients.push(gradient);
+    trace.push(["radialGradient", ...args]);
+    return gradient;
+  };
+  const body = { classList: { contains: name => name === "still" && still }, appendChild(element) { element.parentElement = body; }, style: { setProperty() {} } };
+  const canvas = { parentElement: body, getContext: () => ctx, style: {} };
+  const document = { hidden, documentElement: { dataset: { vmThemeOptIn: "home", vmTheme: mode } }, body, querySelector: selector => selector === ".vm-bg__stars" ? canvas : null, getElementById: () => null, addEventListener: (name, callback) => { documentEvents[name] = callback; } };
+  const window = { innerWidth: 1280, innerHeight: 720, matchMedia: () => ({ matches: reduced }), addEventListener: (name, callback) => { windowEvents[name] = callback; } };
+  const math = Object.create(Math);
+  math.random = () => { seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0; return seed / 4294967296; };
+  vm.runInNewContext(source, { document, window, devicePixelRatio: 1, Math: math, requestAnimationFrame: callback => raf.push(callback) });
+  documentEvents.DOMContentLoaded();
+  const snapshot = () => JSON.parse(JSON.stringify({ trace, orbs: gradients.map(g => ({ geometry: g.args, stops: g.stops })) }));
+  const invoke = callback => { trace = []; gradients = []; callback(); return snapshot(); };
+  return { first: snapshot(), document, frame() { assert.equal(raf.length, 1, "one existing RAF chain"); return invoke(raf.shift()); }, resize(width, height) { window.innerWidth = width; window.innerHeight = height; return invoke(() => windowEvents.resize()); } };
+}
+async function atmosphereDrawingChecks() {
+  const source = await readFile(path.join(root, "assets/js/home/home.js"), "utf8");
+  const original = execFileSync("git", ["show", "028f029360ce256fb63bca1266baa199f1f12175:assets/js/home/home.js"], { cwd: root, encoding: "utf8" });
+  const baseline = atmosphereInstance(original), dark = atmosphereInstance(source), light = atmosphereInstance(source, { mode: "light" });
+  assert.deepEqual(dark.first, baseline.first, "initial dark drawing is byte-for-behavior equal to accepted baseline");
+  const alpha = orb => rgba(orb.stops[0][1])[3];
+  const bounds = Array.from({ length: 29 }, () => ({ min: 1, max: 0, rising: false, falling: false, previous: null }));
+  function lightFrame(current, control) {
+    assert.equal(current.orbs.length, control.orbs.length);
+    assert.equal(current.orbs.length, 29, "existing 1280px orb count");
+    const starTrace = frame => frame.trace.slice(0, frame.trace.findIndex(op => op[0] === "radialGradient"));
+    assert.deepEqual(starTrace(current), starTrace(control), "light branch preserves all star commands");
+    current.orbs.forEach((orb, index) => {
+      assert.deepEqual(orb.geometry, control.orbs[index].geometry, "light halo preserves position/radius/movement");
+      const value = alpha(orb), state = bounds[index];
+      assert.ok(value >= 0.04 && value <= 0.32, "finite bounded stronger light halo alpha");
+      assert.ok(value >= alpha(control.orbs[index]) * 2, "light alpha exceeds original faint source throughout its fade");
+      assert.equal(orb.stops.at(-1)[0], 1);
+      assert.equal(rgba(orb.stops.at(-1)[1])[3], 0, "halo fades to transparent outer edge");
+      assert.ok(rgba(orb.stops[1][1])[3] < value);
+      if (state.previous !== null) { state.rising ||= value > state.previous; state.falling ||= value < state.previous; }
+      state.min = Math.min(state.min, value); state.max = Math.max(state.max, value); state.previous = value;
+    });
+  }
+  for (let frame = 0; frame < 720; frame++) {
+    const control = baseline.frame();
+    assert.deepEqual(dark.frame(), control, `accepted dark commands remain equal at controlled frame ${frame}`);
+    lightFrame(light.frame(), control);
+  }
+  for (const state of bounds) assert.ok(state.rising && state.falling && state.min < state.max * 0.75, "every light orb completes a measurable rising/falling fade");
+  light.document.documentElement.dataset.vmTheme = "dark";
+  assert.deepEqual(light.frame(), baseline.frame(), "light-to-dark restores baseline draw values without resetting particles");
+  light.document.documentElement.dataset.vmTheme = "light";
+  delete light.document.documentElement.dataset.vmThemeOptIn;
+  assert.deepEqual(light.frame(), baseline.frame(), "unopted legacy Home remains baseline dark even with a light marker");
+  light.document.documentElement.dataset.vmThemeOptIn = "home";
+  lightFrame(light.frame(), baseline.frame());
+  light.document.documentElement.dataset.vmTheme = "dark";
+  assert.deepEqual(light.resize(800, 600), baseline.resize(800, 600), "existing responsive particle reset and static dark drawing remain equal");
+  for (const option of ["reduced", "still", "hidden"]) {
+    const settings = { [option]: true }, staticLight = atmosphereInstance(source, { ...settings, mode: "light" }), staticDark = atmosphereInstance(source, settings), staticBaseline = atmosphereInstance(original, settings);
+    const before = staticLight.frame().orbs;
+    staticDark.frame(); staticBaseline.frame();
+    for (let frame = 0; frame < 5; frame++) {
+      assert.deepEqual(staticLight.frame().orbs, before, `${option} freezes both light movement and halo fade`);
+      assert.deepEqual(staticDark.frame(), staticBaseline.frame(), `${option} retains baseline dark rendering`);
+    }
+  }
+  console.log("VM-682 controlled atmosphere dark parity, light fade, reversal and static-motion checks passed.");
+}
 
 function theme(page) { return page.evaluate(() => ({ mode: document.documentElement.dataset.vmTheme, label: document.querySelector(".vm-utility > [data-vm-theme-toggle]")?.getAttribute("aria-label"), glyph: document.querySelector(".vm-utility > [data-vm-theme-toggle] i")?.className, saved: localStorage.getItem("vm_theme_mode_v1") })); }
 function rgba(value) {
@@ -181,7 +261,55 @@ async function lightSurfacesAndAtmosphere(page) {
   assert.equal(pixels.height, pixels.expectedHeight);
   // Channel-wise minima are conservative: combine the darkest observed effect with every text surface.
   lightBackgroundReadable(state, pixels.factors);
+  // Also cover an admitted peak light halo over an opaque existing gold star, beyond the sampled frame.
+  const peakHalo = [138, 91, 25], goldStar = [247, 215, 132];
+  const peakFactors = peakHalo.map((channel, index) => 1 + Number(state.stars.opacity) * ((channel * 0.32 + goldStar[index] * 0.68) / 255 * brightness - 1));
+  lightBackgroundReadable(state, peakFactors);
   return pixels;
+}
+async function haloFrames(page, reduced = false) {
+  await page.waitForFunction(() => window.__vm682HaloFrames?.length === 2 && window.__vm682HaloFrames.every(frame => frame.length && frame.every(orb => orb.stops.length === 3 && orb.stops[0][1].startsWith("rgba(138, 91, 25,"))));
+  const frames = await page.evaluate(() => window.__vm682HaloFrames);
+  for (const frame of frames) for (const orb of frame) {
+    assert.ok(rgba(orb.stops[0][1])[3] >= 0.04 && rgba(orb.stops[0][1])[3] <= 0.32);
+    assert.equal(rgba(orb.stops[2][1])[3], 0);
+  }
+  if (reduced) assert.deepEqual(frames[0], frames[1], "real reduced-motion light halos stay static");
+  else {
+    assert.ok(frames[0].some((orb, index) => orb.geometry[1] !== frames[1][index].geometry[1]), "real light halos float");
+    assert.ok(frames[0].some((orb, index) => orb.stops[0][1] !== frames[1][index].stops[0][1]), "real light halo strength changes with the existing animation tick");
+  }
+}
+async function manaPips(page) {
+  return page.evaluate(() => {
+    const group = document.querySelector(".vm-preview-dossier-heading .mana-pips");
+    return { role: group.getAttribute("role"), label: group.getAttribute("aria-label"), pips: Array.from(group.children).map(element => {
+      const s = getComputedStyle(element), pseudo = getComputedStyle(element, "::before"), r = element.getBoundingClientRect();
+      return { classes: element.className, glyph: pseudo.content, family: pseudo.fontFamily, size: s.fontSize, color: s.color, background: s.backgroundColor, radius: s.borderRadius, border: s.borderWidth, width: r.width, height: r.height, filter: s.filter };
+    }) };
+  });
+}
+async function whitePipBoundary(page, baseline, factors) {
+  const current = await manaPips(page);
+  assert.equal(current.role, baseline.role);
+  assert.equal(current.label, baseline.label);
+  current.pips.forEach((pip, index) => {
+    const original = baseline.pips[index];
+    assert.deepEqual({ ...pip, filter: "ignored" }, { ...original, filter: "ignored" }, "mana glyph, official colors, font and geometry stay intact");
+    if (!pip.classes.split(" ").includes("ms-w")) assert.equal(pip.filter, original.filter, "red and black pip presentation unchanged");
+    else {
+      assert.equal((pip.filter.match(/drop-shadow\(/g) || []).length, 4, "White pip has a local solid boundary");
+      const colors = pip.filter.match(/rgba?\([^)]*\)/g);
+      assert.equal(colors?.length, 4);
+      for (const color of colors) assert.deepEqual(rgba(color), [33, 27, 24, 1], "boundary uses opaque existing ink");
+    }
+  });
+  const state = await homeBackground(page), dossier = await page.$eval(".vm-preview-dossier", element => getComputedStyle(element).backgroundColor);
+  for (const stop of state.fixed.image.match(/rgba?\([^)]*\)/g)) {
+    const backdrop = `rgb(${rgba(stop).slice(0, 3).map((channel, index) => channel * factors[index]).join(",")})`;
+    readable("White pip boundary", "rgb(33, 27, 24)", dossier, 3, backdrop);
+  }
+  assert.equal(await page.$eval(".vm-utility > [data-vm-theme-toggle] i", element => getComputedStyle(element).filter), "none", "White pip boundary does not style the theme glyph");
 }
 function darkSurfaceValues(state) {
   const colors = layer => ({ color: layer.color, background: layer.background, image: layer.image, shadow: layer.shadow, opacity: layer.opacity, filter: layer.filter, blend: layer.blend, display: layer.display });
@@ -221,6 +349,25 @@ async function readableMobileMenu(page, label) {
   }
 }
 async function guardRequests(target) {
+  await target.evaluateOnNewDocument(() => {
+    // Observe two real halo frames without altering any native drawing arguments or results.
+    window.__vm682HaloFrames = [];
+    const clear = CanvasRenderingContext2D.prototype.clearRect, radial = CanvasRenderingContext2D.prototype.createRadialGradient;
+    CanvasRenderingContext2D.prototype.clearRect = function (...args) {
+      const result = clear.apply(this, args);
+      if (this.canvas.classList.contains("vm-bg__stars")) { window.__vm682HaloFrames.push([]); if (window.__vm682HaloFrames.length > 2) window.__vm682HaloFrames.shift(); }
+      return result;
+    };
+    CanvasRenderingContext2D.prototype.createRadialGradient = function (...args) {
+      const gradient = radial.apply(this, args);
+      if (this.canvas.classList.contains("vm-bg__stars")) {
+        const record = { geometry: args, stops: [] }, add = gradient.addColorStop;
+        window.__vm682HaloFrames.at(-1)?.push(record);
+        gradient.addColorStop = function (...values) { const result = add.apply(this, values); record.stops.push(values); return result; };
+      }
+      return gradient;
+    };
+  });
   await target.setRequestInterception(true);
   target.on("request", req => { if (req.url().startsWith(base) || req.url().startsWith("data:")) req.continue(); else req.abort(); });
 }
@@ -249,6 +396,8 @@ try {
     await expectMode(page, "dark");
   }
   const defaultDark = darkSurfaceValues(await homeBackground(page));
+  await page.evaluate(() => document.fonts.ready);
+  const defaultPips = await manaPips(page);
   assert.equal(defaultDark.fixed.background, "rgb(0, 0, 0)");
   assert.equal(defaultDark.fixed.image, "none");
   phase = "saved light first-paint bootstrap";
@@ -276,7 +425,9 @@ try {
   for (const family of ["Mana", "Outfit", "Lora", "Almendra"]) assert.ok(loadedFaces.some(value => value.toLowerCase() === family.toLowerCase()), `${family} local face loaded`);
   lightBackgroundReadable(await homeBackground(page));
   assert.equal(await page.evaluate(() => matchMedia("(prefers-reduced-motion: reduce)").matches), false);
-  await lightSurfacesAndAtmosphere(page);
+  const lightPixels = await lightSurfacesAndAtmosphere(page);
+  await haloFrames(page);
+  await whitePipBoundary(page, defaultPips, lightPixels.factors);
   await lightLinkStates(page);
   const blackControl = await page.addStyleTag({ content: 'html[data-vm-theme="light"] body.vm-home-preview .vm-bg { background: #000; }' });
   const awaitedBlack = await homeBackground(page);
@@ -300,6 +451,7 @@ try {
   await page.keyboard.press("Enter");
   await expectMode(page, "dark");
   assert.deepEqual(darkSurfaceValues(await homeBackground(page)), defaultDark, "theme reversal preserves the complete dark surface colors");
+  assert.deepEqual(await manaPips(page), defaultPips, "theme reversal preserves the exact original dark mana pips");
   await page.keyboard.press("Space");
   await expectMode(page, "light");
   await page.goto(base + "/privacy/", { waitUntil: "domcontentloaded" });
@@ -408,6 +560,7 @@ try {
   await goHome(reduced);
   await expectMode(reduced, "light");
   await lightSurfacesAndAtmosphere(reduced);
+  await haloFrames(reduced, true);
   assert.equal(await reduced.evaluate(() => matchMedia("(prefers-reduced-motion: reduce)").matches), true);
   assert.equal(await reduced.evaluate(() => localStorage.getItem("vm_reduce_motion")), protectedValues.vm_reduce_motion, "theme atmosphere preserves saved motion preference");
   await reduced.close();

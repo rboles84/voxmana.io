@@ -393,8 +393,8 @@ expect(
   'index.html should load "./assets/css/home.css"'
 );
 expect(
-  sources.home.includes('<script src="./assets/js/home/home.js" defer></script>'),
-  'index.html should load "./assets/js/home/home.js" as a deferred external script'
+  sources.home.includes('<script src="./assets/js/home/home.js?v=vm682" defer></script>'),
+  'index.html should load the versioned Home atmosphere as a deferred external script'
 );
 expectAbsent(
   sources.home,
