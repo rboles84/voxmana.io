@@ -84,6 +84,36 @@ body::after {
   mix-blend-mode: normal;
 }
 
+/* VM-682 Home light mode keeps the existing layout and artwork layers. */
+html[data-vm-theme="light"] {
+  --bg: #f4ead4;
+  --panel: rgba(255, 250, 238, 0.72);
+  --panel-strong: rgba(255, 248, 228, 0.9);
+  --line: rgba(110, 80, 39, 0.3);
+  --text: #211b18;
+  --ink: #211b18;
+  --muted: rgba(48, 38, 29, 0.8);
+  --accent: #8a5b19;
+  --gold: #8a5b19;
+  --gold-2: #a66e20;
+  --line-bright: rgba(138, 91, 25, 0.62);
+  --theme-glow: rgba(13, 110, 96, 0.08);
+}
+html[data-vm-theme="light"] body.vm-home-preview { background: linear-gradient(180deg, #f7eedb, #eadcc1); color: #211b18; }
+html[data-vm-theme="light"] body.vm-home-preview::before { filter: saturate(0.88) contrast(0.94) brightness(1.04); opacity: 0.3; }
+html[data-vm-theme="light"] body.vm-home-preview::after { background: linear-gradient(90deg, rgba(244,234,212,0.78), rgba(244,234,212,0.18) 22%, rgba(244,234,212,0.18) 76%, rgba(244,234,212,0.78)), radial-gradient(circle at var(--mx, 50%) var(--my, 40%), var(--theme-glow), transparent 28rem), linear-gradient(180deg, rgba(244,234,212,0.2), rgba(234,220,193,0.62)); }
+html[data-vm-theme="light"] body.vm-home-preview .vm-bg { --vm-page-base: #f4ead4; background: var(--vm-page-base) linear-gradient(180deg, #f7eedb, #eadcc1); }
+html[data-vm-theme="light"] body.vm-home-preview .vm-bg__picture img { filter: saturate(0.88) contrast(0.94) brightness(1.08); opacity: 0.34; }
+html[data-vm-theme="light"] body.vm-home-preview .vm-preview-dossier { background-color: rgba(255, 249, 235, 0.22); border-color: rgba(110, 80, 39, 0.3); color: #211b18; box-shadow: 0 4px 12px rgba(80, 55, 26, 0.08); }
+html[data-vm-theme="light"] body.vm-home-preview :is(.vm-preview-dossier p, .vm-preview-destination p, .vm-preview-author p, .vm-hero p, .vm-section-intro, .vm-footer) { color: #31271f; text-shadow: none; }
+html[data-vm-theme="light"] body.vm-home-preview a { color: #0d6e60; }
+html[data-vm-theme="light"] body.vm-home-preview :is(a:hover, a:focus-visible) { color: #8a5b19; }
+html[data-vm-theme="light"] body.vm-home-preview ::selection { background: #d6b66f; color: #211b18; }
+html[data-vm-theme="light"] body.vm-home-preview { scrollbar-color: #8a5b19 #eadcc1; }
+html[data-vm-theme="light"] body.vm-home-preview::-webkit-scrollbar { width: 12px; }
+html[data-vm-theme="light"] body.vm-home-preview::-webkit-scrollbar-track { background: #eadcc1; }
+html[data-vm-theme="light"] body.vm-home-preview::-webkit-scrollbar-thumb { border: 3px solid #eadcc1; background: #8a5b19; border-radius: 2px; }
+
 /* CSS SECTION: Decorative fixed background image, nebula gradients, and animated star canvas. */
 /* BACKGROUND */
 /* BACKGROUND CONTAINER: Fixed decorative layer behind content. pointer-events:none prevents it from blocking clicks. */
@@ -136,6 +166,13 @@ body::after {
      - Lower opacity if the atmosphere starts competing with text and cards. */
   opacity: 1;
   pointer-events: none;
+}
+
+/* VM-682: retain the existing canvas while giving light parchment its own restrained atmosphere. */
+html[data-vm-theme="light"] body.vm-home-preview .vm-bg__stars {
+  mix-blend-mode: multiply;
+  filter: brightness(0.75);
+  opacity: 0.6;
 }
 
 /* BUBBLE EFFECT REMOVAL: Hides the decorative nebula only, while keeping the star canvas visible. */

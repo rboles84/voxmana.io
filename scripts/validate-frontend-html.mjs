@@ -193,8 +193,9 @@ function getAriaLabelledbyValues(tag) {
 
 for (const [key, source] of Object.entries(sources)) {
   for (const tag of getExternalScriptTags(source)) {
+    const homeThemeBootstrap = key === "home" && tag === '<script src="./assets/js/shared/vm-theme.js?v=vm682">';
     expect(
-      scriptIsDeferred(tag),
+      homeThemeBootstrap || scriptIsDeferred(tag),
       `${publicPages[key]} should mark external scripts as type="module" or defer: ${tag}`
     );
   }
@@ -206,6 +207,13 @@ for (const [key, source] of Object.entries(sources)) {
     );
   }
 }
+
+const homeHead = getHeadSource(sources.home);
+const homeThemeBootstrap = '<script src="./assets/js/shared/vm-theme.js?v=vm682">';
+expect(countMatches(sources.home, /assets\/js\/shared\/vm-theme\.js\?v=vm682/g) === 1 && homeHead.includes(homeThemeBootstrap),
+  "index.html should expose exactly one synchronous Home theme bootstrap in head");
+expect(homeHead.indexOf(homeThemeBootstrap) < homeHead.indexOf('<link rel="stylesheet"'),
+  "index.html should load the Home theme bootstrap before Home styles");
 
 for (const file of liveFontRegressionFiles) {
   const source = await readFile(file, "utf8");
@@ -335,8 +343,8 @@ for (const file of canonicalNavPages) {
     `${file} should place Guide before the menu trigger so Feedback can insert between them`
   );
   expect(
-    source.includes("assets/js/shared/vm-topbar.js?v=vm680"),
-    `${file} should load the VM-618 shared topbar runtime cache key`
+    source.includes(`assets/js/shared/vm-topbar.js?v=${file === "index.html" ? "vm682" : "vm680"}`),
+    `${file} should load its current shared topbar runtime cache key`
   );
 }
 
@@ -381,12 +389,12 @@ expect(
   'index.html should load the pinned local Keyrune stylesheet'
 );
 expect(
-  sources.home.includes('<link rel="stylesheet" href="./assets/css/home.css?v=vm635" />'),
+  sources.home.includes('<link rel="stylesheet" href="./assets/css/home.css?v=vm682" />'),
   'index.html should load "./assets/css/home.css"'
 );
 expect(
-  sources.home.includes('<script src="./assets/js/home/home.js" defer></script>'),
-  'index.html should load "./assets/js/home/home.js" as a deferred external script'
+  sources.home.includes('<script src="./assets/js/home/home.js?v=vm682" defer></script>'),
+  'index.html should load the versioned Home atmosphere as a deferred external script'
 );
 expectAbsent(
   sources.home,
@@ -564,9 +572,9 @@ for (const key of ["strategiumConsole", "strategiumReview"]) {
 }
 
 const homeStylesheetHrefs = getStylesheetHrefs(sources.home);
-const homeTopbarLinkIndex = homeStylesheetHrefs.indexOf('./assets/css/topbar.css?v=vm680');
+const homeTopbarLinkIndex = homeStylesheetHrefs.indexOf('./assets/css/topbar.css?v=vm682');
 const homeKeyruneLinkIndex = homeStylesheetHrefs.indexOf('./assets/vendor/keyrune/css/keyrune.min.css?v=3.19.0');
-const homeRouteCssIndex = homeStylesheetHrefs.indexOf('./assets/css/home.css?v=vm635');
+const homeRouteCssIndex = homeStylesheetHrefs.indexOf('./assets/css/home.css?v=vm682');
 expect(
   homeTopbarLinkIndex !== -1 &&
     homeKeyruneLinkIndex !== -1 &&
@@ -577,7 +585,7 @@ expect(
 );
 expect(
   homeRouteCssIndex < homeStylesheetHrefs.length - 1 &&
-    homeStylesheetHrefs[homeStylesheetHrefs.length - 1] === './assets/css/home-wip.css?v=vm642-r5',
+    homeStylesheetHrefs[homeStylesheetHrefs.length - 1] === './assets/css/home-wip.css?v=vm682',
   "index.html should load the accepted Home skin last, after home.css"
 );
 

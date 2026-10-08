@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-vm-theme-opt-in="home">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -19,15 +19,16 @@
   <meta name="twitter:image" content="https://voxmana.io/assets/img/social/vox-mana-share-v1.png" />
   <link rel="icon" type="image/svg+xml" href="./assets/img/vox-mana-header-logo.svg" />
   <link rel="preload" href="./assets/fonts/almendra-700-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <script src="./assets/js/shared/vm-theme.js?v=vm682"></script>
   <link rel="stylesheet" href="./assets/css/tokens.css?v=vm635" />
   <link rel="stylesheet" href="./assets/css/fonts.css?v=vm612" />
   <link rel="stylesheet" href="./assets/css/layout.css?v=vm635" />
-  <link rel="stylesheet" href="./assets/css/topbar.css?v=vm680" />
+  <link rel="stylesheet" href="./assets/css/topbar.css?v=vm682" />
   <link rel="stylesheet" href="./assets/vendor/keyrune/css/keyrune.min.css?v=3.19.0" />
   <link rel="stylesheet" href="./assets/vendor/mana/css/mana.min.css" />
   <link rel="stylesheet" href="./assets/css/guide-beacon.css?v=vm620" />
-  <link rel="stylesheet" href="./assets/css/home.css?v=vm635" />
-  <link rel="stylesheet" href="./assets/css/home-wip.css?v=vm642-r5" />
+  <link rel="stylesheet" href="./assets/css/home.css?v=vm682" />
+  <link rel="stylesheet" href="./assets/css/home-wip.css?v=vm682" />
 </head>
 <body class="vm-home-preview" data-page="home" data-vm-current="home" data-bg="light">
   <div class="vm-bg" aria-hidden="true">
@@ -149,11 +150,11 @@
   </footer>
   <a class="vm-button vm-backtop" id="backTop" href="#top" aria-label="Back to top">↑</a>
 
-  <!-- Unchanged runtime; absent chart markup is handled by its existing null guard. -->
-  <script src="./assets/js/home/home.js" defer></script>
+  <!-- Home atmosphere retains dark drawing and adapts only opted light halos. -->
+  <script src="./assets/js/home/home.js?v=vm682" defer></script>
   <script src="./assets/js/shared/reduce-motion.js" defer></script>
   <script src="./assets/js/shared/guide-beacon.js?v=vm620" defer></script>
   <script src="./assets/js/shared/vm-feedback.js" defer></script>
-  <script src="./assets/js/shared/vm-topbar.js?v=vm680" defer></script>
+  <script src="./assets/js/shared/vm-topbar.js?v=vm682" defer></script>
 </body>
 </html>

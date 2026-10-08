@@ -1333,3 +1333,58 @@ dialog.vm-clipboard-dialog :is(.vm-clipboard-head h2, .vm-clipboard-group h3, .v
   .vm-utility > .vm-clipboard-trigger { padding-inline: 0.4rem; font-size: 0.65rem; }
   dialog.vm-clipboard-dialog { padding: 0.75rem; }
 }
+
+/* VM-682: Home opt-in only. The ring stays visually 26px inside a 44px target. */
+.vm-theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  width: 44px;
+  min-width: 44px;
+  height: 44px;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+.vm-theme-toggle-ring {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+}
+.vm-theme-toggle-ring .ms { font-size: 14px; }
+.vm-theme-toggle-copy { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.vm-theme-toggle:focus-visible { outline: 2px solid var(--site-gold, var(--preview-gold, #d2b370)); outline-offset: 2px; }
+.vm-theme-toggle--menu { width: 100%; justify-content: flex-start; padding-inline: 0.75rem; }
+.vm-theme-toggle--menu .vm-theme-toggle-copy { position: static; width: auto; height: auto; overflow: visible; clip: auto; }
+html[data-vm-theme="light"] .vm-topbar { background: rgba(244, 234, 212, 0.94); color: #211b18; border-color: rgba(110, 80, 39, 0.28); }
+html[data-vm-theme="light"] .vm-menu-panel { --gold-l: #8a5b19; --teal-l: #0d6e60; background: #f4ead4; color: #211b18; border-color: rgba(110, 80, 39, 0.32); }
+html[data-vm-theme="light"] .vm-clipboard-dialog { --vm-clipboard-surface: #f7edd8; --vm-clipboard-copy: #211b18; --vm-clipboard-ink: #211b18; --vm-clipboard-rule: rgba(110, 80, 39, 0.32); --vm-clipboard-gold: #8a5b19; }
+html[data-vm-theme="light"] .vm-clipboard-title,
+html[data-vm-theme="light"] .vm-clipboard-section,
+html[data-vm-theme="light"] .vm-clipboard-export,
+html[data-vm-theme="light"] .vm-clipboard-button { background: #fff8e8; color: #211b18; }
+html[data-vm-theme="light"] .vm-clipboard-body,
+html[data-vm-theme="light"] .vm-clipboard-export { scrollbar-color: #8a5b19 #eadcc1; }
+html[data-vm-theme="light"] .vm-clipboard-body::-webkit-scrollbar-track,
+html[data-vm-theme="light"] .vm-clipboard-export::-webkit-scrollbar-track { background: #eadcc1; }
+html[data-vm-theme="light"] .vm-clipboard-body::-webkit-scrollbar-thumb,
+html[data-vm-theme="light"] .vm-clipboard-export::-webkit-scrollbar-thumb { border-color: #eadcc1; background: #8a5b19; }
+html[data-vm-theme="light"] .vm-feedback-dialog { background: #f7edd8; color: #211b18; border-color: rgba(110, 80, 39, 0.34); }
+html[data-vm-theme="light"] .vm-feedback-field :is(input, textarea),
+html[data-vm-theme="light"] .vm-feedback-manual-copy,
+html[data-vm-theme="light"] .vm-feedback-secondary { background: #fff8e8; color: #211b18; border-color: rgba(110, 80, 39, 0.42); }
+html[data-vm-theme="light"] .vm-feedback-primary { background: #8a5b19; color: #fff8e8; border-color: #8a5b19; }
+html[data-vm-theme="light"] .vm-feedback-intro,
+html[data-vm-theme="light"] .vm-feedback-field small,
+html[data-vm-theme="light"] .vm-feedback-count,
+html[data-vm-theme="light"] .vm-feedback-status { color: rgba(48, 38, 29, 0.82); }
+html[data-vm-theme="light"] :is(.vm-feedback-context, .vm-feedback-status, .vm-feedback-close) { background: #fff8e8; color: #211b18; border-color: rgba(110, 80, 39, 0.34); }
+html[data-vm-theme="light"] .vm-feedback-dialog :focus-visible { outline-color: #8a5b19; }
