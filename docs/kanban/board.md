@@ -1,4 +1,4 @@
-<!-- task-view-sha256:57a754a41ff8be6f4ebd06fd0a773e3d3963684f7914d9872610db11ad0cc5b5 -->
+<!-- task-view-sha256:a9a527293a734bc37013fea6aad1853e97f0c2e0ea8aca7d9b13107c4fabf73c -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -39,6 +39,7 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 
 | ID | Card | Declared status | Diagnostics |
 |---|---|---|---|
+| VM-685 | [Apocrypha theme, stage 4](in-progress/VM-685-apocrypha-theme.md) | In Progress |  |
 
 ## Owner Review
 
