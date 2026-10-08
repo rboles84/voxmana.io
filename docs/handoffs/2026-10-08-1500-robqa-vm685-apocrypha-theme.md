@@ -137,3 +137,111 @@ No runtime, CSS, HTML, controller, registry, fallback, source data, tests, packa
 ## Follow-up recommendation
 
 Next suggested agent: `/root` freezes the corrected material candidate and sends its exact SHA to `/root/apocrypha_qa`. This reviewer then performs SEPARATE exact-candidate QA and records PASS or BLOCKED in this same handoff before Owner Review.
+
+
+## Exact candidate QA
+
+Task: VM-685
+Candidate: 1c2fb29f5b00bfbd4fc17a7648bdecdce67765b6
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: /root/apocrypha_qa
+Implementer: /root/apocrypha_dev and /root
+
+# Independent RobQA — Apocrypha theme stage 4
+
+## Candidate binding and decision
+
+Independent engineering QA passes exact material candidate `1c2fb29f5b00bfbd4fc17a7648bdecdce67765b6` on branch `codex/vm-685-apocrypha-theme` against baseline and merge-base `7fcf62c0d4a1389b668a39c27c7075d18c221c99`.
+
+The authoritative baseline-to-candidate diff contains 13 admitted paths: the Apocrypha entrypoint, shared theme allowlist, final route-scoped adapter, focused controller/source/browser guards, three authored task handoffs, card, and generated board/index views. The worktree was clean and HEAD equaled the candidate before and after QA. Remote-aware continuation independently passed with local main, origin main, live remote main, admission baseline and merge-base all equal to the recorded baseline.
+
+The candidate adds only Apocrypha's explicit opt-in/imports, one allowlist entry and a final light-theme route adapter. The authored body/fallback, Apocrypha runtime, registry, base route CSS, accepted VM-665 site skin and Library alias remain byte-identical to baseline. No archive/source meaning, count, order, status classification, link, layout, breakpoint, motion, artwork, service or publishing owner changed.
+
+This PASS permits Owner Review only. It does not assert Owner acceptance or authorize push, PR, merge, integration, deployment, publication, publishing-setting changes or stage 5.
+
+## Classification and independence
+
+- QA tier: QA-1 presentation with focused QA-2 component interaction and QA-3 navigation/state transition evidence.
+- Execution: SEPARATE. `/root/apocrypha_qa` implemented neither the runtime/style candidate nor its tests.
+- OWNER-VISUAL: active. Engineering verifies objective state, interaction, accessibility, resource loading and containment. The Owner retains aesthetics, hierarchy, parchment warmth, source-card treatment, optical glyph fit, animation feel and subjective responsive quality.
+- CPU-heavy validation: NOT REQUIRED.
+
+## Exact tests and results
+
+- `npm.cmd run validate:admission -- --task=VM-685 --mode=continue` — PASS through the authorized read-only external route. The first restricted attempt failed before a repository verdict because sandbox DNS/thread creation blocked `git ls-remote`; it was not treated as product or candidate evidence.
+- Full `7fcf62c0d4a1389b668a39c27c7075d18c221c99..1c2fb29f5b00bfbd4fc17a7648bdecdce67765b6` Git diff, changed-path and acceptance-criteria inspection — PASS. Thirteen rows match admission scope; no protected runtime/data/base-style owner changed.
+- `git diff --check 7fcf62c0d4a1389b668a39c27c7075d18c221c99..1c2fb29f5b00bfbd4fc17a7648bdecdce67765b6` — PASS.
+- `node tests/shared/theme-controller-tests.js` — PASS. Actual controller execution covers one key/controller, unconditional dark, saved light, invalid values, read/write failures, unrelated-key isolation, forward/reverse events, storage replacement/removal, pageshow refresh, all accepted opt-ins including Apocrypha and inert unknown routes. The historical success message still says VM-683; the assertions executed include VM-685.
+- `node scripts/vm685-apocrypha-theme-source-tests.mjs` — PASS. Confirms exact prepaint/import/cascade order, Apocrypha-only scoping, body/fallback parity and byte-identical protected runtime, registry, base/VM-665 styles and Library alias.
+- `npm.cmd run lint:html` — PASS. The narrow synchronous Apocrypha bootstrap exception preserves the broader public HTML contract.
+- `npm.cmd run lint:js` — PASS for 37 files.
+- `node scripts/validate-apocrypha-rendering.mjs` — PASS: 59 authorized public records, with expected group and verification counts.
+- `node scripts/validate-apocrypha-sources.mjs` — PASS: 60 source-registry records and expected official/supplemental/check-state counts.
+- `node --check scripts/vm685-apocrypha-theme-browser.mjs` — PASS.
+- `npm.cmd run task -- indexes --check` — PASS; generated board and handoff index are fresh for the material candidate.
+- `node scripts/vm685-apocrypha-theme-browser.mjs` with `VM685_EVIDENCE` pointing outside the repository — PASS in 13 seconds. Evidence: `vm685-qa-browser.json`, SHA-256 `000D4697669762E25B1DD8CC1D8B8F733C5835D60FE1E0FE38EBA9DEEB3E59FE`.
+
+## Independent browser evidence
+
+The focused witness used one disposable local headless Edge profile and Node built-in raw CDP. It used only `1440x1000` and the acceptance-relevant `390x844`, captured no screenshots, attempted no live feedback, and produced no browser exception. Every observed resource was same-origin; no external request occurred. Exactly two feedback requests reached the localhost fixture, one success and one provider failure.
+
+Objective PASS observations:
+
+- Fresh Apocrypha loaded dark without a saved choice. Native pointer and keyboard actions changed dark to light and back, persisted only `vm_theme_mode_v1`, and restored saved light by DOMContentLoaded on reload. Controller source/execution proves the synchronous pre-style ordering and storage-failure/pageshow branches.
+- A real second same-origin tab replaced light with dark and back while the first page retained hash, `aria-current`, top-level one-open and nested disclosure state. Final key removal restored dark. Exact Clipboard, reduce-motion and unrelated storage bytes remained unchanged.
+- The generated NEXT-mode glyph changed between U+E600 White / `Switch to light theme` and U+E602 Black / `Switch to dark theme`. Both modes used loaded `Mana`, an 18.1875px square box, loaded route font faces, and exact same-origin `mana.min.css` plus `mana.woff?v=1.18.0` resources.
+- Registry success, local 503 fallback and script-disabled no-JS exposed the same 59-source semantic population, group ordering, IDs, classification/status fields, text, links and counts. Error fallback retained the truthful authored error notice and usable source library in both themes. No-JS retained its authored notice, fallback population and dark fallback with no dead theme control.
+- Each composed population inspected 30 open structural owners and 796 repeated leaf instances, including hero, quiet actions, rail/compass, summaries, nested shelves, generated source/reference cards, metadata, badges, tags, counts, links, status, section bands, footer and return surfaces. All light leaves met at least 5.04:1 against their actual opaque owner or every observed fixed-gradient endpoint. Each visible category name occurred once. Structural owners remained transparent/open, and hero actions retained no glow or shadow.
+- The real notice node's scoped notice palette converged in 23ms with reduced-motion transition duration `1e-05s`; actual success, provider error and authored no-JS notices were independently exercised. This proves final state only, not animation feel.
+- Native Tab/Enter/Escape and pointer input verified focus-visible controls, disclosed navigation hints, theme action, top-level/nested summaries, menu, Clipboard and feedback. Clipboard and feedback dialogs retained their contents/status through cross-tab reversal, kept native fields in the light scheme, trapped focus, dismissed by Escape/close, and returned focus to the launcher.
+- The local feedback sequence covered empty validation, 350ms in-flight disabled state, success, the unchanged five-second cooldown, provider failure/manual-copy fallback, status persistence across reversal and exactly two localhost requests.
+- At 390x844 the document, menu, Clipboard, feedback dialog and both close controls stayed within the viewport. The compass was internally scrollable; native Tab moved it from its initial position to `scrollLeft 432`, reached the final Supplemental References tile with visible solid 2px focus, and native Enter activated the correct hash, open group and current marker. `/library/` redirected to canonical `/apocrypha/` with saved-light continuity. Home, Terms, Privacy, Guide and Strategium retained their existing opt-ins; Archscry remained inert.
+
+## Stateful adversarial coverage
+
+- Owners/seams: `vm_theme_mode_v1`, root applied theme, generated topbar representation, storage/pageshow listeners, registry versus fallback population, hash/current/open disclosure state, dialog state and protected storage.
+- Forward/reverse: native dark -> light and light -> dark both passed.
+- Perturb/restore: top-level/nested open state, hash/current marker, Clipboard contents and feedback text/status survived theme reversal.
+- Replacement/reset: a second tab replaced both directions and removed the key; obsolete mode did not reclaim ownership.
+- Same complete state/different history: click-owned and storage-owned light converged on the same root, saved value, label/glyph, archive state and protected bytes.
+- Representation round trip: storage -> root mode -> generated next-mode label/glyph -> native action -> storage remained consistent.
+- Structurally different representatives: generated registry, deterministic load-failure fallback and no-JS authored fallback all passed.
+- Current versus executed/domain provenance: NOT APPLICABLE. No request, execution, source meaning or alternate domain representation changed.
+- Causal control: the regression inspects actual painted leaves and the visible summary node, closing the VM-682 assumed-background and VM-665 outer-owner escape classes at route scope.
+
+## Findings and limitations
+
+No blocker, major or candidate-caused harness defect remains.
+
+One inherited narrow geometry limitation remains honestly disclosed. At 390px the focused final compass tile settled at left 236/right 452 while the internal rail was left 20/right 355. Existing proximity snapping therefore partly clips its right edge. The document itself remained contained at scrollWidth 375, keyboard focus was visible, and native Enter delivered the correct destination/state. `apocrypha.css`, runtime and layout are byte-identical to baseline, and the final adapter adds no geometry, overflow or positioning rule. This is nonblocking protected baseline behavior, not a VM-685 regression or an aesthetic PASS.
+
+Historical VM-665/VM-683/VM-684 Puppeteer `Runtime.callFunctionOn` timeouts remain suspected protocol debt. Those suites were not rerun, weakened, traced or relabeled green. The admitted raw-CDP witness provides direct exact-candidate evidence for the changed objective seams. The stale pre-VM-645 Apocrypha 39+10 visual comparator also remains unrun and unrepaired because it does not represent the current 59-source contract.
+
+The file-protocol notice runtime branch was not browser-executed. Its owner/runtime bytes are baseline-identical; the real node's scoped notice palette, actual success/error and authored no-JS notice were exercised at the lowest reliable layers.
+
+## Tests intentionally skipped
+
+- Screenshots, image diffs, visual baselines, optical interpretation, animation-fidelity waits and broad viewport/engine matrices — OWNER-VISUAL is active and no objective criterion requires them.
+- Broad repository, route-state, placement, scoring, semantic, mutation, recovery, synthetic and source-option enumeration suites — their owners did not change.
+- Predecessor browser matrices — focused controller checks and one route-continuity witness cover the shared seam without repeating accepted certifications.
+- Live feedback — prohibited; localhost fixtures only.
+
+## Owner review
+
+The shortest useful Owner review is:
+
+1. Open `/apocrypha/` in dark, switch to light, and judge the hero, quiet actions, rail, source compass, charcoal section bands, source/reference cards, statuses, footer and return dock.
+2. Open one top-level category and one nested shelf, switch both directions, and judge the retained open/rule-led hierarchy and source readability.
+3. Open Clipboard and feedback in light, then inspect the topbar menu and loaded White/Black next-mode glyphs. Engineering already verified focus, dismissal, status and transport behavior.
+4. At a narrow mobile width, open the menu and use the source compass through the far-end category. Judge subjective responsive comfort while noting the inherited partial far-end tile clipping disclosed above.
+
+PASS if the light treatment feels coherent with accepted stages 1–3 while preserving VM-665's source-library identity, open summaries, quiet actions, single category names and semantic status distinctions. FAIL if the Owner sees unresolved dark leaf surfaces, missing glyphs, awkward hierarchy/readability or an unacceptable narrow compass experience.
+
+## Stage 5 Archscry recommendation
+
+Stage 5 must use a new admitted card/branch and independently inventory Archscry's current final cascade plus every dynamic dossier/search/review/media/mana/status/overlay population. Reuse the one controller/key, synchronous bootstrap, last route adapter, actual painted-owner checks, loaded font/resource checks, native focus/dialog evidence, producer/fallback semantic-leaf comparison and bounded narrow geometry. Preserve source/placement/card authority, search/state, motion and artwork. Do not copy Home atmosphere, Apocrypha/Strategium selectors or Apocrypha's open source-library hierarchy. Distinguish semantic mana colors from the topbar's generated NEXT-mode glyph.
+
+## Final disposition
+
+RobQAPass PASS is bound only to `1c2fb29f5b00bfbd4fc17a7648bdecdce67765b6` and this evidence. Material implementation, policy, acceptance-criteria, fixture or assertion changes invalidate the verdict and require a new exact candidate. Owner review remains pending.

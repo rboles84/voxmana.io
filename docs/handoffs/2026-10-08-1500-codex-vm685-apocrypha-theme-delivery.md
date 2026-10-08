@@ -64,3 +64,30 @@ One inherited narrow compass limitation remains explicit. At 390px, native Tab m
 The final generated glyph witness checks exact NEXT-mode codepoints, Mana font face, nonzero painted box, pinned stylesheet/font resources and loaded route typography in both modes. The optical fit remains Owner-reserved. Complete repeated source/metadata/tag/badge/count populations are inspected against their actual solid owners or all observed fixed-gradient endpoints; hidden cards are retained in the population inspection rather than inferred from an open representative.
 
 No accepted design or protected contract changed. Carry forward to Archscry: compare producer and fallback semantic leaves without conflating HTML indentation; bind navigation to new document identity; respect real cooldown and state owners; inspect literal dialog children and loaded fonts; disclose inherited geometry separately from changed presentation; and do not turn a reduced-motion objective witness into an animation-fidelity verdict.
+
+## Local SHIP — exact candidate and Owner Review
+
+Task: VM-685
+Candidate: 1c2fb29f5b00bfbd4fc17a7648bdecdce67765b6
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: /root/apocrypha_qa
+Implementer: /root/apocrypha_dev and /root
+Owner: PENDING
+Integration: PENDING — outside this request
+
+The independent reviewer inspected the full baseline-to-candidate diff and acceptance criteria, independently ran the selected focused checks and raw-CDP browser witness, and retained the clean frozen HEAD. Its original durable report is `C:/Users/obake/.codex/visualizations/2026/10/08/01a11d91-3fbe-7e90-8320-fb89129cd13d/vm685-qa-candidate.md`, SHA-256 `c84c460b658064923d1377fe00a8cf5ec9f76ff7f58d184468f78f46cd12af2b`. That original report is copied verbatim into the individual RobQA handoff under Exact candidate QA; previous strategy/construction observations retain their event-time meaning. Original independent browser observations are `vm685-qa-browser.json`, SHA-256 `000d4697669762e25b1dd8cc1d8b8f733c5835d60fe1e0fe38eba9deeb3e59fe` in the same external artifact directory.
+
+`npm run task -- check VM-685 --stage=candidate` passed at the clean material HEAD with `durable-qa` binding, current main still at baseline, complete admitted material scope and no evidence delta. Card lifecycle is now Owner Review with Owner PENDING. This append, QA report, checkbox/lifecycle observations and producer-refreshed views are evidence only; final exact-delta content review and persisted candidate check will confirm their binding without changing the material candidate.
+
+Local Owner preview: [Apocrypha](http://127.0.0.1:62547/apocrypha/). HTTP 200 served the exact entrypoint bytes (SHA-256 `8f0a5cddda75f6ca084026e3b5137666e7909e5cba83305f931260ba8b8fcdd6`). The external preview helper binds localhost only, returns unchanged repository bytes, and adds a preview-only `connect-src 'self'` response header to block external feedback connections. It is outside the repository and changes no service or publishing contract. Codex's open request is queued; the valid URL remains directly usable. An initial sandbox-hosted preview could not be reached across the host boundary and was stopped; the host-local replacement was verified.
+
+The shortest deterministic Owner checkpoints are:
+
+1. Switch both directions at the hero; judge quiet actions, signal/rail, actual White/Black NEXT-mode glyph, source compass, charcoal bands and footer for comfort and hierarchy.
+2. Activate Lore or Supplemental References, open one nested shelf and reverse themes; judge open summaries, single category names, source/reference cards, counts, badges and semantic status distinctions.
+3. Open Clipboard and feedback in light; judge their fields and statuses without sending live feedback. At narrow width, inspect the menu and far-end compass with the inherited partial clipping disclosed above.
+
+All deterministic engineering behavior already passed independent QA. Owner remains responsible for appearance, reading comfort, density, optical glyph fit, subjective responsive experience and motion feel. No stage-4 feature push, PR creation, integration, deployment, publishing setting change or Archscry implementation occurred. Stage-3 integration authority is not reused; PR72's historical deployment exception remains unresolved.
+
+Next suggested agent: Owner review of this exact candidate. On an Owner rejection, retain VM-685 and this branch, append the actual finding, correct the narrow owner and repeat exact-candidate Dev/QA. Stage 5 requires a separate future admission and explicit request; recommendations above provide context only.

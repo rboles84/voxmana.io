@@ -85,3 +85,9 @@ The shared Clipboard's initial light container and fields passed, but its pointe
 ## Rendered-witness correction — feedback dialog labels
 
 An authentic light-dialog witness found the generated feedback `h2` and `h3` headings retaining a literal gold foreground against parchment, and the context `dt` labels just below the required contrast threshold. The Apocrypha adapter now maps only `.vm-feedback-header h2` and `.vm-feedback-step h3` to existing ink, and `.vm-feedback-context dt` to existing muted copy. Shared feedback runtime and global predecessor rules remain untouched. The seam-level source test and patch check passed; root owns the rendered harness and no final dialog verdict is made here.
+
+## Final transfer observation — frozen candidate
+
+Material candidate `1c2fb29f5b00bfbd4fc17a7648bdecdce67765b6` is frozen. Root's completed developer browser evidence is retained outside the worktree as `vm685-development-browser.json` and `vm685-development-typography-browser.json`; the separate independent RobQA record is `vm685-qa-candidate.md` with `vm685-qa-browser.json`. Root reports the completed developer browser evidence and independent exact-candidate RobQA evidence resolve the causal product findings recorded above. This role did not run those browser checks and does not issue their verdict.
+
+The inherited 390px compass clipping observation remains non-blocking because source/runtime behavior is preserved and it is outside this presentation-only change. OWNER-VISUAL remains for hierarchy, warmth, readability, and source-library trust. For stage 5, Archscry should independently inventory final rendered light cascade owners, dynamic/overlay populations, and narrow-state controls before reusing the shared controller pattern; it must not inherit Apocrypha's open structural or literal-leaf selector assumptions.
