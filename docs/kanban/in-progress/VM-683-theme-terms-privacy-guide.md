@@ -2,7 +2,7 @@
 
 ID: VM-683
 Title: Theme stage 2: Terms, Privacy and Guide hub
-Status: Accepted
+Status: Integrated
 Type: Bounded route presentation and shared theme extension
 Area: Terms, Privacy, Guide hub and shared shell
 Priority: High
@@ -46,11 +46,11 @@ Admission baseline: 6a6f26ac3ec0d3bfab28ccb50d0d70ef2c7e4c6e
 Candidate: c0eb044ad68e4195da457d51bc568f5bc2b97224
 RobQA: PASS at c0eb044ad68e4195da457d51bc568f5bc2b97224 — SEPARATE; /root/theme_pages_qa; docs/handoffs/2026-10-07-2300-robqa-vm683-theme-pages.md section Guide navigation exact candidate binding
 Owner: ACCEPTED at c0eb044ad68e4195da457d51bc568f5bc2b97224 — direct Owner response in this conversation; coordinator handoff section Owner ACCEPT — full stage 2
-Integration: PENDING — Owner authorized PR integration and existing automatic Pages publication
+Integration: INTEGRATED PR73 — https://github.com/rboles84/voxmana.io/pull/73; squash f6bcfaf4c3333a89cf8b0347c11d06cb7b6185ae; Pages publication authorized, closeout pending
 Dependencies: None
 Predecessor: VM-682
 Decisions: Direct Owner scope authorizes stage 2 locally through SHIP only. Preserve the unresolved PR72 Pages deployment exception and its evidence. No push main, merge, deploy, rollback, publishing changes, live feedback, stage 3, policy rewrite or redesign. Reuse palette/controller/key/startup/fonts/route opt-in/shared dialog styling; preserve legal/Guide copy, destinations, specimens, behavior, artwork, storage and services. Subjective visual acceptance belongs to Owner.
-Evidence: Historical QA/SHIP originals remain preserved. Owner's latest direct acceptance covers Terms, Privacy and Guide at the current candidate and authorizes integration plus existing automatic Pages publication; coordinator handoff section Owner ACCEPT — full stage 2 preserves the exact question and response. PR72's historical deployment exception remains unresolved. Implementation, scope, decisions, dependencies and acceptance wording are unchanged; earlier no-integration statements remain historical under the latest explicit Owner authorization.
+Evidence: Exact-candidate RobQA and genuine full-stage Owner ACCEPT remain preserved. PR73 passed Deterministic Validation and the integration verifier, then merged with an atomic expected-head guard; coordinator handoff section Integration — PR73 verified records parent/tree parity, main sync and branch cleanup. PR72's historical deployment exception remains unresolved. Material owners, scope, decisions, dependencies and acceptance wording remain unchanged; final lifecycle closeout is pending.
 
 ## Admission Scope
 
