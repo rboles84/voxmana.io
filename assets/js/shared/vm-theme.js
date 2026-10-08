@@ -1,10 +1,10 @@
-/* Home-only theme state. This synchronous file is intentionally loaded before Home styles. */
+/* Route-opt-in theme state. This synchronous file is intentionally loaded before opted route styles. */
 (function () {
   "use strict";
 
   var root = document.documentElement;
   var STORAGE_KEY = "vm_theme_mode_v1";
-  var enabled = root && root.dataset.vmThemeOptIn === "home";
+  var enabled = root && ["home", "terms", "privacy", "guide"].includes(root.dataset.vmThemeOptIn);
   var current = "dark";
 
   function valid(value) { return value === "light" || value === "dark"; }

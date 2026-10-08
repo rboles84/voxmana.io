@@ -1,14 +1,30 @@
 import assert from "node:assert/strict";
+import { execFileSync } from "node:child_process";
 import { readFile } from "node:fs/promises";
 import vm from "node:vm";
 
 const source = await readFile("assets/js/shared/vm-theme.js", "utf8");
 const key = "vm_theme_mode_v1";
+const baseline = "6a6f26ac3ec0d3bfab28ccb50d0d70ef2c7e4c6e";
 
-function run({ optIn = true, initial = {}, readThrows = false, writeThrows = false } = {}) {
+function baselineFile(file) {
+  return execFileSync("git", ["show", `${baseline}:${file}`], { encoding: "utf8", maxBuffer: 8 * 1024 * 1024 });
+}
+
+function routeBody(html) {
+  const match = html.match(/<body\b[\s\S]*<\/body>/i);
+  assert.ok(match, "route source should contain one body");
+  return match[0]
+    .replace(/\r\n/g, "\n")
+    .replace(/vm-topbar\.js\?v=vm68[03]/g, "vm-topbar.js?v=BASELINE");
+}
+
+const repositoryBytes = value => value.replace(/\r\n/g, "\n");
+
+function run({ optIn = "home", initial = {}, readThrows = false, writeThrows = false } = {}) {
   const values = new Map(Object.entries(initial));
   const reads = [], writes = [], events = [], listeners = new Map();
-  const root = { dataset: optIn ? { vmThemeOptIn: "home" } : {}, style: {} };
+  const root = { dataset: optIn ? { vmThemeOptIn: optIn } : {}, style: {} };
   const window = {
     addEventListener(type, listener) { listeners.set(type, listener); },
     dispatchEvent(event) { events.push(event); }
@@ -24,6 +40,11 @@ function run({ optIn = true, initial = {}, readThrows = false, writeThrows = fal
   return { root, window, values, reads, writes, events, listeners,
     emit(type, event = {}) { listeners.get(type)?.(event); },
     current() { return window.vmTheme.get(); } };
+}
+
+for (const route of ["home", "terms", "privacy", "guide"]) {
+  const state = run({ optIn: route, initial: { [key]: "light" } });
+  assert.equal(state.current(), "light", `${route} should reuse the one controller and key`);
 }
 
 for (const initial of [{}, { [key]: "invalid" }, { [key]: "LIGHT" }, { [key]: "" }]) {
@@ -83,10 +104,14 @@ assert.deepEqual(unconverted.writes, []);
 assert.deepEqual(unconverted.events, []);
 assert.equal(unconverted.listeners.size, 0);
 
-const [topbar, topbarCss, home, validator, index] = await Promise.all([
+const unknownOptIn = run({ optIn: "guide-reading", initial: { [key]: "light" } });
+assert.equal(unknownOptIn.window.vmTheme, undefined, "unknown routes cannot opt into the shared theme controller");
+
+const [topbar, topbarCss, home, validator, index, terms, privacy, guide, themePages] = await Promise.all([
   readFile("assets/js/shared/vm-topbar.js", "utf8"), readFile("assets/css/topbar.css", "utf8"),
   readFile("assets/css/home.css", "utf8"), readFile("scripts/validate-frontend-html.mjs", "utf8"),
-  readFile("index.html", "utf8")
+  readFile("index.html", "utf8"), readFile("terms/index.html", "utf8"), readFile("privacy/index.html", "utf8"),
+  readFile("guide/index.html", "utf8"), readFile("assets/css/theme-pages.css", "utf8")
 ]);
 assert.doesNotMatch(source, /prefers-color-scheme|matchMedia/);
 assert.match(topbar, /function setupThemeToggle\(\)/);
@@ -98,5 +123,32 @@ assert.match(index, /<html lang="en" data-vm-theme-opt-in="home">/);
 assert.match(index, /<script src="\.\/assets\/js\/shared\/vm-theme\.js\?v=vm682"><\/script>/);
 for (const asset of ["topbar.css", "home.css", "home-wip.css"]) assert.ok(index.includes(`./assets/css/${asset}?v=vm682`), `${asset} must bypass prior Home cache`);
 assert.ok(index.includes("./assets/js/shared/vm-topbar.js?v=vm682"), "topbar controller must bypass prior Home cache");
-assert.match(validator, /homeThemeBootstrap \|\| scriptIsDeferred\(tag\)/);
-console.log("VM-682 controller behavior and source boundary checks passed.");
+for (const [route, source] of [["terms", terms], ["privacy", privacy], ["guide", guide]]) {
+  assert.match(source, new RegExp(`<html lang="en" data-vm-theme-opt-in="${route}">`));
+  assert.match(source, /<script src="\.\.\/assets\/js\/shared\/vm-theme\.js\?v=vm683"><\/script>/);
+  assert.match(source, /<link rel="stylesheet" href="\.\.\/assets\/css\/theme-pages\.css\?v=vm683">/);
+  assert.ok(source.indexOf("../assets/js/shared/vm-theme.js?v=vm683") < source.indexOf('<link rel="stylesheet"'), `${route} executes the saved-light bootstrap before CSS can paint`);
+  const stylesheets = [...source.matchAll(/<link rel="stylesheet" href="([^"]+)">/g)].map(match => match[1]);
+  assert.equal(stylesheets.at(-1), "../assets/css/theme-pages.css?v=vm683", `${route} loads its scoped theme adapter last`);
+  assert.equal(routeBody(source), routeBody(baselineFile(`${route}/index.html`)), `${route} body copy, destinations, specimens and behavior hooks should remain baseline-identical apart from the topbar cache query`);
+}
+assert.match(themePages, /data-vm-theme-opt-in="guide"/);
+assert.match(validator, /themeBootstrap \|\| scriptIsDeferred\(tag\)/);
+
+for (const file of [
+  "index.html",
+  "assets/css/home.css",
+  "assets/css/home-wip.css",
+  "assets/js/home/home.js",
+  "assets/css/topbar.css",
+  "assets/js/shared/vm-topbar.js",
+  "assets/js/shared/vm-clipboard.js",
+  "assets/js/shared/vm-feedback.js",
+  "guide/reading/index.html",
+  "guide/maze/index.html",
+  "assets/js/guide/guide.js",
+  "assets/js/guide/intro-walkthrough.js"
+]) {
+  assert.equal(repositoryBytes(await readFile(file, "utf8")), repositoryBytes(baselineFile(file)), `${file} should remain repository-byte-identical to the accepted baseline`);
+}
+console.log("VM-683 controller behavior and source boundary checks passed.");
