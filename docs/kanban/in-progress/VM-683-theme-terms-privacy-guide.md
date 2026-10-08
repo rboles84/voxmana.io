@@ -2,7 +2,7 @@
 
 ID: VM-683
 Title: Theme stage 2: Terms, Privacy and Guide hub
-Status: In Progress
+Status: Owner Review
 Type: Bounded route presentation and shared theme extension
 Area: Terms, Privacy, Guide hub and shared shell
 Priority: High
@@ -43,14 +43,14 @@ Apply RobDev with accepted stage-1 machinery and lessons. Extend the explicit op
 Record version: 1
 Branch: codex/vm-683-theme-terms-privacy-guide
 Admission baseline: 6a6f26ac3ec0d3bfab28ccb50d0d70ef2c7e4c6e
-Candidate: PENDING
-RobQA: PENDING
+Candidate: c0eb044ad68e4195da457d51bc568f5bc2b97224
+RobQA: PASS at c0eb044ad68e4195da457d51bc568f5bc2b97224 — SEPARATE; /root/theme_pages_qa; docs/handoffs/2026-10-07-2300-robqa-vm683-theme-pages.md section Guide navigation exact candidate binding
 Owner: PENDING
 Integration: PENDING — explicitly outside this request; local SHIP only
 Dependencies: None
 Predecessor: VM-682
 Decisions: Direct Owner scope authorizes stage 2 locally through SHIP only. Preserve the unresolved PR72 Pages deployment exception and its evidence. No push main, merge, deploy, rollback, publishing changes, live feedback, stage 3, policy rewrite or redesign. Reuse palette/controller/key/startup/fonts/route opt-in/shared dialog styling; preserve legal/Guide copy, destinations, specimens, behavior, artwork, storage and services. Subjective visual acceptance belongs to Owner.
-Evidence: PR72 https://github.com/rboles84/voxmana.io/pull/72 remains unresolved deployment evidence. Historical QA/SHIP cycles and authentic originals are preserved. Owner requests the surgical Guide current-link correction below, with code-only QA and Owner refresh confirmation. Current binding is invalidated for a new exact candidate; scope, decisions, dependencies and acceptance wording are unchanged.
+Evidence: Historical QA/SHIP originals remain preserved. Current Guide-navigation exact-candidate code-only QA PASS is appended to the existing RobQA handoff; coordinator SHIP section records its authenticated hash and preliminary verifier PASS. Owner refresh and overall acceptance remain PENDING. Final evidence-only review and recorded-state verification precede presentation. PR72's automatic deployment exception remains unresolved; scope, decisions, dependencies and acceptance wording are unchanged.
 
 ## Admission Scope
 

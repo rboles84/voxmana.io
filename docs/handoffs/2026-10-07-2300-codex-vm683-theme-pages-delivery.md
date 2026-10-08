@@ -193,3 +193,20 @@ Owner's two screenshots and direct request identify only the current Guide utili
 Fresh continue admission PASS at a5325cc02ee6e5da4930121a3243c8ddc38c6e4c observes unchanged local/live main 6a6f26ac3ec0d3bfab28ccb50d0d70ef2c7e4c6e. Preflight identifies topbar.css:385 as the dark current-page box/shadow/underline owner and theme-pages.css:94 as its light counterpart. The admitted Guide adapter owns the surgical override; shared topbar, Home, other routes, controller, storage, content, destinations, focus outline and hit area remain protected.
 
 Reused configured /root/theme_pages_dev (RobDev, Terra medium) owns the route adapter, minimal stale witness adjustment and appended role packet. Reused configured /root/theme_pages_qa (independent RobQA, Sol medium) owns exact-candidate code-only review; root owns lifecycle and Git evidence. Existing full role authorities apply unchanged; configured routes are known, backend identity remains unverified. No escalation is needed absent a concrete blocker. Source/cascade/syntax and bounded diff review are proportionate; no browser, screenshot, engine suite or live feedback is selected. Owner refresh supplies two-theme visual confirmation. No push, integration, deployment, publishing change or stage-3 authority is added; PR72's deployment exception remains unresolved.
+
+
+## SHIP — Guide plain-link refresh checkpoint
+
+Candidate: c0eb044ad68e4195da457d51bc568f5bc2b97224
+RobQA: PASS
+Execution: SEPARATE
+Owner: PENDING
+Integration: PENDING — outside this request
+
+Separate /root/theme_pages_qa PASSed the exact candidate with the Owner-requested code-only review. Root read its authentic original and matched SHA-256 b808cc0385f95df48a8879fffedb17e803896bd36c7ec449120a300466a6802d, then appended it faithfully after the preserved historical QA prefix. The preliminary candidate verifier PASSed at clean material candidate with durable-qa provenance and unchanged main. This record advances Owner Review only; independent exact evidence-delta review and final recorded-state verification must pass before presentation.
+
+The only runtime correction makes the current Guide utility plain in both themes, preserving aria-current, keyboard focus and hit area. The existing assertion was aligned with the requested appearance. Source/cascade/syntax and bounded diff checks pass; no browser, screenshot, engine, accessibility suite or live feedback ran in this cycle. Actual visual/computed confirmation belongs to the requested Owner refresh. Earlier broader QA remains historical rather than a rerun claim.
+
+Refresh [Guide](http://127.0.0.1:54763/guide/) and inspect its topbar Guide link in both themes; it should show neither square nor bottom line, with keyboard focus still visible. Separate Terms and Privacy checkpoints remain recorded; Owner reports other surfaces good, but no overall ACCEPT is inferred. The [validated Git report](C:/Users/obake/.codex/visualizations/2026/10/08/01a119cf-b86b-7832-bfae-55f6db8e5a3e/vm683-guide-nav-git-report.md) owns full material/evidence/total accounting from baseline 6a6f26ac3ec0d3bfab28ccb50d0d70ef2c7e4c6e.
+
+This post-candidate record changes only QA/lifecycle observations and corresponding generated summaries. Runtime, tests, policy, scope, decisions, dependencies and acceptance wording remain unchanged from the candidate. The previously accepted palette/behavior and all previous findings remain preserved. Stage-3 observation: semantic current-page state can remain without inherited button decoration; no stage-3 work begins. Privacy disclosure stays separate and PR72's automatic Pages deployment exception remains unresolved. No push, merge, deployment, publishing change or integration is authorized. Next suggested agent: Owner for the refresh confirmation.

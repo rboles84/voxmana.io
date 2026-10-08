@@ -243,3 +243,35 @@ The bounded timing diagnostic does not show controller delay. Synthetic activati
 - Decide whether the existing 160 ms Guide control/CTA fades feel appropriately responsive. The engineering evidence identifies normal CSS interpolation and does not justify a controller or motion change by itself.
 
 This PASS permits return to Owner Review only. It does not record Owner acceptance or authorize integration, push, merge, deployment, rollback, publishing changes, policy changes, or stage 3. PR72's automatic Pages deployment exception remains unresolved.
+
+
+# VM-683 Guide navigation RobQA
+
+## Guide navigation exact candidate binding
+
+Task: VM-683
+Candidate: c0eb044ad68e4195da457d51bc568f5bc2b97224
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: /root/theme_pages_qa
+Implementer: /root/theme_pages_dev
+
+## Code-only result
+
+This is the Owner-requested brief code-only QA. The exact correction span from `a5325cc02ee6e5da4930121a3243c8ddc38c6e4c` changes the admitted route adapter, the existing focused witness assertion, and lifecycle records only.
+
+`theme-pages.css` loads after `topbar.css` on Guide. Its later, more specific selector is limited to the opted-in Guide route and the actual `data-vm-nav="guide"` link with `aria-current="page"`. For rest, hover, and focus-visible it resets the background shorthand, border, box shadow, and text decoration; restores ordinary weight 700; and uses the existing theme-aware `--site-copy` and `--site-ink` roles. The focus-visible rule retains an explicit two-pixel outline. The shared 44px minimum height and padding remain owned by unchanged `topbar.css`.
+
+Guide markup, `aria-current` assignment behavior, shared topbar CSS and JavaScript, theme controller, accepted Home source, other routes, content, destinations, and storage owners are byte-identical across the correction span. The witness adjustment matches the new plain-link contract and retains the surrounding semantic and focus assertions.
+
+Selected checks:
+
+- Exact correction diff and source-owner review — PASS.
+- `git diff --check a5325cc02ee6e5da4930121a3243c8ddc38c6e4c..c0eb044ad68e4195da457d51bc568f5bc2b97224` — PASS.
+- `node --check scripts\vm683-theme-pages-browser.mjs` — PASS.
+- `npm.cmd run task -- indexes --check` — PASS; 722 cards and 1,241 handoffs are fresh.
+- Static scoped-owner assertions for both-theme selection, neutral background/border/shadow/underline, and explicit focus outline — PASS.
+
+No browser, screenshot, accessibility suite, engine suite, unit suite, or live feedback was run, as requested. Actual computed cascade appearance, optical plain-link treatment, and focus presentation in both themes remain for the Owner's refresh confirmation.
+
+This code-only PASS permits return to Owner Review. It does not record Owner acceptance or authorize integration, push, merge, deployment, rollback, publishing changes, policy changes, or stage 3. The PR72 automatic Pages deployment exception remains unresolved.
