@@ -91,3 +91,85 @@ RobQA: PASS
 Execution: SEPARATE
 Reviewer: /root/theme_pages_qa
 Implementer: /root/theme_pages_dev and /root/theme_evidence_completion
+
+
+## Owner correction exact candidate binding
+
+Task: VM-683
+Candidate: ac3500d1011e10c8daf7c6cc015982821bb5c1da
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: /root/theme_pages_qa
+Implementer: /root/theme_pages_dev
+
+## Correction classification
+
+- QA tier: QA-1 styling/presentation with bounded QA-2 hover and keyboard-focus states.
+- Trigger: Owner rejected the prior candidate because Privacy's light wordmark appeared gold instead of matching accepted Home, and all six Guide dossier labels retained black surfaces in light mode. The Owner screenshot also exposed Guide's active utility label retaining a dark current-link gradient.
+- Changed behavior: the existing VM-683 route-scoped light adapter now assigns accepted Home brand roles to all three opted routes, light specimen roles to all six Guide dossier labels, and light navigation roles to Guide's active utility label.
+- Protected behavior: accepted Home, shared topbar/controller/dialog owners, legal and Guide copy/destinations/runtime, dark presentation, unconverted routes, storage, services, fonts, artwork, and the unresolved PR72 deployment boundary.
+- Independence reason: this is an Owner-rejected correction to a shared route adapter and must not rely on implementer self-review.
+- Scope reviewed: full baseline `6a6f26ac3ec0d3bfab28ccb50d0d70ef2c7e4c6e..ac3500d1011e10c8daf7c6cc015982821bb5c1da` material scope plus focused correction span `eceb736a4f4c270f38909a49b17ec2a7ac051427..ac3500d1011e10c8daf7c6cc015982821bb5c1da`; exact clean candidate.
+
+## Independent findings and acceptance disposition
+
+- Privacy brand: PASS. Actual `.vm-brand-text` computed color on Terms, Privacy, and Guide equals accepted Home in light rest, real pointer hover, and isolated native keyboard `:focus-visible` states. The pointer is moved off-target before focus sampling and the control is asserted not `:hover`, so hover cannot conceal a focus defect. Dark remains outside the light-only override.
+- Guide dossier labels: PASS. The browser enumerates all six `.guide-dossier-tabs span` nodes; every light label uses an actual light surface, meets at least 4.5:1 foreground contrast, and remains horizontally contained at desktop and an explicitly asserted 390px viewport. Dark retains its accepted dark surfaces and readable text.
+- Guide active utility: PASS. The current Guide utility keeps `aria-current="page"`; its actual light resting, real-hover, and isolated keyboard-focus states use readable light navigation roles. Dark remains governed by the accepted baseline.
+- Full task acceptance: PASS. Exact opt-ins, theme persistence/reversal, dialog focus and containment, Guide modes/walkthrough, legal/Guide authored bodies, Home regression, unconverted routes, local font ownership, mocked transport, and nonlocal blocking remain covered by the unchanged focused evidence and source-parity checks.
+- No remaining blocker, major correctness defect, or unverified correction criterion was found.
+
+## Owner escape to reusable invariants
+
+1. Finding: Privacy's light wordmark appeared gold instead of matching Home.
+   Defect class: a late or inherited shared-shell color role can make one opted route diverge from the accepted reference across rest, hover, or focus.
+   Invariant: every admitted light route's actual visible brand text must equal accepted Home for independently sampled rest, real-hover, and keyboard-focus states.
+   Sensitivity: temporarily reapplying the rejected Privacy gold owner makes the same Home-parity comparator fail; removing it restores PASS.
+
+2. Finding: all Guide dossier step labels remained black in light mode.
+   Defect class: a late route-specific literal surface can defeat parent theme tokens for an entire repeated child population.
+   Invariant: enumerate every dossier label; each must use a light composed surface with readable text and desktop/mobile containment, while dark remains dark and readable.
+   Sensitivity: temporarily reapplying the rejected dark surface makes the same population invariant fail; removing it restores PASS.
+
+3. Adjacent screenshot finding: Guide's active utility label retained the shared dark current-link gradient.
+   Defect class: the same late literal/current-state cascade can escape a light parent on an interactive navigation child.
+   Invariant: the semantic current Guide utility must use readable light roles in rest, real-hover, and isolated keyboard-focus states while preserving `aria-current` and accepted dark behavior.
+
+## Tests selected and results
+
+1. `node tests/shared/theme-controller-tests.js` — PASS. Exact allowlist, failure/default/persistence behavior, body/source parity, accepted Home/shared-owner byte parity, and unconverted-route controls.
+2. `npm.cmd run lint:html` — PASS. Public HTML, early bootstrap, stylesheet/font ordering, and existing route contracts.
+3. `node --check scripts/vm683-theme-pages-browser.mjs` — PASS.
+4. `git diff --check eceb736a4f4c270f38909a49b17ec2a7ac051427..ac3500d1011e10c8daf7c6cc015982821bb5c1da` — PASS for the correction span.
+5. `npm.cmd run task -- indexes --check` — PASS; generated views fresh at 722 cards and 1241 handoffs.
+6. `node scripts\vm683-theme-pages-browser.mjs` — PASS in an independently launched Edge process outside the sandbox. It exercises actual brand parity, pointer/focus isolation, both sensitivity controls, all-six dossier population and dark preservation, semantic active utility states, explicit 390px dossier containment, plus the existing focused theme/dialog/Guide/Home/unconverted-route contracts. It uses a disposable profile, localhost-only server and mock feedback endpoint, blocks nonlocal requests, and produces no screenshots.
+
+The full baseline diff includes intentional two-space Markdown hard breaks in the previously authenticated historical QA copy. Those inherited warnings predate this correction and remain disclosed; the correction span is clean. No historical QA artifact was rewritten.
+
+## Stateful and interaction coverage
+
+- The correction introduces no new persistent owner, provenance, representation, route transition, or executable request seam, so RobQAPass Section 13A is not newly triggered.
+- Relevant presentation states are nevertheless exercised in both directions: light and dark, rest and real pointer hover, pointer departure followed by native keyboard focus, and desktop to 390px mobile.
+- Existing saved-theme, cross-tab replacement, reload/controller, dialog focus/return, storage isolation, Home, and unconverted-route cases passed unchanged as focused regression controls.
+
+## Tests intentionally skipped
+
+- No screenshots, visual baselines, broad viewport matrix, live feedback, 720-frame Home atmosphere run, placement/search/identity journeys, mutation suite, recovery suite, or unrelated frontend bundle was run.
+- Reason: the correction changes seven declarations in the existing scoped adapter and focused browser assertions; protected runtime and engine owners are unchanged and source-parity guarded.
+- CPU-heavy validation: NOT REQUIRED.
+
+## Remaining Owner judgment
+
+The shortest Owner recheck is limited to the rejected visual boundaries:
+
+1. Privacy: open `/privacy/` in light mode and inspect the Vox Mana wordmark at rest, hover, and keyboard focus. PASS if it reads consistently with accepted Home and no longer appears gold.
+2. Guide: open `/guide/` in light mode and inspect all six dossier labels plus the current Guide utility label at rest, hover, and keyboard focus; repeat once at a narrow width. PASS if the labels read as deliberate light surfaces and the current navigation state feels coherent.
+
+Automation already owns exact state, equality, contrast, semantics, and containment. Owner review owns visual consistency, palette feel, and final product acceptance.
+
+## Boundaries
+
+- This PASS supersedes the prior material candidate only for the new exact candidate `ac3500d1011e10c8daf7c6cc015982821bb5c1da`; prior QA records and hashes remain historical and unchanged.
+- The appearance-preference disclosure question remains a separate non-blocking Owner/legal choice with no policy rewrite.
+- The PR72 Host deployment boundary exception remains unresolved; this PASS neither resolves nor approves it.
+- This PASS permits return to Owner Review only. It does not assert Owner acceptance, integration, push, PR, merge, deployment, rollback, publishing changes, or stage 3 authority.

@@ -114,3 +114,15 @@ RobDev completed the bounded corrections in the route adapter and focused browse
 Developer verification passes controller/source tests, HTML validator, browser syntax and the final focused Edge witness, including all six mobile dossier labels at the existing 390px checkpoint. Correction-span diff hygiene passes from eceb736a; preserved historical QA hard-break warnings remain separately disclosed. Browser use is justified by actual leaf cascade, native isolated focus, composed contrast, theme reversal and wrapping; no screenshots, new viewport matrix, unrelated engine, live feedback, deployment or stage-3 work occurred. Root inspected the final bounded runtime diff. Independent RobQA must bind its next verdict to the new clean material candidate; its earlier PASS cannot carry over automatically.
 
 Before freeze, root caught the first mobile-label assertion at the desktop walkthrough rather than the final mobile checkpoint. RobDev moved it to the actual final 390x844 Guide navigation and added an explicit expectedWidth=390 assertion; the same focused witness passed after that correction. The claim is based on the corrected final placement, not its earlier label. The index CLI also rejected an omitted mode without writing; explicit --write followed by --check refreshed the board and verified both views. These preparation corrections create no additional product scope or Owner decision.
+
+### Correction engineering binding
+
+Candidate: ac3500d1011e10c8daf7c6cc015982821bb5c1da
+RobQA: PASS
+Execution: SEPARATE
+Owner: PENDING
+Integration: PENDING — outside this request
+
+Separate /root/theme_pages_qa reviewed the clean full task scope and focused correction, then independently passed controller/source parity, HTML, browser syntax, correction-span hygiene, view freshness and the focused Edge witness. The authentic correction original uses the unique Owner correction exact candidate binding section; root read it and matched raw SHA-256 74ca1ccba759ac0080c7ee789e04352a2494105ca2095916245f3fe65c2fc739. It is appended byte-faithfully to the existing QA handoff, leaving the prior original and its intentional hard breaks preserved. No runtime, test, policy, scope, decision, criterion wording or dependency changes after the material candidate.
+
+The first read-only delivery check blocked because root's RobQA PENDING field included explanatory prose, whereas durable pending-candidate fallback requires the literal PENDING value. This was coordinator metadata formatting, not a failed product assertion or changed verdict. The committed evidence record now names the actually reviewed candidate and authentic PASS directly, retains In Progress and Owner PENDING, and receives independent exact-delta review before the checker reruns. Only after PASS will the same card record Owner Review; no new material candidate or repeated product QA is required for these observations.
