@@ -2,7 +2,7 @@
 
 ID: VM-683
 Title: Theme stage 2: Terms, Privacy and Guide hub
-Status: In Progress
+Status: Owner Review
 Type: Bounded route presentation and shared theme extension
 Area: Terms, Privacy, Guide hub and shared shell
 Priority: High
@@ -50,7 +50,7 @@ Integration: PENDING — explicitly outside this request; local SHIP only
 Dependencies: None
 Predecessor: VM-682
 Decisions: Direct Owner scope authorizes stage 2 locally through SHIP only. Preserve the unresolved PR72 Pages deployment exception and its evidence. No push main, merge, deploy, rollback, publishing changes, live feedback, stage 3, policy rewrite or redesign. Reuse palette/controller/key/startup/fonts/route opt-in/shared dialog styling; preserve legal/Guide copy, destinations, specimens, behavior, artwork, storage and services. Subjective visual acceptance belongs to Owner.
-Evidence: PR72 https://github.com/rboles84/voxmana.io/pull/72 remains unresolved deployment evidence. First candidate QA and SHIP remain historical in the three handoffs. Independent correction QA now passes exact material candidate ac3500d1011e10c8daf7c6cc015982821bb5c1da; root read the authentic original and matched raw SHA-256 74ca1ccba759ac0080c7ee789e04352a2494105ca2095916245f3fe65c2fc739. Its unique Owner correction exact candidate binding is appended faithfully to the existing QA handoff, preserving the first original bytes. The read-only checker must verify this evidence-only committed binding before Owner Review is recorded; Owner remains PENDING. Scope, decisions and acceptance wording are unchanged.
+Evidence: PR72 https://github.com/rboles84/voxmana.io/pull/72 remains unresolved deployment evidence. First candidate QA and SHIP remain historical in the three handoffs. Independent correction QA passes exact material candidate ac3500d1011e10c8daf7c6cc015982821bb5c1da; root matched authentic original SHA-256 74ca1ccba759ac0080c7ee789e04352a2494105ca2095916245f3fe65c2fc739 and preserved its byte-faithful appendix in the existing QA handoff. Independent C-to-2e7b434c52f078135ef0cf5188026e9762686e13 evidence review and the read-only candidate checker PASS establish the committed binding before this Owner Review observation. Final combined evidence review and recorded-state verification follow without product changes. Owner remains PENDING; scope, decisions and acceptance wording are unchanged.
 
 ## Admission Scope
 
