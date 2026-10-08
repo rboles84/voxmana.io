@@ -210,3 +210,14 @@ The only runtime correction makes the current Guide utility plain in both themes
 Refresh [Guide](http://127.0.0.1:54763/guide/) and inspect its topbar Guide link in both themes; it should show neither square nor bottom line, with keyboard focus still visible. Separate Terms and Privacy checkpoints remain recorded; Owner reports other surfaces good, but no overall ACCEPT is inferred. The [validated Git report](C:/Users/obake/.codex/visualizations/2026/10/08/01a119cf-b86b-7832-bfae-55f6db8e5a3e/vm683-guide-nav-git-report.md) owns full material/evidence/total accounting from baseline 6a6f26ac3ec0d3bfab28ccb50d0d70ef2c7e4c6e.
 
 This post-candidate record changes only QA/lifecycle observations and corresponding generated summaries. Runtime, tests, policy, scope, decisions, dependencies and acceptance wording remain unchanged from the candidate. The previously accepted palette/behavior and all previous findings remain preserved. Stage-3 observation: semantic current-page state can remain without inherited button decoration; no stage-3 work begins. Privacy disclosure stays separate and PR72's automatic Pages deployment exception remains unresolved. No push, merge, deployment, publishing change or integration is authorized. Next suggested agent: Owner for the refresh confirmation.
+
+## Owner checkpoint — Guide confirmed
+
+Guide visual checkpoint: PASSED
+Reviewed candidate: c0eb044ad68e4195da457d51bc568f5bc2b97224
+Decision source: Direct Owner message in this conversation after the exact-candidate correction handoff: "looks fine, I believe guide is done now."
+
+The Guide refresh checkpoint is complete. This records the Owner's actual scoped confirmation, preserving the existing independent code-only QA binding and historical evidence. Terms and Privacy remain separately recorded; overall VM-683 Owner acceptance is still PENDING and the card remains Owner Review. This observation changes no material owner, acceptance wording, policy or task scope. No product tests are rerun for the record update. Integration, deployment and stage 3 remain outside the request; PR72's automatic Pages deployment exception remains unresolved. Next suggested agent: Owner for the remaining stage-2 review decision within the original boundary.
+
+
+The record verifier rejected a new checkpoint section outside the card's Delivery block, which its protected-card comparison treats as a material contract change. The confirmation now lives in this handoff with only the existing Delivery Evidence field referencing it. The unpublished, coordinator-authored checkpoint commit is amended to match that record contract; the material candidate and all earlier history remain unchanged. The earlier content-review receipt is retained as historical; fresh exact-delta review and record verification bind the corrected evidence head. This is a record-placement correction, not a change to the Owner's decision or implementation.

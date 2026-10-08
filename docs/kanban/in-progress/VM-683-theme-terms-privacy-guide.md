@@ -50,7 +50,7 @@ Integration: PENDING — explicitly outside this request; local SHIP only
 Dependencies: None
 Predecessor: VM-682
 Decisions: Direct Owner scope authorizes stage 2 locally through SHIP only. Preserve the unresolved PR72 Pages deployment exception and its evidence. No push main, merge, deploy, rollback, publishing changes, live feedback, stage 3, policy rewrite or redesign. Reuse palette/controller/key/startup/fonts/route opt-in/shared dialog styling; preserve legal/Guide copy, destinations, specimens, behavior, artwork, storage and services. Subjective visual acceptance belongs to Owner.
-Evidence: Historical QA/SHIP originals remain preserved. Current Guide-navigation exact-candidate code-only QA PASS is appended to the existing RobQA handoff; coordinator SHIP section records its authenticated hash and preliminary verifier PASS. Owner refresh and overall acceptance remain PENDING. Final evidence-only review and recorded-state verification precede presentation. PR72's automatic deployment exception remains unresolved; scope, decisions, dependencies and acceptance wording are unchanged.
+Evidence: Historical QA/SHIP originals remain preserved. Current Guide-navigation exact-candidate code-only QA PASS is appended to the existing RobQA handoff. Owner confirmed the Guide visual checkpoint at this candidate in the current conversation; see coordinator handoff section Owner checkpoint — Guide confirmed. Overall acceptance remains PENDING. PR72's automatic deployment exception remains unresolved; scope, decisions, dependencies and acceptance wording are unchanged.
 
 ## Admission Scope
 
