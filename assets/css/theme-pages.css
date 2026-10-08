@@ -1,8 +1,9 @@
-/* VM-683: parchment presentation for the three route-level theme opt-ins.
+/* VM-683/684: parchment presentation for explicitly admitted route opt-ins.
    This adapter deliberately leaves every other vm-site-skin route dark. */
 html[data-vm-theme="light"][data-vm-theme-opt-in="terms"] body.vm-site-skin,
 html[data-vm-theme="light"][data-vm-theme-opt-in="privacy"] body.vm-site-skin,
-html[data-vm-theme="light"][data-vm-theme-opt-in="guide"] body.vm-site-skin {
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide"] body.vm-site-skin,
+html[data-vm-theme="light"][data-vm-theme-opt-in="strategium"] body.vm-site-skin {
   --site-ink: #211b18;
   --site-copy: #31271f;
   --site-muted: #685847;
@@ -45,7 +46,8 @@ html[data-vm-theme="light"][data-vm-theme-opt-in="guide"] body.vm-site-skin {
 
 html[data-vm-theme="light"][data-vm-theme-opt-in="terms"] body.vm-site-skin .vm-bg,
 html[data-vm-theme="light"][data-vm-theme-opt-in="privacy"] body.vm-site-skin .vm-bg,
-html[data-vm-theme="light"][data-vm-theme-opt-in="guide"] body.vm-site-skin .vm-bg {
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide"] body.vm-site-skin .vm-bg,
+html[data-vm-theme="light"][data-vm-theme-opt-in="strategium"] body.vm-site-skin .vm-bg {
   background: linear-gradient(145deg, #fff8e8 0%, #f7eedb 52%, #eadcc1 100%);
 }
 
@@ -117,6 +119,66 @@ html[data-vm-theme="light"][data-vm-theme-opt-in="guide"] body.vm-guide-route .d
 html[data-vm-theme="light"][data-vm-theme-opt-in="guide"] body.vm-guide-route .maze-footer.guide-footer { border-top: 1px solid #a88d62; background: #f7edd8; color: #685847; }
 html[data-vm-theme="light"][data-vm-theme-opt-in="guide"] body.vm-guide-route .maze-footer.guide-footer a { color: #8a5b19; text-decoration: underline; text-decoration-color: #8a5b19; text-underline-offset: 0.18em; }
 html[data-vm-theme="light"][data-vm-theme-opt-in="guide"] body.vm-guide-route .maze-footer.guide-footer a:is(:hover, :focus-visible) { color: #211b18; outline: 2px solid #8a5b19; outline-offset: 3px; }
+
+/* VM-684: Strategium's existing adapter owns many literal dark surfaces. Keep the
+   correction route-scoped and cover the dynamic Console/review populations too. */
+html[data-vm-theme="light"][data-vm-theme-opt-in="strategium"] body.vm-strategium-route {
+  background: #f7eedb;
+  color: #31271f;
+}
+html[data-vm-theme="light"][data-vm-theme-opt-in="strategium"] body.vm-strategium-route :is(
+  .vm-console-preview:is(:hover, :focus-visible), .vm-console-guide-link,
+  .vm-console-guide-link:is(:hover, :focus-visible), .vm-lifecycle-links a,
+  .vm-lifecycle-links a:is(:hover, :focus-visible), .vm-review-action,
+  .vm-lesson-link, .vm-bracket-number, .vm-lifecycle-copy-target, .vm-tab,
+  .vm-archetype-search, .vm-checklist-button, .vm-console-review-return,
+  .vm-button, .vm-lesson-dialog-close, .vm-readiness-status-card,
+  .vm-console-script-card, .vm-readiness-gauge, .vm-readiness-summary,
+  .vm-console-wayfinding-nav, .vm-console-wayfinding-nav a,
+  .vm-result-grid > section:first-child, .vm-result-grid > :is(.vm-result-learn, .vm-lifecycle-statement, .vm-lifecycle-paths)
+) { background: #fff8e8; color: #31271f; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="strategium"] body.vm-strategium-route :is(
+  .vm-review-action:is(:hover, :focus-visible), .vm-lesson-link:is(:hover, :focus-visible),
+  .vm-bracket-number:is(:hover, :focus-visible, .is-selected), .vm-tab.active,
+  .vm-checklist-button[aria-pressed="true"], .vm-review-option:is(:hover, :focus-visible, .is-selected):not(:disabled),
+  .vm-bracket-context-option:is(:hover, :focus-visible, .is-selected):not(:disabled),
+  .vm-tabs .vm-tab.active, .vm-console-wayfinding-nav a:is(:hover, :focus-visible)
+) { background: #eadcc1; color: #211b18; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="strategium"] body.vm-strategium-route :is(
+  .vm-tabs, .vm-entry-row, .vm-archetype-empty, .vm-targeting-signals article,
+  .vm-review-recovery, .vm-copy-action, .vm-cognitive-step
+) { background: #fff8e8; color: #31271f; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="strategium"] body.vm-strategium-route :is(
+  .vm-status-strip span, .vm-focus-kicker, .vm-mini-badge, .vm-entry-chip,
+  .vm-archetype-chip, .vm-feedback-choice
+) { background: #fff8e8; border-color: #a88d62; color: #31271f; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="strategium"] body.vm-strategium-route :is(
+  .vm-archetype-chip:hover, .vm-archetype-chip[aria-pressed="true"],
+  .vm-feedback-choice[aria-pressed="true"], .vm-copy-action:is(:hover, :focus-visible)
+) { background: #eadcc1; border-color: #8a5b19; color: #211b18; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="strategium"] body.vm-strategium-route :is(
+  .vm-hero-lead, .vm-entry-note, .vm-console-subpanel > p, .vm-archetype-example,
+  .vm-archetype-badge, .vm-archetype-meta span, .vm-archetype-summary,
+  .vm-console-list, .vm-console-script-card blockquote, .vm-readiness-legend,
+  .vm-review-recovery, .vm-tab-copy, .vm-checklist-copy,
+  .vm-checklist-button:is(:hover, :focus-visible) .vm-checklist-copy,
+  .vm-checklist-button[aria-pressed="true"] span
+) { color: #685847; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="strategium"] body.vm-strategium-route .vm-tab:is(.active, :hover) .vm-tab-copy { color: #211b18; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="strategium"] body.vm-strategium-route .vm-archetype-search::placeholder { color: #685847; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="strategium"] body.vm-strategium-route .vm-archetype-badge { background: rgba(13, 110, 96, 0.1); border-color: #0d6e60; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="strategium"] body.vm-strategium-route :is(.vm-readiness-meter-track, .vm-review-progress) { background: #eadcc1; border-color: #a88d62; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="strategium"] body.vm-strategium-route .vm-checklist-button::before { background: #fff8e8; border-color: #8a5b19; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="strategium"] body.vm-strategium-route .vm-checklist-button[aria-pressed="true"]::before { background: #eadcc1; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="strategium"] body.vm-strategium-route :is(.vm-review-option, .vm-bracket-context-option) { border-bottom-color: #c7ad83; color: #31271f; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="strategium"] body.vm-strategium-route :is(.vm-review-option, .vm-bracket-context-option):disabled { background: #eadcc1; border-left-color: #a88d62; color: #685847; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="strategium"] body.vm-strategium-route :is(.vm-review-action-primary:not(:disabled), .vm-lesson-dialog-close) { background: #8a5b19; border-color: #8a5b19; color: #fff8e8; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="strategium"] body.vm-strategium-route .vm-review-action-primary:disabled { background: #eadcc1; border-color: #a88d62; color: #685847; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="strategium"] body.vm-strategium-route .vm-lesson-dialog { background: #fff8e8; border-color: #a88d62; box-shadow: 0 12px 32px rgba(80, 55, 26, 0.18); }
+html[data-vm-theme="light"][data-vm-theme-opt-in="strategium"] body.vm-strategium-route :is(.vm-lesson-dialog-header, .vm-lesson-dialog-footer) { background: #f7edd8; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="strategium"] body.vm-strategium-route .vm-lesson-dialog-body { scrollbar-color: #8a5b19 #f7edd8; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="strategium"] body.vm-strategium-route .vm-lesson-dialog-body::-webkit-scrollbar-track { background: #f7edd8; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="strategium"] body.vm-strategium-route .vm-lesson-dialog-body::-webkit-scrollbar-thumb { border-color: #f7edd8; background: #8a5b19; }
 
 @media (prefers-reduced-motion: reduce) {
   html[data-vm-theme="light"][data-vm-theme-opt-in] body.vm-site-skin .vm-bg__stars { opacity: 0.2; }

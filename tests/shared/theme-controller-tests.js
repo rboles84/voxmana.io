@@ -42,7 +42,7 @@ function run({ optIn = "home", initial = {}, readThrows = false, writeThrows = f
     current() { return window.vmTheme.get(); } };
 }
 
-for (const route of ["home", "terms", "privacy", "guide"]) {
+for (const route of ["home", "terms", "privacy", "guide", "strategium"]) {
   const state = run({ optIn: route, initial: { [key]: "light" } });
   assert.equal(state.current(), "light", `${route} should reuse the one controller and key`);
 }
@@ -107,11 +107,12 @@ assert.equal(unconverted.listeners.size, 0);
 const unknownOptIn = run({ optIn: "guide-reading", initial: { [key]: "light" } });
 assert.equal(unknownOptIn.window.vmTheme, undefined, "unknown routes cannot opt into the shared theme controller");
 
-const [topbar, topbarCss, home, validator, index, terms, privacy, guide, themePages] = await Promise.all([
+const [topbar, topbarCss, home, validator, index, terms, privacy, guide, themePages, ...strategium] = await Promise.all([
   readFile("assets/js/shared/vm-topbar.js", "utf8"), readFile("assets/css/topbar.css", "utf8"),
   readFile("assets/css/home.css", "utf8"), readFile("scripts/validate-frontend-html.mjs", "utf8"),
   readFile("index.html", "utf8"), readFile("terms/index.html", "utf8"), readFile("privacy/index.html", "utf8"),
-  readFile("guide/index.html", "utf8"), readFile("assets/css/theme-pages.css", "utf8")
+  readFile("guide/index.html", "utf8"), readFile("assets/css/theme-pages.css", "utf8"),
+  ...["strategium/index.html", "strategium/console/index.html", "strategium/find-a-table/index.html", "strategium/before-game/index.html", "strategium/during-game/index.html", "strategium/review/index.html"].map(file => readFile(file, "utf8"))
 ]);
 assert.doesNotMatch(source, /prefers-color-scheme|matchMedia/);
 assert.match(topbar, /function setupThemeToggle\(\)/);
@@ -133,6 +134,32 @@ for (const [route, source] of [["terms", terms], ["privacy", privacy], ["guide",
   assert.equal(routeBody(source), routeBody(baselineFile(`${route}/index.html`)), `${route} body copy, destinations, specimens and behavior hooks should remain baseline-identical apart from the topbar cache query`);
 }
 assert.match(themePages, /data-vm-theme-opt-in="guide"/);
+assert.match(themePages, /data-vm-theme-opt-in="strategium"/);
+for (const [file, source] of [
+  ["strategium/index.html", strategium[0]], ["strategium/console/index.html", strategium[1]],
+  ["strategium/find-a-table/index.html", strategium[2]], ["strategium/before-game/index.html", strategium[3]],
+  ["strategium/during-game/index.html", strategium[4]], ["strategium/review/index.html", strategium[5]]
+]) {
+  const prefix = file === "strategium/index.html" ? "../" : "../../";
+  assert.match(source, /<html lang="en" data-vm-theme-opt-in="strategium">/);
+  assert.match(source, new RegExp(`<script src="${prefix.replaceAll("/", "\\/")}assets\\/js\\/shared\\/vm-theme\\.js\\?v=vm684"><\\/script>`));
+  assert.ok(source.indexOf("vm-theme.js?v=vm684") < source.indexOf('<link rel="stylesheet"'), `${file} executes saved-light bootstrap before CSS`);
+  const stylesheets = [...source.matchAll(/<link rel="stylesheet" href="([^"]+)"\s*\/?\s*>/g)].map(match => match[1]);
+  assert.equal(stylesheets.at(-1), `${prefix}assets/css/theme-pages.css?v=vm684`, `${file} loads the Strategium theme adapter last`);
+  assert.equal(routeBody(source), routeBody(baselineFile(file)), `${file} keeps its authored body and behavior hooks`);
+}
+for (const [file, source] of [
+  ["strategium/index.html", strategium[0]], ["strategium/console/index.html", strategium[1]],
+  ["strategium/find-a-table/index.html", strategium[2]], ["strategium/before-game/index.html", strategium[3]],
+  ["strategium/during-game/index.html", strategium[4]], ["strategium/review/index.html", strategium[5]]
+]) {
+  const prefix = file === "strategium/index.html" ? "../" : "../../";
+  const mana = `${prefix}assets/vendor/mana/css/mana.min.css`;
+  const topbar = `${prefix}assets/css/topbar.css?v=vm680`;
+  const routeCss = `${prefix}assets/css/strategium.css?v=vm635`;
+  assert.equal((source.match(/assets\/vendor\/mana\/css\/mana\.min\.css/g) || []).length, 1, `${file} resolves the local Mana glyph stylesheet exactly once`);
+  assert.ok(source.indexOf(topbar) < source.indexOf(mana) && source.indexOf(mana) < source.indexOf(routeCss), `${file} loads the Mana glyph stylesheet after topbar and before Strategium CSS`);
+}
 assert.match(validator, /themeBootstrap \|\| scriptIsDeferred\(tag\)/);
 
 for (const file of [
