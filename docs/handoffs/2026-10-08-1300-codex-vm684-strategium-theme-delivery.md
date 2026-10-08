@@ -188,3 +188,16 @@ The connector submitted expected_head_sha e687da7552b446fb7d9be886e44f000b1bcfce
 GitHub already removed the completed remote feature ref, as directly observed by exact-ref ls-remote. Root removed only the completed local branch after tree parity and pruned its obsolete tracking ref. Original PR history is preserved under refs/voxmana/pr/74/head; this is not an active work branch. One primary worktree remains, with no unrelated dirty work or additional task worktree and no cleanup deferral.
 
 The existing automatic Pages deployment started for the actual merge (https://github.com/rboles84/voxmana.io/actions/runs/37842100345); publication is now Owner-authorized. Its completion and exact public-byte confirmation remain pending. This lifecycle-only main record changes no product, test, policy, source producer, scope, decisions or acceptance wording. Independent semantic record review and the closeout verifier precede Done. Stage 4 is unstarted; PR72's historical exception remains unresolved.
+
+## Closeout — stage 3 complete
+
+Task: VM-684
+Candidate: 4b441407b4ce831f5b58ac3521e78d64ad571a0d
+PR74: https://github.com/rboles84/voxmana.io/pull/74
+Merged result: b4e92a9971a327454972c9235fecc7a0ee876826
+
+The required closeout verifier PASSed at synchronized clean main bb2a49b51c895475b14abd07455feb8be43aff81 after independent exact lifecycle-content review. It verifies original PR files/commits/blobs, squash parent/tree, exact genuine QA/Owner decisions, all evidence steps, current main, generated views, cleanup and boundaries. The completed feature branch is absent locally and remotely, one primary worktree remains, original PR history is retained under refs/voxmana/pr/74/head, and no cleanup is deferred. No unrelated work was changed.
+
+The merge-triggered Pages run was cancelled when the newer lifecycle main commit superseded it; no failure is relabeled as success. Pages publication for bb2a49b51c895475b14abd07455feb8be43aff81 then completed successfully (https://github.com/rboles84/voxmana.io/actions/runs/37842263243), as did its validation run (https://github.com/rboles84/voxmana.io/actions/runs/37842263688). At 2026-10-08T20:50:14.513Z, read-only HTTPS requests returned 200 and exact accepted Git bytes for all six Strategium HTML entries, theme-pages.css, vm-theme.js and the existing local Mana stylesheet. The original vm684-live-check.json retains each response/hash and exact comparison. No browser suite, live feedback or settings change was added for administration.
+
+Move the original card to Done and faithfully regenerate the existing derived views, keeping all authored criteria, admission identity, scope, decisions and protected product bytes fixed. Independent review of the final record delta and a fresh closeout check bind the persisted final main state before reporting completion. The validated Git report accounts material, post-candidate evidence, original final feature branch and final main separately. Every original decision and event-time limit remains preserved. Stage 4 requires separate admission; PR72's historical automatic deployment exception remains unresolved. Earlier Puppeteer protocol debt and browser-projection/viewport limitations retain their recorded disposition.

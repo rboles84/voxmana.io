@@ -1,4 +1,4 @@
-<!-- task-view-sha256:7ebfa252e4c4dfe73af1557078c89d0ecda28bf8f394776a9005d23dc2aad6d1 -->
+<!-- task-view-sha256:57a754a41ff8be6f4ebd06fd0a773e3d3963684f7914d9872610db11ad0cc5b5 -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -57,7 +57,6 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 |---|---|---|---|
 | VM-658 | [Maze Instrument Frame](in-progress/VM-658-maze-instrument-frame.md) | Integrated |  |
 | VM-660 | [Maze Performance Recon](in-progress/VM-660-maze-performance-recon.md) | Integrated |  |
-| VM-684 | [Strategium theme, stage 3](in-progress/VM-684-strategium-theme.md) | Integrated |  |
 
 ## Blocked
 
@@ -700,6 +699,7 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | VM-681 | [Maze hover preview — 20% size reduction](done/VM-681-maze-hover-size.md) | Done |  |
 | VM-682 | [Home theme, stage 1](done/VM-682-home-theme.md) | Done |  |
 | VM-683 | [Theme stage 2: Terms, Privacy and Guide hub](done/VM-683-theme-terms-privacy-guide.md) | Done |  |
+| VM-684 | [Strategium theme, stage 3](done/VM-684-strategium-theme.md) | Done |  |
 
 ## Unresolved
 
