@@ -1,4 +1,4 @@
-<!-- task-view-sha256:3037ff1d3d915e5c19571f082ac159ce09ff717c0983a28b161ad046c77d4100 -->
+<!-- task-view-sha256:15481f6d90f8b27f251d20eec62f697d4da5b65da44b98b8e3c1423f3023378e -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -8,6 +8,9 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 
 | Authored / filename date | Agent | Handoff | Related task references | Diagnostics |
 |---|---|---|---|---|
+| 2026-10-08T15:00:00Z (filename) | Codex coordinator `/root`. Governing skills: [RobDev](../../.agents/skills/robdev/SKILL.md) and [RobQA](../../.agents/skills/robqa/SKILL.md). This record stops at local SHIP/Owner Review; stage-3 integration consent supplies no stage-4 integration authority. | [VM-685 — Apocrypha theme stage 4 delivery](2026-10-08-1500-codex-vm685-apocrypha-theme-delivery.md) | VM-685 | Identity displayed from heading; not admission metadata. |
+| 2026-10-08T15:00:00Z (filename) | `/root/apocrypha_dev` (RobDev). Requested/configured role: Terra medium. The tool accepted the configured route; backend-effective model metadata is unavailable and unverified. | [RobDev handoff — VM-685 Apocrypha theme, stage 4](2026-10-08-1500-robdev-vm685-apocrypha-theme.md) | VM-685 | Identity displayed from heading; not admission metadata. |
+| 2026-10-08T15:00:00Z (filename) | /root/apocrypha_qa | [RobQA strategy handoff — VM-685 Apocrypha theme stage 4](2026-10-08-1500-robqa-vm685-apocrypha-theme.md) | VM-685 | Identity displayed from heading; not admission metadata. |
 | 2026-10-08T13:00:00Z (filename) | `/root/strategium_dev` (RobDev). Requested/configured role: `gpt-5.6-terra`, medium. The host accepted the configured role route; backend-effective identity is unverified. | [RobDev handoff — VM-684 Strategium theme](2026-10-08-1300-robdev-vm684-strategium-theme.md) | VM-684 | Identity displayed from heading; not admission metadata. |
 | 2026-10-08T13:00:00Z (filename) | Unknown | [Independent RobQA — Strategium theme stage 3](2026-10-08-1300-robqa-vm684-strategium-theme.md) | VM-684 |  |
 | 2026-10-08T00:00:00Z (authored) | Codex coordinator /root | [VM-684 — Strategium theme stage 3 local delivery](2026-10-08-1300-codex-vm684-strategium-theme-delivery.md) | VM-684 | Identity displayed from heading; not admission metadata. |

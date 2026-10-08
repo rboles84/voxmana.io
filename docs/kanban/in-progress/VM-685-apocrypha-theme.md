@@ -45,7 +45,7 @@ Owner: PENDING
 Integration: PENDING — outside this request
 Dependencies: None
 Decisions: Presentation-only /apocrypha/ support. Reuse accepted controller/key/prepaint/default/failure/refresh/palette/typography/toggle contracts. Preserve accepted VM-665 layout/corrections and all predecessor dark/light behavior. Do not edit archive runtime, loader, registry, generated fallback, producers, factual/reference content, classifications/status meaning/counts/order/links, Library alias, artwork/motion, services or publishing. Surface concrete accepted-design/protected-contract changes before expanding. PR72 historical deployment exception remains unresolved. Stage-3 integration authority does not authorize stage 4 integration.
-Evidence: Rehydrated actual predecessor cards, role/delivery handoffs, latest valid replacement QA and Owner findings; RobDev read-only source packet; fresh admission and authenticated host/Git integration observations. Current tests/candidate QA remain PENDING.
+Evidence: Rehydrated actual predecessor cards, role/delivery handoffs, latest valid replacement QA and Owner findings; RobDev source/implementation packet; fresh admission and authenticated host/Git integration observations. Focused developer controller/source/HTML/JS/rendering/registry/browser/patch evidence PASS before freeze. Independent exact-candidate QA remains PENDING. Known inherited compass partial clipping, stale visual comparator and Puppeteer protocol debt are disclosed in individual handoffs.
 
 ## Admission Scope
 

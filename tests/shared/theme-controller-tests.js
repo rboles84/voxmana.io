@@ -5,7 +5,7 @@ import vm from "node:vm";
 
 const source = await readFile("assets/js/shared/vm-theme.js", "utf8");
 const key = "vm_theme_mode_v1";
-const baseline = "6a6f26ac3ec0d3bfab28ccb50d0d70ef2c7e4c6e";
+const baseline = "7fcf62c0d4a1389b668a39c27c7075d18c221c99";
 
 function baselineFile(file) {
   return execFileSync("git", ["show", `${baseline}:${file}`], { encoding: "utf8", maxBuffer: 8 * 1024 * 1024 });
@@ -42,7 +42,7 @@ function run({ optIn = "home", initial = {}, readThrows = false, writeThrows = f
     current() { return window.vmTheme.get(); } };
 }
 
-for (const route of ["home", "terms", "privacy", "guide", "strategium"]) {
+for (const route of ["home", "terms", "privacy", "guide", "strategium", "apocrypha"]) {
   const state = run({ optIn: route, initial: { [key]: "light" } });
   assert.equal(state.current(), "light", `${route} should reuse the one controller and key`);
 }
@@ -107,11 +107,11 @@ assert.equal(unconverted.listeners.size, 0);
 const unknownOptIn = run({ optIn: "guide-reading", initial: { [key]: "light" } });
 assert.equal(unknownOptIn.window.vmTheme, undefined, "unknown routes cannot opt into the shared theme controller");
 
-const [topbar, topbarCss, home, validator, index, terms, privacy, guide, themePages, ...strategium] = await Promise.all([
+const [topbar, topbarCss, home, validator, index, terms, privacy, guide, apocrypha, themePages, ...strategium] = await Promise.all([
   readFile("assets/js/shared/vm-topbar.js", "utf8"), readFile("assets/css/topbar.css", "utf8"),
   readFile("assets/css/home.css", "utf8"), readFile("scripts/validate-frontend-html.mjs", "utf8"),
   readFile("index.html", "utf8"), readFile("terms/index.html", "utf8"), readFile("privacy/index.html", "utf8"),
-  readFile("guide/index.html", "utf8"), readFile("assets/css/theme-pages.css", "utf8"),
+  readFile("guide/index.html", "utf8"), readFile("apocrypha/index.html", "utf8"), readFile("assets/css/theme-pages.css", "utf8"),
   ...["strategium/index.html", "strategium/console/index.html", "strategium/find-a-table/index.html", "strategium/before-game/index.html", "strategium/during-game/index.html", "strategium/review/index.html"].map(file => readFile(file, "utf8"))
 ]);
 assert.doesNotMatch(source, /prefers-color-scheme|matchMedia/);
@@ -135,6 +135,14 @@ for (const [route, source] of [["terms", terms], ["privacy", privacy], ["guide",
 }
 assert.match(themePages, /data-vm-theme-opt-in="guide"/);
 assert.match(themePages, /data-vm-theme-opt-in="strategium"/);
+assert.match(themePages, /data-vm-theme-opt-in="apocrypha"/);
+assert.match(apocrypha, /<html lang="en" data-vm-theme-opt-in="apocrypha">/);
+assert.match(apocrypha, /<script src="\.\.\/assets\/js\/shared\/vm-theme\.js\?v=vm682"><\/script>/);
+assert.match(apocrypha, /<link rel="stylesheet" href="\.\.\/assets\/css\/theme-pages\.css\?v=vm685">/);
+assert.ok(apocrypha.indexOf("vm-theme.js?v=vm682") < apocrypha.indexOf('<link rel="stylesheet"'), "apocrypha executes saved-light bootstrap before CSS");
+assert.equal([...apocrypha.matchAll(/<link rel="stylesheet" href="([^"]+)">/g)].map(match => match[1]).at(-1), "../assets/css/theme-pages.css?v=vm685", "apocrypha loads its scoped theme adapter last");
+assert.equal((apocrypha.match(/assets\/vendor\/mana\/css\/mana\.min\.css/g) || []).length, 1, "apocrypha resolves the local Mana glyph stylesheet exactly once");
+assert.equal(routeBody(apocrypha), routeBody(baselineFile("apocrypha/index.html")), "apocrypha keeps its authored body, fallback, source links and behavior hooks baseline-identical");
 for (const [file, source] of [
   ["strategium/index.html", strategium[0]], ["strategium/console/index.html", strategium[1]],
   ["strategium/find-a-table/index.html", strategium[2]], ["strategium/before-game/index.html", strategium[3]],
