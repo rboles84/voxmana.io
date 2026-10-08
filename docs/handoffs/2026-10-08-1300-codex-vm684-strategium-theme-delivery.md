@@ -91,3 +91,21 @@ After independent exact-candidate PASS, use the local no-store preview and exist
 4. Review: open http://127.0.0.1:54764/strategium/review/ and choose "I won, but I'm not sure why". Open Threat Reading, close/reopen it, follow the full Console link and use the visible return link. Inspect questions, results, late dialog content and return navigation.
 
 The pre-candidate PENDING state and earlier local-only records retain event-time meaning. Any later engineering PASS is separate from pending Owner visual acceptance. SHIP stops before integration, deployment and stage 4. PR72 remains unresolved.
+
+## SHIP to Owner Review
+
+Task: VM-684
+Candidate: 4ace9a17dd597d095db417c79758b252abd1fc4a
+RobQA: PASS at 4ace9a17dd597d095db417c79758b252abd1fc4a
+Owner: PENDING
+Integration: PENDING — outside this request
+
+Independent /root/strategium_qa inspected the complete baseline-to-candidate diff and acceptance criteria and issued SEPARATE engineering PASS. Its original external report was read and authenticated by root, then copied byte-for-byte into the individual RobQA handoff; SHA-256 is 98af26091a5d1d0025a1b9f6f97c6af3cac9cbd8b7c35b79731bde7454e2f2be. The read-only candidate delivery command passed at the clean material candidate with durable-qa binding, live main still 9a94369c05883a46ec55ab2f2b9def7c10efe864, material/total paths 16 and evidence paths 0. This permits the lifecycle transition to Owner Review; it supplies no Owner acceptance.
+
+Exact-candidate controller/source, HTML/JS lint, syntax and patch checks pass. Independent in-app-browser DOM/interaction evidence covers all six route surfaces in both themes, Console state, open-dialog reversal through real second-tab storage changes, keyboard/focus return, validated Review/Console round trip, lifecycle selection/disabled/Continue/Back/Start over, Clipboard, unsent feedback, predecessor consumers and an unconverted route. Expanded Puppeteer attempts remain FAIL as suspected protocol/harness debt. The IAB viewport request did not change its actual width; no new 390px witness is claimed. RobQA accepted the earlier real 390px containment/focus evidence because the later runtime delta changes colors/backgrounds/borders only, with layout and navigation logic unchanged. The independent report owns this sufficiency judgment and its precise limits.
+
+All five objective acceptance checkboxes are recorded complete. The four deterministic Owner checkpoints above remain pending for appearance, hierarchy, reading comfort, subjective mobile quality and motion feel. No public deployment or stage-4 work occurred. PR72's historical deployment exception is still unresolved.
+
+Git is authoritative: baseline-to-material-candidate has 16 changed paths; the earlier worker estimate of 17 is superseded by the actual Git rows. This lifecycle append, checkbox/decision observations, exact original QA copy and faithfully regenerated views are consolidated as evidence only. Independent review of the exact post-candidate delta and final persisted-state delivery check are required before presentation. The external vm684-git-report.md records material, evidence and total-branch rows/counts at the final evidence head; those counts are separately validated against Git. Runtime, tools, tests, criteria wording, scope and prior handoff prose remain frozen at the material candidate.
+
+Current lifecycle: Owner Review. Next actor: Owner using the four route-named checkpoints above. Feature work is local and unpushed; main stays at the admission baseline. Stop before integration, deployment, publishing settings, rollback and stage 4.

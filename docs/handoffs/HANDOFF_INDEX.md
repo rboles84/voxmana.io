@@ -1,4 +1,4 @@
-<!-- task-view-sha256:3508f7f4ec3fc80c2cb44becda83c246b26f4860357acead5ef0fbc0398c0af7 -->
+<!-- task-view-sha256:3037ff1d3d915e5c19571f082ac159ce09ff717c0983a28b161ad046c77d4100 -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -9,6 +9,7 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 | Authored / filename date | Agent | Handoff | Related task references | Diagnostics |
 |---|---|---|---|---|
 | 2026-10-08T13:00:00Z (filename) | `/root/strategium_dev` (RobDev). Requested/configured role: `gpt-5.6-terra`, medium. The host accepted the configured role route; backend-effective identity is unverified. | [RobDev handoff — VM-684 Strategium theme](2026-10-08-1300-robdev-vm684-strategium-theme.md) | VM-684 | Identity displayed from heading; not admission metadata. |
+| 2026-10-08T13:00:00Z (filename) | Unknown | [Independent RobQA — Strategium theme stage 3](2026-10-08-1300-robqa-vm684-strategium-theme.md) | VM-684 |  |
 | 2026-10-08T00:00:00Z (authored) | Codex coordinator /root | [VM-684 — Strategium theme stage 3 local delivery](2026-10-08-1300-codex-vm684-strategium-theme-delivery.md) | VM-684 | Identity displayed from heading; not admission metadata. |
 | 2026-10-07T23:00:00Z (filename) | Unknown | [VM-683 RobDev — Terms, Privacy and Guide hub theme pages](2026-10-07-2300-robdev-vm683-theme-pages.md) | VM-683 | Identity displayed from heading; not admission metadata. |
 | 2026-10-06T21:44:00-06:00 (authored) | Codex coordinator /root | [Maze hover size reduction — implementation plan](2026-10-06-2144-codex-maze-hover-size-plan.md) | VM-662, VM-663 |  |
