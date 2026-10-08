@@ -221,3 +221,18 @@ The Guide refresh checkpoint is complete. This records the Owner's actual scoped
 
 
 The record verifier rejected a new checkpoint section outside the card's Delivery block, which its protected-card comparison treats as a material contract change. The confirmation now lives in this handoff with only the existing Delivery Evidence field referencing it. The unpublished, coordinator-authored checkpoint commit is amended to match that record contract; the material candidate and all earlier history remain unchanged. The earlier content-review receipt is retained as historical; fresh exact-delta review and record verification bind the corrected evidence head. This is a record-placement correction, not a change to the Owner's decision or implementation.
+
+## Owner ACCEPT — full stage 2
+
+Task: VM-683
+Candidate: c0eb044ad68e4195da457d51bc568f5bc2b97224
+Owner: ACCEPT
+Decision reference: Direct Owner reply in this conversation to the immediately preceding exact-candidate acceptance question.
+
+The coordinator asked: "Do you accept all of VM-683—Terms, Privacy and Guide—at candidate c0eb044ad68e4195da457d51bc568f5bc2b97224, and authorize its merge and automatic Pages publication?" The Owner answered: "I do accept that". This genuine acceptance covers the full stage-2 candidate and authorizes its PR/CI/guarded squash integration and the existing automatic publication from main. It supersedes the earlier local-only stop for this delivery. It does not approve or resolve PR72's historical automatic deployment exception or authorize publishing-setting changes. Historical decisions, code-only limits for the last Guide correction, prior broader checks and original authored evidence remain preserved.
+
+Native Git confirms clean feature HEAD af7ee4ed15994c3659d37a71263b3f383be68c6b and current main 6a6f26ac3ec0d3bfab28ccb50d0d70ef2c7e4c6e. Runtime/test bytes still match the accepted material candidate. Owner requests a healthy local workspace before the next Strategium effort; no stage-3 material work begins before stage-2 closeout.
+
+GitHub operation routing was discovered and approved before attempts: authenticated connector for repository/PR/CI inspection, PR creation and expected-head guarded squash merge; native Git for fetch/push. Profile identifies rboles84 and repository metadata grants repository access with push/admin permission; this does not guarantee every app API scope. Connector PR inventory for the exact feature/main pair is empty. The merge schema supports expected_head_sha and squash, so no gh/browser fallback is needed or probed. Supplemental main-protection read returned 403 Resource not accessible by integration; policy visibility is optional under docs/reference/workflow.md#main-protection-and-exceptions. Keep that unavailable observation and require exact-head Deterministic Validation, clean mergeability, full host/Git scope parity and the server head guard. Do not change credentials or host settings.
+
+This acceptance record changes only lifecycle/decision observations and producer-generated summaries; material owners, policy, scope, acceptance wording, fixtures and tests stay unchanged. Independent exact-delta content review precedes integration validation. The original genuine Owner source and actual host read snapshot are preserved externally as vm683-accept-original-owner.md and vm683-accept-initial-host.json. Next: push the feature branch, create its single normal PR, collect CI/head parity, run the integration verifier and perform only the authorized guarded squash merge.
