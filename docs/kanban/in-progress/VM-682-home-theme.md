@@ -2,7 +2,7 @@
 
 ID: VM-682
 Title: Home theme, stage 1
-Status: In Progress
+Status: Owner Review
 Type: Bounded shared-shell interaction and Home presentation
 Area: Home and shared top bar
 Priority: High
@@ -33,7 +33,7 @@ Owner task packet for the stage-1, page-by-page rollout. `C:\Users\obake\Downloa
 - [x] Light Home keeps content, navigation, cards, art placement, search, saved Reading/Clipboard data, motion settings, control geometry and dark-mode appearance intact.
 - [x] Light styling covers Home scrollbars, Clipboard and feedback modal states without live feedback transport in developer browser verification.
 - [x] Pinned Mana 1.18.0 assets and existing attribution/notices remain intact; Table Talk palette/demo styles and original script are not copied.
-- [ ] Focused developer evidence and independent exact-candidate RobQA complete; subjective visual acceptance remains Owner work.
+- [x] Focused developer evidence and independent exact-candidate RobQA complete; subjective visual acceptance remains Owner work.
 
 ## Risks
 
@@ -44,13 +44,13 @@ The top bar has materially different route consumers and dynamically imports Cli
 Record version: 1
 Branch: codex/vm-682-home-theme
 Admission baseline: 028f029360ce256fb63bca1266baa199f1f12175
-Candidate: PENDING
-RobQA: PENDING
+Candidate: 4372c50a97953c004d7189fb4e1be265e3288315
+RobQA: PASS at 4372c50a97953c004d7189fb4e1be265e3288315 — SEPARATE; non-implementing /root/home_theme_qa; section Authored navigation hint exact-candidate review in docs/handoffs/2026-10-07-1150-robqa-vm682-home-theme.md
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Predecessor: VM-680
-Evidence: Owner reports visible light orbs but unreadable topbar hover hints; reopen the same VM-682 branch for a bounded Home-light tooltip correction. Prior exact-candidate PASS at 65776b517f1d23bc409db9c930d679f9bacd9716 remains historical and is superseded for current readiness. Preserve earlier light-mode work, canonical admission and recovery evidence. New separate exact-candidate RobQA and renewed Owner visual review are required. Owner/integration remain PENDING.
+Evidence: Renewed Owner Review at 4372c50a97953c004d7189fb4e1be265e3288315 after the Owner's authored navigation-hint finding. Separate independent RobQA PASS and clean-candidate delivery check PASS. The original review is appended verbatim under Authored navigation hint exact-candidate review in docs/handoffs/2026-10-07-1150-robqa-vm682-home-theme.md. All five real Home hover/Tab/focus hints pass at 14.63:1; the prior fill fails the same causal invariant at 1.06:1. Dark reversal, unconverted Guide hints, hidden mobile clones and prior theme/orb/pip/shared-dialog/storage protections pass. Owner/integration remain PENDING; no push, rewrite, integration, deployment or stage 2.
 Decisions: Stage 1 is Home only. Dark is the unconditional fallback; system preference is deliberately ignored until a separately authorized stage. The controller must never touch saved reading, Clipboard, search, or motion keys/data. Preserve accepted VM-680 44px controls, Outfit UI, Clipboard geometry, storage and formatter. No deployment, integration, broader route conversion, palette redesign, or live feedback send is authorized. Owner reconciliation, current root user message 2026-10-07: retain `ce70d4465d96e22b328c67eda458489da8bbba65` as the canonical VM-682 admission; `f5e30e10` and `ace4b66b` are superseded pre-implementation admission attempts, with their Git/reflog evidence retained. This authorizes admission reconciliation only, not the eventual theme candidate. Scope amendment: admit the narrow Home first-paint exception in `scripts/validate-frontend-html.mjs`; it must permit exactly the one synchronous external Home theme controller before Home styles and preserve the deferred/module rule for every other external script. Scope amendment: current Owner requests visible Home-light floating/fading orbs; admit assets/js/home/home.js only for opted Home light drawing color/alpha/fade presentation, preserving dark drawing and particle geometry/motion/state/data contracts.
 
 ## Owner correction — 2026-10-07

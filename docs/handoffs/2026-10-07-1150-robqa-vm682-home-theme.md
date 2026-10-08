@@ -354,3 +354,63 @@ CPU-heavy validation: NOT REQUIRED. The 720-frame trace is synchronous, determin
 No engineering blocker remains. The exact candidate passes the temporal atmosphere contract, immutable dark drawing parity, motion-static branches, actual canvas composition/contrast, White-pip identity/geometry/boundary containment, shared state seams, and retained product interactions. RobQA PASS permits renewed Owner Review; it does not assert Owner acceptance, integration, deployment, or stage 2.
 
 Owner review remains narrow: open `http://127.0.0.1:54762/` in light mode and judge whether the halos are now visibly floating and fading without distracting from reading, and whether the White dossier pip is separated from parchment while still reading as the official White mana symbol. Toggle to dark once and confirm the familiar dark atmosphere and pips. Those aesthetic and temporal-feel judgments remain Owner work.
+
+
+## Authored navigation hint exact-candidate review
+
+Task: VM-682
+Candidate: 4372c50a97953c004d7189fb4e1be265e3288315
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: Codex RobQA /root/home_theme_qa
+Implementer: Codex RobDev /root/home_theme_dev (Home-light CSS and RobDev record); Codex coordinator /root (focused regression harness and task evidence)
+Model routing: governing RobQA role; requested Sol medium; effective backend identity unverified
+
+### Decision and bounds
+
+This exact candidate passes independent engineering QA for the authored Home navigation-hint correction. The correction pairs the existing light-theme ink `#211b18` with the accepted parchment surface `#f7edd8`, a warm border, and a restrained shadow only when Home is opted into light mode. It preserves the shared reveal mechanics, authored text, `aria-hidden` representation, navigation targets, geometry, JavaScript, native titles, theme state, dark presentation, unconverted routes, and hidden mobile clones.
+
+The review compared the full admitted feature from baseline `028f029360ce256fb63bca1266baa199f1f12175` through the candidate (16 paths) and the focused correction from prior evidence head `b5c3c59304474ea95cb5bec3c19f2ba800c92a45` through the candidate (5 paths). The focused product delta is one Home-opted light rule in `assets/css/home-wip.css`; the remaining focused changes are the regression harness and truthful task evidence. Protected runtime and test sources outside the focused browser harness are byte-identical across the narrow delta.
+
+Risk classification: QA-1 presentation with a focused QA-2 interaction surface. The Owner finding was unreadable visible text during hover. The selected evidence therefore exercises the actual cascade and rendered state for every authored hint under pointer and keyboard activation, plus reverse-state and containment checks. It does not substitute for Owner judgment about the preferred visual character of the tooltip surface.
+
+### Independent evidence
+
+- `node scripts\vm682-home-theme-browser.mjs` — PASS on the isolated Edge path with nonlocal requests aborted and feedback transport confined to local mocks. All five authored hints — “Identity signal hub,” “Color identity reading,” “Guided card search,” “Commander table literacy,” and “Lore and source library” — reached the visible state through eight-step pointer travel and through the native Tab sequence. Each measured `rgb(33, 27, 24)` on the actual opaque `rgb(247, 237, 216)` surface at 14.63:1. The witness also checked exact authored text/data pairing, `aria-hidden`, pointer behavior, opacity, bounds, target-relative placement, clipping, stacking, focus visibility, sequential dismissal, and pointer-leave dismissal.
+- The same browser run injected the previous opaque dark fill as a causal control. “Identity signal hub” measured 1.06:1 and the accessibility assertion rejected that state. Removing the control restored 14.63:1 for all five hover and focus paths. This proves the selected surface rule, rather than unrelated page state, resolves the reported defect.
+- The exact default-dark hint snapshots matched after light-to-dark reversal. The unconverted Guide route retained its route-owned opaque `#171613` hint surface and did not acquire the Home light ink or warm treatment. At the mobile breakpoint, all five cloned hints remained `display: none` and produced no client rectangle.
+- The browser run retained the broader VM-682 objective checks for theme state, first paint, navigation/reload/history, controlled atmosphere, keyboard focus, Clipboard, dialogs, storage failures, no-JS behavior, and mocked feedback success/failure/in-flight states. Result: PASS.
+- `node tests\shared\theme-controller-tests.js` — PASS; shared controller behavior and source boundaries remained intact.
+- `npm.cmd run lint:html` — PASS; scoped bootstrap and frontend HTML constraints remained valid.
+- `npm.cmd run lint:js` — PASS across 37 files.
+- `node --check scripts\vm682-home-theme-browser.mjs` — PASS.
+- `npm.cmd run task -- indexes --check` — PASS; generated indexes were fresh (721 cards, 1238 handoffs).
+- `git diff --check 028f029360ce256fb63bca1266baa199f1f12175 4372c50a97953c004d7189fb4e1be265e3288315` — PASS.
+- `npm.cmd run validate:admission -- --task=VM-682 --mode=continue` — PASS at exact HEAD, with baseline/local/remote main `028f029360ce256fb63bca1266baa199f1f12175`, canonical admission `ce70d4465d96e22b328c67eda458489da8bbba65`, and all 16 current paths admitted.
+
+### State ownership and §13A coverage
+
+- Ownership: shared `topbar.css` owns reveal geometry and hover/focus lifecycle; the Home opt-in light selector owns only the final light hint surface; the root theme attributes own theme and opt-in state.
+- Forward path: default dark to saved/selected Home light produced the readable parchment treatment in every authored hint.
+- Reverse path: light to dark reproduced the complete default-dark snapshot, including color, background, border, shadow, opacity, transform, transition, and geometry properties.
+- Perturbation and recovery: the injected former `#171613` fill failed the contrast invariant at 1.06:1; removing it restored the candidate state and all five hints passed again.
+- Equivalent histories: real pointer activation and native keyboard focus reached the same readable result, and leave/Tab progression dismissed the previously visible hint.
+- Representations: authored DOM text, `data-hint`, `aria-hidden`, computed styles, visibility, bounds, current focus, and route/theme attributes were checked together.
+- Structurally different consumers: Guide retained its own stylesheet-owned dark hints; mobile menu clones remained structurally present but visually suppressed.
+
+### Corrected test assumption
+
+The first focused harness draft assumed Guide inherited the shared translucent hint background. A single source check showed that `site-skin.css` owns Guide's opaque `#171613` surface. The assertion was corrected to the actual protected route contract; no Guide product code changed. This prevented a false regression claim and strengthened the containment proof.
+
+### Skips, cost, and residual judgment
+
+No screenshot matrix, cross-engine certification, animation-fidelity matrix, live feedback submission, broad unrelated suite, or optical certification was run. Those checks would add cost without improving the objective evidence for this localized cascade defect. Feedback remained mocked and guarded. CPU classification: NOT REQUIRED beyond the focused browser execution already selected.
+
+Owner visual review remains PENDING for the subjective comfort of the parchment surface, warm border, shadow, and placement in the full composition. Engineering QA establishes readable state, lifecycle, containment, and protected dark/mobile behavior; it does not accept the design on the Owner's behalf. SHIP therefore stops at Owner Review, with no integration, deployment, or stage-2 action.
+
+### Lessons
+
+- Identify the actual authored node and the final stylesheet owner before naming a tooltip defect; this was `.vm-nav-hint`, not the theme button's native title.
+- Measure foreground and final opaque background while the real hover or focus state is active; isolated token assertions would have missed the 1.06:1 cascade result.
+- Convert a reported example into a systemic invariant across all five hints and both pointer and keyboard paths.
+- Verify route-local cascade ownership before encoding an unconverted-route expectation. One source check resolved the Guide assumption without product churn.

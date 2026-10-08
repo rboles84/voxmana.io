@@ -105,3 +105,24 @@ Selected PASS evidence includes 720 controlled actual-source frames with exact b
 The existing [local Home preview](http://127.0.0.1:54762/) returns HTTP 200 and serves the versioned current atmosphere/pip bytes with `no-store`. Reload it in light, watch the floating/fading halos, and inspect the White pip against parchment. Toggle to dark once to judge the familiar atmosphere and pips. The protected content/art/layout/navigation/data/motion/route contracts remain intact. Owner acceptance remains PENDING.
 
 This post-candidate phase records only authentic QA, unchanged criterion results, lifecycle and generated summaries. Separate exact-delta review, validated [Git report](C:/Users/obake/.codex/visualizations/2026/10/07/01a1177e-4c96-7413-8be6-bd86e4a4dbf5/vm682-orb-pip-git-report.md) and fresh candidate checker verify final recorded Owner Review before presentation. Native read-only Git observes the feature ref absent remotely and main unchanged at the admission baseline. No push, merge, integration, deployment or stage 2 occurred. Next suggested agent: Owner for exact-candidate visual/product review.
+
+
+## Navigation hint correction — renewed Owner Review
+
+Task: VM-682
+Agent: Codex coordinator /root
+Candidate: 4372c50a97953c004d7189fb4e1be265e3288315
+RobQA: PASS
+Execution: SEPARATE
+Owner: PENDING
+Integration: PENDING
+
+The Owner confirms visible light orbs and reports unreadable Home topbar hover hints. This same-task additive correction supersedes prior readiness while preserving every prior light-mode runtime and recovery commit. The existing RobDev completion packet records the actual rendered 1.06:1 defect, final Home-owned parchment/ink rule, implementation owners, selected risk, original scope and lessons. No new scope, native-title, JavaScript, route, key, font, artwork or geometry change is introduced.
+
+Separate non-implementing /root/home_theme_qa reviewed and exercised this exact clean candidate; the authentic original external review is appended verbatim under Authored navigation hint exact-candidate review in the required QA handoff. It owns engineering sufficiency and the selected focused tests/skips. Root read that original review and matched its raw hash before recording its decision; the clean-candidate delivery checker passed using that durable original evidence. The CSS fix remains isolated to opted Home light. The earlier guessed Guide background assertion was corrected against its actual site-skin owner, with no product compensation; no unresolved harness debt remains.
+
+This appended record, QA artifact, lifecycle/check-result bindings and produced board form the evidence-only delta. No implementation, acceptance-criterion wording, scope, decisions, dependencies or test contract changes after the candidate. The independent exact-delta review and final candidate checker verify the recorded state. The [Git report](C:/Users/obake/.codex/visualizations/2026/10/07/01a1177e-4c96-7413-8be6-bd86e4a4dbf5/vm682-nav-hint-git-report.md) owns baseline/candidate/evidence/total path accounting.
+
+The existing [local Home preview](http://127.0.0.1:54762/index.html) serves the corrected CSS with no-store. Reload light Home and hover Home, Archscry and the other main navigation links, then Tab through them; judge whether the parchment hints feel coherent and readable. Toggle dark once to confirm familiar styling. Engineering covers actual reveal/dismissal, all five text strings, 14.63:1 contrast, the 1.06:1 causal control, viewport/stacking, keyboard focus, dark restoration, unconverted Guide hints, mobile hidden clones, and retained controller/fonts/storage/dialog/mocked-feedback behavior. No screenshot or aesthetic certification substitutes for Owner review.
+
+Next suggested agent: Owner for exact-candidate product/visual ACCEPT or REJECT. Owner/integration remain PENDING. No push, history rewriting, integration, deployment or stage 2 occurred. The original canonical admission, superseded admissions, recovery ref/bundle and all earlier light work remain preserved. Applicable skills: repository RobDev and separate RobQA; delivery stops under SHIP.
