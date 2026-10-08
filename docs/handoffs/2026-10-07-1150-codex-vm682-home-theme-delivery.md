@@ -126,3 +126,16 @@ This appended record, QA artifact, lifecycle/check-result bindings and produced 
 The existing [local Home preview](http://127.0.0.1:54762/index.html) serves the corrected CSS with no-store. Reload light Home and hover Home, Archscry and the other main navigation links, then Tab through them; judge whether the parchment hints feel coherent and readable. Toggle dark once to confirm familiar styling. Engineering covers actual reveal/dismissal, all five text strings, 14.63:1 contrast, the 1.06:1 causal control, viewport/stacking, keyboard focus, dark restoration, unconverted Guide hints, mobile hidden clones, and retained controller/fonts/storage/dialog/mocked-feedback behavior. No screenshot or aesthetic certification substitutes for Owner review.
 
 Next suggested agent: Owner for exact-candidate product/visual ACCEPT or REJECT. Owner/integration remain PENDING. No push, history rewriting, integration, deployment or stage 2 occurred. The original canonical admission, superseded admissions, recovery ref/bundle and all earlier light work remain preserved. Applicable skills: repository RobDev and separate RobQA; delivery stops under SHIP.
+
+## Owner visual approval — Home stage 1
+
+Task: VM-682
+Agent: Codex coordinator /root
+Candidate: 4372c50a97953c004d7189fb4e1be265e3288315
+Owner visual review: PASS
+Decision reference: Current root Owner conversation message after the navigation-hint correction: "I think its good now".
+Integration: PENDING
+
+The Owner approves the current Home visual result after the orb, White-mana separation and navigation-hint corrections. The candidate and its separate engineering PASS remain unchanged. This records the observed visual decision, without inferring a new integration command; the original explicit stop before integration, deployment and stage 2 remains in effect. Lifecycle stays Owner Review and overall ACCEPT/integration authorization remains pending. All light-mode work, prior decisions and recovery evidence are preserved. No runtime or test changes, no rerun of unchanged product tests, and no push/merge/deployment are required for this evidence-only observation.
+
+Next: retain this exact candidate and its Owner visual PASS at the requested stop line. A later explicit ACCEPT command may start the existing integration workflow; this record does not execute it.
