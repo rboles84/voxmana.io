@@ -2,7 +2,7 @@
 
 ID: VM-684
 Title: Strategium theme, stage 3
-Status: In Progress
+Status: Owner Review
 Type: Bounded shared-theme presentation
 Area: Strategium and shared theme controller
 Priority: High
@@ -19,9 +19,9 @@ Owner task packet, 2026-10-08. VM-682 and VM-683 are integrated predecessors; th
 ## Acceptance Criteria
 
 - [x] All six admitted Strategium routes opt in to the existing saved dark/light controller; dark remains unconditional without a valid saved preference and unconverted routes remain inert.
-- [ ] The accepted parchment, ink, gold, teal, typography, glyph, topbar, dialog and native-control roles cover static and dynamically rendered Strategium surfaces in both themes.
+- [x] The accepted parchment, ink, gold, teal, typography, glyph, topbar, dialog and native-control roles cover static and dynamically rendered Strategium surfaces in both themes.
 - [x] Strategium behavior remains intact: Console search/checklist/readiness, lifecycle routes, review dialogs and validated Console return, Clipboard, feedback and mobile navigation.
-- [ ] Focused developer evidence covers objective controller, cascade, dialog/focus, state preservation and mobile containment risks; independent exact-candidate RobQA PASS is required before SHIP to Owner Review, where the Owner judges four route-named checkpoints. Stop before integration.
+- [x] Focused developer evidence covers objective controller, cascade, dialog/focus, state preservation and mobile containment risks; independent exact-candidate RobQA PASS is required before SHIP to Owner Review, where the Owner judges four route-named checkpoints. Stop before integration.
 - [x] The RobDev handoff records reusable light-surface patterns, route-specific exceptions, resolved failures, remaining uncertainty, and bounded follow-up notes for Apocrypha, Archscry, and Maze.
 
 ## Risks
@@ -33,13 +33,13 @@ Late Strategium literal colors and dynamic lesson-dialog content can escape a pa
 Record version: 1
 Branch: codex/vm-684-strategium-theme
 Admission baseline: 9a94369c05883a46ec55ab2f2b9def7c10efe864
-Candidate: PENDING
-RobQA: PENDING
+Candidate: 4b441407b4ce831f5b58ac3521e78d64ad571a0d
+RobQA: PASS at 4b441407b4ce831f5b58ac3521e78d64ad571a0d — SEPARATE independent replacement-candidate review in [RobQA handoff](../../handoffs/2026-10-08-1300-robqa-vm684-strategium-theme.md#owner-glyph-correction)
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Decisions: Stage 3 is presentation-only for the six Strategium routes. Reuse vm_theme_mode_v1 and the existing controller; do not alter Strategium domain logic, data, content, services, motion preferences, or non-opted routes. PR72's historical automatic Pages deployment exception remains unresolved and is outside this task.
-Evidence: Admission start ELIGIBLE at current clean main/local/live remote 9a94369c05883a46ec55ab2f2b9def7c10efe864. VM-682 squash d2bcaa64818b76e6fdf7024a7e8f4b818f040608 and VM-683 squash f6bcfaf4c3333a89cf8b0347c11d06cb7b6185ae are verified ancestors of the baseline. Prior SHIP and QA remain event-time history. Owner reports the hub theme glyph blank in both modes while Console works; source confirms the local Mana stylesheet is missing on five routes. The same card/branch returns to RobDev, with current Candidate/RobQA/Owner PENDING until corrected exact-candidate QA. [Delivery handoff](../../handoffs/2026-10-08-1300-codex-vm684-strategium-theme-delivery.md) preserves the raw finding, correction boundary, prior checkpoints and harness-debt limits.
+Evidence: Admission start ELIGIBLE at current clean main/local/live remote 9a94369c05883a46ec55ab2f2b9def7c10efe864. VM-682 squash d2bcaa64818b76e6fdf7024a7e8f4b818f040608 and VM-683 squash f6bcfaf4c3333a89cf8b0347c11d06cb7b6185ae are verified ancestors of the baseline. Prior SHIP and QA remain event-time history, with their verdict revoked for current delivery by the Owner glyph finding. Five missing local Mana stylesheet imports are corrected; six-route regression sensitivity and both-theme DOM/font evidence passed. Authentic independent QA at the replacement candidate and candidate delivery check PASS permit SHIP back to Owner Review with Owner PENDING. [Delivery handoff](../../handoffs/2026-10-08-1300-codex-vm684-strategium-theme-delivery.md) preserves the raw finding, exact correction, prior debt and shortest hub-symbol recheck.
 
 ## Admission Scope
 

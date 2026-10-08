@@ -93,3 +93,56 @@ Engineering PASS does not decide warmth, hierarchy, comfort, aesthetic parity, s
 ## Verdict
 
 RobQA PASS for exact candidate `4ace9a17dd597d095db417c79758b252abd1fc4a`. This permits Owner Review only. Owner acceptance, integration, publication, PR activity, deployment, stage 4, and resolution of PR72's historical publication exception remain pending or outside scope.
+
+## Owner glyph correction
+
+Task: VM-684
+Candidate: 4b441407b4ce831f5b58ac3521e78d64ad571a0d
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: /root/strategium_qa
+Implementer: /root/strategium_dev + /root/strategium_evidence
+
+## Decision
+
+Independent exact-candidate RobQA PASS. The confirmed Owner defect is corrected across its full class: every Strategium route now loads the shared topbar Mana glyph dependency, and the theme toggle renders the appropriate generated Mana glyph in both dark and light modes. This engineering decision returns the replacement candidate to Owner Review. It does not replace the Owner's visual/product judgment, authorize integration, or erase the prior candidate's event-time record.
+
+The earlier PASS for `4ace9a17dd597d095db417c79758b252abd1fc4a` was revoked when the Owner observed a blank hub theme glyph. Its individual unaffected observations remain historical evidence; its verdict does not bind this replacement candidate.
+
+## Scope and risk classification
+
+QA tier: QA-2/QA-3, OWNER-VISUAL, SEPARATE execution. The material baseline remains `9a94369c05883a46ec55ab2f2b9def7c10efe864`; the independently inspected baseline-to-candidate diff contains 17 paths. Compared with the prior material candidate, the runtime correction is exactly five local `mana.min.css` imports: Strategium hub, Before the Game, During the Game, Review, and Find a Table. Console already had the dependency and is the structurally different known-good control. The remaining delta is the narrow source regression and truthful card/handoff evidence.
+
+No controller, topbar, domain logic, data, content, services, layout, presentation CSS, mana semantics, motion, route/query/hash/history behavior, or transport changed in the correction. The reviewed branch was clean at exact HEAD `4b441407b4ce831f5b58ac3521e78d64ad571a0d`; merge-base with `main` was the accepted baseline.
+
+## Current-candidate objective evidence
+
+- `node tests/shared/theme-controller-tests.js` — PASS. The new invariant enumerates all six Strategium entrypoints, requires exactly one correctly resolved local Mana stylesheet on each, and requires it after `topbar.css` and before `strategium.css`. Existing controller, route opt-in, authored-body, storage, pageshow, cross-tab, and inert-route checks remain green.
+- `npm.cmd run lint:html` — PASS. Public HTML and the existing scoped Strategium/font/navigation rules remain valid.
+- `git diff --check 9a94369c05883a46ec55ab2f2b9def7c10efe864..4b441407b4ce831f5b58ac3521e78d64ad571a0d` — PASS.
+- Read-only regression sensitivity — PASS. The same new invariant applied to the five pre-fix entrypoint bytes failed on all five because each had zero Mana imports; it passes on the replacement candidate. This directly protects the Owner-reported escape class rather than only the hub example.
+- Bounded IAB DOM/font witness — PASS. Authentic raw observations are in `vm684-glyph-browser-observations.json`, SHA-256 `626D2C78CFFA0662D86D890C7807E695A6F9E50DBD775F0A83BFF82BC3BD3E04`, authored by `/root` as coordinator from real read-only CUA output and independently judged here. The coordinator did not author the runtime or regression correction.
+
+For `/strategium/`, `/strategium/console/`, `/strategium/before-game/`, `/strategium/during-game/`, `/strategium/review/`, and `/strategium/find-a-table/`, the browser witness observed:
+
+- a real theme-toggle button in both modes;
+- dark mode with `ms-w`, quoted generated U+E600 content, and `Switch to light theme`;
+- an actual native UI click changing the root to light mode, `ms-b`, quoted generated U+E602 content, and `Switch to dark theme`;
+- computed pseudo-element font family `Mana`, display `block`, visibility `visible`, opacity `1`, and an `18.1875px` by `18.1875px` icon box in each mode;
+- `document.fonts.status` equal to `loaded` and `document.fonts.check("14px Mana")` true;
+- the exact same-origin `assets/vendor/mana/css/mana.min.css` stylesheet and `assets/vendor/mana/fonts/mana.woff?v=1.18.0` font resource in page assets; and
+- no browser warning/error log entries across the six-route pass.
+
+Console produced the same state-specific generated glyph and font facts as the five corrected routes. The disposable tab was closed and its initial dark mode was restored through the UI.
+
+## Reused unaffected evidence
+
+The prior exact-candidate QA's source, controller, cascade, interaction, state-preservation, dialog/focus, validated Console return, lifecycle, Clipboard, feedback, predecessor-boundary, unconverted-route, and 390px containment observations remain applicable as individual evidence because the correction only adds the missing local stylesheet imports and a narrow source assertion. Those behaviors were not re-run merely to replace a stale verdict. The replacement candidate's focused source checks confirm the authored route bodies and protected owners remain unchanged.
+
+The earlier Puppeteer monolith and three approved phase attempts remain explicit harness debt: each timed out at the protocol layer before product assertions. They were not retried, weakened, traced, or relabeled green. The distinct IAB evidence above directly covers the newly confirmed glyph/font objective risk.
+
+## Limitations and Owner review
+
+This reviewer's CUA caller exposed no browser surfaces. After one transient coordinator kernel reinitialization, the coordinator's browser surface was available and produced the preserved raw observation artifact. In that read-only DOM projection, `link.sheet` serialized false, matching FontFace enumeration returned an empty array, and localStorage was unavailable. These are recorded limitations. They do not outweigh the converging route-specific generated content, computed font, loaded font check/status, positive visible box, and exact CSS/font resource observations. No raw preference value is claimed; only the initial dark mode was restored through the visible control.
+
+No screenshots, pixel comparison, viewport matrix, broad suite, Puppeteer retry, live feedback submission, or subjective aesthetic certification was performed. Owner Review remains responsible for the route-named visual/product checkpoints, with special attention to the previously blank hub toggle in both themes. Integration, deployment, settings, and Stage 4 remain pending and outside this verdict.
