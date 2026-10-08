@@ -144,6 +144,32 @@ html[data-vm-theme="light"][data-vm-theme-opt-in="strategium"] body.vm-strategiu
   .vm-bracket-context-option:is(:hover, :focus-visible, .is-selected):not(:disabled),
   .vm-tabs .vm-tab.active, .vm-console-wayfinding-nav a:is(:hover, :focus-visible)
 ) { background: #eadcc1; color: #211b18; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="strategium"] body.vm-strategium-route :is(
+  .vm-tabs, .vm-entry-row, .vm-archetype-empty, .vm-targeting-signals article,
+  .vm-review-recovery, .vm-copy-action, .vm-cognitive-step
+) { background: #fff8e8; color: #31271f; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="strategium"] body.vm-strategium-route :is(
+  .vm-status-strip span, .vm-focus-kicker, .vm-mini-badge, .vm-entry-chip,
+  .vm-archetype-chip, .vm-feedback-choice
+) { background: #fff8e8; border-color: #a88d62; color: #31271f; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="strategium"] body.vm-strategium-route :is(
+  .vm-archetype-chip:hover, .vm-archetype-chip[aria-pressed="true"],
+  .vm-feedback-choice[aria-pressed="true"], .vm-copy-action:is(:hover, :focus-visible)
+) { background: #eadcc1; border-color: #8a5b19; color: #211b18; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="strategium"] body.vm-strategium-route :is(
+  .vm-hero-lead, .vm-entry-note, .vm-console-subpanel > p, .vm-archetype-example,
+  .vm-archetype-badge, .vm-archetype-meta span, .vm-archetype-summary,
+  .vm-console-list, .vm-console-script-card blockquote, .vm-readiness-legend,
+  .vm-review-recovery, .vm-tab-copy, .vm-checklist-copy,
+  .vm-checklist-button:is(:hover, :focus-visible) .vm-checklist-copy,
+  .vm-checklist-button[aria-pressed="true"] span
+) { color: #685847; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="strategium"] body.vm-strategium-route .vm-tab:is(.active, :hover) .vm-tab-copy { color: #211b18; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="strategium"] body.vm-strategium-route .vm-archetype-search::placeholder { color: #685847; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="strategium"] body.vm-strategium-route .vm-archetype-badge { background: rgba(13, 110, 96, 0.1); border-color: #0d6e60; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="strategium"] body.vm-strategium-route :is(.vm-readiness-meter-track, .vm-review-progress) { background: #eadcc1; border-color: #a88d62; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="strategium"] body.vm-strategium-route .vm-checklist-button::before { background: #fff8e8; border-color: #8a5b19; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="strategium"] body.vm-strategium-route .vm-checklist-button[aria-pressed="true"]::before { background: #eadcc1; }
 html[data-vm-theme="light"][data-vm-theme-opt-in="strategium"] body.vm-strategium-route :is(.vm-review-option, .vm-bracket-context-option) { border-bottom-color: #c7ad83; color: #31271f; }
 html[data-vm-theme="light"][data-vm-theme-opt-in="strategium"] body.vm-strategium-route :is(.vm-review-option, .vm-bracket-context-option):disabled { background: #eadcc1; border-left-color: #a88d62; color: #685847; }
 html[data-vm-theme="light"][data-vm-theme-opt-in="strategium"] body.vm-strategium-route :is(.vm-review-action-primary:not(:disabled), .vm-lesson-dialog-close) { background: #8a5b19; border-color: #8a5b19; color: #fff8e8; }
