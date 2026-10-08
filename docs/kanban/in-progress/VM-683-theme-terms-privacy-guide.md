@@ -44,7 +44,7 @@ Record version: 1
 Branch: codex/vm-683-theme-terms-privacy-guide
 Admission baseline: 6a6f26ac3ec0d3bfab28ccb50d0d70ef2c7e4c6e
 Candidate: f8aa3f97bc308414fa1d34b2ab880977c3f4c1b7
-RobQA: PASS — f8aa3f97bc308414fa1d34b2ab880977c3f4c1b7; SEPARATE; docs/handoffs/2026-10-07-2300-robqa-vm683-theme-pages.md#guide-completion-exact-candidate-binding
+RobQA: PASS at f8aa3f97bc308414fa1d34b2ab880977c3f4c1b7 — SEPARATE; /root/theme_pages_qa; docs/handoffs/2026-10-07-2300-robqa-vm683-theme-pages.md section Guide completion exact candidate binding
 Owner: PENDING
 Integration: PENDING — explicitly outside this request; local SHIP only
 Dependencies: None
