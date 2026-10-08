@@ -159,3 +159,16 @@ The reviewed runtime is unchanged from the independently passed replacement cand
 The original task explicitly stops before integration/publication, and this visual approval does not request lifting that boundary. The canonical Accepted state and ACCEPT command include integration authorization, so the card remains Owner Review with the formal Owner/integration decision fields PENDING. The visual approval is retained explicitly rather than manufacturing integration permission or marking unintegrated work Done. No further local implementation or visual recheck is requested. Main, publishing settings, PR72's unresolved historical exception and stage 4 remain outside this completion.
 
 This append and the card's Evidence observation change only delivery records. Runtime, tests, tools, scope, decisions and criterion wording remain frozen. Regenerate/check the existing views, independently review the exact evidence delta, and retain Git-derived final accounting without rerunning product tests.
+
+## Owner acceptance and integration authorization
+
+Task: VM-684
+Candidate: 4b441407b4ce831f5b58ac3521e78d64ad571a0d
+Owner: ACCEPT
+Decision reference: Direct Owner messages in Codex chat 01a11cdb-f4ff-7a01-8fe6-3c47151c0ac7, 2026-10-08: visual approval followed by "we can push it like the others we did before this"; observed by root before host mutations.
+
+The genuine latest Owner message authorizes ACCEPT, feature push, one PR to main, expected-head guarded squash integration and the automatic Pages publication used for the preceding stages. It applies to the independently passed and visually approved replacement material candidate above, with only reviewed delivery evidence added afterward. The preceding visual-only record retains its event-time meaning; this subsequent instruction lifts its integration/publication stop for this stage. It supplies no stage-4, settings, rollback or historical PR72 exception authority.
+
+Before the first host operation, capability discovery selected the available authenticated GitHub connector for reads and its atomic expected-head squash API for merge; native Git handles transport and local refs. No fallback route is needed. Authenticated profile is rboles84, repository metadata confirms pull/push/admin access, main remains the admission baseline, and the complete exact-head PR search returned none. Supplemental main-protection visibility was declared optional under docs/reference/workflow.md#main-protection-and-exceptions before attempting its read. The connector returned 403 Resource not accessible by integration. Record that actual limitation without changing routes or credentials; the exact-head Deterministic Validation check and server guard remain mandatory.
+
+Root owns the Accepted card, this appended decision, faithful generated views, host evidence and delivery actions. Independent RobQA reviews the exact evidence delta. No runtime/test/tool change or product rerun is needed for this decision record. Material scope, criterion wording, decisions and prior handoff bytes stay fixed. The required integration verifier must pass against fresh authenticated host observations before merge.
