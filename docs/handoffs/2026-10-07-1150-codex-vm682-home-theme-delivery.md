@@ -139,3 +139,18 @@ Integration: PENDING
 The Owner approves the current Home visual result after the orb, White-mana separation and navigation-hint corrections. The candidate and its separate engineering PASS remain unchanged. This records the observed visual decision, without inferring a new integration command; the original explicit stop before integration, deployment and stage 2 remains in effect. Lifecycle stays Owner Review and overall ACCEPT/integration authorization remains pending. All light-mode work, prior decisions and recovery evidence are preserved. No runtime or test changes, no rerun of unchanged product tests, and no push/merge/deployment are required for this evidence-only observation.
 
 Next: retain this exact candidate and its Owner visual PASS at the requested stop line. A later explicit ACCEPT command may start the existing integration workflow; this record does not execute it.
+
+## Owner ACCEPT — exact Home candidate
+
+Task: VM-682
+Agent: Codex coordinator /root
+Candidate: 4372c50a97953c004d7189fb4e1be265e3288315
+Owner: ACCEPT
+Decision reference: Current direct Owner message in this root conversation: "ACCEPT VM-682. Integrate the approved Home candidate only. Do not deploy or start stage 2."
+Integration: PENDING
+
+This explicit ACCEPT authorizes the standard integration workflow for the exact current Home candidate, whose separate non-implementing RobQA PASS and Owner visual PASS are already recorded. It supersedes the previous stop-before-integration boundary for this candidate only. Deployment, stage 2, broader route opt-in, live feedback, and further history rewriting remain outside the request. The earlier stop-line statements and superseded candidate records above retain their historical meaning; they are not rewritten as current authorization.
+
+Coordinator owns lifecycle/host verification and guarded squash integration. Existing RobDev and RobQA packets remain authoritative for implementation and engineering sufficiency. This evidence-only update records Accepted and authentic consent, without changing runtime, tests, policy, scope, criterion wording, decisions, dependencies, or the accepted palette. Required views are refreshed through their existing producer. Independent exact-delta review and the integration checker must validate this evidence before the guarded merge. Canonical admission ce70d4465d96e22b328c67eda458489da8bbba65, superseded f5e30e10/ace4b66b admission evidence, prior light work, and the one-time repair's recovery ref/bundle remain preserved.
+
+Next: push this branch, create its single post-ACCEPT PR, verify exact head CI and host parity, perform the authorized guarded squash, synchronize main, and complete lifecycle-only closeout. No deployment or stage 2 is authorized.
