@@ -2,7 +2,7 @@
 
 ID: VM-683
 Title: Theme stage 2: Terms, Privacy and Guide hub
-Status: Owner Review
+Status: In Progress
 Type: Bounded route presentation and shared theme extension
 Area: Terms, Privacy, Guide hub and shared shell
 Priority: High
@@ -43,14 +43,14 @@ Apply RobDev with accepted stage-1 machinery and lessons. Extend the explicit op
 Record version: 1
 Branch: codex/vm-683-theme-terms-privacy-guide
 Admission baseline: 6a6f26ac3ec0d3bfab28ccb50d0d70ef2c7e4c6e
-Candidate: f8aa3f97bc308414fa1d34b2ab880977c3f4c1b7
-RobQA: PASS at f8aa3f97bc308414fa1d34b2ab880977c3f4c1b7 — SEPARATE; /root/theme_pages_qa; docs/handoffs/2026-10-07-2300-robqa-vm683-theme-pages.md section Guide completion exact candidate binding
+Candidate: PENDING
+RobQA: PENDING
 Owner: PENDING
 Integration: PENDING — explicitly outside this request; local SHIP only
 Dependencies: None
 Predecessor: VM-682
 Decisions: Direct Owner scope authorizes stage 2 locally through SHIP only. Preserve the unresolved PR72 Pages deployment exception and its evidence. No push main, merge, deploy, rollback, publishing changes, live feedback, stage 3, policy rewrite or redesign. Reuse palette/controller/key/startup/fonts/route opt-in/shared dialog styling; preserve legal/Guide copy, destinations, specimens, behavior, artwork, storage and services. Subjective visual acceptance belongs to Owner.
-Evidence: PR72 https://github.com/rboles84/voxmana.io/pull/72 remains unresolved deployment evidence. Historical cycles and authentic originals remain preserved. Current independent exact-candidate QA PASS is appended to the existing RobQA handoff under Guide completion exact candidate binding; coordinator SHIP section records authenticated original hash and preliminary candidate-check PASS. Owner remains PENDING with separate Terms, Privacy and Guide checkpoints. Final evidence-only review and recorded-state checker must pass before presentation; scope, decisions, dependencies and acceptance wording are unchanged.
+Evidence: PR72 https://github.com/rboles84/voxmana.io/pull/72 remains unresolved deployment evidence. Historical QA/SHIP cycles and authentic originals are preserved. Owner requests the surgical Guide current-link correction below, with code-only QA and Owner refresh confirmation. Current binding is invalidated for a new exact candidate; scope, decisions, dependencies and acceptance wording are unchanged.
 
 ## Admission Scope
 
@@ -79,3 +79,7 @@ Owner reported the Privacy topbar Vox Mana brand color differs from accepted Hom
 ## Owner review correction — 2026-10-08
 
 Owner identified the Strategium specimen's game-moment/table-study labels as still dark in Guide light theme, reported the bottom fan-project disclosure/navigation as hard to read, and supplied a recording of perceived delays during theme toggling. Continue the same card and branch; prior candidate ac3500d1011e10c8daf7c6cc015982821bb5c1da and evidence head 2941098131ba36528696b1758c63e5ba331a1274 are historical and their current binding is invalidated. Protect the complete repeated Guide label populations and actual footer owners rather than one section alone. Diagnose the timing at the controller/actual CSS-transition layer and apply only a causally justified scoped correction. Preserve Home, authored copy, specimens, destinations, Guide behavior, storage and services; no Owner acceptance, integration, deployment or stage 3 authority is inferred.
+
+## Owner review correction — Guide current navigation
+
+Owner reports everything else looks good and requests only removal of the Guide topbar current-page square and brown/gold bottom line in both themes. Owner explicitly selects quick code-only QA and will confirm the appearance by refreshing. Continue the same card and branch; f8aa3f97bc308414fa1d34b2ab880977c3f4c1b7 and a5325cc02ee6e5da4930121a3243c8ddc38c6e4c remain historical. Retain aria-current and keyboard focus while making the Guide utility a plain link; preserve all other reviewed surfaces and behavior. No overall ACCEPT or integration authority is inferred.

@@ -431,8 +431,11 @@ try {
   const utility = ".vm-utility-link[aria-current=\"page\"]";
   assert.equal(await page.$eval(utility, node => node.getAttribute("aria-current")), "page", "Guide active utility retains aria-current");
   await readability(page, utility, "light Guide active utility");
-  const utilitySurface = await page.$eval(utility, node => ({ background: getComputedStyle(node).backgroundColor, border: getComputedStyle(node).borderColor, color: getComputedStyle(node).color }));
-  assert.ok(parseColor(utilitySurface.background)?.[0] > 100, "Guide active utility replaces the dark literal surface");
+  const utilitySurface = await page.$eval(utility, node => ({ background: getComputedStyle(node).backgroundColor, borderWidth: getComputedStyle(node).borderTopWidth, boxShadow: getComputedStyle(node).boxShadow, color: getComputedStyle(node).color, textDecorationLine: getComputedStyle(node).textDecorationLine }));
+  assert.equal(utilitySurface.background, "rgba(0, 0, 0, 0)", "Guide active utility is a plain transparent link");
+  assert.equal(utilitySurface.borderWidth, "0px", "Guide active utility has no boxed border");
+  assert.equal(utilitySurface.boxShadow, "none", "Guide active utility has no inset current-link line");
+  assert.equal(utilitySurface.textDecorationLine, "none", "Guide active utility has no current-link underline");
   await page.hover(utility);
   await readability(page, utility, "light Guide active utility hover");
   const utilityViewport = await page.evaluate(() => ({ x: innerWidth - 1, y: innerHeight - 1 }));
