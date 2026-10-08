@@ -263,3 +263,94 @@ CPU-heavy validation: NOT REQUIRED. This is a bounded Home presentation refineme
 No engineering blocker was found. The objective surface hierarchy, actual canvas presence, conservative sampled-frame contrast, affected interactive states, dark reversal, state seams, accessibility mechanics, and containment pass at the exact candidate. RobQA PASS permits renewed Owner Review and does not mean Owner acceptance, integration, deployment, or stage 2.
 
 Owner review remains intentionally narrow: open `http://127.0.0.1:54762/` with saved light mode and judge whether the transparent editorial regions feel integrated with the parchment, the dossier lift is subtle enough, and the stars/orbs are visible without distracting from reading. Toggle to dark once and confirm the familiar dark appearance. Aesthetic balance, animation feel, and temporal atmosphere remain Owner judgment.
+
+## Orb and White pip exact-candidate review
+
+Task: VM-682
+Candidate: 65776b517f1d23bc409db9c930d679f9bacd9716
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: Codex RobQA /root/home_theme_qa
+Implementer: Codex RobDev /root/home_theme_dev (Home runtime CSS/JavaScript); coordinator /root (focused harness, cache request/validator assertion, card, and handoffs)
+Governing role: repository RobQA under `.agents/skills/robqa/SKILL.md` and `docs/qa/RobQAPass.md`
+Requested route: Sol medium
+Backend-effective model/tier: unverified
+
+### Change classification
+
+- QA tier: QA-1 presentation plus focused QA-2 temporal/state interaction. The Owner finding concerns visible animation and glyph separation, while the objective engineering risks are theme ownership, draw-time branching, time evolution, motion suppression, compositing, and containment.
+- Changed behavior: opted Home light draws stronger gold orb gradients with a bounded existing-tick fade; Home-light White dossier mana gets a local ink edge; affected light copy becomes opaque existing copy ink to remain readable at the admitted halo peak. The Home atmosphere request is cache-versioned.
+- Protected behavior intentionally untouched: dark drawing commands; star behavior; orb generation, counts, geometry, speed, drift and wrap; RAF/events and the motion owner; theme controller/bootstrap/storage/key; topbar; routes; markup content and ARIA; Mana font/glyph/cost colors and geometry; artwork/layout; Clipboard/search data; shared dialogs; unconverted routes; feedback transport.
+- QA execution mode and reason: SEPARATE. The reviewer implemented neither runtime nor tests. An Owner-reported rendered escape, newly admitted animation owner, shared theme seam, and recovery history require independent exact-candidate evidence.
+- Exact scope: baseline `028f029360ce256fb63bca1266baa199f1f12175` to candidate contains 16 paths. Runtime-start `e39bbba36e64b156011a2c81b634da89d9c5708b` to candidate contains seven paths: three Home runtime files, the Home request/validator assertion, focused browser harness, and RobDev handoff.
+
+### Admission and recovery ownership
+
+Canonical admission remains `ce70d4465d96e22b328c67eda458489da8bbba65`. The Owner explicitly authorized replacing only the invalid last record `5b195e1731967d48afee1aa8a3189a5e0cc4fb7c`. That rejected state remains recoverable in `refs/recovery/vm682-scope-5b195e17`, the verified external bundle, and reflog. Its unchanged parent is `ccdf705203aabeba3a9ae3b24397ffb2e579e34e`.
+
+Replacement scope commit `3ef1fb663ed703818b673f595f0543023149a4f9` has parent `ccdf7052…` and contains the previously independently reviewed card-only Decisions/Admission Scope amendment adding `assets/js/home/home.js`. Lifecycle commit `e39bbba36e64b156011a2c81b634da89d9c5708b` follows separately. Admission continuation PASS at the exact candidate confirms local/remote main and merge base `028f0293…`, the canonical admission, and all 16 current Git rows. This recovery evidence establishes scope provenance; it does not substitute for candidate QA or Owner acceptance.
+
+### Source and test-sufficiency review
+
+The full feature diff and the narrow runtime diff were inspected directly. `drawOrbs` reads both `data-vm-theme-opt-in="home"` and `data-vm-theme="light"` at every draw. Only that branch changes orb source colors and computes `min(0.32, orb.alpha * 3.2 * (0.84 + sin(tick * 0.018 + phase) * 0.16))`. Dark uses the original colors and unmodified `orb.alpha`. Generation, movement, wrap, static-motion branches, listeners, and RAF chain are unchanged. Home-light pip CSS selects only `.vm-preview-dossier-heading .ms-w.ms-cost` under both Home opt-in and light state, applying four zero-blur 1px shadows in existing ink.
+
+The harness runs actual baseline and candidate Home source under seeded randomness, controlled RAF, and a recording 2D context. This is stronger than the prior `painted > 0` witness: it observes 720 temporal frames and exact drawing commands without relying on screenshots or wall-clock animation. A separate native Edge observer wraps real canvas calls while preserving arguments/results, proving the controlled witness agrees with live gradients, movement, and reduced-motion output. Actual canvas pixels and a peak compositing envelope protect contrast. This combination is sufficient and proportionate for the defect class.
+
+### Tests selected
+
+- `npm.cmd run validate:admission -- --task=VM-682 --mode=continue` — required scope/history ownership and exact-candidate remote-baseline check. PASS at `65776b517f1d23bc409db9c930d679f9bacd9716`, 16 admitted/current/owned rows.
+- `node scripts/vm682-home-theme-browser.mjs` — required because temporal drawing, Canvas gradient calls, actual composition, hover/focus, and computed pip boundary cannot be reliably protected by source text alone. PASS with exact reports:
+  - `VM-682 controlled atmosphere dark parity, light fade, reversal and static-motion checks passed.`
+  - `VM-682 focused browser state and interaction checks passed.`
+  The browser used an isolated x86 Edge profile; every nonlocal request was aborted before transport and feedback success/failure used localhost fixtures only.
+- `node tests/shared/theme-controller-tests.js` — retained shared state/storage boundary regression because the draw branch consumes controller-owned root state. PASS: `VM-682 controller behavior and source boundary checks passed.`
+- `npm.cmd run lint:html` — verifies deferred versioned Home atmosphere request and the unchanged narrow bootstrap/markup rules. PASS.
+- `npm.cmd run lint:js` — protects candidate Home runtime and focused harness JavaScript. PASS for 37 files.
+- `node --check scripts/vm682-home-theme-browser.mjs` and `node --check assets/js/home/home.js` — direct changed-JavaScript syntax. PASS.
+- `npm.cmd run task -- indexes --check` — generated views. PASS: `fresh: true`, no stale or written views.
+- `git diff --check 028f029360ce256fb63bca1266baa199f1f12175..65776b517f1d23bc409db9c930d679f9bacd9716` — patch hygiene. PASS.
+
+### Objective evidence
+
+The seeded witness compares candidate dark with immutable baseline dark for the initial draw and 720 controlled frames. Exact traces match, including star commands, gradients/stops, arcs, fill order, positions, radii, movement, alpha and randomness-dependent bursts. Candidate light retains baseline star commands and each orb's geometry while all 29 desktop orbs remain between the admitted minimum and `0.32`, exceed the original faint source by at least 2× throughout the fade, preserve the transparent outer stop, and complete both rising and falling phases with a measurable range. Light-to-dark converges to the baseline on the next frame without resetting particles; removal of Home opt-in also restores baseline drawing. Resize preserves the original responsive reset/dark static draw. Reduced-motion, `.still`, and hidden branches keep light position and gradient stops identical across repeated frames and retain baseline dark output.
+
+Real Edge observes two native radial-gradient frames: normal light halos change vertical position and center alpha, while OS reduced-motion frames are identical. Each actual center alpha is within bounds and every outer stop is transparent. The canvas covers the client viewport, has transparent backing, and contains painted pixels. Contrast is checked against actual gradient/canvas composition and an admitted worst-case `0.32` halo over an opaque existing gold star. Representative Home text, transparent editorial regions, dossier content, guide, footer, all directory entries, and real hover/focus states pass their thresholds at desktop and 390px. The black-background causal control still fails and restores as expected.
+
+The White pip witness preserves the dossier group's `role="img"` and exact Red/White/Black identity label, child classes/order, pseudo glyph content, Mana font, official foreground/background colors, font size, dimensions, radius, and border. Only White receives four opaque ink edge shadows; Red/Black and the topbar theme glyph retain their prior filters. The ink boundary has at least 3:1 contrast over actual dossier/backdrop composition. Theme reversal restores the exact original dark mana-pip snapshot.
+
+The retained journey also passes dark default under both OS schemes, saved-light pre-paint mutation, local fonts, 44px/26px control geometry, keyboard activation/focus, exact dark computed surface reversal, Home→Privacy containment, Back/reload/cross-tab replacement/reset, protected reading/search/motion/Clipboard bytes, mobile menu hit/current/hover/focus states, Clipboard, feedback validation/in-flight/success/failure, no-JavaScript safety, and absence of page errors.
+
+### Stateful adversarial coverage (§13A)
+
+- Relevant owners and seams: `vm-theme.js` owns normalized theme state; root `data-vm-theme` plus Home opt-in owns entry to the new draw branch; `home.js` owns particle data/time/drawing; reduce-motion media state, `.still`, and document visibility own the static branch; Home light CSS owns final blend/composition and pip boundary.
+- Provenance: an explicit saved/clicked value remains the only light owner. OS color preference does not select light. Home opt-in is independently required, so a legacy light marker cannot claim the draw branch.
+- Forward transition: opted Home dark→light selects bounded gold/fading halo commands and the local White-pip edge.
+- Reverse transition: light→dark restores baseline draw values on the next frame at the same particle state and restores the exact original dark pip and complete dark surface snapshot.
+- Perturb/restore: removing Home opt-in while leaving a light marker produces baseline drawing; restoring opt-in restores the light branch. The black fixed-layer control fails contrast and passes after removal.
+- Replacement/reset: cross-tab dark/light replacement and key removal still converge on the authoritative controller state, with removal resetting dark.
+- Same visible state/different history: saved light on load, interactive light, reload/Back, and cross-tab light agree in root/control/draw ownership; default dark, interactive reversal, unopted light marker, and reset dark all retain the protected dark contract appropriate to provenance.
+- Representation round-trip: storage → normalized root mode/opt-in → draw-time branch and accessible toggle/pip presentation → reverse/reset without mutation of other saved data.
+- Visible/current versus executed: the live browser observes root mode, label/glyph, actual gradient source colors/alphas, computed CSS and saved state together after settled transitions.
+- Structurally different representatives: desktop utility and mobile menu cover distinct consumers; Privacy remains unconverted with no toggle; reduced, still, hidden and resize cover separate atmosphere control branches.
+- Sensitivity/causal controls: the earlier black-background escape still has a negative control. The new effect-absence escape is protected by stronger-than-baseline source alpha, bidirectional temporal fade, real movement, and static-mode equality; a merely nonempty canvas cannot satisfy it.
+- Objective result: PASS. No stale owner, dark divergence, unintended route opt-in, motion drift, key mutation, or pip leakage was observed.
+
+### Manual findings converted to invariants
+
+- Finding: nonzero light canvas pixels did not make floating/fading halos visibly present. Defect class: insufficient effect-strength/temporal witness. Invariant: opted Home light must use bounded stronger orb source alpha, transparent outer stops, preserved geometry, real movement, and bidirectional fading over controlled time; reduced/still/hidden must remain static; dark must match baseline drawing exactly.
+- Finding: the White mana circle visually merged with parchment. Defect class: local graphical boundary separation. Invariant: preserve official Mana glyph/font/color/geometry/ARIA while providing a Home-light White-only opaque ink edge with at least 3:1 separation over actual dossier composition; Red/Black/theme glyph/dark remain unchanged.
+- Connected finding: stronger admitted halo peak reduced translucent paragraph ink below reading contrast. Defect class: foreground alpha combined with animated background peak. Invariant: affected Home-light copy uses opaque accepted `#31271f` and passes the peak halo-plus-star compositing envelope.
+
+### Tests intentionally skipped
+
+- Screenshots, image diffs, animation-fidelity waits, and viewport matrices: halo feel, visual prominence, fade comfort and pip aesthetics remain OWNER-VISUAL; deterministic time/geometry and one relevant responsive breakpoint are covered objectively.
+- Broad `npm test`, placement, semantic, Scryfall, mutation, recovery, Lighthouse and deployment suites: their engines, data, scoring, production and performance owners did not change. Existing certification remains applicable.
+- Live feedback: prohibited by scope. All feedback states used localhost mocks with nonlocal transport blocked.
+
+CPU-heavy validation: NOT REQUIRED. The 720-frame trace is synchronous, deterministic, bounded, and directly targeted; broad stress suites would not protect the changed presentation owner.
+
+### Short review and remaining Owner judgment
+
+No engineering blocker remains. The exact candidate passes the temporal atmosphere contract, immutable dark drawing parity, motion-static branches, actual canvas composition/contrast, White-pip identity/geometry/boundary containment, shared state seams, and retained product interactions. RobQA PASS permits renewed Owner Review; it does not assert Owner acceptance, integration, deployment, or stage 2.
+
+Owner review remains narrow: open `http://127.0.0.1:54762/` in light mode and judge whether the halos are now visibly floating and fading without distracting from reading, and whether the White dossier pip is separated from parchment while still reading as the official White mana symbol. Toggle to dark once and confirm the familiar dark atmosphere and pips. Those aesthetic and temporal-feel judgments remain Owner work.
