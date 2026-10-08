@@ -63,6 +63,10 @@ html[data-vm-theme="light"][data-vm-theme-opt-in] body.vm-site-skin :is(.vm-nav-
 html[data-vm-theme="light"][data-vm-theme-opt-in] body.vm-site-skin :is(.vm-nav-link, .vm-utility-link, .vm-menu-link, .vm-menu-item) { color: #31271f; }
 html[data-vm-theme="light"][data-vm-theme-opt-in] body.vm-site-skin :is(.vm-nav-link, .vm-utility-link, .vm-menu-link, .vm-menu-item):is(:hover, :focus-visible),
 html[data-vm-theme="light"][data-vm-theme-opt-in] body.vm-site-skin .vm-nav-link[aria-current="page"] { color: #211b18; }
+html[data-vm-theme="light"][data-vm-theme-opt-in] body.vm-site-skin .vm-brand,
+html[data-vm-theme="light"][data-vm-theme-opt-in] body.vm-site-skin .vm-brand:is(:hover, :focus-visible) { color: #0d6e60; }
+html[data-vm-theme="light"][data-vm-theme-opt-in] body.vm-site-skin .vm-brand-text,
+html[data-vm-theme="light"][data-vm-theme-opt-in] body.vm-site-skin .vm-brand:is(:hover, :focus-visible) .vm-brand-text { color: #211b18; }
 
 /* Legal reading remains open and document-like while retaining the established callout hierarchy. */
 html[data-vm-theme="light"][data-vm-theme-opt-in="terms"] body.vm-legal-route,
@@ -86,6 +90,9 @@ html[data-vm-theme="light"][data-vm-theme-opt-in="privacy"] body.vm-legal-route 
 html[data-vm-theme="light"][data-vm-theme-opt-in="guide"] body.vm-guide-route :is(.guide-hero-orientation, .guide-chapter-copy > p, .guide-reading-stage > small, .guide-specimen-note, .guide-direct-syntax p, .guide-loom-choices small, .guide-lane span) { color: #31271f !important; }
 html[data-vm-theme="light"][data-vm-theme-opt-in="guide"] body.vm-guide-route :is(.guide-kicker strong, .guide-mode-intent) { color: #211b18; }
 html[data-vm-theme="light"][data-vm-theme-opt-in="guide"] body.vm-guide-route :is(.guide-specimen, .guide-reading-stage, .guide-query, .guide-loom-choices > div, .guide-lane) { background: #fff8e8; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide"] body.vm-guide-route .guide-dossier-tabs span { background: #fff8e8; border-color: #a88d62; color: #31271f; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide"] body.vm-guide-route .vm-utility-link[aria-current="page"],
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide"] body.vm-guide-route .vm-utility-link[aria-current="page"]:is(:hover, :focus-visible) { background: #eadcc1; border-color: #866d47; box-shadow: inset 0 -2px 0 #8a5b19; color: #211b18; }
 html[data-vm-theme="light"][data-vm-theme-opt-in="guide"] body.vm-guide-route .guide-cta { background: #f7edd8; color: #8a5b19 !important; }
 html[data-vm-theme="light"][data-vm-theme-opt-in="guide"] body.vm-guide-route .guide-cta:is(:hover, :focus-visible) { background: #eadcc1; color: #211b18 !important; }
 html[data-vm-theme="light"][data-vm-theme-opt-in="guide"] body.vm-guide-route .guide-mode-strip > button { background: #fff8e8; color: #211b18; }

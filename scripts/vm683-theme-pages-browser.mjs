@@ -160,6 +160,35 @@ async function assertTheme(page, mode, label, focused = false) {
   if (focused) assert.equal(actual.focused, true, label + " keeps focus on the toggle");
 }
 
+async function brandStates(page, label) {
+  const sample = () => page.$eval(".vm-brand-text", node => ({ text: getComputedStyle(node).color }));
+  const rest = await sample();
+  await page.hover(".vm-brand");
+  const hover = await sample();
+  const viewport = await page.evaluate(() => ({ x: innerWidth - 1, y: innerHeight - 1 }));
+  await page.mouse.move(viewport.x, viewport.y);
+  await tabTo(page, ".vm-brand", label + " brand");
+  assert.equal(await page.$eval(".vm-brand", node => node.matches(":hover")), false, label + " brand focus is not also pointer hover");
+  assert.equal(await page.$eval(".vm-brand", node => node.matches(":focus-visible")), true, label + " brand has native focus-visible state");
+  const focus = await sample();
+  return { rest, hover, focus };
+}
+
+async function dossierLabels(page, label, expectedWidth) {
+  const labels = await page.$$eval(".guide-dossier-tabs span", nodes => nodes.map(node => {
+    const style = getComputedStyle(node), rect = node.getBoundingClientRect();
+    return { text: node.textContent.trim(), color: style.color, background: style.backgroundColor, border: style.borderColor, contained: rect.right <= innerWidth && rect.left >= 0 };
+  }));
+  assert.equal(labels.length, 6, label + " retains all six dossier labels");
+  if (expectedWidth !== undefined) assert.equal(await page.evaluate(() => innerWidth), expectedWidth, label + " runs at the requested viewport width");
+  labels.forEach((item, index) => {
+    assert.equal(item.contained, true, label + " label " + index + " is contained");
+    assert.ok(parseColor(item.background)?.[0] > 100, label + " label " + index + " has a light surface: " + JSON.stringify(item));
+    assert.ok(contrastRatio(parseColor(item.color), parseColor(item.background)) >= 4.5, label + " label " + index + " is readable: " + JSON.stringify(item));
+  });
+  return labels;
+}
+
 async function tabTo(page, selector, label) {
   for (let i = 0; i < 30; i++) {
     await page.keyboard.press("Tab");
@@ -258,6 +287,12 @@ try {
   await page.evaluate(async card => { const { getClipboard } = await import("/assets/js/shared/vm-clipboard.js"); getClipboard().add(card, "finds"); }, fixtureCard);
   const fixtureBytes = await page.evaluate(key => localStorage.getItem(key), clipboardKey);
   assert.ok(fixtureBytes?.includes("VM-683 Clipboard Fixture"), "Clipboard fixture is stored before theme interaction");
+  await page.goto(base + "/", { waitUntil: "networkidle0" });
+  await assertTheme(page, "light", "Home accepted light baseline");
+  const homeLightBrand = await brandStates(page, "Home accepted light");
+  await page.click(".vm-utility > [data-vm-theme-toggle]");
+  await assertTheme(page, "dark", "Home accepted dark baseline");
+  await page.click(".vm-utility > [data-vm-theme-toggle]");
 
   const styles = {};
   for (const route of ["/terms/", "/privacy/", "/guide/"]) {
@@ -265,6 +300,8 @@ try {
     await page.goto(base + route, { waitUntil: "networkidle0" });
     await page.waitForSelector("#vm-clipboard-trigger");
     await assertTheme(page, "light", route + " saved-light first paint");
+    const routeBrand = await brandStates(page, route + " light");
+    assert.deepEqual(routeBrand, homeLightBrand, route + " brand matches accepted Home light in rest, hover, and keyboard focus");
     assert.match(await page.$eval(".vm-utility > [data-vm-theme-toggle] i", node => getComputedStyle(node, "::before").fontFamily), /Mana/i, route + " loads local Mana");
     const deep = route === "/terms/" || route === "/guide/";
     styles[route] = { light: {
@@ -273,6 +310,16 @@ try {
     } };
     await page.click(".vm-utility > [data-vm-theme-toggle]");
     await assertTheme(page, "dark", route + " pointer dark", true);
+    const darkBrand = await brandStates(page, route + " dark");
+    assert.notEqual(darkBrand.rest.text, routeBrand.rest.text, route + " dark brand remains outside the light-only override");
+    if (route === "/guide/") {
+      const darkLabels = await page.$$eval(".guide-dossier-tabs span", nodes => nodes.map(node => ({ color: getComputedStyle(node).color, background: getComputedStyle(node).backgroundColor })));
+      assert.equal(darkLabels.length, 6, "Guide dark retains all dossier labels");
+      darkLabels.forEach((item, index) => {
+        assert.ok(parseColor(item.background)?.[0] < 80, "Guide dark dossier label " + index + " retains its dark surface");
+        assert.ok(contrastRatio(parseColor(item.color), parseColor(item.background)) >= 4.5, "Guide dark dossier label " + index + " remains readable");
+      });
+    }
     styles[route].dark = {
       clipboard: await clipboardCheckpoint(page, route + " dark", deep),
       feedback: await feedbackCheckpoint(page, route + " dark", deep)
@@ -286,6 +333,14 @@ try {
     assert.equal(await page.evaluate(key => localStorage.getItem(key), protectedKey), "preserve-me", route + " preserves unrelated storage");
   }
 
+  mark("Owner finding sensitivity controls");
+  await page.goto(base + "/privacy/", { waitUntil: "networkidle0" });
+  await assertTheme(page, "light", "Privacy corrected light");
+  const rejectedBrand = await page.addStyleTag({ content: 'html[data-vm-theme="light"][data-vm-theme-opt-in="privacy"] .vm-brand, html[data-vm-theme="light"][data-vm-theme-opt-in="privacy"] .vm-brand-text { color: #8a5b19 !important; }' });
+  await assert.rejects(async () => assert.deepEqual(await brandStates(page, "rejected Privacy light"), homeLightBrand, "rejected gold Privacy brand must differ from Home"), /rejected gold Privacy brand/, "the former gold brand fails the same Home-parity comparator");
+  await rejectedBrand.evaluate(node => node.remove());
+  assert.deepEqual(await brandStates(page, "restored Privacy light"), homeLightBrand, "Privacy brand parity returns after removing the rejected owner value");
+
   mark("representative composed backgrounds");
   await page.goto(base + "/terms/", { waitUntil: "networkidle0" });
   await readability(page, ".legal-content .legal-section p", "light Legal reading");
@@ -296,6 +351,24 @@ try {
   await readability(page, '.vm-nav [data-vm-nav="maze"]', "light Legal navigation");
 
   await page.goto(base + "/guide/", { waitUntil: "networkidle0" });
+  await dossierLabels(page, "light Guide dossier");
+  const rejectedDossier = await page.addStyleTag({ content: 'html[data-vm-theme="light"][data-vm-theme-opt-in="guide"] .guide-dossier-tabs span { background: #171612 !important; color: #31271f !important; }' });
+  await assert.rejects(() => dossierLabels(page, "rejected dark Guide dossier"), /light surface|readable/, "the former dark dossier-label surface fails the same population invariant");
+  await rejectedDossier.evaluate(node => node.remove());
+  await dossierLabels(page, "restored light Guide dossier");
+  const utility = ".vm-utility-link[aria-current=\"page\"]";
+  assert.equal(await page.$eval(utility, node => node.getAttribute("aria-current")), "page", "Guide active utility retains aria-current");
+  await readability(page, utility, "light Guide active utility");
+  const utilitySurface = await page.$eval(utility, node => ({ background: getComputedStyle(node).backgroundColor, border: getComputedStyle(node).borderColor, color: getComputedStyle(node).color }));
+  assert.ok(parseColor(utilitySurface.background)?.[0] > 100, "Guide active utility replaces the dark literal surface");
+  await page.hover(utility);
+  await readability(page, utility, "light Guide active utility hover");
+  const utilityViewport = await page.evaluate(() => ({ x: innerWidth - 1, y: innerHeight - 1 }));
+  await page.mouse.move(utilityViewport.x, utilityViewport.y);
+  await tabTo(page, utility, "Guide active utility");
+  assert.equal(await page.$eval(utility, node => node.matches(":hover")), false, "Guide active utility focus is not also pointer hover");
+  assert.equal(await page.$eval(utility, node => node.matches(":focus-visible")), true, "Guide active utility has native focus-visible state");
+  await readability(page, utility, "light Guide active utility focus");
   await page.hover('[data-vm-nav="maze"]');
   await page.waitForFunction(() => Number(getComputedStyle(document.querySelector('[data-vm-nav="maze"] .vm-nav-hint')).opacity) === 1);
   await readability(page, '[data-vm-nav="maze"] .vm-nav-hint', "light Guide pointer nav hint");
@@ -396,6 +469,7 @@ try {
   await feedbackCheckpoint(page, "Privacy mobile");
   assert.equal((await themeState(page)).overflow, true, "Privacy mobile page is contained");
   await page.goto(base + "/guide/?guided=vox-mana-intro", { waitUntil: "networkidle0" });
+  await dossierLabels(page, "mobile light Guide dossier", 390);
   await page.waitForSelector(".driver-popover.vm-guide-walkthrough-popover");
   assert.equal(await page.$eval(".driver-popover", node => node.getBoundingClientRect().width <= innerWidth), true, "Guide mobile walkthrough is contained");
   await page.keyboard.press("Escape");

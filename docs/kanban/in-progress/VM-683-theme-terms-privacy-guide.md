@@ -2,7 +2,7 @@
 
 ID: VM-683
 Title: Theme stage 2: Terms, Privacy and Guide hub
-Status: Owner Review
+Status: In Progress
 Type: Bounded route presentation and shared theme extension
 Area: Terms, Privacy, Guide hub and shared shell
 Priority: High
@@ -43,14 +43,14 @@ Apply RobDev with accepted stage-1 machinery and lessons. Extend the explicit op
 Record version: 1
 Branch: codex/vm-683-theme-terms-privacy-guide
 Admission baseline: 6a6f26ac3ec0d3bfab28ccb50d0d70ef2c7e4c6e
-Candidate: 21c73dac52c51cb2ccc1d0d9159d894536532a99
-RobQA: PASS at 21c73dac52c51cb2ccc1d0d9159d894536532a99 — SEPARATE; /root/theme_pages_qa; docs/handoffs/2026-10-07-2300-robqa-vm683-theme-pages.md section Exact candidate binding
+Candidate: PENDING
+RobQA: PENDING — Owner findings require a new material candidate; prior exact-SHA PASS remains historical
 Owner: PENDING
 Integration: PENDING — explicitly outside this request; local SHIP only
 Dependencies: None
 Predecessor: VM-682
 Decisions: Direct Owner scope authorizes stage 2 locally through SHIP only. Preserve the unresolved PR72 Pages deployment exception and its evidence. No push main, merge, deploy, rollback, publishing changes, live feedback, stage 3, policy rewrite or redesign. Reuse palette/controller/key/startup/fonts/route opt-in/shared dialog styling; preserve legal/Guide copy, destinations, specimens, behavior, artwork, storage and services. Subjective visual acceptance belongs to Owner.
-Evidence: PR72 https://github.com/rboles84/voxmana.io/pull/72 remains unresolved deployment evidence. Independent original QA and its canonical Exact candidate binding are preserved in docs/handoffs/2026-10-07-2300-robqa-vm683-theme-pages.md; root matched raw original SHA-256 7257653a4cc44e4d30a62249d3f5400f41c601eb823aa1d42015ead8dac6cf55. Candidate checker PASS at exact clean material candidate; final persisted evidence delta receives independent content review and checker verification. RobDev and coordinator handoffs preserve stage-3 lessons, disclosure uncertainty and separate pending Terms/Privacy/Guide Owner checkpoints. No runtime/tests/scope/criterion wording change follows the candidate.
+Evidence: PR72 https://github.com/rboles84/voxmana.io/pull/72 remains unresolved deployment evidence. First candidate QA and SHIP remain preserved as historical in the three role/delivery handoffs; the original QA SHA-256 is 7257653a4cc44e4d30a62249d3f5400f41c601eb823aa1d42015ead8dac6cf55. Owner correction below invalidates the current binding and returns the same admitted task to RobDev, then independent exact-candidate RobQA. Coordinator and specialist handoffs record the scoped invariants, lessons, separate checkpoints and preserved boundaries. No scope or acceptance wording change is authorized.
 
 ## Admission Scope
 
@@ -71,3 +71,7 @@ Evidence: PR72 https://github.com/rboles84/voxmana.io/pull/72 remains unresolved
 - `docs/handoffs/2026-10-07-2300-robdev-vm683-theme-pages.md`
 - `docs/handoffs/2026-10-07-2300-robqa-vm683-theme-pages.md`
 - `docs/handoffs/2026-10-07-2300-codex-vm683-theme-pages-delivery.md`
+
+## Owner review correction — 2026-10-07
+
+Owner reported the Privacy topbar Vox Mana brand color differs from accepted Home, and Guide's placement-dossier specimen steps remain black in light theme. Three attached screenshots identify the actual user-visible surfaces. Treat these as corrections on this card and feature branch; no acceptance or integration is inferred. Prior material candidate 21c73dac52c51cb2ccc1d0d9159d894536532a99 and evidence head eceb736a4f4c270f38909a49b17ec2a7ac051427 remain historical. Reusable scoped brand parity and dossier-surface invariants must protect the defect classes, then a new exact candidate must receive independent RobQA and return to Owner Review. Existing scope, content and deployment boundaries remain in force.
