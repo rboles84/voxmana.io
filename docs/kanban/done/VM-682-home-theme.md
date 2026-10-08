@@ -2,7 +2,7 @@
 
 ID: VM-682
 Title: Home theme, stage 1
-Status: Integrated
+Status: Done
 Type: Bounded shared-shell interaction and Home presentation
 Area: Home and shared top bar
 Priority: High
@@ -50,7 +50,7 @@ Owner: ACCEPTED at 4372c50a97953c004d7189fb4e1be265e3288315 — current Owner co
 Integration: INTEGRATED — PR72 https://github.com/rboles84/voxmana.io/pull/72; verified squash d2bcaa64818b76e6fdf7024a7e8f4b818f040608 with parent 028f029360ce256fb63bca1266baa199f1f12175 and tree equal to evidence head ac7f05a1fcb2abd336dff9c1a09287f49e9c93b1; main synchronized, feature cleanup verified
 Dependencies: None
 Predecessor: VM-680
-Evidence: Exact candidate 4372c50a97953c004d7189fb4e1be265e3288315 retains separate independent RobQA PASS, Owner visual PASS and explicit ACCEPT. Exact PR-head Deterministic Validation and integration checker PASS preceded the expected-head guarded squash of PR72. Verified parent/tree, main sync, cleanup and recovery evidence are appended under Verified Home integration and closeout in the delivery handoff. Remaining closeout checks own Done; deployment and stage 2 remain outside authorization.
+Evidence: Exact candidate 4372c50a97953c004d7189fb4e1be265e3288315 retains separate independent RobQA PASS, Owner visual PASS and explicit ACCEPT. Exact PR-head Deterministic Validation and integration checker PASS preceded guarded PR72 squash d2bcaa64818b76e6fdf7024a7e8f4b818f040608. Closeout PASS at synchronized main ba02f25f8d682323996af5dc99eba9a0203acb1c verifies tree/parent, original evidence, required records, views, clean main and safe feature cleanup with preserved recovery history. This Done relocation and final delivery appendix are lifecycle-only; final independent delta/boundary review and closeout rerun verify the final state. Deployment and stage 2 remain outside authorization.
 Decisions: Stage 1 is Home only. Dark is the unconditional fallback; system preference is deliberately ignored until a separately authorized stage. The controller must never touch saved reading, Clipboard, search, or motion keys/data. Preserve accepted VM-680 44px controls, Outfit UI, Clipboard geometry, storage and formatter. No deployment, integration, broader route conversion, palette redesign, or live feedback send is authorized. Owner reconciliation, current root user message 2026-10-07: retain `ce70d4465d96e22b328c67eda458489da8bbba65` as the canonical VM-682 admission; `f5e30e10` and `ace4b66b` are superseded pre-implementation admission attempts, with their Git/reflog evidence retained. This authorizes admission reconciliation only, not the eventual theme candidate. Scope amendment: admit the narrow Home first-paint exception in `scripts/validate-frontend-html.mjs`; it must permit exactly the one synchronous external Home theme controller before Home styles and preserve the deferred/module rule for every other external script. Scope amendment: current Owner requests visible Home-light floating/fading orbs; admit assets/js/home/home.js only for opted Home light drawing color/alpha/fade presentation, preserving dark drawing and particle geometry/motion/state/data contracts.
 
 ## Owner correction — 2026-10-07

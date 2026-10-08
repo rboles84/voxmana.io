@@ -178,3 +178,18 @@ The local feature branch was removed only after tree verification and recovery p
 Only Home is integrated. Content, navigation, artwork, placement/search/data/motion contracts, pinned fonts/notices, the accepted dark appearance and unconverted dark routes retain their reviewed behavior. All focused feedback sends used mocked transport; no live feedback was sent during integration. No deployment or stage 2 was invoked. Current handoffs preserve accepted palette, owners, route opt-in, bootstrap/storage/system/cross-tab behavior, narrow validator exception, test evidence and lessons. [Current Git accounting](C:/Users/obake/.codex/visualizations/2026/10/07/01a1177e-4c96-7413-8be6-bd86e4a4dbf5/vm682-accept-git-report.md) owns material/evidence/final-main scope; it is regenerated and validated against each closeout head rather than substituting this narrative for Git.
 
 Next: verify lifecycle-only closeout on synchronized main, then persist Done and rerun the final closeout gate. The next page requires its own authorized admission; this task does not start it.
+
+## Done — approved Home stage complete
+
+Task: VM-682
+Agent: Codex coordinator /root
+Candidate: 4372c50a97953c004d7189fb4e1be265e3288315
+Owner: ACCEPT
+Integration: INTEGRATED — PR72, squash d2bcaa64818b76e6fdf7024a7e8f4b818f040608
+Closeout: PASS at ba02f25f8d682323996af5dc99eba9a0203acb1c
+
+The governed closeout checker passed on synchronized local/live main ba02f25f8d682323996af5dc99eba9a0203acb1c with the actual closed/merged PR, original accepted C-to-E reviews, independent merge-to-lifecycle classification and original boundary audit. It verified squash parent/tree equality, exact QA/Owner binding, required role references, validated Git accounting, fresh producer views, clean main and absence of the feature branch/worktree. No cleanup deferral was used. The original acceptance and implementation records above remain intact.
+
+This final lifecycle update moves the canonical card to docs/kanban/done/VM-682-home-theme.md, changes only Done/evidence observations and appends this outcome; the existing producer refreshes both views. The historical admission and admitted path record stay unchanged. Coordinator verifies an independent exact-delta/final-boundary review, synchronizes this documentation-only commit, regenerates the external Git report/observation packet and reruns closeout against the persisted final state before reporting completion. The final check's output and original independent receipts stay in this task's external evidence directory; this prose does not substitute for those actual results.
+
+Home stage 1 is accepted and integrated. Preserved recovery refs, bundles and raw reflogs keep every prior light-mode iteration, canonical admission and superseded admission/repair evidence recoverable. Existing specialist packets retain palette, attribution/font, owners, Home-only opt-in, storage/bootstrap/system/cross-tab contracts, narrow validator exception and focused mocked-feedback tests. Lessons carried forward: classify scope amendments separately from lifecycle records; test actual layered and revealed surfaces; use the existing effect engine with exact dark parity; bind engineering and Owner decisions to one material candidate; preserve original history before squash cleanup. No deployment or stage 2 occurred. The next page can begin only through its own Owner request and admission. Next suggested agent: Owner for the next page's task prompt.
