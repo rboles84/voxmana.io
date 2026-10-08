@@ -2,7 +2,7 @@
 
 ID: VM-683
 Title: Theme stage 2: Terms, Privacy and Guide hub
-Status: Owner Review
+Status: In Progress
 Type: Bounded route presentation and shared theme extension
 Area: Terms, Privacy, Guide hub and shared shell
 Priority: High
@@ -43,14 +43,14 @@ Apply RobDev with accepted stage-1 machinery and lessons. Extend the explicit op
 Record version: 1
 Branch: codex/vm-683-theme-terms-privacy-guide
 Admission baseline: 6a6f26ac3ec0d3bfab28ccb50d0d70ef2c7e4c6e
-Candidate: ac3500d1011e10c8daf7c6cc015982821bb5c1da
-RobQA: PASS at ac3500d1011e10c8daf7c6cc015982821bb5c1da — SEPARATE; /root/theme_pages_qa; docs/handoffs/2026-10-07-2300-robqa-vm683-theme-pages.md section Owner correction exact candidate binding
+Candidate: PENDING
+RobQA: PENDING
 Owner: PENDING
 Integration: PENDING — explicitly outside this request; local SHIP only
 Dependencies: None
 Predecessor: VM-682
 Decisions: Direct Owner scope authorizes stage 2 locally through SHIP only. Preserve the unresolved PR72 Pages deployment exception and its evidence. No push main, merge, deploy, rollback, publishing changes, live feedback, stage 3, policy rewrite or redesign. Reuse palette/controller/key/startup/fonts/route opt-in/shared dialog styling; preserve legal/Guide copy, destinations, specimens, behavior, artwork, storage and services. Subjective visual acceptance belongs to Owner.
-Evidence: PR72 https://github.com/rboles84/voxmana.io/pull/72 remains unresolved deployment evidence. First candidate QA and SHIP remain historical in the three handoffs. Independent correction QA passes exact material candidate ac3500d1011e10c8daf7c6cc015982821bb5c1da; root matched authentic original SHA-256 74ca1ccba759ac0080c7ee789e04352a2494105ca2095916245f3fe65c2fc739 and preserved its byte-faithful appendix in the existing QA handoff. Independent C-to-2e7b434c52f078135ef0cf5188026e9762686e13 evidence review and the read-only candidate checker PASS establish the committed binding before this Owner Review observation. Final combined evidence review and recorded-state verification follow without product changes. Owner remains PENDING; scope, decisions and acceptance wording are unchanged.
+Evidence: PR72 https://github.com/rboles84/voxmana.io/pull/72 remains unresolved deployment evidence. Both prior material QA/SHIP cycles and authenticated originals remain preserved as historical in the existing handoffs. Owner's 2026-10-08 Guide specimen/footer/timing feedback below invalidates the current binding and resumes RobDev on the same admitted task. New exact-candidate independent QA and SHIP verification are pending. Owner remains PENDING; scope, decisions and acceptance wording are unchanged.
 
 ## Admission Scope
 
@@ -75,3 +75,7 @@ Evidence: PR72 https://github.com/rboles84/voxmana.io/pull/72 remains unresolved
 ## Owner review correction — 2026-10-07
 
 Owner reported the Privacy topbar Vox Mana brand color differs from accepted Home, and Guide's placement-dossier specimen steps remain black in light theme. Three attached screenshots identify the actual user-visible surfaces. Treat these as corrections on this card and feature branch; no acceptance or integration is inferred. Prior material candidate 21c73dac52c51cb2ccc1d0d9159d894536532a99 and evidence head eceb736a4f4c270f38909a49b17ec2a7ac051427 remain historical. Reusable scoped brand parity and dossier-surface invariants must protect the defect classes, then a new exact candidate must receive independent RobQA and return to Owner Review. Existing scope, content and deployment boundaries remain in force.
+
+## Owner review correction — 2026-10-08
+
+Owner identified the Strategium specimen's game-moment/table-study labels as still dark in Guide light theme, reported the bottom fan-project disclosure/navigation as hard to read, and supplied a recording of perceived delays during theme toggling. Continue the same card and branch; prior candidate ac3500d1011e10c8daf7c6cc015982821bb5c1da and evidence head 2941098131ba36528696b1758c63e5ba331a1274 are historical and their current binding is invalidated. Protect the complete repeated Guide label populations and actual footer owners rather than one section alone. Diagnose the timing at the controller/actual CSS-transition layer and apply only a causally justified scoped correction. Preserve Home, authored copy, specimens, destinations, Guide behavior, storage and services; no Owner acceptance, integration, deployment or stage 3 authority is inferred.

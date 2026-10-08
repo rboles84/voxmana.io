@@ -147,6 +147,36 @@ const themeState = page => page.evaluate(() => {
   };
 });
 
+async function toggleTiming(page, label) {
+  const sample = await page.evaluate(() => new Promise(resolve => {
+    const root = document.documentElement;
+    const toggle = document.querySelector(".vm-utility > [data-vm-theme-toggle]");
+    const mode = root.dataset.vmTheme;
+    const ownerStates = () => [".vm-topbar", ".guide-mode-strip > button", ".guide-cta", ".guide-lane span", ".maze-footer.guide-footer"].map(selector => {
+      const style = getComputedStyle(document.querySelector(selector));
+      return { selector, transition: style.transitionDuration, background: style.backgroundColor, color: style.color };
+    });
+    let mutation = null;
+    const observer = new MutationObserver(() => { mutation = { mode: root.dataset.vmTheme, elapsed: performance.now() - started }; });
+    observer.observe(root, { attributes: true, attributeFilter: ["data-vm-theme"] });
+    const ownersBefore = ownerStates();
+    const started = performance.now();
+    toggle.click();
+    const immediate = { mode: root.dataset.vmTheme, elapsed: performance.now() - started, owners: ownerStates() };
+    requestAnimationFrame(() => {
+      const frame = { mode: root.dataset.vmTheme, elapsed: performance.now() - started, owners: ownerStates() };
+      setTimeout(() => {
+        observer.disconnect();
+        resolve({ before: mode, ownersBefore, immediate, mutation, frame, settled: { mode: root.dataset.vmTheme, elapsed: performance.now() - started, owners: ownerStates() } });
+      }, 190);
+    });
+  }));
+  assert.notEqual(sample.immediate.mode, sample.before, label + " applies the root mode synchronously");
+  assert.equal(sample.frame.mode, sample.immediate.mode, label + " keeps the new root mode through the first frame");
+  console.log("VM-683 timing " + label + ": " + JSON.stringify(sample));
+  return sample;
+}
+
 async function assertTheme(page, mode, label, focused = false) {
   const actual = await themeState(page);
   const next = mode === "dark" ? "light" : "dark";
@@ -175,11 +205,19 @@ async function brandStates(page, label) {
 }
 
 async function dossierLabels(page, label, expectedWidth) {
-  const labels = await page.$$eval(".guide-dossier-tabs span", nodes => nodes.map(node => {
+  return guideLabelPopulation(page, ".guide-dossier-tabs span", 6, label, expectedWidth);
+}
+
+async function laneLabels(page, label, expectedWidth) {
+  return guideLabelPopulation(page, ".guide-lane span", 9, label, expectedWidth);
+}
+
+async function guideLabelPopulation(page, selector, expectedCount, label, expectedWidth) {
+  const labels = await page.$$eval(selector, nodes => nodes.map(node => {
     const style = getComputedStyle(node), rect = node.getBoundingClientRect();
     return { text: node.textContent.trim(), color: style.color, background: style.backgroundColor, border: style.borderColor, contained: rect.right <= innerWidth && rect.left >= 0 };
   }));
-  assert.equal(labels.length, 6, label + " retains all six dossier labels");
+  assert.equal(labels.length, expectedCount, label + " retains its complete label population");
   if (expectedWidth !== undefined) assert.equal(await page.evaluate(() => innerWidth), expectedWidth, label + " runs at the requested viewport width");
   labels.forEach((item, index) => {
     assert.equal(item.contained, true, label + " label " + index + " is contained");
@@ -187,6 +225,25 @@ async function dossierLabels(page, label, expectedWidth) {
     assert.ok(contrastRatio(parseColor(item.color), parseColor(item.background)) >= 4.5, label + " label " + index + " is readable: " + JSON.stringify(item));
   });
   return labels;
+}
+
+async function guideFooter(page, label) {
+  const expected = ["#guide-main", "../index.html", "../privacy/index.html", "../terms/index.html"];
+  assert.match(await page.$eval(".maze-footer.guide-footer p:nth-child(2)", node => node.textContent), /·/, label + " retains footer separators");
+  assert.deepEqual(await page.$$eval(".maze-footer.guide-footer a", nodes => nodes.map(node => node.getAttribute("href"))), expected, label + " retains all footer destinations");
+  await readability(page, ".maze-footer.guide-footer p:first-child", label + " disclosure");
+  for (const [index, href] of expected.entries()) {
+    const selector = `.maze-footer.guide-footer a:nth-of-type(${index + 1})`;
+    await readability(page, selector, label + " link " + href);
+    await page.hover(selector);
+    await readability(page, selector, label + " hover " + href);
+    const viewport = await page.evaluate(() => ({ x: innerWidth - 1, y: innerHeight - 1 }));
+    await page.mouse.move(viewport.x, viewport.y);
+    await tabTo(page, selector, label + " link " + href);
+    assert.equal(await page.$eval(selector, node => node.matches(":hover")), false, label + " focus link is not hovered");
+    assert.equal(await page.$eval(selector, node => node.matches(":focus-visible")), true, label + " focus link has focus-visible");
+    await readability(page, selector, label + " focus " + href);
+  }
 }
 
 async function tabTo(page, selector, label) {
@@ -313,12 +370,15 @@ try {
     const darkBrand = await brandStates(page, route + " dark");
     assert.notEqual(darkBrand.rest.text, routeBrand.rest.text, route + " dark brand remains outside the light-only override");
     if (route === "/guide/") {
-      const darkLabels = await page.$$eval(".guide-dossier-tabs span", nodes => nodes.map(node => ({ color: getComputedStyle(node).color, background: getComputedStyle(node).backgroundColor })));
-      assert.equal(darkLabels.length, 6, "Guide dark retains all dossier labels");
-      darkLabels.forEach((item, index) => {
-        assert.ok(parseColor(item.background)?.[0] < 80, "Guide dark dossier label " + index + " retains its dark surface");
-        assert.ok(contrastRatio(parseColor(item.color), parseColor(item.background)) >= 4.5, "Guide dark dossier label " + index + " remains readable");
-      });
+      for (const [selector, count, population] of [[".guide-dossier-tabs span", 6, "dossier"], [".guide-lane span", 9, "Strategium"]]) {
+        const darkLabels = await page.$$eval(selector, nodes => nodes.map(node => ({ color: getComputedStyle(node).color, background: getComputedStyle(node).backgroundColor })));
+        assert.equal(darkLabels.length, count, "Guide dark retains all " + population + " labels");
+        darkLabels.forEach((item, index) => {
+          assert.ok(parseColor(item.background)?.[0] < 80, "Guide dark " + population + " label " + index + " retains its dark surface");
+          assert.ok(contrastRatio(parseColor(item.color), parseColor(item.background)) >= 4.5, "Guide dark " + population + " label " + index + " remains readable");
+        });
+      }
+      await guideFooter(page, "dark Guide footer");
     }
     styles[route].dark = {
       clipboard: await clipboardCheckpoint(page, route + " dark", deep),
@@ -351,11 +411,23 @@ try {
   await readability(page, '.vm-nav [data-vm-nav="maze"]', "light Legal navigation");
 
   await page.goto(base + "/guide/", { waitUntil: "networkidle0" });
+  await toggleTiming(page, "Guide light-to-dark");
+  await assertTheme(page, "dark", "Guide timing dark result");
+  await toggleTiming(page, "Guide dark-to-light");
+  await assertTheme(page, "light", "Guide timing light result");
   await dossierLabels(page, "light Guide dossier");
-  const rejectedDossier = await page.addStyleTag({ content: 'html[data-vm-theme="light"][data-vm-theme-opt-in="guide"] .guide-dossier-tabs span { background: #171612 !important; color: #31271f !important; }' });
+  await laneLabels(page, "light Guide Strategium");
+  const rejectedDossier = await page.addStyleTag({ content: 'html[data-vm-theme="light"][data-vm-theme-opt-in="guide"] :is(.guide-dossier-tabs span, .guide-lane span) { background: #171612 !important; color: #31271f !important; }' });
   await assert.rejects(() => dossierLabels(page, "rejected dark Guide dossier"), /light surface|readable/, "the former dark dossier-label surface fails the same population invariant");
+  await assert.rejects(() => laneLabels(page, "rejected dark Guide Strategium"), /light surface|readable/, "the former dark Strategium-label surface fails the same population invariant");
   await rejectedDossier.evaluate(node => node.remove());
   await dossierLabels(page, "restored light Guide dossier");
+  await laneLabels(page, "restored light Guide Strategium");
+  await guideFooter(page, "light Guide footer");
+  const rejectedFooter = await page.addStyleTag({ content: 'html[data-vm-theme="light"][data-vm-theme-opt-in="guide"] .maze-footer.guide-footer { color: rgba(255, 255, 255, 0.52) !important; }' });
+  await assert.rejects(() => guideFooter(page, "rejected light Guide footer"), /contrast/, "the former pale footer disclosure fails the same footer invariant");
+  await rejectedFooter.evaluate(node => node.remove());
+  await guideFooter(page, "restored light Guide footer");
   const utility = ".vm-utility-link[aria-current=\"page\"]";
   assert.equal(await page.$eval(utility, node => node.getAttribute("aria-current")), "page", "Guide active utility retains aria-current");
   await readability(page, utility, "light Guide active utility");
@@ -470,6 +542,7 @@ try {
   assert.equal((await themeState(page)).overflow, true, "Privacy mobile page is contained");
   await page.goto(base + "/guide/?guided=vox-mana-intro", { waitUntil: "networkidle0" });
   await dossierLabels(page, "mobile light Guide dossier", 390);
+  await laneLabels(page, "mobile light Guide Strategium", 390);
   await page.waitForSelector(".driver-popover.vm-guide-walkthrough-popover");
   assert.equal(await page.$eval(".driver-popover", node => node.getBoundingClientRect().width <= innerWidth), true, "Guide mobile walkthrough is contained");
   await page.keyboard.press("Escape");
