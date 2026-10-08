@@ -144,3 +144,18 @@ The reviewer's caller exposed no browser surface. After a single transient kerne
 Limits remain explicit: the read-only DOM projection exposes neither raw localStorage nor serializable CSSOM/FontFace objects, so no raw preference restoration or link.sheet/FontFace-enumeration success is claimed. Actual generated glyph/computed font/resource facts establish the corrected seam. Earlier Puppeteer failures and viewport limitations remain recorded; no Puppeteer retry, screenshot, broad suite, viewport matrix or live feedback was run for this correction. Unaffected engineering observations were individually reused after full exact-candidate review; the earlier revoked verdict itself was not reused.
 
 Record Owner Review with all objective checkbox results complete and Owner PENDING. The subsequent lifecycle/QA append and faithful derived views are evidence only and require independent exact-delta content review plus a final persisted-state candidate check. The external vm684-glyph-git-report.md supplies validated Git material/evidence/total accounting at the evidence head. Owner's shortest recheck remains the hub's two theme symbols; no repeat of the other favorable visual checkpoints is requested. Stop before integration, deployment and stage 4; PR72 stays unresolved.
+
+## Owner visual approval
+
+Task: VM-684
+Candidate: 4b441407b4ce831f5b58ac3521e78d64ad571a0d
+Owner visual review: APPROVED
+Decision reference: Owner's next message after the glyph-correction delivery in Codex chat 01a11cdb-f4ff-7a01-8fe6-3c47151c0ac7, 2026-10-08; observed by root at 20:26:55 UTC.
+
+Verbatim Owner message: "strategium looks good, all done."
+
+The reviewed runtime is unchanged from the independently passed replacement candidate; HEAD was clean at evidence head 71cb009f8c321d02c1446f3dd408492212fefe78 when this feedback arrived. This completes the requested local visual review, including the corrected hub symbol and the previously favorable family checkpoints.
+
+The original task explicitly stops before integration/publication, and this visual approval does not request lifting that boundary. The canonical Accepted state and ACCEPT command include integration authorization, so the card remains Owner Review with the formal Owner/integration decision fields PENDING. The visual approval is retained explicitly rather than manufacturing integration permission or marking unintegrated work Done. No further local implementation or visual recheck is requested. Main, publishing settings, PR72's unresolved historical exception and stage 4 remain outside this completion.
+
+This append and the card's Evidence observation change only delivery records. Runtime, tests, tools, scope, decisions and criterion wording remain frozen. Regenerate/check the existing views, independently review the exact evidence delta, and retain Git-derived final accounting without rerunning product tests.
