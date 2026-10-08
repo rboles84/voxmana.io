@@ -1,0 +1,104 @@
+/* VM-683: parchment presentation for the three route-level theme opt-ins.
+   This adapter deliberately leaves every other vm-site-skin route dark. */
+html[data-vm-theme="light"][data-vm-theme-opt-in="terms"] body.vm-site-skin,
+html[data-vm-theme="light"][data-vm-theme-opt-in="privacy"] body.vm-site-skin,
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide"] body.vm-site-skin {
+  --site-ink: #211b18;
+  --site-copy: #31271f;
+  --site-muted: #685847;
+  --site-gold: #8a5b19;
+  --site-rule: #a88d62;
+  --site-surface: #f7edd8;
+  --bg: #f7eedb;
+  --bg-2: #f4ead4;
+  --bg-3: #eadcc1;
+  --text: #31271f;
+  --text-dim: #685847;
+  --text-muted: #685847;
+  --gold: #8a5b19;
+  --gold-l: #8a5b19;
+  --gold-quiet: #8a5b19;
+  --border: #a88d62;
+  --border-s: #866d47;
+  --panel: #f7edd8;
+  --panel-strong: #eadcc1;
+  --line: #a88d62;
+  --muted: #685847;
+  --ink: #211b18;
+  --accent: #8a5b19;
+  --gold-2: #8a5b19;
+  --maze-panel: #f7edd8;
+  --maze-panel-strong: #eadcc1;
+  --maze-panel-deep: #fff8e8;
+  --maze-line: #a88d62;
+  --maze-line-soft: #c7ad83;
+  --maze-line-strong: #866d47;
+  --maze-text: #31271f;
+  --maze-ink: #211b18;
+  --maze-muted: #685847;
+  --maze-faint: #685847;
+  --maze-gold: #8a5b19;
+  --maze-gold-2: #8a5b19;
+  background: #f7eedb;
+  color: #31271f;
+}
+
+html[data-vm-theme="light"][data-vm-theme-opt-in="terms"] body.vm-site-skin .vm-bg,
+html[data-vm-theme="light"][data-vm-theme-opt-in="privacy"] body.vm-site-skin .vm-bg,
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide"] body.vm-site-skin .vm-bg {
+  background: linear-gradient(145deg, #fff8e8 0%, #f7eedb 52%, #eadcc1 100%);
+}
+
+html[data-vm-theme="light"][data-vm-theme-opt-in] body.vm-site-skin .vm-topbar {
+  background: rgba(244, 234, 212, 0.96);
+  border-bottom-color: #a88d62;
+}
+
+html[data-vm-theme="light"][data-vm-theme-opt-in] body.vm-site-skin :is(.vm-nav-hint, .vm-menu-panel) {
+  background: #f7edd8;
+  border-color: #a88d62;
+  color: #211b18;
+}
+
+html[data-vm-theme="light"][data-vm-theme-opt-in] body.vm-site-skin :is(.vm-nav-link, .vm-utility-link, .vm-menu-link, .vm-menu-item) { color: #31271f; }
+html[data-vm-theme="light"][data-vm-theme-opt-in] body.vm-site-skin :is(.vm-nav-link, .vm-utility-link, .vm-menu-link, .vm-menu-item):is(:hover, :focus-visible),
+html[data-vm-theme="light"][data-vm-theme-opt-in] body.vm-site-skin .vm-nav-link[aria-current="page"] { color: #211b18; }
+
+/* Legal reading remains open and document-like while retaining the established callout hierarchy. */
+html[data-vm-theme="light"][data-vm-theme-opt-in="terms"] body.vm-legal-route,
+html[data-vm-theme="light"][data-vm-theme-opt-in="privacy"] body.vm-legal-route {
+  --legal-rule: #c7ad83;
+  --legal-rule-strong: #866d47;
+  --legal-surface: #f7edd8;
+  --legal-surface-strong: #fff8e8;
+}
+html[data-vm-theme="light"][data-vm-theme-opt-in="terms"] body.vm-legal-route :is(.legal-page, .legal-footer),
+html[data-vm-theme="light"][data-vm-theme-opt-in="privacy"] body.vm-legal-route :is(.legal-page, .legal-footer) {
+  --legal-rule: #c7ad83;
+  --legal-rule-strong: #866d47;
+  --legal-surface: #f7edd8;
+  --legal-surface-strong: #fff8e8;
+}
+html[data-vm-theme="light"][data-vm-theme-opt-in="terms"] body.vm-legal-route .meta-pill,
+html[data-vm-theme="light"][data-vm-theme-opt-in="privacy"] body.vm-legal-route .meta-pill { background: #fff8e8; }
+
+/* Guide has authored specimens with dark literal colors; these targeted substitutions keep its controls and walkthrough readable. */
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide"] body.vm-guide-route :is(.guide-hero-orientation, .guide-chapter-copy > p, .guide-reading-stage > small, .guide-specimen-note, .guide-direct-syntax p, .guide-loom-choices small, .guide-lane span) { color: #31271f !important; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide"] body.vm-guide-route :is(.guide-kicker strong, .guide-mode-intent) { color: #211b18; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide"] body.vm-guide-route :is(.guide-specimen, .guide-reading-stage, .guide-query, .guide-loom-choices > div, .guide-lane) { background: #fff8e8; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide"] body.vm-guide-route .guide-cta { background: #f7edd8; color: #8a5b19 !important; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide"] body.vm-guide-route .guide-cta:is(:hover, :focus-visible) { background: #eadcc1; color: #211b18 !important; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide"] body.vm-guide-route .guide-mode-strip > button { background: #fff8e8; color: #211b18; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide"] body.vm-guide-route .guide-mode-strip > button:is(:hover, .is-active) { background: #eadcc1; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide"] body.vm-guide-route .guide-mode-strip > button:focus-visible,
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide"] body.vm-guide-route .guide-cta:focus-visible { outline-color: #8a5b19; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide"] body.vm-guide-route .driver-popover.vm-guide-walkthrough-popover { background: #fff8e8; border-color: #a88d62; color: #211b18; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide"] body.vm-guide-route .driver-popover.vm-guide-walkthrough-popover .driver-popover-title { color: #8a5b19; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide"] body.vm-guide-route .driver-popover.vm-guide-walkthrough-popover :is(.driver-popover-description, .driver-popover-close-btn) { color: #31271f; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide"] body.vm-guide-route .driver-popover.vm-guide-walkthrough-popover .driver-popover-progress-text { color: #685847; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide"] body.vm-guide-route .driver-popover.vm-guide-walkthrough-popover .driver-popover-footer button { background: #f7edd8; border-color: #a88d62; color: #211b18; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide"] body.vm-guide-route .driver-popover.vm-guide-walkthrough-popover .driver-popover-footer button:hover { background: #eadcc1; color: #211b18; }
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-vm-theme="light"][data-vm-theme-opt-in] body.vm-site-skin .vm-bg__stars { opacity: 0.2; }
+}

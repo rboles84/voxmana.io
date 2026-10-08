@@ -59,6 +59,12 @@ const scriptSources = {
   archscryQuestionnaire: await readFile("assets/js/archscry/runtime/questionnaire.js", "utf8"),
   guide: await readFile("assets/js/guide/guide.js", "utf8"),
 };
+const themeBootstrapByRoute = {
+  home: '<script src="./assets/js/shared/vm-theme.js?v=vm682">',
+  guide: '<script src="../assets/js/shared/vm-theme.js?v=vm683">',
+  privacy: '<script src="../assets/js/shared/vm-theme.js?v=vm683">',
+  terms: '<script src="../assets/js/shared/vm-theme.js?v=vm683">',
+};
 const guideCssSource = await readFile("assets/css/guide.css", "utf8");
 const livePublicPageKeys = Object.keys(publicPages).filter(key => key !== "library");
 
@@ -193,9 +199,9 @@ function getAriaLabelledbyValues(tag) {
 
 for (const [key, source] of Object.entries(sources)) {
   for (const tag of getExternalScriptTags(source)) {
-    const homeThemeBootstrap = key === "home" && tag === '<script src="./assets/js/shared/vm-theme.js?v=vm682">';
+    const themeBootstrap = tag === themeBootstrapByRoute[key];
     expect(
-      homeThemeBootstrap || scriptIsDeferred(tag),
+      themeBootstrap || scriptIsDeferred(tag),
       `${publicPages[key]} should mark external scripts as type="module" or defer: ${tag}`
     );
   }
@@ -214,6 +220,20 @@ expect(countMatches(sources.home, /assets\/js\/shared\/vm-theme\.js\?v=vm682/g) 
   "index.html should expose exactly one synchronous Home theme bootstrap in head");
 expect(homeHead.indexOf(homeThemeBootstrap) < homeHead.indexOf('<link rel="stylesheet"'),
   "index.html should load the Home theme bootstrap before Home styles");
+
+for (const key of ["guide", "privacy", "terms"]) {
+  const file = publicPages[key];
+  const head = getHeadSource(sources[key]);
+  const bootstrap = themeBootstrapByRoute[key];
+  expect(sources[key].match(/data-vm-theme-opt-in="(guide|privacy|terms)"/g)?.length === 1,
+    `${file} should expose exactly one route-scoped theme opt-in`);
+  expect(countMatches(sources[key], /assets\/js\/shared\/vm-theme\.js\?v=vm683/g) === 1 && head.includes(bootstrap),
+    `${file} should expose exactly one synchronous VM-683 theme bootstrap in head`);
+  expect(head.indexOf(bootstrap) < head.indexOf('<link rel="stylesheet"'),
+    `${file} should load the VM-683 theme bootstrap before styles`);
+  expect(getStylesheetHrefs(sources[key]).at(-1) === "../assets/css/theme-pages.css?v=vm683",
+    `${file} should load the route-scoped VM-683 theme adapter last`);
+}
 
 for (const file of liveFontRegressionFiles) {
   const source = await readFile(file, "utf8");
@@ -343,7 +363,7 @@ for (const file of canonicalNavPages) {
     `${file} should place Guide before the menu trigger so Feedback can insert between them`
   );
   expect(
-    source.includes(`assets/js/shared/vm-topbar.js?v=${file === "index.html" ? "vm682" : "vm680"}`),
+    source.includes(`assets/js/shared/vm-topbar.js?v=${file === "index.html" ? "vm682" : ["guide/index.html", "privacy/index.html", "terms/index.html"].includes(file) ? "vm683" : "vm680"}`),
     `${file} should load its current shared topbar runtime cache key`
   );
 }
@@ -679,15 +699,17 @@ expect(
 
 const guideStylesheetHrefs = getStylesheetHrefs(sources.guide);
 expect(
-  guideStylesheetHrefs.at(-3) === "../assets/css/maze.css?v=vm635" &&
-    guideStylesheetHrefs.at(-2) === "../assets/css/guide.css?v=vm668r4" &&
-    guideStylesheetHrefs.at(-1) === "../assets/css/site-skin.css?v=vm668r2" &&
+  guideStylesheetHrefs.at(-4) === "../assets/css/maze.css?v=vm635" &&
+    guideStylesheetHrefs.at(-3) === "../assets/css/guide.css?v=vm668r4" &&
+    guideStylesheetHrefs.at(-2) === "../assets/css/site-skin.css?v=vm668r2" &&
+    guideStylesheetHrefs.at(-1) === "../assets/css/theme-pages.css?v=vm683" &&
     guideStylesheetHrefs.filter(href => /\/site-skin\.css(?:\?|$)/.test(href)).length === 1,
-  "guide/index.html should retain Guide route CSS before one scoped vm668r2 site skin loaded last"
+  "guide/index.html should retain Guide route CSS before the scoped site skin and VM-683 theme adapter"
 );
 expect(
-  [sources.guide, sources.guideReading, sources.guideMaze].every(source => getStylesheetHrefs(source).at(-1)?.endsWith("assets/css/site-skin.css?v=vm668r2")),
-  "all Guide shells should load the current site-skin owner last"
+  getStylesheetHrefs(sources.guide).at(-2)?.endsWith("assets/css/site-skin.css?v=vm668r2") &&
+    [sources.guideReading, sources.guideMaze].every(source => getStylesheetHrefs(source).at(-1)?.endsWith("assets/css/site-skin.css?v=vm668r2")),
+  "only the Guide hub should append the VM-683 theme adapter after its current site-skin owner"
 );
 
 expect(
@@ -776,10 +798,10 @@ for (const key of ["privacy", "terms"]) {
     `${file} should load "../assets/css/legal.css"`
   );
   expect(
-    stylesheetHrefs.at(-1) === "../assets/css/site-skin.css?v=vm669" &&
+    stylesheetHrefs.at(-2) === "../assets/css/site-skin.css?v=vm669" &&
       stylesheetHrefs.filter(href => /\/site-skin\.css(?:\?|$)/.test(href)).length === 1 &&
       bodyClasses.includes("vm-site-skin") && bodyClasses.includes("vm-legal-route"),
-    `${file} should opt into the scoped Legal site skin after legal.css`
+    `${file} should retain the scoped Legal site skin before the VM-683 theme adapter`
   );
   expectAbsent(
     sources[key],
