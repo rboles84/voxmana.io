@@ -173,3 +173,73 @@ Automation already owns exact state, equality, contrast, semantics, and containm
 - The appearance-preference disclosure question remains a separate non-blocking Owner/legal choice with no policy rewrite.
 - The PR72 Host deployment boundary exception remains unresolved; this PASS neither resolves nor approves it.
 - This PASS permits return to Owner Review only. It does not assert Owner acceptance, integration, push, PR, merge, deployment, rollback, publishing changes, or stage 3 authority.
+
+
+# VM-683 Guide completion RobQA
+
+## Guide completion exact candidate binding
+
+Task: VM-683
+Candidate: f8aa3f97bc308414fa1d34b2ab880977c3f4c1b7
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: /root/theme_pages_qa
+Implementer: /root/theme_pages_dev
+
+## Change classification
+
+- QA tier: QA-1 presentation with bounded QA-2/QA-3 rendered interaction and shared theme-state evidence.
+- Material baseline: `6a6f26ac3ec0d3bfab28ccb50d0d70ef2c7e4c6e`.
+- Prior evidence head: `2941098131ba36528696b1758c63e5ba331a1274`.
+- Changed behavior: Guide light theme now owns all six dossier labels, all nine Strategium lane labels, and the footer disclosure, separator surface, and four links. Existing dark behavior remains intact.
+- Protected behavior: accepted Home, unconverted routes, Terms and Privacy content, Guide copy/destinations/specimens/modes/walkthrough, theme controller/storage/bootstrap/failure/cross-tab behavior, dialogs, fonts, services, and existing motion durations.
+- Browser reason: final CSS cascade, composed surfaces, native hover/focus modality, dialog state, and 390px containment cannot be established reliably from source assertions alone.
+
+## Findings
+
+No blocker or major correctness defect remains in the exact candidate.
+
+The complete Guide label populations pass in both themes: six dossier labels and nine Strategium labels. Light labels compute as `#31271f` on `#fff8e8` (13.78:1), remain contained at desktop and an explicit 390px viewport, and preserve the dark surfaces and readable text in dark theme.
+
+The Guide footer preserves its authored disclosure, separators, and exact destinations `#guide-main`, `../index.html`, `../privacy/index.html`, and `../terms/index.html`. Light disclosure computes at 5.87:1, links at 5.03:1, and interactive link text at 14.63:1 against the footer surface. All four links pass real hover and isolated native keyboard focus checks; focus is `:focus-visible` and is not concealed by simultaneous pointer hover. Dark footer readability remains green.
+
+The Owner escape is causally protected. Reapplying the rejected dark label surface makes both the six-item dossier and nine-item Strategium population checks fail. Reapplying the rejected pale footer disclosure makes the same footer contrast invariant fail. Removing each perturbation restores the passing state.
+
+The bounded timing diagnostic does not show controller delay. Synthetic activation changed the root theme synchronously in the evaluated callback; the mutation observer reported within 2.6-2.9 ms and the first animation-frame sample within 2.9-5.7 ms. Topbar, lane labels, and footer report 0s transitions. Guide mode buttons and CTAs retain their pre-existing 160 ms CSS transitions and reach their settled computed states in the 194-196 ms sample. This is causal CSS-transition evidence, not a native input-latency benchmark or an animation-feel judgment.
+
+## Tests selected
+
+- `node tests/shared/theme-controller-tests.js` — PASS. Controller behavior, failure/default/reset paths, source boundaries, body/copy/href parity, accepted Home, and unconverted routes remain protected.
+- `npm.cmd run lint:html` — PASS. Public markup, navigation semantics, landmarks, intrinsic media, deferral, and scoped font checks pass.
+- `node --check scripts\vm683-theme-pages-browser.mjs` — PASS.
+- `npm.cmd run task -- indexes --check` — PASS; 722 cards and 1,241 handoffs are fresh.
+- `git diff --check 2941098131ba36528696b1758c63e5ba331a1274..f8aa3f97bc308414fa1d34b2ab880977c3f4c1b7` — PASS. The full baseline span retains previously authenticated intentional Markdown hard-break warnings in historical QA records; the correction span is clean and those historical bytes were not rewritten.
+- `node scripts\vm683-theme-pages-browser.mjs` — PASS in local headless Edge. It exercised Terms, Privacy, and Guide two-way themes; dialogs; actual composed surfaces; complete Guide label populations; footer destinations and states; sensitivity/restore; current utility; modes; walkthrough; cross-tab reversal; local mocked feedback; accepted Home; an unconverted Guide subroute; and 390px containment.
+
+## Stateful adversarial coverage
+
+- Owners and seams: early root theme attribute, `vm_theme_mode_v1`, shared controller, route opt-in, final Guide stylesheet owners, dynamically inserted dialogs, and cross-tab storage propagation.
+- Forward and reverse: light-to-dark and dark-to-light pass by pointer and keyboard with saved state, labels, and next-action metadata synchronized.
+- Perturb and restore: rejected label/footer rules fail the production invariant and pass after removal; the earlier Privacy brand perturbation also remains protected.
+- Replacement/reset: controller unit coverage retains valid saved preference, invalid value/default, reset, and storage failure behavior.
+- Same state through different histories: saved-light navigation, pointer toggle, keyboard restoration, and cross-tab reversal converge on consistent root, storage, control metadata, and open-dialog surfaces.
+- Structurally different representatives: Terms supplies the legal consumer; Guide supplies specimens, modes, walkthrough, active utility, and footer consumers; Home and an unconverted Guide subroute protect the opposite boundaries.
+- Representation round-trip: not applicable; this change introduces no alternate persisted representation.
+- Objective result: PASS.
+
+## Tests intentionally skipped
+
+- Broad or unrelated engine suites: not required because no search, ranking, data, or engine owner changed.
+- Screenshot comparison, visual baselines, and viewport matrices: not required for the objective CSS-owner defects; Owner retains visual judgment.
+- Native input-latency benchmark: the harness uses DOM activation to isolate controller and CSS ownership and cannot establish device input latency.
+- Live feedback transport: prohibited and unnecessary; the focused harness uses one local mock and blocks nonlocal transport.
+- CPU-heavy validation: NOT REQUIRED.
+
+## Remaining Owner judgment
+
+- Terms: confirm the original legal-reading palette and composition still feel right.
+- Privacy: confirm the corrected brand remains visually consistent with accepted Home; the separate theme-preference disclosure question remains open without a policy rewrite.
+- Guide: confirm all six dossier and nine Strategium labels, current utility, footer hierarchy, modes, and walkthrough feel coherent in both themes and at one narrow view.
+- Decide whether the existing 160 ms Guide control/CTA fades feel appropriately responsive. The engineering evidence identifies normal CSS interpolation and does not justify a controller or motion change by itself.
+
+This PASS permits return to Owner Review only. It does not record Owner acceptance or authorize integration, push, merge, deployment, rollback, publishing changes, policy changes, or stage 3. PR72's automatic Pages deployment exception remains unresolved.

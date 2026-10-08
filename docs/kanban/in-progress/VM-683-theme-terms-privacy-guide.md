@@ -2,7 +2,7 @@
 
 ID: VM-683
 Title: Theme stage 2: Terms, Privacy and Guide hub
-Status: In Progress
+Status: Owner Review
 Type: Bounded route presentation and shared theme extension
 Area: Terms, Privacy, Guide hub and shared shell
 Priority: High
@@ -43,14 +43,14 @@ Apply RobDev with accepted stage-1 machinery and lessons. Extend the explicit op
 Record version: 1
 Branch: codex/vm-683-theme-terms-privacy-guide
 Admission baseline: 6a6f26ac3ec0d3bfab28ccb50d0d70ef2c7e4c6e
-Candidate: PENDING
-RobQA: PENDING
+Candidate: f8aa3f97bc308414fa1d34b2ab880977c3f4c1b7
+RobQA: PASS — f8aa3f97bc308414fa1d34b2ab880977c3f4c1b7; SEPARATE; docs/handoffs/2026-10-07-2300-robqa-vm683-theme-pages.md#guide-completion-exact-candidate-binding
 Owner: PENDING
 Integration: PENDING — explicitly outside this request; local SHIP only
 Dependencies: None
 Predecessor: VM-682
 Decisions: Direct Owner scope authorizes stage 2 locally through SHIP only. Preserve the unresolved PR72 Pages deployment exception and its evidence. No push main, merge, deploy, rollback, publishing changes, live feedback, stage 3, policy rewrite or redesign. Reuse palette/controller/key/startup/fonts/route opt-in/shared dialog styling; preserve legal/Guide copy, destinations, specimens, behavior, artwork, storage and services. Subjective visual acceptance belongs to Owner.
-Evidence: PR72 https://github.com/rboles84/voxmana.io/pull/72 remains unresolved deployment evidence. Both prior material QA/SHIP cycles and authenticated originals remain preserved as historical in the existing handoffs. Owner's 2026-10-08 Guide specimen/footer/timing feedback below invalidates the current binding and resumes RobDev on the same admitted task. New exact-candidate independent QA and SHIP verification are pending. Owner remains PENDING; scope, decisions and acceptance wording are unchanged.
+Evidence: PR72 https://github.com/rboles84/voxmana.io/pull/72 remains unresolved deployment evidence. Historical cycles and authentic originals remain preserved. Current independent exact-candidate QA PASS is appended to the existing RobQA handoff under Guide completion exact candidate binding; coordinator SHIP section records authenticated original hash and preliminary candidate-check PASS. Owner remains PENDING with separate Terms, Privacy and Guide checkpoints. Final evidence-only review and recorded-state checker must pass before presentation; scope, decisions, dependencies and acceptance wording are unchanged.
 
 ## Admission Scope
 
