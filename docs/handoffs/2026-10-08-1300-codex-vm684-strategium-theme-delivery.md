@@ -54,3 +54,11 @@ Files reviewed include the request, AGENTS, staged workflow/admission/context/de
 Uncertainties: subjective Strategium hierarchy and comfort await the four Owner judgments. The existing Privacy theme-preference disclosure question is a separate product/legal follow-up, without policy rewriting. Future Apocrypha, Archscry and Maze implications are notes only. No integration, publication, rollback, settings change or stage 4 is part of this task.
 
 Next suggested agent: independent RobQA on the immutable candidate, then Owner for the four bounded checkpoints. Stop at Owner Review.
+
+## Development checkpoint and local preview
+
+Developer checkpoint 5b34931fe8ebe9f1b4b1c9a7975915ffc570a1aa commits the initial presentation and browser scaffold; it is not the final review candidate. Independent strategy identified directly relevant interaction/state coverage gaps. The same implementer resumed after continuation PASS to complete them before READY and exact-candidate QA. Neither the scaffold's load/toggle PASS nor the early commit supplies engineering readiness. Review remains PENDING.
+
+An unnecessary proposed --mana-black override was traced to no actual consumer and removed before this checkpoint. The actual Black-mana glyph remains owned by its protected semantic rule. Accepted base/dark rules and domain code remain unchanged.
+
+Local no-store Owner preview uses http://127.0.0.1:54764/ for up to six hours. Automatic approval review rejected the first launch because broad repository serving could expose hidden files. The narrowed approved server permits only the named review HTML and required public CSS/JS/image/font assets, blocks hidden and other paths, and changes no production configuration. All six routes returned 200; /.git/config, /.aws/config and /package.json returned 403. The server source/logs remain external artifacts. HTTP success is preview availability, not product QA or Owner acceptance.

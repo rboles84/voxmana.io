@@ -50,10 +50,30 @@ try {
     assert.notEqual(state.body, "rgb(205, 198, 184)", `${route} does not retain the dark copy token in light`);
   }
   await page.goto(`http://127.0.0.1:${port}/strategium/console/`, { waitUntil: "networkidle0" });
+  await page.waitForSelector("#readinessChecklist .vm-checklist-button");
+  await page.click("#readiness-item-1");
+  const consoleState = await page.evaluate(() => ({
+    checked: document.querySelector("#readiness-item-1").getAttribute("aria-pressed"),
+    readiness: document.querySelector(".vm-readiness-meter-track").getAttribute("aria-valuenow"),
+    search: getComputedStyle(document.querySelector("input[type=search]") || document.querySelector("input")).backgroundColor
+  }));
+  assert.equal(consoleState.checked, "true", "Console checklist state changes before theme reversal");
+  assert.notEqual(consoleState.readiness, "0", "Console readiness recomputes from checklist state");
+  assert.notEqual(consoleState.search, "rgb(20, 19, 15)", "native search control receives a light surface");
   await page.click("[data-vm-theme-toggle]");
   assert.equal(await page.evaluate(() => document.documentElement.dataset.vmTheme), "dark", "toggle reverses in the Console");
-  await page.keyboard.press("Tab");
-  assert.ok(await page.evaluate(() => !!document.activeElement), "keyboard focus remains available");
+  assert.equal(await page.evaluate(() => document.querySelector("#readiness-item-1").getAttribute("aria-pressed")), "true", "theme reversal preserves checklist state");
+  await page.setViewport({ width: 390, height: 844 });
+  await page.click("[data-vm-menu-trigger]");
+  const mobile = await page.evaluate(() => {
+    const panel = document.querySelector("[data-vm-menu-panel]");
+    const box = panel.getBoundingClientRect();
+    return { open: panel.dataset.open, contained: box.left >= 0 && box.right <= innerWidth };
+  });
+  assert.equal(mobile.open, "true", "mobile menu opens");
+  assert.equal(mobile.contained, true, "mobile menu remains contained");
+  await page.keyboard.press("Escape");
+  assert.equal(await page.evaluate(() => document.activeElement === document.querySelector("[data-vm-menu-trigger]")), true, "Escape returns focus to mobile menu trigger");
   console.log(`VM-684 Strategium theme browser checks passed (${routes.length} routes; ${blocked.length} nonlocal requests blocked).`);
 } finally {
   await browser.close();
