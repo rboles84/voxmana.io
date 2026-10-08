@@ -34,7 +34,7 @@ Record version: 1
 Branch: codex/vm-684-strategium-theme
 Admission baseline: 9a94369c05883a46ec55ab2f2b9def7c10efe864
 Candidate: PENDING
-RobQA: PENDING — prior exact-candidate PASS revoked for current delivery by confirmed Owner glyph finding
+RobQA: PENDING
 Owner: PENDING
 Integration: PENDING
 Dependencies: None

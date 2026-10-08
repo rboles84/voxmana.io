@@ -148,6 +148,18 @@ for (const [file, source] of [
   assert.equal(stylesheets.at(-1), `${prefix}assets/css/theme-pages.css?v=vm684`, `${file} loads the Strategium theme adapter last`);
   assert.equal(routeBody(source), routeBody(baselineFile(file)), `${file} keeps its authored body and behavior hooks`);
 }
+for (const [file, source] of [
+  ["strategium/index.html", strategium[0]], ["strategium/console/index.html", strategium[1]],
+  ["strategium/find-a-table/index.html", strategium[2]], ["strategium/before-game/index.html", strategium[3]],
+  ["strategium/during-game/index.html", strategium[4]], ["strategium/review/index.html", strategium[5]]
+]) {
+  const prefix = file === "strategium/index.html" ? "../" : "../../";
+  const mana = `${prefix}assets/vendor/mana/css/mana.min.css`;
+  const topbar = `${prefix}assets/css/topbar.css?v=vm680`;
+  const routeCss = `${prefix}assets/css/strategium.css?v=vm635`;
+  assert.equal((source.match(/assets\/vendor\/mana\/css\/mana\.min\.css/g) || []).length, 1, `${file} resolves the local Mana glyph stylesheet exactly once`);
+  assert.ok(source.indexOf(topbar) < source.indexOf(mana) && source.indexOf(mana) < source.indexOf(routeCss), `${file} loads the Mana glyph stylesheet after topbar and before Strategium CSS`);
+}
 assert.match(validator, /themeBootstrap \|\| scriptIsDeferred\(tag\)/);
 
 for (const file of [
