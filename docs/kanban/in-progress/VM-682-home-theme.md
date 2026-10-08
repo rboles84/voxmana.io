@@ -2,7 +2,7 @@
 
 ID: VM-682
 Title: Home theme, stage 1
-Status: Owner Review
+Status: In Progress
 Type: Bounded shared-shell interaction and Home presentation
 Area: Home and shared top bar
 Priority: High
@@ -33,7 +33,7 @@ Owner task packet for the stage-1, page-by-page rollout. `C:\Users\obake\Downloa
 - [x] Light Home keeps content, navigation, cards, art placement, search, saved Reading/Clipboard data, motion settings, control geometry and dark-mode appearance intact.
 - [x] Light styling covers Home scrollbars, Clipboard and feedback modal states without live feedback transport in developer browser verification.
 - [x] Pinned Mana 1.18.0 assets and existing attribution/notices remain intact; Table Talk palette/demo styles and original script are not copied.
-- [x] Focused developer evidence and independent exact-candidate RobQA complete; subjective visual acceptance remains Owner work.
+- [ ] Focused developer evidence and independent exact-candidate RobQA complete; subjective visual acceptance remains Owner work.
 
 ## Risks
 
@@ -44,13 +44,13 @@ The top bar has materially different route consumers and dynamically imports Cli
 Record version: 1
 Branch: codex/vm-682-home-theme
 Admission baseline: 028f029360ce256fb63bca1266baa199f1f12175
-Candidate: 65776b517f1d23bc409db9c930d679f9bacd9716
-RobQA: PASS at 65776b517f1d23bc409db9c930d679f9bacd9716 — SEPARATE; non-implementing /root/home_theme_qa; section Orb and White pip exact-candidate review in docs/handoffs/2026-10-07-1150-robqa-vm682-home-theme.md
+Candidate: PENDING
+RobQA: PENDING
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Predecessor: VM-680
-Evidence: Renewed Owner Review for the light orb/White pip correction at 65776b517f1d23bc409db9c930d679f9bacd9716. Separate independent RobQA PASS and clean-candidate delivery check PASS; the original external review is appended verbatim under Orb and White pip exact-candidate review in docs/handoffs/2026-10-07-1150-robqa-vm682-home-theme.md. The Owner-authorized one-time last-record repair preserved rejected 5b195e17 in a recovery ref/verified bundle and every earlier light-mode commit; canonical admission remains ce70d446. Dedicated scope and separate lifecycle continuations passed before runtime work. Temporal dark parity/light fade, motion-static branches, peak contrast, White glyph/geometry/boundary, shared state/dialogs and mocked feedback checks PASS. Prior background/menu/surface corrections remain protected; earlier candidate verdicts remain historical. Implementation and lessons: docs/handoffs/2026-10-07-1150-robdev-vm682-home-theme.md. Preview serves current versioned Home script and pip boundary. Owner and integration remain PENDING. No push, integration, deployment or stage 2 performed.
+Evidence: Owner reports visible light orbs but unreadable topbar hover hints; reopen the same VM-682 branch for a bounded Home-light tooltip correction. Prior exact-candidate PASS at 65776b517f1d23bc409db9c930d679f9bacd9716 remains historical and is superseded for current readiness. Preserve earlier light-mode work, canonical admission and recovery evidence. New separate exact-candidate RobQA and renewed Owner visual review are required. Owner/integration remain PENDING.
 Decisions: Stage 1 is Home only. Dark is the unconditional fallback; system preference is deliberately ignored until a separately authorized stage. The controller must never touch saved reading, Clipboard, search, or motion keys/data. Preserve accepted VM-680 44px controls, Outfit UI, Clipboard geometry, storage and formatter. No deployment, integration, broader route conversion, palette redesign, or live feedback send is authorized. Owner reconciliation, current root user message 2026-10-07: retain `ce70d4465d96e22b328c67eda458489da8bbba65` as the canonical VM-682 admission; `f5e30e10` and `ace4b66b` are superseded pre-implementation admission attempts, with their Git/reflog evidence retained. This authorizes admission reconciliation only, not the eventual theme candidate. Scope amendment: admit the narrow Home first-paint exception in `scripts/validate-frontend-html.mjs`; it must permit exactly the one synchronous external Home theme controller before Home styles and preserve the deferred/module rule for every other external script. Scope amendment: current Owner requests visible Home-light floating/fading orbs; admit assets/js/home/home.js only for opted Home light drawing color/alpha/fade presentation, preserving dark drawing and particle geometry/motion/state/data contracts.
 
 ## Owner correction — 2026-10-07
@@ -72,6 +72,10 @@ Research informs surface hierarchy and blend behavior rather than importing a de
 The current Owner message approves the direction of the integrated surface treatment, then finds the light-mode floating/fading orbs absent to the eye and the White mana cost circle insufficiently separated from parchment. References: `C:/Users/obake/AppData/Local/Temp/codex-clipboard-1793e538-a5dc-4ee4-be56-7ac11a06624e.png`, `C:/Users/obake/AppData/Local/Temp/codex-clipboard-781a4fb3-fba5-4437-a9b6-8d14a1eddb6c.png`, and `C:/Users/obake/AppData/Local/Temp/codex-clipboard-ed66c7ee-d0ea-4dcf-bc7e-484c0ff11382.png`. This preference is not exact-candidate ACCEPT or integration authority.
 
 Retain the current parchment and transparent editorial hierarchy. The bounded correction admits `assets/js/home/home.js` for Home-opted light-only orb drawing color/alpha/fade presentation; CSS compositing alone cannot raise the existing very low orb source alpha. Preserve dark drawing commands, particle counts, positions, radii, velocities, star behavior, motion preference/state and all storage contracts. Light may reuse the existing tick/phase for a readable fade; no new animation engine, preference, route or key is admitted. Give only Home-light dossier mana pips a contrasting local boundary without changing the pinned Mana glyph, original cost color, dimensions, content or artwork. Add focused drawing/parity/temporal and pip containment witnesses to the already admitted browser harness, then obtain separate exact-candidate RobQA and Owner visual review. Historical CSS-only/source-parity statements above describe the earlier trial; this explicit Owner-requested correction supersedes only that trial's source-immutability restriction for light orb presentation.
+
+## Owner correction — Home-light topbar hints
+
+The Owner's current message and `C:/Users/obake/AppData/Local/Temp/codex-clipboard-126e0cfd-d134-4ab9-9ee2-f9fd2efbb969.png` confirm that light orbs are visible and report that topbar hover does not work. The screenshot shows the Home hint revealed in a dark box with dark text. Reproduce actual pointer hover and keyboard focus, then correct only the Home-light hint presentation in the admitted final Home stylesheet. Preserve existing tooltip copy, reveal/dismiss behavior, pointer ownership, navigation/control geometry, dark/unconverted routes, earlier atmosphere/pip/surface work and all storage/data contracts. Extend the admitted focused harness with the escaped contrast invariant and dark reversal/containment checks. No new scope, rewrite, push, integration, deployment or stage 2 is authorized.
 
 ## Admission Scope
 

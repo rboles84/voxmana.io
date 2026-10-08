@@ -315,6 +315,61 @@ function darkSurfaceValues(state) {
   const colors = layer => ({ color: layer.color, background: layer.background, image: layer.image, shadow: layer.shadow, opacity: layer.opacity, filter: layer.filter, blend: layer.blend, display: layer.display });
   return { body: colors(state.body), fixed: colors(state.fixed), nebula: colors(state.nebula), stars: colors(state.stars), canvasAlpha: state.canvasAlpha, pseudos: state.pseudos, text: Object.fromEntries(Object.entries(state.text).map(([label, text]) => [label, { foreground: text.foreground, layers: text.layers.map(colors) }])) };
 }
+async function navHintStates(page, light = false) {
+  const links = '.vm-topbar .vm-nav > .vm-nav-link';
+  const count = await page.$$eval(links, nodes => nodes.length);
+  assert.equal(count, 5, 'all five main navigation hints are exercised');
+  const snapshot = () => page.$$eval('.vm-topbar .vm-nav .vm-nav-hint', nodes => nodes.map(node => {
+    const s = getComputedStyle(node), r = node.getBoundingClientRect(), link = node.closest('a'), target = link.getBoundingClientRect();
+    const owners = [node.parentElement, node.closest('.vm-nav'), node.closest('.vm-topbar')].map(owner => { const style = getComputedStyle(owner); return { overflow: style.overflow, z: style.zIndex }; });
+    return { text: node.textContent, expected: link.dataset.navHint, hidden: node.getAttribute('aria-hidden'), color: s.color, background: s.backgroundColor, image: s.backgroundImage, border: s.borderColor, shadow: s.boxShadow, opacity: Number(s.opacity), pointer: s.pointerEvents, font: s.fontFamily, size: s.fontSize, line: s.lineHeight, transform: s.transform, transition: s.transition, z: s.zIndex, owners, rect: { x: r.x, y: r.y, width: r.width, height: r.height }, target: { x: target.x, y: target.y, width: target.width, height: target.height }, focus: link.matches(':focus-visible'), outline: getComputedStyle(link).outlineStyle, viewport: innerWidth, viewportHeight: innerHeight };
+  }));
+  const settled = async () => page.waitForFunction(() => !document.getAnimations().some(a => a instanceof CSSTransition && a.playState === 'running'), { timeout: 5000 });
+  const visible = async (index, keyboard) => {
+    await settled();
+    const state = (await snapshot())[index];
+    assert.equal(state.opacity, 1, 'real hover or focus reveals the authored hint');
+    assert.equal(state.text, state.expected, 'original navigation hint copy stays intact');
+    assert.equal(state.hidden, 'true');
+    assert.equal(state.pointer, 'none', 'hints retain noninteractive pointer ownership');
+    assert.ok(state.rect.width > 0 && state.rect.height > 0 && state.rect.x >= 0 && state.rect.x + state.rect.width <= state.viewport, 'revealed hint fits the desktop viewport');
+    assert.ok(state.rect.y >= state.target.y + state.target.height, 'hint stays below the unchanged navigation target');
+    assert.ok(state.rect.y + state.rect.height <= state.viewportHeight, 'hint fits vertically');
+    assert.ok(state.owners.every(owner => owner.overflow === 'visible') && Number(state.z) > 0 && Number(state.owners.at(-1).z) > 0, 'hint is not clipped and remains in the elevated topbar');
+    if (keyboard) assert.ok(state.focus && state.outline !== 'none', 'native keyboard focus visibly reveals the hint');
+    if (light) {
+      assert.equal(state.image, 'none', 'light hint uses an opaque locally owned surface');
+      assert.equal(rgba(state.background)[3], 1);
+      const ratio = contrast(state.color, state.background);
+      console.log(`VM-682 ${keyboard ? 'focus' : 'hover'} ${state.text}: ${state.color} on ${state.background}, ${ratio.toFixed(2)}:1`);
+      readable(`Home light topbar hint ${state.text}`, state.color, state.background);
+    }
+  };
+  await page.evaluate(() => { document.activeElement.blur(); scrollTo(0, 0); });
+  await page.mouse.move(0, 200);
+  await settled();
+  for (let i = 0; i < count; i++) {
+    const selector = `${links}:nth-child(${i + 1})`;
+    const target = await page.$eval(selector, node => { const r = node.getBoundingClientRect(); return { x: r.x + r.width / 2, y: r.y + r.height / 2 }; });
+    await page.mouse.move(target.x, target.y, { steps: 8 });
+    await visible(i, false);
+    await page.mouse.move(0, 200, { steps: 8 });
+    await settled();
+    assert.ok((await snapshot()).every(state => state.opacity === 0), 'pointer leave dismisses every hint');
+  }
+  await page.$eval('.vm-brand', node => node.focus());
+  for (let i = 0; i < count; i++) {
+    await page.keyboard.press('Tab');
+    await visible(i, true);
+    assert.ok((await snapshot()).every((state, index) => index === i || state.opacity === 0), 'previous keyboard hint dismisses on blur');
+  }
+  await page.keyboard.press('Tab');
+  await settled();
+  assert.ok((await snapshot()).every(state => state.opacity === 0), 'leaving navigation with Tab dismisses its hints');
+  await page.evaluate(() => document.activeElement.blur());
+  const final = await snapshot();
+  return final.map(({ opacity, rect, focus, outline, viewport, viewportHeight, ...state }) => state);
+}
 async function lightLinkStates(page) {
   const selectors = [".vm-preview-dossier-link", ".vm-footer a", ".vm-guide-beacon", ...Array.from({ length: 4 }, (_, index) => `.vm-preview-destination:nth-child(${index + 1})`)];
   for (const selector of selectors) {
@@ -398,6 +453,7 @@ try {
   const defaultDark = darkSurfaceValues(await homeBackground(page));
   await page.evaluate(() => document.fonts.ready);
   const defaultPips = await manaPips(page);
+  const defaultHints = await navHintStates(page);
   assert.equal(defaultDark.fixed.background, "rgb(0, 0, 0)");
   assert.equal(defaultDark.fixed.image, "none");
   phase = "saved light first-paint bootstrap";
@@ -410,6 +466,12 @@ try {
   assert.equal(paint.mutation?.mode, "light", JSON.stringify(paint));
   assert.ok(paint.mutation.time <= paint.firstPaint, JSON.stringify(paint));
   await page.evaluate(() => document.fonts.ready);
+  phase = 'Home light authored navigation hints';
+  await navHintStates(page, true);
+  const rejectedHint = await page.addStyleTag({ content: 'html[data-vm-theme="light"][data-vm-theme-opt-in="home"] body.vm-home-preview .vm-nav-hint { background: #171613; }' });
+  await assert.rejects(() => navHintStates(page, true), /Home light topbar hint Identity signal hub contrast/, 'the escaped dark-fill/light-ink defect must fail the same real-hover witness');
+  await rejectedHint.evaluate(node => node.remove());
+  await navHintStates(page, true);
   const fonts = await page.evaluate(() => {
     const icon = document.querySelector(".vm-utility > [data-vm-theme-toggle] i");
     const family = getComputedStyle(icon, "::before").fontFamily.replaceAll('"', "");
@@ -452,8 +514,21 @@ try {
   await expectMode(page, "dark");
   assert.deepEqual(darkSurfaceValues(await homeBackground(page)), defaultDark, "theme reversal preserves the complete dark surface colors");
   assert.deepEqual(await manaPips(page), defaultPips, "theme reversal preserves the exact original dark mana pips");
+  assert.deepEqual(await navHintStates(page), defaultHints, 'light reversal preserves accepted dark tooltip styling and geometry');
+  await page.$eval('.vm-utility > [data-vm-theme-toggle]', node => node.focus());
   await page.keyboard.press("Space");
   await expectMode(page, "light");
+  const unconverted = await browser.newPage();
+  await guardRequests(unconverted);
+  await unconverted.setViewport({ width: 1280, height: 900 });
+  await unconverted.goto(base + '/guide/', { waitUntil: 'domcontentloaded' });
+  await unconverted.evaluate(() => document.fonts.ready);
+  assert.equal(await unconverted.$('[data-vm-theme-toggle]'), null);
+  assert.equal(await unconverted.evaluate(() => document.documentElement.dataset.vmTheme), undefined);
+  const unconvertedHints = await navHintStates(unconverted);
+  // Guide's site-skin.css owns its opaque dark hint fill, after shared topbar.css.
+  assert.ok(unconvertedHints.every(hint => hint.background === 'rgb(23, 22, 19)' && hint.color !== 'rgb(33, 27, 24)'), 'unconverted authored hints retain their dark surface and foreground');
+  await unconverted.close();
   await page.goto(base + "/privacy/", { waitUntil: "domcontentloaded" });
   assert.equal(await page.$("[data-vm-theme-toggle]"), null);
   assert.equal(await page.evaluate(() => document.documentElement.dataset.vmTheme), undefined);
@@ -492,6 +567,8 @@ try {
   await readableMobileMenu(page, "light mobile theme hover");
   await page.mouse.move(0, 0);
   await readableMobileMenu(page, "light mobile resting/current");
+  assert.equal(await page.$$eval('.vm-menu-link .vm-nav-hint', nodes => nodes.length), 5);
+  assert.ok(await page.$$eval('.vm-menu-link .vm-nav-hint', nodes => nodes.every(node => getComputedStyle(node).display === 'none' && node.getClientRects().length === 0)), 'mobile cloned navigation hints stay hidden');
   await page.hover("[data-vm-menu-panel] .vm-menu-link[aria-current='page']");
   await readableMobileMenu(page, "light mobile current-route hover");
   await page.mouse.move(0, 0);
