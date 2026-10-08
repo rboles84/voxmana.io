@@ -172,3 +172,19 @@ The genuine latest Owner message authorizes ACCEPT, feature push, one PR to main
 Before the first host operation, capability discovery selected the available authenticated GitHub connector for reads and its atomic expected-head squash API for merge; native Git handles transport and local refs. No fallback route is needed. Authenticated profile is rboles84, repository metadata confirms pull/push/admin access, main remains the admission baseline, and the complete exact-head PR search returned none. Supplemental main-protection visibility was declared optional under docs/reference/workflow.md#main-protection-and-exceptions before attempting its read. The connector returned 403 Resource not accessible by integration. Record that actual limitation without changing routes or credentials; the exact-head Deterministic Validation check and server guard remain mandatory.
 
 Root owns the Accepted card, this appended decision, faithful generated views, host evidence and delivery actions. Independent RobQA reviews the exact evidence delta. No runtime/test/tool change or product rerun is needed for this decision record. Material scope, criterion wording, decisions and prior handoff bytes stay fixed. The required integration verifier must pass against fresh authenticated host observations before merge.
+
+## Integration — PR74 verified
+
+Task: VM-684
+Candidate: 4b441407b4ce831f5b58ac3521e78d64ad571a0d
+PR74: https://github.com/rboles84/voxmana.io/pull/74
+Merged result: b4e92a9971a327454972c9235fecc7a0ee876826
+Verified PR head: e687da7552b446fb7d9be886e44f000b1bcfceee
+
+The single accepted feature PR passed exact-head Deterministic Validation (https://github.com/rboles84/voxmana.io/actions/runs/37841689672/job/113532359247). Complete authenticated host file/commit observations and nontruncated base/head trees matched Git's seventeen-path branch scope and blob identities. Root authenticated the original QA, genuine Owner decision and all three exact evidence-delta receipts. The required integration verifier PASSed at the clean original PR head with actual host/main/CI facts. Supplemental policy visibility remained unavailable through the previously approved connector; no fallback, credentials or settings change occurred.
+
+The connector submitted expected_head_sha e687da7552b446fb7d9be886e44f000b1bcfceee with squash and returned merged=true at the result above. A fresh authoritative PR read confirmed closed/merged. Native fetch and quoted revision checks prove the squash's sole parent is admission baseline 9a94369c05883a46ec55ab2f2b9def7c10efe864 and its tree equals the verified PR-head tree 63a41c636557a84b16fea43f6621cc8e7e682c23. The clean checkout switched to main and fast-forwarded to the actual result.
+
+GitHub already removed the completed remote feature ref, as directly observed by exact-ref ls-remote. Root removed only the completed local branch after tree parity and pruned its obsolete tracking ref. Original PR history is preserved under refs/voxmana/pr/74/head; this is not an active work branch. One primary worktree remains, with no unrelated dirty work or additional task worktree and no cleanup deferral.
+
+The existing automatic Pages deployment started for the actual merge (https://github.com/rboles84/voxmana.io/actions/runs/37842100345); publication is now Owner-authorized. Its completion and exact public-byte confirmation remain pending. This lifecycle-only main record changes no product, test, policy, source producer, scope, decisions or acceptance wording. Independent semantic record review and the closeout verifier precede Done. Stage 4 is unstarted; PR72's historical exception remains unresolved.

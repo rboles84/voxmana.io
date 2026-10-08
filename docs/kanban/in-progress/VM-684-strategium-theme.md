@@ -2,7 +2,7 @@
 
 ID: VM-684
 Title: Strategium theme, stage 3
-Status: Accepted
+Status: Integrated
 Type: Bounded shared-theme presentation
 Area: Strategium and shared theme controller
 Priority: High
@@ -36,10 +36,10 @@ Admission baseline: 9a94369c05883a46ec55ab2f2b9def7c10efe864
 Candidate: 4b441407b4ce831f5b58ac3521e78d64ad571a0d
 RobQA: PASS at 4b441407b4ce831f5b58ac3521e78d64ad571a0d — SEPARATE independent replacement-candidate review in [RobQA handoff](../../handoffs/2026-10-08-1300-robqa-vm684-strategium-theme.md#owner-glyph-correction)
 Owner: ACCEPTED at 4b441407b4ce831f5b58ac3521e78d64ad571a0d — direct Owner visual approval and subsequent integration authorization in Codex chat 01a11cdb-f4ff-7a01-8fe6-3c47151c0ac7, 2026-10-08; delivery handoff section Owner acceptance and integration authorization
-Integration: PENDING
+Integration: INTEGRATED PR74 — https://github.com/rboles84/voxmana.io/pull/74; squash b4e92a9971a327454972c9235fecc7a0ee876826; verified parent/tree parity; closeout and publication verification pending
 Dependencies: None
 Decisions: Stage 3 is presentation-only for the six Strategium routes. Reuse vm_theme_mode_v1 and the existing controller; do not alter Strategium domain logic, data, content, services, motion preferences, or non-opted routes. PR72's historical automatic Pages deployment exception remains unresolved and is outside this task.
-Evidence: Admission start ELIGIBLE at current clean main/local/live remote 9a94369c05883a46ec55ab2f2b9def7c10efe864. VM-682 squash d2bcaa64818b76e6fdf7024a7e8f4b818f040608 and VM-683 squash f6bcfaf4c3333a89cf8b0347c11d06cb7b6185ae are verified ancestors of the baseline. Prior SHIP and QA remain event-time history, with their verdict revoked for current delivery by the Owner glyph finding. Five missing local Mana stylesheet imports are corrected; six-route regression sensitivity and both-theme DOM/font evidence passed. Authentic independent QA and persisted-state candidate check PASS bind to the replacement candidate. Owner approved the local visual result: "strategium looks good, all done." The subsequent direct message, "we can push it like the others we did before this", authorizes ACCEPT and guarded integration/publication of this reviewed stage-3 candidate. [Delivery handoff](../../handoffs/2026-10-08-1300-codex-vm684-strategium-theme-delivery.md#owner-acceptance-and-integration-authorization) records the genuine decision; original event-time boundaries remain preserved. Runtime and acceptance wording remain frozen. Stage 4, publishing settings, rollback and PR72's historical exception remain outside this authorization.
+Evidence: Exact-candidate independent RobQA PASS and genuine Owner ACCEPT remain bound to the replacement candidate. PR74 passed exact-head Deterministic Validation and the integration verifier, then merged with the server's atomic expected-head guard at e687da7552b446fb7d9be886e44f000b1bcfceee. [Delivery handoff](../../handoffs/2026-10-08-1300-codex-vm684-strategium-theme-delivery.md#integration--pr74-verified) records the authenticated result, squash parent/tree parity, synchronized main and completed feature cleanup. Pages publication and persisted closeout verification remain pending. Original finding/revocation history and Owner decisions are preserved. Runtime, scope, decisions and acceptance wording remain frozen. Stage 4, publishing settings, rollback and PR72's historical exception remain outside this authorization.
 
 ## Admission Scope
 
