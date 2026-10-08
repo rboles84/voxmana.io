@@ -64,6 +64,12 @@ const themeBootstrapByRoute = {
   guide: '<script src="../assets/js/shared/vm-theme.js?v=vm683">',
   privacy: '<script src="../assets/js/shared/vm-theme.js?v=vm683">',
   terms: '<script src="../assets/js/shared/vm-theme.js?v=vm683">',
+  strategium: '<script src="../assets/js/shared/vm-theme.js?v=vm684">',
+  strategiumFindTable: '<script src="../../assets/js/shared/vm-theme.js?v=vm684">',
+  strategiumBeforeGame: '<script src="../../assets/js/shared/vm-theme.js?v=vm684">',
+  strategiumDuringGame: '<script src="../../assets/js/shared/vm-theme.js?v=vm684">',
+  strategiumConsole: '<script src="../../assets/js/shared/vm-theme.js?v=vm684">',
+  strategiumReview: '<script src="../../assets/js/shared/vm-theme.js?v=vm684">',
 };
 const guideCssSource = await readFile("assets/css/guide.css", "utf8");
 const livePublicPageKeys = Object.keys(publicPages).filter(key => key !== "library");
@@ -233,6 +239,21 @@ for (const key of ["guide", "privacy", "terms"]) {
     `${file} should load the VM-683 theme bootstrap before styles`);
   expect(getStylesheetHrefs(sources[key]).at(-1) === "../assets/css/theme-pages.css?v=vm683",
     `${file} should load the route-scoped VM-683 theme adapter last`);
+}
+
+for (const key of ["strategium", "strategiumFindTable", "strategiumBeforeGame", "strategiumDuringGame", "strategiumConsole", "strategiumReview"]) {
+  const file = publicPages[key];
+  const head = getHeadSource(sources[key]);
+  const bootstrap = themeBootstrapByRoute[key];
+  const prefix = key === "strategium" ? "../" : "../../";
+  expect(sources[key].match(/data-vm-theme-opt-in="strategium"/g)?.length === 1,
+    `${file} should expose exactly one Strategium route-scoped theme opt-in`);
+  expect(countMatches(sources[key], /assets\/js\/shared\/vm-theme\.js\?v=vm684/g) === 1 && head.includes(bootstrap),
+    `${file} should expose exactly one synchronous VM-684 theme bootstrap in head`);
+  expect(head.indexOf(bootstrap) < head.indexOf('<link rel="stylesheet"'),
+    `${file} should load the VM-684 theme bootstrap before styles`);
+  expect(getStylesheetHrefs(sources[key]).at(-1) === `${prefix}assets/css/theme-pages.css?v=vm684`,
+    `${file} should load the route-scoped VM-684 theme adapter last`);
 }
 
 for (const file of liveFontRegressionFiles) {
@@ -647,12 +668,13 @@ for (const [key, routeCss, attributes] of [
   const bodyTag = sources[key].match(/<body\b[^>]*>/i)?.[0] ?? "";
   const classes = bodyTag.match(/\bclass="([^"]*)"/i)?.[1].split(/\s+/) ?? [];
   expect(
-    hrefs.at(-2) === routeCss &&
-      hrefs.at(-1) === routeCss.replace("strategium.css?v=vm635", "site-skin.css?v=vm666") &&
+    hrefs.at(-3) === routeCss &&
+      hrefs.at(-2) === routeCss.replace("strategium.css?v=vm635", "site-skin.css?v=vm666") &&
+      hrefs.at(-1) === routeCss.replace("strategium.css?v=vm635", "theme-pages.css?v=vm684") &&
       hrefs.filter(href => /\/site-skin\.css(?:\?|$)/.test(href)).length === 1 &&
       classes.includes("vm-site-skin") && classes.includes("vm-strategium-route") &&
       attributes.every(attribute => bodyTag.includes(attribute)),
-    `${publicPages[key]} should retain its route CSS and load one scoped vm666 skin last`
+    `${publicPages[key]} should retain its route CSS and load the scoped skin then VM-684 theme adapter`
   );
 }
 

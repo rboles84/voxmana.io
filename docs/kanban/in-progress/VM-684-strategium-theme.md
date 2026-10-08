@@ -21,7 +21,8 @@ Owner task packet, 2026-10-08. VM-682 and VM-683 are integrated predecessors; th
 - [ ] All six admitted Strategium routes opt in to the existing saved dark/light controller; dark remains unconditional without a valid saved preference and unconverted routes remain inert.
 - [ ] The accepted parchment, ink, gold, teal, typography, glyph, topbar, dialog and native-control roles cover static and dynamically rendered Strategium surfaces in both themes.
 - [ ] Strategium behavior remains intact: Console search/checklist/readiness, lifecycle routes, review dialogs and validated Console return, Clipboard, feedback and mobile navigation.
-- [ ] Focused developer evidence covers objective controller, cascade, dialog/focus, state preservation and mobile containment risks; independent RobQA and Owner visual acceptance remain pending.
+- [ ] Focused developer evidence covers objective controller, cascade, dialog/focus, state preservation and mobile containment risks; independent exact-candidate RobQA PASS is required before SHIP to Owner Review, where the Owner judges four route-named checkpoints. Stop before integration.
+- [ ] The RobDev handoff records reusable light-surface patterns, route-specific exceptions, resolved failures, remaining uncertainty, and bounded follow-up notes for Apocrypha, Archscry, and Maze.
 
 ## Risks
 
