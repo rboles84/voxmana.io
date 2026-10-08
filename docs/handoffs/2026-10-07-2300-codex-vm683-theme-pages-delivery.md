@@ -72,3 +72,25 @@ Stage-3 lesson: inspect dynamically delivered component styles and final child o
 The bounded developer completion reports PASS for the strengthened local Edge witness and baseline/controller source invariants after the Guide child-color correction. Root separately runs HTML lint, JS lint (37 frontend files) and patch hygiene: PASS. The exact independent QA decision remains pending until the stable feature commit exists. No heavy engine suite, screenshot comparison or live feedback was run. Browser justification is the actual cascade, native keyboard/focus, shared dialogs, route state and mobile containment, which source tokens alone cannot establish.
 
 Local no-store preview is http://127.0.0.1:54763/; Terms, Privacy and Guide each return HTTP 200. The sandbox blocks localhost sockets, so the same read-only check ran with socket access. This preview is local review infrastructure and changes no service or publishing setting. Final checkpoint URLs: http://127.0.0.1:54763/terms/, http://127.0.0.1:54763/privacy/, and http://127.0.0.1:54763/guide/. Root will present them after exact-candidate PASS; no visual/Owner decision is inferred from the server responding.
+
+## SHIP — exact candidate Owner Review
+
+Task: VM-683
+Agent: Codex coordinator /root
+Candidate: 21c73dac52c51cb2ccc1d0d9159d894536532a99
+RobQA: PASS
+Execution: SEPARATE
+Owner: PENDING
+Integration: PENDING — outside this request
+
+The pre-candidate fields and observations above are historical preparation. This section records current exact-candidate delivery. Separate non-implementing /root/theme_pages_qa inspected the full baseline-to-candidate scope and independently ran controller/source invariants, HTML lint, syntax, patch hygiene, view freshness and the focused Edge check: PASS. The initial sandboxed Edge launch failed before product execution; one bounded run with host browser access passed. No remaining product assertion failure or unverified blocker was relabeled green. Root's JS lint also passed. [Original independent review](2026-10-07-2300-robqa-vm683-theme-pages.md) retains the classification, stateful coverage, test selection/skips, objective evidence and Owner checkpoints.
+
+Root read the authentic QA artifact and matched its raw hash. The first candidate checker blocked because styled decision metadata did not meet its plain field contract. The reviewer preserved that original version externally (SHA-256 3be8dc7f4980013b64784d713733d52358c34067e02addd1ac27e53afa402acc) and appended canonical fields, without changing the verdict, reviewed scope or candidate. Root matched the active original raw SHA-256 7257653a4cc44e4d30a62249d3f5400f41c601eb823aa1d42015ead8dac6cf55 and selected its Exact candidate binding section. The read-only candidate checker then passed at clean material candidate 21c73dac52c51cb2ccc1d0d9159d894536532a99 using durable-qa provenance and unchanged live main.
+
+This consolidated post-candidate record changes only authentic QA/lifecycle observations, unchanged acceptance-criterion check results, appended delivery evidence and producer-generated summaries. It copies the review into the admitted repository handoff, records Owner Review with Owner PENDING and refreshes both views. No implementation, policy, scope, decisions, dependencies, acceptance wording, fixture or test assertion changes after the candidate. Independent exact-delta content review and the final recorded-state candidate checker verify this evidence exception before presentation.
+
+The [Git report](C:/Users/obake/.codex/visualizations/2026/10/08/01a119cf-b86b-7832-bfae-55f6db8e5a3e/vm683-git-report.md) owns validated Git-derived baseline/material/evidence/total path accounting. Material baseline is 6a6f26ac3ec0d3bfab28ccb50d0d70ef2c7e4c6e. Owner review runtime is the exact material candidate; later records alter no runtime or test bytes.
+
+Separate checkpoints remain PENDING: [Terms](http://127.0.0.1:54763/terms/), [Privacy](http://127.0.0.1:54763/privacy/) and [Guide](http://127.0.0.1:54763/guide/). Use the compact actions above; compare both themes, open/close shared dialogs without sending feedback, and inspect Guide modes/walkthrough. The Owner judges reading comfort, surface restraint, hierarchy, palette balance and responsive feel. Engineering PASS does not substitute for those decisions.
+
+Privacy's explicit theme-preference disclosure remains a non-blocking separate product/legal choice with no rewrite. Stage-3 reusable palette assignments, route opt-in/bootstrap/font pattern, nested legal variable ownership and dynamic walkthrough leaf-color exception are recorded in RobDev/QA; further route work is not started. PR72's automatic Pages deployment exception remains unresolved and preserved. Native Git/host facts establish local-only feature work; there is no stage-2 push, PR, merge, deployment, rollback or publishing change. Next suggested agent: Owner for the three exact-candidate product/visual checkpoints. Stop before integration, deployment or stage 3.

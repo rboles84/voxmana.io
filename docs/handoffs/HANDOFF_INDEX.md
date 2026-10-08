@@ -1,4 +1,4 @@
-<!-- task-view-sha256:7f886b739dc5846e02a014f6967eeacebdca88d6c9e3f6821d1a8e6e0ce263d0 -->
+<!-- task-view-sha256:0511d0b657155a2581e602218c2abeff6e7a58b90bd2caa1f276d0a96397a0ae -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -15,6 +15,7 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 | 2026-10-07T00:00:00Z (authored) | Unknown | [RobDev handoff — VM-682 Home theme stage 1](2026-10-07-1150-robdev-vm682-home-theme.md) | VM-682 | Identity displayed from heading; not admission metadata. |
 | 2026-10-07T00:00:00Z (authored) | Unknown | [RobQA handoff — VM-682 Home theme stage 1](2026-10-07-1150-robqa-vm682-home-theme.md) | VM-682 | Identity displayed from heading; not admission metadata. |
 | 2026-10-07T00:00:00Z (authored) | Codex coordinator /root | [VM-683 — Theme stage 2 local delivery](2026-10-07-2300-codex-vm683-theme-pages-delivery.md) | VM-683 | Identity displayed from heading; not admission metadata. |
+| 2026-10-07T00:00:00Z (authored) | Unknown | [VM-683 — Independent RobQA exact-candidate record](2026-10-07-2300-robqa-vm683-theme-pages.md) | VM-683 | Identity displayed from heading; not admission metadata. |
 | 2026-10-06T22:10:00Z (filename) | Codex coordinator /root | [VM-681 Owner Review handoff — smaller Maze hover preview](2026-10-06-2210-codex-vm681-owner-review.md) | VM-681 | Identity displayed from heading; not admission metadata. |
 | 2026-10-06T22:10:00Z (filename) | Unknown | [VM-681 RobDev handoff — Maze hover size](2026-10-06-2210-robdev-vm681-maze-hover-size.md) | VM-681 | Identity displayed from heading; not admission metadata. |
 | 2026-10-06T22:10:00Z (filename) | /root/hover_plan_redteam | [VM-681 — Independent RobQA: Maze hover preview size reduction](2026-10-06-2210-robqa-vm681-maze-hover-size.md) | VM-681 | Identity displayed from heading; not admission metadata. Invalid authored date; filename fallback or undated ordering used. |
