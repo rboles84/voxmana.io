@@ -51,7 +51,7 @@ Owner: PENDING
 Integration: PENDING — explicitly unauthorized at this stage
 Dependencies: None
 Decisions: Presentation-only /archscry/ and /guide/reading/ support with dedicated archscry and guide-reading opt-ins. Reuse all accepted theme/controller/palette/resource contracts. Preserve accepted VM-615 optional-depth, VM-621 walkthrough, VM-625 Atlas/browse, VM-636 matrix, VM-643 prose, VM-652 opaque panels/spacing/precon hover and VM-664 mixed-result contracts. Dossier-radar.js may change neutral canvas presentation and its theme-event cleanup only; shared vm-radar/profile/dataset/lifecycle owners remain protected. Preserve content, semantics, storage, layout, motion, artwork, route targets, shared shell interaction and every predecessor/unconverted route. No footer standardization, host writes, integration/deployment, publishing-settings changes, PR72 exception resolution or stage-6 work. Scope amendment: admit the individual browser-construction RobDev handoff for parallel bounded witness construction; product scope and QA independence remain unchanged. Scope amendment: independent RobQA identified a warm-client cache acceptance gap; admit a uniform Archscry import-epoch advance vm636 to vm687 to deliver the changed radar owner. All other runtime bodies and shared radar/profile/data owners remain protected; only import-version transport changes are authorized. Scope amendment: admit the selected matrix regression import-epoch alignment and an individual bounded browser-recovery handoff; preserve assertions and product scope. Scope amendment: the independently observed browser-launch obstacle requires the canonical blocked-card destination; admit that lifecycle relocation while preserving the same task, branch and product scope.
-Evidence: Start ELIGIBLE; current accepted predecessor integrations verified through authenticated host/Git. Individual handoffs retain role packets and later exact-candidate results.
+Evidence: Start ELIGIBLE and current accepted predecessor integrations verified through authenticated host/Git. Independent C1 QA was BLOCKED; C2 f0bf39c985a08c242e3bd25aa7da657c4fd422df resolved its whitespace finding and remained BLOCKED solely for missing required browser evidence. The sole approved alternate failed at Edge launch before navigation/assertions. Original external QA/browser artifacts and individual handoffs preserve those results. The Owner-selected manual QA phase remains In Progress at the original canonical admission path; final candidate binding follows its clean freeze.
 
 ## Admission Scope
 
@@ -98,3 +98,14 @@ Evidence: Start ELIGIBLE; current accepted predecessor integrations verified thr
 - `tests/archscry/identity-atlas-matrix-tests.js`
 - `docs/handoffs/2026-10-08-2330-robdev-vm687-browser-recovery.md`
 - `docs/kanban/blocked/VM-687-archscry-reading-theme.md`
+
+## QA coverage and manual continuation
+
+Stage: exact-candidate engineering QA, before SHIP / Owner Review.
+Cause: the sole approved alternate Edge execution failed during launch before any assertion; the earlier raw-CDP attempt and causal diagnostic also supplied no rendered evidence. Source/controller/radar/matrix/predecessor/HTML checks pass, but computed paint, actual resources, native interactions, real Chart continuity, containment and browser state/history coverage remain unavailable.
+Resume: a working browser environment and a newly admitted, causally distinct proportionate validation plan must resolve the named objective coverage. Preserve the failures; do not retry flags/transports, infer PASS, or substitute subjective Owner judgment. No product defect was established by the launch failure.
+Owner: PENDING; no acceptance requested or recorded. Feature push, PR, integration, deployment, publishing and stage 6 remain unauthorized.
+
+The Owner subsequently volunteered, "ill do browser testing if we can wrap this up". A short human-driven local review is authorized; it is not a PASS or a waiver of remaining hidden coverage. The coordinator prepares an isolated localhost review origin seeded once with the committed certified Jund witness and saved light. Repository source/assets are served unchanged except the mock-only feedback configuration. The manual result remains pending; RobQA can classify actual results and any residual coverage after the Owner reports them. No automated browser retry is authorized by this offer.
+
+Current activity: the Owner volunteered manual browser testing, so candidate QA is underway. RobQA remains BLOCKED for unavailable automated browser evidence until actual manual results and residual coverage are classified. The original admission card path is preserved; the admitted blocked destination remains unused.
