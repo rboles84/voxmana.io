@@ -324,3 +324,21 @@ The Owner supplied one screenshot showing the existing light-theme Field Guide b
 The proportional frozen-candidate selection is the existing VM-687 source guard, baseline-to-C8 and C7-to-C8 patch hygiene, an exact one-property path/byte review and generated-index freshness. The exact review must establish that the product delta is limited to `padding-right: 1rem` on that existing final selector and that runtime, templates, shared beacon source, routes, tests, radar/menu owners, dark paint, base/site-skin CSS, grid/breakpoints and other spacing bytes remain unchanged. No new spacing-specific assertion, radar/menu guard, predecessor/controller/matrix suite or browser run is selected because those owners and risks are unchanged.
 
 Owner visual judgment controls whether the right inset resolves the supplied screenshot. The previous Owner-review and objective browser gaps remain as already recorded; this correction creates no new gap and does not resolve the broader ones. The current working-tree CSS is consistent with this scope, and no concrete prefreeze hold is identified. Exact-candidate execution remains pending freeze.
+
+## Exact C8 Field Guide spacing binding
+
+Task: VM-687
+
+Candidate: `d3a40c3e9814982bf58aeefb6eeae9925373d853`
+
+RobQA: **BLOCKED**
+
+Execution: **SEPARATE**
+
+Independent exact-candidate execution passed `node scripts/vm687-archscry-theme-source-tests.mjs`, full baseline-to-C8 and C7-to-C8 patch hygiene, bounded protected path/byte review and generated-index freshness. Exact C7-to-C8 inspection found one changed product/test path and one CSS-line replacement: the final Archscry light-only `.dossier-orientation` rule retains its two-pixel left border and one-rem left inset and adds only `padding-right: 1rem`.
+
+Runtime, templates, shared beacon source and URL, routes, data, tests, radar/menu owners, browser witness, base and site-skin CSS, dark paint, responsive grid and breakpoints, action controls, vertical spacing and every other product/test path remain byte-identical. Other C7-to-C8 paths are lifecycle records only. The existing source guard passed; no new spacing assertion or rendered inference is claimed.
+
+C8 remains blocked for the previously recorded Owner visual recheck and residual objective browser coverage. Owner judgment remains the authority for whether the right inset resolves the supplied screenshot. This correction creates no new gap and resolves none of the broader gaps. The sole approved automated browser run remains a launch failure before assertions; no rendered PASS, ACCEPT or waiver is claimed.
+
+The original exact decision is preserved at [vm687-guide-spacing-correction-qa.md](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-guide-spacing-correction-qa.md). No product or test change, browser execution or commit was made by RobQA.

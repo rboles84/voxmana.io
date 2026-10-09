@@ -223,3 +223,17 @@ The original Owner screenshot and all C1–C6 decisions/browser evidence remain 
 The Owner's [original request, markup and screenshot](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-owner-guide-spacing-finding/finding.md) ask the decision-panel Field Guide to clear the right edge. Fresh canonical continue PASS at clean E7 a83bb3e9eea13400e4517a6acb330848abec758d confirms the same sole branch and unchanged live/main baseline. Direct Owner authority covers a bounded light CSS inset in the already admitted owner; no scope/runtime exception or new branch is needed.
 
 Add only padding-right:1rem to the final light Archscry .dossier-orientation rule, retaining its 2px left rule and C7 left inset. The site-skin horizontal-padding reset explains the edge contact. Existing configured RobDev Terra medium owns CSS/own handoff; independent RobQA Sol medium owns proportional validation; parent owns records. Protect shared beacon source/markup/URL/state, dark paint, grid/breakpoints, actions, vertical and left spacing, other panels, runtime/reading/storage/content/Maze. Reuse the existing source guard and exact path/declaration/hygiene/index review; no new spacing test or unchanged browser/radar/menu suite. Owner judges visual inset. Prior broader evidence gaps stay explicit. Stage6 lesson: account for both ends of a composed panel when adding an edge rule or inset at the final cascade owner.
+
+## C8 exact Field Guide spacing checkpoint
+
+Material candidate: d3a40c3e9814982bf58aeefb6eeae9925373d853
+
+RobQA: BLOCKED
+
+Execution: SEPARATE
+
+Owner: PENDING
+
+Independent [C8 QA original](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-guide-spacing-correction-qa.md) passes the selected existing source guard, baseline/C7 hygiene, exact one-property protected-byte/path review and generated-index freshness. Only padding-right:1rem was added to the existing final light orientation rule. Left border/inset, shared guide markup/URL/state, runtime, tests, dark presentation, responsive grid/actions and all other spacing inputs remain unchanged. No new spacing test or unchanged browser/radar/menu/broad rerun was selected. Local CSS HTTP200/no-store contains the exact declaration, confirming delivery only; reload the current saved dossier to judge clearance from the right edge. No reseed or storage reset is needed.
+
+Original C1–C7 decisions and every Owner finding/browser failure remain preserved. This correction adds no new evidence gap and resolves none of the prior residual objective browser gaps, so broader exact RobQA remains BLOCKED alongside pending Owner visual judgment. [Final Git accounting](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-guide-spacing-correction-git.md) records full material/evidence/branch scopes and state. No push, PR, merge, deployment, publishing or stage6 occurred.
