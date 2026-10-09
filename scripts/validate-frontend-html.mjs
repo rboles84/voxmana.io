@@ -70,6 +70,7 @@ const themeBootstrapByRoute = {
   strategiumDuringGame: '<script src="../../assets/js/shared/vm-theme.js?v=vm684">',
   strategiumConsole: '<script src="../../assets/js/shared/vm-theme.js?v=vm684">',
   strategiumReview: '<script src="../../assets/js/shared/vm-theme.js?v=vm684">',
+  apocrypha: '<script src="../assets/js/shared/vm-theme.js?v=vm682">',
 };
 const guideCssSource = await readFile("assets/css/guide.css", "utf8");
 const livePublicPageKeys = Object.keys(publicPages).filter(key => key !== "library");
@@ -254,6 +255,20 @@ for (const key of ["strategium", "strategiumFindTable", "strategiumBeforeGame", 
     `${file} should load the VM-684 theme bootstrap before styles`);
   expect(getStylesheetHrefs(sources[key]).at(-1) === `${prefix}assets/css/theme-pages.css?v=vm684`,
     `${file} should load the route-scoped VM-684 theme adapter last`);
+}
+
+{
+  const file = publicPages.apocrypha;
+  const head = getHeadSource(sources.apocrypha);
+  const bootstrap = themeBootstrapByRoute.apocrypha;
+  expect(sources.apocrypha.match(/data-vm-theme-opt-in="apocrypha"/g)?.length === 1,
+    `${file} should expose exactly one Apocrypha route-scoped theme opt-in`);
+  expect(countMatches(sources.apocrypha, /assets\/js\/shared\/vm-theme\.js\?v=vm682/g) === 1 && head.includes(bootstrap),
+    `${file} should expose exactly one synchronous VM-682 theme bootstrap in head`);
+  expect(head.indexOf(bootstrap) < head.indexOf('<link rel="stylesheet"'),
+    `${file} should load the saved-theme bootstrap before styles`);
+  expect(getStylesheetHrefs(sources.apocrypha).at(-1) === "../assets/css/theme-pages.css?v=vm685",
+    `${file} should load the route-scoped VM-685 theme adapter last`);
 }
 
 for (const file of liveFontRegressionFiles) {
@@ -645,15 +660,19 @@ const apocryphaStylesheetHrefs = getStylesheetHrefs(sources.apocrypha);
 const apocryphaBodyTag = sources.apocrypha.match(/<body\b[^>]*>/i)?.[0] ?? "";
 const apocryphaBodyClasses = apocryphaBodyTag.match(/\bclass="([^"]*)"/i)?.[1].split(/\s+/) ?? [];
 expect(
-  apocryphaStylesheetHrefs.at(-2) === '../assets/css/apocrypha.css?v=vm635' &&
-    apocryphaStylesheetHrefs.at(-1) === '../assets/css/site-skin.css?v=vm665' &&
+  apocryphaStylesheetHrefs.at(-3) === '../assets/css/apocrypha.css?v=vm635' &&
+    apocryphaStylesheetHrefs.at(-2) === '../assets/css/site-skin.css?v=vm665' &&
+    apocryphaStylesheetHrefs.at(-1) === '../assets/css/theme-pages.css?v=vm685' &&
     apocryphaStylesheetHrefs.filter(href => /\/site-skin\.css(?:\?|$)/.test(href)).length === 1 &&
     apocryphaBodyClasses.includes('vm-site-skin') &&
     apocryphaBodyClasses.includes('vm-apocrypha-route') &&
+    /<html\s+lang="en"\s+data-vm-theme-opt-in="apocrypha">/i.test(sources.apocrypha) &&
+    sources.apocrypha.indexOf(themeBootstrapByRoute.apocrypha) < sources.apocrypha.indexOf('<link rel="stylesheet"') &&
+    (sources.apocrypha.match(/assets\/vendor\/mana\/css\/mana\.min\.css/g) || []).length === 1 &&
     /\bdata-page="apocrypha"/i.test(apocryphaBodyTag) &&
     /\bdata-vm-current="apocrypha"/i.test(apocryphaBodyTag) &&
     /\bdata-bg="medium"/i.test(apocryphaBodyTag),
-  "apocrypha/index.html should preserve its route stylesheet/data contract and load one scoped vm665 site skin last"
+  "apocrypha/index.html should preserve its route stylesheet/data contract, prepaint theme bootstrap, local Mana glyph import, and final VM-685 adapter"
 );
 
 for (const [key, routeCss, attributes] of [
