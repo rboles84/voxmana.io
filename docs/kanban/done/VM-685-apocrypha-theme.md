@@ -2,7 +2,7 @@
 
 ID: VM-685
 Title: Apocrypha theme, stage 4
-Status: Integrated
+Status: Done
 Type: Bounded route theme presentation
 Area: Apocrypha and shared theme allowlist
 Priority: High
@@ -42,7 +42,7 @@ Admission baseline: 7fcf62c0d4a1389b668a39c27c7075d18c221c99
 Candidate: 78ec24583e772ae8781acd569f9036807b262026
 RobQA: PASS at 78ec24583e772ae8781acd569f9036807b262026 — Execution SEPARATE; reviewer /root/apocrypha_qa; docs/handoffs/2026-10-08-1500-robqa-vm685-apocrypha-theme.md, Owner-label replacement exact-candidate QA
 Owner: ACCEPTED at 78ec24583e772ae8781acd569f9036807b262026 — direct Owner approval in this chat; delivery handoff, Owner ACCEPT and integration authorization
-Integration: INTEGRATED — PR75 https://github.com/rboles84/voxmana.io/pull/75; squash 842cb8cde44f76d145a1ee447143c895f6f9905b; local/main/live main synchronized; lifecycle closeout underway
+Integration: INTEGRATED — PR75 https://github.com/rboles84/voxmana.io/pull/75; squash 842cb8cde44f76d145a1ee447143c895f6f9905b; synchronized main and canonical closeout PASS; local branch cleanup explicitly deferred with reason and ownership
 Dependencies: None
 Decisions: Presentation-only /apocrypha/ support. Reuse accepted controller/key/prepaint/default/failure/refresh/palette/typography/toggle contracts. Preserve accepted VM-665 layout/corrections and all predecessor dark/light behavior. Do not edit archive runtime, loader, registry, generated fallback, producers, factual/reference content, classifications/status meaning/counts/order/links, Library alias, artwork/motion, services or publishing. Surface concrete accepted-design/protected-contract changes before expanding. PR72 historical deployment exception remains unresolved. Stage-3 integration authority does not authorize stage 4 integration.
 Evidence: Independent replacement exact-candidate RobQA PASS and genuine subsequent Owner ACCEPT bind 78ec24583e772ae8781acd569f9036807b262026. Owner confirmed the corrected light source labels and preserved dark styling; all 59 cards/118 labels retained. Registry/failure/noJS, visible text reversal within the unchanged 500ms bound, persistence/isolation, focus/dialog/Clipboard/native controls, mock-only feedback, loaded glyphs/fonts and measured containment passed. Original C1 readiness remains revoked; prior construction failures, inherited compass clipping, stale visual comparator and Puppeteer protocol debt remain disclosed. Canonical integration PASS, exact-head Deterministic Validation success and guarded PR75 squash verified; sole parent and complete tree match the verified evidence head. Subsequent Owner clarification cancels next-stage implementation; no Archscry or Reading Guide files changed and no next-stage admission began. VM-686 footer intake remains separately preserved for restoration. Local feature branch cleanup is truthfully deferred after automatic approval review rejected deletion; no publishing settings or PR72 historical exception changed. Lifecycle-only closeout and validated Git accounting follow; earlier pending/uncommitted statements retain event-time meaning in the handoffs.

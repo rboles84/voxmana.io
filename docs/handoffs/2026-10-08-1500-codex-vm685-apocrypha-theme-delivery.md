@@ -192,3 +192,14 @@ Preserved work: Local codex/vm-685-apocrypha-theme at ce01cbe62ca206319aa0087a3a
 The rejected compound cleanup command performed none of its operations. Later independent read-only Git observations found the remote feature ref already absent and the local feature ref unchanged at E3; no remote or local branch deletion was retried. There is one registered worktree, on main. This is a truthful cleanup deferral under the existing workflow, not a second active implementation. Unrelated recon branches remain untouched. VM-686 authored intake and its original produced-view bytes/hashes remain byte-preserved outside the repository for restoration after VM-685 closeout.
 
 Subsequent Owner steering: "I didnt want you to start on the next archscry part you are not doing that right? Just pushing this and committing it?" This revokes the previously inferred next-stage implementation request. Only read-only route reconnaissance occurred; no Archscry/Reading Guide material edits, admission, branch, tests or next-stage implementation were started. Remaining work is VM-685 lifecycle closeout and the already requested separate footer backlog intake. No manual deployment, publishing settings change, PR72 historical exception resolution, or new feature work occurs. Normal infrastructure effects of the authorized main integration are not asserted absent.
+
+## Done transition after canonical closeout PASS
+
+Task: VM-685
+Candidate: 78ec24583e772ae8781acd569f9036807b262026
+Integration: PR75 squash 842cb8cde44f76d145a1ee447143c895f6f9905b
+Closeout: PASS at synchronized clean main 465d7ac5cea78b707e0a7dd4d4ad933f5b146a45
+
+Independent /root/apocrypha_qa classified the exact squash-to-integration-record delta as evidence-only and issued Boundaries PASS; original external vm685-integration-lifecycle-review.md SHA-256 b62e5a3ff9978376d04e292490bfe4d54ca4cb9b967dfeec735664ac965e7b89. The canonical closeout gate then verified original engineering/Owner/integration evidence, complete parent/tree/host/main parity, fresh produced views, preserved unrelated intake, validated Git accounting and the truthful owned cleanup deferral. The original external vm685-integrated-git-report.md remains the validated accounting at that boundary. No runtime/browser retest was warranted or claimed for lifecycle-only changes.
+
+This transition relocates the unchanged admitted card to Done and records the satisfied closeout; its historical admission path and criteria remain intact. The next bounded check reviews this exact transition and refreshed final-main accounting. Local merged feature work stays preserved under the recorded deletion-authority deferral. VM-686 restoration/record-only administration follows separately; Archscry and Reading Guide stay stopped before admission or implementation. No further feature action is recommended without a new Owner request.

@@ -1,4 +1,4 @@
-<!-- task-view-sha256:865aff2f8d52937a91dadf6ae5aa5857e803eb599b35aa4996f7352ce0fc7da9 -->
+<!-- task-view-sha256:9226cd509e30a1e19c5f7b9b22f14c1bb91005da68f941847480f0c9d211ca52 -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -57,7 +57,6 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 |---|---|---|---|
 | VM-658 | [Maze Instrument Frame](in-progress/VM-658-maze-instrument-frame.md) | Integrated |  |
 | VM-660 | [Maze Performance Recon](in-progress/VM-660-maze-performance-recon.md) | Integrated |  |
-| VM-685 | [Apocrypha theme, stage 4](in-progress/VM-685-apocrypha-theme.md) | Integrated |  |
 
 ## Blocked
 
@@ -701,6 +700,7 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | VM-682 | [Home theme, stage 1](done/VM-682-home-theme.md) | Done |  |
 | VM-683 | [Theme stage 2: Terms, Privacy and Guide hub](done/VM-683-theme-terms-privacy-guide.md) | Done |  |
 | VM-684 | [Strategium theme, stage 3](done/VM-684-strategium-theme.md) | Done |  |
+| VM-685 | [Apocrypha theme, stage 4](done/VM-685-apocrypha-theme.md) | Done |  |
 
 ## Unresolved
 
