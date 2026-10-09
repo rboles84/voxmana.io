@@ -1,6 +1,6 @@
 # VM-687 — RobDev implementation handoff
 
-Agent: `/root/archscry_dev` (RobDev; requested Terra medium, host accepted; backend-effective model unverified)  
+Agent: `/root/archscry_dev` (RobDev; requested Terra medium, host accepted; backend-effective model unverified)
 Task requested: Presentation-only saved dark/light theme support for `/archscry/` and `/guide/reading/`.
 
 ## Files reviewed
