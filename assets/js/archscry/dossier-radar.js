@@ -202,6 +202,14 @@ function applyDossierRadarTheme(chart = dossierManaRadarChart) {
   scale.angleLines.color = light ? "rgba(138,91,25,0.24)" : "rgba(255,255,255,0.09)";
   scale.grid.color = light ? "rgba(138,91,25,0.24)" : "rgba(255,255,255,0.09)";
   scale.pointLabels.color = light ? "#31271f" : "#e6ddc6";
+  chart.data.datasets.forEach((dataset) => {
+    if (!dataset?._vmWhitePaint) return;
+    if (light) {
+      dataset.borderColor = RADAR.hexToRgba("#eee4c1", dataset._vmWhiteBorderAlpha);
+    } else {
+      dataset.borderColor = dataset._vmOriginalBorderColor;
+    }
+  });
   chart.update("none");
 }
 
@@ -356,6 +364,19 @@ function updateDossierRadarDatasets(profile, showComponents, showComposite) {
     dataset.pointHoverRadius = 5.4;
     dataset.pointHoverBorderWidth = 2;
   });
+  const monoWhite = (profile.components || []).length === 1 && profile.components[0] === "W";
+  datasets.forEach((dataset) => {
+    const whiteComponent = dataset?._vmComponent === true && dataset.label === RADAR.componentName("W");
+    if (!whiteComponent && !(monoWhite && dataset?._vmComposite)) return;
+    dataset._vmWhitePaint = true;
+    dataset._vmOriginalBorderColor = dataset.borderColor;
+    dataset._vmWhiteBorderAlpha = dataset?._vmComposite ? 0.95 : 0.5;
+  });
+  if (document.documentElement?.dataset.vmThemeOptIn === "archscry" && document.documentElement?.dataset.vmTheme === "light") {
+    datasets.filter((dataset) => dataset?._vmWhitePaint).forEach((dataset) => {
+      dataset.borderColor = RADAR.hexToRgba("#eee4c1", dataset._vmWhiteBorderAlpha);
+    });
+  }
   dossierManaRadarChart.data.datasets = datasets;
   dossierManaRadarChart.update();
 }

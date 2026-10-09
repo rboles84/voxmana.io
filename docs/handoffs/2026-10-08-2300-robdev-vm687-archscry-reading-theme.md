@@ -80,3 +80,11 @@ The preceding screenshot note was incomplete: it did not include emitted Cards S
 The final owner sweep pairs dark-literal children with their actual accepted surfaces: flavor echo and compact precon cards explicitly retain the site-skin parchment surface through normal and interactive states; How This Plays stays transparent under its site-skin open-layout owner. The suffix also covers flavor kicker, precon lane badges and provider service children, the orientation guide’s actual standalone hierarchy/custom properties, and the Maze chip hover/focus state. All are declaration-asserted by the focused source guard; no screenshot or browser rerun was performed.
 
 The final palette correction keeps flavor and compact precon cards on `#f7edd8`, matching the existing site-surface rather than introducing a new brighter card tier. Precon exact badges retain dark teal while native/stretch retain gold. Segment tabs are now asserted in default, hover/focus/active, and disabled states; How This Plays asserts its child teal label separately from neutral body copy.
+
+## Third owner refinement
+
+Precon research links now join verified commander-provider links inside the existing closed `details.precon-provider-menu`; no research link remains exposed through `.precon-links`. The light adapter restores the vendor cost-symbol shadow on emitted `.ms-cost` glyphs, strengthens the Commander trigger/deck-link/orientation rules, and leaves semantic service/Mana colors intact. Radar white contrast is limited to datasets identified by the RADAR component provenance or a mono-White composite, keeps original data/membership/order, and restores stored paint on dark reversal. Focused source and radar checks passed with `git diff --check`; fixture expansion beyond the source-shape checks remains an independent QA concern.
+
+## Coordinator completion after worker return
+
+/root completed the remaining production menu and authoritative shared-radar fixtures under the existing RobDev authority; see the root delivery handoff's Third Owner refinement implementation completion. The worker's earlier incomplete-fixture report remains historical. Source/radar checks and eight in-memory sensitivity failures passed; independent frozen QA and manual rendered recheck remain separate and pending.

@@ -5,6 +5,20 @@ import { readFile, readdir } from "node:fs/promises";
 const baseline = "3cf826eb87702bd25b66a2853838b00a880d7307";
 const atBaseline = file => execFileSync("git", ["show", `${baseline}:${file}`], { encoding: "utf8", maxBuffer: 8 * 1024 * 1024 });
 const normalize = value => value.replace(/\r\n/g, "\n");
+// The Owner admitted only these three precon-render changes; protect the rest of the view.
+function expectedRuntimeSource(file) {
+  let expected = normalize(atBaseline(file));
+  if (!file.endsWith("/runtime/dossier-view.js")) return expected;
+  for (const [before, after] of [
+    ['  const links = verifiedCommanderProviderLinks(precon.mainCommander);', '  const links = dedupeLinks([\n    ...buildPreconResearchLinks(precon),\n    ...verifiedCommanderProviderLinks(precon.mainCommander),\n  ]);'],
+    ['  const researchLinks = buildPreconResearchLinks(precon);\n', ''],
+    ['      ${researchLinks.length ? `<div class="precon-links">${buildLinkButtons(researchLinks)}</div>` : ""}\n', ''],
+  ]) {
+    assert.equal(expected.split(before).length, 2, "approved precon baseline edit has one owner");
+    expected = expected.replace(before, after);
+  }
+  return expected;
+}
 const body = source => source.match(/<body\b[\s\S]*<\/body>/i)?.[0];
 const hrefs = source => [...source.matchAll(/<link rel="stylesheet" href="([^"]+)"\s*\/?>/g)].map(match => match[1]);
 async function archscryModules(root = "assets/js/archscry") {
@@ -34,7 +48,7 @@ for (const file of epochFiles) {
   const module = await readFile(file, "utf8");
   assert.ok(!module.includes("vm636"), `${file} cannot retain a stale Archscry import epoch`);
   for (const specifier of module.matchAll(/(?:from\s*|import\s*\()(["'])(\.\.?\/[^"']+?\.js)(?:\?v=([^"']+))?\1/g)) assert.equal(specifier[3], "vm687", `${file} keeps every relative module edge on vm687`);
-  if (!file.endsWith("/dossier-radar.js")) assert.equal(normalize(module).replaceAll("vm687", "vm636"), normalize(atBaseline(file)), `${file} remains baseline-identical except admitted cache transport`);
+  if (!file.endsWith("/dossier-radar.js")) assert.equal(normalize(module).replaceAll("vm687", "vm636"), expectedRuntimeSource(file), `${file} remains protected outside admitted cache transport and three precon edits`);
 }
 const marker = "/* VM-687:";
 const start = theme.indexOf(marker);
@@ -125,6 +139,17 @@ ownerPaint(".dossier-orientation .dossier-orientation-guide:is(:hover, :focus-vi
 ownerPaint(".dossier-orientation-actions button:is(:hover, :focus-visible)", {background: "#eadcc1", "border-color": "#8a5b19", color: "#211b18"});
 ownerPaint(".service-chip.service-maze:is(:hover, :focus-visible)", {background: "#f7edd8", "border-color": "#8a5b19"});
 assert.equal(normalize(await readFile("assets/js/shared/vm-rich-atmosphere.js", "utf8")), normalize(atBaseline("assets/js/shared/vm-rich-atmosphere.js")), "shared rich-atmosphere runtime remains baseline-identical");
+ownerPaint(".ms-cost", {"box-shadow": "-0.06em 0.07em 0 #111, 0 0.06em 0 #111"});
+for (const owner of [".deck-links", ".precon-provider-links"]) {
+  ownerPaint(owner + " .service-chip", {"border-color": "#866d47"});
+  ownerPaint(owner + " .service-chip:is(:hover, :focus-visible)", {"border-color": "#8a5b19"});
+}
+ownerPaint(".precons-section .precon-commander-trigger", {"border-bottom-color": "#8a5b19", color: "#8a5b19"});
+ownerPaint(".precons-section .precon-commander-trigger:is(:hover, :focus-visible)", {"border-bottom-color": "#51310d", color: "#51310d"});
+ownerPaint(".dossier-orientation", {"border-left": "2px solid var(--site-rule)"});
+const whiteOwner = ".vm-dossier-matrix-section:has(.matrix-mana-symbols .ms-w:only-child)";
+ownerPaint(whiteOwner + " .vm-trait-pip.is-lit", {background: "color-mix(in srgb, var(--identity-color) 92%, #8a5b19 8%)", "box-shadow": "0 0 4px rgba(138, 91, 25, 0.16)"});
+ownerPaint(whiteOwner + " .vm-trait-icon", {color: "color-mix(in srgb, var(--identity-color) 92%, #8a5b19 8%)", "border-color": "rgba(138, 91, 25, 0.16)", "text-shadow": "0 0 1px rgba(80, 55, 26, 0.18)"});
 const [questionnaire, atlas, readingGuide, dossierView, runtimeData, readingWalkthrough] = await Promise.all([readFile("assets/js/archscry/runtime/questionnaire.js", "utf8"), readFile("assets/js/archscry/runtime/identity-atlas.js", "utf8"), readFile("guide/reading/index.html", "utf8"), readFile("assets/js/archscry/runtime/dossier-view.js", "utf8"), readFile("assets/js/archscry/runtime/data.js", "utf8"), readFile("assets/js/guide/reading-walkthrough.js", "utf8")]);
 assert.match(runtimeData, /loadCoreJson\("gate-b1-placement-model\.json"/, "runtime loads the active Gate B1 question source");
 const model = JSON.parse(await readFile("data/gate-b1-placement-model.json", "utf8"));
@@ -142,9 +167,60 @@ for (const target of ["#reading-placement-meaning", "#reading-where-to-start", "
 assert.equal((readingGuide.match(/reading-dossier-roles/g) || []).length >= 1, true);
 assert.equal((readingGuide.match(/<dt>/g) || []).length, 7, "Reading retains seven dossier anatomy labels");
 for (const panel of ["placement", "start", "why", "adjacent", "commander-deck-starts", "starter-cards", "mana-base", "maze-discovery"]) assert.match(dossierView, new RegExp(`id: ["']${panel}["']`), `dossier supports ${panel} panel template`);
-for (const file of ["assets/js/shared/vm-radar.js", "assets/js/archscry/runtime/state.js", "assets/js/archscry/runtime/data.js", "assets/js/archscry/runtime/dossier-view.js", "assets/js/archscry/runtime/dossier-controls.js", "assets/js/archscry/runtime/questionnaire.js", "assets/js/archscry/runtime/identity-atlas.js", "assets/js/archscry/runtime/card-media.js", "assets/js/guide/reading-walkthrough.js", "assets/js/shared/guide-walkthrough.js"]) {
+assert.match(dossierView, /const links = dedupeLinks\(\[\s*\.\.\.buildPreconResearchLinks\(precon\),\s*\.\.\.verifiedCommanderProviderLinks\(precon\.mainCommander\)/, "precon research and verified commander links share one closed details menu");
+assert.doesNotMatch(dossierView, /<div class="precon-links">/, "precon research links are not exposed outside the details menu");
+assert.match(dossierView, /if \(!links\.length\) return "";/, "neither provider nor research link omits the details menu");
+assert.match(dossierView, /<details class="precon-provider-menu">[\s\S]*<summary class="precon-provider-trigger">[\s\S]*<div class="precon-provider-links">\$\{buildLinkButtons\(links\)\}/, "research-only, provider-only, and combined links share one closed menu shape");
+for (const file of ["assets/js/shared/vm-radar.js", "assets/js/archscry/runtime/dossier-view.js", "assets/js/archscry/runtime/state.js", "assets/js/archscry/runtime/data.js", "assets/js/archscry/runtime/dossier-controls.js", "assets/js/archscry/runtime/questionnaire.js", "assets/js/archscry/runtime/identity-atlas.js", "assets/js/archscry/runtime/card-media.js", "assets/js/guide/reading-walkthrough.js", "assets/js/shared/guide-walkthrough.js"]) {
   const current = normalize(await readFile(file, "utf8"));
-  const expected = normalize(atBaseline(file));
+  const expected = expectedRuntimeSource(file);
   assert.equal(current.replaceAll("vm687", "vm636"), expected, `${file} remains baseline-identical except admitted cache transport`);
+}
+// Execute production renderers and catalog fixtures without booting the app or inventing card facts.
+const [foundation, utils, content, catalog, validation] = await Promise.all([
+  readFile("assets/js/archscry/dossier/foundation.js", "utf8"),
+  readFile("assets/js/archscry/runtime/render-utils.js", "utf8"),
+  readFile("assets/js/archscry/runtime/content.js", "utf8"),
+  readFile("data/precons/vox-mana-precon-catalog.json", "utf8").then(JSON.parse),
+  readFile("data/placement/commander-provider-validation.json", "utf8").then(JSON.parse),
+]);
+const exportedRegion = (text, name) => {
+  const index = text.indexOf("export " + name);
+  assert.ok(index >= 0, "fixture production export " + name);
+  const next = text.indexOf("\nexport ", index + 1);
+  return text.slice(index, next < 0 ? text.length : next).replace(/^export /gm, "");
+};
+const menuState = { commanderProviderValidation: validation, scryfallLocalCardByName: new Map() };
+const menuProgram = [utils.replace(/^export /gm, ""),
+  exportedRegion(foundation, "const SERVICE_CHIP_META"), exportedRegion(foundation, "function getServiceChipMeta"),
+  exportedRegion(content, "function canonicalUsageCardId"),
+  ...["dedupeLinks", "buildLinkButtons", "wordExcerpt"].map(name => exportedRegion(dossierView, "function " + name)),
+  dossierView.slice(dossierView.indexOf("export const VALIDATED_EDHREC_PRECON_URLS"), dossierView.indexOf("export function buildPreconSectionHtml")).replace(/^export /gm, ""),
+  "return {buildPreconCardHtml, buildCommanderProviderDetails, buildPreconResearchLinks, verifiedCommanderProviderLinks, buildLinkButtons};",
+].join("\n");
+const menus = new Function("APP_STATE", menuProgram)(menuState);
+const buckle = catalog.precons.find(precon => precon.deckName === "Buckle Up");
+const peer = catalog.precons.find(precon => precon.deckName === "Peer Through Time");
+assert.ok(buckle && peer, "menu fixtures use actual precon catalog records");
+for (const [name, precon, providers, expectedCount] of [
+  ["combined", buckle, validation, 2], ["research only", buckle, {commanders: {}}, 1],
+  ["providers only", peer, validation, 1], ["neither", peer, {commanders: {}}, 0],
+]) {
+  menuState.commanderProviderValidation = providers;
+  const html = menus.buildPreconCardHtml(precon);
+  const details = menus.buildCommanderProviderDetails(precon);
+  const links = [...menus.buildPreconResearchLinks(precon), ...menus.verifiedCommanderProviderLinks(precon.mainCommander)];
+  assert.equal(links.length, expectedCount, name + " fixture availability");
+  assert.equal((html.match(/<details\b/g) || []).length, expectedCount ? 1 : 0, name + " has one menu iff links exist");
+  assert.doesNotMatch(html, /<div class="precon-links">|<details[^>]*\bopen(?:\s|=|>)/, name + " links are closed by default");
+  if (expectedCount) {
+    assert.equal((details.match(/<summary\b/g) || []).length, 1, name + " has one native menu trigger");
+    assert.equal((html.match(/<a\b/g) || []).length, expectedCount, name + " exposes no anchors outside menu");
+    assert.ok(html.includes(details), name + " full card contains complete details subtree");
+    assert.ok(details.includes(menus.buildLinkButtons(links)), name + " preserves emitted service classes, labels, URLs and target/rel");
+    for (const link of links) assert.ok(details.includes('href="' + link.url + '" target="_blank" rel="noopener"'), name + " keeps verified external target");
+  } else assert.equal(details, "");
+  assert.ok(html.includes('data-card-preview-name="' + precon.mainCommander + '"'), name + " retains commander hover hook");
+  assert.ok(html.includes('data-action="open-card-detail"'), name + " retains commander click action");
 }
 console.log("VM-687 route theme source boundaries passed.");

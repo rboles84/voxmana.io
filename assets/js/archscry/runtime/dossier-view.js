@@ -919,7 +919,10 @@ export function buildPreconResearchLinks(precon) {
 }
 
 export function buildCommanderProviderDetails(precon) {
-  const links = verifiedCommanderProviderLinks(precon.mainCommander);
+  const links = dedupeLinks([
+    ...buildPreconResearchLinks(precon),
+    ...verifiedCommanderProviderLinks(precon.mainCommander),
+  ]);
   if (!links.length) return "";
   return `
     <details class="precon-provider-menu">
@@ -1002,7 +1005,6 @@ export function buildPreconCardHtml(precon, usedCardIds = new Set()) {
     ? `This card appears because it is one of the cataloged main commanders of ${precon.deckName}.`
     : `This card appears because it is the cataloged main commander of ${precon.deckName}.`;
   const commanderProvenance = `data/precons/vox-mana-precons.source.json#${precon.deckName}.mainCommander`;
-  const researchLinks = buildPreconResearchLinks(precon);
   const commanderHtml = commanderNames.map((commanderName) => {
     const commanderButtonAttrs = buildActionAttrs("open-card-detail", {
       cardName: commanderName,
@@ -1026,7 +1028,6 @@ export function buildPreconCardHtml(precon, usedCardIds = new Set()) {
       <div class="precon-commander">Main commander: ${commanderHtml}</div>
       ${chips.length ? `<div class="precon-chip-row">${chips.map((chip) => `<span class="precon-chip">${escapeHtml(chip)}</span>`).join("")}</div>` : ""}
       ${publicRationale ? `<div class="precon-copy">${escapeHtml(publicRationale)}</div>` : ""}
-      ${researchLinks.length ? `<div class="precon-links">${buildLinkButtons(researchLinks)}</div>` : ""}
       ${buildCommanderProviderDetails(precon)}
     </div>`;
 }

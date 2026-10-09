@@ -445,6 +445,16 @@ html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-ro
 html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .dossier-orientation .dossier-orientation-guide:is(:hover, :focus-visible) { background: #eadcc1; border-color: #8a5b19; }
 html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .dossier-orientation-actions button:is(:hover, :focus-visible) { background: #eadcc1; border-color: #8a5b19; color: #211b18; }
 html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .service-chip.service-maze:is(:hover, :focus-visible) { background: #f7edd8; border-color: #8a5b19; color: #211b18; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .ms-cost { box-shadow: -0.06em 0.07em 0 #111, 0 0.06em 0 #111; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .deck-links .service-chip { border-color: #866d47; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .deck-links .service-chip:is(:hover, :focus-visible) { border-color: #8a5b19; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .precon-provider-links .service-chip { border-color: #866d47; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .precon-provider-links .service-chip:is(:hover, :focus-visible) { border-color: #8a5b19; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .precons-section .precon-commander-trigger { border-bottom-color: #8a5b19; color: #8a5b19; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .precons-section .precon-commander-trigger:is(:hover, :focus-visible) { border-bottom-color: #51310d; color: #51310d; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .vm-dossier-matrix-section:has(.matrix-mana-symbols .ms-w:only-child) .vm-trait-pip.is-lit { background: color-mix(in srgb, var(--identity-color) 92%, #8a5b19 8%); box-shadow: 0 0 4px rgba(138, 91, 25, 0.16); }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .vm-dossier-matrix-section:has(.matrix-mana-symbols .ms-w:only-child) .vm-trait-icon { color: color-mix(in srgb, var(--identity-color) 92%, #8a5b19 8%); border-color: rgba(138, 91, 25, 0.16); text-shadow: 0 0 1px rgba(80, 55, 26, 0.18); }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .dossier-orientation { border-left: 2px solid var(--site-rule); }
 
 /* Low-specificity control group preserves the more-specific landing link exception. */
 html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .vm-dossier-matrix-section .vm-strategium-detail { background: #fff8e8; border-color: #a88d62; box-shadow: 0 8px 18px rgba(80, 55, 26, 0.18); }
