@@ -272,3 +272,21 @@ Mono White trait refinements attach to the actual rendered matrix through `.vm-d
 The source guard protects the complete `dossier-view.js` body by applying exactly three admitted transformations to the admission baseline before equality comparison. Its production/catalog fixtures exercise combined, research-only, provider-only and neither cases; require a single closed native details menu when links exist; retain exact external target/service output and commander action hooks; and reject the exposed `.precon-links` row.
 
 The radar guard executes the actual shared radar owner for mono White, White-Blue and mono Blue and compares the candidate with frozen C5. It covers saved-light construction, repeated light/dark reversals, canonical dataset fields/data/order and object/data references, options/plugins/animation including reduced motion, active pinned-axis state, component/composite toggles and both-off protection, profile immutability, listener cleanup and destruction. The only normalized test exclusions are the three new White-presentation metadata fields; all other field presence and paint are compared. No concrete source-level blocker remains before candidate freeze. Exact-candidate execution is still required, and Owner visual recheck plus the preserved browser gaps continue to control the final BLOCKED disposition.
+
+## Exact C6 White-refinement binding
+
+Task: VM-687
+
+Candidate: `b69c88a226beb5081815682b58ae0f0c8dc888e4`
+
+RobQA: **BLOCKED**
+
+Execution: **SEPARATE**
+
+Independent exact-candidate execution passed `node scripts/vm687-archscry-theme-source-tests.mjs`, `node scripts/vm687-archscry-theme-radar-tests.mjs`, full baseline-to-C6 and C5-to-C6 patch hygiene, bounded protected-byte/path review and generated-index freshness. The source guard covers the actual cost-glyph shadow, both deck/provider chip wrappers and states, commander trigger states, orientation edge, mono-White trait provenance, the exact three admitted dossier-view transformations and four production/catalog menu cases. The radar guard executes mono White, White-Blue and mono Blue against frozen C5 and protects theme reversal, dataset/state/option/reference/motion/toggle/lifecycle contracts.
+
+C5-to-C6 product changes are limited to `assets/css/theme-pages.css`, `assets/js/archscry/dossier-radar.js` and `assets/js/archscry/runtime/dossier-view.js`; the focused source/radar guards and lifecycle records are the only other changes. Entrypoints, Reading HTML, shared runtime/radar, data, existing tests, routes, questionnaire/state, Atlas, card media, layout, artwork, persistence, browser witness and predecessor checks remain unchanged. The generated board and handoff index were fresh at the frozen candidate.
+
+C6 remains blocked pending the Owner's visual recheck of the eight third-batch screenshots and disposition of the existing residual objective browser gaps. The sole approved automated browser run remains a launch failure before assertions. No rendered PASS, screenshot inference, ACCEPT or waiver is claimed; no browser or unchanged suite was run.
+
+The original exact decision is preserved at [vm687-white-refinement-qa.md](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-white-refinement-qa.md). No product or test change, browser execution or commit was made by RobQA.

@@ -181,3 +181,19 @@ Coordinator execution: focused source and radar guards PASS. Four actual product
 [Eight in-memory sensitivity witnesses](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-white-refinement-sensitivity.json) all fail as expected for shadow, underline, border, left rule, wrong White :has attachment, lost research menu, dark field pollution and missing slight White paint. Served/repository files were never changed by these mutations. These checks prove source/logic sensitivity, not rendered visual balance.
 
 Remaining: exact frozen independent QA and durable candidate binding; Owner light/dark visual recheck and previously disclosed residual objective browser coverage remain pending. Stage 6 should execute real dataset flags/field-presence on reversal, preserve full source boundaries around approved substitutions, and exercise research-only availability rather than infer it from a happy-path template.
+
+## C6 exact White/menu refinement checkpoint
+
+Material candidate: b69c88a226beb5081815682b58ae0f0c8dc888e4
+
+RobQA: BLOCKED
+
+Execution: SEPARATE
+
+Owner: PENDING
+
+Independent [C6 QA original](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-white-refinement-qa.md) passes the selected source/radar guards, both hygiene scopes, protected-path/byte review and generated-index freshness. The six requested refinements are implemented. Original automated browser launch failure and C1–C5 evidence retain their actual meaning; no unchanged/broad suite or browser was repeated. Engineering remains blocked by the previously disclosed residual objective browser coverage, alongside pending Owner visual recheck; this is not SHIP/Owner Review, ACCEPT or integration.
+
+Current local server returned HTTP 200, Cache-Control no-store, and the actual new cost shadow/mono-White trait owner in theme-pages.css?v=vm687. This confirms delivery only. Reload existing localhost50122 pages without reseeding or resetting storage. On light Blue/start/all, confirm the shadow, darker commander underline/default+hover/focus and browsing chips; Buckle Up should show only a closed Decks menu, with EDHREC View precon after opening. On the saved White reading, confirm the orientation left rule and slight chart/pip/icon contrast; use a mixed White dossier to check the cream symbol shadow. Reverse to dark and back while a matrix axis is pinned and component/synthesis toggles are selected. These remain manual checkpoints, not recorded PASS.
+
+[Final Git accounting](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-white-refinement-git.md) records the full material/evidence/branch scopes after evidence freeze. No feature push, PR, merge, deployment, publishing or stage6 occurred. The next authorized action is the same-task Owner recheck; retained residual browser contracts require evidence or an explicit Owner disposition before the broader engineering gate can advance.
