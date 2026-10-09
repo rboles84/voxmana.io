@@ -21,7 +21,7 @@ export {
   collectArchidektTagLanes,
   buildArchidektSearchLinks,
   buildCommanderPackageLinks,
-} from "./dossier/foundation.js?v=vm636";
+} from "./dossier/foundation.js?v=vm687";
 
 export {
   buildReadingOmens,
@@ -35,7 +35,7 @@ export {
   buildPlayPatternSummary,
   buildResultSummaryStrip,
   buildCommanderDossier,
-} from "./dossier/reading.js?v=vm636";
+} from "./dossier/reading.js?v=vm687";
 
 export {
   PRECON_PREVIEW_LIMIT,
@@ -43,9 +43,9 @@ export {
   buildCommanderDeckStartFallbackCandidates,
   buildPublicPreconRationale,
   buildPreconRecommendations,
-} from "./dossier/precons.js?v=vm636";
+} from "./dossier/precons.js?v=vm687";
 
 export {
   renderCommanderDossierText,
   auditCommanderDossier,
-} from "./dossier/audit.js?v=vm636";
+} from "./dossier/audit.js?v=vm687";

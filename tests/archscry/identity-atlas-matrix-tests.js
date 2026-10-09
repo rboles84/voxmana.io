@@ -11,9 +11,9 @@ globalThis.document = {
   querySelectorAll() { return []; }, querySelector() { return null; },
   getElementById(id) { return nodes.get(id) || null; },
 };
-const { getDossierRadarProfile, renderDossierRadarSection, destroyDossierManaRadar } = await import("../../assets/js/archscry/dossier-radar.js?v=vm636");
-const { initializeDossierRadarIfVisible } = await import("../../assets/js/archscry/runtime/dossier-controls.js?v=vm636");
-const { APP_STATE } = await import("../../assets/js/archscry/runtime/state.js?v=vm636");
+const { getDossierRadarProfile, renderDossierRadarSection, destroyDossierManaRadar } = await import("../../assets/js/archscry/dossier-radar.js?v=vm687");
+const { initializeDossierRadarIfVisible } = await import("../../assets/js/archscry/runtime/dossier-controls.js?v=vm687");
+const { APP_STATE } = await import("../../assets/js/archscry/runtime/state.js?v=vm687");
 const keys = Object.keys(layers.expressions).filter(key => layers.expressions[key].active !== false && factions[key]);
 assert.equal(keys.length, 37);
 for (const key of keys) {

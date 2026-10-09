@@ -25,7 +25,8 @@ for (const file of ["assets/css/apocrypha.css", "assets/css/site-skin.css", "ass
   assert.equal(normalize(await readFile(file, "utf8")), normalize(fileAtBaseline(file)), `${file} remains protected at the recorded stage-4 baseline`);
 }
 
-const adapter = theme.slice(theme.indexOf("/* VM-685:"));
+const adapterEnd = theme.indexOf("/* VM-687:");
+const adapter = theme.slice(theme.indexOf("/* VM-685:"), adapterEnd < 0 ? undefined : adapterEnd);
 assert.ok(adapter.length > 0, "VM-685 adapter must be present");
 const selectors = adapter.replace(/\/\*[\s\S]*?\*\//g, "").split("}")
   .filter(block => block.includes("{"))

@@ -4,7 +4,7 @@
 
   var root = document.documentElement;
   var STORAGE_KEY = "vm_theme_mode_v1";
-  var enabled = root && ["home", "terms", "privacy", "guide", "strategium", "apocrypha"].includes(root.dataset.vmThemeOptIn);
+  var enabled = root && ["home", "terms", "privacy", "guide", "strategium", "apocrypha", "archscry", "guide-reading"].includes(root.dataset.vmThemeOptIn);
   var current = "dark";
 
   function valid(value) { return value === "light" || value === "dark"; }

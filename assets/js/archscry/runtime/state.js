@@ -1,11 +1,11 @@
 import {
   isResumableGateAQuestion,
-} from "../archscry-presentation.js?v=vm636";
+} from "../archscry-presentation.js?v=vm687";
 
 import {
   DEFAULT_STARTER_PROFILE,
   selectNextAdaptiveQuestion,
-} from "../gate-b1-placement-engine.js?v=vm636";
+} from "../gate-b1-placement-engine.js?v=vm687";
 
 export const READING_STATE = globalThis.VM_READING_STATE || { currentResult: null };
 
