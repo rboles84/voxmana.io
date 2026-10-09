@@ -259,3 +259,19 @@ The recording was decoded with installed OBS FFmpeg DLLs into external review fr
 RobDev completed only the final light guide-reading adapter: active utility background transparent/border0/shadownone/normal700/plain text, matching hover-focus ink and an explicit keyboard outline; first actual Reading section top width0; next-section paragraph joins existing #685847 !important prose. The video is the same idle/hover paint conflict and adds no runtime defect. Shared topbar/site-skin/route CSS, Reading HTML/walkthrough, prior Archscry bytes and dark states are protected.
 
 The existing source guard now handles comma-separated top-level selector branches and accumulates final declarations for identical owners, retaining prior assertions and adding exact Reading state/value guards. It checks baseline-exact topbar/site-skin/guide-reading CSS as well as existing page body/walkthrough protections. Developer source guard and diff hygiene PASS. Independent exact-candidate QA follows freeze; no product browser, changed runtime or additional suite. No assertion proves subjective resulting appearance. Local review origin and storage stay intact.
+
+## C9 exact Reading Guide correction checkpoint
+
+Material candidate: 7bf143718ec36dd3b625fde18d31616dac0331aa
+
+RobQA: BLOCKED
+
+Execution: SEPARATE
+
+Owner: PENDING
+
+Independent [original C9 QA](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-reading-guide-correction-qa.md) passes the existing focused source guard, baseline/E9 hygiene, exact protected-byte/path review and fresh generated views. Three in-memory theme-input sensitivities fail for the intended missing owners: rejected E9 active Guide, missing first Reading divider exception and missing What next prose member. No served/repo mutation, new test suite or product browser run occurred.
+
+Current local CSS returns HTTP200/no-store with all three final owners; this confirms delivery only. First sandboxed localhost read was access-restricted; the approved read-only escalation succeeded. Reload http://127.0.0.1:50122/guide/reading/ in saved light: Guide should be plain/readable before hover, during hover and after leave, with a clear keyboard focus outline; hero→first section should use one rule. Reopen the dossier Field Guide beacon's existing guided route and advance to What next to judge its paragraph ink. No reseed/storage reset is needed; walkthrough teaching, targets, actions, focus, query/history and dark/Archscry code remain unchanged.
+
+Prior Archscry visual completion remains intact for its unchanged route bytes. Reading Guide judgment and prior residual objective browser coverage remain pending, so broader exact RobQA stays BLOCKED; this is not SHIP, ACCEPT, or a waiver. [Final Git accounting](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-reading-guide-correction-git.md) records the material/evidence/whole-branch scopes. No push, PR, merge, deployment, publishing or stage6 occurred.

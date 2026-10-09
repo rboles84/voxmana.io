@@ -358,3 +358,23 @@ The proportionate candidate selection is an extension of `scripts/vm687-archscry
 The focused source guard should parse the actual final `guide-reading` owners and pin three outcomes rather than selector presence alone: the active Guide utility link's normal, hover/focus and focus-visible reset has transparent background, no border or box shadow, readable site ink and retained focus outline; the first `.reading-guide-section` inside `.reading-guide-story` removes only its redundant top border while the hero bottom and later section rules remain; and `.reading-guide-next p` receives the accepted light secondary ink with the same final precedence as other Reading prose. Each new paint/layout selector must stay under the light `guide-reading` route prefix so dark presentation is unchanged.
 
 Exact review should require CSS and its focused source guard as the only product/test paths. Preserve Reading HTML, walkthrough targets and behavior, link destinations, topbar and site-skin sources, `guide` predecessor rules, Archscry product bytes and route completion, section markup/order, all other borders/spacing and every runtime/data/storage owner. Owner judgment controls the visual result. The earlier residual objective browser gaps and broader BLOCKED disposition remain unchanged; these findings add no runtime gap and do not authorize a browser retry. No concrete prefreeze hold is identified.
+
+## Exact C9 Reading Guide correction binding
+
+Task: VM-687
+
+Candidate: `7bf143718ec36dd3b625fde18d31616dac0331aa`
+
+RobQA: **BLOCKED**
+
+Execution: **SEPARATE**
+
+Independent exact-candidate execution passed `node scripts/vm687-archscry-theme-source-tests.mjs`, full baseline-to-C9 and E9-to-C9 patch hygiene, bounded protected path/byte review and generated-index freshness. The only E9-to-C9 product/test paths are `assets/css/theme-pages.css` and the existing focused source guard. Shared topbar, site skin, authored Reading CSS, Reading HTML and walkthrough, Archscry product bytes, runtime, data, existing tests, routes and storage owners remain byte-identical.
+
+The guard's generalized parser retains the prior owner assertions while accumulating repeated selector branches in cascade order. It pins final values for the three light-only Reading outcomes: active Guide normal/interaction/focus paint, removal of the first Reading section's redundant top rule, and accepted secondary ink on the Step IV paragraph. All new selectors carry the light `guide-reading` prefix, preserving dark and predecessor presentation.
+
+Three isolated theme-input sensitivity cases produced the expected failures without repository mutation: the E9 theme fails on the missing active Guide owner; removing only the first-section owner fails its border invariant; and removing only the Step IV member fails its prose invariant. The original sensitivity result is preserved at [vm687-reading-guide-correction-sensitivity.json](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-reading-guide-correction-sensitivity.json).
+
+The decoded Owner video corroborates the active-link cascade cause, and local HTTP 200/no-store confirms delivery of the three CSS owners. Neither is treated as rendered PASS. Archscry's completed visual finding loop remains preserved. C9 remains blocked pending Reading Guide Owner judgment and disposition of the previously recorded residual objective browser gaps; the original automated browser launch failure remains unresolved and no browser retry, full ACCEPT, waiver or integration authorization is inferred.
+
+The original exact decision is preserved at [vm687-reading-guide-correction-qa.md](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-reading-guide-correction-qa.md). No product or test change, browser execution or commit was made by RobQA.
