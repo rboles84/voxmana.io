@@ -363,7 +363,7 @@ html[data-vm-theme="light"][data-vm-theme-opt-in="guide-reading"] body.vm-guide-
 ) { background: #fff8e8; border-color: #a88d62; color: #31271f; }
 html[data-vm-theme="light"][data-vm-theme-opt-in="guide-reading"] body.vm-guide-reading-route .reading-dossier-directory strong { background: #eadcc1; }
 html[data-vm-theme="light"][data-vm-theme-opt-in="guide-reading"] body.vm-guide-reading-route :is(
-  .guide-brand-line, .guide-hero-orientation, .reading-guide-section p,
+  .guide-brand-line, .guide-hero-orientation, .reading-guide-section p, .reading-guide-next p,
   .reading-intent-grid p, .reading-dossier-directory span, .reading-flow-steps small,
   .reading-dossier-roles dd, .maze-footer.guide-footer
 ) { color: #685847 !important; }
@@ -372,6 +372,18 @@ html[data-vm-theme="light"][data-vm-theme-opt-in="guide-reading"] body.vm-guide-
   .reading-dossier-directory strong, .guide-specimen figcaption strong,
   .reading-dossier-roles dt, .reading-guide-section h2, .reading-guide-next h2
 ) { color: #211b18; text-shadow: none; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide-reading"] body.vm-guide-reading-route .guide-story > .reading-guide-section:first-child { border-top-width: 0; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide-reading"] body.vm-guide-reading-route .vm-utility .vm-utility-link[data-vm-nav="guide"][aria-current="page"],
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide-reading"] body.vm-guide-reading-route .vm-utility .vm-utility-link[data-vm-nav="guide"][aria-current="page"]:is(:hover, :focus-visible) {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  color: var(--site-copy);
+  font-weight: 700;
+  text-decoration: none;
+}
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide-reading"] body.vm-guide-reading-route .vm-utility .vm-utility-link[data-vm-nav="guide"][aria-current="page"]:is(:hover, :focus-visible) { color: var(--site-ink); }
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide-reading"] body.vm-guide-reading-route .vm-utility .vm-utility-link[data-vm-nav="guide"][aria-current="page"]:focus-visible { outline: 2px solid var(--site-ink); outline-offset: 2px; }
 html[data-vm-theme="light"][data-vm-theme-opt-in="guide-reading"] body.vm-guide-reading-route .guide-cta:is(:hover, :focus-visible) { background: #eadcc1; color: #211b18; border-color: #8a5b19; }
 html[data-vm-theme="light"][data-vm-theme-opt-in="guide-reading"] body.vm-guide-reading-route .driver-popover.vm-guide-walkthrough-popover { background: #fff8e8; border-color: #a88d62; color: #211b18; }
 html[data-vm-theme="light"][data-vm-theme-opt-in="guide-reading"] body.vm-guide-reading-route .driver-popover.vm-guide-walkthrough-popover .driver-popover-title { color: #8a5b19; }

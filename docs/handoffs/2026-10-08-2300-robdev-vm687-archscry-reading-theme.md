@@ -96,3 +96,11 @@ Added only `padding-right: 1rem` to that same final light Archscry orientation r
 ## Coordinator completion after worker return
 
 /root completed the remaining production menu and authoritative shared-radar fixtures under the existing RobDev authority; see the root delivery handoff's Third Owner refinement implementation completion. The worker's earlier incomplete-fixture report remains historical. Source/radar checks and eight in-memory sensitivity failures passed; independent frozen QA and manual rendered recheck remain separate and pending.
+
+## Reading Guide owner correction
+
+The final light-only Reading adapter now clears the inherited dark active-Guide utility paint while preserving its hover and focus-visible treatment, removes the duplicate transition rule only from the first rendered `.reading-guide-section`, and maps the Step 4 `.reading-guide-next p` copy to the existing muted parchment ink. The adjacent video-guide interaction remains outside this admitted correction. Dark paint, walkthrough/runtime targets, navigation/history, shared topbar behavior, layout, motion, and Archscry are unchanged. No developer checks were run at the coordinator's instruction; the parent retains guard selection and recording.
+
+## Reading Guide source regression record
+
+The focused VM-687 source guard now parses top-level selector branches and merged final declaration owners, including the light Reading active utility normal/hover/focus-visible states, first-section transition exception, and muted next-step paragraph ink. It also pins the shared topbar, site skin, route CSS, walkthrough, and Reading body to their protected sources; the shared skin retains its existing `.guide-chapter:first-child` relationship while the adapter supplies the Reading-specific equivalent. The inspected recording showed the expected dark idle active utility and plain hover text, not a distinct interaction failure; no runtime behavior was changed. Developer evidence: `node scripts/vm687-archscry-theme-source-tests.mjs` and `git diff --check` passed. Browser work, QA selection, Owner judgment, commit, and integration remain outside this handoff.

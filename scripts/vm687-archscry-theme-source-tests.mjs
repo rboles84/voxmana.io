@@ -25,9 +25,11 @@ async function archscryModules(root = "assets/js/archscry") {
   const entries = await readdir(root, { withFileTypes: true });
   return (await Promise.all(entries.map(entry => entry.isDirectory() ? archscryModules(`${root}/${entry.name}`) : entry.name.endsWith(".js") ? [`${root}/${entry.name}`] : []))).flat();
 }
-const [archscry, reading, theme, controller] = await Promise.all([
+const [archscry, reading, theme, controller, topbar, siteSkin, guideReadingCss] = await Promise.all([
   readFile("archscry/index.html", "utf8"), readFile("guide/reading/index.html", "utf8"),
-  readFile("assets/css/theme-pages.css", "utf8"), readFile("assets/js/shared/vm-theme.js", "utf8")
+  readFile("assets/css/theme-pages.css", "utf8"), readFile("assets/js/shared/vm-theme.js", "utf8"),
+  readFile("assets/css/topbar.css", "utf8"), readFile("assets/css/site-skin.css", "utf8"),
+  readFile("assets/css/guide-reading.css", "utf8")
 ]);
 for (const [name, file, source, prefix, routeCss, skinCss] of [
   ["archscry", "archscry/index.html", archscry, "../", "../assets/css/archscry.css?v=vm635", "../assets/css/site-skin.css?v=vm652"],
@@ -42,6 +44,10 @@ for (const [name, file, source, prefix, routeCss, skinCss] of [
   assert.equal(currentBody.replaceAll("index.js?v=vm687", "index.js?v=vm636"), baselineBody, `${name} body, hooks, content and targets remain protected except the admitted Archscry cache token`);
 }
 assert.equal(normalize(controller).replace(', "archscry", "guide-reading"', ""), normalize(atBaseline("assets/js/shared/vm-theme.js")), "VM-687 changes controller allowlist only");
+assert.equal(normalize(topbar), normalize(atBaseline("assets/css/topbar.css")), "Reading reuses the shared topbar without changing it");
+assert.equal(normalize(siteSkin), normalize(atBaseline("assets/css/site-skin.css")), "Reading keeps the shared skin owner byte-identical");
+assert.equal(normalize(guideReadingCss), normalize(atBaseline("assets/css/guide-reading.css")), "Reading route CSS remains authored by its existing owner");
+assert.match(siteSkin, /body\.vm-site-skin\.vm-guide-route \.guide-story > \.guide-chapter:first-child\s*\{\s*border-top-width:\s*0;\s*\}/, "shared skin reserves the hero transition exception for guide chapters");
 assert.match(archscry, /index\.js\?v=vm687/);
 const epochFiles = await archscryModules();
 for (const file of epochFiles) {
@@ -61,19 +67,24 @@ const selectors = adapter.replace(/\/\*[\s\S]*?\*\//g, "").split("}").filter(blo
 assert.ok(selectors.every(selector => scopePrefixes.some(prefix => selector.startsWith(prefix))), "every top-level VM-687 selector branch stays scoped to an admitted light route");
 for (const expected of [".answer-card:is(:hover, :focus-within)", ".dossier-rail", ".section-label", ".vm-radar-fallback", ".archscry-card-dialog", ".card-preview-overlay", ".identity-atlas-board", ".identity-atlas-group-heading", ".identity-atlas-pager", ".identity-atlas-card", ".reading-dossier-directory strong", ".reading-guide-next", ".driver-popover.vm-guide-walkthrough-popover", ".maze-footer.guide-footer"]) assert.ok(adapter.includes(expected), `adapter inventories ${expected}`);
 // Owner-confirmed regressions: inspect actual final declarations, not selector presence alone.
-const normalizeSelector = value => value.replace(/\s+/g, " ").trim();
-const ownerRules = new Map(adapter.replace(/\/\*[\s\S]*?\*\//g, "").split("}").filter(block => block.includes("{")).map(block => {
+const normalizeSelector = value => value.replace(/\s+/g, " ").replace(/\(\s+/g, "(").replace(/\s+\)/g, ")").trim();
+const ownerRules = new Map();
+for (const block of adapter.replace(/\/\*[\s\S]*?\*\//g, "").split("}").filter(block => block.includes("{"))) {
   const split = block.indexOf("{");
   const declarations = Object.fromEntries(block.slice(split + 1).split(";").map(value => value.trim()).filter(Boolean).map(value => {
     const colon = value.indexOf(":");
     assert.ok(colon > 0, "owner paint declaration must parse");
     return [value.slice(0, colon).trim(), value.slice(colon + 1).trim()];
   }));
-  return [normalizeSelector(block.slice(0, split)), declarations];
-}));
-const ownerPaint = (selector, values) => {
-  const rule = ownerRules.get(scopePrefixes[0] + " " + selector);
-  assert.ok(rule, "missing actual light paint owner: " + selector);
+  for (const selector of topLevelBranches(block.slice(0, split))) {
+    const key = normalizeSelector(selector);
+    ownerRules.set(key, [...(ownerRules.get(key) || []), declarations]);
+  }
+}
+const ownerPaint = (selector, values, scopePrefix = scopePrefixes[0]) => {
+  const rules = ownerRules.get(normalizeSelector(scopePrefix + " " + selector));
+  assert.ok(rules, "missing actual light paint owner: " + selector);
+  const rule = Object.assign({}, ...rules);
   for (const [property, value] of Object.entries(values)) assert.equal(rule[property], value, selector + " final " + property);
 };
 ownerPaint(".vm-topbar", {background: "#f7edd8"});
@@ -150,6 +161,13 @@ ownerPaint(".dossier-orientation", {"border-left": "2px solid var(--site-rule)"}
 const whiteOwner = ".vm-dossier-matrix-section:has(.matrix-mana-symbols .ms-w:only-child)";
 ownerPaint(whiteOwner + " .vm-trait-pip.is-lit", {background: "color-mix(in srgb, var(--identity-color) 92%, #8a5b19 8%)", "box-shadow": "0 0 4px rgba(138, 91, 25, 0.16)"});
 ownerPaint(whiteOwner + " .vm-trait-icon", {color: "color-mix(in srgb, var(--identity-color) 92%, #8a5b19 8%)", "border-color": "rgba(138, 91, 25, 0.16)", "text-shadow": "0 0 1px rgba(80, 55, 26, 0.18)"});
+const readingOwnerPaint = (selector, values) => ownerPaint(selector, values, scopePrefixes[1]);
+const activeGuide = '.vm-utility .vm-utility-link[data-vm-nav="guide"][aria-current="page"]';
+readingOwnerPaint(activeGuide, {background: "transparent", border: "0", "box-shadow": "none", color: "var(--site-copy)", "font-weight": "700", "text-decoration": "none"});
+readingOwnerPaint(activeGuide + ":is(:hover, :focus-visible)", {background: "transparent", border: "0", "box-shadow": "none", color: "var(--site-ink)", "font-weight": "700", "text-decoration": "none"});
+readingOwnerPaint(activeGuide + ":focus-visible", {outline: "2px solid var(--site-ink)", "outline-offset": "2px"});
+readingOwnerPaint(".guide-story > .reading-guide-section:first-child", {"border-top-width": "0"});
+readingOwnerPaint(":is(.guide-brand-line, .guide-hero-orientation, .reading-guide-section p, .reading-guide-next p, .reading-intent-grid p, .reading-dossier-directory span, .reading-flow-steps small, .reading-dossier-roles dd, .maze-footer.guide-footer)", {color: "#685847 !important"});
 const [questionnaire, atlas, readingGuide, dossierView, runtimeData, readingWalkthrough] = await Promise.all([readFile("assets/js/archscry/runtime/questionnaire.js", "utf8"), readFile("assets/js/archscry/runtime/identity-atlas.js", "utf8"), readFile("guide/reading/index.html", "utf8"), readFile("assets/js/archscry/runtime/dossier-view.js", "utf8"), readFile("assets/js/archscry/runtime/data.js", "utf8"), readFile("assets/js/guide/reading-walkthrough.js", "utf8")]);
 assert.match(runtimeData, /loadCoreJson\("gate-b1-placement-model\.json"/, "runtime loads the active Gate B1 question source");
 const model = JSON.parse(await readFile("data/gate-b1-placement-model.json", "utf8"));
