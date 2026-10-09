@@ -203,3 +203,17 @@ Current local server returned HTTP 200, Cache-Control no-store, and the actual n
 Owner finding: the decision text touches C6's brown left rule. The [original request and screenshot](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-owner-spacing-finding/finding.md) are preserved. Fresh canonical continue PASS at clean E6 4829f1a42403c6330a7c8dcfa484edeb41aa50e5 confirms the same sole task branch and unchanged live/main baseline. This explicit small spacing correction is inside the admitted CSS owner and requires no new branch or runtime/scope exception.
 
 Immediate cause: site-skin.css resets dossier-orientation padding to 16px 0 after archscry.css. Add only padding-left:1rem to the existing light Archscry orientation border rule, matching dossier-snapshot-card's horizontal inset. Protect vertical spacing, grid/breakpoints, colors, all other panels/dark presentation, runtime/reading state/content/storage/Maze. Existing configured RobDev Terra medium handles CSS/own handoff; independent RobQA Sol medium owns proportional validation. Parent maintains lifecycle records. No browser or new test is justified by one reversible spacing property; retain original broader evidence gaps and manual Owner spacing judgment. Stage6 lesson: pair a new edge rule with the inherited inner inset at its actual late cascade owner.
+
+## C7 exact spacing checkpoint
+
+Material candidate: 67df7eb3cb4eb85a799f8d84a318ade2bdbdeef3
+
+RobQA: BLOCKED
+
+Execution: SEPARATE
+
+Owner: PENDING
+
+Independent [C7 QA original](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-spacing-correction-qa.md) passes the existing VM687 source guard, baseline/C6 patch hygiene, exact protected-byte/path review and index freshness. The sole product change adds 1rem left padding beside the existing light orientation rule; no new test, unchanged radar/menu/broad suite or browser rerun was needed. Local theme-pages.css?v=vm687 returned HTTP200/no-store with the exact declaration, confirming delivery only. Reload the current saved dossier to judge the inset against the brown rule. No reseed/storage reset is needed.
+
+The original Owner screenshot and all C1–C6 decisions/browser evidence remain preserved. This small correction creates no new evidence gap; broader existing residual browser coverage and Owner review remain pending, so exact RobQA remains BLOCKED rather than SHIP. [Final Git accounting](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-spacing-correction-git.md) supplies full material/evidence/branch paths and state. No push, PR, merge, deployment, publishing or stage6 work occurred.

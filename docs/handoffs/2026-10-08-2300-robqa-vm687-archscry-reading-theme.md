@@ -298,3 +298,21 @@ The Owner supplied one screenshot showing the light decision copy touching the n
 The proportional exact-candidate selection is the existing VM-687 source guard with the final selector/declaration map extended to pin `padding-left: 1rem`, C6-to-C7 and baseline-to-C7 patch hygiene, bounded path/byte review and generated-index freshness. No new spacing-specific test, radar/menu guard, VM-685/controller/matrix suite or browser run is selected because their owners and risks are unchanged. Owner visual judgment controls the spacing result. The previously recorded residual objective browser gaps remain unchanged and should not be expanded or treated as resolved by this one-rule correction.
 
 At freeze, require the material delta to contain only the final light CSS declaration, its existing source-guard expectation and lifecycle records. Preserve the C6 left-border value, site-skin source, dark paint, responsive grid and all product/runtime/template/radar bytes. No concrete hold is identified before implementation.
+
+## Exact C7 spacing-correction binding
+
+Task: VM-687
+
+Candidate: `67df7eb3cb4eb85a799f8d84a318ade2bdbdeef3`
+
+RobQA: **BLOCKED**
+
+Execution: **SEPARATE**
+
+Independent exact-candidate execution passed `node scripts/vm687-archscry-theme-source-tests.mjs`, full baseline-to-C7 and C6-to-C7 patch hygiene, bounded protected-byte/path review and generated-index freshness. Exact C6-to-C7 inspection confirms that the sole product change adds `padding-left: 1rem` to the existing Archscry light-only `.dossier-orientation` rule beside its unchanged two-pixel left border. Runtime, templates, data, tests, radar/menu owners, entrypoints, browser witness, dark paint, site-skin source, responsive grid, action layout and every other spacing declaration remain unchanged; other delta paths are lifecycle records only.
+
+This source-bound result establishes the exact selector, scope, declaration and protected bytes. Owner visual judgment remains the authority for whether the inset resolves the supplied screenshot. No new spacing test, radar/menu guard, VM-685/controller/matrix suite or browser run was selected.
+
+C7 remains blocked for the previously recorded Owner visual recheck and residual objective browser coverage. The spacing correction creates no new gap and resolves none of those broader gaps. The sole approved automated browser run remains a launch failure before assertions; no rendered PASS, screenshot inference, ACCEPT or waiver is claimed.
+
+The original exact decision is preserved at [vm687-spacing-correction-qa.md](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-spacing-correction-qa.md). No product or test change, browser execution or commit was made by RobQA.
