@@ -277,3 +277,109 @@ No Puppeteer debt suite, stale 39+10 visual comparator, screenshot/image compari
 The Owner's footer-standardization question is read-only design inventory/recommendation work in this correction. No accepted predecessor footer contract or shared footer implementation may change without a separate explicit scope decision. Subjective bold-label weight/feel and any future footer standard remain Owner judgment; engineering owns the objective label contrast and population completeness.
 
 No replacement-candidate QA has run. Root's pre-freeze reproduction and red witness are development evidence only.
+
+
+## Owner-label replacement exact-candidate QA
+
+Task: VM-685
+Candidate: 78ec24583e772ae8781acd569f9036807b262026
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: /root/apocrypha_qa
+Implementer: /root/apocrypha_dev and /root
+
+# Independent replacement-candidate RobQA — Apocrypha theme stage 4
+
+## Candidate binding and decision
+
+Independent engineering QA passes exact replacement material candidate `78ec24583e772ae8781acd569f9036807b262026` on `codex/vm-685-apocrypha-theme`, against baseline and merge-base `7fcf62c0d4a1389b668a39c27c7075d18c221c99`.
+
+The worktree was clean and HEAD equaled the candidate before and after QA. Fresh remote-aware continuation passed with local main, origin main, live remote main, admission baseline, and merge-base all equal to the recorded baseline; no remote VM-685 feature branch exists. The complete baseline-to-candidate history contains 13 admitted paths. The focused correction from evidence commit `724cb70f16ae8c3b5931d974b1079e5dd35c403a` changes eight admitted paths: one route-scoped CSS rule, strengthened VM-685 source/browser assertions, and lifecycle records that revoke the earlier verdict and return the task to In Progress.
+
+The product correction is limited to light, opted-in Apocrypha source-card paragraph labels: `.apoc-source-card p > strong { color: #211b18; }`. It does not change the dark owner, source text, source registry, renderer, authored fallback, grouping, counts, order, classification, status, links, layout, breakpoints, motion, artwork, services, shared footer, or accepted predecessor routes. The earlier PASS at `1c2fb29f5b00bfbd4fc17a7648bdecdce67765b6` remains revoked for current readiness and retains event-time meaning only.
+
+This PASS permits a new Owner Review of this exact candidate. It does not assert Owner acceptance or authorize push, PR, merge, integration, deployment, publication, publishing-setting changes, footer standardization, or stage 5 work.
+
+## Classification and independence
+
+- QA tier: QA-1 presentation with focused QA-2 interaction and QA-3 state/navigation evidence.
+- Execution: SEPARATE. `/root/apocrypha_qa` implemented neither the product correction nor the test changes.
+- OWNER-VISUAL: active. Engineering verifies objective theme state, composed contrast, population parity, interaction, focus, resources, and containment. The Owner retains visual hierarchy, label weight and feel, parchment warmth, optical glyph fit, motion feel, footer direction, and subjective mobile comfort.
+- CPU-heavy validation: NOT REQUIRED.
+
+## Exact tests and results
+
+- `npm.cmd run task -- check VM-685 --stage=admission --mode=continue` — PASS through the authorized read-only external network route. The first restricted attempt stopped before a repository verdict because sandbox DNS/thread creation blocked `git ls-remote`; it was not treated as candidate evidence.
+- Full `7fcf62c0d4a1389b668a39c27c7075d18c221c99..78ec24583e772ae8781acd569f9036807b262026` and focused `724cb70f16ae8c3b5931d974b1079e5dd35c403a..78ec24583e772ae8781acd569f9036807b262026` Git diff, history, scope, criteria, and handoff inspection — PASS. All 13 total paths and all eight correction paths are admitted; no protected data/runtime/base-layout owner expanded.
+- `git diff --check 7fcf62c0d4a1389b668a39c27c7075d18c221c99..78ec24583e772ae8781acd569f9036807b262026` — PASS.
+- `node tests/shared/theme-controller-tests.js` — PASS. It exercises the shared controller's default, saved state, invalid state, storage failure/isolation, event, replacement/removal, pageshow, opt-in, and inert-route behavior. Its legacy success text still says VM-683; its assertions include Apocrypha.
+- `node scripts/vm685-apocrypha-theme-source-tests.mjs` — PASS. The correction guard pins the exact route-scoped selector/value and retains the prepaint/import/cascade, protected-prefix, runtime, registry, fallback, base-style, VM-665 skin, and Library-alias boundaries.
+- `npm.cmd run lint:html` — PASS.
+- `npm.cmd run lint:js` — PASS for 37 files.
+- `node scripts/validate-apocrypha-rendering.mjs` — PASS: 59 authorized public records with the expected groups and verification counts.
+- `node scripts/validate-apocrypha-sources.mjs` — PASS: 60 registry records with expected official/supplemental/check-state counts.
+- `node --check scripts/vm685-apocrypha-theme-browser.mjs` — PASS.
+- `npm.cmd run task -- indexes --check` — PASS: 724 cards and 1,247 handoffs; no stale generated view.
+- `node scripts/vm685-apocrypha-theme-browser.mjs` with `VM685_EVIDENCE` set to the external replacement-QA artifact — PASS in 14 seconds. Evidence: `vm685-owner-labels-qa-browser.json`, SHA-256 `87FFDC2BF600B1F34DB3295C7693BB9FD277648A1784DA7693DCC12D28C1D11A`.
+
+## Regression sensitivity and causal control
+
+The Owner finding closed a real gap in the earlier witness: parent `.apoc-source-card p` contrast did not prove its literal `strong` descendant. The retained pre-correction artifact `vm685-owner-labels-red.json` (SHA-256 `6D28C77BE76281311E83D159CEFEDC8C0157E061EF2CA1E2D75E7A2EC5AD0647`) records those actual labels at 1.038763:1 on the light card. The exact correction changes the witnessed child owner and no broader owner.
+
+The replacement witness requires all 59 source cards, exactly 118 source-card `strong` nodes, and the exact `Used for:` / `Does not establish:` pair for every card. It distinguishes the complete semantic population from currently painted cards by excluding descendants of closed native `details`. Every currently visible `.apoc-main strong` descendant, including category-description labels, must converge to at least 4.5:1 within the unchanged 500ms maximum. No timeout was extended.
+
+The independent run observed:
+
+- Registry light: 10 open source cards, both labels on each card at `rgb(33, 27, 24)` over `rgb(255, 248, 232)`; complete population 59 cards / 118 labels.
+- Registry reversal: two genuinely open Lore cards retained through dark reversal, with both labels restored to the unchanged `rgba(245, 244, 238, 0.94)` dark owner.
+- Nested light and narrow reference states: genuinely open source cards retained the corrected light label ink and exact pair semantics.
+- Deterministic registry failure: 10 open fallback cards passed in light and dark while the complete fallback population remained 59 / 118.
+- Authored no-JS: 10 open dark cards passed synchronously with no controller toggle and the complete authored population remained 59 / 118.
+- All visible bold descendants settled within 38–125ms. The minimum composed bold contrast was 5.041743:1 in light and 8.375710:1 in dark. Source labels themselves use the higher-contrast final ink; hidden cached descendants were retained as structural/semantic observations and were not misrepresented as painted evidence.
+
+This closes the escaped descendant class at the actual rendered owner and proves the correction across successful registry, failure fallback, no-JS, dark reversal, nested disclosure, and narrow states. It also retains a red-before-green record rather than relabeling failed construction runs as passes.
+
+## Independent browser coverage
+
+The browser witness used one disposable local headless Edge profile through Node built-in raw CDP, at only `1440x1000` and `390x844`. It captured no screenshots, made no live feedback request, and reported no blocked or error entries. Network interception admitted same-origin resources only; exactly two requests reached the localhost feedback fixture, covering success and provider failure.
+
+Beyond the corrected label seam, the same focused run passed:
+
+- unconditional dark default, saved-light prepaint, invalid/storage-failure isolation, persistence, reset, pageshow support, and real two-tab forward/reverse synchronization;
+- generated next-mode White/Black Mana glyphs, labels, dimensions, loaded Mana font/resource, and all route font faces in both modes;
+- registry/fallback/no-JS semantic parity, truthful notice/error states, open structural owners, quiet actions, single category names, hash/current/open disclosure state, and reversal restoration;
+- native Tab/Enter/Escape and pointer focus, revealed navigation hints, theme action, top-level/nested summaries, menu, Clipboard, feedback fields/status, focus trap, dismissal, and focus return;
+- mock-only feedback empty validation, in-flight state, success, unchanged cooldown, provider error/manual-copy fallback, reversal persistence, and exactly two localhost requests;
+- measured 390px document/menu/dialog/close-control containment, internal compass scrolling, native far-end focus and Enter activation;
+- focused Home/Terms/Privacy/Guide/Strategium opt-in continuity, inert Archscry, and canonical `/library/` to `/apocrypha/` compatibility.
+
+## Findings, debt, and limitations
+
+No blocker, major, or candidate-caused harness defect remains.
+
+The correction-cycle artifacts truthfully retain the failed pre-CSS contrast, script-disabled double-rAF construction timeout, rectangle-only closed-content classification, default-open shelf setup click, and immediate category-token sample. Each had a bounded causal correction without a longer timeout, screenshot, protocol trace, or repeated debt-suite attempt. `vm685-owner-labels-development-settled.json` is separate developer evidence; the PASS above comes from the independently executed replacement-QA artifact.
+
+One inherited mobile geometry limitation remains. At 390px the far-end compass tile settles partly beyond the internal rail (tile left 236/right 452; rail left 20/right 355) while the document remains contained at scrollWidth 375. Native Tab scrolls the rail to `scrollLeft 432`, exposes a visible solid 2px focus indication, and native Enter opens the correct destination/hash. The protected Apocrypha layout/runtime is unchanged, so this is disclosed baseline debt and an Owner comfort judgment rather than a replacement-candidate regression.
+
+Historical VM-665/VM-683/VM-684 Puppeteer `Runtime.callFunctionOn` timeouts remain suspected protocol debt. Those suites were not rerun, weakened, traced, or called green. The stale pre-VM-645 39+10 visual comparator was also not run because it does not describe the current 59-source contract. The approved raw-CDP witness is the bounded reliable evidence layer for the changed objective seams.
+
+The file-protocol notice branch was not browser-executed. Its runtime owner is baseline-identical; the real scoped notice node, success/error states, and authored no-JS notice were exercised. No broad repository, engine, viewport, placement, semantic, mutation, recovery, or option-enumeration suite was selected because those owners did not change. No screenshot or optical conclusion is claimed.
+
+## Owner review
+
+The shortest useful replacement review is:
+
+1. Open `/apocrypha/`, switch to light, expand a source shelf, and judge the corrected `Used for:` and `Does not establish:` labels alongside the muted category descriptions.
+2. Reverse light to dark and back with the shelf open; judge label readability and the retained open, rule-led hierarchy.
+3. Trigger the source-load fallback or use the deterministic local preview checkpoint supplied by delivery, then compare its open source cards with registry cards. Engineering has proved semantic/population parity and objective contrast.
+4. At 390px, keyboard to the far-end compass item and judge the inherited partial clipping and overall mobile comfort.
+
+PASS if the corrected labels read clearly and fit the accepted Apocrypha hierarchy in registry and fallback states. FAIL if their weight, color, or relationship to muted descriptions remains visually unacceptable, or if the inherited compass experience is unacceptable. Footer standardization remains a separate design/scope decision.
+
+## Stage 5 Archscry recommendation
+
+Stage 5 requires a new admitted card/branch and a fresh inventory of Archscry's final cascade, literal child owners, dynamic dossier/search/review/media/mana/status/overlay populations, default-open state, and narrow controls. Reuse the one controller/key, synchronous bootstrap, last route adapter, actual painted-owner checks, loaded resource checks, native focus/dialog evidence, producer/fallback semantic comparison, bounded final-state predicates, and measured narrow geometry. Preserve source/placement/card authority, search/state, motion, and artwork. Do not copy Apocrypha selectors, open-source hierarchy, or route-specific label assumptions. Treat footer standardization as separately admitted coordinated work.
+
+## Final disposition
+
+RobQAPass PASS is bound only to `78ec24583e772ae8781acd569f9036807b262026` and the independent evidence identified here. Any material implementation, policy, acceptance-criteria, fixture, or assertion change invalidates this verdict and requires a new exact candidate. Owner review remains pending.

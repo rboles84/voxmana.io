@@ -117,3 +117,29 @@ The final developer witness is an actual PASS at external `vm685-owner-labels-de
 `vm685-owner-labels-development-final.json` is still a failed run: its direct source-label predicate passed, but its subsequent immediate category-summary sample caught muted light text against the newly dark field. RobQA selected a justified bounded alternative using the same maximum-500ms convergence limit for all visible bold text. Hidden cached descendants remain observations rather than painted-contrast claims. Final observed bold-text convergence elapsed 37–139ms; no-JS uses one synchronous read and no scheduled page callback. The time bound was not extended. The successful artifact is distinct from every retained failed attempt and does not relabel them.
 
 The completed witness also passes persistence/isolation, current hash/disclosures, native focus/navigation hints/controls, Clipboard, mocked feedback success/error, dismissal/focus return, measured 390px containers, loaded Mana glyphs/resources/route fonts, predecessor continuity and Library compatibility. Exactly two requests reached local mocked feedback; no live feedback or nonlocal browser transport occurred. The inherited narrow compass clipping and unchanged stale comparator/Puppeteer debt remain disclosed. Source/controller/syntax checks passed after this correction; independent review and canonical exact-candidate evidence remain pending at freeze.
+
+
+## Local replacement SHIP — corrected labels, exact candidate
+
+Task: VM-685
+Candidate: 78ec24583e772ae8781acd569f9036807b262026
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: /root/apocrypha_qa
+Implementer: /root/apocrypha_dev and /root
+Owner: PENDING
+Integration: PENDING — outside this request
+
+The original independent report is C:/Users/obake/.codex/visualizations/2026/10/08/01a11d91-3fbe-7e90-8320-fb89129cd13d/vm685-owner-labels-qa-candidate.md, SHA-256 29ad1f4fdcce69a6d16abd4a9e3bd57240e13f9083141a9fe1d5309afea4a05b. Its exact text is appended in the individual RobQA handoff; every earlier report/failure/revocation retains event-time meaning. Independent browser evidence is the sibling vm685-owner-labels-qa-browser.json, SHA-256 87ffdc2bf600b1f34db3295c7693bb9fd277648a1784da7693dcc12d28c1d11a. The reviewer inspected the full baseline-to-C2 diff and focused correction, independently ran the selected checks, and retained the clean frozen commit. Genuine open source labels pass both themes and fallback modes; all visible bold descendants converge within 38–125ms under the unchanged 500ms bound. No failed or unavailable observation is called PASS.
+
+The canonical candidate gate passed with durable-qa binding at the clean material HEAD. Main/live remote main remains 7fcf62c0d4a1389b668a39c27c7075d18c221c99. Card is Owner Review with Owner PENDING. This append, original report copy, role binding, card lifecycle/checkbox observations and producer-refreshed views are evidence only. A final exact C2-to-evidence content review and persisted candidate gate must complete before delivery accounting is authoritative; their originals live outside the worktree to avoid self-referential commits.
+
+The existing [Apocrypha preview](http://127.0.0.1:62547/apocrypha/) serves exact corrected CSS, HTTP 200, SHA-256 82827ac120c9ecfd4e90337ca15fb77c19315c4c78da43eac272679f3975e98d, with no-store. Refresh the page. Entry/body and preview-only external feedback transport block remain unchanged.
+
+Deterministic Owner checkpoints:
+
+1. In light, read Used for: and Does not establish: on the first open Official Design shelf, then a Lore or Supplemental source shelf. Judge their ink/weight against muted category descriptions and the quiet, open hierarchy.
+2. Keep a shelf open and reverse both directions; judge labels, glyphs, rail/compass, bands, semantic badges/statuses and footer while hash/current/disclosure state remains intact.
+3. At narrow width inspect menu, Clipboard and feedback fields/dismissal without sending feedback; judge the disclosed inherited far-end compass clipping, reading comfort and motion feel. Engineering already exercised deterministic failure/no-JS fallback and local mocked success/error, with no live feedback.
+
+Owner retains subjective appearance and acceptance. Recommend shared footer typography, spacing, divider/gutters and link/focus treatment as separately admitted coordinated work; existing legal/fan-project wording and route return controls require explicit design treatment. Stage 5 recommendations above remain transfer notes, not implementation authorization. Earlier C1 PASS is revoked for current readiness; this replacement PASS binds only C2. No feature push, PR creation, integration, deployment, publishing settings or Archscry implementation occurred. PR72's historical deployment exception remains unresolved. Next suggested agent: Owner review of this exact replacement candidate after final evidence binding.
