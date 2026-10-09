@@ -409,6 +409,43 @@ html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-ro
 html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .identity-atlas-color-node--active .identity-atlas-node-body { fill: color-mix(in srgb, var(--atlas-node-color) 82%, #fff8e8 18%); stroke: color-mix(in srgb, var(--atlas-node-color) 62%, #51310d 38%); }
 html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .identity-atlas-color-node--active .identity-atlas-node-highlight { fill: #fff8e8; opacity: 0.76; }
 
+/* VM-687 screenshot correction: late dossier descendants retain neutral parchment paint. */
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .vm-dossier-matrix-section .vm-component-dot-row { background: transparent; border-color: transparent; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .how-this-plays-block { background: transparent; border-color: #c7ad83; color: #31271f; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .how-this-plays-block :is(.how-this-plays-label, .table-identity-list div, .table-identity-list > div > span:first-child) { color: #31271f; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .how-this-plays-block .table-identity-list > div > span:first-child { color: #0d6e60; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .vm-card-voice-panel { color: #31271f; border-color: #c7ad83; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .vm-card-voice-panel :is(.vm-card-voice-heading span, .vm-card-voice-heading p, .vm-card-voice-name, .vm-card-voice-text, .vm-card-voice-image-fallback) { color: #31271f; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .precons-section :is(.precon-intro, .precon-meta, .precon-product, .precon-title, .precon-commander, .precon-chip, .precon-provider-menu summary) { color: #31271f; border-color: #c7ad83; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .precons-section :is(.precon-chip, .precon-provider-menu summary) { background: #f7edd8; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .precons-section :is(.precon-commander-trigger, .precon-provider-menu summary span) { color: #8a5b19; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .dossier-segment-tab { background: #fff8e8; border-color: #a88d62; color: #31271f; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .dossier-segment-tab:is(:hover, :focus-visible, .is-active, [aria-pressed="true"]) { background: #eadcc1; border-color: #8a5b19; color: #211b18; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .dossier-segment-tab:disabled { background: #f7edd8; border-color: #c7ad83; color: #685847; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .service-chip.service-maze { background: #eadcc1; border-color: #a88d62; color: #31271f; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .dossier-snapshot-card :is(span, strong, .dossier-snapshot-copy, .dossier-snapshot-signal, .dossier-snapshot-tag) { color: #31271f; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .dossier-snapshot-card .dossier-snapshot-tag { background: #f7edd8; border-color: #c7ad83; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .dossier-orientation :is(.dossier-orientation-kicker, h3, p, .dossier-orientation-actions span, .dossier-orientation-actions small) { color: #31271f; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .dossier-orientation .dossier-orientation-kicker { color: #8a5b19; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .dossier-orientation-actions button { background: #f7edd8; border-color: #c7ad83; color: #31271f; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route :is(.flavor-echo-intro, .flavor-echo-text, .flavor-echo-why, .flavor-echo-action) { color: #31271f; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .flavor-echo-action { border-bottom-color: #8a5b19; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .precons-section :is(.precon-copy, .precon-best-for, .precon-copy-label, .precon-copy-dim, .precon-provider-menu summary strong, .precon-provider-links a) { color: #31271f; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .precon-provider-menu summary:is(:hover, :focus-visible) { background: #eadcc1; border-color: #8a5b19; color: #211b18; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .starter-card.how-this-plays-card { background: transparent; border-color: #c7ad83; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .flavor-echo-card { background: #f7edd8; border-color: #c7ad83; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .flavor-echo-card:is(:hover, :focus-visible) { background: #eadcc1; border-color: #8a5b19; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .flavor-echo-kicker { color: #0d6e60; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .precon-card.is-compact { background: #f7edd8; border-color: #c7ad83; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .precon-card.is-compact:is(:hover, :focus-within) { background: #eadcc1; border-color: #8a5b19; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .precon-badge.is-exact { color: #0d6e60; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route :is(.precon-badge.is-native, .precon-badge.is-stretch) { color: #8a5b19; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .precon-provider-links :is(.service-name, .service-label) { color: #31271f; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .dossier-orientation .dossier-orientation-guide { --vm-guide-beacon-accent: #8a5b19; --vm-guide-beacon-ink: #31271f; --vm-guide-beacon-surface: #f7edd8; background: var(--vm-guide-beacon-surface); border-color: #c7ad83; color: var(--vm-guide-beacon-ink); }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .dossier-orientation .dossier-orientation-guide:is(:hover, :focus-visible) { background: #eadcc1; border-color: #8a5b19; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .dossier-orientation-actions button:is(:hover, :focus-visible) { background: #eadcc1; border-color: #8a5b19; color: #211b18; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .service-chip.service-maze:is(:hover, :focus-visible) { background: #f7edd8; border-color: #8a5b19; color: #211b18; }
+
 /* Low-specificity control group preserves the more-specific landing link exception. */
 html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .vm-dossier-matrix-section .vm-strategium-detail { background: #fff8e8; border-color: #a88d62; box-shadow: 0 8px 18px rgba(80, 55, 26, 0.18); }
 html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .vm-dossier-matrix-section .vm-trait-pip:not(.is-lit) { background: #c7ad83; }

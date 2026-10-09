@@ -66,3 +66,17 @@ The shared rich-atmosphere runtime remains byte-preserved. Its relocated `.vm-bg
 ## Final specificity correction
 
 The Archscry source’s secondary-control `:is()` includes `#terminal-submit`, which confers ID specificity to every branch. The final adapter therefore uses the same scoped control group with `!important` neutral background, border, and ink declarations for normal and hover/focus states; the landing Atlas CTA retains its explicit transparent exception in both states. Atlas hover/focus pseudo-elements and connector body lines now receive matching light declarations. Active node body/highlight paint keeps `--atlas-node-color` through `color-mix`; inactive nodes remain neutral. Image-backed banner copy is now explicitly limited to `[data-hero-background="identity-image"]`, including the eyebrow. Matrix strength numeric and active-detail text have concrete light ink rules. The source guard now asserts each of these final values and confirms `assets/js/shared/vm-rich-atmosphere.js` remains baseline-identical.
+
+## Owner screenshot correction 2
+
+The latest bounded suffix maps only late, literal Archscry paint owners: transparent matrix synthesis-mana row; How This Plays text/labels; Cards Sound/Play copy; precon copy/chips/provider controls; segment tab state paint; mana-note tier copy; the Maze service chip; and the snapshot/orientation descendants. Semantic Mana symbols, signal-band markers, layout, and runtime conditionals are untouched. The guard was first made to fail on the missing matrix row owner, then passed after the final scoped rules were appended. Developer evidence: `node scripts/vm687-archscry-theme-source-tests.mjs` and `git diff --check`.
+
+## Descendant coverage correction
+
+The preceding screenshot note was incomplete: it did not include emitted Cards Sound/Play descendants (`.flavor-echo-intro`, `.flavor-echo-text`, `.flavor-echo-why`, `.flavor-echo-action`), precon rationale/copy-label/provider-link descendants, or interactive orientation guide/action states. These exact owners are now in the suffix with declaration-level `ownerPaint` assertions. The confirmed `.vm-component-dot-row` remains a matrix synthesis-Mana wrapper and is retained as transparent paint, preserving symbol semantics and geometry.
+
+## Pre-freeze paired-surface correction
+
+The final owner sweep pairs dark-literal children with their actual accepted surfaces: flavor echo and compact precon cards explicitly retain the site-skin parchment surface through normal and interactive states; How This Plays stays transparent under its site-skin open-layout owner. The suffix also covers flavor kicker, precon lane badges and provider service children, the orientation guide’s actual standalone hierarchy/custom properties, and the Maze chip hover/focus state. All are declaration-asserted by the focused source guard; no screenshot or browser rerun was performed.
+
+The final palette correction keeps flavor and compact precon cards on `#f7edd8`, matching the existing site-surface rather than introducing a new brighter card tier. Precon exact badges retain dark teal while native/stretch retain gold. Segment tabs are now asserted in default, hover/focus/active, and disabled states; How This Plays asserts its child teal label separately from neutral body copy.
