@@ -1,4 +1,4 @@
-<!-- task-view-sha256:15481f6d90f8b27f251d20eec62f697d4da5b65da44b98b8e3c1423f3023378e -->
+<!-- task-view-sha256:64c4c53e13c869b029ac81c2db38e33a4fd69bc5c9a90c550ee9abd0b4cfa7e8 -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -8,6 +8,7 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 
 | Authored / filename date | Agent | Handoff | Related task references | Diagnostics |
 |---|---|---|---|---|
+| 2026-10-08T22:26:00-06:00 (authored) | /root/footer_backlog (Kanban Steward) | [Agent Handoff: Kanban Steward - VM-686 shared footer consistency backlog intake](2026-10-08-2226-kanban-steward-vm686-footer-backlog.md) | VM-686 | Identity displayed from heading; not admission metadata. |
 | 2026-10-08T15:00:00Z (filename) | Codex coordinator `/root`. Governing skills: [RobDev](../../.agents/skills/robdev/SKILL.md) and [RobQA](../../.agents/skills/robqa/SKILL.md). This record stops at local SHIP/Owner Review; stage-3 integration consent supplies no stage-4 integration authority. | [VM-685 — Apocrypha theme stage 4 delivery](2026-10-08-1500-codex-vm685-apocrypha-theme-delivery.md) | VM-685 | Identity displayed from heading; not admission metadata. |
 | 2026-10-08T15:00:00Z (filename) | `/root/apocrypha_dev` (RobDev). Requested/configured role: Terra medium. The tool accepted the configured route; backend-effective model metadata is unavailable and unverified. | [RobDev handoff — VM-685 Apocrypha theme, stage 4](2026-10-08-1500-robdev-vm685-apocrypha-theme.md) | VM-685 | Identity displayed from heading; not admission metadata. |
 | 2026-10-08T15:00:00Z (filename) | /root/apocrypha_qa | [RobQA strategy handoff — VM-685 Apocrypha theme stage 4](2026-10-08-1500-robqa-vm685-apocrypha-theme.md) | VM-685 | Identity displayed from heading; not admission metadata. |
