@@ -342,3 +342,9 @@ Runtime, templates, shared beacon source and URL, routes, data, tests, radar/men
 C8 remains blocked for the previously recorded Owner visual recheck and residual objective browser coverage. Owner judgment remains the authority for whether the right inset resolves the supplied screenshot. This correction creates no new gap and resolves none of the broader gaps. The sole approved automated browser run remains a launch failure before assertions; no rendered PASS, ACCEPT or waiver is claimed.
 
 The original exact decision is preserved at [vm687-guide-spacing-correction-qa.md](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-guide-spacing-correction-qa.md). No product or test change, browser execution or commit was made by RobQA.
+
+## Owner disposition after C8
+
+The Owner's statement, "alright, I think thats everything on archscry now", completes the Archscry route's subjective visual finding loop at unchanged material candidate `d3a40c3e9814982bf58aeefb6eeae9925373d853`. It does not supply detailed browser observations and is not interpreted as Reading Guide signoff, full stage-5 ACCEPT, a waiver of the residual objective browser gaps or integration authorization.
+
+The original C8 RobQA report remains unchanged and authoritative for its exact source-bound result. The broader VM-687 gate remains blocked pending Reading Guide Owner disposition and resolution or explicit disposition of the previously recorded objective coverage gaps. No test, browser run, product change or commit was made for this Owner disposition.
