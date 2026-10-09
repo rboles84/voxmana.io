@@ -151,3 +151,26 @@ Atlas population evidence should distinguish eight directory source categories f
 The recovered witness remains unexecuted and is not yet approved for the exact-candidate run in its current construction. Its `fresh()` helper opens every page in the browser's default `BrowserContext`; therefore saved, flow, fallback and Reading pages share `localStorage`, and each later `seed()` can fire storage events into earlier slices. This does not provide the approved isolation. Create separate browser contexts for the saved, flow/reset/narrow, fallback and Reading slices, with only the peer tab sharing the saved context for the deliberate cross-tab check.
 
 Before candidate freeze, the witness should also close four small false-positive gaps: require at least one recorded light first-paint entry rather than allowing `every([])`; await fonts and prove an actually used self-hosted text face/resource as well as Mana in both theme states; require visible literal rows for every selected paint seam rather than only a total row count; and bind guided cleanup to retained pathname plus unchanged history length. The loaded-resource assertion should explicitly observe `theme-pages.css?v=vm687` and the route's VM-687 controller/module entry so the admitted warm-cache transport correction is exercised. These are harness construction corrections, not additional product scope or additional executions.
+
+## Exact C3 evidence binding
+
+Task: VM-687
+
+Candidate: `95ae75eb8a68756601280009ccd6c9b8b4e7ecda`
+
+RobQA: **BLOCKED**
+
+Execution: **SEPARATE**
+
+The focused source/controller, radar, 37-profile matrix, VM-685 predecessor, HTML validation and browser-script syntax checks passed against unchanged product/test/tool bytes and carry forward to C3. They establish the scoped opt-ins, controller/cache/template boundaries and fake-radar state contracts. C2→C3 changed lifecycle documentation only; independent inspection found a clean checkout, metadata-only byte parity and clean baseline patch hygiene.
+
+The sole approved automated Edge alternate failed during browser launch before navigation or assertions. It produced no rendered, resource, native-interaction, real-Chart, containment, storage or history observations and was not retried. Owner manual browser results are pending. Until actual route/step observations and residual-risk disposition are recorded, exact resource loading, true prepaint timing, cross-tab/pageshow behavior, saved-state/Forget browser behavior, mocked Feedback outcomes, measured 390px containment and unvisited dynamic/failure populations remain unverified.
+
+Original external evidence is preserved in the task evidence directory:
+
+- [C3 exact checkpoint decision](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-final-checkpoint-qa.md)
+- [C1 exact-candidate decision](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-exact-candidate-qa.md)
+- [Sole alternate browser failure](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-exact-candidate-browser.json)
+- [C2 exact-candidate decision](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-final-candidate-qa.md)
+
+No implementation, policy, scope, acceptance criteria or test changed in this binding. No test or browser execution was repeated, and no commit was made by RobQA.

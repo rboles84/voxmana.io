@@ -79,3 +79,21 @@ The Owner then wrote, "ill do browser testing if we can wrap this up". This auth
 The coordinator prepared `vm687-manual-review-server.mjs` outside the repository in the task evidence directory, reusing the existing localhost fixture pattern. It serves current candidate source/assets, seeds only theme and certified Jund saved-reading keys once through `/__vm687_review` on a fresh local origin, and injects only mock-local feedback configuration. No production source, data or real-site storage is changed. Node syntax passed; its live review URL is `http://127.0.0.1:50122/__vm687_review`. This helper is a review setup artifact, not rendered test evidence or a published product feature.
 
 The short Owner checkpoints are: personal Jund dossier/matrix neutral reversal with selected axis/component state; Atlas and Colorless browse plus card preview/detail dismissal/focus; Reading static entry and four-step query walkthrough/Close/Escape/Done. Inspect light/dark reading comfort and a narrow window. RobQA will classify the Owner's actual route/step observations. Loaded-resource URLs, true prepaint timing, cross-tab/pageshow, exact storage bytes, mocked feedback error, measured containment and unvisited dynamic/failure populations remain unverified unless further objective evidence or explicit Owner disposition resolves them. The failed automated run retains its FAIL/unavailable status.
+
+## Final C3 binding and manual setup observation
+
+Task: VM-687
+
+Candidate: 95ae75eb8a68756601280009ccd6c9b8b4e7ecda
+
+RobQA: BLOCKED
+
+Execution: SEPARATE
+
+Owner: PENDING
+
+Independent [final-checkpoint QA](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-final-checkpoint-qa.md) confirms the clean C3 metadata-only checkpoint, protected product/test/tool parity and carried-forward focused checks. The original C1/C2 reports and sole alternate browser launch FAIL remain untouched. The card records the binding while keeping the Owner-selected manual QA phase In Progress. This is not SHIP or Owner Review.
+
+The initial sandbox-served review origin was unreachable from the host HTTP probe. The coordinator stopped that own server and relaunched the same external helper in the host environment on port 50122; the final HTTP probe returned 200. The open-in-Codex request was queued, not evidence that the page rendered. No automated browser was launched or retried, and no product assertion follows from HTTP availability. The live manual link is `http://127.0.0.1:50122/__vm687_review`; Atlas and both Reading routes share that isolated origin.
+
+The final [Git-derived accounting](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-git-accounting.md) carries the authoritative baseline, material path list/count, evidence delta and total branch scope, validated by the existing report validator. This handoff preserves observations without changing implementation, scope, criteria, policy, fixtures or assertions. Actual Owner route/step results and residual-coverage classification remain pending.
