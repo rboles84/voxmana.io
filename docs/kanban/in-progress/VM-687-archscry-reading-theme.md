@@ -45,13 +45,13 @@ Apply RobDev and independent RobQA under repository role/model routing. Reuse th
 Record version: 1
 Branch: codex/vm-687-archscry-reading-theme
 Admission baseline: 3cf826eb87702bd25b66a2853838b00a880d7307
-Candidate: PENDING
-RobQA: PENDING — Owner-confirmed light presentation defects returning to RobDev; original C3 BLOCKED evidence preserved
+Candidate: 365d04d226c5f3d2cd2100be888bd14056747762
+RobQA: BLOCKED — SEPARATE exact-candidate review at 365d04d226c5f3d2cd2100be888bd14056747762
 Owner: PENDING
 Integration: PENDING — explicitly unauthorized at this stage
 Dependencies: None
 Decisions: Presentation-only /archscry/ and /guide/reading/ support with dedicated archscry and guide-reading opt-ins. Reuse all accepted theme/controller/palette/resource contracts. Preserve accepted VM-615 optional-depth, VM-621 walkthrough, VM-625 Atlas/browse, VM-636 matrix, VM-643 prose, VM-652 opaque panels/spacing/precon hover and VM-664 mixed-result contracts. Dossier-radar.js may change neutral canvas presentation and its theme-event cleanup only; shared vm-radar/profile/dataset/lifecycle owners remain protected. Preserve content, semantics, storage, layout, motion, artwork, route targets, shared shell interaction and every predecessor/unconverted route. No footer standardization, host writes, integration/deployment, publishing-settings changes, PR72 exception resolution or stage-6 work. Scope amendment: admit the individual browser-construction RobDev handoff for parallel bounded witness construction; product scope and QA independence remain unchanged. Scope amendment: independent RobQA identified a warm-client cache acceptance gap; admit a uniform Archscry import-epoch advance vm636 to vm687 to deliver the changed radar owner. All other runtime bodies and shared radar/profile/data owners remain protected; only import-version transport changes are authorized. Scope amendment: admit the selected matrix regression import-epoch alignment and an individual bounded browser-recovery handoff; preserve assertions and product scope. Scope amendment: the independently observed browser-launch obstacle requires the canonical blocked-card destination; admit that lifecycle relocation while preserving the same task, branch and product scope.
-Evidence: Canonical admission continue PASS at 78d30ccc6db68dbbef5760d759995d493605da55. Owner supplied ten dark/light screenshots confirming contrast and lost-effect defects; same task/branch returns to scoped RobDev CSS correction. C3 and earlier original BLOCKED/failed browser reports retain event-time meaning. No manual PASS/waiver/ACCEPT; new material candidate and exact QA required.
+Evidence: Owner-confirmed light presentation defects corrected at C4 365d04d226c5f3d2cd2100be888bd14056747762. Independent exact source/predecessor/hygiene and protected-byte checks PASS; RobQA BLOCKED / SEPARATE pending Owner recheck and residual objective browser gaps. Original external vm687-owner-correction-qa.md binds the result; prior C1/C2/C3 reports, failed browser evidence and Owner attachment copies remain preserved. Existing local server returns corrected CSS HTTP 200/no-store; setup delivery only, no rendered inference or automated browser retry.
 
 ## Admission Scope
 

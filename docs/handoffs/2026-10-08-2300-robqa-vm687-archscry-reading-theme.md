@@ -188,3 +188,19 @@ After correction, select only the VM-687 source test, the VM-685 predecessor sou
 The final working-tree correction resolves the source-level cascade contradiction found in the first remediation. A light-route `:where(.btn-secondary, .tb-btn, .adjacent-btn, #terminal-submit)` important group overrides the inherited non-important ID-specific paint without carrying ID specificity, so the later `.landing-actions a.btn-secondary` normal and hover/focus important exceptions can remain transparent. The actual artwork owner is `.guild-banner[data-hero-background="identity-image"]`, not a Dune-only class; it includes eyebrow, tagline, philosophy and lore copy. The actual matrix number owner is `.vm-trait-strength small`; the active detail uses `.vm-strategium-detail strong` and its last span, paired with a light popup surface; inactive neutral markers use `.vm-trait-pip:not(.is-lit)`. Atlas coverage includes pager base/disabled/hover pseudo states, connector channel/body/core and hover paint, plus active/inactive node body/highlight/halo while retaining `--atlas-node-color`. The topbar is opaque and the decorative atmosphere adjustment is limited to `.vm-bg__stars`; the shared atmosphere runtime remains protected.
 
 Root development evidence in the external `vm687-owner-correction-sensitivity.json` records three in-memory substitutions that each produced the expected red result: reintroducing ID specificity, restoring pale Atlas copy and restoring the dark popup surface. The unmodified current source is green. This is root-owned development/sensitivity evidence, not an independent RobQA execution, and it does not replace the pending Owner visual recheck or remaining browser coverage.
+
+## Exact C4 Owner-correction binding
+
+Task: VM-687
+
+Candidate: `365d04d226c5f3d2cd2100be888bd14056747762`
+
+RobQA: **BLOCKED**
+
+Execution: **SEPARATE**
+
+Independent exact-candidate execution passed the focused VM-687 source guard, VM-685 predecessor source guard and full baseline-to-C4 patch hygiene. The C3 evidence-head-to-C4 delta contains the scoped final light adapter, its selector/declaration source guard and lifecycle records only. Runtime modules, entrypoints, data, existing tests, shared atmosphere JavaScript, shared radar logic, artwork, geometry, routing and animation owners remain protected.
+
+C4 remains blocked pending the Owner's actual recheck of the corrected landing, Atlas, Dune, matrix and atmospheric seams and disposition of the previously named objective browser gaps. No browser or broader test was rerun, and no rendered PASS is inferred from the source results.
+
+The original exact decision is preserved at [vm687-owner-correction-qa.md](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-owner-correction-qa.md). No repository change beyond this evidence binding and no commit was made by RobQA.

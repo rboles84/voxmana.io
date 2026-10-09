@@ -109,3 +109,19 @@ Protected: all pre-VM687 adapters, dark presentation, content, artwork, semantic
 Root final cascade review found that copying the old ID into the important light control group still let it defeat the landing exception. The final light group uses zero-specificity `:where(...)` with required important paint, and the more-specific landing normal/hover/focus rules retain transparent underlined treatment. Newly ink-colored axis-detail text is paired with a parchment popup surface; inactive metric markers receive neutral bronze while lit semantic markers stay unchanged. The source guard now parses actual final selector/declaration pairs and checks paint values, rather than accepting selector presence alone. Three bounded in-memory causal substitutions (ID specificity, pale Atlas copy, dark popup) each caused its exact expected assertion to fail, without changing any served repository byte; original proof is vm687-owner-correction-sensitivity.json in the external task evidence directory. The corrected complete source guard passed.
 
 Stage-6 implication: `:is()` imports the highest specificity of every alternative, including an ID unrelated to the current element. Theme token presence and later source order cannot prove a final paint winner. Inspect both state-specific literal descendants and the surface behind newly themed text; retain actual artwork context and semantic variables.
+
+## C4 exact QA and review handoff
+
+Task: VM-687
+
+Candidate: 365d04d226c5f3d2cd2100be888bd14056747762
+
+RobQA: BLOCKED
+
+Execution: SEPARATE
+
+Owner: PENDING
+
+Independent [Owner-correction QA](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-owner-correction-qa.md) passed the exact focused VM687 source guard, VM685 predecessor source guard, baseline patch hygiene and protected-byte review. All runtime/entrypoint/data/shared-atmosphere/chart/artwork/geometry/routing/motion inputs remain unchanged since the last checkpoint. No additional browser or broader suite was run. QA remains BLOCKED for Owner recheck and the preserved residual objective browser coverage, so SHIP/Owner Review is not claimed.
+
+The current manual server returned HTTP 200 for theme-pages.css?v=vm687 with the corrected control rule and Cache-Control no-store. This confirms CSS delivery only, not composed paint. Reload existing pages on the same origin; no seeding or storage reset is necessary. Recheck landing secondary action/default+hover/focus, opaque scrolled header and stars; Atlas introduction/pager/active-versus-inactive nodes and connector effects; Dune art-backed copy and navigation; matrix lore/tension/axis/numbers, opened detail and inactive markers. Owner visual balance and actual route/step results remain pending. Final [Git accounting](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-owner-correction-git.md) will supply the validated complete material paths, evidence-only delta and total branch state. No feature push, PR, integration, deployment, publishing or stage6 occurred.
