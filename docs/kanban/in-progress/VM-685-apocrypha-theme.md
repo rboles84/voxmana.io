@@ -2,7 +2,7 @@
 
 ID: VM-685
 Title: Apocrypha theme, stage 4
-Status: Owner Review
+Status: Accepted
 Type: Bounded route theme presentation
 Area: Apocrypha and shared theme allowlist
 Priority: High
@@ -41,11 +41,11 @@ Branch: codex/vm-685-apocrypha-theme
 Admission baseline: 7fcf62c0d4a1389b668a39c27c7075d18c221c99
 Candidate: 78ec24583e772ae8781acd569f9036807b262026
 RobQA: PASS at 78ec24583e772ae8781acd569f9036807b262026 — Execution SEPARATE; reviewer /root/apocrypha_qa; docs/handoffs/2026-10-08-1500-robqa-vm685-apocrypha-theme.md, Owner-label replacement exact-candidate QA
-Owner: PENDING
-Integration: PENDING — outside this request
+Owner: ACCEPTED at 78ec24583e772ae8781acd569f9036807b262026 — direct Owner approval in this chat; delivery handoff, Owner ACCEPT and integration authorization
+Integration: PENDING — authorized by subsequent Owner ACCEPT; guarded PR integration underway
 Dependencies: None
 Decisions: Presentation-only /apocrypha/ support. Reuse accepted controller/key/prepaint/default/failure/refresh/palette/typography/toggle contracts. Preserve accepted VM-665 layout/corrections and all predecessor dark/light behavior. Do not edit archive runtime, loader, registry, generated fallback, producers, factual/reference content, classifications/status meaning/counts/order/links, Library alias, artwork/motion, services or publishing. Surface concrete accepted-design/protected-contract changes before expanding. PR72 historical deployment exception remains unresolved. Stage-3 integration authority does not authorize stage 4 integration.
-Evidence: Owner source-label finding resolved by one final light route-scoped ink rule; all 59 cards/118 exact child labels retained. Original C1 PASS remains revoked for current readiness with event-time reports preserved. Independent replacement exact-candidate RobQA PASS and canonical durable-qa candidate gate PASS at 78ec24583e772ae8781acd569f9036807b262026; Owner Review with Owner PENDING. Actual open source cards pass registry/failure/noJS and light/dark reversal; complete visible bold text passes within unchanged 500ms bound. Focused contracts, loaded glyphs/fonts, mocked feedback and measured containment pass; prior construction failures, inherited compass clipping, stale comparator and Puppeteer debt remain disclosed. Footer standardization is a separate recommendation, with no shared/predecessor footer change. Preview http://127.0.0.1:62547/apocrypha/ serves exact corrected CSS. No push/PR/integration/deployment/publishing/Archscry. Post-candidate records are evidence only; final exact-delta review and Git accounting follow.
+Evidence: Owner source-label finding resolved by one final light route-scoped ink rule; all 59 cards/118 exact child labels retained. Original C1 PASS remains revoked for current readiness with event-time reports preserved. Independent replacement exact-candidate RobQA PASS and canonical durable-qa candidate gate PASS at 78ec24583e772ae8781acd569f9036807b262026; Owner Review with Owner PENDING. Actual open source cards pass registry/failure/noJS and light/dark reversal; complete visible bold text passes within unchanged 500ms bound. Focused contracts, loaded glyphs/fonts, mocked feedback and measured containment pass; prior construction failures, inherited compass clipping, stale comparator and Puppeteer debt remain disclosed. Footer standardization is a separate recommendation, with no shared/predecessor footer change. Preview http://127.0.0.1:62547/apocrypha/ serves exact corrected CSS. No push/PR/integration/deployment/publishing/Archscry. Post-candidate records are evidence only; final exact-delta review and Git accounting follow. Subsequent direct Owner checkpoint PASS confirms the corrected light source labels and preserved dark styling; see delivery handoff, Owner checkpoint — source-label correction PASS. Overall Owner acceptance remains PENDING; this observation is saved uncommitted with the separate VM-686 backlog intake.
 
 ## Admission Scope
 

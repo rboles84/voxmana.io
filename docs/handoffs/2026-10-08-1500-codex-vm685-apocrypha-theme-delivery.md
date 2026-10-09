@@ -143,3 +143,31 @@ Deterministic Owner checkpoints:
 3. At narrow width inspect menu, Clipboard and feedback fields/dismissal without sending feedback; judge the disclosed inherited far-end compass clipping, reading comfort and motion feel. Engineering already exercised deterministic failure/no-JS fallback and local mocked success/error, with no live feedback.
 
 Owner retains subjective appearance and acceptance. Recommend shared footer typography, spacing, divider/gutters and link/focus treatment as separately admitted coordinated work; existing legal/fan-project wording and route return controls require explicit design treatment. Stage 5 recommendations above remain transfer notes, not implementation authorization. Earlier C1 PASS is revoked for current readiness; this replacement PASS binds only C2. No feature push, PR creation, integration, deployment, publishing settings or Archscry implementation occurred. PR72's historical deployment exception remains unresolved. Next suggested agent: Owner review of this exact replacement candidate after final evidence binding.
+
+## Owner checkpoint — source-label correction PASS
+
+Task: VM-685
+Candidate: 78ec24583e772ae8781acd569f9036807b262026
+Owner checkpoint: PASS — source-card labels in light mode and preserved dark styling
+Owner: PENDING — overall candidate acceptance
+Integration: PENDING — outside this request
+Decision reference: Direct Owner message in this chat after the VM-686 backlog intake:
+
+> test passed for -Fixed both **“Used for”** and **“Does not establish”** labels in light mode. Dark styling is preserved.
+
+This resolves the Owner's reported pale source-label finding for the replacement candidate. The confirmed scope is this correction; no full-candidate ACCEPT or integration authorization is inferred. Previous revoked verdicts, failed construction observations and independent C2 engineering PASS retain their event-time meaning. VM-686 footer work remains separately deferred backlog intake. No material, assertion, criterion or scope change follows this checkpoint, so no behavior retest is selected. The coordinator saves this observation uncommitted alongside the separate pending backlog intake, preserving frozen material and committed evidence HEADs.
+
+## Owner ACCEPT and integration authorization
+
+Task: VM-685
+Candidate: 78ec24583e772ae8781acd569f9036807b262026
+Owner: ACCEPT
+Decision reference: Subsequent direct human Owner message in this chat after the recorded label checkpoint and footer intake.
+
+> approved lets push this to main and get working on the next page, Archscry and the Reading Guide
+
+This later message accepts the entire current independently passed replacement candidate and authorizes normal guarded PR/squash integration. It supersedes the earlier pending overall decision without changing or erasing its event-time meaning. The original durable Owner receipt is external `vm685-owner-accept.md`; acting coordinator /root verified the genuine message and unchanged material candidate. No new material work or test assertion occurs in this acceptance record. The card is Accepted; integration remains pending until actual host result, main synchronization and governed closeout.
+
+Canonical GitHub routing was discovered before host operations. The authenticated connector identifies rboles84 and admin/push/pull repository access, supports PR creation/read/CI and atomic expected-head guarded squash merge; this adequate route is selected for those operations. Native Git remains the established push/fetch transport. The matching VM-685 PR inventory was empty before any creation. Repository policy visibility is optional under the existing workflow authority; no callable branch-policy/settings read is exposed, and no fallback authentication route is sought. Required Deterministic Validation, complete host scope/content/commit parity and guarded head remain mandatory. Publishing settings and PR72's historical exception are unchanged.
+
+The separate VM-686 intake is preserved outside the repository before integration, with exact original authored bytes and original generated-view bytes/hashes in external `vm685-footer-preservation.json`; it is excluded from this task PR. It will be restored after closeout and retained as deferred intake. The same Owner message requests stage 5 for Archscry and its separate `/guide/reading/` route; material work will begin only after updated-main canonical admission and route-specific reconciliation. Future stage-5 acceptance/integration is not granted by this message.
