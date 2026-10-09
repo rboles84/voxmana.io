@@ -50,7 +50,7 @@ RobQA: PENDING
 Owner: PENDING
 Integration: PENDING — explicitly unauthorized at this stage
 Dependencies: None
-Decisions: Presentation-only /archscry/ and /guide/reading/ support with dedicated archscry and guide-reading opt-ins. Reuse all accepted theme/controller/palette/resource contracts. Preserve accepted VM-615 optional-depth, VM-621 walkthrough, VM-625 Atlas/browse, VM-636 matrix, VM-643 prose, VM-652 opaque panels/spacing/precon hover and VM-664 mixed-result contracts. Dossier-radar.js may change neutral canvas presentation and its theme-event cleanup only; shared vm-radar/profile/dataset/lifecycle owners remain protected. Preserve content, semantics, storage, layout, motion, artwork, route targets, shared shell interaction and every predecessor/unconverted route. No footer standardization, host writes, integration/deployment, publishing-settings changes, PR72 exception resolution or stage-6 work.
+Decisions: Presentation-only /archscry/ and /guide/reading/ support with dedicated archscry and guide-reading opt-ins. Reuse all accepted theme/controller/palette/resource contracts. Preserve accepted VM-615 optional-depth, VM-621 walkthrough, VM-625 Atlas/browse, VM-636 matrix, VM-643 prose, VM-652 opaque panels/spacing/precon hover and VM-664 mixed-result contracts. Dossier-radar.js may change neutral canvas presentation and its theme-event cleanup only; shared vm-radar/profile/dataset/lifecycle owners remain protected. Preserve content, semantics, storage, layout, motion, artwork, route targets, shared shell interaction and every predecessor/unconverted route. No footer standardization, host writes, integration/deployment, publishing-settings changes, PR72 exception resolution or stage-6 work. Scope amendment: admit the individual browser-construction RobDev handoff for parallel bounded witness construction; product scope and QA independence remain unchanged.
 Evidence: Start ELIGIBLE; current accepted predecessor integrations verified through authenticated host/Git. Individual handoffs retain role packets and later exact-candidate results.
 
 ## Admission Scope
@@ -72,3 +72,4 @@ Evidence: Start ELIGIBLE; current accepted predecessor integrations verified thr
 - `docs/handoffs/2026-10-08-2300-robdev-vm687-archscry-reading-theme.md`
 - `docs/handoffs/2026-10-08-2300-robqa-vm687-archscry-reading-theme.md`
 - `docs/handoffs/2026-10-08-2300-codex-vm687-archscry-reading-theme-delivery.md`
+- `docs/handoffs/2026-10-08-2300-robdev-vm687-theme-browser.md`
