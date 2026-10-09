@@ -454,7 +454,7 @@ html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-ro
 html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .precons-section .precon-commander-trigger:is(:hover, :focus-visible) { border-bottom-color: #51310d; color: #51310d; }
 html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .vm-dossier-matrix-section:has(.matrix-mana-symbols .ms-w:only-child) .vm-trait-pip.is-lit { background: color-mix(in srgb, var(--identity-color) 92%, #8a5b19 8%); box-shadow: 0 0 4px rgba(138, 91, 25, 0.16); }
 html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .vm-dossier-matrix-section:has(.matrix-mana-symbols .ms-w:only-child) .vm-trait-icon { color: color-mix(in srgb, var(--identity-color) 92%, #8a5b19 8%); border-color: rgba(138, 91, 25, 0.16); text-shadow: 0 0 1px rgba(80, 55, 26, 0.18); }
-html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .dossier-orientation { border-left: 2px solid var(--site-rule); }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .dossier-orientation { border-left: 2px solid var(--site-rule); padding-left: 1rem; }
 
 /* Low-specificity control group preserves the more-specific landing link exception. */
 html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .vm-dossier-matrix-section .vm-strategium-detail { background: #fff8e8; border-color: #a88d62; box-shadow: 0 8px 18px rgba(80, 55, 26, 0.18); }

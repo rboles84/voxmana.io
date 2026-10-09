@@ -290,3 +290,11 @@ C5-to-C6 product changes are limited to `assets/css/theme-pages.css`, `assets/js
 C6 remains blocked pending the Owner's visual recheck of the eight third-batch screenshots and disposition of the existing residual objective browser gaps. The sole approved automated browser run remains a launch failure before assertions. No rendered PASS, screenshot inference, ACCEPT or waiver is claimed; no browser or unchanged suite was run.
 
 The original exact decision is preserved at [vm687-white-refinement-qa.md](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-white-refinement-qa.md). No product or test change, browser execution or commit was made by RobQA.
+
+## C7 decision-copy inset strategy
+
+The Owner supplied one screenshot showing the light decision copy touching the new brown left rule. The actual later `site-skin.css` owner resets `.dossier-orientation` to `padding: 16px 0`; the final light adapter already owns the two-pixel left border. A light-route `padding-left: 1rem` on that same final `.dossier-orientation` selector restores the requested inset and matches the snapshot-card horizontal inset without changing the accepted dark presentation, grid, action layout or other sides.
+
+The proportional exact-candidate selection is the existing VM-687 source guard with the final selector/declaration map extended to pin `padding-left: 1rem`, C6-to-C7 and baseline-to-C7 patch hygiene, bounded path/byte review and generated-index freshness. No new spacing-specific test, radar/menu guard, VM-685/controller/matrix suite or browser run is selected because their owners and risks are unchanged. Owner visual judgment controls the spacing result. The previously recorded residual objective browser gaps remain unchanged and should not be expanded or treated as resolved by this one-rule correction.
+
+At freeze, require the material delta to contain only the final light CSS declaration, its existing source-guard expectation and lifecycle records. Preserve the C6 left-border value, site-skin source, dark paint, responsive grid and all product/runtime/template/radar bytes. No concrete hold is identified before implementation.

@@ -85,6 +85,10 @@ The final palette correction keeps flavor and compact precon cards on `#f7edd8`,
 
 Precon research links now join verified commander-provider links inside the existing closed `details.precon-provider-menu`; no research link remains exposed through `.precon-links`. The light adapter restores the vendor cost-symbol shadow on emitted `.ms-cost` glyphs, strengthens the Commander trigger/deck-link/orientation rules, and leaves semantic service/Mana colors intact. Radar white contrast is limited to datasets identified by the RADAR component provenance or a mono-White composite, keeps original data/membership/order, and restores stored paint on dark reversal. Focused source and radar checks passed with `git diff --check`; fixture expansion beyond the source-shape checks remains an independent QA concern.
 
+## Owner spacing correction
+
+The light Archscry `.dossier-orientation` already owns the approved brown left rule. Added only `padding-left: 1rem` so decision copy clears that rule after the site-skin reset. Dark mode, base CSS, panel geometry, controls, runtime state, and all other dossier surfaces remain outside this edit. No developer checks were run for this one-property correction; independent QA selects the existing focused guard and diff hygiene.
+
 ## Coordinator completion after worker return
 
 /root completed the remaining production menu and authoritative shared-radar fixtures under the existing RobDev authority; see the root delivery handoff's Third Owner refinement implementation completion. The worker's earlier incomplete-fixture report remains historical. Source/radar checks and eight in-memory sensitivity failures passed; independent frozen QA and manual rendered recheck remain separate and pending.
