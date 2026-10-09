@@ -139,3 +139,19 @@ Owner: PENDING
 Independent [Owner-correction QA](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-owner-correction-qa.md) passed the exact focused VM687 source guard, VM685 predecessor source guard, baseline patch hygiene and protected-byte review. All runtime/entrypoint/data/shared-atmosphere/chart/artwork/geometry/routing/motion inputs remain unchanged since the last checkpoint. No additional browser or broader suite was run. QA remains BLOCKED for Owner recheck and the preserved residual objective browser coverage, so SHIP/Owner Review is not claimed.
 
 The current manual server returned HTTP 200 for theme-pages.css?v=vm687 with the corrected control rule and Cache-Control no-store. This confirms CSS delivery only, not composed paint. Reload existing pages on the same origin; no seeding or storage reset is necessary. Recheck landing secondary action/default+hover/focus, opaque scrolled header and stars; Atlas introduction/pager/active-versus-inactive nodes and connector effects; Dune art-backed copy and navigation; matrix lore/tension/axis/numbers, opened detail and inactive markers. Owner visual balance and actual route/step results remain pending. Final [Git accounting](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-owner-correction-git.md) will supply the validated complete material paths, evidence-only delta and total branch state. No feature push, PR, integration, deployment, publishing or stage6 occurred.
+
+## C5 second dossier correction checkpoint
+
+Material candidate: 9a08cc9c9bfebf250781bf927abb47b515266102
+
+RobQA: BLOCKED
+
+Execution: SEPARATE
+
+Owner: PENDING
+
+The independent [C5 QA original](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-dossier-correction-qa.md) passes the selected VM687 source guard, full-branch and C4-to-C5 hygiene, protected-byte/path review and generated-view freshness. Fresh continuation admission at this clean material HEAD is PASS against unchanged live/main/origin baseline. Product changes since C4 are confined to final light CSS and the focused guard; route/runtime/data/entrypoint/chart/resource/layout/motion/dark owners remain unchanged. Prior unchanged checks carry their original limits. No browser or other suite was rerun.
+
+All eight reported families have exact light paint owners and state assertions. Normal flavor/precon surfaces remain #f7edd8; How This Plays remains open/transparent. Both segmented groups share the same renderer and correction. The Guide rule targets its actual sibling hierarchy. Local CSS HTTP 200/no-store confirms the mana-row, Guide-ink and badge declarations are served. It is asset-delivery evidence only.
+
+Reload the current local page without reseeding or clearing storage. Recheck Jund's synthesis row; Identity & Play including both card sections; Commander Browsing Starts and expanded Decks/provider controls; all Card Signal/Mana Note tab states; Maze paths; and the current personal White reading's snapshot/orientation cards. These are the shortest human checks for this batch. Owner recheck and the preserved residual objective browser coverage keep RobQA BLOCKED, so no SHIP/Owner Review or ACCEPT is recorded. The [C5 Git report](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-dossier-correction-git.md) supplies validated full material paths, evidence-only delta and final branch accounting after consolidation. No feature push, PR, integration, deployment, publishing or stage 6 occurred.

@@ -45,13 +45,13 @@ Apply RobDev and independent RobQA under repository role/model routing. Reuse th
 Record version: 1
 Branch: codex/vm-687-archscry-reading-theme
 Admission baseline: 3cf826eb87702bd25b66a2853838b00a880d7307
-Candidate: PENDING — second Owner dossier correction
-RobQA: PENDING — independent review of second Owner correction; prior C4 BLOCKED retained
+Candidate: 9a08cc9c9bfebf250781bf927abb47b515266102
+RobQA: BLOCKED — SEPARATE exact-candidate review at 9a08cc9c9bfebf250781bf927abb47b515266102
 Owner: PENDING
 Integration: PENDING — explicitly unauthorized at this stage
 Dependencies: None
 Decisions: Presentation-only /archscry/ and /guide/reading/ support with dedicated archscry and guide-reading opt-ins. Reuse all accepted theme/controller/palette/resource contracts. Preserve accepted VM-615 optional-depth, VM-621 walkthrough, VM-625 Atlas/browse, VM-636 matrix, VM-643 prose, VM-652 opaque panels/spacing/precon hover and VM-664 mixed-result contracts. Dossier-radar.js may change neutral canvas presentation and its theme-event cleanup only; shared vm-radar/profile/dataset/lifecycle owners remain protected. Preserve content, semantics, storage, layout, motion, artwork, route targets, shared shell interaction and every predecessor/unconverted route. No footer standardization, host writes, integration/deployment, publishing-settings changes, PR72 exception resolution or stage-6 work. Scope amendment: admit the individual browser-construction RobDev handoff for parallel bounded witness construction; product scope and QA independence remain unchanged. Scope amendment: independent RobQA identified a warm-client cache acceptance gap; admit a uniform Archscry import-epoch advance vm636 to vm687 to deliver the changed radar owner. All other runtime bodies and shared radar/profile/data owners remain protected; only import-version transport changes are authorized. Scope amendment: admit the selected matrix regression import-epoch alignment and an individual bounded browser-recovery handoff; preserve assertions and product scope. Scope amendment: the independently observed browser-launch obstacle requires the canonical blocked-card destination; admit that lifecycle relocation while preserving the same task, branch and product scope.
-Evidence: C4 365d04d226c5f3d2cd2100be888bd14056747762 remains original source PASS / RobQA BLOCKED evidence. The Owner's second batch confirms eight additional dossier light defects; new correction and independent QA are underway on this branch. Original reports, failed browser evidence and both attachment batches remain preserved. Owner recheck and residual objective browser gaps remain pending; no rendered inference or automated browser retry.
+Evidence: C5 9a08cc9c9bfebf250781bf927abb47b515266102 corrects all eight second-batch dossier light seams. Independent exact VM687 source guard, branch hygiene, protected-byte review and index freshness PASS; RobQA BLOCKED / SEPARATE pending Owner recheck and residual objective browser gaps. Original vm687-dossier-correction-qa.md binds this result; eight in-memory sensitivity checks EXPECTED FAIL. All C1–C4 reports, browser failures and both attachment batches remain preserved. Local CSS HTTP 200/no-store proves delivery only; no rendered inference or automated browser retry.
 
 ## Admission Scope
 

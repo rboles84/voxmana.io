@@ -224,3 +224,25 @@ An exploratory `.lands-section .land-tier` inherited-color rule did not address 
 The preceding claim that How This Plays, flavor cards and precon cards necessarily retained the early dark `archscry.css` surfaces was incomplete. The actual stylesheet order is `guide-beacon.css`, `archscry.css`, `site-skin.css`, then `theme-pages.css`. Later `site-skin.css` makes `.starter-card` and `.how-this-plays-block` transparent and paints `.precon-card` and `.flavor-echo-card` with `var(--site-surface)`; the light adapter resolves that variable to `#f7edd8`. Therefore How This Plays should retain its accepted open, transparent layout. A new opaque box is unnecessary. Explicit `#fff8e8` rules for flavor and precon cards may pin their existing light paint and interactive states, but they are not repairs for a surviving dark base surface.
 
 The valid descendant findings remain: the How This Plays copy owners need late ink; `.flavor-echo-kicker` needs a readable light-theme teal; precon badge variants and provider `.service-name`/`.service-label` need direct winners; and the Guide beacon needs its normal custom-property owners because it is a sibling of `.dossier-orientation-actions`, not a descendant. The exact-candidate guard should model all three relevant stylesheet layers and their order when claiming a final winner.
+
+## Exact C5 dossier-correction binding
+
+Task: VM-687
+
+Candidate: `9a08cc9c9bfebf250781bf927abb47b515266102`
+
+RobQA: **BLOCKED**
+
+Execution: **SEPARATE**
+
+Independent exact-candidate execution passed `node scripts/vm687-archscry-theme-source-tests.mjs`, full baseline-to-C5 patch hygiene, C4-to-C5 patch hygiene and generated-index freshness. The focused guard pins the eight Owner-confirmed correction families at their actual final selectors and states: matrix mana row; How This Plays descendants; card-voice/play copy and teal label; precon literal/provider descendants; Card Signals and Mana tier tabs; Maze service chip; personal-reading snapshot descendants/tags; and orientation actions/Guide beacon.
+
+C4-to-C5 inspection found only the light adapter, its focused source guard and lifecycle records. Archscry and Reading entrypoints, runtime modules, data, existing tests, shared radar/browser witnesses, artwork, routes, persistence, layout and motion owners remain byte-identical. The generated board and handoff index are fresh. The VM-685 predecessor and other unchanged checks were not rerun.
+
+Root's eight in-memory substitutions produced the expected red result and are preserved in external `vm687-dossier-correction-sensitivity.json`. This is development evidence, not independent RobQA execution.
+
+C5 remains blocked pending the Owner's manual recheck of the seventeen supplied screenshot seams and disposition of the previously recorded browser coverage gaps. The sole approved automated browser run still failed during launch before assertions; no browser PASS or screenshot inference is claimed.
+
+The original exact decision is preserved at [vm687-dossier-correction-qa.md](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-dossier-correction-qa.md). No product or test change, browser execution or commit was made by RobQA.
+
+Final palette clarification: the earlier prefreeze draft's #fff8e8 reference is historical. C5 uses explicit #f7edd8 for normal flavor/precon cards, matching the accepted light site-surface, and keeps How This Plays transparent. This correction is appended to retain the frozen material handoff history.
