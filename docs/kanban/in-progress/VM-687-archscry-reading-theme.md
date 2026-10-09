@@ -50,7 +50,7 @@ RobQA: PENDING
 Owner: PENDING
 Integration: PENDING — explicitly unauthorized at this stage
 Dependencies: None
-Decisions: Presentation-only /archscry/ and /guide/reading/ support with dedicated archscry and guide-reading opt-ins. Reuse all accepted theme/controller/palette/resource contracts. Preserve accepted VM-615 optional-depth, VM-621 walkthrough, VM-625 Atlas/browse, VM-636 matrix, VM-643 prose, VM-652 opaque panels/spacing/precon hover and VM-664 mixed-result contracts. Dossier-radar.js may change neutral canvas presentation and its theme-event cleanup only; shared vm-radar/profile/dataset/lifecycle owners remain protected. Preserve content, semantics, storage, layout, motion, artwork, route targets, shared shell interaction and every predecessor/unconverted route. No footer standardization, host writes, integration/deployment, publishing-settings changes, PR72 exception resolution or stage-6 work. Scope amendment: admit the individual browser-construction RobDev handoff for parallel bounded witness construction; product scope and QA independence remain unchanged.
+Decisions: Presentation-only /archscry/ and /guide/reading/ support with dedicated archscry and guide-reading opt-ins. Reuse all accepted theme/controller/palette/resource contracts. Preserve accepted VM-615 optional-depth, VM-621 walkthrough, VM-625 Atlas/browse, VM-636 matrix, VM-643 prose, VM-652 opaque panels/spacing/precon hover and VM-664 mixed-result contracts. Dossier-radar.js may change neutral canvas presentation and its theme-event cleanup only; shared vm-radar/profile/dataset/lifecycle owners remain protected. Preserve content, semantics, storage, layout, motion, artwork, route targets, shared shell interaction and every predecessor/unconverted route. No footer standardization, host writes, integration/deployment, publishing-settings changes, PR72 exception resolution or stage-6 work. Scope amendment: admit the individual browser-construction RobDev handoff for parallel bounded witness construction; product scope and QA independence remain unchanged. Scope amendment: independent RobQA identified a warm-client cache acceptance gap; admit a uniform Archscry import-epoch advance vm636 to vm687 to deliver the changed radar owner. All other runtime bodies and shared radar/profile/data owners remain protected; only import-version transport changes are authorized.
 Evidence: Start ELIGIBLE; current accepted predecessor integrations verified through authenticated host/Git. Individual handoffs retain role packets and later exact-candidate results.
 
 ## Admission Scope
@@ -73,3 +73,25 @@ Evidence: Start ELIGIBLE; current accepted predecessor integrations verified thr
 - `docs/handoffs/2026-10-08-2300-robqa-vm687-archscry-reading-theme.md`
 - `docs/handoffs/2026-10-08-2300-codex-vm687-archscry-reading-theme-delivery.md`
 - `docs/handoffs/2026-10-08-2300-robdev-vm687-theme-browser.md`
+- `assets/js/archscry/archscry-presentation.js`
+- `assets/js/archscry/archscry-result.js`
+- `assets/js/archscry/commander-dossier.js`
+- `assets/js/archscry/dossier/foundation.js`
+- `assets/js/archscry/dossier/audit.js`
+- `assets/js/archscry/dossier/precons.js`
+- `assets/js/archscry/dossier/reading.js`
+- `assets/js/archscry/index.js`
+- `assets/js/archscry/quick-reading.js`
+- `assets/js/archscry/runtime/data.js`
+- `assets/js/archscry/runtime/actions.js`
+- `assets/js/archscry/runtime/dossier-view.js`
+- `assets/js/archscry/runtime/identity-directory.js`
+- `assets/js/archscry/runtime/card-media.js`
+- `assets/js/archscry/runtime/boot.js`
+- `assets/js/archscry/runtime/content.js`
+- `assets/js/archscry/runtime/dev-review.js`
+- `assets/js/archscry/runtime/navigation.js`
+- `assets/js/archscry/runtime/questionnaire.js`
+- `assets/js/archscry/runtime/identity-atlas.js`
+- `assets/js/archscry/runtime/dossier-controls.js`
+- `assets/js/archscry/runtime/state.js`
