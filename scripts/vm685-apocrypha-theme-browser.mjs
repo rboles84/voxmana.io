@@ -146,23 +146,53 @@ async function theme(cdp, mode) {
 }
 
 // Inspect complete repeated populations against actual painted surface owners.
-async function surfaces(cdp, mode, label) {
+async function surfaces(cdp, mode, label, noJS = false) {
   await cdp.send('Page.bringToFront');
-  await cdp.eval('new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)))');
-  const result = await cdp.eval(`(()=>{
+  // Script-disabled inspection supports synchronous CDP reads, but scheduled
+  // page callbacks cannot run. CSS is already loaded before this fallback read.
+  if (!noJS) await cdp.eval('new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)))');
+  // Closed disclosure descendants can retain cached styles. Bind reversal to
+  // painted labels, keeping the complete hidden population as a separate read.
+  const labelStart = Date.now();
+  let paintedLabels;
+  do {
+    paintedLabels = await cdp.eval(`Array.from(document.querySelectorAll('.apoc-source-card')).filter(card=>!card.closest('details:not([open])')&&card.getClientRects().length).map(card=>({labels:Array.from(card.querySelectorAll('p > strong')).map(n=>({text:n.textContent.trim(),color:getComputedStyle(n).color})),surface:getComputedStyle(card).backgroundColor}))`);
+    const expected = mode === 'light' ? 'rgb(33, 27, 24)' : 'rgba(245, 244, 238, 0.94)';
+    if (paintedLabels.every(card=>card.labels.every(n=>n.color===expected))) break;
+    if (noJS) break;
+    await delay(16);
+  } while (Date.now()-labelStart < 500);
+  observations.surfaces.push({labelPalette:label,mode,noJS,elapsedMs:Date.now()-labelStart,paintedLabels});
+  for (const card of paintedLabels) {
+    assert.deepEqual(card.labels.map(n=>n.text),['Used for:','Does not establish:']);
+    assert.ok(card.labels.every(n=>n.color===(mode==='light'?'rgb(33, 27, 24)':'rgba(245, 244, 238, 0.94)')),label+' final painted source labels');
+  }
+  if (['registry opening','registry reversal','nested population','load-failure fallback','dark fallback','no-JS authored fallback strong labels'].includes(label))assert.ok(paintedLabels.length>0,label+' actual painted source population');
+  const visibleStart = Date.now();
+  let result;
+  do {
+    result = await cdp.eval(`(()=>{
     const structural=['.apoc-hero__copy','.apoc-hero__signal','.apoc-signal-item','.apoc-rail','.apoc-source-tome','.apoc-library-group','.apoc-library-summary','.apoc-shelf','.apoc-use-note'];
     const structures=structural.flatMap(selector=>Array.from(document.querySelectorAll(selector)).map(n=>{const s=getComputedStyle(n);return {selector,background:s.backgroundColor,image:s.backgroundImage,shadow:s.boxShadow,filter:s.backdropFilter}}));
     const rgb=v=>(v.match(/[\\d.]+/g)||[]).map(Number),blend=(f,b)=>f.slice(0,3).map((v,i)=>v*(f[3]??1)+b[i]*(1-(f[3]??1)));
     const lum=c=>c.map(v=>v/255).map(v=>v<=.04045?v/12.92:((v+.055)/1.055)**2.4).reduce((a,v,i)=>a+v*[.2126,.7152,.0722][i],0);
     const ratio=(f,b)=>(Math.max(lum(f),lum(b))+.05)/(Math.min(lum(f),lum(b))+.05);
+    const visible=n=>{if(!n.getClientRects().length)return false;for(let p=n.parentElement;p;p=p.parentElement){if(p.matches('details:not([open])')&&!Array.from(p.children).find(c=>c.tagName==='SUMMARY')?.contains(n))return false}return true};
     const field=getComputedStyle(document.querySelector('.vm-bg')).backgroundImage;
     const stops=(field.match(/rgba?\\([^)]+\\)/g)||[]).map(rgb);if(!stops.length)stops.push(rgb(getComputedStyle(document.body).backgroundColor));
-    const leafSelectors=['.apoc-hero h1','.apoc-hero p','.apoc-signal-item h3','.apoc-signal-item p','.apoc-section__head h2','.apoc-section__head p','.apoc-library-title','.apoc-library-desc','.apoc-shelf__bar','.apoc-source-card h4','.apoc-source-card p','.apoc-reference-card h4','.apoc-reference-card p','.apoc-source-tags li','.apoc-source-card .apoc-badge','.apoc-source-link','.apoc-shelf__count','.apoc-footer','.apoc-footer a','[data-apoc-source-status]','.apoc-method-note p','.apoc-rail a','.apoc-source-tome__scent','.apoc-return-link','.apoc-hero__status span','.apoc-registry-summary span','.apoc-library-desc strong'];
-    const leaves=leafSelectors.flatMap(selector=>Array.from(document.querySelectorAll(selector)).filter(n=>n.textContent.trim()).map(n=>{let overlays=[],opaque=null;for(let p=n;p&&p!==document.body&&p!==document.documentElement;p=p.parentElement){const s=getComputedStyle(p),c=rgb(s.backgroundColor);if(c.length>=3&&(c[3]??1)>0){overlays.push(c);if((c[3]??1)===1){opaque=c;break}}}const fg=rgb(getComputedStyle(n).color);const bases=opaque?[opaque]:stops;const backgrounds=bases.map(b=>overlays.slice().reverse().reduce((a,f)=>blend(f,a),b));return {selector,text:n.textContent.trim().slice(0,50),color:getComputedStyle(n).color,backgrounds,contrast:Math.min(...backgrounds.map(b=>ratio(blend(fg,b),b)))}}));
-    return {mode:document.documentElement.dataset.vmTheme,field,before:{content:getComputedStyle(document.querySelector('.vm-bg'),'::before').content,image:getComputedStyle(document.querySelector('.vm-bg'),'::before').backgroundImage},structures,leaves,actions:Array.from(document.querySelectorAll('.apoc-hero__actions a')).map(n=>({image:getComputedStyle(n).backgroundImage,shadow:getComputedStyle(n).boxShadow})),categories:Array.from(document.querySelectorAll('.apoc-library-summary')).map(n=>({text:n.innerText,title:n.querySelector('.apoc-library-title').textContent}))};
+    const leafSelectors=['.apoc-hero h1','.apoc-hero p','.apoc-signal-item h3','.apoc-signal-item p','.apoc-section__head h2','.apoc-section__head p','.apoc-library-title','.apoc-library-desc','.apoc-shelf__bar','.apoc-source-card h4','.apoc-source-card p','.apoc-reference-card h4','.apoc-reference-card p','.apoc-source-tags li','.apoc-source-card .apoc-badge','.apoc-source-link','.apoc-shelf__count','.apoc-footer','.apoc-footer a','[data-apoc-source-status]','.apoc-method-note p','.apoc-rail a','.apoc-source-tome__scent','.apoc-return-link','.apoc-hero__status span','.apoc-registry-summary span','.apoc-library-desc strong','.apoc-main strong'];
+    const leaves=leafSelectors.flatMap(selector=>Array.from(document.querySelectorAll(selector)).filter(n=>n.textContent.trim()).map(n=>{let overlays=[],opaque=null;for(let p=n;p&&p!==document.body&&p!==document.documentElement;p=p.parentElement){const s=getComputedStyle(p),c=rgb(s.backgroundColor);if(c.length>=3&&(c[3]??1)>0){overlays.push(c);if((c[3]??1)===1){opaque=c;break}}}const fg=rgb(getComputedStyle(n).color);const bases=opaque?[opaque]:stops;const backgrounds=bases.map(b=>overlays.slice().reverse().reduce((a,f)=>blend(f,a),b));return {selector,text:n.textContent.trim().slice(0,50),visible:visible(n),sourceCard:!!n.closest('.apoc-source-card'),color:getComputedStyle(n).color,backgrounds,contrast:Math.min(...backgrounds.map(b=>ratio(blend(fg,b),b)))}}));
+    return {mode:document.documentElement.dataset.vmTheme,field,before:{content:getComputedStyle(document.querySelector('.vm-bg'),'::before').content,image:getComputedStyle(document.querySelector('.vm-bg'),'::before').backgroundImage},structures,leaves,strongOwners:Object.fromEntries(['.apoc-source-card strong','.apoc-reference-card strong','.apoc-shelf__bar strong'].map(selector=>[selector,document.querySelectorAll(selector).length])),sourceLabels:Array.from(document.querySelectorAll('.apoc-source-card')).map(card=>Array.from(card.querySelectorAll('p > strong')).map(n=>n.textContent.trim())),actions:Array.from(document.querySelectorAll('.apoc-hero__actions a')).map(n=>({image:getComputedStyle(n).backgroundImage,shadow:getComputedStyle(n).boxShadow})),categories:Array.from(document.querySelectorAll('.apoc-library-summary')).map(n=>({text:n.innerText,title:n.querySelector('.apoc-library-title').textContent}))};
   })()`);
-  observations.surfaces.push({ label, ...result });
-  assert.equal(result.mode, mode);
+    if (noJS||!result.leaves.some(leaf=>leaf.selector==='.apoc-main strong'&&leaf.visible&&leaf.contrast<4.5))break;
+    await delay(16);
+  } while (Date.now()-visibleStart<500);
+  observations.surfaces.push({ label, effectiveTheme: mode, noJS, visibleStrongElapsedMs:Date.now()-visibleStart, ...result });
+  assert.equal(result.mode, noJS ? undefined : mode);
+  assert.equal(result.sourceLabels.length, 59, 'complete source card population');
+  assert.equal(result.strongOwners['.apoc-source-card strong'], 118, 'two actual bold labels per source card');
+  for(const labels of result.sourceLabels)assert.deepEqual(labels,['Used for:','Does not establish:'],'actual semantic label pair');
+  assert.deepEqual(result.leaves.filter(leaf=>leaf.selector==='.apoc-main strong'&&leaf.visible&&leaf.contrast<4.5), [], label+' actual painted strong descendant contrast');
   for (const owner of result.structures) {
     assert.ok(['rgba(0, 0, 0, 0)', 'transparent'].includes(owner.background), label + ' open background ' + JSON.stringify(owner));
     assert.equal(owner.image, 'none'); assert.equal(owner.shadow, 'none'); assert.equal(owner.filter, 'none');
@@ -259,6 +289,7 @@ try {
   await click(cdp, '[data-source-tome][data-library-target="apoc-library-worldbuilding-lore"]');
   await wait(cdp, `location.hash==='#apoc-library-worldbuilding-lore' && document.querySelectorAll('details.apoc-library-group[open]').length===1`);
   await click(cdp, '#apoc-library-worldbuilding-lore .apoc-shelf > summary');
+  if (!await cdp.eval(`document.querySelector('#apoc-library-worldbuilding-lore .apoc-shelf').open`))await click(cdp, '#apoc-library-worldbuilding-lore .apoc-shelf > summary');
   const state = await archiveState(cdp);
   await darkControl.eval(`localStorage.setItem('vm_theme_mode_v1','dark')`);
   await wait(cdp, `document.documentElement.dataset.vmTheme==='dark'`); await theme(cdp, 'dark');
@@ -363,6 +394,7 @@ try {
   assert.equal(nojs.theme, null); assert.equal(nojs.count, 59); assert.equal(nojs.control, false); assert.deepEqual(await libraryContent(cdp), fallbackContent);
   assert.deepEqual(nojs.notice, ['JavaScript is off. The complete public source library remains available below.']);
   observations.surfaces.push({ noJS: nojs });
+  await surfaces(cdp, 'dark', 'no-JS authored fallback strong labels', true);
   await cdp.send('Emulation.setScriptExecutionDisabled', { value: false }); registryFails = false;
   mark('focused predecessor continuity, inert routes and Library alias');
   await darkControl.eval(`localStorage.setItem('vm_theme_mode_v1','light')`);

@@ -34,4 +34,5 @@ assert.ok(selectors.every(selector => selector.startsWith('html[data-vm-theme="l
 assert.match(adapter, /\.apoc-source-status\[data-tone="error"\]/);
 assert.match(adapter, /\.apoc-library-group/);
 assert.match(adapter, /\.apoc-source-link/);
+assert.match(adapter, /\.apoc-source-card p > strong \{ color: #211b18; \}/);
 console.log("VM-685 Apocrypha theme source boundaries passed.");

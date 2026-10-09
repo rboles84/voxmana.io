@@ -251,6 +251,7 @@ html[data-vm-theme="light"][data-vm-theme-opt-in="apocrypha"] body.vm-apocrypha-
 html[data-vm-theme="light"][data-vm-theme-opt-in="apocrypha"] body.vm-apocrypha-route :is(
   .apoc-badge, .apoc-source-tags li, .apoc-shelf__count
 ) { background: #f7edd8; border-color: #a88d62; color: #31271f; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="apocrypha"] body.vm-apocrypha-route .apoc-source-card p > strong { color: #211b18; }
 html[data-vm-theme="light"][data-vm-theme-opt-in="apocrypha"] body.vm-apocrypha-route .apoc-source-card[data-source-group="supplemental"] :is(.apoc-badge, .apoc-source-tags li) { border-color: #866d47; color: #5a3d71; background: #f4eaf7; }
 html[data-vm-theme="light"][data-vm-theme-opt-in="apocrypha"] body.vm-apocrypha-route .apoc-source-card[data-source-group="official-archives"] :is(.apoc-badge, .apoc-source-tags li) { border-color: #0d6e60; color: #0d6e60; background: #e1f2ed; }
 html[data-vm-theme="light"][data-vm-theme-opt-in="apocrypha"] body.vm-apocrypha-route .apoc-source-link:is(:hover, :focus-visible) { background: #eadcc1; color: #211b18; }

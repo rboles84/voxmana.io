@@ -245,3 +245,35 @@ Stage 5 must use a new admitted card/branch and independently inventory Archscry
 ## Final disposition
 
 RobQAPass PASS is bound only to `1c2fb29f5b00bfbd4fc17a7648bdecdce67765b6` and this evidence. Material implementation, policy, acceptance-criteria, fixture or assertion changes invalidate the verdict and require a new exact candidate. Owner review remains pending.
+
+## Owner correction — source-card strong labels
+
+### Revocation and finding
+
+Owner review found the source-card bold `Used for:` and `Does not establish:` labels pale against the light source-card surface. The prior PASS at `1c2fb29f5b00bfbd4fc17a7648bdecdce67765b6` is revoked for current readiness. Its report and observations remain immutable event-time evidence; they do not authorize continued Owner Review or a descendant candidate.
+
+The escape is objective and reproducible. The earlier composed witness inspected `.apoc-source-card p` foregrounds but omitted their descendant `strong` foreground owners. The unchanged route stylesheet assigns those strong descendants a separate literal color, so a readable parent did not prove a readable label. This is the same actual-painted-leaf defect class already governing VM-685, now applied to a nested inline owner.
+
+- Defect class: incomplete descendant population coverage in a composed presentation regression.
+- Required invariant: inspect every visible source/reference/shelf strong label against its actual composed background; for the source population, require exactly 118 semantic labels, two for each of 59 source cards, with the expected `Used for:` and `Does not establish:` roles.
+- Sensitivity: retain the pre-correction red witness against the rejected candidate before the scoped CSS correction. The invariant must fail for the pale strong owner and pass after correction without changing parent prose, registry/fallback parity or dark behavior.
+- Current replacement candidate: **PENDING**.
+- Current RobQA verdict: **PENDING**.
+
+### Proportional replacement-candidate strategy
+
+QA remains QA-1 presentation inside the existing QA-2/QA-3 route feature, with SEPARATE execution and OWNER-VISUAL active. The expected product correction is limited to the final Apocrypha-scoped adapter's strong-label ink owner. No shared/global footer, source runtime, registry, fallback producer, copy, semantics, grouping, status, layout, motion or navigation change is authorized.
+
+After an immutable replacement SHA is supplied, independent QA will:
+
+1. Verify clean exact-candidate binding and canonical continuation; inspect the full baseline-to-candidate diff and the narrow `724cb70f16ae8c3b5931d974b1079e5dd35c403a..replacement` correction delta. Any scope/criteria/runtime expansion returns to RobDev.
+2. Inspect the retained red-before-green witness and the new strong-label population assertions. Generated registry, load-failure fallback and authored no-JS fallback must each preserve identical semantic source populations, with exactly 118 source strong labels and the additional reference/shelf strong owners included rather than inferred from their parents.
+3. Run the complete focused raw-CDP browser witness through the same approved disposable local Edge alternative. The full run remains proportionate because the corrected selector appears across all source populations and the browser is the lowest reliable layer for actual descendant inheritance, registry replacement, fallback composition and both theme states. Require every light strong leaf to meet the existing objective contrast threshold against its real owner; retain dark reversal, native interaction, storage, dialog, font/glyph, 390px containment, predecessor and Library-alias assertions.
+4. Run the cheap protected-prefix/controller/source/static checks: theme controller test, VM-685 source boundary test, HTML/JS lint, Apocrypha rendering/source validators, browser syntax, patch hygiene and generated-view freshness. These confirm that the correction did not broaden beyond the final adapter/test/evidence seam.
+5. Bind PASS or BLOCKED only to the replacement SHA and new independent browser evidence. The original PASS cannot be reused merely because most observations remain unaffected.
+
+No Puppeteer debt suite, stale 39+10 visual comparator, screenshot/image comparison, broad viewport/engine matrix, placement/semantic/mutation/recovery suite or live feedback is selected. The prior harness-debt stop rule and localhost-only mock feedback guard remain unchanged.
+
+The Owner's footer-standardization question is read-only design inventory/recommendation work in this correction. No accepted predecessor footer contract or shared footer implementation may change without a separate explicit scope decision. Subjective bold-label weight/feel and any future footer standard remain Owner judgment; engineering owns the objective label contrast and population completeness.
+
+No replacement-candidate QA has run. Root's pre-freeze reproduction and red witness are development evidence only.
