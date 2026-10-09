@@ -316,3 +316,11 @@ This source-bound result establishes the exact selector, scope, declaration and 
 C7 remains blocked for the previously recorded Owner visual recheck and residual objective browser coverage. The spacing correction creates no new gap and resolves none of those broader gaps. The sole approved automated browser run remains a launch failure before assertions; no rendered PASS, screenshot inference, ACCEPT or waiver is claimed.
 
 The original exact decision is preserved at [vm687-spacing-correction-qa.md](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-spacing-correction-qa.md). No product or test change, browser execution or commit was made by RobQA.
+
+## C8 Field Guide right-inset strategy
+
+The Owner supplied one screenshot showing the existing light-theme Field Guide beacon too close to the decision panel's right edge. The proposed correction adds only `padding-right: 1rem` to the final Archscry light-only `.dossier-orientation` rule that already owns the two-pixel left border and one-rem left inset. This is the matching horizontal inset on the panel container; the shared beacon markup, URL, interaction state and styling, orientation grid and breakpoints, action controls, dark presentation, left inset and vertical spacing remain protected.
+
+The proportional frozen-candidate selection is the existing VM-687 source guard, baseline-to-C8 and C7-to-C8 patch hygiene, an exact one-property path/byte review and generated-index freshness. The exact review must establish that the product delta is limited to `padding-right: 1rem` on that existing final selector and that runtime, templates, shared beacon source, routes, tests, radar/menu owners, dark paint, base/site-skin CSS, grid/breakpoints and other spacing bytes remain unchanged. No new spacing-specific assertion, radar/menu guard, predecessor/controller/matrix suite or browser run is selected because those owners and risks are unchanged.
+
+Owner visual judgment controls whether the right inset resolves the supplied screenshot. The previous Owner-review and objective browser gaps remain as already recorded; this correction creates no new gap and does not resolve the broader ones. The current working-tree CSS is consistent with this scope, and no concrete prefreeze hold is identified. Exact-candidate execution remains pending freeze.

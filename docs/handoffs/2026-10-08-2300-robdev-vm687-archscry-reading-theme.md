@@ -89,6 +89,10 @@ Precon research links now join verified commander-provider links inside the exis
 
 The light Archscry `.dossier-orientation` already owns the approved brown left rule. Added only `padding-left: 1rem` so decision copy clears that rule after the site-skin reset. Dark mode, base CSS, panel geometry, controls, runtime state, and all other dossier surfaces remain outside this edit. No developer checks were run for this one-property correction; independent QA selects the existing focused guard and diff hygiene.
 
+## Owner guide spacing correction
+
+Added only `padding-right: 1rem` to that same final light Archscry orientation rule, preserving the left border and prior left inset while moving the existing Field Guide beacon clear of the outer edge. Link markup, destination, state, shared beacon styling, dark mode, grid, and vertical spacing remain unchanged. No checks were run for this one-property correction.
+
 ## Coordinator completion after worker return
 
 /root completed the remaining production menu and authoritative shared-radar fixtures under the existing RobDev authority; see the root delivery handoff's Third Owner refinement implementation completion. The worker's earlier incomplete-fixture report remains historical. Source/radar checks and eight in-memory sensitivity failures passed; independent frozen QA and manual rendered recheck remain separate and pending.
