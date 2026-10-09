@@ -2,7 +2,7 @@
 
 ID: VM-685
 Title: Apocrypha theme, stage 4
-Status: Accepted
+Status: Integrated
 Type: Bounded route theme presentation
 Area: Apocrypha and shared theme allowlist
 Priority: High
@@ -42,10 +42,10 @@ Admission baseline: 7fcf62c0d4a1389b668a39c27c7075d18c221c99
 Candidate: 78ec24583e772ae8781acd569f9036807b262026
 RobQA: PASS at 78ec24583e772ae8781acd569f9036807b262026 — Execution SEPARATE; reviewer /root/apocrypha_qa; docs/handoffs/2026-10-08-1500-robqa-vm685-apocrypha-theme.md, Owner-label replacement exact-candidate QA
 Owner: ACCEPTED at 78ec24583e772ae8781acd569f9036807b262026 — direct Owner approval in this chat; delivery handoff, Owner ACCEPT and integration authorization
-Integration: PENDING — authorized by subsequent Owner ACCEPT; guarded PR integration underway
+Integration: INTEGRATED — PR75 https://github.com/rboles84/voxmana.io/pull/75; squash 842cb8cde44f76d145a1ee447143c895f6f9905b; local/main/live main synchronized; lifecycle closeout underway
 Dependencies: None
 Decisions: Presentation-only /apocrypha/ support. Reuse accepted controller/key/prepaint/default/failure/refresh/palette/typography/toggle contracts. Preserve accepted VM-665 layout/corrections and all predecessor dark/light behavior. Do not edit archive runtime, loader, registry, generated fallback, producers, factual/reference content, classifications/status meaning/counts/order/links, Library alias, artwork/motion, services or publishing. Surface concrete accepted-design/protected-contract changes before expanding. PR72 historical deployment exception remains unresolved. Stage-3 integration authority does not authorize stage 4 integration.
-Evidence: Owner source-label finding resolved by one final light route-scoped ink rule; all 59 cards/118 exact child labels retained. Original C1 PASS remains revoked for current readiness with event-time reports preserved. Independent replacement exact-candidate RobQA PASS and canonical durable-qa candidate gate PASS at 78ec24583e772ae8781acd569f9036807b262026; Owner Review with Owner PENDING. Actual open source cards pass registry/failure/noJS and light/dark reversal; complete visible bold text passes within unchanged 500ms bound. Focused contracts, loaded glyphs/fonts, mocked feedback and measured containment pass; prior construction failures, inherited compass clipping, stale comparator and Puppeteer debt remain disclosed. Footer standardization is a separate recommendation, with no shared/predecessor footer change. Preview http://127.0.0.1:62547/apocrypha/ serves exact corrected CSS. No push/PR/integration/deployment/publishing/Archscry. Post-candidate records are evidence only; final exact-delta review and Git accounting follow. Subsequent direct Owner checkpoint PASS confirms the corrected light source labels and preserved dark styling; see delivery handoff, Owner checkpoint — source-label correction PASS. Overall Owner acceptance remains PENDING; this observation is saved uncommitted with the separate VM-686 backlog intake.
+Evidence: Independent replacement exact-candidate RobQA PASS and genuine subsequent Owner ACCEPT bind 78ec24583e772ae8781acd569f9036807b262026. Owner confirmed the corrected light source labels and preserved dark styling; all 59 cards/118 labels retained. Registry/failure/noJS, visible text reversal within the unchanged 500ms bound, persistence/isolation, focus/dialog/Clipboard/native controls, mock-only feedback, loaded glyphs/fonts and measured containment passed. Original C1 readiness remains revoked; prior construction failures, inherited compass clipping, stale visual comparator and Puppeteer protocol debt remain disclosed. Canonical integration PASS, exact-head Deterministic Validation success and guarded PR75 squash verified; sole parent and complete tree match the verified evidence head. Subsequent Owner clarification cancels next-stage implementation; no Archscry or Reading Guide files changed and no next-stage admission began. VM-686 footer intake remains separately preserved for restoration. Local feature branch cleanup is truthfully deferred after automatic approval review rejected deletion; no publishing settings or PR72 historical exception changed. Lifecycle-only closeout and validated Git accounting follow; earlier pending/uncommitted statements retain event-time meaning in the handoffs.
 
 ## Admission Scope
 

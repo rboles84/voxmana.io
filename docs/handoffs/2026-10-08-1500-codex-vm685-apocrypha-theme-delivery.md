@@ -171,3 +171,24 @@ This later message accepts the entire current independently passed replacement c
 Canonical GitHub routing was discovered before host operations. The authenticated connector identifies rboles84 and admin/push/pull repository access, supports PR creation/read/CI and atomic expected-head guarded squash merge; this adequate route is selected for those operations. Native Git remains the established push/fetch transport. The matching VM-685 PR inventory was empty before any creation. Repository policy visibility is optional under the existing workflow authority; no callable branch-policy/settings read is exposed, and no fallback authentication route is sought. Required Deterministic Validation, complete host scope/content/commit parity and guarded head remain mandatory. Publishing settings and PR72's historical exception are unchanged.
 
 The separate VM-686 intake is preserved outside the repository before integration, with exact original authored bytes and original generated-view bytes/hashes in external `vm685-footer-preservation.json`; it is excluded from this task PR. It will be restored after closeout and retained as deferred intake. The same Owner message requests stage 5 for Archscry and its separate `/guide/reading/` route; material work will begin only after updated-main canonical admission and route-specific reconciliation. Future stage-5 acceptance/integration is not granted by this message.
+
+## Verified PR75 integration and bounded closeout
+
+Task: VM-685
+Candidate: 78ec24583e772ae8781acd569f9036807b262026
+Owner: ACCEPT — exact replacement candidate; genuine approval retained above
+Integration: PR75 https://github.com/rboles84/voxmana.io/pull/75; guarded squash 842cb8cde44f76d145a1ee447143c895f6f9905b
+Evidence head: ce01cbe62ca206319aa0087a3affc1f7d9488ba4
+
+Canonical integration check passed after independent C2-to-E2 and E2-to-E3 evidence-only reviews. Authenticated host observations verified the complete PR file/blob and ordered commit inventory, exact-head Deterministic Validation success, mergeable clean state, unchanged QA/Owner bindings and atomic expected-head guard. The guarded connector merge returned success; a separate authenticated read confirms closed/merged PR75 and the exact resulting squash. Native Git fetched and fast-forwarded main. Its sole parent is admission baseline 7fcf62c0d4a1389b668a39c27c7075d18c221c99, and squash/evidence-head trees both equal 4294ad0bf038a6f3fe327c31a42099b6c0654631. Local, origin and live main agreed at this integration boundary. Lifecycle-only commits may subsequently advance main without changing the accepted product tree.
+
+Capability correction to the preceding event-time routing paragraph: the initial named-tool inventory was incomplete. The approved generic repository GET capability was subsequently found before attempting the optional branches/main/protection read. That actual authenticated read returned 403 Resource not accessible by integration. Optional visibility continues under docs/reference/workflow.md#main-protection-and-exceptions; no settings change, alternative authentication or fabricated policy observation occurred. Required CI, host parity and guarded merge were verified.
+
+Cleanup: DEFERRED
+Cleanup reason: Automatic approval review rejected branch deletion because explicit branch-deletion authorization was absent; retain the local merged branch pending that authorization.
+Cleanup owner: /root
+Preserved work: Local codex/vm-685-apocrypha-theme at ce01cbe62ca206319aa0087a3affc1f7d9488ba4; complete verified PR75 input retained.
+
+The rejected compound cleanup command performed none of its operations. Later independent read-only Git observations found the remote feature ref already absent and the local feature ref unchanged at E3; no remote or local branch deletion was retried. There is one registered worktree, on main. This is a truthful cleanup deferral under the existing workflow, not a second active implementation. Unrelated recon branches remain untouched. VM-686 authored intake and its original produced-view bytes/hashes remain byte-preserved outside the repository for restoration after VM-685 closeout.
+
+Subsequent Owner steering: "I didnt want you to start on the next archscry part you are not doing that right? Just pushing this and committing it?" This revokes the previously inferred next-stage implementation request. Only read-only route reconnaissance occurred; no Archscry/Reading Guide material edits, admission, branch, tests or next-stage implementation were started. Remaining work is VM-685 lifecycle closeout and the already requested separate footer backlog intake. No manual deployment, publishing settings change, PR72 historical exception resolution, or new feature work occurs. Normal infrastructure effects of the authorized main integration are not asserted absent.

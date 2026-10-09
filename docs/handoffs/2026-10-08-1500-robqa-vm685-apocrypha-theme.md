@@ -383,3 +383,7 @@ Stage 5 requires a new admitted card/branch and a fresh inventory of Archscry's 
 ## Final disposition
 
 RobQAPass PASS is bound only to `78ec24583e772ae8781acd569f9036807b262026` and the independent evidence identified here. Any material implementation, policy, acceptance-criteria, fixture, or assertion change invalidates this verdict and requires a new exact candidate. Owner review remains pending.
+
+## Coordinator observation — accepted material integrated
+
+Coordinator /root records later genuine Owner ACCEPT of candidate 78ec24583e772ae8781acd569f9036807b262026, replacing the earlier pending Owner state while preserving event-time history. Authenticated guarded PR75 integration produced squash 842cb8cde44f76d145a1ee447143c895f6f9905b after exact-head Deterministic Validation and canonical integration PASS. This is attributed delivery evidence, not a new independent QA verdict or retest claim. Original C1 readiness remains revoked; independent C2 evidence remains the engineering authority. Local branch cleanup is deferred after automatic approval review rejected deletion without explicit authorization. Footer work stays separately preserved backlog intake. The later Owner clarification stops Archscry/Reading Guide implementation; only read-only reconnaissance occurred, with no admission, tests or product edits. Lifecycle-only content review and closeout checks remain; no browser suite is justified by these documentation changes.
