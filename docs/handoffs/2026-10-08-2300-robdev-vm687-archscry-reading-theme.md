@@ -54,3 +54,15 @@ Before candidate freeze, the adapter was reconciled against actual route CSS and
 ## Final cascade correction
 
 The final site-skin cascade leaves `.vm-lab-panel`, `.vm-selected-card`, and `.vm-card-voice-panel` as opaque nested Archscry owners, so the adapter explicitly maps only those surfaces to parchment. Matrix and dossier open/transparent children remain untouched. Reading’s page and section shells remain open under site-skin; only its actual opaque specimen, flow, intent, and directory owners are filled. The primary action keeps a gold fill with light ink while secondary controls retain parchment, preserving the existing role distinction.
+
+## Screenshot-finding follow-up
+
+Owner screenshots exposed final light cascade owners that were not covered by the first adapter. The VM-687 block now makes the Archscry topbar opaque parchment; restores the landing Atlas CTA’s intentional transparent/underlined treatment; supplies ink for Atlas hero copy and visible enabled/disabled pager states; and changes only neutral Atlas connector/inactive-node paint while retaining each active node’s `--atlas-node-color`. It restores light copy plus a dark shadow only inside the image-backed guild banner. It also maps dossier rail and matrix literal copy/control children to light ink, while returning the identity navigation and matrix lab wrapper to their accepted open surfaces. No route logic, data, artwork asset, Mana color, layout, or animation declaration changed.
+
+The source guard was deliberately run red after owner-specific coverage assertions were added, then green after the scoped declarations were added. Green evidence: `node scripts/vm687-archscry-theme-source-tests.mjs` and `git diff --check`. Browser evidence remains the prior failed result and was not retried.
+
+The shared rich-atmosphere runtime remains byte-preserved. Its relocated `.vm-bg__stars` canvas receives only a light Archscry route-scoped `brightness(0.55)` filter so its existing star geometry, alpha, and animation regain contrast against parchment; no artwork, Mana/SVG, or chart surface is filtered.
+
+## Final specificity correction
+
+The Archscry source’s secondary-control `:is()` includes `#terminal-submit`, which confers ID specificity to every branch. The final adapter therefore uses the same scoped control group with `!important` neutral background, border, and ink declarations for normal and hover/focus states; the landing Atlas CTA retains its explicit transparent exception in both states. Atlas hover/focus pseudo-elements and connector body lines now receive matching light declarations. Active node body/highlight paint keeps `--atlas-node-color` through `color-mix`; inactive nodes remain neutral. Image-backed banner copy is now explicitly limited to `[data-hero-background="identity-image"]`, including the eyebrow. Matrix strength numeric and active-detail text have concrete light ink rules. The source guard now asserts each of these final values and confirms `assets/js/shared/vm-rich-atmosphere.js` remains baseline-identical.

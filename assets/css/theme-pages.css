@@ -379,3 +379,36 @@ html[data-vm-theme="light"][data-vm-theme-opt-in="guide-reading"] body.vm-guide-
 html[data-vm-theme="light"][data-vm-theme-opt-in="guide-reading"] body.vm-guide-reading-route .driver-popover.vm-guide-walkthrough-popover .driver-popover-footer button { background: #f7edd8; border-color: #a88d62; color: #211b18; }
 html[data-vm-theme="light"][data-vm-theme-opt-in="guide-reading"] body.vm-guide-reading-route .maze-footer.guide-footer { background: #f7edd8; border-top-color: #a88d62; }
 html[data-vm-theme="light"][data-vm-theme-opt-in="guide-reading"] body.vm-guide-reading-route .maze-footer.guide-footer a { color: #8a5b19; }
+
+/* VM-687 follow-up: preserve route hierarchy while correcting final light paint owners. */
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .vm-topbar { background: #f7edd8; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .vm-bg__stars { filter: brightness(0.55); }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .landing-actions a.btn-secondary { background: transparent !important; border-color: transparent !important; color: #8a5b19 !important; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .identity-atlas-hero p { color: #31271f; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .identity-atlas-pager-button { color: #8a5b19; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .identity-atlas-pager-button::before { background: rgba(138, 91, 25, 0.32); opacity: 0.62; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .identity-atlas-pager-button:is(:hover, :focus-visible) { color: #51310d; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .identity-atlas-pager-button:disabled { color: #866d47; opacity: 0.42; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .identity-atlas-pager-button:disabled::before { background: rgba(134, 109, 71, 0.24); opacity: 0.28; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .identity-atlas-color-node--inactive .identity-atlas-node-body { fill: #d6c7ad; stroke: #866d47; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .identity-atlas-color-node--inactive .identity-atlas-node-highlight { fill: #fff8e8; opacity: 0.34; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .identity-atlas-color-node--active .identity-atlas-node-halo { opacity: 0.2; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .identity-atlas-connector-line--channel { stroke: rgba(104, 80, 42, 0.42); }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .identity-atlas-connector-line--core { stroke: rgba(138, 91, 25, 0.72); }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route :where(.btn-secondary, .tb-btn, .adjacent-btn, #terminal-submit) { background: #fff8e8 !important; border-color: #a88d62 !important; color: #31271f !important; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route :where(.btn-secondary, .tb-btn, .adjacent-btn, #terminal-submit):is(:hover, :focus-visible) { background: #eadcc1 !important; border-color: #8a5b19 !important; color: #211b18 !important; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .landing-actions a.btn-secondary:is(:hover, :focus-visible) { background: transparent !important; border-color: transparent !important; color: #51310d !important; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .guild-banner[data-hero-background="identity-image"] :is(.guild-eyebrow, .guild-tagline, .guild-philosophy, .guild-lore-summary) { color: #fff8e8; text-shadow: 0 2px 12px rgba(0, 0, 0, 0.88); }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .dossier-rail-label { color: #685847; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .vm-dossier-matrix-section :is(.vm-profile-text, .vm-lore-line, .vm-core-tension, .vm-axis-detail-kicker, .vm-trait-name, .vm-trait-strength, .vm-trait-strength small, .vm-toggle, .vm-strategium-detail strong, .vm-strategium-detail span:last-child) { color: #31271f; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .vm-dossier-matrix-section :is(.vm-lore-line span, .vm-core-tension span, .vm-axis-detail-kicker) { color: #8a5b19; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route :is(.identity-explore-nav, .vm-dossier-matrix-section .vm-lab-panel) { background: transparent; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .identity-atlas-pager-button:is(:hover, :focus-visible)::before { background: rgba(138, 91, 25, 0.48); opacity: 0.76; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .identity-atlas-connector-line--body { stroke: rgba(138, 91, 25, 0.58); filter: drop-shadow(0 0 1.6px rgba(138, 91, 25, 0.18)); }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .identity-atlas-card:is(:hover, :focus-visible) .identity-atlas-connector-line--body { stroke: rgba(138, 91, 25, 0.76); }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .identity-atlas-color-node--active .identity-atlas-node-body { fill: color-mix(in srgb, var(--atlas-node-color) 82%, #fff8e8 18%); stroke: color-mix(in srgb, var(--atlas-node-color) 62%, #51310d 38%); }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .identity-atlas-color-node--active .identity-atlas-node-highlight { fill: #fff8e8; opacity: 0.76; }
+
+/* Low-specificity control group preserves the more-specific landing link exception. */
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .vm-dossier-matrix-section .vm-strategium-detail { background: #fff8e8; border-color: #a88d62; box-shadow: 0 8px 18px rgba(80, 55, 26, 0.18); }
+html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .vm-dossier-matrix-section .vm-trait-pip:not(.is-lit) { background: #c7ad83; }

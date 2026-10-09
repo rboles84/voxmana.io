@@ -46,6 +46,50 @@ function topLevelBranches(selector) { let depth = 0, part = "", result = []; for
 const selectors = adapter.replace(/\/\*[\s\S]*?\*\//g, "").split("}").filter(block => block.includes("{")).flatMap(block => topLevelBranches(block.slice(0, block.indexOf("{")).trim()));
 assert.ok(selectors.every(selector => scopePrefixes.some(prefix => selector.startsWith(prefix))), "every top-level VM-687 selector branch stays scoped to an admitted light route");
 for (const expected of [".answer-card:is(:hover, :focus-within)", ".dossier-rail", ".section-label", ".vm-radar-fallback", ".archscry-card-dialog", ".card-preview-overlay", ".identity-atlas-board", ".identity-atlas-group-heading", ".identity-atlas-pager", ".identity-atlas-card", ".reading-dossier-directory strong", ".reading-guide-next", ".driver-popover.vm-guide-walkthrough-popover", ".maze-footer.guide-footer"]) assert.ok(adapter.includes(expected), `adapter inventories ${expected}`);
+// Owner-confirmed regressions: inspect actual final declarations, not selector presence alone.
+const normalizeSelector = value => value.replace(/\s+/g, " ").trim();
+const ownerRules = new Map(adapter.replace(/\/\*[\s\S]*?\*\//g, "").split("}").filter(block => block.includes("{")).map(block => {
+  const split = block.indexOf("{");
+  const declarations = Object.fromEntries(block.slice(split + 1).split(";").map(value => value.trim()).filter(Boolean).map(value => {
+    const colon = value.indexOf(":");
+    assert.ok(colon > 0, "owner paint declaration must parse");
+    return [value.slice(0, colon).trim(), value.slice(colon + 1).trim()];
+  }));
+  return [normalizeSelector(block.slice(0, split)), declarations];
+}));
+const ownerPaint = (selector, values) => {
+  const rule = ownerRules.get(scopePrefixes[0] + " " + selector);
+  assert.ok(rule, "missing actual light paint owner: " + selector);
+  for (const [property, value] of Object.entries(values)) assert.equal(rule[property], value, selector + " final " + property);
+};
+ownerPaint(".vm-topbar", {background: "#f7edd8"});
+ownerPaint(".vm-bg__stars", {filter: "brightness(0.55)"});
+ownerPaint(":where(.btn-secondary, .tb-btn, .adjacent-btn, #terminal-submit)", {background: "#fff8e8 !important", "border-color": "#a88d62 !important", color: "#31271f !important"});
+ownerPaint(":where(.btn-secondary, .tb-btn, .adjacent-btn, #terminal-submit):is(:hover, :focus-visible)", {background: "#eadcc1 !important", color: "#211b18 !important"});
+ownerPaint(".landing-actions a.btn-secondary", {background: "transparent !important", "border-color": "transparent !important", color: "#8a5b19 !important"});
+ownerPaint(".landing-actions a.btn-secondary:is(:hover, :focus-visible)", {background: "transparent !important", "border-color": "transparent !important", color: "#51310d !important"});
+assert.ok(!ownerRules.has(scopePrefixes[0] + " :is(.btn-secondary, .tb-btn, .adjacent-btn, #terminal-submit)"), "light control group cannot import ID specificity and defeat its landing exception");
+ownerPaint(".identity-atlas-hero p", {color: "#31271f"});
+ownerPaint(".identity-atlas-pager-button", {color: "#8a5b19"});
+ownerPaint(".identity-atlas-pager-button::before", {background: "rgba(138, 91, 25, 0.32)", opacity: "0.62"});
+ownerPaint(".identity-atlas-pager-button:is(:hover, :focus-visible)::before", {background: "rgba(138, 91, 25, 0.48)", opacity: "0.76"});
+ownerPaint(".identity-atlas-pager-button:disabled", {color: "#866d47", opacity: "0.42"});
+ownerPaint(".identity-atlas-pager-button:disabled::before", {opacity: "0.28"});
+ownerPaint(".identity-atlas-color-node--inactive .identity-atlas-node-body", {fill: "#d6c7ad", stroke: "#866d47"});
+ownerPaint(".identity-atlas-color-node--inactive .identity-atlas-node-highlight", {fill: "#fff8e8", opacity: "0.34"});
+ownerPaint(".identity-atlas-color-node--active .identity-atlas-node-body", {fill: "color-mix(in srgb, var(--atlas-node-color) 82%, #fff8e8 18%)", stroke: "color-mix(in srgb, var(--atlas-node-color) 62%, #51310d 38%)"});
+ownerPaint(".identity-atlas-color-node--active .identity-atlas-node-halo", {opacity: "0.2"});
+ownerPaint(".identity-atlas-color-node--active .identity-atlas-node-highlight", {fill: "#fff8e8", opacity: "0.76"});
+ownerPaint(".identity-atlas-connector-line--body", {stroke: "rgba(138, 91, 25, 0.58)"});
+ownerPaint(".identity-atlas-connector-line--core", {stroke: "rgba(138, 91, 25, 0.72)"});
+ownerPaint('.guild-banner[data-hero-background="identity-image"] :is(.guild-eyebrow, .guild-tagline, .guild-philosophy, .guild-lore-summary)', {color: "#fff8e8", "text-shadow": "0 2px 12px rgba(0, 0, 0, 0.88)"});
+ownerPaint(".dossier-rail-label", {color: "#685847"});
+ownerPaint(".vm-dossier-matrix-section :is(.vm-profile-text, .vm-lore-line, .vm-core-tension, .vm-axis-detail-kicker, .vm-trait-name, .vm-trait-strength, .vm-trait-strength small, .vm-toggle, .vm-strategium-detail strong, .vm-strategium-detail span:last-child)", {color: "#31271f"});
+ownerPaint(".vm-dossier-matrix-section :is(.vm-lore-line span, .vm-core-tension span, .vm-axis-detail-kicker)", {color: "#8a5b19"});
+ownerPaint(":is(.identity-explore-nav, .vm-dossier-matrix-section .vm-lab-panel)", {background: "transparent"});
+ownerPaint(".vm-dossier-matrix-section .vm-strategium-detail", {background: "#fff8e8"});
+ownerPaint(".vm-dossier-matrix-section .vm-trait-pip:not(.is-lit)", {background: "#c7ad83"});
+assert.equal(normalize(await readFile("assets/js/shared/vm-rich-atmosphere.js", "utf8")), normalize(atBaseline("assets/js/shared/vm-rich-atmosphere.js")), "shared rich-atmosphere runtime remains baseline-identical");
 const [questionnaire, atlas, readingGuide, dossierView, runtimeData, readingWalkthrough] = await Promise.all([readFile("assets/js/archscry/runtime/questionnaire.js", "utf8"), readFile("assets/js/archscry/runtime/identity-atlas.js", "utf8"), readFile("guide/reading/index.html", "utf8"), readFile("assets/js/archscry/runtime/dossier-view.js", "utf8"), readFile("assets/js/archscry/runtime/data.js", "utf8"), readFile("assets/js/guide/reading-walkthrough.js", "utf8")]);
 assert.match(runtimeData, /loadCoreJson\("gate-b1-placement-model\.json"/, "runtime loads the active Gate B1 question source");
 const model = JSON.parse(await readFile("data/gate-b1-placement-model.json", "utf8"));
