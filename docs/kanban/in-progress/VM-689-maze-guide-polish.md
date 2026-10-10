@@ -2,7 +2,7 @@
 
 ID: VM-689
 Title: Maze Guide diagnostic boxes and mana shadows
-Status: Owner Review
+Status: Accepted
 Type: Bounded presentation correction
 Area: Maze Guide light mode
 Priority: High
@@ -46,8 +46,8 @@ Branch: codex/vm-689-maze-guide-polish
 Admission baseline: f1d6831bd88cd70249d331f31e7f5a7139309ce0
 Candidate: e8a6c94f1e273891c6cb74af18567d75ad3bd4d1
 RobQA: PASS at e8a6c94f1e273891c6cb74af18567d75ad3bd4d1 — SEPARATE; original vm689-c2-qa.md linked in QA handoff
-Owner: PENDING
-Integration: PENDING — stop at local Owner Review
+Owner: ACCEPTED at e8a6c94f1e273891c6cb74af18567d75ad3bd4d1 — latest Owner message approves the local result and explicitly authorizes main integration, live publication and task-local cleanup; original vm689-owner-accept.md
+Integration: PENDING — Owner-authorized PR and guarded squash integration
 Dependencies: None
 Decisions: Light-only diagnostic surface paint and Mana casting-circle shadows on /guide/maze/. Reuse existing shared adapter machinery and accepted Archscry shadow. C2 admits exactly light Guide .maze-diagnostic-row align-items: flex-start to prevent stretched boxes; pin this selector/property/value as the only new geometry exception in the existing source guard. Only Guide stylesheet URL epoch advances to vm689r1; controller bootstrap and behavior stay unchanged. Update directly affected existing source/HTML/controller epoch fixtures, retaining paired Maze vm688r1. Preserve Guide body, examples, IDs, URLs, walkthrough, query/focus/history, all Maze/runtime/storage/Clipboard/feedback/shared-navigation behavior, other geometry and dark presentation. No new harness, unrelated test repair, push or publication.
 Evidence: Original vm689-c2-qa.md confirms source/HTML/controller, protected-boundary/cascade, admission, diff and generated-view checks PASS on exact C2. No browser run was selected; Owner appearance judgment remains PENDING. C2 accounting and local readiness are vm689-c2-git-report.md and vm689-c2-candidate-check.txt. Original C1 artifacts remain historical. VM-688 predecessor limitations remain unchanged.

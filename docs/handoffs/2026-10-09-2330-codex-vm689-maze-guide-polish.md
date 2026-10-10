@@ -56,3 +56,14 @@ Owner: PENDING
 Integration: PENDING
 
 The [original C2 decision](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm689-c2-qa.md) confirms the selected source/HTML/controller checks and protected-boundary, admission, diff and index checks passed. No rendered browser run was performed; the Owner retains appearance judgment. Refresh [Maze Guide](http://127.0.0.1:50122/guide/maze/) or [guided entry](http://127.0.0.1:50122/guide/maze/?guided=maze-search) and inspect the two diagnostic rows. The earlier surfaces and pip shadows are retained. [C2 Git report](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm689-c2-git-report.md) accounts for material, evidence-only and total branch paths; [C2 local readiness](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm689-c2-candidate-check.txt) records the final candidate gate. Same task branch and preview remain for local review; no publication or cleanup is claimed.
+
+## Owner ACCEPT and integration routing
+
+Task: VM-689
+Candidate: e8a6c94f1e273891c6cb74af18567d75ad3bd4d1
+Owner: ACCEPT
+Decision reference: Latest human message after C2 handoff: "looks good, clean up local, worktree and push to main so its live on the site"; original [Owner decision](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm689-owner-accept.md).
+
+The actual approved material candidate and independent PASS remain unchanged. Fresh admission is PASS with clean task branch and main at the accepted baseline. Connector capability/schema discovery establishes authenticated repository/PR/CI reads, PR creation and atomic expected-head squash merge; rboles84 identity and repository push/admin permission metadata were observed. Connector is the sole pre-approved host read/create/merge route; native Git remains fetch/push authority. Separate branch-settings visibility is optional under Main Protection And Exceptions and no suitable exposed branch-protection tool was found; required Deterministic Validation, complete PR scope/mergeability and atomic expected-head guard remain mandatory. No alternate authentication route is adopted.
+
+The only registered worktree is the primary checkout C:/dev/voxmana.io. Its original preservation snapshot is clean. Authorized cleanup retains that checkout on main and removes only the integrated task branch; no extra managed worktree is attached. Continue governed integration, verify actual publication and close the same card without changing product or tests.
