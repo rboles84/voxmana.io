@@ -139,3 +139,25 @@ Task: VM-690
 
 - `node scripts/task.mjs indexes --write` — PASS; fresh, with `docs/kanban/board.md` regenerated.
 - `node scripts/task.mjs indexes --check` — PASS; fresh, with no stale views.
+
+## Clerical Done lifecycle record
+
+Agent: /root/vm690_accept_records (Kanban Steward)
+Requested route: clerical `gpt-5.6-terra` / low effort; backend telemetry unverified.
+Task: VM-690
+
+### What changed
+
+- Moved the authoritative card to `docs/kanban/done/VM-690-theme-recon.md` and changed only its lifecycle status to `Done`; its original Admission Scope paths remain byte-for-byte as authored.
+- Appended the coordinator's Done closeout record for Integrated-gate PASS at `33c8b919ef119055578af946919dda660e7e4767`, linked closeout evidence, pending coordinator final Done check, preserved findings and QA limitations, and Owner-owned cleanup deferral.
+- Regenerated and checked the derived views.
+
+### Decisions and boundaries
+
+- This is a bounded lifecycle transition. It does not alter scope, acceptance criteria, integration evidence, runtime, tests, policies, branches, recovery material, or the existing VM-687/checkpoint findings.
+- No commit, push, PR action, merge, checkpoint repair, or manual branch cleanup was performed.
+
+### Checks
+
+- `node scripts/task.mjs indexes --write` — PASS; fresh, with `docs/kanban/board.md` regenerated.
+- `node scripts/task.mjs indexes --check` — PASS; fresh, with no stale views.

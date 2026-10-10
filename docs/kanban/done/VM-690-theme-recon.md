@@ -2,7 +2,7 @@
 
 ID: VM-690
 Title: Theme Recon and Local Leftovers
-Status: Integrated
+Status: Done
 Type: Read-only reconnaissance / documentation
 Area: Theme coverage, controller delivery, repository and local residue
 Priority: Owner review

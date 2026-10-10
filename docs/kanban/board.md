@@ -1,4 +1,4 @@
-<!-- task-view-sha256:e4233cfaae801513896dd4441af876c1dc62ca0df59315f6bafd2caf46337180 -->
+<!-- task-view-sha256:1c5e3052ed1e133409ee0f0bc30edc69019994307bc84af04d5a6f493e9dda23 -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -58,7 +58,6 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 |---|---|---|---|
 | VM-658 | [Maze Instrument Frame](in-progress/VM-658-maze-instrument-frame.md) | Integrated |  |
 | VM-660 | [Maze Performance Recon](in-progress/VM-660-maze-performance-recon.md) | Integrated |  |
-| VM-690 | [Theme Recon and Local Leftovers](in-progress/VM-690-theme-recon.md) | Integrated |  |
 
 ## Blocked
 
@@ -706,6 +705,7 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | VM-687 | [Archscry and Reading Guide theme, stage 5](done/VM-687-archscry-reading-theme.md) | Done |  |
 | VM-688 | [Maze and Maze Guide theme, stage 6](done/VM-688-maze-theme.md) | Done |  |
 | VM-689 | [Maze Guide diagnostic boxes and mana shadows](done/VM-689-maze-guide-polish.md) | Done |  |
+| VM-690 | [Theme Recon and Local Leftovers](done/VM-690-theme-recon.md) | Done |  |
 
 ## Unresolved
 

@@ -201,3 +201,12 @@ Preserved work: Local VM-690 feature branch at 0ef62b292e3c8731c8e82e62713053b60
 Manual branch cleanup deferred; no remote-branch retention is claimed.
 
 Limits: this records integration only. The existing VM-687 stale-source-guard finding and malformed local checkpoint finding remain disclosed; neither was repaired, deleted or reclassified. VM-690 remains Integrated pending the coordinator's separate Integrated closeout decision; no Done transition is recorded here.
+
+## Done closeout
+
+Task: VM-690
+Integrated gate: PASS at clean, synchronized main `33c8b919ef119055578af946919dda660e7e4767`.
+Final Done check: pending coordinator execution after the lifecycle-record commit.
+Evidence: [closeout Git report](C:/Users/obake/.codex/visualizations/2026/10/10/01a12694-848a-7a70-be37-334dadde78ed/vm690-closeout-git-report.md) and [closeout observations](C:/Users/obake/.codex/visualizations/2026/10/10/01a12694-848a-7a70-be37-334dadde78ed/vm690-closeout-observations.json); their final refresh follows the commit.
+
+The completed scope remains the accepted reconnaissance, its five documentation files and completed safe cleanup. The existing findings, including the VM-687 stale-source-guard and malformed local checkpoint, remain disclosed. The QA-0 SAME-AGENT DISTINCT PHASE limitation remains unchanged; it is neither independent review nor product certification. Cleanup remains deferred and Owner-owned to preserve existing branches and recovery material.
