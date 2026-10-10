@@ -55,3 +55,11 @@ Reviewer: /root/archscry_qa
 Implementer: /root/archscry_dev + /root
 
 Focused source, HTML, controller, index and diff checks passed on the clean candidate. Independent review confirmed the two light-only owners, Guide vm689/Maze vm688r1 epoch split, retained white text shadow, unchanged Mana colors, and protected body/dark/runtime/geometry. Original decision: [vm689-c1-qa.md](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm689-c1-qa.md). Owner visual judgment remains PENDING; no integration authorization. The initial sandbox live-Git admission read was unavailable; the identical explicitly escalated read-only invocation passed. This was an environment observation, not a product failure.
+
+## C2 diagnostic sizing correction strategy
+
+C1 remains an authentic historical PASS superseded by the Owner's diagnostic sizing finding. The grid specimen stretches its flex diagnostic children on the cross axis, leaving blank space below short labels. The admitted C2 correction is limited to light Guide Maze `.maze-diagnostic-row { align-items: flex-start; }`, guarded as an exact selector/property/value exception, plus the Guide final stylesheet epoch `vm689r1` and its three directly coupled fixtures. Existing diagnostic surfaces, Mana shadows and all prior contracts remain unchanged.
+
+After C2 is frozen, rerun only the existing VM-688 source boundary check, frontend HTML validator and shared theme-controller test. Independently review C1-to-C2 and baseline-to-C2 diffs, protected bytes, exact exception ownership, diff hygiene and index freshness. No browser is selected: the defect and correction are deterministic flex cross-axis behavior, the exact property is source-guarded, and Owner retains visual judgment of the resulting box height. Stop if the frozen diff adds any width, height, padding, gap, wrapping, dark-route, runtime or unrelated layout owner.
+
+RobQA for C2 remains **PENDING** until the replacement SHA is frozen and this selection passes.

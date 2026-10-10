@@ -32,7 +32,7 @@ for (const [name, file, source, prefix, routeCss, skinCss] of [
   const bootstrap = `<script src="${prefix}assets/js/shared/vm-theme.js?v=vm688">`;
   assert.equal((source.match(/assets\/js\/shared\/vm-theme\.js\?v=vm688/g) || []).length, 1, `${name} owns one synchronous theme bootstrap`);
   assert.ok(source.indexOf(bootstrap) < source.indexOf('<link rel="stylesheet"'), `${name} applies saved theme before styles can paint`);
-  const adapterEpoch = name === "maze" ? "vm688r1" : "vm689";
+  const adapterEpoch = name === "maze" ? "vm688r1" : "vm689r1";
   assert.deepEqual(hrefs(source).slice(-3), [routeCss, skinCss, `${prefix}assets/css/theme-pages.css?v=${adapterEpoch}`], `${name} preserves route and skin cascade before its adapter`);
   assert.equal(normalize(body(source)), readBaseline(file).match(/<body\b[\s\S]*<\/body>/i)?.[0], `${name} keeps body content, IDs, URLs, and runtime hooks baseline-identical`);
 }
@@ -57,7 +57,8 @@ const geometryExceptions = new Map([
   [`${darkMazePrefix} .qi-details > summary`, {"margin-block-end": "8px"}],
   [`${prefixes[0]} .more-abilities-panel`, {padding: "8px"}],
   [`${prefixes[0]} .dossier-thread-search`, {"border-radius": "0.7rem 0.22rem 0.7rem 0.22rem"}],
-  [`${darkMazePrefix} .dossier-thread-search`, {"border-radius": "0.7rem 0.22rem 0.7rem 0.22rem"}]
+  [`${darkMazePrefix} .dossier-thread-search`, {"border-radius": "0.7rem 0.22rem 0.7rem 0.22rem"}],
+  [`${prefixes[1]} .maze-diagnostic-row`, {"align-items": "flex-start"}]
 ]);
 function branches(selector) { let depth = 0, part = "", values = []; for (const char of selector) { if (char === "(") depth++; if (char === ")") depth--; if (char === "," && depth === 0) { values.push(part.trim()); part = ""; } else part += char; } if (part.trim()) values.push(part.trim()); return values; }
 const forbidden = /^(?:display|position|inset|top|right|bottom|left|width|height|min-|max-|margin|padding|gap|grid|flex|transform|transition|animation|cursor|pointer-events|overflow|z-index|content|aspect-ratio|scroll-|align-|justify-|place-|order|border$|border-(?:top|right|bottom|left)(?:-width)?$|border-width)/;
@@ -134,6 +135,7 @@ owner(prefixes[1], ".guide-story > .maze-guide-section:first-child", {"border-to
 owner(prefixes[1], ".maze-color-pips .ms-cost", {"box-shadow": "-0.06em 0.07em 0 #111, 0 0.06em 0 #111"});
 owner(prefixes[1], ".maze-color-pips .ms-w", {"text-shadow": "0 0 0.08em rgba(80, 55, 26, 0.52)"});
 owner(prefixes[1], ".maze-diagnostic-row span", {background: "#fff8e8", "border-color": "#8a5b19"});
+owner(prefixes[1], ".maze-diagnostic-row", {"align-items": "flex-start"});
 owner(prefixes[1], ".vm-utility .vm-utility-link[data-vm-nav=\"guide\"][aria-current=\"page\"]", {background: "transparent", "border-color": "transparent", "box-shadow": "none", color: "var(--site-copy)"});
 owner(prefixes[1], ".vm-utility .vm-utility-link[data-vm-nav=\"guide\"][aria-current=\"page\"]:focus-visible", {outline: "2px solid var(--site-ink)", "outline-offset": "2px"});
 owner(prefixes[1], ".driver-popover.vm-guide-walkthrough-popover", {background: "#fff8e8", "border-color": "#a88d62", color: "#211b18"});

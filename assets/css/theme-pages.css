@@ -604,6 +604,7 @@ html[data-vm-theme="light"][data-vm-theme-opt-in="guide-maze"] body.vm-guide-maz
 html[data-vm-theme="light"][data-vm-theme-opt-in="guide-maze"] body.vm-guide-maze-route .maze-color-pips .ms-cost { box-shadow: -0.06em 0.07em 0 #111, 0 0.06em 0 #111; }
 html[data-vm-theme="light"][data-vm-theme-opt-in="guide-maze"] body.vm-guide-maze-route .maze-color-pips .ms-w { text-shadow: 0 0 0.08em rgba(80, 55, 26, 0.52); }
 html[data-vm-theme="light"][data-vm-theme-opt-in="guide-maze"] body.vm-guide-maze-route .maze-diagnostic-row span { background: #fff8e8; border-color: #8a5b19; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide-maze"] body.vm-guide-maze-route .maze-diagnostic-row { align-items: flex-start; }
 html[data-vm-theme="light"][data-vm-theme-opt-in="guide-maze"] body.vm-guide-maze-route :is(
   .maze-query-specimen dl > div, .maze-context-states article, .maze-recovery-card,
   .guide-specimen, .maze-guide-next .guide-cta
