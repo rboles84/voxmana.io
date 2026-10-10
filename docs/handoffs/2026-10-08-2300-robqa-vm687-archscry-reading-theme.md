@@ -378,3 +378,9 @@ Three isolated theme-input sensitivity cases produced the expected failures with
 The decoded Owner video corroborates the active-link cascade cause, and local HTTP 200/no-store confirms delivery of the three CSS owners. Neither is treated as rendered PASS. Archscry's completed visual finding loop remains preserved. C9 remains blocked pending Reading Guide Owner judgment and disposition of the previously recorded residual objective browser gaps; the original automated browser launch failure remains unresolved and no browser retry, full ACCEPT, waiver or integration authorization is inferred.
 
 The original exact decision is preserved at [vm687-reading-guide-correction-qa.md](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-reading-guide-correction-qa.md). No product or test change, browser execution or commit was made by RobQA.
+
+## Reading Guide Owner disposition after C9
+
+The Owner's statement, "looks good", immediately after review of the C9 Reading Guide correction approves the subjective result of the three named visual fixes at unchanged material candidate `7bf143718ec36dd3b625fde18d31616dac0331aa`: active Guide idle/hover paint, the hero-to-first-section divider and the What next paragraph ink. The previously recorded Archscry visual completion remains intact.
+
+This bounded approval does not provide detailed focus, history or walkthrough browser observations and is not interpreted as full stage-5 ACCEPT, a waiver of the residual objective browser gaps or integration authorization. The original C9 RobQA report remains unchanged and authoritative; the broader VM-687 gate remains BLOCKED pending explicit disposition of those existing objective gaps. No test, browser run, product change or commit was made for this Owner disposition.
