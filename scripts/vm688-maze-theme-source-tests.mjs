@@ -111,7 +111,7 @@ owner(prefixes[0], ".rarity-chip:is(:hover, .checked)", {background: "#eadcc1", 
 owner(prefixes[0], ".current-weave", {background: "radial-gradient(circle at 50% 30%, rgba(247, 215, 132, 0.09), transparent 11rem) padding-box, var(--weave-edge) padding-box, linear-gradient(165deg, #fff8e8, #f7edd8) padding-box, var(--weave-edge) border-box", color: "#31271f"});
 owner(prefixes[0], ".current-weave:not([data-weave-state=\"invalid\"]) .current-weave-copy h3", {color: "#211b18", "text-shadow": "none"});
 owner(prefixes[0], ".s-input::placeholder", {color: "#685847"});
-owner(prefixes[0], ".btn-clear", {"border-color": "#866d47"});
+owner(prefixes[0], ".search-primary-actions > #clear-search-btn", {"border-color": "#866d47", color: "#51310d"});
 owner(prefixes[0], ".maze-command-copy p", {color: "#685847"});
 owner(prefixes[0], ":is(.query-inspector[data-interpretation-state=\"clear\"] .qi-state, .results-interpretation-state[data-state=\"clear\"])", {color: "#0a5a4f"});
 owner(prefixes[0], ".cpip", {background: "rgba(255, 248, 232, 0.72)", "border-color": "rgba(138, 91, 25, 0.38)"});

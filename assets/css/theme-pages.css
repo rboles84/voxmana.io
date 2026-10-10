@@ -635,7 +635,7 @@ html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .rar
 html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .current-weave { background: radial-gradient(circle at 50% 30%, rgba(247, 215, 132, 0.09), transparent 11rem) padding-box, var(--weave-edge) padding-box, linear-gradient(165deg, #fff8e8, #f7edd8) padding-box, var(--weave-edge) border-box; box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.56), 0 18px 38px rgba(80, 55, 26, 0.14); color: #31271f; }
 html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .current-weave:not([data-weave-state="invalid"]) .current-weave-copy h3 { color: #211b18; text-shadow: none; }
 html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .s-input::placeholder { color: #685847; }
-html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .btn-clear { border-color: #866d47; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .search-primary-actions > #clear-search-btn { border-color: #866d47; color: #51310d; }
 html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .maze-command-copy p { color: #685847; }
 html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route :is(.query-inspector[data-interpretation-state="clear"] .qi-state, .results-interpretation-state[data-state="clear"]) { color: #0a5a4f; }
 html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .cpip { background: rgba(255, 248, 232, 0.72); border-color: rgba(138, 91, 25, 0.38); color: var(--maze-text); box-shadow: inset 0 0 0 1px rgba(80, 55, 26, 0.05); }

@@ -48,3 +48,7 @@ The final adapter now gives the visible search placeholder, Clear border, comman
 ## Final cascade correction
 
 Maze alone now requests `theme-pages.css?v=vm688r1` for warm review tabs; its synchronous theme bootstrap remains `vm688`, and Maze Guide stays on `vm688`. Rarity glyphs inherit each chip’s authentic common, uncommon, rare, or mythic color even when checked. Clear-state teal is limited to the actual emitted `data-interpretation-state="clear"` and `data-state="clear"` owners, preserving review, warning, and blocked semantics.
+
+## C3 cascade correction
+
+The HTML validator now expects Maze’s `vm688r1` adapter independently from Maze Guide’s retained `vm688` adapter. The light Clear control uses the actual ID-bearing `.search-primary-actions > #clear-search-btn` owner so its darker border and ink beat the late Maze CSS owner without a global important override. A developer cascade read confirmed the other requested resting leaves compose as authored; the final replacement QA remains independent.
