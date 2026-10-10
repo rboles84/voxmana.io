@@ -174,3 +174,13 @@ The following lifecycle appendix, card bindings and regenerated views are eviden
 - `docs/handoffs/HANDOFF_INDEX.md`
 - `docs/kanban/board.md`
 - `docs/kanban/in-progress/VM-690-theme-recon.md`
+
+## Owner acceptance — exact VM-690 material candidate
+
+Task: VM-690
+Candidate: da99c1f210465042573cac670e188f59064debcc
+Owner: ACCEPT
+Decision reference: Current Codex conversation with the Owner, 2026-10-10: "ACCEPT VM-690 candidate `da99c1f210465042573cac670e188f59064debcc`, limited to reconnaissance, its five documentation files and completed cleanup, and authorize integration."
+Integration: PENDING — authorized by the Owner; no integration action is recorded here.
+
+The accepted scope remains the completed reconnaissance, its five documentation files and the already completed safe cleanup. This record preserves the existing QA-0 SAME-AGENT DISTINCT PHASE classification and does not revise its evidence or findings.

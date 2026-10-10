@@ -87,3 +87,30 @@ Not applicable — no candidate, QA readiness claim, or Owner-review readiness w
 ## Next Suggested Agent
 
 - Coordinator for the active QA-0 reconnaissance/report task; governing specialist roles only if a subsequent task triggers their authority.
+
+## Clerical acceptance record update
+
+Agent: /root/vm690_accept_records (Kanban Steward)
+Requested route: clerical `gpt-5.6-terra` / low effort; backend telemetry unverified.
+Task: VM-690
+
+### What changed
+
+- Recorded the Owner's genuine ACCEPT for material candidate `da99c1f210465042573cac670e188f59064debcc` in the coordinator handoff, including the exact quoted decision and current-conversation reference.
+- Updated only the card lifecycle/delivery fields to `Status: Accepted`, the exact candidate-bound Owner acceptance reference, and `Integration: PENDING`.
+- Regenerated the derived board and handoff index after the authorized source-record updates.
+
+### Decisions and boundaries
+
+- The existing QA-0 SAME-AGENT DISTINCT PHASE classification, candidate, findings, acceptance criteria and scope remain unchanged.
+- Integration is authorized but pending; this clerical record performs no host write, PR action, merge, commit or deployment.
+- Branch cleanup is deferred under the current Owner instruction to preserve branches and recovery material. Any manual cleanup remains Owner-owned.
+
+### Checks
+
+- `node scripts/task.mjs indexes --write` — PASS; fresh, with `docs/kanban/board.md` regenerated.
+- `node scripts/task.mjs indexes --check` — PASS; fresh, with no stale views.
+
+### Not touched
+
+- Runtime, tests, policy, product decisions, candidate QA evidence, remote state, branches, worktrees and checkpoint/recovery material.
