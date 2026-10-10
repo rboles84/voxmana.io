@@ -394,3 +394,37 @@ Product remains **Owner Manual PASS** for the visual corrections the Owner actua
 The smallest Owner decision is explicit and binary: either retain the objective criteria and provide/authorize a browser surface that can execute the already defined focused witness once, or amend VM-687's delivery criteria to permit integration without the named actual-browser evidence and accept that residual risk. The latter is a criteria amendment, not proof that the checks passed. A general delivery instruction does not select either disposition by implication.
 
 The original durable decision is preserved at [vm687-c9-cua-final-qa.md](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-c9-cua-final-qa.md). No test rerun, product/test edit or commit was made by RobQA.
+
+## Corrected native DOM completion selection
+
+The Owner's instruction to "just qa whats needed" authorizes one corrected native-CUA continuation. The first CUA stop was an API-scope mistake: its read-only DOM evaluator does not expose `localStorage` as a page global. Reusing the live native surface without that unsupported call is a newly authorized causal correction, not a Puppeteer/raw-CDP/Edge retry.
+
+Risk proportionality narrows the browser requirement to changed composed seams. Controller tests already protect bootstrap ordering, storage failure, pageshow and cross-tab logic; radar tests protect data, active/pinned state, references, repeated reversal, motion and cleanup; source/template checks protect questionnaire lifecycle, population shapes, precon links and Reading targets. Direct `window.Chart` and storage reads, shared Feedback/Clipboard recertification and exhaustive questionnaire/population replay are unnecessary.
+
+The one exact-C9 witness should use read-only DOM inspection, page assets, native locators/keyboard/navigation and actual viewport control only. It covers: saved-light Jund composition, used NEXT/Mana resources and native light-dark-light plus reload persistence; one native card preview/dialog focus-Escape-return and one composed precon details menu; 390px Archscry and Reading containment; and direct/static plus guided Reading with native Close, Escape, Done, focus, URL and Back/Forward cleanup. No evaluation mutation, script injection, storage clear/set, screenshot, broad suite or additional transport is selected.
+
+If these four groups return objective observations, the existing exact lower-layer evidence, Draft PR CI PASS and both Owner Manual PASS records are sufficient for an engineering PASS reassessment. The detailed durable selection is [vm687-c9-dom-native-qa-selection.md](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-c9-dom-native-qa-selection.md).
+
+### Escape causal control
+
+The native witness passed Close, Done, all four targets and clean Back/Forward behavior. One rapid Next → Previous → Escape sequence occurred inside the Driver animation interval while prior/current classes overlapped; the popover closed but the guided query remained and focus fell to BODY. This observation is preserved as a real failure, but it does not yet distinguish the required settled Escape contract from baseline Driver destruction during an in-flight transition.
+
+One causal control is approved: start the first guided step cleanly, wait for one stable popover/target and the Next button alone to hold focus, then press native Escape once. Require no popover/overlay, query cleanup, focus on `#placement-meaning-title` and no console error. A PASS establishes the ordinary Escape contract and leaves the raw rapid-transition sequence as a disclosed non-blocking baseline timing limitation; a FAIL establishes a product defect and keeps C9 blocked. Do not rerun the rapid sequence or add another transport. The exact selection is preserved at [vm687-c9-escape-causal-selection.md](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-c9-escape-causal-selection.md).
+
+## Final exact C9 engineering decision
+
+Task: VM-687
+
+Candidate: `7bf143718ec36dd3b625fde18d31616dac0331aa`
+
+RobQA: **PASS**
+
+Execution: **SEPARATE**
+
+The corrected native DOM witness completed the selected changed-risk coverage. Actual saved-light Jund composition, NEXT/Mana resources, native light-dark-light plus reload continuity, one native card detail focus/Escape/return path, composed precon details membership/visibility, 390px Archscry and Reading containment, Reading direct/static paint, all four guided targets, Close, Done, Back/Forward and the stable Escape causal control passed. The stable Escape result removed all tour surfaces/classes, cleaned the query, focused `#placement-meaning-title` and produced no errors or warnings.
+
+The exact source/controller/radar/37-profile matrix/VM-685 predecessor/HTML/syntax/protected-byte/sensitivity/hygiene/index evidence remains green, and Draft PR 76 Deterministic Validation passes. These lower layers remain authoritative for internal Chart references/data and storage/event mechanics, so direct global Chart/storage reads and exhaustive unchanged-runtime browser replay were not required. Both Owner Manual PASS records cover the visual judgment.
+
+Preserved non-blocking evidence remains explicit: Puppeteer/raw-CDP and the first CUA global-evaluation attempt are FAIL/unavailable; initial closed-details, precon URL and wrong-tab viewport predicates were test-construction errors corrected by native observations; and rapid Next → Previous → Escape during the Driver animation can leave guided URL/BODY focus. The stable Escape contract passes, while that rapid sequence remains a disclosed baseline Driver timing limitation and is not relabeled green.
+
+No blocker or major correctness defect remains for the changed VM-687 contract. This engineering PASS permits the delivery workflow to proceed; it does not itself merge, deploy, publish or authorize stage 6. The original durable decision is [vm687-c9-final-pass-qa.md](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-c9-final-pass-qa.md).
