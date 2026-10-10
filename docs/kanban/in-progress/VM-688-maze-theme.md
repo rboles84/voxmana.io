@@ -2,7 +2,7 @@
 
 ID: VM-688
 Title: Maze and Maze Guide theme, stage 6
-Status: Accepted
+Status: Integrated
 Type: Bounded route theme presentation
 Area: Maze, Maze Guide and final theme adapters
 Priority: High
@@ -47,10 +47,10 @@ Admission baseline: 72d2fff4c38e32eeed2974769c6b436471c45e55
 Candidate: e1dd798d18621104d2537a21dc2d9fa8f68690c2
 RobQA: PASS at e1dd798d18621104d2537a21dc2d9fa8f68690c2 — SEPARATE; original vm688-c4-qa.md referenced in QA handoff
 Owner: ACCEPTED at e1dd798d18621104d2537a21dc2d9fa8f68690c2 — Owner visually approved the final Maze corrections, then explicitly authorized main integration, live publication and local/task-worktree cleanup in this conversation.
-Integration: PENDING — authorized post-ACCEPT PR, required CI and expected-head guarded squash merge; no product changes after C4
+Integration: INTEGRATED — PR77 https://github.com/rboles84/voxmana.io/pull/77; squash 57121e35f0a842539b1e89bbda4c32aca67c4c5e; exact-head CI and integration gate PASS; live Pages deployment successful; task branch cleaned, primary checkout retained
 Dependencies: None
 Decisions: Presentation-only /maze/ and /guide/maze/ via distinct maze and guide-maze opt-ins, allowlist-only controller change and append-only final scoped CSS. Admit an exact light Maze topbar background !important override for the existing inline #0c0c0b declaration; keep the authored body and all runtime bytes unchanged. Existing inline SVG/state paint may be overridden only by scoped CSS paint. The active-Guide utility correction is light-only, matching Reading Guide; withdraw the coordinator's earlier both-theme exception and preserve dark styling. All new paint owners remain light-only. Owner QA now additionally authorizes small interpretation/API spacing in both themes, light keyword-wrapper padding, and a faceted thread-button shape in both themes; exact non-paint exceptions are guarded, with all card/hover/Save/grid/motion geometry preserved. No base Maze/Guide/site-skin/shared runtime changes, new interactions, semantic colors/data/content changes, runtime/cache-key advances, footer standardization or publishing-setting changes. Preserve VM-681 geometry and all accepted earlier contracts. Historical PR72 automatic publishing exception, preference privacy disclosure question, VM-686 footer backlog, narrow compass edge and baseline Driver/harness limitations remain separate; this task grants no repair or waiver.
-Evidence: Exact C4 independent PASS and compact native observations: external vm688-c4-qa.md and vm688-c4-ui.md linked in appended handoffs. Original vm688-owner-accept.md records the genuine Owner decision. C2 PASS and C3 BLOCKED retain historical meaning. Later updates are lifecycle evidence only.
+Evidence: Exact C4 independent PASS and compact native observations: external vm688-c4-qa.md and vm688-c4-ui.md linked in appended handoffs. Original vm688-owner-accept.md, vm688-integration-check.txt, vm688-integration-result.md and vm688-live-bytes.json retain authentic acceptance, integration and live-byte evidence. C2 PASS and C3 BLOCKED retain historical meaning; later updates are reviewed lifecycle evidence only.
 
 ## Recovery authorization
 

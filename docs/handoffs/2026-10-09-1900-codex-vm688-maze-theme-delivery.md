@@ -111,3 +111,15 @@ The Owner visually approved the C4 corrections with “all seem good”, then re
 Connector schema discovery established authenticated PR creation/reads and atomic expected-head squash merge. The authenticated rboles84 identity and repository push/admin metadata were observed through that interface; connector is the pre-approved read/create/merge route. Ordinary Git transport remains fetch/push authority. Separate branch-settings visibility is supplemental under workflow Main Protection And Exceptions; required exact-head Deterministic Validation, PR mergeability and the expected-head guard remain mandatory.
 
 Main is still the admitted 72d2fff4c38e32eeed2974769c6b436471c45e55. A normal fetch encountered the previously disclosed missing Codex checkpoint object; direct live ref verification confirms origin/main is current. No checkpoint-ref repair is part of this task. The primary checkout is the only registered worktree; cleanup will preserve it and remove the integrated task branch.
+
+## Verified integration, publication and task cleanup
+
+Task: VM-688
+Candidate: e1dd798d18621104d2537a21dc2d9fa8f68690c2
+Integration: INTEGRATED — PR77 https://github.com/rboles84/voxmana.io/pull/77; squash 57121e35f0a842539b1e89bbda4c32aca67c4c5e
+
+Exact feature-head Deterministic Validation and [integration gate](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm688-integration-check.txt) passed before the atomic guarded squash. Native Git verified sole parent 72d2fff4c38e32eeed2974769c6b436471c45e55 and merge tree 0cc5e6c6a6da78889a8430007eb72503e26f64df identical to the reviewed evidence head fba11e96233f89665f35ea5520c53c55e569ef0b. [Original integration observations](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm688-integration-result.md) retain the complete result and optional branch-policy visibility limitation.
+
+[GitHub Pages deployment](https://github.com/rboles84/voxmana.io/actions/runs/38027192016) succeeded. [Maze](https://voxmana.io/maze/) and [Maze Guide](https://voxmana.io/guide/maze/), their final stylesheet and controller returned HTTP 200 and exact merged bytes; [original live-byte evidence](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm688-live-bytes.json) records hashes. No additional product/UI suites were run.
+
+GitHub had already removed the remote feature branch. A leased deletion request rejected stale info; an immediate read established remote absence, then the unchanged local branch/tracking ref were removed. The primary checkout is retained on main and is the only worktree. Native fetch downloaded the squash object but encountered the disclosed missing Codex checkpoint object; after exact object/parent/tree and live-ref verification, a leased origin/main update and fast-forward synchronized main without checkpoint repair. Unrelated work was not touched. [Closeout boundaries](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm688-closeout-boundaries.md) retain the preservation review. The next checks concern lifecycle evidence only.
