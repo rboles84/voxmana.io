@@ -1,4 +1,4 @@
-<!-- task-view-sha256:1765df663f112660666762a22805faa9048b5c356593d69e49ab34af2499e150 -->
+<!-- task-view-sha256:fbe2af80a15295bb00d9eb177df94e055a4aa18ce58de8e96e72ab81ad1de1d1 -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -8,6 +8,8 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 
 | Authored / filename date | Agent | Handoff | Related task references | Diagnostics |
 |---|---|---|---|---|
+| 2026-10-10T00:20:00-06:00 (authored) | /root/recon_records (Kanban Steward) | [Agent Handoff: Kanban Steward — VM-690 Theme Recon](2026-10-10-0020-kanban-vm690-theme-recon.md) | VM-690 | Identity displayed from heading; not admission metadata. |
+| 2026-10-10T00:00:00Z (authored) | /root | [VM-690 — Theme and Local Leftovers Reconnaissance](2026-10-10-0020-codex-vm690-theme-recon.md) | VM-690 | Identity displayed from heading; not admission metadata. |
 | 2026-10-09T23:30:00Z (filename) | Unknown | [VM-689 — RobDev handoff](2026-10-09-2330-robdev-vm689-maze-guide-polish.md) | VM-689 | Identity displayed from heading; not admission metadata. |
 | 2026-10-09T19:00:00Z (filename) | `/root/archscry_dev` (RobDev, configured Terra medium; backend-effective model unverified) | [VM-688 — RobDev implementation handoff](2026-10-09-1900-robdev-vm688-maze-theme.md) | VM-688 | Identity displayed from heading; not admission metadata. |
 | 2026-10-09T19:00:00Z (filename) | /root/archscry_qa | [RobQA strategy handoff — VM-688 Maze and Maze Guide theme, stage 6](2026-10-09-1900-robqa-vm688-maze-theme.md) | VM-688 | Identity displayed from heading; not admission metadata. |

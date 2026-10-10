@@ -18,11 +18,11 @@ Current Owner request: "ive now added light and dark mode, check repo, check loc
 
 ## Acceptance Criteria
 
-- [ ] Reconcile current theme coverage and controller, asset, cache and import delivery with repository and local observations.
-- [ ] Inventory local and repository leftovers, distinguishing proved disposable ignored temporary artifacts from retained runtime, canonical, historical, branch/worktree and checkpoint material.
-- [ ] Remove only artifacts proved disposable under the admitted scope; otherwise report the candidate and retain it.
-- [ ] Deliver evidence-backed findings, limitations, safe cleanup results and follow-up boundaries in the authorized handoffs.
-- [ ] Regenerate and check both derived views after authorized source-record changes.
+- [x] Reconcile current theme coverage and controller, asset, cache and import delivery with repository and local observations.
+- [x] Inventory local and repository leftovers, distinguishing proved disposable ignored temporary artifacts from retained runtime, canonical, historical, branch/worktree and checkpoint material.
+- [x] Remove only artifacts proved disposable under the admitted scope; otherwise report the candidate and retain it.
+- [x] Deliver evidence-backed findings, limitations, safe cleanup results and follow-up boundaries in the authorized handoffs.
+- [x] Regenerate and check both derived views after authorized source-record changes.
 
 ## Files Likely Impacted
 
@@ -47,7 +47,7 @@ Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Decisions: QA-0 recon/report scope only. Preserve all required historical evidence, canonical data, runtime, existing branches/worktrees and checkpoint references. Safe removal is limited to proved disposable ignored temporary artifacts; unresolved candidates remain reported and retained. No product implementation, remote write, merge, deployment, unrelated repair or inferred product/QA/Owner/host decision.
-Evidence: Admission start was ELIGIBLE on clean live/local main bbf880f31e786e7e488c2426af8562bbd8759b8f. Coordinator and Kanban handoffs are pending the authorized recon findings.
+Evidence: Admission start was ELIGIBLE on clean live/local main bbf880f31e786e7e488c2426af8562bbd8759b8f. Coordinator handoff 2026-10-10-0020-codex-vm690-theme-recon.md records the cache-delivery hazard, stale VM-687 source guard, malformed local Codex checkpoint ref, architecture-map drift and exact safe cleanup/preservation evidence. The attributed Kanban handoff records bounded clerical work. Nine selected product reconnaissance checks yielded eight PASS and one disclosed stale-guard FAIL; the connectivity check separately exposes the pre-existing checkpoint error. No product repair is included.
 
 ## Admission Scope
 
