@@ -3,7 +3,7 @@ import {
   getExpressionKindLabel,
   getExpressionKindLabelLower,
   normalizeLayeredIdentity,
-} from "../identity-layers.js?v=vm636";
+} from "../identity-layers.js?v=vm687";
 
 export const DEFAULT_COMMANDER_DECK_FORMAT = 3;
 

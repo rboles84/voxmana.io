@@ -1,0 +1,313 @@
+# VM-687 — Archscry and Reading Guide theme stage 5 delivery
+
+Agent: Codex coordinator `/root`. Governing skills: [RobDev](../../.agents/skills/robdev/SKILL.md) and [RobQA](../../.agents/skills/robqa/SKILL.md), with their full frozen passes. This task stops at local SHIP/Owner Review.
+
+## 2026-10-09 second Owner correction intake
+
+The Owner's eight findings and 17 original screenshots are preserved in [finding batch 2](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-owner-findings-2/findings.md). They confirm literal-child failures in How This Plays, card voice/play, precons/providers, both segmented-control groups and personal placement, plus an unintended matrix mana-row surface and insufficient Maze path-button distinction. This is continued same-task correction, not Owner acceptance. Current saved White reading stays intact.
+
+Continue admission PASS at clean HEAD 414593d6b721c1a97de15fb7549ca989e4cf5bed permits the existing admitted CSS/guard/record work on the sole branch. Target context and governing authorities were already loaded; no blank-context implementation or new worktree. Known configured RobDev Terra medium and independent RobQA Sol medium workers are reused; backend route telemetry remains unverified. Parent review addresses any remaining literal-owner or cascade conflicts without route escalation.
+
+The compact implementation packet protects runtime/data bodies, artwork, identity/mana semantics, original geometry/motion and dark paint. The true selected-synthesis mana owner is dossier-radar.js's .vm-component-dot-row containing .matrix-mana-symbols; a transparent final light rule corrects its box without shifting icons or changing the hero. New descendant rules must pair ink and surface, preserve state distinctions and beat actual late owners. Initial worker guard was red for the missing mana rule; parent returned the first patch for omitted flavor/precon/provider/Guide children and existence-only assertions before freeze.
+
+Independent RobQA selects the exact VM687 source guard, full-branch hygiene and protected-byte review. Earlier unchanged predecessor/controller/radar/matrix/HTML results carry with their limits; no browser retry, broad bundle or screenshot suite. Original C1–C4 reports and failures remain unchanged. Owner recheck and residual browser contracts remain pending. Stage 6 must inventory emitted descendants and interactive states, including nested provider/service labels; parent tokens and selector-presence guards did not prove those owners.
+
+Prefreeze independent review confirmed all eight selector-level corrections after the final descendant pass. Its initial dark-parent concern was corrected against the actual archscry→site-skin→theme-pages cascade: How This Plays already uses an open transparent surface; precon/flavor cards already resolve the light site-surface. Final rules preserve that hierarchy, pin existing parchment, and pair only the actual neutral children and states. Exact/native/stretch badge distinctions and Mana symbols remain intact. The final guard asserts declaration values for the emitted children, segmented active/disabled states, provider descendants and standalone Guide custom properties.
+
+The coordinator ran eight [in-memory sensitivity checks](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-dossier-correction-sensitivity.json): restoring the mana box, pale How This Plays/card/precon/placement copy, dark selected tab, blended Maze surface or pale Guide ink each caused the intended assertion failure. The served files were not changed by these substitutions. Developer source guard and hygiene passed. Material freeze and independent exact-candidate review follow; no visual PASS is inferred.
+
+## Request and grounded reconciliation
+
+The Owner requests presentation-only light/dark theme support for /archscry/ and /guide/reading/. The accepted system supplies one vm_theme_mode_v1 controller, unconditional dark fallback regardless of system preference, synchronous saved-light prepaint, defensive storage, pageshow/BFCache refresh, cross-tab synchronization, explicit route opt-ins, a final route adapter, pinned Mana NEXT-mode glyphs, existing typography and parchment/ink/gold/teal roles.
+
+Stages 1–4 refined real ownership rather than parent tokens alone. Home corrected the final fixed backdrop, child copy and revealed navigation hints; its atmosphere drawing and White-pip optical exception remain Home-specific. Stage 2 established brand parity, repeated Guide labels, late walkthrough children, actual footer ownership and scoped plain current-Guide navigation, and separated synchronous controller updates from existing CSS interpolation. Stage 3's missing Mana stylesheet imports revoked its earlier verdict: a visible ring/state cannot prove a glyph. Stage 4 exposed separately colored strong descendants within source cards; the accepted correction covers every semantic label in registry/fallback populations. Closed disclosure descendants and cached hidden styles must not be claimed as painted evidence. These lessons apply through actual route-specific owners, not copied predecessor selectors.
+
+Archscry's active populations include landing/reading choices, generic answer templates/progress/selection, refinement and bounded/mixed recovery, personal saved/legacy/error states, eight possible dossier panel templates with conditional personal-placement/adjacent/starter owners, 37-link grouped Atlas, browsed dossiers, card preview/detail/loading/unavailable/recovery, matrix controls/labels/grid/fallback, shared menu/hints/Clipboard/feedback/native focus and existing footers. Reading Guide remains optional depth: static specimens/direct entry plus the existing query-triggered four-step walkthrough. The dedicated opt-ins are archscry and guide-reading.
+
+Current cascade ownership is the two entrypoint heads, shared controller allowlist and the appended theme-pages adapter after site-skin. Canvas neutral values are authored in dossier-radar.js and require a narrow presentation update; shared VMRadar/profile/data resolution and all lifecycle consumers remain protected. No accepted design or protected contract needs changing based on reconnaissance. Risk is moderate at literal-child/dynamic-overlay/canvas/state/resource seams; effort is one bounded implementation/QA cycle. Confidence is high in ownership and conditional on completed composed evidence.
+
+## Accepted history and current integration facts
+
+The actual stage 1–4 cards and individual delivery/RobDev/RobQA handoffs were rehydrated by the coordinator and delegated RobDev source reader. Their accepted replacements are VM-682 4372c50a97953c004d7189fb4e1be265e3288315, VM-683 c0eb044ad68e4195da457d51bc568f5bc2b97224, VM-684 4b441407b4ce831f5b58ac3521e78d64ad571a0d and VM-685 78ec24583e772ae8781acd569f9036807b262026. Revoked C1 verdicts, partial Owner checkpoints and earlier pending statements retain event-time meaning; they do not supply current approval.
+
+Authenticated GitHub connector identity rboles84 and repository read access established the adequate read route. Fresh PR72/73/74/75 metadata confirms closed/merged, with squashes d2bcaa64818b76e6fdf7024a7e8f4b818f040608, f6bcfaf4c3333a89cf8b0347c11d06cb7b6185ae, b4e92a9971a327454972c9235fecc7a0ee876826 and 842cb8cde44f76d145a1ee447143c895f6f9905b. Native Git confirms each is ancestral to current main, has its expected sole baseline parent and has the complete tree of the retained feature/evidence input. PR75's body still says Integration PENDING; its actual merged state and canonical Done card supersede that stale summary. Live/main/origin is 3cf826eb87702bd25b66a2853838b00a880d7307. PR72's historical publishing exception remains unresolved; no host mutation or publishing change is authorized here.
+
+Accepted subsystem contracts rehydrated include VM-615 result/dossier optional Reading Guide, VM-621 query-only walkthrough targets/Close/Escape/Done/focus/history, VM-625 native-link 37-identity Atlas and browse/Maze isolation with accepted warm material/card hierarchy refinements, VM-636 existing personal versus identity-only matrix/profile controls, VM-643 bounded prose decisions, VM-652 final opaque panel and positive hero-summary spacing/precon hover corrections, and VM-664 final centered mixed-direction controls/selected detail relationship. Their data, semantics, content, layout, motion and lifecycle remain fixed.
+
+## Admission and role ownership
+
+Canonical start returned ELIGIBLE for new VM-687 with no same-task branch or worktree. The sole branch is codex/vm-687-archscry-reading-theme in the existing checkout. Admission e30a4a43affd62a0a382ae9fcb9c227ccefd9528 has the exact baseline as parent. Card-only amendment 51224616df01e72ef0bbd90111ec03e165f978a5 admits the individual browser-construction handoff. Amendments 22fef2d913a67e08bec7a8e38c8f117f87ade5a1 and 08f0c227630231396d9b6b8df786a85707301cb2 admit uniform Archscry import-version transport, the selected matrix regression's import alignment and a separate browser-recovery handoff; committed continuation PASS permits only that recorded scope. Restricted DNS and Git-metadata journal operations were unavailable initially; their canonical tools completed through narrowly authorized sandbox escalation. No auth/settings/history repair occurred.
+
+RobDev `/root/archscry_dev` is configured Terra medium and owns entrypoints, allowlist, final adapters, narrow canvas presentation and focused source/radar/controller/HTML guards plus its individual handoff. RobDev `/root/browser_dev` was configured Terra medium and owned the first focused browser witness and individual construction handoff. After its pre-assertion transport failure and incomplete guessed selectors, `/root/browser_recovery` was explicitly configured Sol medium for a bounded replacement witness and its own handoff. This announced escalation is limited to witness construction and returns routine product work to the original Terra worker. Independent `/root/archscry_qa` is configured Sol medium and owns strategy and exact-candidate verdict, with no product/test implementation. Root owns coordination, card/delivery/views and Git accounting. The role tools accepted these configured routes; backend-effective identity and token savings are unverified. No duplicate worktree occurred.
+
+## Files reviewed and protected boundaries
+
+Reviewed AGENTS/current workflow/admission/delivery/reporting/cost authorities and full RobDev/RobQA passes; authored predecessor/subsystem cards and decisive individual handoff/QA/Owner sections; route ownership; current entrypoints/cascade; Archscry dossier/Atlas/questionnaire/media/radar templates and consumers; Guide walkthrough configuration/helper/vendor; shared theme/topbar/Clipboard/feedback/font owners and focused evidence conventions.
+
+Protected: placement/scoring/qualification/identity meaning, approved copy/generated data/source producers, shared radar profiles/values/datasets/semantic colors, saved-reading shape/lifetime/identifiers, Atlas/Maze links/handoffs/history, quiz lifecycle, card facts/artwork, motion/layout/geometry, shared interaction ownership, predecessor/unconverted routes, publishing configuration, PR72 exception and VM-686 footer design. This stage themes existing route-native footers only. The cache amendment changes import-version strings across the Archscry graph because a warm client otherwise could retain the old canvas owner while loading new CSS/controller. All those runtime bodies remain byte-identical after normalizing that epoch; Maze retains vm636. Implementation records own the compact changed/protected risk packets; Git owns final path accounting.
+
+## QA strategy and evidence boundaries
+
+Independent RobQA selects QA-1 presentation with focused QA-2 controls/dialogs and QA-3 persistence/navigation seams, SEPARATE execution, OWNER-VISUAL active and CPU-heavy validation NOT REQUIRED. Browser samples are a committed certified saved Jund close reading and browsed Colorless identity, with template/population coverage below the browser rather than all-identity browser enumeration. Focused browser evidence is justified for actual computed descendants/paint, initial and active canvas presentation, native keyboard/focus/preview/dialog ownership, loaded glyph/font resources, persistence and measured 390px containment. Feedback uses isolated local mocked success/error transport; no live submission.
+
+The first raw-CDP Edge construction attempt stalled at Runtime.evaluate before any product assertion, including its one causal diagnostic. It remains FAIL/unavailable evidence. RobQA approved one different bounded transport: Puppeteer-Core for navigation and native input plus direct CDPSession Runtime.evaluate reads, avoiding Runtime.callFunctionOn helpers. It has three fresh causal pages for initial Jund resources/chart, Archscry interactions/state/failures and Reading static/late walkthrough lifecycle. If that alternative also fails before assertions, the objective coverage gap blocks exact-candidate QA; no further harness repair or repeated timeout increases are authorized. The first attempt's individual handoff retains the failure separately.
+
+Known predecessor Puppeteer Runtime.callFunctionOn protocol debt and stale visual comparators remain disclosed and unrepaired. No broad repository bundle, screenshot/image-diff suite, viewport/engine matrix, option enumeration or unchanged placement certification is selected. Unrelated/ambiguous failures receive one causal check under RobQA's stop rule; failed/unavailable evidence retains its truthful status. Owner retains subjective warmth, reading comfort, hierarchy, optical fit and animation judgment.
+
+## Current state and next handoff
+
+Implementation and independent candidate QA are underway; Candidate/RobQA/Owner remain PENDING. No feature push, PR creation, integration, deployment, publication/settings change or stage-6 implementation is authorized or performed. Final deterministic review checkpoints and Git-derived accounting will be appended after exact-candidate QA. Next suggested agent: independent RobQA at material freeze, then Owner at local SHIP.
+
+Related card: [VM-687](../kanban/in-progress/VM-687-archscry-reading-theme.md). Individual [implementation](2026-10-08-2300-robdev-vm687-archscry-reading-theme.md), [browser construction](2026-10-08-2300-robdev-vm687-theme-browser.md), [bounded browser recovery](2026-10-08-2330-robdev-vm687-browser-recovery.md) and [QA](2026-10-08-2300-robqa-vm687-archscry-reading-theme.md) records preserve separate ownership.
+
+## Reusable implications for Maze stage 6
+
+Stage 6 must begin with fresh admission and the actual accepted stage-5 candidate and Owner findings; this task supplies no Maze implementation authorization. Reuse the single preference/controller and inspect Maze's own final literal children, overlays, native fields and route-native footer. Reading Guide uses a dedicated opt-in despite inheriting Maze/Guide classes, so class inheritance is not route authorization. Do not import Home's atmosphere/White-pip optical exception or stage-5 selectors without a current Maze owner.
+
+Any canvas owner needs both initial saved-light configuration and a neutral-only active update that preserves its data, selections and motion. CSS cannot recolor pixels already painted inside canvas. Deliver a changed module through a coherent versioned import graph; mixed URLs can retain stale owners or duplicate module state. Archscry's vm687 advance does not authorize advancing Maze's vm636 graph here.
+
+Inventory actual templates before writing selectors, then inspect painted literal descendants and repeated populations. Atlas and card-dialog omissions in the first adapter demonstrate why a token-only or guessed-class inventory is insufficient. Keep artwork and semantic mana/status roles distinct from neutral parchment surfaces. Preserve the separate optional Reading route and its exact query-triggered teaching lifecycle. Harness failures remain evidence debt; a replacement transport must answer the changed objective contract rather than manufacture a green run.
+
+## Planned deterministic Owner checkpoints
+
+After exact engineering PASS, use the local candidate in an isolated review browser:
+
+1. `/archscry/?explore=jund`: inspect the dossier in light and dark; open the Mana Alignment Matrix, select an axis and reverse the theme. Judge hierarchy, ink/parchment comfort and animation feel.
+2. `/archscry/?explore=atlas` and its Colorless link: inspect the native Atlas group and distinct neutral dossier at desktop and a narrow window; open a card detail and judge the existing dialog's readability.
+3. `/guide/reading/`, then `/guide/reading/?guided=dossier-reading`: inspect static teaching content and the four-step walkthrough, reverse the theme and finish or close it. Judge popover comfort and route-native footer readability.
+
+These checkpoints reserve subjective product judgment for the Owner. They do not replace required objective evidence for glyph resources, computed children, state preservation, focus/history or containment.
+
+## 2026-10-09 blocked engineering checkpoint
+
+Independent RobQA at C1 928b83b1be69dcfb4086271e597092187189bd1a passed the selected source/controller/radar/matrix/predecessor/HTML/syntax checks, found one handoff trailing-space line, and observed the sole approved alternate Edge run fail at launch before navigation or assertions (exit code 0, empty stderr). The report and raw failure are original external artifacts under the task evidence directory. The alternative was not retried. No candidate-linked product defect was established, and no rendered/resource/native/real-chart/containment/history result can be inferred from its empty observations.
+
+C2 f0bf39c985a08c242e3bd25aa7da657c4fd422df removed that single whitespace line. Independent review confirmed all product/test/tool/scope bytes unchanged, clean Git state and full-branch patch hygiene PASS; QA remained BLOCKED solely for the browser coverage gap. The later card-only scope amendment admits the canonical blocked-card destination, and the Owner then selected an active manual QA phase, so the source record remains In Progress at its original admission path with the same task and branch. This administrative consolidation creates no browser retry or product authorization. Original event-time candidate reports remain preserved; the final clean checkpoint is rebound below after its metadata-only inspection.
+
+This request has not reached SHIP or Owner Review. Owner remains PENDING. A future continuation needs a working browser environment and a newly admitted causally distinct, proportionate validation plan for the named objective risks. Stage 6 must not treat this stage's unverified presentation or failed harness as accepted evidence. All runtime changes and browser assertions remain in the local branch for review; no push, PR, integration, deployment, publishing or stage-6 work occurred.
+
+## Owner-selected manual continuation
+
+The Owner then wrote, "ill do browser testing if we can wrap this up". This authorizes a short human-driven local browser review while engineering coverage remains pending. It does not create a manual PASS, Owner ACCEPT or automated waiver. No automated browser is launched or retried for this continuation.
+
+The coordinator prepared `vm687-manual-review-server.mjs` outside the repository in the task evidence directory, reusing the existing localhost fixture pattern. It serves current candidate source/assets, seeds only theme and certified Jund saved-reading keys once through `/__vm687_review` on a fresh local origin, and injects only mock-local feedback configuration. No production source, data or real-site storage is changed. Node syntax passed; its live review URL is `http://127.0.0.1:50122/__vm687_review`. This helper is a review setup artifact, not rendered test evidence or a published product feature.
+
+The short Owner checkpoints are: personal Jund dossier/matrix neutral reversal with selected axis/component state; Atlas and Colorless browse plus card preview/detail dismissal/focus; Reading static entry and four-step query walkthrough/Close/Escape/Done. Inspect light/dark reading comfort and a narrow window. RobQA will classify the Owner's actual route/step observations. Loaded-resource URLs, true prepaint timing, cross-tab/pageshow, exact storage bytes, mocked feedback error, measured containment and unvisited dynamic/failure populations remain unverified unless further objective evidence or explicit Owner disposition resolves them. The failed automated run retains its FAIL/unavailable status.
+
+## Final C3 binding and manual setup observation
+
+Task: VM-687
+
+Candidate: 95ae75eb8a68756601280009ccd6c9b8b4e7ecda
+
+RobQA: BLOCKED
+
+Execution: SEPARATE
+
+Owner: PENDING
+
+Independent [final-checkpoint QA](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-final-checkpoint-qa.md) confirms the clean C3 metadata-only checkpoint, protected product/test/tool parity and carried-forward focused checks. The original C1/C2 reports and sole alternate browser launch FAIL remain untouched. The card records the binding while keeping the Owner-selected manual QA phase In Progress. This is not SHIP or Owner Review.
+
+The initial sandbox-served review origin was unreachable from the host HTTP probe. The coordinator stopped that own server and relaunched the same external helper in the host environment on port 50122; the final HTTP probe returned 200. The open-in-Codex request was queued, not evidence that the page rendered. No automated browser was launched or retried, and no product assertion follows from HTTP availability. The live manual link is `http://127.0.0.1:50122/__vm687_review`; Atlas and both Reading routes share that isolated origin.
+
+The final [Git-derived accounting](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-git-accounting.md) carries the authoritative baseline, material path list/count, evidence delta and total branch scope, validated by the existing report validator. This handoff preserves observations without changing implementation, scope, criteria, policy, fixtures or assertions. Actual Owner route/step results and residual-coverage classification remain pending.
+
+## Owner-confirmed presentation correction, 2026-10-09
+
+The Owner reported failed light contrast and lost visual effects through ten supplied dark/light screenshots. Original attachments and precise observations are preserved in [Owner findings](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-owner-findings/findings.md). They confirm visible product defects rather than manual PASS/waiver/ACCEPT. Canonical admission continue PASS at clean 78d30ccc6db68dbbef5760d759995d493605da55 permits correction on the same task, scope and branch; C3 and original failed/blocked artifacts remain event-time evidence.
+
+Pre-edit outcome: retain readable light controls/copy and atmospheric definition across landing, Atlas, scrolled header and browsed Dune dossier. Actual owners are final light CSS, literal descendant rules/pager pseudo-elements, image-backed text context, existing SVG neutral paints and the decorative star canvas. Shared atmosphere JS owns gold pixel paint and timing; only CSS of its decorative canvas is adjusted, without filtering artwork or changing motion. RobDev Terra medium owns adapter/source guard/own handoff. Independent RobQA Sol medium owns proportional strategy and exact review/own handoff. Root owns findings/card/delivery/views/accounting. Configured role reuse is established; backend telemetry remains unverified.
+
+Protected: all pre-VM687 adapters, dark presentation, content, artwork, semantic mana/identity colors, geometry, layout, routing, controls/state and animation. The smallest authorized slice is final light presentation plus narrow source/cascade regression guards. Existing browser debt is not repaired or retried; Owner rechecks the exact visible seams. No push/PR/integration/deployment/publishing/stage6 is authorized.
+
+Root final cascade review found that copying the old ID into the important light control group still let it defeat the landing exception. The final light group uses zero-specificity `:where(...)` with required important paint, and the more-specific landing normal/hover/focus rules retain transparent underlined treatment. Newly ink-colored axis-detail text is paired with a parchment popup surface; inactive metric markers receive neutral bronze while lit semantic markers stay unchanged. The source guard now parses actual final selector/declaration pairs and checks paint values, rather than accepting selector presence alone. Three bounded in-memory causal substitutions (ID specificity, pale Atlas copy, dark popup) each caused its exact expected assertion to fail, without changing any served repository byte; original proof is vm687-owner-correction-sensitivity.json in the external task evidence directory. The corrected complete source guard passed.
+
+Stage-6 implication: `:is()` imports the highest specificity of every alternative, including an ID unrelated to the current element. Theme token presence and later source order cannot prove a final paint winner. Inspect both state-specific literal descendants and the surface behind newly themed text; retain actual artwork context and semantic variables.
+
+## C4 exact QA and review handoff
+
+Task: VM-687
+
+Candidate: 365d04d226c5f3d2cd2100be888bd14056747762
+
+RobQA: BLOCKED
+
+Execution: SEPARATE
+
+Owner: PENDING
+
+Independent [Owner-correction QA](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-owner-correction-qa.md) passed the exact focused VM687 source guard, VM685 predecessor source guard, baseline patch hygiene and protected-byte review. All runtime/entrypoint/data/shared-atmosphere/chart/artwork/geometry/routing/motion inputs remain unchanged since the last checkpoint. No additional browser or broader suite was run. QA remains BLOCKED for Owner recheck and the preserved residual objective browser coverage, so SHIP/Owner Review is not claimed.
+
+The current manual server returned HTTP 200 for theme-pages.css?v=vm687 with the corrected control rule and Cache-Control no-store. This confirms CSS delivery only, not composed paint. Reload existing pages on the same origin; no seeding or storage reset is necessary. Recheck landing secondary action/default+hover/focus, opaque scrolled header and stars; Atlas introduction/pager/active-versus-inactive nodes and connector effects; Dune art-backed copy and navigation; matrix lore/tension/axis/numbers, opened detail and inactive markers. Owner visual balance and actual route/step results remain pending. Final [Git accounting](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-owner-correction-git.md) will supply the validated complete material paths, evidence-only delta and total branch state. No feature push, PR, integration, deployment, publishing or stage6 occurred.
+
+## C5 second dossier correction checkpoint
+
+Material candidate: 9a08cc9c9bfebf250781bf927abb47b515266102
+
+RobQA: BLOCKED
+
+Execution: SEPARATE
+
+Owner: PENDING
+
+The independent [C5 QA original](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-dossier-correction-qa.md) passes the selected VM687 source guard, full-branch and C4-to-C5 hygiene, protected-byte/path review and generated-view freshness. Fresh continuation admission at this clean material HEAD is PASS against unchanged live/main/origin baseline. Product changes since C4 are confined to final light CSS and the focused guard; route/runtime/data/entrypoint/chart/resource/layout/motion/dark owners remain unchanged. Prior unchanged checks carry their original limits. No browser or other suite was rerun.
+
+All eight reported families have exact light paint owners and state assertions. Normal flavor/precon surfaces remain #f7edd8; How This Plays remains open/transparent. Both segmented groups share the same renderer and correction. The Guide rule targets its actual sibling hierarchy. Local CSS HTTP 200/no-store confirms the mana-row, Guide-ink and badge declarations are served. It is asset-delivery evidence only.
+
+Reload the current local page without reseeding or clearing storage. Recheck Jund's synthesis row; Identity & Play including both card sections; Commander Browsing Starts and expanded Decks/provider controls; all Card Signal/Mana Note tab states; Maze paths; and the current personal White reading's snapshot/orientation cards. These are the shortest human checks for this batch. Owner recheck and the preserved residual objective browser coverage keep RobQA BLOCKED, so no SHIP/Owner Review or ACCEPT is recorded. The [C5 Git report](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-dossier-correction-git.md) supplies validated full material paths, evidence-only delta and final branch accounting after consolidation. No feature push, PR, integration, deployment, publishing or stage 6 occurred.
+
+## Third Owner visibility/menu refinement intake
+
+The [third Owner finding batch](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-owner-findings-3/findings.md) preserves eight original screenshots and six requests: light cost shadows, Buckle Up research link inside Decks, main-commander underline, browsing-link borders, decision-panel brown left rule, and explicitly slight White chart/indicator contrast. Prior visible text improvements appear in the images; this is not a general PASS/ACCEPT or waiver of unvisited/browser contracts.
+
+The current task is rehydrated from its card and five direct handoffs; full governing RobDev/RobQA authorities remain loaded. Fresh continue at fee1e5b6a5f990635aef39e1772b50450d5129e7 was PASS against unchanged live/main/origin. Direct Owner authority admits two bounded rendering exceptions: provider-menu consolidation in the existing dossier-view renderer and light-only White paint in the existing radar presentation owner. Required card-only Decisions amendment 802fc4510e4d021905c7889c758d987076997fcb was committed and continue PASS obtained before implementation. No branch/worktree duplication.
+
+Configured RobDev Terra medium and independent RobQA Sol medium workers are reused; backend telemetry remains unverified. Compact packet protects facts, verified URLs, semantic White identity/hue, values/data/dataset membership/order/selection, storage, chart geometry/pinned state/motion and all other runtime bodies/dark paint. Shared radar and pinned Mana vendor remain immutable. Local manual server stays at 50122; no reseed, storage reset or browser retry.
+
+The exposed research URL has a separate precon-links render path outside buildCommanderProviderDetails. Consolidate the existing verified research/provider links through a deduped union in the same closed details element, including research-only availability. Use actual emitted .ms-cost for the light vendor-equivalent shadow, actual deck-links/service-chip border owners and precons-section/commander-trigger state winners. White cost/trait presentation uses existing symbol provenance; canvas White needs initial light and active reversal without rebuilding datasets.
+
+Independent RobQA selected the focused source/radar guards: four menu availability fixtures, three identity shapes, preserved URLs/closed details/preview attributes, and exact chart state/data/motion/dark restoration. No prior unchanged/broad suite or browser rerun. The coordinator returned the first patch for an unused ms-shadow selector, excessive bronze replacement of White, missing trait treatment and commander specificity. Remaining fixture work must be completed before freeze. Preserve original evidence and classify each actual result; no selector presence or source PASS proves rendered balance. Stage 6 must verify real emitted classes and light→dark restoration at each actual paint owner, rather than copy a class example or assume a semantic dataset flag shape.
+
+## Third Owner refinement implementation completion
+
+The coordinator took direct ownership of the remaining guard fixtures after the RobDev worker returned them incomplete twice; the independent RobQA worker remains separate and found no remaining concrete prefreeze source/design concern. This closes implementation work without attributing unexecuted validation to that worker.
+
+Light cost glyphs use the pinned Mana .ms-cost.ms-shadow box-shadow on the actual emitted .ms-cost selector. Main-commander default and hover/focus underline colors and both Commander Browsing Starts / precon-provider service-chip borders are darker. The orientation panel gains only the requested left 2px brown rule. The mono-White trait selector attaches :has to the matrix container; White trait pips/icon keep 92% original cream with 8% warm contrast and subtle shadow. The local canvas owner changes only the White component or mono-White synthesis border to #eee4c1 at its original alpha, keeping fills, points and all other synthesis/component fields exact. Dark reversal restores original border paint without creating point fields or replacing dataset/data references.
+
+Validated research and commander-provider links are deduped inside the existing closed Decks details element. Research-only links stay available; provider-only and neither cases retain their expected behavior. Full dossier-view source protection permits exactly three explicit template substitutions plus the existing cache epoch, protecting all other runtime body bytes.
+
+Coordinator execution: focused source and radar guards PASS. Four actual production/catalog menu cases preserve verified href/service/target/rel and commander hover/click hooks. Three authoritative shared-radar profiles (W, WU and U) compare against frozen C5 presentation: initial saved light, repeated light/dark reversals, full field-presence/data/order/reference checks, actual pinned axis, toggle/both-off guard, reduced motion/options/plugin/font/layout preservation and theme/axis listener cleanup. No browser, broad suite or unchanged predecessor repeat was run.
+
+[Eight in-memory sensitivity witnesses](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-white-refinement-sensitivity.json) all fail as expected for shadow, underline, border, left rule, wrong White :has attachment, lost research menu, dark field pollution and missing slight White paint. Served/repository files were never changed by these mutations. These checks prove source/logic sensitivity, not rendered visual balance.
+
+Remaining: exact frozen independent QA and durable candidate binding; Owner light/dark visual recheck and previously disclosed residual objective browser coverage remain pending. Stage 6 should execute real dataset flags/field-presence on reversal, preserve full source boundaries around approved substitutions, and exercise research-only availability rather than infer it from a happy-path template.
+
+## C6 exact White/menu refinement checkpoint
+
+Material candidate: b69c88a226beb5081815682b58ae0f0c8dc888e4
+
+RobQA: BLOCKED
+
+Execution: SEPARATE
+
+Owner: PENDING
+
+Independent [C6 QA original](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-white-refinement-qa.md) passes the selected source/radar guards, both hygiene scopes, protected-path/byte review and generated-index freshness. The six requested refinements are implemented. Original automated browser launch failure and C1–C5 evidence retain their actual meaning; no unchanged/broad suite or browser was repeated. Engineering remains blocked by the previously disclosed residual objective browser coverage, alongside pending Owner visual recheck; this is not SHIP/Owner Review, ACCEPT or integration.
+
+Current local server returned HTTP 200, Cache-Control no-store, and the actual new cost shadow/mono-White trait owner in theme-pages.css?v=vm687. This confirms delivery only. Reload existing localhost50122 pages without reseeding or resetting storage. On light Blue/start/all, confirm the shadow, darker commander underline/default+hover/focus and browsing chips; Buckle Up should show only a closed Decks menu, with EDHREC View precon after opening. On the saved White reading, confirm the orientation left rule and slight chart/pip/icon contrast; use a mixed White dossier to check the cream symbol shadow. Reverse to dark and back while a matrix axis is pinned and component/synthesis toggles are selected. These remain manual checkpoints, not recorded PASS.
+
+[Final Git accounting](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-white-refinement-git.md) records the full material/evidence/branch scopes after evidence freeze. No feature push, PR, merge, deployment, publishing or stage6 occurred. The next authorized action is the same-task Owner recheck; retained residual browser contracts require evidence or an explicit Owner disposition before the broader engineering gate can advance.
+
+## C7 decision-panel spacing correction
+
+Owner finding: the decision text touches C6's brown left rule. The [original request and screenshot](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-owner-spacing-finding/finding.md) are preserved. Fresh canonical continue PASS at clean E6 4829f1a42403c6330a7c8dcfa484edeb41aa50e5 confirms the same sole task branch and unchanged live/main baseline. This explicit small spacing correction is inside the admitted CSS owner and requires no new branch or runtime/scope exception.
+
+Immediate cause: site-skin.css resets dossier-orientation padding to 16px 0 after archscry.css. Add only padding-left:1rem to the existing light Archscry orientation border rule, matching dossier-snapshot-card's horizontal inset. Protect vertical spacing, grid/breakpoints, colors, all other panels/dark presentation, runtime/reading state/content/storage/Maze. Existing configured RobDev Terra medium handles CSS/own handoff; independent RobQA Sol medium owns proportional validation. Parent maintains lifecycle records. No browser or new test is justified by one reversible spacing property; retain original broader evidence gaps and manual Owner spacing judgment. Stage6 lesson: pair a new edge rule with the inherited inner inset at its actual late cascade owner.
+
+## C7 exact spacing checkpoint
+
+Material candidate: 67df7eb3cb4eb85a799f8d84a318ade2bdbdeef3
+
+RobQA: BLOCKED
+
+Execution: SEPARATE
+
+Owner: PENDING
+
+Independent [C7 QA original](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-spacing-correction-qa.md) passes the existing VM687 source guard, baseline/C6 patch hygiene, exact protected-byte/path review and index freshness. The sole product change adds 1rem left padding beside the existing light orientation rule; no new test, unchanged radar/menu/broad suite or browser rerun was needed. Local theme-pages.css?v=vm687 returned HTTP200/no-store with the exact declaration, confirming delivery only. Reload the current saved dossier to judge the inset against the brown rule. No reseed/storage reset is needed.
+
+The original Owner screenshot and all C1–C6 decisions/browser evidence remain preserved. This small correction creates no new evidence gap; broader existing residual browser coverage and Owner review remain pending, so exact RobQA remains BLOCKED rather than SHIP. [Final Git accounting](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-spacing-correction-git.md) supplies full material/evidence/branch paths and state. No push, PR, merge, deployment, publishing or stage6 work occurred.
+
+## C8 Field Guide right-spacing correction
+
+The Owner's [original request, markup and screenshot](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-owner-guide-spacing-finding/finding.md) ask the decision-panel Field Guide to clear the right edge. Fresh canonical continue PASS at clean E7 a83bb3e9eea13400e4517a6acb330848abec758d confirms the same sole branch and unchanged live/main baseline. Direct Owner authority covers a bounded light CSS inset in the already admitted owner; no scope/runtime exception or new branch is needed.
+
+Add only padding-right:1rem to the final light Archscry .dossier-orientation rule, retaining its 2px left rule and C7 left inset. The site-skin horizontal-padding reset explains the edge contact. Existing configured RobDev Terra medium owns CSS/own handoff; independent RobQA Sol medium owns proportional validation; parent owns records. Protect shared beacon source/markup/URL/state, dark paint, grid/breakpoints, actions, vertical and left spacing, other panels, runtime/reading/storage/content/Maze. Reuse the existing source guard and exact path/declaration/hygiene/index review; no new spacing test or unchanged browser/radar/menu suite. Owner judges visual inset. Prior broader evidence gaps stay explicit. Stage6 lesson: account for both ends of a composed panel when adding an edge rule or inset at the final cascade owner.
+
+## C8 exact Field Guide spacing checkpoint
+
+Material candidate: d3a40c3e9814982bf58aeefb6eeae9925373d853
+
+RobQA: BLOCKED
+
+Execution: SEPARATE
+
+Owner: PENDING
+
+Independent [C8 QA original](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-guide-spacing-correction-qa.md) passes the selected existing source guard, baseline/C7 hygiene, exact one-property protected-byte/path review and generated-index freshness. Only padding-right:1rem was added to the existing final light orientation rule. Left border/inset, shared guide markup/URL/state, runtime, tests, dark presentation, responsive grid/actions and all other spacing inputs remain unchanged. No new spacing test or unchanged browser/radar/menu/broad rerun was selected. Local CSS HTTP200/no-store contains the exact declaration, confirming delivery only; reload the current saved dossier to judge clearance from the right edge. No reseed or storage reset is needed.
+
+Original C1–C7 decisions and every Owner finding/browser failure remain preserved. This correction adds no new evidence gap and resolves none of the prior residual objective browser gaps, so broader exact RobQA remains BLOCKED alongside pending Owner visual judgment. [Final Git accounting](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-guide-spacing-correction-git.md) records full material/evidence/branch scopes and state. No push, PR, merge, deployment, publishing or stage6 occurred.
+
+## Archscry Owner visual review completion
+
+At unchanged material C8 d3a40c3e9814982bf58aeefb6eeae9925373d853, after E8 corrections, the human Owner stated: “alright, I think thats everything on archscry now”. The [durable original observation and scope](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-archscry-owner-completion.md) close the Archscry visual finding loop. Independent RobQA separately appended the same bounded disposition. No product or test byte changed, and no engineering test/browser rerun is justified by this lifecycle update.
+
+Reading Guide review remains the next route review surface. The existing residual objective browser coverage, original launch failure and exact C8 RobQA BLOCKED are retained; no detailed visited-state observation, full stage-5 ACCEPT, waiver or integration permission is invented. Owner stays PENDING for the full task with Archscry completion recorded explicitly. Source criteria/scope/Decisions remain untouched; no branch duplication, push, PR, merge, deployment, publishing or stage6 work. [Updated Git accounting](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-archscry-owner-completion-git.md) records the unchanged material candidate and evidence-only head.
+
+## Reading Guide Owner correction grounding
+
+At clean E9 the Owner supplied [five screenshots and a screen recording](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-owner-reading-guide-findings/findings.md) after entering via the dossier beacon. The observed idle black Guide rectangle changes to plain text on hover and returns on leave; the recording's DevTools ties it to topbar current-page paint versus site-skin hover paint. This is the same styling defect, not a distinct interaction/navigation failure. The duplicate transition is hero bottom plus first reading section top; main Guide's first-chapter exemption doesn't name this route's reading-guide-section. Screenshot4 additionally exposes next-section literal-white prose omitted by the light owner.
+
+Targeted context/disclosure and full governing passes were read/reused. Canonical continue PASS at E9 confirmed unchanged live/main3cf826eb and sole existing branch. First sandboxed remote read failed; required read-only escalation succeeded, with no approval rejection. RobDev Terra medium and independent RobQA Sol medium were reused with known configured routes; backend identity remains unverified. RobDev owns final light adapter and its own handoff; focused source regression construction is delegated to the same implementer. RobQA remains separate. Parent owns raw evidence, card, delivery and Git.
+
+Pre-edit contract: keep Guide readable and paint-consistent on idle/hover/keyboard focus, use one hero/first-section transition, restore What next ink. Smallest owner is theme-pages.css's already admitted final light guide-reading adapter. Reuse main Guide's existing current-link reset with explicit focus outline; remove only first section's top border and add next paragraph to existing ink group. Protect shared/current runtime, teaching content/targets/links/Close/Escape/Done/focus/query/history, HTML, vendor, predecessor/Archscry/dark paint, layout/geometry/motion, storage/data/placement. No subsystem, host mutation, new worktree, browser retry or storage reset.
+
+The recording was decoded with installed OBS FFmpeg DLLs into external review frames; 764 decoded frames sampled every30 show the reported paint states. Initial Windows decoder attempts failed during local artifact inspection and are preserved separately from product/browser QA. No Codex product browser launch occurred. Independent QA selects actual final-value source assertions in the existing guard plus hygiene, exact protected-byte/path review and producer freshness; no unchanged radar/menu/engine/broad suite. Owner judges the resulting rendered presentation. Stage6 should include current-page utility states and literal prose in final descendant coverage, and check actual first-child route composition when reusing transition rules.
+
+## Reading Guide implementation completion
+
+RobDev completed only the final light guide-reading adapter: active utility background transparent/border0/shadownone/normal700/plain text, matching hover-focus ink and an explicit keyboard outline; first actual Reading section top width0; next-section paragraph joins existing #685847 !important prose. The video is the same idle/hover paint conflict and adds no runtime defect. Shared topbar/site-skin/route CSS, Reading HTML/walkthrough, prior Archscry bytes and dark states are protected.
+
+The existing source guard now handles comma-separated top-level selector branches and accumulates final declarations for identical owners, retaining prior assertions and adding exact Reading state/value guards. It checks baseline-exact topbar/site-skin/guide-reading CSS as well as existing page body/walkthrough protections. Developer source guard and diff hygiene PASS. Independent exact-candidate QA follows freeze; no product browser, changed runtime or additional suite. No assertion proves subjective resulting appearance. Local review origin and storage stay intact.
+
+## C9 exact Reading Guide correction checkpoint
+
+Material candidate: 7bf143718ec36dd3b625fde18d31616dac0331aa
+
+RobQA: BLOCKED
+
+Execution: SEPARATE
+
+Owner: PENDING
+
+Independent [original C9 QA](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-reading-guide-correction-qa.md) passes the existing focused source guard, baseline/E9 hygiene, exact protected-byte/path review and fresh generated views. Three in-memory theme-input sensitivities fail for the intended missing owners: rejected E9 active Guide, missing first Reading divider exception and missing What next prose member. No served/repo mutation, new test suite or product browser run occurred.
+
+Current local CSS returns HTTP200/no-store with all three final owners; this confirms delivery only. First sandboxed localhost read was access-restricted; the approved read-only escalation succeeded. Reload http://127.0.0.1:50122/guide/reading/ in saved light: Guide should be plain/readable before hover, during hover and after leave, with a clear keyboard focus outline; hero→first section should use one rule. Reopen the dossier Field Guide beacon's existing guided route and advance to What next to judge its paragraph ink. No reseed/storage reset is needed; walkthrough teaching, targets, actions, focus, query/history and dark/Archscry code remain unchanged.
+
+Prior Archscry visual completion remains intact for its unchanged route bytes. Reading Guide judgment and prior residual objective browser coverage remain pending, so broader exact RobQA stays BLOCKED; this is not SHIP, ACCEPT, or a waiver. [Final Git accounting](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-reading-guide-correction-git.md) records the material/evidence/whole-branch scopes. No push, PR, merge, deployment, publishing or stage6 occurred.
+
+## C9 delivery-field validation correction
+
+The read-only candidate checker rejected the enriched Owner field because its contract requires exact `Owner: PENDING`. Normalize only that Delivery field to PENDING; its Reading Guide and historical Archscry detail remains in Evidence and the unchanged authored checkpoints. This is a record-only correction, not a decision or material change. Preserve the [original checker result](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-reading-guide-correction-record-check-original.txt). The broader engineering BLOCKED verdict and source candidate C9 remain unchanged.
+
+## Reading Guide Owner visual approval at C9
+
+The Owner stated “looks good” immediately after delivery of the Reading Guide correction at unchanged material C9 7bf143718ec36dd3b625fde18d31616dac0331aa / evidence E11 d0378d08fdc113c5c9ebe2c218907f8cf14e4309. The [durable original observation](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-reading-guide-owner-approval.md) records bounded visual approval of the active Guide idle/hover paint, duplicate hero/first-section divider correction and What next prose ink. Independent RobQA appended the same bounded disposition. Prior Archscry route visual completion remains intact for its unchanged bytes.
+
+Fresh continue PASS confirms the same sole branch and unchanged live/main baseline. This is an evidence-only observation: no product/test changes or test/browser rerun is justified. Existing exact C9 engineering evidence and browser launch failure retain their actual meaning. Remaining residual objective browser coverage is still unresolved; no detailed keyboard/focus/query/history observation, full stage-5 ACCEPT, waiver or integration authorization is invented. Owner remains canonical PENDING for the full task and RobQA remains BLOCKED for the residual objective gaps. Configured independent Sol medium worker was reused; backend identity remains unverified. No push, PR, merge, deployment, publishing or stage6 work.
+
+[Updated Git accounting](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-reading-guide-owner-approval-git.md) records unchanged C9 plus the evidence-only observation. No new product boundary or stage6 implementation implication is introduced.
+
+## C9 delivery authorization and focused CUA admission
+
+The human Owner explicitly requested “that shoudl wrap up archscry and reading guide lets commit push to main and clean up the worktree and local”. This authorizes ordinary governed delivery and task-local cleanup for unchanged C9 after QA sufficiency is established; it supersedes the earlier pre-integration stop. It authorizes no deployment, publishing setting or stage6 work. Independent RobQA confirmed one native CUA witness against the existing in-app browser is causally distinct from the failed launch/raw-CDP transports and already in the existing focused QA scope. The [completion plan](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-c9-completion-plan.md) records actual capabilities, preservation and pre-approved host routes. Product, tests, criteria, scope and Decisions remain unchanged. No new approval is requested or fabricated, and prior harness failures remain preserved. The exact-C9 QA decision is still BLOCKED pending actual residual observations.
+
+## C9 focused CUA stop and authorized partial delivery
+
+The single admitted native CUA pass bound the existing in-app Archscry tab and returned its live Jund dossier accessibility state. The first read-only page snapshot threw TypeError because localStorage.getItem was unavailable in that inspection scope; no observation data or assertion returned. Per the independent plan, execution stopped immediately without alternate evaluation, transport or retry. No UI action, storage mutation/reseed, viewport change or new tab occurred. [Original attempt](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm687-c9-cua-completion-attempt.json) preserves the result. RobQA remains BLOCKED for objective composed-resource/state/native-interaction/containment/walkthrough evidence; both actual Owner visual approvals remain intact.
+
+The current Owner explicitly authorizes commit/push and eventual integration/cleanup. Proceed with evidence-only commit and feature push, plus the same task's single early Draft PR for the concrete engineering need of required remote Deterministic Validation. This uses the existing workflow draft exception and does not represent engineering PASS, Accepted or merge authorization without the gate. Keep primary checkout and unmerged branch; no separate task worktree exists. Deployment, publishing settings, stage6 and unrelated work stay outside scope.
+
+## Corrected native QA completion, 2026-10-09
+
+Task: VM-687
+Candidate: 7bf143718ec36dd3b625fde18d31616dac0331aa
+
+The Owner selected necessary QA. The corrected DOM-native CUA witness completed all four proportional groups with documented native interactions and actual resources/paint/viewport/focus/URL observations. Independent RobQA now records PASS / SEPARATE in vm687-c9-final-pass-qa.md; vm687-c9-native-qa-observations.md retains actual results, false construction predicates and disclosed baseline rapid Driver-transition limitation. No product/test/criteria changes or waiver. Original user tab, saved light/reading and normal viewport preserved; temporary QA tab closed. Owner remains PENDING for canonical candidate check; actual prior visual approvals and explicit main integration/cleanup request remain available for subsequent acceptance binding.
+
+## Accepted exact C9, 2026-10-09
+
+Task: VM-687
+Candidate: 7bf143718ec36dd3b625fde18d31616dac0331aa
+
+Canonical candidate checker PASS at E14 98b48881ea4dd838e3fd645485cc182cbceb62ed: 42 material, 4 evidence-only, 42 total paths. The Owner visual approvals and explicit commit/push/main integration/cleanup request bind this unchanged independent-QA-passed C9; vm687-owner-acceptance.md records actual human consent. Accepted is recorded without another approval or criteria waiver. Continue same PR76 through exact-head CI/host parity and expected-head guarded squash; deployment/publishing/stage6 remain outside scope.

@@ -1,15 +1,15 @@
 import {
   destroyDossierManaRadar,
-} from "../dossier-radar.js?v=vm636";
+} from "../dossier-radar.js?v=vm687";
 
 import {
   createInitialAdaptiveState,
-} from "../gate-b1-placement-engine.js?v=vm636";
+} from "../gate-b1-placement-engine.js?v=vm687";
 
 import {
   APP_STATE,
   READING_STATE,
-} from "./state.js?v=vm636";
+} from "./state.js?v=vm687";
 
 export function showSection(id) {
   ["landing", "atlas", "quick", "result"].forEach((sectionId) => {

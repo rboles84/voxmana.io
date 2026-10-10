@@ -1,4 +1,4 @@
-import "../shared/vm-radar.js?v=vm636";
+import "../shared/vm-radar.js?v=vm687";
 
 const RADAR = globalThis.VMRadar;
 const DOSSIER_RADAR_AXES = RADAR.AXIS_LABELS;
@@ -6,6 +6,7 @@ const DOSSIER_SYNTHESIS_GOLD = "#f0c56a";
 
 let dossierManaRadarChart = null;
 let dossierAxisInteractionCleanup = null;
+let dossierThemeCleanup = null;
 
 function escapeDossierHtml(value) {
   return String(value ?? "")
@@ -177,6 +178,10 @@ function renderDossierRadarSection({ result, faction, flavorSnippets = [], ident
 }
 
 function destroyDossierManaRadar() {
+  if (dossierThemeCleanup) {
+    dossierThemeCleanup();
+    dossierThemeCleanup = null;
+  }
   if (dossierAxisInteractionCleanup) {
     dossierAxisInteractionCleanup();
     dossierAxisInteractionCleanup = null;
@@ -185,6 +190,35 @@ function destroyDossierManaRadar() {
     dossierManaRadarChart.destroy();
     dossierManaRadarChart = null;
   }
+}
+
+function applyDossierRadarTheme(chart = dossierManaRadarChart) {
+  if (!chart) return;
+  const light = document.documentElement?.dataset.vmThemeOptIn === "archscry" &&
+    document.documentElement?.dataset.vmTheme === "light";
+  const scale = chart.options.scales?.r;
+  if (!scale) return;
+  scale.ticks.color = light ? "rgba(49,39,31,0.64)" : "rgba(255,255,255,0.42)";
+  scale.angleLines.color = light ? "rgba(138,91,25,0.24)" : "rgba(255,255,255,0.09)";
+  scale.grid.color = light ? "rgba(138,91,25,0.24)" : "rgba(255,255,255,0.09)";
+  scale.pointLabels.color = light ? "#31271f" : "#e6ddc6";
+  chart.data.datasets.forEach((dataset) => {
+    if (!dataset?._vmWhitePaint) return;
+    if (light) {
+      dataset.borderColor = RADAR.hexToRgba("#eee4c1", dataset._vmWhiteBorderAlpha);
+    } else {
+      dataset.borderColor = dataset._vmOriginalBorderColor;
+    }
+  });
+  chart.update("none");
+}
+
+function dossierRadarNeutralPalette() {
+  const light = document.documentElement?.dataset.vmThemeOptIn === "archscry" &&
+    document.documentElement?.dataset.vmTheme === "light";
+  return light
+    ? { tick: "rgba(49,39,31,0.64)", line: "rgba(138,91,25,0.24)", label: "#31271f" }
+    : { tick: "rgba(255,255,255,0.42)", line: "rgba(255,255,255,0.09)", label: "#e6ddc6" };
 }
 
 function selectedGlow(profile) {
@@ -330,6 +364,19 @@ function updateDossierRadarDatasets(profile, showComponents, showComposite) {
     dataset.pointHoverRadius = 5.4;
     dataset.pointHoverBorderWidth = 2;
   });
+  const monoWhite = (profile.components || []).length === 1 && profile.components[0] === "W";
+  datasets.forEach((dataset) => {
+    const whiteComponent = dataset?._vmComponent === true && dataset.label === RADAR.componentName("W");
+    if (!whiteComponent && !(monoWhite && dataset?._vmComposite)) return;
+    dataset._vmWhitePaint = true;
+    dataset._vmOriginalBorderColor = dataset.borderColor;
+    dataset._vmWhiteBorderAlpha = dataset?._vmComposite ? 0.95 : 0.5;
+  });
+  if (document.documentElement?.dataset.vmThemeOptIn === "archscry" && document.documentElement?.dataset.vmTheme === "light") {
+    datasets.filter((dataset) => dataset?._vmWhitePaint).forEach((dataset) => {
+      dataset.borderColor = RADAR.hexToRgba("#eee4c1", dataset._vmWhiteBorderAlpha);
+    });
+  }
   dossierManaRadarChart.data.datasets = datasets;
   dossierManaRadarChart.update();
 }
@@ -397,6 +444,7 @@ function initDossierManaRadar({ result, faction, profile, identityLayers = null 
 
   const reducedMotion = typeof globalThis.matchMedia === "function" &&
     globalThis.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const neutralPalette = dossierRadarNeutralPalette();
 
   dossierManaRadarChart = new ChartCtor(canvas.getContext("2d"), {
     plugins: [
@@ -442,20 +490,20 @@ function initDossierManaRadar({ result, faction, profile, identityLayers = null 
           max: 100,
           beginAtZero: true,
           ticks: {
-            color: "rgba(255,255,255,0.42)",
+            color: neutralPalette.tick,
             backdropColor: "transparent",
             stepSize: 25,
             callback: () => "",
           },
           angleLines: {
-            color: "rgba(255,255,255,0.09)",
+            color: neutralPalette.line,
           },
           grid: {
             circular: false,
-            color: "rgba(255,255,255,0.09)",
+            color: neutralPalette.line,
           },
           pointLabels: {
-            color: "#e6ddc6",
+            color: neutralPalette.label,
             padding: 10,
             font: {
               family: "Outfit, system-ui, sans-serif",
@@ -469,6 +517,15 @@ function initDossierManaRadar({ result, faction, profile, identityLayers = null 
   });
 
   updateDossierRadarDatasets(resolvedProfile, showComponents, showComposite);
+  const onThemeChange = () => applyDossierRadarTheme();
+  if (typeof window.addEventListener === "function") {
+    window.addEventListener("vm:theme-change", onThemeChange);
+    dossierThemeCleanup = () => {
+      if (typeof window.removeEventListener === "function") {
+        window.removeEventListener("vm:theme-change", onThemeChange);
+      }
+    };
+  }
 
   if (componentToggle) {
     componentToggle.addEventListener("change", syncDatasets);

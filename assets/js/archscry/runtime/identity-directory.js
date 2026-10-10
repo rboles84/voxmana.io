@@ -1,6 +1,6 @@
 import {
   playerFacingIdentityDisplayLabel,
-} from "./data.js?v=vm636";
+} from "./data.js?v=vm687";
 
 export const IDENTITY_DIRECTORY_GROUPS = [
   { kind: "color", id: "mono-colors", label: "Mono Colors" },

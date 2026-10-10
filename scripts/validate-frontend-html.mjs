@@ -71,6 +71,8 @@ const themeBootstrapByRoute = {
   strategiumConsole: '<script src="../../assets/js/shared/vm-theme.js?v=vm684">',
   strategiumReview: '<script src="../../assets/js/shared/vm-theme.js?v=vm684">',
   apocrypha: '<script src="../assets/js/shared/vm-theme.js?v=vm682">',
+  archscry: '<script src="../assets/js/shared/vm-theme.js?v=vm687">',
+  guideReading: '<script src="../../assets/js/shared/vm-theme.js?v=vm687">',
 };
 const guideCssSource = await readFile("assets/css/guide.css", "utf8");
 const livePublicPageKeys = Object.keys(publicPages).filter(key => key !== "library");
@@ -648,8 +650,9 @@ expect(
 const archscryStylesheetHrefs = getStylesheetHrefs(sources.archscry);
 const archscryBodyClasses = sources.archscry.match(/<body\b[^>]*\bclass="([^"]*)"/i)?.[1].split(/\s+/) ?? [];
 expect(
-  archscryStylesheetHrefs.at(-2) === '../assets/css/archscry.css?v=vm635' &&
-    archscryStylesheetHrefs.at(-1) === '../assets/css/site-skin.css?v=vm652' &&
+  archscryStylesheetHrefs.at(-3) === '../assets/css/archscry.css?v=vm635' &&
+    archscryStylesheetHrefs.at(-2) === '../assets/css/site-skin.css?v=vm652' &&
+    archscryStylesheetHrefs.at(-1) === '../assets/css/theme-pages.css?v=vm687' &&
     archscryStylesheetHrefs.filter(href => /\/site-skin\.css(?:\?|$)/.test(href)).length === 1 &&
     archscryBodyClasses.includes('vm-site-skin') &&
     archscryBodyClasses.includes('vm-archscry-route'),
@@ -749,8 +752,10 @@ expect(
 );
 expect(
   getStylesheetHrefs(sources.guide).at(-2)?.endsWith("assets/css/site-skin.css?v=vm668r2") &&
-    [sources.guideReading, sources.guideMaze].every(source => getStylesheetHrefs(source).at(-1)?.endsWith("assets/css/site-skin.css?v=vm668r2")),
-  "only the Guide hub should append the VM-683 theme adapter after its current site-skin owner"
+    getStylesheetHrefs(sources.guideReading).at(-2)?.endsWith("assets/css/site-skin.css?v=vm668r2") &&
+    getStylesheetHrefs(sources.guideReading).at(-1)?.endsWith("assets/css/theme-pages.css?v=vm687") &&
+    getStylesheetHrefs(sources.guideMaze).at(-1)?.endsWith("assets/css/site-skin.css?v=vm668r2"),
+  "only admitted Guide routes append their route-scoped theme adapter after the current site-skin owner"
 );
 
 expect(
@@ -763,35 +768,35 @@ const relativeModuleImportPattern = /(?:\bfrom\s+|\bimport\s+|\bimport\(\s*)["']
 for (const file of archscryModuleFiles) {
   const source = await readFile(file, "utf8");
   for (const match of source.matchAll(relativeModuleImportPattern)) {
-    if (match[2] !== "vm636") {
+    if (match[2] !== "vm687") {
       archscryImportRevisionFailures.push(`${file}: ${match[0]}`);
     }
   }
 }
 expect(
   archscryImportRevisionFailures.length === 0,
-  `Every relative Archscry JavaScript import must use vm636; found ${archscryImportRevisionFailures.join("; ")}`
+  `Every relative Archscry JavaScript import must use vm687; found ${archscryImportRevisionFailures.join("; ")}`
 );
 expect(
-  sources.archscry.includes('src="../assets/js/archscry/index.js?v=vm636"') &&
-    scriptSources.archscry.includes('from "./runtime/actions.js?v=vm636"') &&
-    scriptSources.archscry.includes('from "./runtime/boot.js?v=vm636"') &&
-    scriptSources.archscry.includes('from "./runtime/data.js?v=vm636"') &&
-    scriptSources.archscry.includes('from "./runtime/dossier-view.js?v=vm636"') &&
-    scriptSources.archscry.includes('from "./runtime/questionnaire.js?v=vm636"') &&
-    scriptSources.archscry.includes('from "./runtime/identity-atlas.js?v=vm636"') &&
-    scriptSources.archscry.includes('import("./runtime/dev-review.js?v=vm636")') &&
-    scriptSources.archscryActions.includes('from "./dossier-view.js?v=vm636"') &&
-    scriptSources.archscryActions.includes('from "./questionnaire.js?v=vm636"') &&
-    scriptSources.archscryBoot.includes('from "./dossier-view.js?v=vm636"') &&
-    scriptSources.archscryDevReview.includes('from "./dossier-view.js?v=vm636"') &&
-    scriptSources.archscryDevReview.includes('from "./questionnaire.js?v=vm636"') &&
-    scriptSources.archscryIdentityAtlas.includes('from "./dossier-view.js?v=vm636"') &&
-    scriptSources.archscryQuestionnaire.includes('from "../archscry-presentation.js?v=vm636"') &&
-    scriptSources.archscryQuestionnaire.includes('from "./dossier-view.js?v=vm636"') &&
-    scriptSources.archscryDossierView.includes('from "../archscry-presentation.js?v=vm636"') &&
-    scriptSources.archscryPresentation.includes('from "../maze/maze-handoff.js?v=vm636"') &&
-    scriptSources.archscryData.includes('from "../../maze/maze-handoff.js?v=vm636"'),
+  sources.archscry.includes('src="../assets/js/archscry/index.js?v=vm687"') &&
+    scriptSources.archscry.includes('from "./runtime/actions.js?v=vm687"') &&
+    scriptSources.archscry.includes('from "./runtime/boot.js?v=vm687"') &&
+    scriptSources.archscry.includes('from "./runtime/data.js?v=vm687"') &&
+    scriptSources.archscry.includes('from "./runtime/dossier-view.js?v=vm687"') &&
+    scriptSources.archscry.includes('from "./runtime/questionnaire.js?v=vm687"') &&
+    scriptSources.archscry.includes('from "./runtime/identity-atlas.js?v=vm687"') &&
+    scriptSources.archscry.includes('import("./runtime/dev-review.js?v=vm687")') &&
+    scriptSources.archscryActions.includes('from "./dossier-view.js?v=vm687"') &&
+    scriptSources.archscryActions.includes('from "./questionnaire.js?v=vm687"') &&
+    scriptSources.archscryBoot.includes('from "./dossier-view.js?v=vm687"') &&
+    scriptSources.archscryDevReview.includes('from "./dossier-view.js?v=vm687"') &&
+    scriptSources.archscryDevReview.includes('from "./questionnaire.js?v=vm687"') &&
+    scriptSources.archscryIdentityAtlas.includes('from "./dossier-view.js?v=vm687"') &&
+    scriptSources.archscryQuestionnaire.includes('from "../archscry-presentation.js?v=vm687"') &&
+    scriptSources.archscryQuestionnaire.includes('from "./dossier-view.js?v=vm687"') &&
+    scriptSources.archscryDossierView.includes('from "../archscry-presentation.js?v=vm687"') &&
+    scriptSources.archscryPresentation.includes('from "../maze/maze-handoff.js?v=vm687"') &&
+    scriptSources.archscryData.includes('from "../../maze/maze-handoff.js?v=vm687"'),
   "Archscry should cache-bust the complete Archscry catalog-to-handoff module chain"
 );
 expect(

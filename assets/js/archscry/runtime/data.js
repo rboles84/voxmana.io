@@ -1,31 +1,31 @@
 import {
   createArchidektTagCatalog,
-} from "../dossier/foundation.js?v=vm636";
+} from "../dossier/foundation.js?v=vm687";
 
 import {
   resolveMazeDiscoveryCatalogProvenance,
-} from "../../maze/maze-handoff.js?v=vm636";
+} from "../../maze/maze-handoff.js?v=vm687";
 
 import {
   validateGateB1RuntimeModel,
-} from "../gate-b1-runtime-contract.js?v=vm636";
+} from "../gate-b1-runtime-contract.js?v=vm687";
 
 import {
   mergeScryfallCardRecords,
-} from "../scryfall-card-cache.js?v=vm636";
+} from "../scryfall-card-cache.js?v=vm687";
 
 import {
   isUsableCardVoiceCatalog,
-} from "./content.js?v=vm636";
+} from "./content.js?v=vm687";
 
 import {
   cardImageUrl,
   normalizeCardName,
-} from "./render-utils.js?v=vm636";
+} from "./render-utils.js?v=vm687";
 
 import {
   APP_STATE,
-} from "./state.js?v=vm636";
+} from "./state.js?v=vm687";
 
 export const DATA_BASE_URL = new URL("../../../../data/", import.meta.url);
 

@@ -1,12 +1,12 @@
 import {
   getDossierRadarProfile,
   initDossierManaRadar,
-} from "../dossier-radar.js?v=vm636";
+} from "../dossier-radar.js?v=vm687";
 
 import {
   hideCardPreviewOverlay,
   hydrateVisibleResultCardArt,
-} from "./card-media.js?v=vm636";
+} from "./card-media.js?v=vm687";
 
 import {
   buildActionAttrs,
@@ -15,12 +15,12 @@ import {
   escapeAttributeValue,
   escapeHtml,
   renderPlayerCopy,
-} from "./render-utils.js?v=vm636";
+} from "./render-utils.js?v=vm687";
 
 import {
   APP_STATE,
   getFaction,
-} from "./state.js?v=vm636";
+} from "./state.js?v=vm687";
 
 export const DOSSIER_DEFAULT_PANEL_ID = "placement";
 

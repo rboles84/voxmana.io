@@ -11,12 +11,12 @@ import {
   selectReadingTagRefs,
   withArchscryMazeContext,
   withGateAPublicState,
-} from "../archscry-presentation.js?v=vm636";
+} from "../archscry-presentation.js?v=vm687";
 
 import {
   destroyDossierManaRadar,
   renderDossierRadarSection,
-} from "../dossier-radar.js?v=vm636";
+} from "../dossier-radar.js?v=vm687";
 
 import {
   buildBasicLandCards,
@@ -24,26 +24,26 @@ import {
   getExternalDeckRoutingAlias,
   getServiceChipMeta,
   hasRenderableLandTier,
-} from "../dossier/foundation.js?v=vm636";
+} from "../dossier/foundation.js?v=vm687";
 
 import {
   buildPreconRecommendations,
   selectPreconPreviewRecommendations,
-} from "../dossier/precons.js?v=vm636";
+} from "../dossier/precons.js?v=vm687";
 
 import {
   buildCommanderDossier,
-} from "../dossier/reading.js?v=vm636";
+} from "../dossier/reading.js?v=vm687";
 
 import {
   getExpressionKindLabel,
   normalizeLayeredIdentity,
-} from "../identity-layers.js?v=vm636";
+} from "../identity-layers.js?v=vm687";
 
 import {
   hydrateVisibleResultCardArt,
   shouldDisableResultCardArt,
-} from "./card-media.js?v=vm636";
+} from "./card-media.js?v=vm687";
 
 import {
   addUsageCards,
@@ -56,12 +56,12 @@ import {
   filterStarterCardsForUsage,
   selectApprovedCardRationales,
   selectApprovedCardVoices,
-} from "./content.js?v=vm636";
+} from "./content.js?v=vm687";
 
 import {
   matrixFlavorSnippetsForFaction,
   playerFacingIdentityDisplayLabel,
-} from "./data.js?v=vm636";
+} from "./data.js?v=vm687";
 
 import {
   MANA_BASE_SEGMENTS,
@@ -78,11 +78,11 @@ import {
   normalizeDossierPanelId,
   normalizeDossierSegment,
   resolveDossierConsoleState,
-} from "./dossier-controls.js?v=vm636";
+} from "./dossier-controls.js?v=vm687";
 
 import {
   showSection,
-} from "./navigation.js?v=vm636";
+} from "./navigation.js?v=vm687";
 
 import {
   MANA_SYMBOL_NAMES,
@@ -93,7 +93,7 @@ import {
   normalizeCardName,
   renderPlayerCopy,
   renderStaticTagChips,
-} from "./render-utils.js?v=vm636";
+} from "./render-utils.js?v=vm687";
 
 import {
   APP_STATE,
@@ -101,7 +101,7 @@ import {
   getResumableQuickQuestion,
   getStarterProfile,
   placementQuestionById,
-} from "./state.js?v=vm636";
+} from "./state.js?v=vm687";
 
 export const ARCHSCRY_MAZE_HANDOFF_KEY = "vm_archscry_maze_handoff_v1";
 
@@ -919,7 +919,10 @@ export function buildPreconResearchLinks(precon) {
 }
 
 export function buildCommanderProviderDetails(precon) {
-  const links = verifiedCommanderProviderLinks(precon.mainCommander);
+  const links = dedupeLinks([
+    ...buildPreconResearchLinks(precon),
+    ...verifiedCommanderProviderLinks(precon.mainCommander),
+  ]);
   if (!links.length) return "";
   return `
     <details class="precon-provider-menu">
@@ -1002,7 +1005,6 @@ export function buildPreconCardHtml(precon, usedCardIds = new Set()) {
     ? `This card appears because it is one of the cataloged main commanders of ${precon.deckName}.`
     : `This card appears because it is the cataloged main commander of ${precon.deckName}.`;
   const commanderProvenance = `data/precons/vox-mana-precons.source.json#${precon.deckName}.mainCommander`;
-  const researchLinks = buildPreconResearchLinks(precon);
   const commanderHtml = commanderNames.map((commanderName) => {
     const commanderButtonAttrs = buildActionAttrs("open-card-detail", {
       cardName: commanderName,
@@ -1026,7 +1028,6 @@ export function buildPreconCardHtml(precon, usedCardIds = new Set()) {
       <div class="precon-commander">Main commander: ${commanderHtml}</div>
       ${chips.length ? `<div class="precon-chip-row">${chips.map((chip) => `<span class="precon-chip">${escapeHtml(chip)}</span>`).join("")}</div>` : ""}
       ${publicRationale ? `<div class="precon-copy">${escapeHtml(publicRationale)}</div>` : ""}
-      ${researchLinks.length ? `<div class="precon-links">${buildLinkButtons(researchLinks)}</div>` : ""}
       ${buildCommanderProviderDetails(precon)}
     </div>`;
 }
