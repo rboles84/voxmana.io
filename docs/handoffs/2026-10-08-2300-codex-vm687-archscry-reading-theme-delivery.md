@@ -311,3 +311,14 @@ Task: VM-687
 Candidate: 7bf143718ec36dd3b625fde18d31616dac0331aa
 
 Canonical candidate checker PASS at E14 98b48881ea4dd838e3fd645485cc182cbceb62ed: 42 material, 4 evidence-only, 42 total paths. The Owner visual approvals and explicit commit/push/main integration/cleanup request bind this unchanged independent-QA-passed C9; vm687-owner-acceptance.md records actual human consent. Accepted is recorded without another approval or criteria waiver. Continue same PR76 through exact-head CI/host parity and expected-head guarded squash; deployment/publishing/stage6 remain outside scope.
+
+## Verified main integration, 2026-10-09
+
+Task: VM-687
+Candidate: 7bf143718ec36dd3b625fde18d31616dac0331aa
+
+PR76 was expected-head guarded squashed successfully as bfcb0e65f620887db25859a8f06894c4eecf5bb3 from exact accepted evidence head 4ee301f463618470acdbf1ce25f19cf8957b6134 after canonical integration PASS and exact Deterministic Validation workflow38011337548/job114091810665 success. Host confirms closed/merged, sole parent is baseline3cf826eb87702bd25b66a2853838b00a880d7307, and merge tree bf61deb193256156126240423c91e8c0b488241b equals accepted evidence tree. Local main fast-forwarded to actual merge.
+
+Ordinary fetch and no-negotiation refetch both failed because an unrelated Codex checkpoint ref was invalid. The actual merge object had downloaded and full parent/tree proof succeeded. Authenticated host main was reobserved; guarded update-ref refreshed only origin/main from the old baseline to that verified merge, then main fast-forwarded. The broken unrelated Codex reference was preserved; no checkpoint, credentials, settings, product bytes or unrelated work was removed.
+
+Task-local branch cleanup and canonical closeout follow. Primary C:/dev/voxmana.io is the sole registered worktree and remains in place. Both role handoffs, manual findings, original harness failures, false predicate corrections and rapid baseline Driver transition limitation remain preserved. Stage6 should reuse real composed DOM/native witness where needed and the actual final child paint owner; it must not treat this limitation as resolved or expand into placement/data/publishing work.
