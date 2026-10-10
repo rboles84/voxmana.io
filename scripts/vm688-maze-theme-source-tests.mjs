@@ -32,7 +32,7 @@ for (const [name, file, source, prefix, routeCss, skinCss] of [
   const bootstrap = `<script src="${prefix}assets/js/shared/vm-theme.js?v=vm688">`;
   assert.equal((source.match(/assets\/js\/shared\/vm-theme\.js\?v=vm688/g) || []).length, 1, `${name} owns one synchronous theme bootstrap`);
   assert.ok(source.indexOf(bootstrap) < source.indexOf('<link rel="stylesheet"'), `${name} applies saved theme before styles can paint`);
-  const adapterEpoch = name === "maze" ? "vm688r1" : "vm688";
+  const adapterEpoch = name === "maze" ? "vm688r1" : "vm689";
   assert.deepEqual(hrefs(source).slice(-3), [routeCss, skinCss, `${prefix}assets/css/theme-pages.css?v=${adapterEpoch}`], `${name} preserves route and skin cascade before its adapter`);
   assert.equal(normalize(body(source)), readBaseline(file).match(/<body\b[\s\S]*<\/body>/i)?.[0], `${name} keeps body content, IDs, URLs, and runtime hooks baseline-identical`);
 }
@@ -131,7 +131,9 @@ owner(prefixes[0], ":is(.vm-feedback-header h2, .vm-feedback-step h3)", {color: 
 owner(prefixes[0], ".vm-feedback-context dt", {color: "#685847"});
 owner(prefixes[0], ".vm-feedback-context dd", {color: "#31271f"});
 owner(prefixes[1], ".guide-story > .maze-guide-section:first-child", {"border-top-color": "transparent"});
+owner(prefixes[1], ".maze-color-pips .ms-cost", {"box-shadow": "-0.06em 0.07em 0 #111, 0 0.06em 0 #111"});
 owner(prefixes[1], ".maze-color-pips .ms-w", {"text-shadow": "0 0 0.08em rgba(80, 55, 26, 0.52)"});
+owner(prefixes[1], ".maze-diagnostic-row span", {background: "#fff8e8", "border-color": "#8a5b19"});
 owner(prefixes[1], ".vm-utility .vm-utility-link[data-vm-nav=\"guide\"][aria-current=\"page\"]", {background: "transparent", "border-color": "transparent", "box-shadow": "none", color: "var(--site-copy)"});
 owner(prefixes[1], ".vm-utility .vm-utility-link[data-vm-nav=\"guide\"][aria-current=\"page\"]:focus-visible", {outline: "2px solid var(--site-ink)", "outline-offset": "2px"});
 owner(prefixes[1], ".driver-popover.vm-guide-walkthrough-popover", {background: "#fff8e8", "border-color": "#a88d62", color: "#211b18"});
@@ -148,7 +150,9 @@ const dynamicInventory = [
   ["runtime rarity chip", researchInit, 'className: `cb-label rarity-chip rarity-${rarity.v}`', ".rarity-chip:is(:hover, .checked)"],
   ["runtime ability chip", researchInit, 'className: "ability-chip"', ":is(.cb-label, .ability-chip):is(:hover, :focus-visible, .checked)"],
   ["runtime keyword chip", researchInit, 'className: "kw-chip"', ".kw-chip"],
-  ["Guide white Mana pip", guideMaze, 'class="ms ms-w ms-cost"', ".maze-color-pips .ms-w"],
+  ["Guide white Mana pip", guideMaze, 'class="ms ms-w ms-cost"', ".maze-color-pips .ms-cost"],
+  ["Guide blue Mana pip", guideMaze, 'class="ms ms-u ms-cost"', ".maze-color-pips .ms-cost"],
+  ["Guide diagnostic rows", guideMaze, 'class="maze-diagnostic-row"', ".maze-diagnostic-row span"],
   ["card save", mazeCss, ".card-stash-btn", ".card-stash-btn::before"],
   ["two-face control", mazeCss, ".transform-card-button", ".transform-card-button"]
 ];
