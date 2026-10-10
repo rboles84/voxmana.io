@@ -171,3 +171,18 @@ The smallest sufficient exact-candidate selection is:
 The native smoke proves only the states it exercises. It does not certify all Loom combinations, all loading/empty/error populations, all DFC variants, every dialog path, live Scryfall/feedback, rapid Driver transitions, pointer hover, coarse/reduced-motion behavior or every responsive breakpoint. Those are covered only where unchanged accepted lower-layer evidence applies; otherwise they remain explicit non-exercised limits rather than new candidate blockers.
 
 Verdict remains **PENDING** until the replacement SHA is frozen and this reduced selection completes. A source/cascade failure stops for correction. A browser construction failure permits only one independently justified causal environment or locator correction; it does not authorize broader retries.
+
+## Recovery C2 exact-candidate result
+
+Task: VM-688
+Candidate: 57fb9b0419188cfc57891dba642b5436d9922921
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: /root/archscry_qa
+Implementer: /root + /root/archscry_dev
+
+The independent reviewer executed the four selected controller/source/HTML/context checks and reviewed the clean candidate, protected bytes and compact native witness. Original independent decision: [vm688-recovery-qa.md](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm688-recovery-qa.md). Original native observations: [vm688-recovery-ui.md](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm688-recovery-ui.md). This appended binding records that authentic decision; it does not replace the original artifact or the historical C1 BLOCKED result.
+
+Fresh dark and saved-light first-paint state, corrected Loom/current-weave paint, theme reversal, mocked results, keyboard detail/Escape focus, one Save/Clipboard card, DFC flip, one narrow document containment observation and settled four-step Guide/Done passed. Loom values were observed across reversal/restoration; reload proves saved theme only. The stale post-Save label and immediate batched Next construction failures are retained in the originals; settled navigation succeeded. No optional fixture ledger was produced.
+
+Unexercised: live services/art fidelity, feedback submission, hover pointer acquisition, every control/state/error/population, pagination, mobile menu, cross-tab/history and viewport matrices. Accepted unchanged runtime/VM-681 evidence is reused where applicable. Owner visual hierarchy, semantic readability, warmth, atmosphere, hover comfort and broader interactions remain PENDING. No integration authorization.

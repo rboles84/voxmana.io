@@ -2,7 +2,7 @@
 
 ID: VM-688
 Title: Maze and Maze Guide theme, stage 6
-Status: In Progress
+Status: Owner Review
 Type: Bounded route theme presentation
 Area: Maze, Maze Guide and final theme adapters
 Priority: High
@@ -18,14 +18,14 @@ The original Owner request was to review and red-team a provisional stage-6 prom
 
 ## Acceptance Criteria
 
-- [ ] Explicit separate maze and guide-maze opt-ins restore saved light synchronously before paint, use the single vm_theme_mode_v1 preference and accessible NEXT-mode Mana toggle, and preserve unconditional dark default, storage failure handling, pageshow and cross-tab behavior.
-- [ ] Final scoped light adapters cover Plain Reading, Operator's Hand and The Loom; inspector, retained dossier context, discovery/builder controls, native selects/options, sort/pagination, chips and selected/disabled/open/focus states; current loading/empty/error/recovery and result populations; Save, two-face controls, hover, card details, toast, Clipboard, mock-only feedback and shared/mobile navigation.
-- [ ] Maze Guide covers its static teaching specimens, hero/sections/code/context/recovery/results/CTA/footer and existing four-target walkthrough with unchanged copy, targets, direct-entry behavior, query/history and focus contracts. Reuse the accepted plain active-Guide utility treatment.
-- [ ] Preserve parser/compiler/query and executable request semantics, Scryfall behavior, caches, modes, pagination, saved reading, Clipboard schema/operations, Archscry handoffs/returns, identifiers, URLs, focus/history, data/content/artwork and existing dark presentation.
-- [ ] Preserve VM-681's two 1.6 hover scales, Save compensation 6.25px/-13.75px/0.625, settled 44px hit area and 10px top inset, grid dimensions, transform origins, pointer ownership, transition timing, reduced-motion and coarse-pointer behavior. New adapters contain paint declarations only, with no layout/motion/interaction redesign.
-- [ ] Focused controller, route/source/protected-byte, HTML and existing context/recovery checks pass on the exact replacement. One compact UI smoke covers light/dark Maze, corrected Loom/current-weave paint, a normal result/detail/Save/Clipboard path, direct Maze Guide and one stable walkthrough. Reuse accepted unchanged runtime/VM-681 evidence; disclose unexercised UI branches for Owner QA. Feedback remains mocked. No broad suites, resource traces, history permutations, screenshot/viewport matrices or unrelated harness repair.
-- [ ] Final route coverage, shared dialog contracts, preference behavior, unconverted/alias safety and dark preservation are recorded, with honest exceptions/limitations and short Owner visual checkpoints. Individual handoffs and generated views are fresh; Git accounting validates.
-- [ ] Freeze the material candidate, obtain SEPARATE exact-candidate RobQA PASS and SHIP with Owner PENDING. No push, PR, integration, deployment or publishing settings change.
+- [x] Explicit separate maze and guide-maze opt-ins restore saved light synchronously before paint, use the single vm_theme_mode_v1 preference and accessible NEXT-mode Mana toggle, and preserve unconditional dark default, storage failure handling, pageshow and cross-tab behavior.
+- [x] Final scoped light adapters cover Plain Reading, Operator's Hand and The Loom; inspector, retained dossier context, discovery/builder controls, native selects/options, sort/pagination, chips and selected/disabled/open/focus states; current loading/empty/error/recovery and result populations; Save, two-face controls, hover, card details, toast, Clipboard, mock-only feedback and shared/mobile navigation.
+- [x] Maze Guide covers its static teaching specimens, hero/sections/code/context/recovery/results/CTA/footer and existing four-target walkthrough with unchanged copy, targets, direct-entry behavior, query/history and focus contracts. Reuse the accepted plain active-Guide utility treatment.
+- [x] Preserve parser/compiler/query and executable request semantics, Scryfall behavior, caches, modes, pagination, saved reading, Clipboard schema/operations, Archscry handoffs/returns, identifiers, URLs, focus/history, data/content/artwork and existing dark presentation.
+- [x] Preserve VM-681's two 1.6 hover scales, Save compensation 6.25px/-13.75px/0.625, settled 44px hit area and 10px top inset, grid dimensions, transform origins, pointer ownership, transition timing, reduced-motion and coarse-pointer behavior. New adapters contain paint declarations only, with no layout/motion/interaction redesign.
+- [x] Focused controller, route/source/protected-byte, HTML and existing context/recovery checks pass on the exact replacement. One compact UI smoke covers light/dark Maze, corrected Loom/current-weave paint, a normal result/detail/Save/Clipboard path, direct Maze Guide and one stable walkthrough. Reuse accepted unchanged runtime/VM-681 evidence; disclose unexercised UI branches for Owner QA. Feedback remains mocked. No broad suites, resource traces, history permutations, screenshot/viewport matrices or unrelated harness repair.
+- [x] Final route coverage, shared dialog contracts, preference behavior, unconverted/alias safety and dark preservation are recorded, with honest exceptions/limitations and short Owner visual checkpoints. Individual handoffs and generated views are fresh; Git accounting validates.
+- [x] Freeze the material candidate, obtain SEPARATE exact-candidate RobQA PASS and SHIP with Owner PENDING. No push, PR, integration, deployment or publishing settings change.
 
 ## Files Likely Impacted
 
@@ -44,13 +44,13 @@ Apply RobDev and independent RobQA with the configured Terra medium and Sol medi
 Record version: 1
 Branch: codex/vm-688-maze-theme
 Admission baseline: 72d2fff4c38e32eeed2974769c6b436471c45e55
-Candidate: PENDING
-RobQA: PENDING — SEPARATE
+Candidate: 57fb9b0419188cfc57891dba642b5436d9922921
+RobQA: PASS at 57fb9b0419188cfc57891dba642b5436d9922921 — SEPARATE; original external vm688-recovery-qa.md, referenced in the QA handoff
 Owner: PENDING
 Integration: PENDING — SHIP stops before integration or deployment
 Dependencies: None
 Decisions: Presentation-only /maze/ and /guide/maze/ via distinct maze and guide-maze opt-ins, allowlist-only controller change and append-only final scoped CSS. Admit an exact light Maze topbar background !important override for the existing inline #0c0c0b declaration; keep the authored body and all runtime bytes unchanged. Existing inline SVG/state paint may be overridden only by scoped CSS paint. The active-Guide utility correction is light-only, matching Reading Guide; withdraw the coordinator's earlier both-theme exception and preserve dark styling. All new paint owners remain light-only. No base Maze/Guide/site-skin/shared runtime changes, new interactions, semantic colors/data/content changes, runtime/cache-key advances, footer standardization or publishing-setting changes. Preserve VM-681 geometry and all accepted earlier contracts. Historical PR72 automatic publishing exception, preference privacy disclosure question, VM-686 footer backlog, narrow compass edge and baseline Driver/harness limitations remain separate; this task grants no repair or waiver.
-Evidence: Read-only predecessor PR/Git reconciliation and RobDev/RobQA prompt red-team; final candidate evidence pending.
+Evidence: Predecessor verification, exact C2 independent PASS and compact native observations are referenced in the appended recovery delivery and QA handoffs. Git-derived material/evidence/total accounting: external vm688-recovery-git-report.md. Owner decision remains PENDING.
 
 ## Recovery authorization
 
