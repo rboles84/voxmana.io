@@ -2,7 +2,7 @@
 
 ID: VM-688
 Title: Maze and Maze Guide theme, stage 6
-Status: In Progress
+Status: Owner Review
 Type: Bounded route theme presentation
 Area: Maze, Maze Guide and final theme adapters
 Priority: High
@@ -18,14 +18,14 @@ The original Owner request was to review and red-team a provisional stage-6 prom
 
 ## Acceptance Criteria
 
-- [ ] Explicit separate maze and guide-maze opt-ins restore saved light synchronously before paint, use the single vm_theme_mode_v1 preference and accessible NEXT-mode Mana toggle, and preserve unconditional dark default, storage failure handling, pageshow and cross-tab behavior.
-- [ ] Final scoped light adapters cover Plain Reading, Operator's Hand and The Loom; inspector, retained dossier context, discovery/builder controls, native selects/options, sort/pagination, chips and selected/disabled/open/focus states; current loading/empty/error/recovery and result populations; Save, two-face controls, hover, card details, toast, Clipboard, mock-only feedback and shared/mobile navigation.
-- [ ] Maze Guide covers its static teaching specimens, hero/sections/code/context/recovery/results/CTA/footer and existing four-target walkthrough with unchanged copy, targets, direct-entry behavior, query/history and focus contracts. Reuse the accepted plain active-Guide utility treatment.
-- [ ] Preserve parser/compiler/query and executable request semantics, Scryfall behavior, caches, modes, pagination, saved reading, Clipboard schema/operations, Archscry handoffs/returns, identifiers, URLs, focus/history, data/content/artwork and existing dark presentation.
-- [ ] Preserve VM-681's two 1.6 hover scales, Save compensation 6.25px/-13.75px/0.625, settled 44px hit area and 10px top inset, grid dimensions, transform origins, pointer ownership, transition timing, reduced-motion and coarse-pointer behavior. New adapters preserve layout/motion/interaction contracts except the Owner-requested interpretation/API spacing, light keyword-wrapper padding and thread-button shape; guard those exact selector/property/value exceptions.
-- [ ] Focused route/source/protected-byte and HTML checks pass on the exact Owner-correction candidate. Reuse unchanged C2 controller/context, detail/Save/Clipboard/DFC, Guide and containment evidence. One compact no-request UI preview covers light query/Clear, Loom empty/selected color wash, rarity/mana/keyword wrapper and dark reversal; interpretation/thread final owners may be source-reviewed without executing requests. Disclose unexercised branches for Owner QA. No live feedback, new harness, broad suites, resource traces or history/viewport matrices.
-- [ ] Final route coverage, shared dialog contracts, preference behavior, unconverted/alias safety and dark preservation are recorded, with honest exceptions/limitations and short Owner visual checkpoints. Individual handoffs and generated views are fresh; Git accounting validates.
-- [ ] Freeze the material candidate, obtain SEPARATE exact-candidate RobQA PASS and SHIP with Owner PENDING. No push, PR, integration, deployment or publishing settings change.
+- [x] Explicit separate maze and guide-maze opt-ins restore saved light synchronously before paint, use the single vm_theme_mode_v1 preference and accessible NEXT-mode Mana toggle, and preserve unconditional dark default, storage failure handling, pageshow and cross-tab behavior.
+- [x] Final scoped light adapters cover Plain Reading, Operator's Hand and The Loom; inspector, retained dossier context, discovery/builder controls, native selects/options, sort/pagination, chips and selected/disabled/open/focus states; current loading/empty/error/recovery and result populations; Save, two-face controls, hover, card details, toast, Clipboard, mock-only feedback and shared/mobile navigation.
+- [x] Maze Guide covers its static teaching specimens, hero/sections/code/context/recovery/results/CTA/footer and existing four-target walkthrough with unchanged copy, targets, direct-entry behavior, query/history and focus contracts. Reuse the accepted plain active-Guide utility treatment.
+- [x] Preserve parser/compiler/query and executable request semantics, Scryfall behavior, caches, modes, pagination, saved reading, Clipboard schema/operations, Archscry handoffs/returns, identifiers, URLs, focus/history, data/content/artwork and existing dark presentation.
+- [x] Preserve VM-681's two 1.6 hover scales, Save compensation 6.25px/-13.75px/0.625, settled 44px hit area and 10px top inset, grid dimensions, transform origins, pointer ownership, transition timing, reduced-motion and coarse-pointer behavior. New adapters preserve layout/motion/interaction contracts except the Owner-requested interpretation/API spacing, light keyword-wrapper padding and thread-button shape; guard those exact selector/property/value exceptions.
+- [x] Focused route/source/protected-byte and HTML checks pass on the exact Owner-correction candidate. Reuse unchanged C2 controller/context, detail/Save/Clipboard/DFC, Guide and containment evidence. One compact no-request UI preview covers light query/Clear, Loom empty/selected color wash, rarity/mana/keyword wrapper and dark reversal; interpretation/thread final owners may be source-reviewed without executing requests. Disclose unexercised branches for Owner QA. No live feedback, new harness, broad suites, resource traces or history/viewport matrices.
+- [x] Final route coverage, shared dialog contracts, preference behavior, unconverted/alias safety and dark preservation are recorded, with honest exceptions/limitations and short Owner visual checkpoints. Individual handoffs and generated views are fresh; Git accounting validates.
+- [x] Freeze the material candidate, obtain SEPARATE exact-candidate RobQA PASS and SHIP with Owner PENDING. No push, PR, integration, deployment or publishing settings change.
 
 ## Files Likely Impacted
 
@@ -44,13 +44,13 @@ Apply RobDev and independent RobQA with the configured Terra medium and Sol medi
 Record version: 1
 Branch: codex/vm-688-maze-theme
 Admission baseline: 72d2fff4c38e32eeed2974769c6b436471c45e55
-Candidate: PENDING
-RobQA: PENDING
+Candidate: e1dd798d18621104d2537a21dc2d9fa8f68690c2
+RobQA: PASS at e1dd798d18621104d2537a21dc2d9fa8f68690c2 — SEPARATE; original vm688-c4-qa.md referenced in QA handoff
 Owner: PENDING
 Integration: PENDING — SHIP stops before integration or deployment
 Dependencies: None
 Decisions: Presentation-only /maze/ and /guide/maze/ via distinct maze and guide-maze opt-ins, allowlist-only controller change and append-only final scoped CSS. Admit an exact light Maze topbar background !important override for the existing inline #0c0c0b declaration; keep the authored body and all runtime bytes unchanged. Existing inline SVG/state paint may be overridden only by scoped CSS paint. The active-Guide utility correction is light-only, matching Reading Guide; withdraw the coordinator's earlier both-theme exception and preserve dark styling. All new paint owners remain light-only. Owner QA now additionally authorizes small interpretation/API spacing in both themes, light keyword-wrapper padding, and a faceted thread-button shape in both themes; exact non-paint exceptions are guarded, with all card/hover/Save/grid/motion geometry preserved. No base Maze/Guide/site-skin/shared runtime changes, new interactions, semantic colors/data/content changes, runtime/cache-key advances, footer standardization or publishing-setting changes. Preserve VM-681 geometry and all accepted earlier contracts. Historical PR72 automatic publishing exception, preference privacy disclosure question, VM-686 footer backlog, narrow compass edge and baseline Driver/harness limitations remain separate; this task grants no repair or waiver.
-Evidence: Original C2 PASS and Git/native evidence remain historical. Owner supplied six screenshot findings; replacement candidate and proportionate independent QA are pending, using the same admitted files. Owner decision remains PENDING.
+Evidence: Exact C4 independent PASS and compact native observations: external vm688-c4-qa.md and vm688-c4-ui.md linked in appended handoffs. Git-derived material/evidence/total accounting: vm688-c4-git-report.md. C2 PASS and C3 BLOCKED retain historical meaning; Owner remains PENDING.
 
 ## Recovery authorization
 

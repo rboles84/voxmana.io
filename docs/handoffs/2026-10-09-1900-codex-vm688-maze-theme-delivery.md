@@ -88,3 +88,14 @@ Independent RobQA approved two focused source/HTML checks plus exact diff/cascad
 ## C3 stopped before delivery
 
 Candidate 6d374dd5fe75f415f79f62b39609baf3cb372474 is independently BLOCKED; [original C3 report](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm688-c3-qa.md) retains the source PASS, stale HTML epoch expectation and actual native Clear-border cascade failure. The native snapshot measured the corrected placeholder but Clear still used the base gold-alpha border. Developer diagnosis found the exact competing #clear-search-btn ID owner; the replacement must match it in the light adapter. The existing HTML validator is corrected to expect Maze vm688r1 while Guide stays vm688. Other inspected Loom leaves already composed as intended, so they received no further redesign. No broader test or request run was introduced.
+
+## Owner-correction C4 delivered for review
+
+Candidate: e1dd798d18621104d2537a21dc2d9fa8f68690c2
+RobQA: PASS — SEPARATE at the same candidate
+Owner: PENDING
+Integration: PENDING
+
+All six Owner findings are addressed in scoped final presentation. The corrected ID-based Clear owner, readable placeholder/subtitle, clear-only teal, warm mana selectors, authentic rarity symbols/borders, dynamic Current Weave wash, 8px keyword inset, 8px interpretation separation and asymmetric thread-action corners are recorded in the developer handoff/guard. Base/runtime/body/Guide/controller and VM-681 geometry remain unchanged from C2; only the explicitly requested non-card spacing/shape exceptions apply in both themes as documented.
+
+The exact [independent PASS](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm688-c4-qa.md) reviewed two focused code checks and [compact native observations](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm688-c4-ui.md). C3 failure and developer diagnosis remain historical, with no broad retesting. [Git accounting](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm688-c4-git-report.md) lists the full baseline-to-material, evidence-only and total-branch scopes. Review by refreshing [Maze](http://127.0.0.1:50122/maze/) in the normal preview; Guide is unchanged by this Owner-correction delta. Owner judges shape, wash, contrast and overall feel. No push, PR, integration, deployment or cleanup; sole branch/worktree retained for continued review.

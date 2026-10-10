@@ -198,3 +198,14 @@ The smallest sufficient replacement-candidate gate is:
 3. Use one normal, no-network native preview to inspect the changed light query placeholder/Clear state; Loom empty and selected-color Current Weave, rarity identity, mana treatment and keyword wrapper; then reverse to dark. Interpretation/API separation and thread seal may use exact source/final-owner evidence when their natural state is not reachable without a search.
 
 No mock-server restart, live request, full result flow, Guide replay, feedback, history, responsive matrix, broad suite or harness work is selected. The prior C2 native evidence remains controlling for unchanged detail, Save, Clipboard, DFC, Guide and 390px behavior. Verdict is **PENDING** until the replacement SHA is frozen and the focused checks plus compact preview are reconciled. Owner still judges the resulting tone and taste.
+
+## Owner-correction C4 exact-candidate result
+
+Task: VM-688
+Candidate: e1dd798d18621104d2537a21dc2d9fa8f68690c2
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: /root/archscry_qa
+Implementer: /root + /root/archscry_dev
+
+Original independent [C4 decision](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm688-c4-qa.md) and [native observations](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm688-c4-ui.md) bind this replacement. Source guard and frontend HTML passed, as did independent diff/cascade/exception/protected-byte review. Compact native preview confirmed corrected Clear, light Loom wash/mana/rarity/keyword inset and dark reversal. Reused unchanged C2 lower layers and interaction/Guide evidence; no broad/request/feedback/hover matrix. Interpretation/API separation, thread shape and clear-state specificity are exact source-owner evidence. C3 remains [BLOCKED](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm688-c3-qa.md). Owner visual judgment and acceptance remain PENDING.
