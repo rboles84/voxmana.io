@@ -1,4 +1,4 @@
-<!-- task-view-sha256:c5e4d02315e62584388634f934d11ce578d50005c0d3f993110ac025f6ee2b35 -->
+<!-- task-view-sha256:ba143362b97c020fe5591223be23bd561bb920b51a83e6e01effb199f329d7cd -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -58,7 +58,6 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 |---|---|---|---|
 | VM-658 | [Maze Instrument Frame](in-progress/VM-658-maze-instrument-frame.md) | Integrated |  |
 | VM-660 | [Maze Performance Recon](in-progress/VM-660-maze-performance-recon.md) | Integrated |  |
-| VM-689 | [Maze Guide diagnostic boxes and mana shadows](in-progress/VM-689-maze-guide-polish.md) | Integrated |  |
 
 ## Blocked
 
@@ -705,6 +704,7 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | VM-685 | [Apocrypha theme, stage 4](done/VM-685-apocrypha-theme.md) | Done |  |
 | VM-687 | [Archscry and Reading Guide theme, stage 5](done/VM-687-archscry-reading-theme.md) | Done |  |
 | VM-688 | [Maze and Maze Guide theme, stage 6](done/VM-688-maze-theme.md) | Done |  |
+| VM-689 | [Maze Guide diagnostic boxes and mana shadows](done/VM-689-maze-guide-polish.md) | Done |  |
 
 ## Unresolved
 

@@ -2,7 +2,7 @@
 
 ID: VM-689
 Title: Maze Guide diagnostic boxes and mana shadows
-Status: Integrated
+Status: Done
 Type: Bounded presentation correction
 Area: Maze Guide light mode
 Priority: High
