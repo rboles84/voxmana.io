@@ -285,7 +285,7 @@ for (const [key, route, prefix] of [["maze", "maze", "../"], ["guideMaze", "guid
     `${file} should expose exactly one synchronous VM-688 theme bootstrap in head`);
   expect(head.indexOf(bootstrap) < head.indexOf('<link rel="stylesheet"'),
     `${file} should load the VM-688 theme bootstrap before styles`);
-  const adapterEpoch = key === "maze" ? "vm688r1" : "vm688";
+  const adapterEpoch = key === "maze" ? "vm688r1" : "vm689r1";
   expect(getStylesheetHrefs(sources[key]).at(-1) === `${prefix}assets/css/theme-pages.css?v=${adapterEpoch}`,
     `${file} should load the VM-688 theme adapter last`);
 }
@@ -772,7 +772,7 @@ expect(
     getStylesheetHrefs(sources.guideReading).at(-2)?.endsWith("assets/css/site-skin.css?v=vm668r2") &&
     getStylesheetHrefs(sources.guideReading).at(-1)?.endsWith("assets/css/theme-pages.css?v=vm687") &&
     getStylesheetHrefs(sources.guideMaze).at(-2)?.endsWith("assets/css/site-skin.css?v=vm668r2") &&
-    getStylesheetHrefs(sources.guideMaze).at(-1)?.endsWith("assets/css/theme-pages.css?v=vm688") &&
+    getStylesheetHrefs(sources.guideMaze).at(-1)?.endsWith("assets/css/theme-pages.css?v=vm689r1") &&
     getStylesheetHrefs(sources.maze).at(-1)?.endsWith("assets/css/theme-pages.css?v=vm688r1"),
   "admitted Guide routes append their route-scoped theme adapter after the current site-skin owner"
 );

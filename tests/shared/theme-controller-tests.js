@@ -145,7 +145,8 @@ for (const [route, source, prefix] of [["archscry", archscry, "../"], ["guide-re
 for (const [route, source, file, prefix] of [["maze", maze, "maze/index.html", "../"], ["guide-maze", guideMaze, "guide/maze/index.html", "../../"]]) {
   assert.match(source, new RegExp(`<html lang="en" data-vm-theme-opt-in="${route}">`));
   assert.match(source, new RegExp(`<script src="${prefix.replaceAll("/", "\\/")}assets\\/js\\/shared\\/vm-theme\\.js\\?v=vm688"><\\/script>`));
-  assert.equal([...source.matchAll(/<link rel="stylesheet" href="([^"]+)">/g)].map(match => match[1]).at(-1), `${prefix}assets/css/theme-pages.css?v=vm688`, `${route} loads the VM-688 theme adapter last`);
+  const adapterEpoch = route === "maze" ? "vm688r1" : "vm689r1";
+  assert.equal([...source.matchAll(/<link rel="stylesheet" href="([^"]+)">/g)].map(match => match[1]).at(-1), `${prefix}assets/css/theme-pages.css?v=${adapterEpoch}`, `${route} loads its current theme adapter last`);
   assert.ok(source.indexOf("vm-theme.js?v=vm688") < source.indexOf('<link rel="stylesheet"'), `${route} executes saved-light bootstrap before CSS`);
   assert.equal(routeBody(source), routeBody(baselineFile(file)), `${route} keeps its body, URLs, and runtime hooks baseline-identical`);
 }
