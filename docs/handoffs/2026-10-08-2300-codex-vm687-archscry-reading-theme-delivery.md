@@ -304,3 +304,10 @@ Task: VM-687
 Candidate: 7bf143718ec36dd3b625fde18d31616dac0331aa
 
 The Owner selected necessary QA. The corrected DOM-native CUA witness completed all four proportional groups with documented native interactions and actual resources/paint/viewport/focus/URL observations. Independent RobQA now records PASS / SEPARATE in vm687-c9-final-pass-qa.md; vm687-c9-native-qa-observations.md retains actual results, false construction predicates and disclosed baseline rapid Driver-transition limitation. No product/test/criteria changes or waiver. Original user tab, saved light/reading and normal viewport preserved; temporary QA tab closed. Owner remains PENDING for canonical candidate check; actual prior visual approvals and explicit main integration/cleanup request remain available for subsequent acceptance binding.
+
+## Accepted exact C9, 2026-10-09
+
+Task: VM-687
+Candidate: 7bf143718ec36dd3b625fde18d31616dac0331aa
+
+Canonical candidate checker PASS at E14 98b48881ea4dd838e3fd645485cc182cbceb62ed: 42 material, 4 evidence-only, 42 total paths. The Owner visual approvals and explicit commit/push/main integration/cleanup request bind this unchanged independent-QA-passed C9; vm687-owner-acceptance.md records actual human consent. Accepted is recorded without another approval or criteria waiver. Continue same PR76 through exact-head CI/host parity and expected-head guarded squash; deployment/publishing/stage6 remain outside scope.

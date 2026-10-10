@@ -2,7 +2,7 @@
 
 ID: VM-687
 Title: Archscry and Reading Guide theme, stage 5
-Status: Owner Review
+Status: Accepted
 Type: Bounded route theme presentation
 Area: Archscry, Reading Guide, theme allowlist and dossier radar presentation
 Priority: High
@@ -47,8 +47,8 @@ Branch: codex/vm-687-archscry-reading-theme
 Admission baseline: 3cf826eb87702bd25b66a2853838b00a880d7307
 Candidate: 7bf143718ec36dd3b625fde18d31616dac0331aa
 RobQA: PASS at 7bf143718ec36dd3b625fde18d31616dac0331aa — SEPARATE; vm687-c9-final-pass-qa.md, corrected native changed-risk witness and existing exact lower-layer evidence
-Owner: PENDING
-Integration: PENDING — exact C9 RobQA PASS; prepare canonical candidate check before recording the existing Owner delivery acceptance.
+Owner: ACCEPTED at 7bf143718ec36dd3b625fde18d31616dac0331aa — genuine visual approvals and explicit commit/push/main integration/cleanup request; vm687-owner-acceptance.md
+Integration: PENDING — candidate check PASS at 98b48881ea4dd838e3fd645485cc182cbceb62ed; Accepted exact C9, same PR76, collect current CI/host parity and guarded squash prerequisites.
 Dependencies: None
 Decisions: Presentation-only /archscry/ and /guide/reading/ support with dedicated archscry and guide-reading opt-ins. Reuse all accepted theme/controller/palette/resource contracts. Preserve accepted VM-615 optional-depth, VM-621 walkthrough, VM-625 Atlas/browse, VM-636 matrix, VM-643 prose, VM-652 opaque panels/spacing/precon hover and VM-664 mixed-result contracts. Dossier-radar.js may change neutral canvas presentation and its theme-event cleanup only; shared vm-radar/profile/dataset/lifecycle owners remain protected. Preserve content, semantics, storage, layout, motion, artwork, route targets, shared shell interaction and every predecessor/unconverted route. No footer standardization, host writes, integration/deployment, publishing-settings changes, PR72 exception resolution or stage-6 work. Scope amendment: admit the individual browser-construction RobDev handoff for parallel bounded witness construction; product scope and QA independence remain unchanged. Scope amendment: independent RobQA identified a warm-client cache acceptance gap; admit a uniform Archscry import-epoch advance vm636 to vm687 to deliver the changed radar owner. All other runtime bodies and shared radar/profile/data owners remain protected; only import-version transport changes are authorized. Scope amendment: admit the selected matrix regression import-epoch alignment and an individual bounded browser-recovery handoff; preserve assertions and product scope. Scope amendment: the independently observed browser-launch obstacle requires the canonical blocked-card destination; admit that lifecycle relocation while preserving the same task, branch and product scope. Scope amendment: the direct Owner third-batch request authorizes moving validated precon research links into the existing closed Decks provider menu in runtime/dossier-view.js, and a slight light-only White chart/trait visibility adjustment in the existing dossier-radar presentation owner. Preserve verified URLs and provider availability, semantic White identity/hue, values/dataset membership, all other runtime bodies, dark presentation, chart geometry/selection/motion and storage. These bounded presentation exceptions supersede earlier runtime-body/cache-only and color-paint protections solely for the named Owner refinements; no factual data or placement meaning changes.
 Evidence: Independent exact-C9 RobQA PASS after corrected documented native DOM actions; actual witness vm687-c9-native-qa-observations.md and original decision vm687-c9-final-pass-qa.md. Prior unavailable harness evidence, false construction predicates and baseline rapid Driver-transition limitation remain disclosed. Owner visual approvals and commit/push/main/cleanup instruction are genuine and unchanged; no product/test/criteria amendment or waiver.
