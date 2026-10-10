@@ -63,3 +63,13 @@ C1 remains an authentic historical PASS superseded by the Owner's diagnostic siz
 After C2 is frozen, rerun only the existing VM-688 source boundary check, frontend HTML validator and shared theme-controller test. Independently review C1-to-C2 and baseline-to-C2 diffs, protected bytes, exact exception ownership, diff hygiene and index freshness. No browser is selected: the defect and correction are deterministic flex cross-axis behavior, the exact property is source-guarded, and Owner retains visual judgment of the resulting box height. Stop if the frozen diff adds any width, height, padding, gap, wrapping, dark-route, runtime or unrelated layout owner.
 
 RobQA for C2 remains **PENDING** until the replacement SHA is frozen and this selection passes.
+
+## Exact C2 result
+
+Candidate: e8a6c94f1e273891c6cb74af18567d75ad3bd4d1
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: /root/archscry_qa
+Implementer: /root/archscry_dev + /root
+
+The [original independent C2 decision](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm689-c2-qa.md) records all three selected checks, admission, index freshness, diff hygiene and independent C1/baseline comparison PASS on the clean candidate. Only the exact light diagnostic-row alignment exception, Guide vm689r1 epoch and direct fixtures changed. Existing surfaces and Mana shadows remain; body, dark, runtime, wrapping, dimensions, padding, gaps and all unrelated owners are protected. No browser was selected. Owner rechecks the diagnostic box heights in ordinary or guided entry; visual judgment and integration remain PENDING. Next agent: Owner.

@@ -47,3 +47,12 @@ Files changed by coordinator: VM-689 card, this handoff and generated board/inde
 Risk and limits: one narrowly admitted alignment exception; no dimensions, padding, shared/base CSS, body content, dark presentation, Maze interactions, query/parser, preference/runtime, storage, Clipboard, feedback or walkthrough behavior changes. Preserve the C1 surfaces and mana shadows. Scope and causal confidence are high; Owner retains rendered appearance judgment. No new harness, broad suite, push, PR or publication. Existing preview stays available.
 
 Verification: independent QA selects the existing source/HTML/controller checks once plus protected-byte/cascade, diff and generated-view review on the frozen C2 SHA. No browser matrix or live-service run. Owner checkpoint: refresh ordinary or guided Maze Guide and confirm both diagnostic rows fit their text; retained pip shadows remain visible in Context. Next suggested agent: independent RobQA after candidate freeze, then Owner. Related card: `docs/kanban/in-progress/VM-689-maze-guide-polish.md`.
+
+## C2 Owner Review result
+
+Candidate: e8a6c94f1e273891c6cb74af18567d75ad3bd4d1
+RobQA: PASS — SEPARATE
+Owner: PENDING
+Integration: PENDING
+
+The [original C2 decision](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm689-c2-qa.md) confirms the selected source/HTML/controller checks and protected-boundary, admission, diff and index checks passed. No rendered browser run was performed; the Owner retains appearance judgment. Refresh [Maze Guide](http://127.0.0.1:50122/guide/maze/) or [guided entry](http://127.0.0.1:50122/guide/maze/?guided=maze-search) and inspect the two diagnostic rows. The earlier surfaces and pip shadows are retained. [C2 Git report](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm689-c2-git-report.md) accounts for material, evidence-only and total branch paths; [C2 local readiness](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm689-c2-candidate-check.txt) records the final candidate gate. Same task branch and preview remain for local review; no publication or cleanup is claimed.

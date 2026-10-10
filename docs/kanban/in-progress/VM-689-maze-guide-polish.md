@@ -2,7 +2,7 @@
 
 ID: VM-689
 Title: Maze Guide diagnostic boxes and mana shadows
-Status: In Progress
+Status: Owner Review
 Type: Bounded presentation correction
 Area: Maze Guide light mode
 Priority: High
@@ -22,10 +22,10 @@ Owner correction after C1: screenshot codex-clipboard-eb0f737a-de21-4888-8d0d-94
 
 - [x] Both diagnostic rows use readable parchment/ink/brown-border paint in light mode, including confidence, recognized, ignored and unresolved labels.
 - [x] Both Guide casting-cost pips receive the established subtle shadow in light mode; preserve their Mana colors and glyphs.
-- [ ] Light Guide diagnostic boxes fit their text and existing padding, including the clean specimen beside the warning specimen. The sole layout exception is `.maze-diagnostic-row { align-items: flex-start; }` in the final light Guide adapter; preserve wrapping and all surrounding layout.
+- [x] Light Guide diagnostic boxes fit their text and existing padding, including the clean specimen beside the warning specimen. The sole layout exception is `.maze-diagnostic-row { align-items: flex-start; }` in the final light Guide adapter; preserve wrapping and all surrounding layout.
 - [x] Corrections apply during the existing walkthrough as well as ordinary entry. Preserve dark presentation, content, focus/history, Guide targets/runtime, Maze behavior and all accepted theme/hover/Save contracts; retain other layout unchanged.
-- [ ] Advance only the Guide's final stylesheet epoch to vm689r1 and update its directly affected existing epoch/source checks. No new harness or broad tests. Keep the paired Maze epoch vm688r1 and controller behavior unchanged.
-- [ ] Focused checks and proportionate independent exact-candidate RobQA pass; report the diagnostic sizing and mana-shadow Owner rechecks. Stop at Owner Review before push, PR, integration or deployment.
+- [x] Advance only the Guide's final stylesheet epoch to vm689r1 and update its directly affected existing epoch/source checks. No new harness or broad tests. Keep the paired Maze epoch vm688r1 and controller behavior unchanged.
+- [x] Focused checks and proportionate independent exact-candidate RobQA pass; report the diagnostic sizing and mana-shadow Owner rechecks. Stop at Owner Review before push, PR, integration or deployment.
 
 ## Files Likely Impacted
 
@@ -44,13 +44,13 @@ RobDev: Terra medium; independent RobQA: Sol medium. Inspect current Guide selec
 Record version: 1
 Branch: codex/vm-689-maze-guide-polish
 Admission baseline: f1d6831bd88cd70249d331f31e7f5a7139309ce0
-Candidate: PENDING — C2 Owner diagnostic sizing correction
-RobQA: PENDING — prior C1 PASS is historical only
+Candidate: e8a6c94f1e273891c6cb74af18567d75ad3bd4d1
+RobQA: PASS at e8a6c94f1e273891c6cb74af18567d75ad3bd4d1 — SEPARATE; original vm689-c2-qa.md linked in QA handoff
 Owner: PENDING
 Integration: PENDING — stop at local Owner Review
 Dependencies: None
 Decisions: Light-only diagnostic surface paint and Mana casting-circle shadows on /guide/maze/. Reuse existing shared adapter machinery and accepted Archscry shadow. C2 admits exactly light Guide .maze-diagnostic-row align-items: flex-start to prevent stretched boxes; pin this selector/property/value as the only new geometry exception in the existing source guard. Only Guide stylesheet URL epoch advances to vm689r1; controller bootstrap and behavior stay unchanged. Update directly affected existing source/HTML/controller epoch fixtures, retaining paired Maze vm688r1. Preserve Guide body, examples, IDs, URLs, walkthrough, query/focus/history, all Maze/runtime/storage/Clipboard/feedback/shared-navigation behavior, other geometry and dark presentation. No new harness, unrelated test repair, push or publication.
-Evidence: Original vm689-c1-qa.md and vm689-git-report.md retain historical C1 evidence. Current Owner screenshot and source review establish the diagnostic flex-stretch cause. C2 exact-candidate validation is PENDING. Owner appearance judgment remains PENDING. VM-688 predecessor limitations remain unchanged.
+Evidence: Original vm689-c2-qa.md confirms source/HTML/controller, protected-boundary/cascade, admission, diff and generated-view checks PASS on exact C2. No browser run was selected; Owner appearance judgment remains PENDING. C2 accounting and local readiness are vm689-c2-git-report.md and vm689-c2-candidate-check.txt. Original C1 artifacts remain historical. VM-688 predecessor limitations remain unchanged.
 
 ## Admission Scope
 
