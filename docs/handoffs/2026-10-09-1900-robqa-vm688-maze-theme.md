@@ -186,3 +186,15 @@ The independent reviewer executed the four selected controller/source/HTML/conte
 Fresh dark and saved-light first-paint state, corrected Loom/current-weave paint, theme reversal, mocked results, keyboard detail/Escape focus, one Save/Clipboard card, DFC flip, one narrow document containment observation and settled four-step Guide/Done passed. Loom values were observed across reversal/restoration; reload proves saved theme only. The stale post-Save label and immediate batched Next construction failures are retained in the originals; settled navigation succeeded. No optional fixture ledger was produced.
 
 Unexercised: live services/art fidelity, feedback submission, hover pointer acquisition, every control/state/error/population, pagination, mobile menu, cross-tab/history and viewport matrices. Accepted unchanged runtime/VM-681 evidence is reused where applicable. Owner visual hierarchy, semantic readability, warmth, atmosphere, hover comfort and broader interactions remain PENDING. No integration authorization.
+
+## Owner-finding correction strategy after C2
+
+The Owner found bounded presentation issues on C2 and authorized exact spacing/shape exceptions in the final adapter: darker light query placeholder/Clear/thread/clear-state paint; preserved rarity identities and selected-color Current Weave wash; removal of grey mana rings; explicit interpretation/API separation in both themes; light keyword-wrapper padding; and a thread pill restyled as a seal/tag in both themes. These findings supersede C2 for delivery without altering the authenticity of its PASS at that earlier material.
+
+The smallest sufficient replacement-candidate gate is:
+
+1. Run `node scripts/vm688-maze-theme-source-tests.mjs` and `node scripts/validate-frontend-html.mjs` once on the frozen replacement. Reuse the unchanged C2 controller and VM-616 context results.
+2. Independently review C2-to-replacement and baseline-to-replacement diffs for exact emitted owners, final cascade winners, the Maze HEAD epoch change and the narrow exception whitelist. Require every new spacing/shape declaration to be explicitly Owner-authorized. Preserve runtime, base CSS, VM-681 hover/Save/grid/motion geometry and all unrelated routes byte-for-byte.
+3. Use one normal, no-network native preview to inspect the changed light query placeholder/Clear state; Loom empty and selected-color Current Weave, rarity identity, mana treatment and keyword wrapper; then reverse to dark. Interpretation/API separation and thread seal may use exact source/final-owner evidence when their natural state is not reachable without a search.
+
+No mock-server restart, live request, full result flow, Guide replay, feedback, history, responsive matrix, broad suite or harness work is selected. The prior C2 native evidence remains controlling for unchanged detail, Save, Clipboard, DFC, Guide and 390px behavior. Verdict is **PENDING** until the replacement SHA is frozen and the focused checks plus compact preview are reconciled. Owner still judges the resulting tone and taste.

@@ -40,3 +40,11 @@ The final adapter now owns the actual Plain Reading help popup, Loom mana inputs
 ## Recovery-scope correction
 
 The original stage-6 text was a review prompt, not execution authority. The current Owner-authorized recovery scope restores the Guide current utility to light-only paint and removes the former theme-independent exception from the source guard, preserving the authored dark route. It also gives the actual Current Weave a paired parchment surface and normal-state ink heading while retaining its decorative pseudo-elements, geometry, and higher-specificity invalid-state error heading. No runtime or base CSS owner changed.
+
+## Owner QA correction
+
+The final adapter now gives the visible search placeholder, Clear border, command-deck description, clear-state labels, color pips, rarity chips, and dossier-thread action their requested light paint. Current Weave keeps its runtime-provided `--weave-edge` wash under readable parchment ink. The only geometry exceptions source-allowed are the 8px Interpretation summary separation in both themes, the 8px light keyword panel inset, and the restrained four-corner thread-action radius in both themes; focus and hit targets remain authored by base CSS. No entry, runtime, or base CSS source changed.
+
+## Final cascade correction
+
+Maze alone now requests `theme-pages.css?v=vm688r1` for warm review tabs; its synchronous theme bootstrap remains `vm688`, and Maze Guide stays on `vm688`. Rarity glyphs inherit each chip’s authentic common, uncommon, rare, or mythic color even when checked. Clear-state teal is limited to the actual emitted `data-interpretation-state="clear"` and `data-state="clear"` owners, preserving review, warning, and blocked semantics.

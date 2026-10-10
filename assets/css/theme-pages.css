@@ -632,5 +632,24 @@ html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route :is(
 html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .kw-chip { background: #f7edd8; border-color: #0d6e60; color: #0d6e60; }
 html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .rarity-chip { background: #f7edd8; }
 html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .rarity-chip:is(:hover, .checked) { background: #eadcc1; box-shadow: 0 0 12px var(--rarity-glow); }
-html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .current-weave { background: radial-gradient(circle at 50% 30%, rgba(247, 215, 132, 0.09), transparent 11rem) padding-box, linear-gradient(165deg, #fff8e8, #f7edd8) padding-box, var(--weave-edge) border-box; box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.56), 0 18px 38px rgba(80, 55, 26, 0.14); color: #31271f; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .current-weave { background: radial-gradient(circle at 50% 30%, rgba(247, 215, 132, 0.09), transparent 11rem) padding-box, var(--weave-edge) padding-box, linear-gradient(165deg, #fff8e8, #f7edd8) padding-box, var(--weave-edge) border-box; box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.56), 0 18px 38px rgba(80, 55, 26, 0.14); color: #31271f; }
 html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .current-weave:not([data-weave-state="invalid"]) .current-weave-copy h3 { color: #211b18; text-shadow: none; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .s-input::placeholder { color: #685847; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .btn-clear { border-color: #866d47; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .maze-command-copy p { color: #685847; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route :is(.query-inspector[data-interpretation-state="clear"] .qi-state, .results-interpretation-state[data-state="clear"]) { color: #0a5a4f; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .cpip { background: rgba(255, 248, 232, 0.72); border-color: rgba(138, 91, 25, 0.38); color: var(--maze-text); box-shadow: inset 0 0 0 1px rgba(80, 55, 26, 0.05); }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .cpip .ms { text-shadow: 0 1px 1px rgba(80, 55, 26, 0.28); }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .cpip:is(:hover, .on) { border-color: rgba(138, 91, 25, 0.78); box-shadow: 0 0 0 2px #fff8e8, 0 0 0 4px rgba(138, 91, 25, 0.3); }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .rarity-chip.rarity-c { border-color: #6c6862; color: #4f4b46; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .rarity-chip.rarity-u { border-color: #8797a4; color: #536b7b; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .rarity-chip.rarity-r { border-color: #a97919; color: #8a5b19; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .rarity-chip.rarity-m { border-color: #a65328; color: #8e3f22; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .rarity-chip .ms,
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .rarity-chip.checked .ms { color: currentColor; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .dossier-thread-search { background: #eadcc1; border-color: #8a5b19; color: #51310d; border-radius: 0.7rem 0.22rem 0.7rem 0.22rem; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .dossier-thread-search:is(:hover, :focus-visible) { background: #d7c39b; border-color: #6f4512; color: #211b18; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .qi-details > summary { margin-block-end: 8px; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .more-abilities-panel { padding: 8px; }
+html[data-vm-theme="dark"][data-vm-theme-opt-in="maze"] body.vm-maze-route .qi-details > summary { margin-block-end: 8px; }
+html[data-vm-theme="dark"][data-vm-theme-opt-in="maze"] body.vm-maze-route .dossier-thread-search { border-radius: 0.7rem 0.22rem 0.7rem 0.22rem; }
