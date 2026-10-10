@@ -32,3 +32,11 @@ No QA verdict, commit, push, PR, integration, deployment, generated-view update,
 ## Pre-freeze feedback descendant correction
 
 The shared feedback container alone did not change its generated heading and context descendants because `topbar.css` resolves them through generic `--gold-l`, `--text`, and `--text-dim` roles. Both opted route roots now define the accepted generic parchment aliases and explicitly map feedback headers/step headings to ink, `dt` to muted copy, and `dd` to readable copy. Focused source, controller, HTML, and diff checks were rerun after this correction. The shared feedback runtime remains baseline-identical.
+
+## C1 cascade correction
+
+The final adapter now owns the actual Plain Reading help popup, Loom mana inputs, keyword popup/options, Add and colorless controls, generated type/rarity/ability/keyword chips, and their selected or focused paint states. It removes root-route selectors for guide-only recovery cards and the visually hidden builder live summary. The Guide current utility is the card-authorized sole guide-maze theme-independent exception; its border widths and focus geometry remain unchanged. All other added owners remain light-only. A subtle light-only White Mana text shadow makes the actual Guide specimen's white pip distinguishable without changing its Mana color. The focused source guard maps each dynamic emitted class to an exact final owner and source-pins all runtime/base owners.
+
+## Recovery-scope correction
+
+The original stage-6 text was a review prompt, not execution authority. The current Owner-authorized recovery scope restores the Guide current utility to light-only paint and removes the former theme-independent exception from the source guard, preserving the authored dark route. It also gives the actual Current Weave a paired parchment surface and normal-state ink heading while retaining its decorative pseudo-elements, geometry, and higher-specificity invalid-state error heading. No runtime or base CSS owner changed.

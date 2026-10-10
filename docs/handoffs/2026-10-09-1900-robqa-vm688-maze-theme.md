@@ -154,3 +154,20 @@ RobQA remains **PENDING** until an immutable clean candidate exists and the inde
 ## Owner visual checkpoint shape
 
 Prepare a short route-based review after engineering PASS: one normal Maze search across the three mode surfaces, one hovered/saved/detail card, one narrow menu/result/modal view, and direct/guided Maze Guide in light/dark. The Owner judges warmth, hierarchy, readability, atmosphere, semantic distinction, hover comfort and responsive feel. Objective state/focus/containment assertions remain engineering work.
+
+## Superseding recovery strategy after Owner prompt clarification
+
+The Owner clarified that the original Stage 6 text requested prompt review rather than immediate execution, then explicitly authorized recovery, testing and Owner QA with simple code-based coverage and minimal UI. The original C1 `BLOCKED` decision and its external evidence remain immutable. This note supersedes the earlier candidate-run breadth for the replacement candidate; it does not alter protected contracts or turn C1 green.
+
+The corrected Guide-current rule is **light-only**, matching the accepted Reading Guide treatment and preserving dark Guide Maze byte/paint behavior. The earlier proposed both-theme exception is withdrawn. The replacement must also repair the current-weave dark-gradient/dark-ink pairing and extend the focused guard to the actual emitted owners without broadening into runtime, geometry, motion or domain logic.
+
+The smallest sufficient exact-candidate selection is:
+
+1. Run the existing focused controller, VM-688 source, frontend HTML and VM-616 context checks once, plus targeted syntax and generated-index freshness.
+2. Independently review baseline-to-candidate paths, final cascade owners, protected bytes, dark preservation and diff hygiene. Require the corrected guard to pin the C1 help, suggestion, Loom-state and current-weave omissions and to reject geometry/layout/motion changes.
+3. Use one compact native smoke on the frozen candidate: toggle Maze dark/light and inspect the corrected Loom controls/current-weave; execute one ordinary mocked result through detail, Save and Clipboard; verify direct Maze Guide plus one stable guided sequence; optionally check one 390px containment state if it is already reachable in that same run.
+4. Rely on accepted unchanged VM-681/runtime evidence for pointer acquisition, hover endpoints, coarse input, reduced motion, persistence mechanics and protected Maze behavior. Do not repeat browser matrices, resource traces, history permutations, feedback branches, every mode/population, or harness repair.
+
+The native smoke proves only the states it exercises. It does not certify all Loom combinations, all loading/empty/error populations, all DFC variants, every dialog path, live Scryfall/feedback, rapid Driver transitions, pointer hover, coarse/reduced-motion behavior or every responsive breakpoint. Those are covered only where unchanged accepted lower-layer evidence applies; otherwise they remain explicit non-exercised limits rather than new candidate blockers.
+
+Verdict remains **PENDING** until the replacement SHA is frozen and this reduced selection completes. A source/cascade failure stops for correction. A browser construction failure permits only one independently justified causal environment or locator correction; it does not authorize broader retries.

@@ -527,7 +527,7 @@ html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route :is(
 ) { background: #fff8e8; border-color: #a88d62; color: #31271f; box-shadow: none; }
 html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route :is(.r-sidebar, .r-main, .stash-panel) { background: #f7edd8; border-color: #a88d62; color: #31271f; box-shadow: none; }
 html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route :is(
-  .qi-primary, .qi-input-wrap, .qi-reason, .builder-summary, .builder-output,
+  .qi-primary, .qi-input-wrap, .qi-reason, .builder-output,
   .maze-selected-search, .maze-return-banner, .state-sub code, .builder-output code,
   .dossier-discovery-reading, .dossier-discovery-lane, .dossier-thread-card,
   .color-relation-options button, .more-abilities-panel button, .sb-summary,
@@ -566,7 +566,7 @@ html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route :is(
 html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .btn-search:is(:hover, :focus-visible) { background: #6f4512; border-color: #51310d; color: #fff8e8; }
 html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route :is(.btn-search, .btn-more):disabled { background: #eadcc1; border-color: #c7ad83; color: #685847; }
 html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route :is(.kw-sug:is(:hover, :focus-visible, .active, [aria-selected="true"]), .qi-details[open] > summary, .sb-section:is([open], :focus-within) > .sb-summary) { background: #eadcc1; border-color: #8a5b19; color: #211b18; }
-html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route :is(.builder-validation, .qi-confidence.low, .qi-chip.warn, .err-msg, .maze-recovery-card--warning) { background: #f9e4df; border-color: #a65043; color: #7a302a; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route :is(.builder-validation, .qi-confidence.low, .qi-chip.warn, .err-msg) { background: #f9e4df; border-color: #a65043; color: #7a302a; }
 html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route :is(.builder-validation *, .qi-confidence.low, .qi-chip.warn, .err-msg, .current-weave[data-weave-state="invalid"] .current-weave-copy h3, .qi-critical > strong, .stash-remove) { color: #7a302a; }
 html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .card-item { background: #fff8e8; border-color: #a88d62; color: #31271f; box-shadow: none; }
 html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .card-item-name { color: #31271f; }
@@ -601,6 +601,7 @@ html[data-vm-theme="light"][data-vm-theme-opt-in="guide-maze"] body.vm-guide-maz
   .guide-kicker, .maze-guide-section h2, .maze-guide-next h2, .maze-query-specimen dd,
   .maze-color-pips span, .maze-recovery-card strong
 ) { color: #211b18; text-shadow: none; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide-maze"] body.vm-guide-maze-route .maze-color-pips .ms-w { text-shadow: 0 0 0.08em rgba(80, 55, 26, 0.52); }
 html[data-vm-theme="light"][data-vm-theme-opt-in="guide-maze"] body.vm-guide-maze-route :is(
   .maze-query-specimen dl > div, .maze-context-states article, .maze-recovery-card,
   .guide-specimen, .maze-guide-next .guide-cta
@@ -619,3 +620,17 @@ html[data-vm-theme="light"][data-vm-theme-opt-in="guide-maze"] body.vm-guide-maz
 html[data-vm-theme="light"][data-vm-theme-opt-in="guide-maze"] body.vm-guide-maze-route .vm-feedback-context dd { color: #31271f; }
 html[data-vm-theme="light"][data-vm-theme-opt-in="guide-maze"] body.vm-guide-maze-route .maze-footer.guide-footer { background: #f7edd8; border-top-color: #a88d62; color: #685847; }
 html[data-vm-theme="light"][data-vm-theme-opt-in="guide-maze"] body.vm-guide-maze-route .maze-footer.guide-footer a { color: #8a5b19; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .maze-mode-help p { background: #fff8e8; border-color: #a88d62; color: #685847; box-shadow: 0 12px 28px rgba(80, 55, 26, 0.16); }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .kw-suggestions { background: #fff8e8; border-color: #a88d62; box-shadow: 0 12px 28px rgba(80, 55, 26, 0.16); }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .kw-sug { background: transparent; color: #31271f; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .cmc-input { background: #fff8e8; border-color: #a88d62; color: #211b18; color-scheme: light; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route :is(.kw-add-btn, .colorless-only-btn) { background: #f7edd8; border-color: #a88d62; color: #31271f; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route :is(.kw-add-btn, .colorless-only-btn):is(:hover, :focus-visible),
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .colorless-only-btn.on { background: #eadcc1; border-color: #8a5b19; color: #211b18; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route :is(.cb-label, .ability-chip) { background: #f7edd8; border-color: #a88d62; color: #31271f; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route :is(.cb-label, .ability-chip):is(:hover, :focus-visible, .checked) { background: #eadcc1; border-color: #8a5b19; color: #211b18; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .kw-chip { background: #f7edd8; border-color: #0d6e60; color: #0d6e60; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .rarity-chip { background: #f7edd8; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .rarity-chip:is(:hover, .checked) { background: #eadcc1; box-shadow: 0 0 12px var(--rarity-glow); }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .current-weave { background: radial-gradient(circle at 50% 30%, rgba(247, 215, 132, 0.09), transparent 11rem) padding-box, linear-gradient(165deg, #fff8e8, #f7edd8) padding-box, var(--weave-edge) border-box; box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.56), 0 18px 38px rgba(80, 55, 26, 0.14); color: #31271f; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .current-weave:not([data-weave-state="invalid"]) .current-weave-copy h3 { color: #211b18; text-shadow: none; }

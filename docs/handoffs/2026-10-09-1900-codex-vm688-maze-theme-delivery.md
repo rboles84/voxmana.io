@@ -46,3 +46,17 @@ After exact-candidate PASS, inspect a normal Maze search and the three mode surf
 ## Current delivery state
 
 Pre-admission ELIGIBLE and authoritative continue PASS at the committed admission anchor. Implementation and QA are underway. No feature push, PR, integration, deployment or cleanup is claimed. Final exact-candidate evidence and Git-derived accounting will be appended after review.
+
+## C1 red-team correction
+
+Independent C1 QA at adf1d03a8d53f11d69828ac81f810a67671d6d7b passed the selected lower layers but correctly withheld PASS after finding unowned About help, keyword-popup and Loom control paint, a light-only Guide utility reset that missed the accepted both-theme contract, and source guards that accepted marker presence without final ownership. [Original C1 BLOCKED decision](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm688-c1-qa.md) and [partial native observations](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm688-c1-native-observations.md) retain the failures. This is normal same-branch correction, not acceptance or an unrelated engine/harness repair.
+
+Card-only clarification 01acfad38ae2ef5f2604e37ab98b2fcc085e8a8f explicitly admits the accepted plain current-Guide utility paint in both themes as the sole dark exception; all geometry and every other dark owner remain protected. Authoritative continue passed before correction. RobDev now corrects the actual leaves and source guard on the same admitted files. C1 is invalid for delivery; new material and independent QA are required.
+
+The native server's first navigation failed before assertions because sandbox loopback access was forbidden. One causal check and independent QA approval permitted relaunching the identical frozen server on host loopback. That correction succeeded on localhost52466; no browser/engine/flag/timeout retry. A stale textbox accessible-name locator after mode activation was corrected from the fresh snapshot. Neither construction failure proves a product defect. Preserve both in final evidence.
+
+## Owner-directed recovery — supersedes the original execution premise
+
+The Owner clarified that the original stage-6 text was a prompt to review. The coordinator mistakenly executed it. Workers and the review server were stopped; no feature push, PR, integration or deployment occurred. A read-only reconciliation established that the accepted adapter prefix, both entry bodies, engine/shared/base-style owners and VM-681 geometry were unchanged. It also identified an unreviewed working copy, inaccurate authority records, an unjustified both-theme Guide exception and a remaining current-weave surface/text risk.
+
+The Owner then explicitly authorized recovery with “simple or just enough code based QA and minimal UI” before personal QA. The same branch continues under fresh admission PASS. The Guide correction is now light-only, matching Reading Guide and preserving authored dark presentation; the previous dark exception is withdrawn. RobDev fixes the bounded Loom pairing and final guards. Independent RobQA's superseding strategy selects the focused source/controller/HTML/context checks and one compact Maze/Guide UI smoke. Accepted unchanged mechanics and hover evidence are reused. Unexercised branches remain explicit Owner checkpoints; no new harness, broad suite or repeated historical browser work is selected. Earlier C1 BLOCKED and construction failures retain their event-time meaning. Owner remains PENDING.

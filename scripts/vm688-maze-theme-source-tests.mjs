@@ -3,9 +3,7 @@ import { execFileSync } from "node:child_process";
 import { readFile, readdir } from "node:fs/promises";
 
 const baseline = "72d2fff4c38e32eeed2974769c6b436471c45e55";
-const admitted = "99cddc6274f883557884a2eb7c5419d1d66ea37d";
 const readBaseline = file => execFileSync("git", ["show", `${baseline}:${file}`], { encoding: "utf8", maxBuffer: 8 * 1024 * 1024 }).replace(/\r\n/g, "\n");
-const readAdmitted = file => execFileSync("git", ["show", `${admitted}:${file}`], { encoding: "utf8", maxBuffer: 8 * 1024 * 1024 }).replace(/\r\n/g, "\n");
 const normalize = value => value.replace(/\r\n/g, "\n");
 const body = source => source.match(/<body\b[\s\S]*<\/body>/i)?.[0];
 const hrefs = source => [...source.matchAll(/<link rel="stylesheet" href="([^"]+)"/g)].map(match => match[1]);
@@ -14,6 +12,12 @@ async function filesIn(root) {
   return (await Promise.all(entries.map(entry => entry.isDirectory() ? filesIn(`${root}/${entry.name}`) : entry.name.endsWith(".js") ? [`${root}/${entry.name}`] : []))).flat();
 }
 const marker = "/* VM-688:";
+const baselineMazeHead = readBaseline("maze/index.html");
+const baselineGuideMazeHead = readBaseline("guide/maze/index.html");
+const baselineTheme = readBaseline("assets/css/theme-pages.css");
+assert.doesNotMatch(baselineMazeHead, /data-vm-theme-opt-in|vm-theme\.js\?v=vm688/, "baseline Maze head is an unconverted fixture");
+assert.doesNotMatch(baselineGuideMazeHead, /data-vm-theme-opt-in|vm-theme\.js\?v=vm688/, "baseline Maze Guide head is an unconverted fixture");
+assert.ok(!baselineTheme.includes(marker), "baseline theme has no VM-688 adapter marker");
 const [maze, guideMaze, theme, controller, mazeCss, guideMazeCss, siteSkin, topbar, researchInit, walkthrough, clipboard, feedback] = await Promise.all([
   readFile("maze/index.html", "utf8"), readFile("guide/maze/index.html", "utf8"), readFile("assets/css/theme-pages.css", "utf8"), readFile("assets/js/shared/vm-theme.js", "utf8"),
   readFile("assets/css/maze.css", "utf8"), readFile("assets/css/guide-maze.css", "utf8"), readFile("assets/css/site-skin.css", "utf8"), readFile("assets/css/topbar.css", "utf8"),
@@ -43,7 +47,7 @@ assert.match(mazeCss, /\.card-item:hover \.card-stash-btn\s*\{[\s\S]*?top:\s*6\.
 
 const start = theme.indexOf(marker);
 assert.ok(start > 0, "VM-688 adapter appends after accepted route adapters");
-assert.equal(normalize(theme.slice(0, start)).trimEnd(), readAdmitted("assets/css/theme-pages.css").trimEnd(), "accepted theme adapter prefix remains byte-identical");
+assert.equal(normalize(theme.slice(0, start)).trimEnd(), baselineTheme.trimEnd(), "accepted theme adapter prefix remains baseline-identical");
 const adapter = theme.slice(start);
 const prefixes = ['html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route', 'html[data-vm-theme="light"][data-vm-theme-opt-in="guide-maze"] body.vm-guide-maze-route'];
 function branches(selector) { let depth = 0, part = "", values = []; for (const char of selector) { if (char === "(") depth++; if (char === ")") depth--; if (char === "," && depth === 0) { values.push(part.trim()); part = ""; } else part += char; } if (part.trim()) values.push(part.trim()); return values; }
@@ -59,7 +63,8 @@ for (const block of adapter.replace(/\/\*[\s\S]*?\*\//g, "").split("}").filter(b
     return [property, value.slice(colon + 1).trim()];
   }));
   for (const selector of branches(block.slice(0, at))) {
-    assert.ok(prefixes.some(prefix => selector.trim().startsWith(prefix)), `adapter selector stays in an admitted light route: ${selector.trim()}`);
+    const normalized = selector.trim();
+    assert.ok(prefixes.some(prefix => normalized.startsWith(prefix)), `adapter selector stays in an admitted light route: ${normalized}`);
     rules.push([selector.replace(/\s+/g, " ").trim(), declarations]);
   }
 }
@@ -72,24 +77,56 @@ const owner = (prefix, selector, expected) => {
 owner(prefixes[0], ".vm-topbar", {background: "#f7edd8 !important", "border-color": "#a88d62", color: "#211b18"});
 owner(prefixes[0], ":is(.bld-select option, .res-order option, .sb-select option)", {background: "#fff8e8", color: "#211b18"});
 owner(prefixes[0], ".btn-search", {background: "#8a5b19", "border-color": "#6f4512", color: "#fff8e8"});
-owner(prefixes[0], ":is(.builder-validation, .qi-confidence.low, .qi-chip.warn, .err-msg, .maze-recovery-card--warning)", {background: "#f9e4df", "border-color": "#a65043", color: "#7a302a"});
+owner(prefixes[0], ":is(.builder-validation, .qi-confidence.low, .qi-chip.warn, .err-msg)", {background: "#f9e4df", "border-color": "#a65043", color: "#7a302a"});
 owner(prefixes[0], ".card-item", {background: "#fff8e8", "border-color": "#a88d62", color: "#31271f", "box-shadow": "none"});
 owner(prefixes[0], ":is(.r-sidebar, .r-main, .stash-panel)", {background: "#f7edd8", "border-color": "#a88d62", color: "#31271f", "box-shadow": "none"});
 owner(prefixes[0], ".card-stash-btn::before", {"border-color": "#8a5b19", background: "#d7a23c", color: "#211b18"});
 owner(prefixes[0], ".card-stash-btn:is(:hover, :focus-visible, .on)::before", {"border-color": "#51310d", background: "#8a5b19", color: "#fff8e8"});
 owner(prefixes[0], ":is(.color-relation-trigger, .more-abilities > summary, .bld-select, .s-input, .kw-input, .sb-select, .res-order):focus-visible", {"outline-color": "#8a5b19"});
 owner(prefixes[0], ".m-price", {color: "#8a5b19"});
+owner(prefixes[0], ".maze-mode-help p", {background: "#fff8e8", "border-color": "#a88d62", color: "#685847"});
+owner(prefixes[0], ".kw-suggestions", {background: "#fff8e8", "border-color": "#a88d62"});
+owner(prefixes[0], ".kw-sug", {background: "transparent", color: "#31271f"});
+owner(prefixes[0], ".cmc-input", {background: "#fff8e8", "border-color": "#a88d62", color: "#211b18", "color-scheme": "light"});
+owner(prefixes[0], ":is(.kw-add-btn, .colorless-only-btn)", {background: "#f7edd8", "border-color": "#a88d62", color: "#31271f"});
+owner(prefixes[0], ":is(.kw-add-btn, .colorless-only-btn):is(:hover, :focus-visible)", {background: "#eadcc1", "border-color": "#8a5b19", color: "#211b18"});
+owner(prefixes[0], ".colorless-only-btn.on", {background: "#eadcc1", "border-color": "#8a5b19", color: "#211b18"});
+owner(prefixes[0], ":is(.cb-label, .ability-chip)", {background: "#f7edd8", "border-color": "#a88d62", color: "#31271f"});
+owner(prefixes[0], ":is(.cb-label, .ability-chip):is(:hover, :focus-visible, .checked)", {background: "#eadcc1", "border-color": "#8a5b19", color: "#211b18"});
+owner(prefixes[0], ".kw-chip", {background: "#f7edd8", "border-color": "#0d6e60", color: "#0d6e60"});
+owner(prefixes[0], ".rarity-chip", {background: "#f7edd8"});
+owner(prefixes[0], ".rarity-chip:is(:hover, .checked)", {background: "#eadcc1", "box-shadow": "0 0 12px var(--rarity-glow)"});
+owner(prefixes[0], ".current-weave", {background: "radial-gradient(circle at 50% 30%, rgba(247, 215, 132, 0.09), transparent 11rem) padding-box, linear-gradient(165deg, #fff8e8, #f7edd8) padding-box, var(--weave-edge) border-box", color: "#31271f"});
+owner(prefixes[0], ".current-weave:not([data-weave-state=\"invalid\"]) .current-weave-copy h3", {color: "#211b18", "text-shadow": "none"});
 owner(prefixes[0], ":is(.vm-feedback-header h2, .vm-feedback-step h3)", {color: "#211b18"});
 owner(prefixes[0], ".vm-feedback-context dt", {color: "#685847"});
 owner(prefixes[0], ".vm-feedback-context dd", {color: "#31271f"});
 owner(prefixes[1], ".guide-story > .maze-guide-section:first-child", {"border-top-color": "transparent"});
+owner(prefixes[1], ".maze-color-pips .ms-w", {"text-shadow": "0 0 0.08em rgba(80, 55, 26, 0.52)"});
 owner(prefixes[1], ".vm-utility .vm-utility-link[data-vm-nav=\"guide\"][aria-current=\"page\"]", {background: "transparent", "border-color": "transparent", "box-shadow": "none", color: "var(--site-copy)"});
 owner(prefixes[1], ".vm-utility .vm-utility-link[data-vm-nav=\"guide\"][aria-current=\"page\"]:focus-visible", {outline: "2px solid var(--site-ink)", "outline-offset": "2px"});
 owner(prefixes[1], ".driver-popover.vm-guide-walkthrough-popover", {background: "#fff8e8", "border-color": "#a88d62", color: "#211b18"});
 owner(prefixes[1], ":is(.vm-feedback-header h2, .vm-feedback-step h3)", {color: "#211b18"});
 owner(prefixes[1], ".vm-feedback-context dt", {color: "#685847"});
 owner(prefixes[1], ".vm-feedback-context dd", {color: "#31271f"});
-for (const marker of ["query-inspector", "builder-panel", "color-relation-options", "dossier-discovery-panel", "card-item", "card-stash-btn", "transform-card-button", "modal-detail-col", "m-price", "maze-toast", "s-input", "current-weave", "qi-critical"]) assert.ok(mazeCss.includes(marker) || researchInit.includes(marker), `Maze dynamic inventory retains ${marker}`);
+const dynamicInventory = [
+  ["mode help", maze, 'class="maze-mode-help"', ".maze-mode-help p"],
+  ["Loom mana input", maze, 'class="cmc-input"', ".cmc-input"],
+  ["Loom colorless button", maze, 'class="colorless-only-btn"', ".colorless-only-btn.on"],
+  ["Loom keyword popup", maze, 'class="kw-suggestions hidden"', ".kw-suggestions"],
+  ["runtime keyword suggestion", researchInit, 'className = "kw-sug"', ".kw-sug"],
+  ["runtime type chip", researchInit, 'className: "cb-label type-chip"', ":is(.cb-label, .ability-chip)"],
+  ["runtime rarity chip", researchInit, 'className: `cb-label rarity-chip rarity-${rarity.v}`', ".rarity-chip:is(:hover, .checked)"],
+  ["runtime ability chip", researchInit, 'className: "ability-chip"', ":is(.cb-label, .ability-chip):is(:hover, :focus-visible, .checked)"],
+  ["runtime keyword chip", researchInit, 'className: "kw-chip"', ".kw-chip"],
+  ["Guide white Mana pip", guideMaze, 'class="ms ms-w ms-cost"', ".maze-color-pips .ms-w"],
+  ["card save", mazeCss, ".card-stash-btn", ".card-stash-btn::before"],
+  ["two-face control", mazeCss, ".transform-card-button", ".transform-card-button"]
+];
+for (const [name, source, emittedClass, finalOwner] of dynamicInventory) {
+  assert.ok(source.includes(emittedClass), `${name} emitted owner remains baseline-protected`);
+  assert.ok(rules.some(([selector]) => selector.includes(finalOwner)), `${name} has a final light paint owner`);
+}
 for (const target of ["#translation", "#context", "#recovery", "#maze-guide-results"]) assert.match(walkthrough, new RegExp(`target: ["']${target}`), `Maze Guide retains walkthrough target ${target}`);
 assert.equal((walkthrough.match(/target:/g) || []).length, 4, "Maze Guide retains four walkthrough steps");
 console.log("VM-688 Maze theme source boundaries passed.");
