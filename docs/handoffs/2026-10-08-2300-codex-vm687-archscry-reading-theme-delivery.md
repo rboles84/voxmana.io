@@ -322,3 +322,12 @@ PR76 was expected-head guarded squashed successfully as bfcb0e65f620887db25859a8
 Ordinary fetch and no-negotiation refetch both failed because an unrelated Codex checkpoint ref was invalid. The actual merge object had downloaded and full parent/tree proof succeeded. Authenticated host main was reobserved; guarded update-ref refreshed only origin/main from the old baseline to that verified merge, then main fast-forwarded. The broken unrelated Codex reference was preserved; no checkpoint, credentials, settings, product bytes or unrelated work was removed.
 
 Task-local branch cleanup and canonical closeout follow. Primary C:/dev/voxmana.io is the sole registered worktree and remains in place. Both role handoffs, manual findings, original harness failures, false predicate corrections and rapid baseline Driver transition limitation remain preserved. Stage6 should reuse real composed DOM/native witness where needed and the actual final child paint owner; it must not treat this limitation as resolved or expand into placement/data/publishing work.
+
+## Done and local cleanup, 2026-10-09
+
+Task: VM-687
+Candidate: 7bf143718ec36dd3b625fde18d31616dac0331aa
+
+Canonical closeout PASS at I1 497ec7c9a967307d003a1d77ac31ed228c24a351 verified actual PR76 squash bfcb0e65f620887db25859a8f06894c4eecf5bb3, unchanged accepted tree, exact decisions/CI, synchronized main, original branch accounting, lifecycle-only review/boundaries and completed cleanup. Local feature branch and stale tracking ref are deleted; authenticated live Git confirms remote feature absent (already removed after merge). Sole primary checkout is clean and preserved; no linked task worktree existed. Temporary native QA tab closed, viewport reset and original saved-light Jund reading retained. Owned external manual-review helper PID30500 was identity-checked and stopped; evidence artifacts remain available. Unrelated broken Codex checkpoint remains preserved.
+
+Card moves to canonical done folder with historical Admission Scope unchanged; generated views follow producer. First closeout report format errors (plain final Head field versus list metadata) were corrected externally, change-report validator then passed and the canonical closeout rerun passed. No product/test bytes, criteria wording, scope or Decisions changed during delivery. Final Done revision will be independently evidence-reviewed, pushed and closeout-checked again.
