@@ -184,3 +184,20 @@ Decision reference: Current Codex conversation with the Owner, 2026-10-10: "ACCE
 Integration: PENDING — authorized by the Owner; no integration action is recorded here.
 
 The accepted scope remains the completed reconnaissance, its five documentation files and the already completed safe cleanup. This record preserves the existing QA-0 SAME-AGENT DISTINCT PHASE classification and does not revise its evidence or findings.
+
+## Verified integration and closeout
+
+Task: VM-690
+Candidate: da99c1f210465042573cac670e188f59064debcc
+Integration: PR79 https://github.com/rboles84/voxmana.io/pull/79 merged through the connector's atomic expected-head operation at `0ef62b292e3c8731c8e82e62713053b605ad8df1`; squash commit `9c36c395294b3ab4b810c8badd54951095ad6475`.
+CI: Deterministic Validation success, run `38067351395`, job `114257584876`.
+Tree verification: the local squash object has sole parent `bbf880f31e786e7e488c2426af8562bbd8759b8f`; its tree `05729b52ace14fe424d691fe1e48e9b0ddb10f33` exactly equals the verified PR-head tree. Live Git and connector main both match the squash commit.
+Recovery: fetch downloaded the verified object but encountered the preserved malformed checkpoint. The authorized VM-689 recovery leased `refs/remotes/origin/main` from old `bbf880f` to the verified squash; ordinary switch to `main` and fast-forward-only update then succeeded. The checkpoint was not repaired or deleted.
+Integration gate: PASS.
+
+Reason: Owner instruction preserves existing branches and recovery material;
+Owner: Product Owner;
+Preserved work: Local VM-690 feature branch at 0ef62b292e3c8731c8e82e62713053b605ad8df1 and existing recovery material.
+Manual branch cleanup deferred; no remote-branch retention is claimed.
+
+Limits: this records integration only. The existing VM-687 stale-source-guard finding and malformed local checkpoint finding remain disclosed; neither was repaired, deleted or reclassified. VM-690 remains Integrated pending the coordinator's separate Integrated closeout decision; no Done transition is recorded here.

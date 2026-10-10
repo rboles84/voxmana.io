@@ -2,7 +2,7 @@
 
 ID: VM-690
 Title: Theme Recon and Local Leftovers
-Status: Accepted
+Status: Integrated
 Type: Read-only reconnaissance / documentation
 Area: Theme coverage, controller delivery, repository and local residue
 Priority: Owner review
@@ -44,7 +44,7 @@ Admission baseline: bbf880f31e786e7e488c2426af8562bbd8759b8f
 Candidate: da99c1f210465042573cac670e188f59064debcc
 RobQA: PASS at da99c1f210465042573cac670e188f59064debcc — QA-0 SAME-AGENT DISTINCT PHASE; original vm690-report-qa.md linked in coordinator handoff; candidate gate PASS
 Owner: ACCEPTED at da99c1f210465042573cac670e188f59064debcc — decision recorded in the appended Owner acceptance record in docs/handoffs/2026-10-10-0020-codex-vm690-theme-recon.md
-Integration: PENDING
+Integration: INTEGRATED — PR79 https://github.com/rboles84/voxmana.io/pull/79; squash 9c36c395294b3ab4b810c8badd54951095ad6475
 Dependencies: None
 Decisions: QA-0 recon/report scope only. Preserve all required historical evidence, canonical data, runtime, existing branches/worktrees and checkpoint references. Safe removal is limited to proved disposable ignored temporary artifacts; unresolved candidates remain reported and retained. No product implementation, remote write, merge, deployment, unrelated repair or inferred product/QA/Owner/host decision.
 Evidence: Admission start was ELIGIBLE on clean live/local main bbf880f31e786e7e488c2426af8562bbd8759b8f. Coordinator handoff 2026-10-10-0020-codex-vm690-theme-recon.md records the cache-delivery hazard, stale VM-687 source guard, malformed local Codex checkpoint ref, architecture-map drift and exact safe cleanup/preservation evidence. The attributed Kanban handoff records bounded clerical work. Nine selected product reconnaissance checks yielded eight PASS and one disclosed stale-guard FAIL; the connectivity check separately exposes the pre-existing checkpoint error. No product repair is included.

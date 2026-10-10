@@ -114,3 +114,28 @@ Task: VM-690
 ### Not touched
 
 - Runtime, tests, policy, product decisions, candidate QA evidence, remote state, branches, worktrees and checkpoint/recovery material.
+
+## Clerical verified-integration record
+
+Agent: /root/vm690_accept_records (Kanban Steward)
+Requested route: clerical `gpt-5.6-terra` / low effort; backend telemetry unverified.
+Task: VM-690
+
+### What changed
+
+- Updated the card only to `Status: Integrated` and `Integration: INTEGRATED — PR79 https://github.com/rboles84/voxmana.io/pull/79; squash 9c36c395294b3ab4b810c8badd54951095ad6475`.
+- Appended the coordinator-handoff integration record for the exact PR head, squash, CI run/job, matching tree, live-main verification, preserved-checkpoint recovery, integration-gate PASS and existing findings.
+- Regenerated and checked derived views after the source-record changes.
+
+### Decisions and boundaries
+
+- VM-690 remains Integrated. This record does not move the card to Done, perform closeout, commit, alter a PR, merge, delete a branch, or repair the malformed checkpoint.
+- Reason: Owner instruction preserves existing branches and recovery material;
+- Owner: Product Owner;
+- Preserved work: Local VM-690 feature branch at 0ef62b292e3c8731c8e82e62713053b605ad8df1 and existing recovery material.
+- Manual branch cleanup deferred; no remote-branch retention is claimed.
+
+### Checks
+
+- `node scripts/task.mjs indexes --write` — PASS; fresh, with `docs/kanban/board.md` regenerated.
+- `node scripts/task.mjs indexes --check` — PASS; fresh, with no stale views.
