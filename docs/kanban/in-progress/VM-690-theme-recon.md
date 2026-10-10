@@ -2,7 +2,7 @@
 
 ID: VM-690
 Title: Theme Recon and Local Leftovers
-Status: In Progress
+Status: Owner Review
 Type: Read-only reconnaissance / documentation
 Area: Theme coverage, controller delivery, repository and local residue
 Priority: Owner review
@@ -41,8 +41,8 @@ Perform deep, read-only reconnaissance and a proportionate objective validation.
 Record version: 1
 Branch: codex/vm-690-theme-recon
 Admission baseline: bbf880f31e786e7e488c2426af8562bbd8759b8f
-Candidate: PENDING
-RobQA: PENDING
+Candidate: da99c1f210465042573cac670e188f59064debcc
+RobQA: PASS at da99c1f210465042573cac670e188f59064debcc — QA-0 SAME-AGENT DISTINCT PHASE; original vm690-report-qa.md linked in coordinator handoff; candidate gate PASS
 Owner: PENDING
 Integration: PENDING
 Dependencies: None

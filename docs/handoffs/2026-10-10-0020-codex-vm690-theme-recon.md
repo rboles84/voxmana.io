@@ -142,3 +142,35 @@ Next suggested agent/task: RobDev for the bounded cache-delivery correction, wit
 Reviewed: repository AGENTS/workflow/task-context/delivery/cost authorities and RobDev/RobQA passes; VM-689 focused context and relevant VM-682–689/670/671/675/679 source records; VM-686 backlog; all public route heads; shared theme/topbar JS/CSS, Home CSS, theme-pages CSS and dossier radar; theme-controller/source/radar tests; validators, package/lock and CI configuration; route/data-flow architecture maps; Git heads/worktrees/stash/objects; local ignored output/profile paths, process/profile arguments, junction destinations and preserved-artifact directory inventory. No private browser profile contents or credential values were read.
 
 Tracked changes are confined to this task's card, two handoffs and two generated views. The final authoritative Git-derived material path list and count appear below after candidate freeze. Removed ignored files are separately accounted for by the cleanup manifest and are not Git changes.
+
+## Exact report QA and Owner Review
+
+Task: VM-690
+Candidate: da99c1f210465042573cac670e188f59064debcc
+RobQA: PASS
+Execution: SAME-AGENT DISTINCT PHASE
+Reviewer: /root
+Implementer: /root
+Independence required: no
+Execution reason: Bounded QA-0 report/records and verified ignored ephemeral disposal; no governance, shared behavior, protected semantic, security, migration or integration contract changed.
+Status: Owner Review
+Owner: PENDING
+Integration: PENDING — local report only
+
+After freezing the candidate, the coordinator re-read the actual documentation diff and acceptance criteria. The Git scope contains only five admitted documentation paths. Diff hygiene, generated-view freshness, local evidence/card links, cleanup-manifest sums and target absence, preserved screenshot/report hashes, and report-to-static-witness parity pass. The [original exact-candidate report QA](C:/Users/obake/.codex/visualizations/2026/10/10/01a12474-9ade-7f90-9124-215b2a23846c/vm690-report-qa.md) is a same-agent distinct phase, not independent review or product certification. The candidate stage gate passed with durable-QA binding at the clean candidate and live main unchanged. The stale test and checkpoint failures remain findings, not green checks.
+
+The following lifecycle appendix, card bindings and regenerated views are evidence-only. Runtime, policy, test, scope and acceptance-criterion wording are unchanged. Final evidence-head accounting and final gate observations are retained in [the Git report](C:/Users/obake/.codex/visualizations/2026/10/10/01a12474-9ade-7f90-9124-215b2a23846c/vm690-git-report.md). No product or remote work follows from this report's QA PASS.
+
+## Material candidate
+
+- Baseline: `bbf880f31e786e7e488c2426af8562bbd8759b8f`
+- Candidate: `da99c1f210465042573cac670e188f59064debcc`
+- Changed paths: `5`
+
+## Files changed
+
+- `docs/handoffs/2026-10-10-0020-codex-vm690-theme-recon.md`
+- `docs/handoffs/2026-10-10-0020-kanban-vm690-theme-recon.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-690-theme-recon.md`
