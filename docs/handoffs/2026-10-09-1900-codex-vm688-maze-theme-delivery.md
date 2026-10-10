@@ -99,3 +99,15 @@ Integration: PENDING
 All six Owner findings are addressed in scoped final presentation. The corrected ID-based Clear owner, readable placeholder/subtitle, clear-only teal, warm mana selectors, authentic rarity symbols/borders, dynamic Current Weave wash, 8px keyword inset, 8px interpretation separation and asymmetric thread-action corners are recorded in the developer handoff/guard. Base/runtime/body/Guide/controller and VM-681 geometry remain unchanged from C2; only the explicitly requested non-card spacing/shape exceptions apply in both themes as documented.
 
 The exact [independent PASS](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm688-c4-qa.md) reviewed two focused code checks and [compact native observations](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm688-c4-ui.md). C3 failure and developer diagnosis remain historical, with no broad retesting. [Git accounting](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm688-c4-git-report.md) lists the full baseline-to-material, evidence-only and total-branch scopes. Review by refreshing [Maze](http://127.0.0.1:50122/maze/) in the normal preview; Guide is unchanged by this Owner-correction delta. Owner judges shape, wash, contrast and overall feel. No push, PR, integration, deployment or cleanup; sole branch/worktree retained for continued review.
+
+## Genuine Owner ACCEPT and authorized delivery
+
+Task: VM-688
+Candidate: e1dd798d18621104d2537a21dc2d9fa8f68690c2
+Owner: ACCEPT
+
+The Owner visually approved the C4 corrections with “all seem good”, then requested confirmation, local/worktree cleanup, main integration and live publication. The original decision is retained in [vm688-owner-accept.md](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm688-owner-accept.md). This later human authorization supersedes the earlier SHIP stop for delivery only; all frozen C4 product and test contracts remain unchanged.
+
+Connector schema discovery established authenticated PR creation/reads and atomic expected-head squash merge. The authenticated rboles84 identity and repository push/admin metadata were observed through that interface; connector is the pre-approved read/create/merge route. Ordinary Git transport remains fetch/push authority. Separate branch-settings visibility is supplemental under workflow Main Protection And Exceptions; required exact-head Deterministic Validation, PR mergeability and the expected-head guard remain mandatory.
+
+Main is still the admitted 72d2fff4c38e32eeed2974769c6b436471c45e55. A normal fetch encountered the previously disclosed missing Codex checkpoint object; direct live ref verification confirms origin/main is current. No checkpoint-ref repair is part of this task. The primary checkout is the only registered worktree; cleanup will preserve it and remove the integrated task branch.
