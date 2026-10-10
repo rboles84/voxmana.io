@@ -44,3 +44,14 @@ Do not run broad theme, Maze engine, Guide history, viewport, screenshot, live-s
 ## Verdict boundary
 
 RobQA remains **PENDING** until the frozen SHA passes the selected checks and independent boundary review. A PASS returns that exact candidate to Owner Review only; it does not provide Owner acceptance or authorize push, PR, integration, deployment or publishing.
+
+## Exact C1 result
+
+Task: VM-689
+Candidate: 4e6db5ba855c6b08698d96b18e9a653f21bcc869
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: /root/archscry_qa
+Implementer: /root/archscry_dev + /root
+
+Focused source, HTML, controller, index and diff checks passed on the clean candidate. Independent review confirmed the two light-only owners, Guide vm689/Maze vm688r1 epoch split, retained white text shadow, unchanged Mana colors, and protected body/dark/runtime/geometry. Original decision: [vm689-c1-qa.md](C:/Users/obake/.codex/visualizations/2026/10/09/01a11f20-e75a-7931-89b2-d181603236f9/vm689-c1-qa.md). Owner visual judgment remains PENDING; no integration authorization. The initial sandbox live-Git admission read was unavailable; the identical explicitly escalated read-only invocation passed. This was an environment observation, not a product failure.
