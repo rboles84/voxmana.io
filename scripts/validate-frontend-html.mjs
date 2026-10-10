@@ -73,6 +73,8 @@ const themeBootstrapByRoute = {
   apocrypha: '<script src="../assets/js/shared/vm-theme.js?v=vm682">',
   archscry: '<script src="../assets/js/shared/vm-theme.js?v=vm687">',
   guideReading: '<script src="../../assets/js/shared/vm-theme.js?v=vm687">',
+  maze: '<script src="../assets/js/shared/vm-theme.js?v=vm688">',
+  guideMaze: '<script src="../../assets/js/shared/vm-theme.js?v=vm688">',
 };
 const guideCssSource = await readFile("assets/css/guide.css", "utf8");
 const livePublicPageKeys = Object.keys(publicPages).filter(key => key !== "library");
@@ -271,6 +273,21 @@ for (const key of ["strategium", "strategiumFindTable", "strategiumBeforeGame", 
     `${file} should load the saved-theme bootstrap before styles`);
   expect(getStylesheetHrefs(sources.apocrypha).at(-1) === "../assets/css/theme-pages.css?v=vm685",
     `${file} should load the route-scoped VM-685 theme adapter last`);
+}
+
+for (const [key, route, prefix] of [["maze", "maze", "../"], ["guideMaze", "guide-maze", "../../"]]) {
+  const file = publicPages[key];
+  const head = getHeadSource(sources[key]);
+  const bootstrap = themeBootstrapByRoute[key];
+  expect(sources[key].match(new RegExp(`data-vm-theme-opt-in="${route}"`, "g"))?.length === 1,
+    `${file} should expose exactly one route-scoped theme opt-in`);
+  expect(countMatches(sources[key], /assets\/js\/shared\/vm-theme\.js\?v=vm688/g) === 1 && head.includes(bootstrap),
+    `${file} should expose exactly one synchronous VM-688 theme bootstrap in head`);
+  expect(head.indexOf(bootstrap) < head.indexOf('<link rel="stylesheet"'),
+    `${file} should load the VM-688 theme bootstrap before styles`);
+  const adapterEpoch = key === "maze" ? "vm688r1" : "vm688";
+  expect(getStylesheetHrefs(sources[key]).at(-1) === `${prefix}assets/css/theme-pages.css?v=${adapterEpoch}`,
+    `${file} should load the VM-688 theme adapter last`);
 }
 
 for (const file of liveFontRegressionFiles) {
@@ -754,8 +771,10 @@ expect(
   getStylesheetHrefs(sources.guide).at(-2)?.endsWith("assets/css/site-skin.css?v=vm668r2") &&
     getStylesheetHrefs(sources.guideReading).at(-2)?.endsWith("assets/css/site-skin.css?v=vm668r2") &&
     getStylesheetHrefs(sources.guideReading).at(-1)?.endsWith("assets/css/theme-pages.css?v=vm687") &&
-    getStylesheetHrefs(sources.guideMaze).at(-1)?.endsWith("assets/css/site-skin.css?v=vm668r2"),
-  "only admitted Guide routes append their route-scoped theme adapter after the current site-skin owner"
+    getStylesheetHrefs(sources.guideMaze).at(-2)?.endsWith("assets/css/site-skin.css?v=vm668r2") &&
+    getStylesheetHrefs(sources.guideMaze).at(-1)?.endsWith("assets/css/theme-pages.css?v=vm688") &&
+    getStylesheetHrefs(sources.maze).at(-1)?.endsWith("assets/css/theme-pages.css?v=vm688r1"),
+  "admitted Guide routes append their route-scoped theme adapter after the current site-skin owner"
 );
 
 expect(

@@ -42,7 +42,7 @@ function run({ optIn = "home", initial = {}, readThrows = false, writeThrows = f
     current() { return window.vmTheme.get(); } };
 }
 
-for (const route of ["home", "terms", "privacy", "guide", "strategium", "apocrypha", "archscry", "guide-reading"]) {
+for (const route of ["home", "terms", "privacy", "guide", "strategium", "apocrypha", "archscry", "guide-reading", "maze", "guide-maze"]) {
   const state = run({ optIn: route, initial: { [key]: "light" } });
   assert.equal(state.current(), "light", `${route} should reuse the one controller and key`);
 }
@@ -104,14 +104,14 @@ assert.deepEqual(unconverted.writes, []);
 assert.deepEqual(unconverted.events, []);
 assert.equal(unconverted.listeners.size, 0);
 
-const unknownOptIn = run({ optIn: "guide-maze", initial: { [key]: "light" } });
+const unknownOptIn = run({ optIn: "maze-alias", initial: { [key]: "light" } });
 assert.equal(unknownOptIn.window.vmTheme, undefined, "unknown routes cannot opt into the shared theme controller");
 
-const [topbar, topbarCss, home, validator, index, terms, privacy, guide, apocrypha, archscry, guideReading, themePages, ...strategium] = await Promise.all([
+const [topbar, topbarCss, home, validator, index, terms, privacy, guide, apocrypha, archscry, guideReading, maze, guideMaze, themePages, ...strategium] = await Promise.all([
   readFile("assets/js/shared/vm-topbar.js", "utf8"), readFile("assets/css/topbar.css", "utf8"),
   readFile("assets/css/home.css", "utf8"), readFile("scripts/validate-frontend-html.mjs", "utf8"),
   readFile("index.html", "utf8"), readFile("terms/index.html", "utf8"), readFile("privacy/index.html", "utf8"),
-  readFile("guide/index.html", "utf8"), readFile("apocrypha/index.html", "utf8"), readFile("archscry/index.html", "utf8"), readFile("guide/reading/index.html", "utf8"), readFile("assets/css/theme-pages.css", "utf8"),
+  readFile("guide/index.html", "utf8"), readFile("apocrypha/index.html", "utf8"), readFile("archscry/index.html", "utf8"), readFile("guide/reading/index.html", "utf8"), readFile("maze/index.html", "utf8"), readFile("guide/maze/index.html", "utf8"), readFile("assets/css/theme-pages.css", "utf8"),
   ...["strategium/index.html", "strategium/console/index.html", "strategium/find-a-table/index.html", "strategium/before-game/index.html", "strategium/during-game/index.html", "strategium/review/index.html"].map(file => readFile(file, "utf8"))
 ]);
 assert.doesNotMatch(source, /prefers-color-scheme|matchMedia/);
@@ -141,6 +141,13 @@ for (const [route, source, prefix] of [["archscry", archscry, "../"], ["guide-re
   assert.match(source, new RegExp(`<script src="${prefix.replaceAll("/", "\\/")}assets\\/js\\/shared\\/vm-theme\\.js\\?v=vm687"><\\/script>`));
   assert.equal([...source.matchAll(/<link rel="stylesheet" href="([^"]+)">/g)].map(match => match[1]).at(-1), `${prefix}assets/css/theme-pages.css?v=vm687`, `${route} loads the VM-687 theme adapter last`);
   assert.ok(source.indexOf("vm-theme.js?v=vm687") < source.indexOf('<link rel="stylesheet"'), `${route} executes saved-light bootstrap before CSS`);
+}
+for (const [route, source, file, prefix] of [["maze", maze, "maze/index.html", "../"], ["guide-maze", guideMaze, "guide/maze/index.html", "../../"]]) {
+  assert.match(source, new RegExp(`<html lang="en" data-vm-theme-opt-in="${route}">`));
+  assert.match(source, new RegExp(`<script src="${prefix.replaceAll("/", "\\/")}assets\\/js\\/shared\\/vm-theme\\.js\\?v=vm688"><\\/script>`));
+  assert.equal([...source.matchAll(/<link rel="stylesheet" href="([^"]+)">/g)].map(match => match[1]).at(-1), `${prefix}assets/css/theme-pages.css?v=vm688`, `${route} loads the VM-688 theme adapter last`);
+  assert.ok(source.indexOf("vm-theme.js?v=vm688") < source.indexOf('<link rel="stylesheet"'), `${route} executes saved-light bootstrap before CSS`);
+  assert.equal(routeBody(source), routeBody(baselineFile(file)), `${route} keeps its body, URLs, and runtime hooks baseline-identical`);
 }
 assert.match(apocrypha, /<html lang="en" data-vm-theme-opt-in="apocrypha">/);
 assert.match(apocrypha, /<script src="\.\.\/assets\/js\/shared\/vm-theme\.js\?v=vm682"><\/script>/);
@@ -185,7 +192,6 @@ for (const file of [
   "assets/js/shared/vm-topbar.js",
   "assets/js/shared/vm-clipboard.js",
   "assets/js/shared/vm-feedback.js",
-  "guide/maze/index.html",
   "assets/js/guide/guide.js",
   "assets/js/guide/intro-walkthrough.js"
 ]) {

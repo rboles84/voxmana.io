@@ -1,4 +1,4 @@
-<!-- task-view-sha256:6f974e9495da9e5d65195828e2f5e32230a5994cddee96c00af8d933a532fd9e -->
+<!-- task-view-sha256:b9134ed131a7ab3baef217d5bfbea9b5af428eb5f480235a38a3834cff402e95 -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -8,7 +8,10 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 
 | Authored / filename date | Agent | Handoff | Related task references | Diagnostics |
 |---|---|---|---|---|
+| 2026-10-09T19:00:00Z (filename) | `/root/archscry_dev` (RobDev, configured Terra medium; backend-effective model unverified) | [VM-688 — RobDev implementation handoff](2026-10-09-1900-robdev-vm688-maze-theme.md) | VM-688 | Identity displayed from heading; not admission metadata. |
+| 2026-10-09T19:00:00Z (filename) | /root/archscry_qa | [RobQA strategy handoff — VM-688 Maze and Maze Guide theme, stage 6](2026-10-09-1900-robqa-vm688-maze-theme.md) | VM-688 | Identity displayed from heading; not admission metadata. |
 | 2026-10-08T22:26:00-06:00 (authored) | /root/footer_backlog (Kanban Steward) | [Agent Handoff: Kanban Steward - VM-686 shared footer consistency backlog intake](2026-10-08-2226-kanban-steward-vm686-footer-backlog.md) | VM-686 | Identity displayed from heading; not admission metadata. |
+| 2026-10-09T00:00:00Z (authored) | /root | [VM-688 — Stage 6 reconciliation and delivery](2026-10-09-1900-codex-vm688-maze-theme-delivery.md) | VM-688 | Identity displayed from heading; not admission metadata. |
 | 2026-10-08T23:30:00Z (filename) | `/root/browser_recovery` (governing RobDev browser-witness construction) | [RobDev handoff — VM-687 bounded browser recovery](2026-10-08-2330-robdev-vm687-browser-recovery.md) | VM-687 | Identity displayed from heading; not admission metadata. |
 | 2026-10-08T23:00:00Z (filename) | Codex coordinator `/root`. Governing skills: [RobDev](../../.agents/skills/robdev/SKILL.md) and [RobQA](../../.agents/skills/robqa/SKILL.md), with their full frozen passes. This task stops at local SHIP/Owner Review. | [VM-687 — Archscry and Reading Guide theme stage 5 delivery](2026-10-08-2300-codex-vm687-archscry-reading-theme-delivery.md) | VM-687 | Identity displayed from heading; not admission metadata. |
 | 2026-10-08T23:00:00Z (filename) | `/root/archscry_dev` (RobDev; requested Terra medium, host accepted; backend-effective model unverified) | [VM-687 — RobDev implementation handoff](2026-10-08-2300-robdev-vm687-archscry-reading-theme.md) | VM-687 | Identity displayed from heading; not admission metadata. |

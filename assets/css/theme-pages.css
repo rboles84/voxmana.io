@@ -471,3 +471,185 @@ html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-ro
 /* Low-specificity control group preserves the more-specific landing link exception. */
 html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .vm-dossier-matrix-section .vm-strategium-detail { background: #fff8e8; border-color: #a88d62; box-shadow: 0 8px 18px rgba(80, 55, 26, 0.18); }
 html[data-vm-theme="light"][data-vm-theme-opt-in="archscry"] body.vm-archscry-route .vm-dossier-matrix-section .vm-trait-pip:not(.is-lit) { background: #c7ad83; }
+
+/* VM-688: Maze and its teaching route keep their authored engines and geometry;
+   this final layer changes only saved-light paint. */
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route,
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide-maze"] body.vm-guide-maze-route {
+  --site-ink: #211b18;
+  --site-copy: #31271f;
+  --site-muted: #685847;
+  --site-gold: #8a5b19;
+  --site-rule: #a88d62;
+  --site-surface: #f7edd8;
+  --bg: #f7eedb;
+  --bg-2: #f4ead4;
+  --bg-3: #eadcc1;
+  --text: #31271f;
+  --text-dim: #685847;
+  --text-muted: #685847;
+  --gold: #8a5b19;
+  --gold-l: #8a5b19;
+  --gold-quiet: #8a5b19;
+  --border: #a88d62;
+  --border-s: #866d47;
+  --panel: #f7edd8;
+  --panel-strong: #eadcc1;
+  --line: #a88d62;
+  --muted: #685847;
+  --ink: #211b18;
+  --accent: #8a5b19;
+  --maze-panel: #f7edd8;
+  --maze-panel-strong: #fff8e8;
+  --maze-panel-deep: #eadcc1;
+  --maze-line: #a88d62;
+  --maze-line-strong: #866d47;
+  --maze-line-soft: #c7ad83;
+  --maze-teal-line: #0d6e60;
+  --maze-text: #31271f;
+  --maze-ink: #211b18;
+  --maze-muted: #685847;
+  --maze-faint: #685847;
+  --maze-gold: #8a5b19;
+  --maze-gold-2: #8a5b19;
+  --maze-teal: #0d6e60;
+  background: #f7eedb;
+  color: #31271f;
+}
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .vm-bg,
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide-maze"] body.vm-guide-maze-route .vm-bg { background: linear-gradient(145deg, #fff8e8 0%, #f7eedb 52%, #eadcc1 100%); }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .vm-topbar { background: #f7edd8 !important; border-color: #a88d62; color: #211b18; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route :is(
+  .mode-card, .query-inspector, .builder-panel, .sb-section, .state-panel,
+  .dossier-discovery-panel, .dossier-discovery-reading, .dossier-discovery-lane,
+  .dossier-thread-card, .results-header, .results-footer, .stash-panel,
+  .modal, .modal-wrap, .more-abilities-panel, .color-relation-options
+) { background: #fff8e8; border-color: #a88d62; color: #31271f; box-shadow: none; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route :is(.r-sidebar, .r-main, .stash-panel) { background: #f7edd8; border-color: #a88d62; color: #31271f; box-shadow: none; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route :is(
+  .qi-primary, .qi-input-wrap, .qi-reason, .builder-output,
+  .maze-selected-search, .maze-return-banner, .state-sub code, .builder-output code,
+  .dossier-discovery-reading, .dossier-discovery-lane, .dossier-thread-card,
+  .color-relation-options button, .more-abilities-panel button, .sb-summary,
+  .stash-item, .stash-item-controls, .stash-qty, .maze-toast
+) { background: #f7edd8; border-color: #c7ad83; color: #31271f; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route :is(
+  .s-input, .qi-input, .kw-input, .sb-select, .res-order, .bld-select,
+  .color-relation-trigger, .more-abilities > summary
+) { background: #fff8e8; border-color: #a88d62; color: #211b18; color-scheme: light; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route :is(.bld-select option, .res-order option, .sb-select option) { background: #fff8e8; color: #211b18; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route :is(
+  .mode-card-kicker, .builder-kicker, .sb-label, .qi-label, .qi-group-label,
+  .res-count, .state-title, .empty-kicker, .builder-output span, .color-relation-caret,
+  .qi-confidence.medium, .qi-chip, .maze-return-link
+) { color: #8a5b19; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route :is(
+  .builder-group-help, .builder-color-note, .qi-input, .qi-reason, .qi-recovery span,
+  .qi-alt code, .state-sub, .empty-query, .dossier-discovery-reading p,
+  .dossier-thread-heading p, .more-count, .stash-copy, .m-meta, .m-rules
+) { color: #685847; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route :is(
+  .btn-clear, .qi-btn, .query-action-btn, .btn-more, .m-btn, .maze-return-dismiss,
+  .modal-close, .stash-remove, .stash-qty-btn, .color-sb-btn, .color-relation-options button,
+  .more-abilities-panel button
+) { background: #f7edd8; border-color: #a88d62; color: #31271f; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .btn-search { background: #8a5b19; border-color: #6f4512; color: #fff8e8; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route :is(
+  .mode-card:is(:hover, :focus-visible, .on, [aria-selected="true"]), .btn-clear:is(:hover, :focus-visible),
+  .qi-btn:is(:hover, :focus-visible), .query-action-btn:is(:hover, :focus-visible),
+  .btn-more:is(:hover, :focus-visible), .m-btn:is(:hover, :focus-visible),
+  .color-relation-trigger:is(:hover, :focus-visible), .more-abilities > summary:is(:hover, :focus-visible),
+  .color-relation-options button:is(:hover, :focus-visible, .selected, [aria-pressed="true"]), .color-sb-btn:is(:hover, :focus-visible),
+  .modal-close:is(:hover, :focus-visible), .stash-remove:is(:hover, :focus-visible),
+  .stash-qty-btn:is(:hover, :focus-visible)
+) { background: #eadcc1; border-color: #8a5b19; color: #211b18; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .btn-search:is(:hover, :focus-visible) { background: #6f4512; border-color: #51310d; color: #fff8e8; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route :is(.btn-search, .btn-more):disabled { background: #eadcc1; border-color: #c7ad83; color: #685847; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route :is(.kw-sug:is(:hover, :focus-visible, .active, [aria-selected="true"]), .qi-details[open] > summary, .sb-section:is([open], :focus-within) > .sb-summary) { background: #eadcc1; border-color: #8a5b19; color: #211b18; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route :is(.builder-validation, .qi-confidence.low, .qi-chip.warn, .err-msg) { background: #f9e4df; border-color: #a65043; color: #7a302a; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route :is(.builder-validation *, .qi-confidence.low, .qi-chip.warn, .err-msg, .current-weave[data-weave-state="invalid"] .current-weave-copy h3, .qi-critical > strong, .stash-remove) { color: #7a302a; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .card-item { background: #fff8e8; border-color: #a88d62; color: #31271f; box-shadow: none; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .card-item-name { color: #31271f; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .transform-card-button { background: #f7edd8; border-color: #866d47; color: #211b18; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .transform-card-button:is(:hover, :focus-visible) { background: #eadcc1; border-color: #8a5b19; color: #211b18; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .card-stash-btn::before { border-color: #8a5b19; background: #d7a23c; color: #211b18; box-shadow: 0 0 0 2px #fff8e8, 0 6px 18px rgba(80, 55, 26, 0.24); }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .card-stash-btn:is(:hover, :focus-visible, .on)::before { border-color: #51310d; background: #8a5b19; color: #fff8e8; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route :is(.modal-detail-col, .m-name, .m-type, .m-oracle, .m-flavor, .m-meta) { color: #31271f; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route :is(.m-meta-k, .empty-card-artist) { color: #685847; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .m-price { color: #8a5b19; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route :is(.color-relation-trigger, .color-pips, .bld-select, .kw-input, .sb-select, .res-order)[aria-invalid="true"] { border-color: #a65043; box-shadow: 0 0 0 3px rgba(166, 80, 67, 0.14); }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route :is(.color-relation-trigger, .more-abilities > summary, .bld-select, .s-input, .kw-input, .sb-select, .res-order):focus-visible { outline-color: #8a5b19; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route :is(.vm-clipboard-button, .vm-feedback-dialog, .vm-feedback-field :is(input, textarea), .vm-feedback-manual-copy, .vm-feedback-secondary) { background: #fff8e8; border-color: #a88d62; color: #211b18; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .vm-clipboard-button:not(:disabled):is(:hover, :focus-visible) { background: #eadcc1; border-color: #8a5b19; color: #211b18; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route :is(.vm-feedback-header h2, .vm-feedback-step h3) { color: #211b18; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .vm-feedback-context dt { color: #685847; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .vm-feedback-context dd { color: #31271f; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .maze-footer { background: #f7edd8; border-top-color: #a88d62; color: #685847; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .maze-footer a { color: #8a5b19; }
+
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide-maze"] body.vm-guide-maze-route .vm-utility .vm-utility-link[data-vm-nav="guide"][aria-current="page"],
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide-maze"] body.vm-guide-maze-route .vm-utility .vm-utility-link[data-vm-nav="guide"][aria-current="page"]:is(:hover, :focus-visible) { background: transparent; border-color: transparent; box-shadow: none; color: var(--site-copy); font-weight: 700; text-decoration: none; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide-maze"] body.vm-guide-maze-route .vm-utility .vm-utility-link[data-vm-nav="guide"][aria-current="page"]:is(:hover, :focus-visible) { color: var(--site-ink); }
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide-maze"] body.vm-guide-maze-route .vm-utility .vm-utility-link[data-vm-nav="guide"][aria-current="page"]:focus-visible { outline: 2px solid var(--site-ink); outline-offset: 2px; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide-maze"] body.vm-guide-maze-route .guide-story > .maze-guide-section:first-child { border-top-color: transparent; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide-maze"] body.vm-guide-maze-route :is(
+  .guide-brand-line, .guide-hero-orientation, .maze-guide-section p, .maze-guide-next p,
+  .maze-context-states p, .maze-recovery-card p, .maze-color-specimen p,
+  .maze-diagnostic-row span, .maze-footer.guide-footer
+) { color: #685847 !important; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide-maze"] body.vm-guide-maze-route :is(
+  .guide-kicker, .maze-guide-section h2, .maze-guide-next h2, .maze-query-specimen dd,
+  .maze-color-pips span, .maze-recovery-card strong
+) { color: #211b18; text-shadow: none; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide-maze"] body.vm-guide-maze-route .maze-color-pips .ms-w { text-shadow: 0 0 0.08em rgba(80, 55, 26, 0.52); }
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide-maze"] body.vm-guide-maze-route :is(
+  .maze-query-specimen dl > div, .maze-context-states article, .maze-recovery-card,
+  .guide-specimen, .maze-guide-next .guide-cta
+) { background: #fff8e8; border-color: #a88d62; color: #31271f; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide-maze"] body.vm-guide-maze-route :is(.maze-query-specimen dt, .maze-recovery-card > span, .maze-context-states span, .maze-query-specimen code, .maze-recovery-card code) { color: #8a5b19; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide-maze"] body.vm-guide-maze-route :is(.maze-query-specimen--warning, .maze-recovery-card--warning) { background: #f9e4df; border-color: #a65043; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide-maze"] body.vm-guide-maze-route .maze-specimen-next { border-left-color: #a65043; color: #7a302a !important; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide-maze"] body.vm-guide-maze-route .guide-cta:is(:hover, :focus-visible) { background: #eadcc1; border-color: #8a5b19; color: #211b18; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide-maze"] body.vm-guide-maze-route .driver-popover.vm-guide-walkthrough-popover { background: #fff8e8; border-color: #a88d62; color: #211b18; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide-maze"] body.vm-guide-maze-route .driver-popover.vm-guide-walkthrough-popover :is(.driver-popover-title, .driver-popover-description, .driver-popover-close-btn) { color: #31271f; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide-maze"] body.vm-guide-maze-route .driver-popover.vm-guide-walkthrough-popover .driver-popover-footer button { background: #f7edd8; border-color: #a88d62; color: #211b18; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide-maze"] body.vm-guide-maze-route :is(.vm-clipboard-button, .vm-feedback-dialog, .vm-feedback-field :is(input, textarea), .vm-feedback-manual-copy, .vm-feedback-secondary) { background: #fff8e8; border-color: #a88d62; color: #211b18; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide-maze"] body.vm-guide-maze-route .vm-clipboard-button:not(:disabled):is(:hover, :focus-visible) { background: #eadcc1; border-color: #8a5b19; color: #211b18; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide-maze"] body.vm-guide-maze-route :is(.vm-feedback-header h2, .vm-feedback-step h3) { color: #211b18; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide-maze"] body.vm-guide-maze-route .vm-feedback-context dt { color: #685847; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide-maze"] body.vm-guide-maze-route .vm-feedback-context dd { color: #31271f; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide-maze"] body.vm-guide-maze-route .maze-footer.guide-footer { background: #f7edd8; border-top-color: #a88d62; color: #685847; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="guide-maze"] body.vm-guide-maze-route .maze-footer.guide-footer a { color: #8a5b19; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .maze-mode-help p { background: #fff8e8; border-color: #a88d62; color: #685847; box-shadow: 0 12px 28px rgba(80, 55, 26, 0.16); }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .kw-suggestions { background: #fff8e8; border-color: #a88d62; box-shadow: 0 12px 28px rgba(80, 55, 26, 0.16); }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .kw-sug { background: transparent; color: #31271f; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .cmc-input { background: #fff8e8; border-color: #a88d62; color: #211b18; color-scheme: light; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route :is(.kw-add-btn, .colorless-only-btn) { background: #f7edd8; border-color: #a88d62; color: #31271f; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route :is(.kw-add-btn, .colorless-only-btn):is(:hover, :focus-visible),
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .colorless-only-btn.on { background: #eadcc1; border-color: #8a5b19; color: #211b18; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route :is(.cb-label, .ability-chip) { background: #f7edd8; border-color: #a88d62; color: #31271f; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route :is(.cb-label, .ability-chip):is(:hover, :focus-visible, .checked) { background: #eadcc1; border-color: #8a5b19; color: #211b18; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .kw-chip { background: #f7edd8; border-color: #0d6e60; color: #0d6e60; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .rarity-chip { background: #f7edd8; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .rarity-chip:is(:hover, .checked) { background: #eadcc1; box-shadow: 0 0 12px var(--rarity-glow); }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .current-weave { background: radial-gradient(circle at 50% 30%, rgba(247, 215, 132, 0.09), transparent 11rem) padding-box, var(--weave-edge) padding-box, linear-gradient(165deg, #fff8e8, #f7edd8) padding-box, var(--weave-edge) border-box; box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.56), 0 18px 38px rgba(80, 55, 26, 0.14); color: #31271f; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .current-weave:not([data-weave-state="invalid"]) .current-weave-copy h3 { color: #211b18; text-shadow: none; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .s-input::placeholder { color: #685847; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .search-primary-actions > #clear-search-btn { border-color: #866d47; color: #51310d; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .maze-command-copy p { color: #685847; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route :is(.query-inspector[data-interpretation-state="clear"] .qi-state, .results-interpretation-state[data-state="clear"]) { color: #0a5a4f; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .cpip { background: rgba(255, 248, 232, 0.72); border-color: rgba(138, 91, 25, 0.38); color: var(--maze-text); box-shadow: inset 0 0 0 1px rgba(80, 55, 26, 0.05); }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .cpip .ms { text-shadow: 0 1px 1px rgba(80, 55, 26, 0.28); }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .cpip:is(:hover, .on) { border-color: rgba(138, 91, 25, 0.78); box-shadow: 0 0 0 2px #fff8e8, 0 0 0 4px rgba(138, 91, 25, 0.3); }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .rarity-chip.rarity-c { border-color: #6c6862; color: #4f4b46; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .rarity-chip.rarity-u { border-color: #8797a4; color: #536b7b; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .rarity-chip.rarity-r { border-color: #a97919; color: #8a5b19; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .rarity-chip.rarity-m { border-color: #a65328; color: #8e3f22; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .rarity-chip .ms,
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .rarity-chip.checked .ms { color: currentColor; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .dossier-thread-search { background: #eadcc1; border-color: #8a5b19; color: #51310d; border-radius: 0.7rem 0.22rem 0.7rem 0.22rem; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .dossier-thread-search:is(:hover, :focus-visible) { background: #d7c39b; border-color: #6f4512; color: #211b18; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .qi-details > summary { margin-block-end: 8px; }
+html[data-vm-theme="light"][data-vm-theme-opt-in="maze"] body.vm-maze-route .more-abilities-panel { padding: 8px; }
+html[data-vm-theme="dark"][data-vm-theme-opt-in="maze"] body.vm-maze-route .qi-details > summary { margin-block-end: 8px; }
+html[data-vm-theme="dark"][data-vm-theme-opt-in="maze"] body.vm-maze-route .dossier-thread-search { border-radius: 0.7rem 0.22rem 0.7rem 0.22rem; }
