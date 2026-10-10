@@ -43,7 +43,7 @@ Branch: codex/vm-690-theme-recon
 Admission baseline: bbf880f31e786e7e488c2426af8562bbd8759b8f
 Candidate: da99c1f210465042573cac670e188f59064debcc
 RobQA: PASS at da99c1f210465042573cac670e188f59064debcc — QA-0 SAME-AGENT DISTINCT PHASE; original vm690-report-qa.md linked in coordinator handoff; candidate gate PASS
-Owner: ACCEPTED at da99c1f210465042573cac670e188f59064debcc; decision recorded in the appended Owner acceptance record in docs/handoffs/2026-10-10-0020-codex-vm690-theme-recon.md
+Owner: ACCEPTED at da99c1f210465042573cac670e188f59064debcc — decision recorded in the appended Owner acceptance record in docs/handoffs/2026-10-10-0020-codex-vm690-theme-recon.md
 Integration: PENDING
 Dependencies: None
 Decisions: QA-0 recon/report scope only. Preserve all required historical evidence, canonical data, runtime, existing branches/worktrees and checkpoint references. Safe removal is limited to proved disposable ignored temporary artifacts; unresolved candidates remain reported and retained. No product implementation, remote write, merge, deployment, unrelated repair or inferred product/QA/Owner/host decision.
