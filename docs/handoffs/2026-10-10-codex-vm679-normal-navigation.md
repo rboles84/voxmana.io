@@ -61,3 +61,14 @@ Owner: PENDING. Integration: PENDING. Candidate is on codex/vm-679-product-readi
 Shortest Owner inspection: serve this checkout locally, open /maze/index.html?from=archscry&fit=RG&pathType=commanders-that-fit, confirm the address has only the three normal selectors and the page provides Gruul discovery plus a local Archscry return. Repeat Colorless with fit=COLORLESS and pathType=colorless-identity if desired. Subjective product experience remains Owner judgment; engineering has already tested native activation, settled history/return, canonical semantics and Clipboard preservation. Production still serves the previously integrated version until separate explicit ACCEPT and integration.
 
 Decision: engineering work is complete at Owner Review, subject to final evidence-only review/delivery checker. No Owner acceptance is inferred. Follow-up: Owner ACCEPT or REJECT for the exact candidate; no unrelated debt repair. Next suggested agent: Owner.
+
+## Owner acceptance
+
+Task: VM-679
+Candidate: a8310845aa554ce465f5a35148e47d97e0f91fad
+Owner: ACCEPT
+Decision reference: Genuine Owner message "I accept" in the current VM-679 Codex chat, following the Owner manual link review on 2026-10-10.
+
+The acting coordinator directly received this decision. It authorizes the normal ACCEPT integration flow for the exact independent RobQA-passed candidate. The preceding pasted INK, Colorless and WUBRG links exercise preserved identity-explore URLs. No material change follows acceptance.
+
+Host routing: authenticated GitHub connector identity rboles84 and repository admin/push permission verified. Connector read, PR creation, CI observation and atomic expected-head squash merge are approved before attempts; schemas inspected. Native Git remains the established fetch/push transport. No fallback route is approved or probed. No matching task PR exists in the complete branch-specific search. Optional live branch-policy settings are unavailable in discovered connector capabilities; repository-required Deterministic Validation remains mandatory.
