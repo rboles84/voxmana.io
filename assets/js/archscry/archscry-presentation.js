@@ -1381,8 +1381,6 @@ export function withArchscryMazeContext(links = [], context, origin = "http://lo
       launchParams.contextMode = contextMode;
       launchParams.reviewIdentity = context.reviewIdentity;
       launchParams.readingId = context.readingId;
-    } else {
-      launchParams.readingId = context.readingId;
     }
     return {
       ...link,

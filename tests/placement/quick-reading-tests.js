@@ -2749,7 +2749,6 @@ assert.ok(duneMazePaths.every((path) => !/\bid(?:<)?=wbrg\b/i.test(path.operator
     url: `/maze/?q=${encodeURIComponent(query)}`,
   }], context, "http://localhost");
   const url = new URL(link.url, "http://localhost/archscry/index.html");
-  const readingId = `reading-archscry-${source.toLowerCase()}-64`;
   assert.equal(link.operatorQuery, query);
   assert.equal(link.plainReadingQuery, `Commanders that fit this reading from ${label}`);
   assert.deepEqual(
@@ -2758,7 +2757,6 @@ assert.ok(duneMazePaths.every((path) => !/\bid(?:<)?=wbrg\b/i.test(path.operator
       ["from", "archscry"],
       ["fit", key],
       ["pathType", "commanders-that-fit-this-reading"],
-      ["readingId", readingId],
     ]
   );
   [
@@ -2792,7 +2790,6 @@ assert.ok(duneMazePaths.every((path) => !/\bid(?:<)?=wbrg\b/i.test(path.operator
     url: `/maze/?q=${encodeURIComponent(query)}`,
   }], sameSourceContext, "http://localhost");
   const sameSourceUrl = new URL(sameSourceLink.url, "http://localhost/archscry/index.html");
-  const sameSourceReadingId = `reading-archscry-${key.toLowerCase()}-64`;
   assert.equal(sameSourceLink.operatorQuery, query);
   assert.equal(sameSourceLink.plainReadingQuery, `Commanders that fit this reading from ${label}`);
   assert.deepEqual(
@@ -2801,7 +2798,6 @@ assert.ok(duneMazePaths.every((path) => !/\bid(?:<)?=wbrg\b/i.test(path.operator
       ["from", "archscry"],
       ["fit", key],
       ["pathType", "commanders-that-fit-this-reading"],
-      ["readingId", sameSourceReadingId],
     ]
   );
   [

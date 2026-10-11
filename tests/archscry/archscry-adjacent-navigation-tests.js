@@ -120,8 +120,9 @@ const [adjacentMazeLink] = withArchscryMazeContext([{
   url: "/maze/?q=id%3Dubrg%20is%3Acommander"
 }], adjacentMazeContext, "http://localhost/archscry/index.html");
 const adjacentMazeUrl = new URL(adjacentMazeLink.url, "http://localhost/archscry/index.html");
-assert.equal(adjacentMazeUrl.searchParams.get("guild"), "GLINT");
 assert.equal(adjacentMazeUrl.searchParams.get("fit"), "GLINT");
-assert.equal(adjacentMazeUrl.searchParams.get("factionName"), "Glint");
-assert.equal(adjacentMazeUrl.searchParams.get("sourceFaction"), "DUNE");
-assert.equal(adjacentMazeUrl.searchParams.get("operatorQuery"), "id=ubrg is:commander f:commander");
+assert.deepEqual([...adjacentMazeUrl.searchParams.entries()], [
+  ["from", "archscry"],
+  ["fit", "GLINT"],
+  ["pathType", "commanders-that-fit"],
+]);
