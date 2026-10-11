@@ -101,3 +101,12 @@ Owner: PENDING
 Integration: PENDING
 
 Independent SEPARATE RobQA by /root/normal_urls_qa passed exact baseline source provenance, executing old producer/receiver sensitivity controls, current all37/147-link contracts, guard execution from a Git-less exported tree, test:placement, syntax/diff checks and generated-view freshness. Runtime/browser/other-test bytes remain equal to a8310845, preserving prior independent browser/adversarial evidence. Required hosted CI at the exact corrected candidate is green. Same PR80, no merge. Shortest Owner action is renewed acceptance of this test-only correction; no repeated visual journey is required by engineering because product bytes are unchanged.
+
+## Corrected Owner acceptance
+
+Task: VM-679
+Candidate: 67b4abd577c02789d5c2a90afb4f77ee61726b77
+Owner: ACCEPT
+Decision reference: Genuine renewed Owner message "I accept" in the current VM-679 Codex chat, immediately following corrected candidate67b4abd Owner Review and the test-material invalidation explanation.
+
+The coordinator directly received this decision; it authorizes integration of the corrected independent RobQA-passed candidate through existing PR80. Connector read/update/guarded-squash routes remain approved before attempts, identity/repository access reverified; native Git transport remains established. No material changes follow this decision. Final evidence-only head CI and integration checker must pass before an atomic expected-head squash merge.
