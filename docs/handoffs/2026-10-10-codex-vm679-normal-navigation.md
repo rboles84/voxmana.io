@@ -110,3 +110,15 @@ Owner: ACCEPT
 Decision reference: Genuine renewed Owner message "I accept" in the current VM-679 Codex chat, immediately following corrected candidate67b4abd Owner Review and the test-material invalidation explanation.
 
 The coordinator directly received this decision; it authorizes integration of the corrected independent RobQA-passed candidate through existing PR80. Connector read/update/guarded-squash routes remain approved before attempts, identity/repository access reverified; native Git transport remains established. No material changes follow this decision. Final evidence-only head CI and integration checker must pass before an atomic expected-head squash merge.
+
+## Verified integration and cleanup
+
+Task: VM-679
+Candidate: 67b4abd577c02789d5c2a90afb4f77ee61726b77
+Integration: INTEGRATED
+
+PR80 https://github.com/rboles84/voxmana.io/pull/80 merged by connector atomic expected-head guarded squash at input5de40e55ce7d14bb08a6befcd89ed6ad2c29a679 after integration checker PASS and exact-head Deterministic Validation success (run38113214824). Actual merge8b771aad1ccae1766013a92cdff60b1c79d56159 has sole parent47508d9c30f5e72282f0b1bf2bc75fcf7c814636 and treec25889fdecbc797def5354c1557b4c0a5a306b12, exactly equal to verified PR input tree. Local main fast-forwarded to the squash result.
+
+No unrelated dirty work or additional registered worktrees existed. Remote feature branch deleted with exact-head lease; local feature branch removed after tree verification, with complete task history preserved by local archive/vm679-integrated-candidate-20261011. Original archive/vm679-pre-reconciliation-20261010 and verified original complete bundle remain preserved. This closeout changes only lifecycle records, appended evidence and generated views. No additional product, test, policy or later-phase changes are authorized. Known unrelated VM-687 Clipboard assertion remains disclosed. Deployment was not separately verified.
+
+Cleanup observation correction: the exact-head remote deletion lease was rejected as stale because the feature ref was already absent after merge. Authenticated native Git ls-remote confirmed main at8b771aad and no remote feature ref; no retry was made. Remote absence is verified, but the agent did not itself delete that ref. Local branch deletion and archival preservation succeeded.
