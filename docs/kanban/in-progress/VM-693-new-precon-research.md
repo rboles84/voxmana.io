@@ -18,10 +18,10 @@ Current Owner request and hard boundary: existing 155 source records are read-on
 
 ## Acceptance Criteria
 
-- [ ] Capture source/generated baseline before edits; first 155 source records preserve every field, order and original formatting.
-- [ ] Import only completed nonduplicate candidates from New Precon Research, retaining factual commander-role distinctions and separating editorial assessments from official claims.
-- [ ] Rebuild through the existing builder; first 155 generated records retain full parsed values and order.
-- [ ] Report unsupported/incomplete candidates without fabricating missing facts or modifying the workbook.
+- [x] Capture source/generated baseline before edits; first 155 source records preserve every field, order and original formatting.
+- [x] Import only completed nonduplicate candidates from New Precon Research, retaining factual commander-role distinctions and separating editorial assessments from official claims.
+- [x] Rebuild through the existing builder; first 155 generated records retain full parsed values and order.
+- [x] Report unsupported/incomplete candidates without fabricating missing facts or modifying the workbook.
 - [ ] Apply proportionate independent QA and stop for Owner Review; no push, merge or deployment.
 
 ## Files Likely Impacted

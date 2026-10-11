@@ -1,4 +1,4 @@
-<!-- task-view-sha256:acb5aaa886ab6218d07949baf286247c22bc672769f292437650e90b1aa83204 -->
+<!-- task-view-sha256:0c27315e4f0270340263ad422db4b37da9e96c47e9024d919b426959ec82d0e3 -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -8,6 +8,8 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 
 | Authored / filename date | Agent | Handoff | Related task references | Diagnostics |
 |---|---|---|---|---|
+| 2026-10-11T00:00:00Z (authored) | Codex coordinator | [VM-693 — Append-only precon import coordination](2026-10-11-codex-vm693-precon-import.md) | VM-693 | Identity displayed from heading; not admission metadata. |
+| 2026-10-11T00:00:00Z (filename) | Unknown | [RobDev source-research handoff — VM-693 precon import](2026-10-11-robdev-vm693-precon-import.md) | VM-693 | Identity displayed from heading; not admission metadata. |
 | 2026-10-10T00:20:00-06:00 (authored) | /root/recon_records (Kanban Steward) | [Agent Handoff: Kanban Steward — VM-690 Theme Recon](2026-10-10-0020-kanban-vm690-theme-recon.md) | VM-690 | Identity displayed from heading; not admission metadata. |
 | 2026-10-10T00:00:00Z (authored) | /root | [VM-690 — Theme and Local Leftovers Reconnaissance](2026-10-10-0020-codex-vm690-theme-recon.md) | VM-690 | Identity displayed from heading; not admission metadata. |
 | 2026-10-10T00:00:00Z (authored) | /root | [VM-679 — normal navigation correction and history reconciliation](2026-10-10-codex-vm679-normal-navigation.md) | VM-679 | Identity displayed from heading; not admission metadata. |
