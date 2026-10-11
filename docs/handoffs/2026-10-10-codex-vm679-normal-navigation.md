@@ -42,3 +42,9 @@ Files reviewed: authorities and task sources named above; current archscry-prese
 ## Next step
 
 Complete bounded RobDev implementation/developer checks, freeze a clean exact candidate, obtain independent RobQA and delivery gate, record Owner Review PENDING and stop. Related: VM-679 card and original handoffs, VM-692 reconnaissance, accepted VM-678 and VM-680. Next suggested agent: independent RobQA after freeze, then Owner.
+
+## First candidate review and bounded correction
+
+Frozen first candidate de55e6c927dfa20917e850a4ae74aeb10df7799d had clean admission PASS. RobDev passed actual37-profile/147-link execution, focused state controls, RG/Colorless browser checks, placement/adjacent tests, lint, frontend smoke and16 presentation snapshots. Clipboard's broad source suite stopped at its known stale VM-687 topbar-token assertion; it was not repaired or reported green.
+
+Independent RobQA found current runtime behavior correct with a separate receiver matrix and settled-browser supplement, but blocked the first candidate because the recurring browser guard sampled transient initial HTML after domcontentloaded, used a DOM-invoked return click and omitted Colorless settled history/return coverage. The developer corrected only the admitted browser guard and appended its handoff: await settled canonical state/context, assert normal reading disclosure/label/return after reload/forward, and use native RG/Colorless return input. Syntax, lint, diff and corrected browser checks passed. Runtime bytes remain unchanged from the first candidate. The corrected exact candidate must receive independent re-review before any PASS or Owner Review claim.

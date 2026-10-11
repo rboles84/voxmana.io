@@ -79,3 +79,9 @@ Classification: QA-3 navigation/routing/state transition; separate independent r
 ## Next suggested agent
 
 - `/root/normal_urls_qa` for independent RobQA; coordinator then records the candidate and prepares Owner Review.
+
+## Post-review browser-guard correction
+
+- Independent RobQA identified that the prior browser guard sampled reload before the Maze context had settled and returned through a DOM-invoked click. The owned guard now waits for the authoritative normal handoff and visible `reading` context after initial navigation, reload, and forward navigation; it asserts the expected route label and Archscry return target each time.
+- The same native lifecycle now covers Colorless through keyboard ingress, reload, Back/Forward, and pointer return. The existing RG lifecycle continues to cover pointer ingress and Clipboard preservation; the separate pointer/keyboard/modified-tab checks for RG and Colorless remain in place.
+- No runtime code changed for this correction. Re-run the owned browser guard, frontend JavaScript lint, and `git diff --check` against the frozen candidate before independent re-review.

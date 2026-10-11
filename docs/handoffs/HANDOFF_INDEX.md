@@ -1,4 +1,4 @@
-<!-- task-view-sha256:e4defddb91e47638af03c895aa9a9f333dc7444a744aedfcd23d1a0736a1feba -->
+<!-- task-view-sha256:acb5aaa886ab6218d07949baf286247c22bc672769f292437650e90b1aa83204 -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -12,6 +12,7 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 | 2026-10-10T00:00:00Z (authored) | /root | [VM-690 — Theme and Local Leftovers Reconnaissance](2026-10-10-0020-codex-vm690-theme-recon.md) | VM-690 | Identity displayed from heading; not admission metadata. |
 | 2026-10-10T00:00:00Z (authored) | /root | [VM-679 — normal navigation correction and history reconciliation](2026-10-10-codex-vm679-normal-navigation.md) | VM-679 | Identity displayed from heading; not admission metadata. |
 | 2026-10-10T00:00:00Z (authored) | `/root/normal_urls_dev` — RobDev Terra medium, configured by repository Agent Model Routing | [RobDev handoff — VM-679 normal navigation](2026-10-10-robdev-vm679-normal-navigation.md) | VM-679 | Identity displayed from heading; not admission metadata. |
+| 2026-10-10T00:00:00Z (authored) | `/root/normal_urls_qa` — independent RobQA Sol medium | [Independent RobQA handoff — VM-679 normal navigation](2026-10-10-robqa-vm679-normal-navigation.md) | VM-679 | Identity displayed from heading; not admission metadata. |
 | 2026-10-09T23:30:00Z (filename) | Unknown | [VM-689 — RobDev handoff](2026-10-09-2330-robdev-vm689-maze-guide-polish.md) | VM-689 | Identity displayed from heading; not admission metadata. |
 | 2026-10-09T19:00:00Z (filename) | `/root/archscry_dev` (RobDev, configured Terra medium; backend-effective model unverified) | [VM-688 — RobDev implementation handoff](2026-10-09-1900-robdev-vm688-maze-theme.md) | VM-688 | Identity displayed from heading; not admission metadata. |
 | 2026-10-09T19:00:00Z (filename) | /root/archscry_qa | [RobQA strategy handoff — VM-688 Maze and Maze Guide theme, stage 6](2026-10-09-1900-robqa-vm688-maze-theme.md) | VM-688 | Identity displayed from heading; not admission metadata. |

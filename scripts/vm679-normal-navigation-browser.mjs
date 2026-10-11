@@ -33,8 +33,27 @@ async function contextBar(page) {
   });
 }
 
-async function assertNormalDestination(page, link, identity) {
+async function settledNormalContext(page, link, identity) {
   await waitMaze(page, link);
+  await page.waitForFunction((expectedIdentity) => {
+    const handoff = JSON.parse(localStorage.getItem("vm_archscry_maze_handoff_v1") || "{}");
+    const context = document.getElementById("maze-reading-context");
+    const label = document.getElementById("maze-reading-context-label");
+    const returnLink = document.getElementById("maze-reading-context-return");
+    return handoff.contextMode === "normal-reading"
+      && handoff.fit === expectedIdentity
+      && context && !context.hidden && context.dataset.state === "reading"
+      && Boolean(label?.textContent?.trim()) && Boolean(returnLink?.href);
+  }, { timeout: 15000 }, identity);
+  const context = await contextBar(page);
+  assert.match(context.label, /From .* reading/, "settled normal context labels the authoritative route");
+  assert.match(new URL(context.returnHref).pathname, /\/archscry\//, "settled normal context offers the Archscry return route");
+  assert.equal(new URL(context.returnHref).searchParams.has("readingId"), false, "safe return does not export a reading identifier");
+  return context;
+}
+
+async function assertNormalDestination(page, link, identity) {
+  await settledNormalContext(page, link, identity);
   const url = new URL(page.url());
   const state = await handoff(page);
   assert.deepEqual([...url.searchParams.entries()], [["from", "archscry"], ["fit", identity], ["pathType", new URL(link.href).searchParams.get("pathType")]], "visible normal URL is exactly the three public selectors");
@@ -45,7 +64,33 @@ async function assertNormalDestination(page, link, identity) {
   assert.equal(context.hidden, false, "normal route exposes the authoritative context bar");
   assert.equal(context.state, "reading");
   assert.match(context.label, /From .* reading/);
-  assert.equal(new URL(context.returnHref).searchParams.has("readingId"), false, "safe return does not export a reading identifier");
+}
+
+async function nativeReturn(page, identity) {
+  const selector = "#maze-reading-context-return";
+  await page.waitForSelector(selector, { visible: true, timeout: 15000 });
+  const handle = await page.$(selector);
+  const box = await handle.boundingBox();
+  assert(box && box.width > 1 && box.height > 1, "return link has a usable native hit area");
+  const navigation = page.waitForNavigation({ waitUntil: "domcontentloaded", timeout: 15000 });
+  await page.mouse.click(box.x + box.width / 2, box.y + box.height / 2);
+  await navigation;
+  await waitSource(page, identity);
+}
+
+async function assertNormalLifecycle(page, link, identity) {
+  const initial = await settledNormalContext(page, link, identity);
+  await page.reload({ waitUntil: "domcontentloaded" });
+  const reloaded = await settledNormalContext(page, link, identity);
+  assert.equal(reloaded.label, initial.label, "settled reload preserves the normal-route label");
+  assert.equal(reloaded.returnHref, initial.returnHref, "settled reload preserves the normal-route return");
+  await page.goBack({ waitUntil: "domcontentloaded" });
+  await waitSource(page, identity);
+  await page.goForward({ waitUntil: "domcontentloaded" });
+  const forwarded = await settledNormalContext(page, link, identity);
+  assert.equal(forwarded.label, initial.label, "settled forward preserves the normal-route label");
+  assert.equal(forwarded.returnHref, initial.returnHref, "settled forward preserves the normal-route return");
+  await nativeReturn(page, identity);
 }
 
 async function runNativeCase(browser, baseUrl, identity, activation) {
@@ -79,21 +124,11 @@ try {
   const clipboardReadingId = await addFindAndRead(rg);
   assert.equal(clipboardReadingId, "", "Clipboard remains independent of removed normal reading identifiers");
   const clipboardBeforeReturn = await rg.evaluate(() => localStorage.getItem("vm_maze_reading_finds_v1"));
-  await rg.reload({ waitUntil: "domcontentloaded" });
-  assert.equal((await handoff(rg)).returnBannerDismissed, false, "fresh normal route keeps current context disclosure active on reload");
-  const reloadContext = await contextBar(rg);
-  assert.equal(reloadContext.hidden, true, "reload keeps the existing builder-mode context-bar boundary");
-  assert.equal(reloadContext.label, "", "reload does not expose a stale reading label");
-  assert.equal(reloadContext.actionHidden, true, "reload does not expose a stale reading action");
-  await rg.goBack({ waitUntil: "domcontentloaded" }); await waitSource(rg, "RG");
-  await rg.goForward({ waitUntil: "domcontentloaded" }); await waitMaze(rg, { href: `${baseUrl}/maze/index.html?from=archscry&fit=RG&pathType=commanders-that-fit` });
-  assert.equal((await handoff(rg)).returnBannerDismissed, false, "back/forward preserves the active normal context state");
-  assert.equal((await contextBar(rg)).hidden, false, "back/forward restores the prior normal context bar");
-  await Promise.all([rg.waitForNavigation({ waitUntil: "domcontentloaded" }), rg.$eval("#maze-reading-context-return", (node) => node.click())]);
-  await waitSource(rg, "RG");
+  await assertNormalLifecycle(rg, { href: `${baseUrl}/maze/index.html?from=archscry&fit=RG&pathType=commanders-that-fit` }, "RG");
   assert.equal(await rg.evaluate(() => localStorage.getItem("vm_maze_reading_finds_v1")), clipboardBeforeReturn, "return preserves Clipboard rows");
 
   const colorless = await runNativeCase(browser, baseUrl, "COLORLESS", "keyboard");
+  await assertNormalLifecycle(colorless, { href: `${baseUrl}/maze/index.html?from=archscry&fit=COLORLESS&pathType=colorless-identity` }, "COLORLESS");
   const rgKeyboard = await runNativeCase(browser, baseUrl, "RG", "keyboard");
   await rgKeyboard.close();
   const colorlessPointer = await runNativeCase(browser, baseUrl, "COLORLESS", "pointer");
