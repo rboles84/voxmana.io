@@ -46,7 +46,7 @@ RobQA: PENDING
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
-Decisions: Existing 155 records are immutable for this task. New Precon Research is the sole workbook candidate tab. Existing 155 workbook rows are duplicate-detection input only.
+Decisions: Existing 155 records are immutable for this task. New Precon Research is the sole workbook candidate tab. Existing 155 workbook rows are duplicate-detection input only. Scope amendment: update only the existing precon artifact test's total-count assertions to reflect completed additions; retain all existing substantive assertions and independently verify original-155 preservation.
 Evidence: Pre-edit source/generated snapshots and SHA-256 manifest saved under the current conversation visualization directory in precon-baseline/.
 
 ## Admission Scope
@@ -60,3 +60,4 @@ Evidence: Pre-edit source/generated snapshots and SHA-256 manifest saved under t
 - `docs/research/vm693-new-precon-import.md`
 - `data/precons/vox-mana-precons.source.json`
 - `data/precons/vox-mana-precon-catalog.json`
+- `tests/precons/precon-artifact-tests.js`
