@@ -87,3 +87,25 @@ Owner requested a read-only placement and expanded-list investigation. No source
 Independent /root/precon_qa revokes the earlier overall PASS for material candidate 4efbec64475eff4fce92ee88a4c0ed42c510b1f8: current overall RobQA is BLOCKED, while placement/discoverability passes. The Fantastic Four and Heads I Win, Tails You Lose have semicolon-delimited mainCommander values; the existing renderer recognizes spaced slashes, causing invalid combined commander-detail/provider targets. This affects new records only. Proposed corrections remain unbuilt and unreviewed; this recon does not authorize or certify a corrected candidate. Owner and integration remain pending.
 
 External receipts in C:/Users/obake/.codex/visualizations/2026/10/11/01a12c34-a0b1-79a1-9ea5-67fb5f505a82/: vm693-recon-robdev.md, vm693-recon-qa-handoff.md, vm693-recon-qa-matrix.json and vm693-recon-qa-audit.mjs. QA handoff SHA-256: B09EE1ADEEC6C688EFDE1B18A00948A994CA8EED6D025B37F5010D3D7DA1D5E7. Matrix SHA-256: 4AC8621C4603E28E44D595FC387636A1EE38439A11E2FAE07272F1778976F7D8. Audit helper SHA-256: 08700E01F9AAE159D1FA9CD9C8E794EAC390AEBFE708771CBD1B5F37BDE0028C. Observed recon HEAD: 140879bf11d7efebb38478d259361627fe688a31; material candidate unchanged.
+
+## Corrected candidate RobQA — 2026-10-11
+
+Task: VM-693
+Candidate: a5d4ac190ff408a2d1cf970e3ed358975f1fe3c8
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: /root/precon_qa
+Implementer: /root/precon_import
+
+The correction changes only the two appended canonical `mainCommander` fields from semicolon separators to the established spaced-slash convention, plus deterministic generated fields and focused regression evidence. The Fantastic Four now resolves to four exact playable-name preview/detail targets; Heads I Win, Tails You Lose resolves to two. No runtime, schema, taxonomy, scoring, grouping or provider behavior changed.
+
+Independent candidate-bound validation passed:
+
+- `npm.cmd run build:precons` rebuilt 172 records with no Git delta.
+- `node tests/precons/precon-discoverability-tests.js` passed the explicit 17-deck/18-association fixture across 37 canonical identities and beginner, returning, experienced and advanced profiles. Runtime dedupe, six-card primary plus remaining union, ordered rendering, both toggle states, noneligible exclusion, no unsupported native associations and the two-entry stretch cap all passed.
+- `node --test tests/precons/precon-artifact-tests.js` passed and invoked the registered focused discoverability regression.
+- The correction-specific independent matrix passed 2,516 identity/deck/profile cells with 18 exact associations per profile, zero problems, 25 returning-profile overflow round-trips and zero semicolon commander-render gaps.
+- The original 155 source and generated records still match the saved baseline in parsed values, order and raw object bytes. Source metadata outside the existing `record_count` change remains identical.
+- The pre-correction-to-candidate canonical source delta contains exactly the two appended `mainCommander` fields. The generated delta is limited to their rebuilt `mainCommander`, `commanderSearchQuery` and corresponding `searchTerms` entries. `git diff --check` passed.
+
+This PASS applies only to exact candidate `a5d4ac190ff408a2d1cf970e3ed358975f1fe3c8` and supersedes the BLOCKED verdict for `4efbec64475eff4fce92ee88a4c0ed42c510b1f8`. Owner Review remains required. The historical recon artifacts remain unchanged; correction-specific evidence is stored separately under the same visualization root.
