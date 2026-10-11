@@ -1,4 +1,4 @@
-<!-- task-view-sha256:fbe2af80a15295bb00d9eb177df94e055a4aa18ce58de8e96e72ab81ad1de1d1 -->
+<!-- task-view-sha256:1ea14cca5c7bc33376bb496f664f6ca43ab67c8934353c0f90ca3997c431d7c4 -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -39,8 +39,13 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 | 2026-10-06T22:10:00Z (filename) | Codex coordinator /root | [VM-681 Owner Review handoff — smaller Maze hover preview](2026-10-06-2210-codex-vm681-owner-review.md) | VM-681 | Identity displayed from heading; not admission metadata. |
 | 2026-10-06T22:10:00Z (filename) | Unknown | [VM-681 RobDev handoff — Maze hover size](2026-10-06-2210-robdev-vm681-maze-hover-size.md) | VM-681 | Identity displayed from heading; not admission metadata. |
 | 2026-10-06T22:10:00Z (filename) | /root/hover_plan_redteam | [VM-681 — Independent RobQA: Maze hover preview size reduction](2026-10-06-2210-robqa-vm681-maze-hover-size.md) | VM-681 | Identity displayed from heading; not admission metadata. Invalid authored date; filename fallback or undated ordering used. |
+| 2026-10-05T21:50:00-06:00 (authored) | /root (current session; no subagents) | [Clipboard independence and separate VM-679 URL cleanup](2026-10-05-2150-codex-clipboard-vm679-recon.md) | VM-679 | Identity displayed from heading; not admission metadata. |
 | 2026-10-05T22:11:00Z (filename) | Unknown | [VM-680 — Clipboard implementation handoff](2026-10-05-2211-codex-vm680-clipboard.md) | VM-680 | Identity displayed from heading; not admission metadata. |
 | 2026-10-05T22:11:00Z (filename) | Unknown | [VM-680 — Independent Clipboard RobQA](2026-10-05-2211-robqa-vm680-clipboard.md) | VM-680 | Identity displayed from heading; not admission metadata. |
+| 2026-10-05T14:21:00-06:00 (authored) | /root | [VM-679 — Reading identity design and Owner decision packet](2026-10-05-1421-codex-vm679-owner-design.md) | VM-679, VM-678, VM-628 | Identity displayed from heading; not admission metadata. |
+| 2026-10-05T14:21:00-06:00 (authored) | /root/vm678_history | [RobDev handoff — VM-679 decision-history reconnaissance](2026-10-05-1421-robdev-vm679-history.md) | VM-679, VM-678 | Identity displayed from heading; not admission metadata. |
+| 2026-10-05T14:21:00-06:00 (authored) | /root/reading_id_producers | [VM-679 Reading identifier persistence and compatibility reconnaissance](2026-10-05-1421-robdev-vm679-persistence.md) | VM-679 | Identity displayed from heading; not admission metadata. |
+| 2026-10-05T14:21:00-06:00 (authored) | /root/vm679_design_qa | [Independent RobQA review — VM-679 Reading identifier design](2026-10-05-1421-robqa-vm679-design-review.md) | VM-679 | Identity displayed from heading; not admission metadata. |
 | 2026-10-05T11:45:00-06:00 (authored) | /root/qa_final | [VM-678 placement URL contract correction — independent RobQA](2026-10-05-1145-robqa-vm678-placement-url-contract.md) | VM-678 | Identity displayed from heading; not admission metadata. |
 | 2026-10-05T11:45:00Z (filename) | /root | [VM-678 — placement URL test-contract correction](2026-10-05-1145-codex-vm678-placement-url-contract.md) | VM-678, VM-679 | Identity displayed from heading; not admission metadata. |
 | 2026-10-05T11:45:00Z (filename) | `/root/placement_contract` (RobDev) | [RobDev handoff — VM-678 placement URL contract correction](2026-10-05-1145-robdev-vm678-placement-url-contract.md) | VM-678 | Identity displayed from heading; not admission metadata. |
