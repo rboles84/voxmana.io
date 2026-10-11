@@ -1,54 +1,59 @@
-# VM-679 — Remove project-task-derived identifiers from runtime/public Reading provenance
+# VM-679 — Clean normal Archscry to Maze navigation URLs
 
 ID: VM-679
-Title: Remove project-task-derived identifiers from runtime/public Reading provenance
+Title: Clean normal Archscry to Maze navigation URLs
 Status: In Progress
-Type: Documentation-only reconnaissance and separate URL cleanup plan
-Area: Public/runtime Reading identifiers; Clipboard dependency reconnaissance
+Type: Bounded navigation correction
+Area: Archscry serializer and Maze normal ingress
 Priority: High
 Created: 2026-10-04
 
 ## Summary
 
-Plan a separate identifier-value cleanup so newly generated normal Archscry → Maze URLs expose product context rather than development-derived values. This is required deferred work from VM-678, not optional debt.
+Normal discovery links emit exactly `/maze/index.html?from=archscry&fit=RG&pathType=commanders-that-fit`, substituting canonical identity/path. Remove readingId entirely without a replacement public identifier. Correct stale receiver ownership, normal reading disclosure and internal banner dismissal together. Valid legacy normal launches remove all obsolete readingId parameters from the visible address after successful validation, using replaceState without adding history.
 
-Owner corrected the product requirement on 2026-10-05: saved cards belong to one independent Clipboard, accessible from the site-wide top bar. They do not belong to separate Readings. Preserve existing cards, quantities, editing/export, saved-data lifetime and the existing Add control. Clipboard and VM-679 are separate future implementation scopes. The [corrected recon](../../handoffs/2026-10-05-2150-codex-clipboard-vm679-recon.md) replaces the unapproved combined journey/store proposal; historical packets remain evidence. Values such as `vm551-gate-b1-placement-engine-v1-quick-rg-4` are still unsuitable for newly generated URLs.
+## Source and preserved research
 
-## Source
+Owner implementation request in attachment a5589c0b-8d4d-40c3-b335-b03c0f71d71e on 2026-10-10 supersedes the earlier documentation-only/value-only proposal. VM-692 report and its red-team correction were read at codex/vm-692-archscry-maze-url-recon. VM-678 accepted safe local returns remain protected; VM-680 integrated Clipboard independence is a prerequisite already satisfied on main.
 
-Owner's VM-678 mandatory follow-up direction and corrected current-link decision, 2026-10-04. See [VM-678](../done/VM-678-url-security-recon.md) and its current-link handoff. Owner requested a deep repository and VM-678-history investigation plus a concrete design and Owner decision packet on 2026-10-05. This admission permits documentation-only recon/design; runtime implementation and migration remain gated on explicit Owner design approval.
+Original VM-679 research head59f2d959bb5e5f6bc2a6c74f4e721c13c8df0a0f and pre-reconciliation merge0a56bf05472c9c2be4fe7785b78aa9f75e6f0fc7 are preserved by archive/vm679-pre-reconciliation-20261010 and a verified complete-history bundle. Owner explicitly authorized same-branch reconciliation on 2026-10-10. The five original research handoffs are restored byte-for-byte; their event-time proposals are historical and do not govern this implementation.
 
-Owner's subsequent pasted request, “Recon: independent Clipboard and a separate VM-679 URL cleanup,” authorizes source inspection and documentation-only recon in the current session, without subagents. It explicitly protects Archscry → Maze links during Clipboard work and permits only the identifier-value difference in later VM-679 work. Implementation, push, merge and deploy are not authorized by this request.
+## Scope and pre-edit contract
 
-## Scope
+Owning runtime layers: `withArchscryMazeContext` normal serialization and `research-init.js` normal ingress/disclosure/banner. Reuse canonical profile/path builders and accepted return construction. No other runtime owner is admitted. Current producer emits development-derived readingId; current receiver inherits retained ID and mode fields when no ID is supplied.
 
-- Reuse the existing VM-679 inventory and verify current saved-card paths, exact-ID display dependence, ordinary actions/export and storage precedence.
-- Plan one editable Clipboard using existing storage, cards, quantities and lifetime; identify shared header coverage across public page-layout families.
-- Establish the actual prerequisite for URL cleanup separately from the top-bar improvement.
-- Plan VM-679's normal identifier producer/value change and supported old-bookmark compatibility; preserve route/parameter structure, search, native navigation and accepted returns.
-- Return the concrete report and focused future acceptance checks; stop before runtime work. Do not revive Reading groups, association-specific rows/exports, read-only old cards, saved quiz history or retired transport experiments.
+Explicit valid normal ingress creates authoritative `contextMode: normal-reading` from the validated URL route. Do not inherit readingId, review/explore authority, labels, raw returnUrl, sourceFaction or placementResult. A fit/path match does not prove historical snapshot ownership. Archscry saved-result restoration remains independent; viewed fit must never be substituted for primary reading identity. Copied/new-tab/bookmarked routes reconstruct canonical discovery without a historical-reading promise. No migration, registry, nonce or new continuity protocol.
+
+Banner policy before implementation: dismissal belongs only to the canonical normal fit/path route. Fresh explicit navigation resets dismissal; reload and back_forward may retain it only for the same authoritative normal route. Changed route or malformed/foreign retained mode resets. A bfcache-restored document retains its existing UI state. This route identity is internal and conveys no unique reading identity.
+
+Legacy address policy: preserve first-value URLSearchParams parsing. Validate origin/mode/profile/path before cleanup; delete every readingId occurrence only on valid normal ingress, preserve unrelated parameters/hash/history.state, add no history entry. Do not rewrite invalid, unrelated, explore or review launches. Invalid explicit mode must not gain normal authority silently.
+
+Protected: all37 profiles, path order/count and YORE reachability boundary; canonical Operator/Plain/Scryfall semantics; primary versus viewed fit; anchors/click/Enter/modified-open/new-tab; validated local returns; public explore and gated local review; Clipboard quantities/editing/export and inert metadata; diagnostic engine versions.
+
+Excluded: theme/cache/assets, scoring/placement/semantics/certification, unrelated visual matrices, checkpoint repair, architecture/footer, services/dependencies/storage schemas and diagnostic naming cleanup. Any additional runtime owner or product promise returns to coordinator before expansion.
 
 ## Acceptance Criteria
 
-- [x] Verify the actual collection/Reading dependency and distinguish controlling fields from inert metadata.
-- [x] Explain retention of one editable store, existing cards/quantities and overlapping-source precedence without a new migration framework.
-- [x] Identify site-wide top-bar owners, layout-family coverage and reusable collection UI.
-- [x] Give an evidence-backed dependency verdict and smallest sensible work order.
-- [x] Define separate VM-679 non-Clipboard owners and the identifier-value-only URL difference.
-- [x] Record protected navigation and focused future acceptance checks in one corrected report.
-- [ ] Explicit Owner instruction for separately admitted runtime implementation; independent candidate QA and later Owner acceptance remain pending.
+- [ ] Actual all37 builders emit exact ordered normal3 selectors; explore/review unchanged.
+- [ ] Authoritative normal state/disclosure/query/safe return across absent/stale/same-fit/review/explore/malformed retained state.
+- [ ] Valid old normal URLs including duplicate IDs normalize address narrowly, preserving first-value parsing/history state/hash/unrelated params.
+- [ ] Documented banner policy holds on explicit launch/reload/BackForward/changed route.
+- [ ] Real browser RG and Colorless or WUBRG native click/Enter/modified-open/new-tab/reload/history/return/legacy cleanup/Clipboard preservation.
+- [ ] Leaking producer and stale-state inheritance fail new guards as sensitivity controls.
+- [ ] Affected navigation/Clipboard/focused guards/lint/frontend smoke/generated views checked; known VM-687 debt distinguished.
+- [ ] Independent RobQA on exact frozen runtime candidate passes; Owner Review PENDING, no integration/deployment.
 
 ## Files Likely Impacted
 
-The [corrected recon](../../handoffs/2026-10-05-2150-codex-clipboard-vm679-recon.md#4-clipboard-scope-and-protected-navigation) names Clipboard owners and [separate VM-679 owners](../../handoffs/2026-10-05-2150-codex-clipboard-vm679-recon.md#5-separate-vm-679-scope). Admission remains documentation-only: this card, handoffs and generated views. Runtime/test owners require explicit Owner implementation instruction and separately appropriate admission; a source inventory is not runtime authority.
+Exactly the two runtime owners, directly coupled tests, focused VM-679 guards, package recurring path, lifecycle card/handoffs and generated board/index listed below. Frozen VM-678 oracles remain unchanged.
 
 ## Risks
 
-The dossier's exact-ID filter would hide old cards if left intact during URL cleanup. Resolve collection independence first; preserve old ID pass-through navigation. Extracted Clipboard must share one in-memory store instance with Maze, preserve ordinary row identity/quantities, and never union overlapping historical keys.
+Stale-state attribution, incorrect primary-versus-fit, legacy first-value/duplicate handling, return security and banner-history semantics. Required missing browser evidence blocks runtime QA PASS. Known unrelated failures do not authorize broad repairs or weaker guards.
 
 ## Implementation Prompt
 
-This request ends at the corrected recon. After explicit Owner instruction, implement Clipboard independently while preserving generated Archscry → Maze links byte-for-byte and the quiz lifecycle. Then implement VM-679 as the separate approved identifier-value cleanup, with no Clipboard changes. Preserve native navigation, searches, supported old bookmarks and accepted returns. Do not use the historical unapproved journey/store proposal or retired VM-678 transports as implementation authority.
+Use configured RobDev Terra medium and independent RobQA Sol medium. Coordinator owns admission/Git/card; RobDev owns bounded runtime/tests and its handoff; RobQA owns independent classification/execution and its handoff. Freeze before candidate QA and stop at engineering PASS plus Owner Review.
 
 ## Delivery
 
@@ -56,12 +61,12 @@ Record version: 1
 Branch: codex/vm-679-product-reading-identifiers
 Admission baseline: 47508d9c30f5e72282f0b1bf2bc75fcf7c814636
 Candidate: PENDING
-RobQA: PENDING for corrected scope. The prior SEPARATE documentation-design PASS at 7971a6f41b07d90b751dddee39a95f2cdb7424b7 remains historical evidence only; it does not approve or certify this corrected recon or any runtime implementation.
+RobQA: PENDING
 Owner: PENDING
 Integration: PENDING
-Evidence: [Corrected Clipboard / separate VM-679 recon](../../handoffs/2026-10-05-2150-codex-clipboard-vm679-recon.md). Historical unapproved [Owner design packet](../../handoffs/2026-10-05-1421-codex-vm679-owner-design.md), [VM-678 history](../../handoffs/2026-10-05-1421-robdev-vm679-history.md), [persistence inventory](../../handoffs/2026-10-05-1421-robdev-vm679-persistence.md) and [prior design QA](../../handoffs/2026-10-05-1421-robqa-vm679-design-review.md) are retained without edits. Current recon has no independent QA or engineering PASS claim; Owner explicitly assigns independent implementation QA to the later stage.
+Evidence: Original research preserved unchanged in the five historical handoffs; current implementation/reconciliation packet docs/handoffs/2026-10-10-codex-vm679-normal-navigation.md; independent runtime QA pending.
 Dependencies: None
-Decisions: Owner explicitly authorizes same-branch history reconciliation on 2026-10-10: "lets fix this so we are operating on the best most cleanest version we can please, if the risk is low Id like to resolve it". Preserve original research and prior merge history through archive/vm679-pre-reconciliation-20261010 and a verified complete-history bundle; reconstruct the existing task on synchronized main with a linear admission chain. Original admission baseline 8cee92d103f28c2ca23c21f20bb35f47a849b4f6 and original research head 59f2d959bb5e5f6bc2a6c74f4e721c13c8df0a0f remain preserved there. This is explicit reconciliation, not a duplicate task or implementation branch. Original documentation scope follows: Required Owner-directed deferred work from VM-678. Owner authorizes deep recon/design and an explicit decision packet on 2026-10-05 in this chat. Admit documentation-only investigation, attributed specialist handoffs and independent proposal review. Establish producers, consumers, persisted data, bookmark compatibility, rejected VM-678 directions, alternatives, concrete recommendation, blast radius, product benefit and exact Owner request. No runtime/test/fixture/data change, identifier minting, migration, transport experiment, integration or deployment is authorized. Return the concrete proposal to Owner before implementation. Scope amendment: add one documentation-only handoff for the Owner's corrected Clipboard and separate VM-679 reconnaissance, using this session without subagents; preserve prior evidence and leave implementation pending explicit instruction. Scope amendment: Owner normal-navigation implementation request (attachment a5589c0b-8d4d-40c3-b335-b03c0f71d71e, 2026-10-10) authorizes two runtime owners, directly coupled assertions, focused deterministic/browser guards, recurring test wiring and separate role/coordinator handoffs. Normal public links have exactly from/fit/pathType with no public identifier; preserve original research and frozen VM-678 evidence. Independent RobQA and Owner Review required; no integration/deploy authorization.
+Decisions: Owner normal-navigation implementation request (attachment a5589c0b-8d4d-40c3-b335-b03c0f71d71e, 2026-10-10) authorizes exact normal3-selector serialization and bounded receiver/disclosure/banner/legacy cleanup, coupled tests and independent QA, stopping at Owner Review. Owner separately explicitly authorizes same-branch history reconciliation on 2026-10-10 ("lets fix this so we are operating on the best most cleanest version we can please, if the risk is low Id like to resolve it"). Full original research/merge history is preserved in archive/vm679-pre-reconciliation-20261010 and verified complete bundle; five research handoffs retain exact original bytes. Current admission baseline is verified synchronized main47508d9c30f5e72282f0b1bf2bc75fcf7c814636. No duplicate task/worktree, validator weakening, new public token, migration, registry, remote write, ACCEPT, integration or deployment.
 
 ## Admission Scope
 
@@ -85,7 +90,3 @@ Decisions: Owner explicitly authorizes same-branch history reconciliation on 202
 - `docs/handoffs/2026-10-10-robdev-vm679-normal-navigation.md`
 - `docs/handoffs/2026-10-10-robqa-vm679-normal-navigation.md`
 - `docs/handoffs/2026-10-10-codex-vm679-normal-navigation.md`
-
-## Notes
-
-VM-678 remains closed. `Dependencies: None` records no active-branch dependency/isolation exception. Clipboard-first sequencing resolves the live dossier exact-ID display dependency; top-bar placement is independently requested and is not a technical prerequisite for changing the identifier. No runtime work, independent agent review, new task/branch/worktree, remote write or delivery action occurred in this corrected recon. Prior proposal/QA facts retain their event-time meaning; they do not establish acceptance of Reading-specific collections.
