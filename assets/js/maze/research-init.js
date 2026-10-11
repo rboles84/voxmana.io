@@ -1175,18 +1175,18 @@ function updateReadingContextDisclosure() {
   if (!context || !label || !returnLink || !action) return;
   returnLink.removeAttribute("href");
   returnLink.classList.add("hidden");
-  if (currentMode === "builder") {
+  const retainedHandoff = readArchscryMazeHandoff();
+  const retainedDossierContext = [IDENTITY_EXPLORE_CONTEXT_MODE, DOSSIER_REVIEW_CONTEXT_MODE].includes(retainedHandoff?.contextMode);
+  const hasReadingContext = retainedHandoff?.from === "archscry" && retainedHandoff?.contextMode === "normal-reading";
+  if (currentMode === "builder" && !hasReadingContext) {
     context.hidden = true;
     return;
   }
-  const retainedHandoff = readArchscryMazeHandoff();
   const independent = isIndependentSearch();
   const retainedDossierKey = resolveDossierActiveKey(retainedHandoff?.fit || retainedHandoff?.guild || "");
   const retainedFactionName = String(
     retainedHandoff?.factionName || DOSSIER_DISPLAY_NAMES.get(retainedDossierKey) || retainedHandoff?.fit || retainedHandoff?.guild || ""
   ).trim();
-  const retainedExplorationContext = retainedHandoff?.contextMode === IDENTITY_EXPLORE_CONTEXT_MODE;
-  const hasReadingContext = Boolean(retainedHandoff?.readingId) && !retainedExplorationContext;
   const pathLabel = ARCHSCRY_PATH_LABELS[retainedHandoff?.pathType] || "";
   const returnUrl = dossierReturnUrlForHandoff(retainedHandoff);
 
@@ -1200,7 +1200,7 @@ function updateReadingContextDisclosure() {
   returnLink.classList.toggle("hidden", !returnUrl);
   action.classList.add("hidden");
 
-  if (retainedExplorationContext) {
+  if (retainedDossierContext) {
     context.dataset.state = "dossier";
     label.textContent = `From ${retainedFactionName} dossier${pathLabel ? ` · ${pathLabel}` : ""}`;
   } else if (independent && hasReadingContext) {
@@ -3115,6 +3115,24 @@ function writeArchscryMazeHandoff(handoff) {
   } catch (_) {}
 }
 
+function navigationType() {
+  return performance?.getEntriesByType?.("navigation")?.[0]?.type || "navigate";
+}
+
+function isSameNormalMazeRoute(handoff, fit, pathType) {
+  return handoff?.from === "archscry" &&
+    handoff?.contextMode === "normal-reading" &&
+    resolveDossierActiveKey(handoff.fit || handoff.guild) === fit &&
+    handoff.pathType === pathType;
+}
+
+function removeLegacyReadingIdFromAddress() {
+  const current = new URL(location.href);
+  if (!current.searchParams.has("readingId")) return;
+  current.searchParams.delete("readingId");
+  history.replaceState(history.state, "", current.href);
+}
+
 const COLORLESS_DOSSIER_PATH_TYPE_ALIASES = new Map([
   ["commanders-that-fit", "colorless-identity"],
   ["support-cards", "colorless-noncommander-support"],
@@ -3161,6 +3179,7 @@ function initializeArchscryMazeHandoff(urlParams) {
     return;
   }
 
+  const explicitContextMode = urlParams.get("contextMode") || "";
   const requestedReviewIdentity = resolveDossierActiveKey(urlParams.get("reviewIdentity"));
   const requestedExploreIdentity = resolveDossierActiveKey(urlParams.get("exploreIdentity"));
   const dossierReviewContext = urlParams.get("contextMode") === DOSSIER_REVIEW_CONTEXT_MODE && requestedReviewIdentity
@@ -3170,13 +3189,18 @@ function initializeArchscryMazeHandoff(urlParams) {
     ? requestedExploreIdentity
     : "";
   const transientIdentityContext = dossierReviewContext || identityExploreContext;
-  const existing = transientIdentityContext ? {} : readArchscryMazeHandoff() || {};
-  const launchReadingId = urlParams.get("readingId") || existing.readingId || "";
+  const normalIngress = !transientIdentityContext && (!explicitContextMode || explicitContextMode === "normal-reading");
+  const previousHandoff = readArchscryMazeHandoff() || {};
+  if (!normalIngress && !transientIdentityContext) {
+    writeArchscryMazeHandoff({ from: "archscry", contextMode: explicitContextMode || "invalid", returnBannerDismissed: false });
+    return;
+  }
+  const existing = {};
   const urlQ = urlParams.get("q") || "";
   const explicitOperatorQuery = urlParams.get("operatorQuery") || "";
-  const pathType = urlParams.get("pathType") || existing.pathType || "";
+  const pathType = urlParams.get("pathType") || "";
   const initialOperatorQuery = normalizeLiveFourColorExactCommanderQuery(
-    explicitOperatorQuery || (isMazeOperatorQuery(urlQ) ? urlQ : "") || (!urlQ ? existing.operatorQuery || "" : ""),
+    explicitOperatorQuery || (isMazeOperatorQuery(urlQ) ? urlQ : ""),
     pathType
   );
   const hasExplicitFit = urlParams.has("fit");
@@ -3184,7 +3208,7 @@ function initializeArchscryMazeHandoff(urlParams) {
   const urlFactionNameKey = resolveDossierActiveKey(urlParams.get("factionName"));
   const urlGuildKey = resolveDossierActiveKey(urlParams.get("guild"));
   const operatorKey = inferDossierKeyFromMazeQuery(initialOperatorQuery);
-  const existingFitKey = resolveDossierActiveKey(existing.fit || "");
+  const existingFitKey = "";
   const colorlessUrlKey = [urlFitKey, urlFactionNameKey, urlGuildKey].find((key) => key === "COLORLESS") || "";
   const fit = transientIdentityContext ||
     urlFitKey ||
@@ -3208,9 +3232,9 @@ function initializeArchscryMazeHandoff(urlParams) {
     existingSourceFactionKey
   ].map((value) => resolveDossierActiveKey(value))
     .find((sourceKey) => sourceKey && sourceKey !== fit) || "";
-  const factionName = liveFourColorDisplayName ||
+  let factionName = liveFourColorDisplayName ||
     (fit === "COLORLESS" ? "Colorless" : urlParams.get("factionName")) ||
-    (keepExistingLabel ? existing.factionName || "" : "");
+    "";
   const canonicalRouteClaim = urlParams.has("fit");
   const canonicalProfile = resolveMazeDiscoveryProfile(mazeDiscoveryProfileCatalog, fit);
   if (canonicalRouteClaim && !canonicalProfile) {
@@ -3264,12 +3288,14 @@ function initializeArchscryMazeHandoff(urlParams) {
     handoffPathType = colorlessLaunch.pathType || handoffPathType;
     handoffPlainReadingQuery = colorlessLaunch.plainReadingQuery || handoffPlainReadingQuery;
   }
-  const readingId = launchReadingId || stableLocalReadingId({ fit, factionName, pathType: handoffPathType, operatorQuery });
-  const previousIdentity = [existing.readingId, existing.fit, existing.pathType].filter(Boolean).join(":");
-  const nextIdentity = [readingId, fit, handoffPathType].filter(Boolean).join(":");
-  const keepExistingPlacementResult = !LIVE_FOUR_COLOR_DOSSIER_KEYS.has(fit) || keepExistingLabel;
+  if (normalIngress && !factionName) {
+    factionName = canonicalProfile?.identity_name || DOSSIER_DISPLAY_NAMES.get(fit) || fit;
+  }
+  const retainedReadingId = normalIngress ? "" : urlParams.get("readingId") || "";
+  const keepBannerDismissed = ["reload", "back_forward"].includes(navigationType()) &&
+    isSameNormalMazeRoute(previousHandoff, fit, handoffPathType) &&
+    previousHandoff.returnBannerDismissed === true;
   const handoff = {
-    ...existing,
     from: "archscry",
     ...(dossierReviewContext ? {
       contextMode: DOSSIER_REVIEW_CONTEXT_MODE,
@@ -3278,12 +3304,13 @@ function initializeArchscryMazeHandoff(urlParams) {
       contextMode: IDENTITY_EXPLORE_CONTEXT_MODE,
       exploreIdentity: identityExploreContext,
     } : {}),
-    readingId,
-    guild: LIVE_FOUR_COLOR_DOSSIER_KEYS.has(fit) ? fit : fit || urlGuildKey || existing.guild || "",
+    contextMode: normalIngress ? "normal-reading" : dossierReviewContext ? DOSSIER_REVIEW_CONTEXT_MODE : IDENTITY_EXPLORE_CONTEXT_MODE,
+    ...(retainedReadingId ? { readingId: retainedReadingId } : {}),
+    guild: LIVE_FOUR_COLOR_DOSSIER_KEYS.has(fit) ? fit : fit || urlGuildKey || "",
     sourceFaction,
     fit,
     factionName,
-    readingTitle: urlParams.get("readingTitle") || existing.readingTitle || "your Vox Mana reading",
+    readingTitle: normalIngress ? "your Vox Mana reading" : urlParams.get("readingTitle") || "your Vox Mana reading",
     pathType: handoffPathType,
     plainReadingQuery: handoffPlainReadingQuery,
     operatorQuery,
@@ -3292,13 +3319,8 @@ function initializeArchscryMazeHandoff(urlParams) {
     vm547Runtime: canonicalProfile ? mazeDiscoveryProfileProvenance?.runtimeRevision || "" : "",
     vm547Catalog: canonicalProfile ? mazeDiscoveryProfileProvenance?.catalogFingerprint || "" : "",
     vm547IncomingDisposition,
-    placementResult: transientIdentityContext
-      ? undefined
-      : keepExistingPlacementResult ? existing.placementResult : undefined,
-    returnBannerDismissed: previousIdentity && previousIdentity === nextIdentity
-      ? existing.returnBannerDismissed === true
-      : false,
-    returnUrl: urlParams.get("returnUrl") || existing.returnUrl || "../archscry/"
+    returnBannerDismissed: normalIngress ? keepBannerDismissed : false,
+    returnUrl: normalIngress ? "../archscry/" : urlParams.get("returnUrl") || "../archscry/"
   };
   if (canonicalProfile) {
     document.documentElement.dataset.vm547Profile = canonicalProfile.identity_key;
@@ -3307,25 +3329,9 @@ function initializeArchscryMazeHandoff(urlParams) {
     delete document.documentElement.dataset.vm547Profile;
     delete document.documentElement.dataset.vm547IncomingDisposition;
   }
+  if (normalIngress && canonicalProfile) removeLegacyReadingIdFromAddress();
   writeArchscryMazeHandoff(handoff);
-  if (!handoff.returnBannerDismissed) {
-    updateReadingContextDisclosure();
-  }
-}
-
-function stableLocalReadingId(parts = {}) {
-  const source = [
-    parts.fit,
-    parts.factionName,
-    parts.pathType,
-    parts.operatorQuery
-  ].map((part) => String(part || "").trim()).filter(Boolean).join("|") || "maze-reading";
-  let hash = 5381;
-  for (let index = 0; index < source.length; index += 1) {
-    hash = ((hash << 5) + hash) + source.charCodeAt(index);
-    hash >>>= 0;
-  }
-  return `local-reading-${hash.toString(36)}`;
+  updateReadingContextDisclosure();
 }
 
 function appendReturnUrlParams(url, params) {
@@ -3359,8 +3365,9 @@ function buildReadingPaths() {
 
   const handoff = readArchscryMazeHandoff();
   const identityContext = [DOSSIER_REVIEW_CONTEXT_MODE, IDENTITY_EXPLORE_CONTEXT_MODE].includes(handoff?.contextMode);
+  const normalRouteContext = handoff?.from === "archscry" && handoff?.contextMode === "normal-reading";
   const result = identityContext ? null : getStoredPlacementResult();
-  const paths = identityContext
+  const paths = identityContext || normalRouteContext
     ? createIdentityContextPaths(handoff)
     : result ? createReadingPaths(result) : [];
   if (!paths.length) {

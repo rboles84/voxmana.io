@@ -148,7 +148,16 @@ for (const profile of catalog.profiles) {
     }
     const links = presentation.withArchscryMazeContext(paths, context, "http://localhost/archscry/index.html");
     const previousLinks = baselinePresentation.withArchscryMazeContext(previousPaths, previousContext, "http://localhost/archscry/index.html");
-    assert.deepEqual(links, previousLinks, `${profile.identity_key}/${mode}: byte-for-byte generated URL parity`);
+    if (mode === "normal") {
+      const expectedLinks = previousLinks.map((link) => {
+        const url = new URL(link.url, "http://localhost/archscry/index.html");
+        url.searchParams.delete("readingId");
+        return { ...link, url: `${url.pathname}${url.search}${url.hash}` };
+      });
+      assert.deepEqual(links, expectedLinks, `${profile.identity_key}/${mode}: normal URLs remove only readingId`);
+    } else {
+      assert.deepEqual(links, previousLinks, `${profile.identity_key}/${mode}: byte-for-byte generated URL parity`);
+    }
     checked += links.length;
   }
 }
