@@ -72,3 +72,11 @@ Decision reference: Genuine Owner message "I accept" in the current VM-679 Codex
 The acting coordinator directly received this decision. It authorizes the normal ACCEPT integration flow for the exact independent RobQA-passed candidate. The preceding pasted INK, Colorless and WUBRG links exercise preserved identity-explore URLs. No material change follows acceptance.
 
 Host routing: authenticated GitHub connector identity rboles84 and repository admin/push permission verified. Connector read, PR creation, CI observation and atomic expected-head squash merge are approved before attempts; schemas inspected. Native Git remains the established fetch/push transport. No fallback route is approved or probed. No matching task PR exists in the complete branch-specific search. Optional live branch-policy settings are unavailable in discovered connector capabilities; repository-required Deterministic Validation remains mandatory.
+
+## Required CI correction
+
+PR80: https://github.com/rboles84/voxmana.io/pull/80. Required Deterministic Validation run38112472899 failed at guard line14: historical baseline47508d9 was absent from the default shallow Actions checkout. Placement37 golden paths passed before this guard failure. No merge was attempted. This is a material test portability defect; prior QA/Owner acceptance at a8310845 remains authentic historical evidence but cannot authorize the corrected candidate. Same task, branch and PR return to RobDev then independent QA and Owner Review.
+
+A dedicated scope amendment admits one immutable executable-source baseline fixture. Both original producer-leak and receiver-stale-inheritance sensitivity controls remain executable; no CI/workflow/authentication/runtime change is authorized. Optional policy visibility correction: later discovery found the connector's generic approved GitHub GET interface. Actual main branch metadata reports protection disabled; repository-required CI and guarded PR squash still govern, with no settings mutation.
+
+Native Git refresh initially hit an unrelated broken internal Codex checkpoint ref. An invocation-scoped transfer.hideRefs=refs/codex excluded those internal refs from traversal; authorized main/task fetch then succeeded. No checkpoint deletion/repair or persistent Git setting change occurred.

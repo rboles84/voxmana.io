@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { execFileSync } from "node:child_process";
+import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import {
   buildArchscryMazeContext,
@@ -8,18 +8,45 @@ import {
 } from "../assets/js/archscry/archscry-presentation.js";
 
 const baseline = "47508d9c30f5e72282f0b1bf2bc75fcf7c814636";
+const fixturePath = "tests/fixtures/vm679-normal-url-baseline-47508d9c.json";
 const catalog = JSON.parse(await readFile("data/dossier/maze-discovery-profiles.catalog.json", "utf8"));
 const factions = JSON.parse(await readFile("data/factions.json", "utf8")).factions;
 const currentResearch = await readFile("assets/js/maze/research-init.js", "utf8");
-const baselinePresentationSource = execFileSync("git", ["show", `${baseline}:assets/js/archscry/archscry-presentation.js`], { encoding: "utf8" })
+const baselineFixture = JSON.parse(await readFile(fixturePath, "utf8"));
+const sha256 = (value) => createHash("sha256").update(value).digest("hex");
+
+assert.deepEqual(
+  {
+    schemaVersion: baselineFixture.schemaVersion,
+    baselineCommit: baselineFixture.baselineCommit,
+    presentationPath: baselineFixture.presentation?.path,
+    presentationBlob: baselineFixture.presentation?.rawGitBlob,
+    receiverPath: baselineFixture.receiver?.path,
+    receiverBlob: baselineFixture.receiver?.rawGitBlob,
+  },
+  {
+    schemaVersion: 1,
+    baselineCommit: baseline,
+    presentationPath: "assets/js/archscry/archscry-presentation.js",
+    presentationBlob: "0e1129ef6fa286a1b3d23b12877621dc6119ce7a",
+    receiverPath: "assets/js/maze/research-init.js",
+    receiverBlob: "138270d02c08cd2e34d17dd392851466559f2f13",
+  },
+  "frozen VM-679 baseline fixture identity changed"
+);
+assert.equal(sha256(baselineFixture.presentation.source), baselineFixture.presentation.sourceSha256, "presentation baseline fixture source checksum changed");
+assert.equal(baselineFixture.presentation.sourceSha256, "dcbfacc9185fa9f3451ff3c71938b12a5802fdfb716a8a65fb1d4d2713cb8bd0", "presentation baseline fixture checksum changed");
+assert.equal(baselineFixture.receiver.fullSourceSha256, "767657f22bf23c3809874bb0d2758fdba920d59cb5a4c198483c4e16d99a60df", "receiver baseline fixture checksum changed");
+assert.equal(sha256(baselineFixture.receiver.initializerSlice), baselineFixture.receiver.initializerSliceSha256, "receiver baseline initializer slice checksum changed");
+assert.equal(baselineFixture.receiver.initializerSliceSha256, "5abcfd9e1b2910e16f48e61d261b8c16e69170f87be1aa696c1d52fc93c4391c", "receiver baseline initializer fixture checksum changed");
+assert(baselineFixture.receiver.initializerSlice.startsWith(baselineFixture.receiver.initializerStartSentinel), "receiver baseline initializer start sentinel changed");
+assert.equal(baselineFixture.receiver.initializerSlice.includes(baselineFixture.receiver.initializerEndSentinel), false, "receiver baseline initializer end sentinel changed");
+
+const baselinePresentationSource = baselineFixture.presentation.source
   .replace(/from\s+(["'])([^"']+)\1/g, (_, quote, specifier) => `from ${quote}${new URL(specifier, new URL("../assets/js/archscry/archscry-presentation.js", import.meta.url)).href}${quote}`);
 const baselinePresentation = await import(`data:text/javascript;base64,${Buffer.from(baselinePresentationSource).toString("base64")}`);
 
-function extractedInitializer(source, overrides = {}) {
-  const start = source.indexOf("function initializeArchscryMazeHandoff(urlParams) {");
-  const end = source.indexOf("function appendReturnUrlParams", start);
-  assert(start >= 0 && end > start, "could not extract the verbatim Maze initializer");
-  const initializer = source.slice(start, end);
+function extractedInitializerSlice(initializer, overrides = {}) {
   const captured = [];
   const deps = {
     DOSSIER_REVIEW_CONTEXT_MODE: "dossier-review",
@@ -49,6 +76,13 @@ function extractedInitializer(source, overrides = {}) {
   };
   const factory = new Function("deps", `const { DOSSIER_REVIEW_CONTEXT_MODE, IDENTITY_EXPLORE_CONTEXT_MODE, LIVE_FOUR_COLOR_DOSSIER_KEYS, DOSSIER_DISPLAY_NAMES, COLORLESS_DOSSIER_PATH_TYPE_ALIASES, mazeDiscoveryProfileCatalog, mazeDiscoveryProfileProvenance, document, readArchscryMazeHandoff, writeArchscryMazeHandoff, resolveDossierActiveKey, isMazeOperatorQuery, normalizeLiveFourColorExactCommanderQuery, inferDossierKeyFromMazeQuery, resolveMazeDiscoveryProfile, colorIdentityFromDossierKey, createDossierPaths, isColorlessDossierKey, canonicalizeColorlessMazeLaunch, navigationType, isSameNormalMazeRoute, removeLegacyReadingIdFromAddress, updateReadingContextDisclosure } = deps; ${initializer}; return initializeArchscryMazeHandoff;`);
   return { run: factory(deps), captured, deps };
+}
+
+function extractedInitializer(source, overrides = {}) {
+  const start = source.indexOf("function initializeArchscryMazeHandoff(urlParams) {");
+  const end = source.indexOf("function appendReturnUrlParams", start);
+  assert(start >= 0 && end > start, "could not extract the verbatim Maze initializer");
+  return extractedInitializerSlice(source.slice(start, end), overrides);
 }
 
 let normalLinks = 0;
@@ -102,8 +136,7 @@ assert.equal(reviewInitializer.captured.at(-1).readingId, "vm-dev-review", "revi
 const reloadInitializer = extractedInitializer(currentResearch, { existing: { ...staleNormal, fit: "WU", pathType: "commanders-that-fit" }, navigationKind: "reload" });
 reloadInitializer.run(new URLSearchParams("from=archscry&fit=WU&pathType=commanders-that-fit"));
 assert.equal(reloadInitializer.captured.at(-1).returnBannerDismissed, true, "same normal route reload should retain dismissal");
-const baselineResearch = execFileSync("git", ["show", `${baseline}:assets/js/maze/research-init.js`], { encoding: "utf8" });
-const baselineInitializer = extractedInitializer(baselineResearch, { existing: staleNormal });
+const baselineInitializer = extractedInitializerSlice(baselineFixture.receiver.initializerSlice, { existing: staleNormal });
 baselineInitializer.run(new URLSearchParams("from=archscry&fit=WU&pathType=commanders-that-fit"));
 assert.equal(baselineInitializer.captured.at(-1).readingId, "stale", "baseline stale-state sensitivity control no longer reproduces inherited readingId");
 
