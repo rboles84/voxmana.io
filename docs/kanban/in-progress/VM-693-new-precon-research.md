@@ -2,7 +2,7 @@
 
 ID: VM-693
 Title: Append Completed New Precon Research
-Status: In Progress
+Status: Owner Review
 Type: Data import
 Area: Archscry precons
 Priority: Owner request
@@ -22,7 +22,7 @@ Current Owner request and hard boundary: existing 155 source records are read-on
 - [x] Import only completed nonduplicate candidates from New Precon Research, retaining factual commander-role distinctions and separating editorial assessments from official claims.
 - [x] Rebuild through the existing builder; first 155 generated records retain full parsed values and order.
 - [x] Report unsupported/incomplete candidates without fabricating missing facts or modifying the workbook.
-- [ ] Apply proportionate independent QA and stop for Owner Review; no push, merge or deployment.
+- [x] Apply proportionate independent QA and stop for Owner Review; no push, merge or deployment.
 
 ## Files Likely Impacted
 
@@ -41,13 +41,13 @@ Use RobDev; validate factual sources, map only new completed rows into the exist
 Record version: 1
 Branch: codex/vm-693-new-precon-research
 Admission baseline: 58098283db657bcfe3da89636297384b7c2031a1
-Candidate: PENDING
-RobQA: PENDING
+Candidate: 4efbec64475eff4fce92ee88a4c0ed42c510b1f8
+RobQA: PASS at 4efbec64475eff4fce92ee88a4c0ed42c510b1f8 ; SEPARATE /root/precon_qa; docs/handoffs/2026-10-11-robqa-vm693-precon-import.md
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Decisions: Existing 155 records are immutable for this task. New Precon Research is the sole workbook candidate tab. Existing 155 workbook rows are duplicate-detection input only. Scope amendment: update only the existing precon artifact test's total-count assertions to reflect completed additions; retain all existing substantive assertions and independently verify original-155 preservation.
-Evidence: Pre-edit source/generated snapshots and SHA-256 manifest saved under the current conversation visualization directory in precon-baseline/.
+Evidence: Pre-edit source/generated snapshots and SHA-256 manifest saved under the current conversation visualization directory in precon-baseline/. Independent RobQA PASS at the exact candidate above. Source/generated totals are 172, with all original 155 records unchanged in parsed values/order and raw object bytes. New-record dispositions are in docs/research/vm693-new-precon-import.md. Owner acceptance remains pending; no push, PR, merge or deployment performed.
 
 ## Admission Scope
 

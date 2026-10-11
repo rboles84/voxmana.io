@@ -37,3 +37,9 @@ Existing 155 source records; original workbook; unrelated task branches; schema,
 ## Risks and follow-up
 
 Unresolved or unsupported research stays outside production. Review the imported new-record list and held reasons before Owner ACCEPT. Continue on this same task branch for corrections. Next suggested agent: independent RobQA, then Owner.
+
+## Exact-candidate QA and Owner handoff
+
+Independent RobQA PASS binds to material candidate `4efbec64475eff4fce92ee88a4c0ed42c510b1f8`, reviewed by `/root/precon_qa`, implemented by `/root/precon_import`, Execution SEPARATE. See the individual QA handoff. Builder, focused precon artifact tests, append/deduplication/completion and canonical-card-name checks passed. Both source and generated original-155 record prefixes preserve complete parsed fields/order and raw object bytes. The import adds 17 records, reaching 172, with six HOLDs and two exclusions. Candidate corrections affected only new-record nullable focus values and exact card-name punctuation. No existing-record repair was performed.
+
+Owner: PENDING. Product/scope review should inspect the imported/held list in the research report; runtime/schema/taxonomy/producer/ranking contracts remain unchanged. No push, PR, merge or deployment was performed. The external `vm693-git-report.md` in this conversation's visualization directory provides Git-derived material, evidence-only and total-branch accounting; it is checked with the repository change-report validator. Final lifecycle and QA changes are evidence only, preserving the material candidate.
