@@ -80,3 +80,24 @@ PR80: https://github.com/rboles84/voxmana.io/pull/80. Required Deterministic Val
 A dedicated scope amendment admits one immutable executable-source baseline fixture. Both original producer-leak and receiver-stale-inheritance sensitivity controls remain executable; no CI/workflow/authentication/runtime change is authorized. Optional policy visibility correction: later discovery found the connector's generic approved GitHub GET interface. Actual main branch metadata reports protection disabled; repository-required CI and guarded PR squash still govern, with no settings mutation.
 
 Native Git refresh initially hit an unrelated broken internal Codex checkpoint ref. An invocation-scoped transfer.hideRefs=refs/codex excluded those internal refs from traversal; authorized main/task fetch then succeeded. No checkpoint deletion/repair or persistent Git setting change occurred.
+
+## Corrected candidate freeze
+
+Task: VM-679
+Candidate: 67b4abd577c02789d5c2a90afb4f77ee61726b77
+Owner: PENDING
+Integration: PENDING
+
+The only additional implementation paths versus a8310845 are scripts/vm679-normal-url-contract.mjs and tests/fixtures/vm679-normal-url-baseline-47508d9c.json. All runtime/browser/other-test/package bytes are unchanged. The immutable readable fixture preserves both executing sensitivity witnesses; no network/history dependency remains in the guard. RobDev reports test:placement, frontend JavaScript lint, Git-dependency scan and diff-check PASS.
+
+Required hosted Deterministic Validation passed for the exact corrected candidate in run38112715948, job114391428262: https://github.com/rboles84/voxmana.io/actions/runs/38112715948/job/114391428262. Same PR80 remains the integration vehicle. Independent corrected-candidate QA is pending at this event; no merge or deployment. Prior acceptance at a8310845 is historical and a new exact-candidate Owner decision is required by the canonical ACCEPT material-invalidation rule. Original archival tag/bundle and research remain preserved.
+
+## Corrected Owner Review readiness
+
+Task: VM-679
+Candidate: 67b4abd577c02789d5c2a90afb4f77ee61726b77
+RobQA: PASS
+Owner: PENDING
+Integration: PENDING
+
+Independent SEPARATE RobQA by /root/normal_urls_qa passed exact baseline source provenance, executing old producer/receiver sensitivity controls, current all37/147-link contracts, guard execution from a Git-less exported tree, test:placement, syntax/diff checks and generated-view freshness. Runtime/browser/other-test bytes remain equal to a8310845, preserving prior independent browser/adversarial evidence. Required hosted CI at the exact corrected candidate is green. Same PR80, no merge. Shortest Owner action is renewed acceptance of this test-only correction; no repeated visual journey is required by engineering because product bytes are unchanged.

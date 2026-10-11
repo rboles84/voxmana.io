@@ -2,7 +2,7 @@
 
 ID: VM-679
 Title: Clean normal Archscry to Maze navigation URLs
-Status: In Progress
+Status: Owner Review
 Type: Bounded navigation correction
 Area: Archscry serializer and Maze normal ingress
 Priority: High
@@ -60,11 +60,11 @@ Use configured RobDev Terra medium and independent RobQA Sol medium. Coordinator
 Record version: 1
 Branch: codex/vm-679-product-reading-identifiers
 Admission baseline: 47508d9c30f5e72282f0b1bf2bc75fcf7c814636
-Candidate: PENDING
-RobQA: PENDING
+Candidate: 67b4abd577c02789d5c2a90afb4f77ee61726b77
+RobQA: PASS at 67b4abd577c02789d5c2a90afb4f77ee61726b77 — SEPARATE QA-3 by /root/normal_urls_qa; docs/handoffs/2026-10-10-robqa-vm679-normal-navigation.md, CI-corrected candidate verdict
 Owner: PENDING
-Integration: BLOCKED — PR80 required CI failed because the new guard requires baseline history absent in shallow checkout; same-task material harness correction underway, no merge.
-Evidence: Final candidate verdict in docs/handoffs/2026-10-10-robqa-vm679-normal-navigation.md; developer and coordinator handoffs document original research preservation, browser guard correction and focused passing evidence. Known stale VM-687 Clipboard topbar-token assertion remains FAIL; independent Clipboard store/controller and browser preservation PASS. Prior Owner ACCEPT at a8310845 is historical after material test correction; new exact candidate/QA/Owner pending. No merge or deployment.
+Integration: PENDING — PR80 corrected-candidate required CI PASS; renewed Owner ACCEPT required before merge.
+Evidence: CI-corrected candidate verdict independently PASS at 67b4abd577c02789d5c2a90afb4f77ee61726b77; immutable baseline provenance, Git-less exported-tree guard, all37/147-link checks and test:placement PASS. Required hosted Deterministic Validation run38112715948 PASS. Runtime bytes equal prior reviewed a8310845; existing browser/adversarial/Clipboard evidence applies. Known unrelated VM-687 Clipboard topbar-token assertion remains FAIL. Prior Owner ACCEPT at a8310845 remains historical; corrected Owner Review PENDING. No merge or deployment.
 Dependencies: None
 Decisions: Owner normal-navigation implementation request (attachment a5589c0b-8d4d-40c3-b335-b03c0f71d71e, 2026-10-10) authorizes exact normal3-selector serialization and bounded receiver/disclosure/banner/legacy cleanup, coupled tests and independent QA, stopping at Owner Review. Owner separately explicitly authorizes same-branch history reconciliation on 2026-10-10 ("lets fix this so we are operating on the best most cleanest version we can please, if the risk is low Id like to resolve it"). Full original research/merge history is preserved in archive/vm679-pre-reconciliation-20261010 and verified complete bundle; five research handoffs retain exact original bytes. Current admission baseline is verified synchronized main47508d9c30f5e72282f0b1bf2bc75fcf7c814636. No duplicate task/worktree, validator weakening, new public token, migration, registry, remote write, ACCEPT, integration or deployment. Scope amendment: admit one immutable baseline fixture to remove the new guard's historical-Git dependency exposed by required shallow-checkout CI; preserve baseline parity and executing sensitivity controls without network or workflow changes. Material test correction invalidates the prior exact-candidate QA/Owner binding and returns this same task/PR to the candidate loop.
 

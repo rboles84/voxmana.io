@@ -125,3 +125,32 @@ Explicit valid normal URL ownership defeats stale handoff ownership; route repla
 ### Evidence limits and Owner review
 
 No placement/semantic certification, screenshot, visual matrix or broad viewport suite was warranted because those owners did not change. `returnBannerDismissed` remains legacy metadata without a live dismiss UI; PASS covers actual rendered disclosure and does not claim a user-facing dismissal control. Owner Review remains PENDING and should judge only whether the clean normal URL, `From <identity> reading` disclosure and return flow feel clear in one ordinary Archscry-to-Maze journey. This engineering PASS does not imply Owner acceptance, integration or deployment.
+
+## CI-corrected candidate verdict
+
+Task: VM-679
+Candidate: `67b4abd577c02789d5c2a90afb4f77ee61726b77`
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: `/root/normal_urls_qa`
+Implementer: `/root/normal_urls_dev`
+
+The CI correction preserves the accepted runtime and browser behavior from `a8310845aa554ce465f5a35148e47d97e0f91fad` while removing the deterministic guard's dependency on local Git history. The only executable-test delta is `scripts/vm679-normal-url-contract.mjs` plus the immutable baseline fixture `tests/fixtures/vm679-normal-url-baseline-47508d9c.json`; runtime, browser guard, placement/adjacent/Clipboard tests, data, package wiring and workflow bytes are identical to `a8310845aa554ce465f5a35148e47d97e0f91fad`.
+
+### Correction evidence
+
+- Independent provenance comparison against `47508d9c30f5e72282f0b1bf2bc75fcf7c814636` — PASS. The fixture's presentation source is byte-for-byte equal to Git blob `0e1129ef6fa286a1b3d23b12877621dc6119ce7a`; its recorded SHA-256 is `dcbfacc9185fa9f3451ff3c71938b12a5802fdfb716a8a65fb1d4d2713cb8bd0`. The receiver initializer slice is uniquely delimited and byte-for-byte equal to its slice from Git blob `138270d02c08cd2e34d17dd392851466559f2f13`; the full receiver and slice SHA-256 values match `767657f22bf23c3809874bb0d2758fdba920d59cb5a4c198483c4e16d99a60df` and `5abcfd9e1b2910e16f48e61d261b8c16e69170f87be1aa696c1d52fc93c4391c`. The fixture file SHA-256 is `109b9185a7073db4b47d41e97b0e35f29c5ca9c8e0f47f743158a4f62761c974`.
+- Source review — PASS. The guard imports no child-process API and performs no Git, network or history lookup. It verifies fixed baseline identity, blob provenance, checksums and extraction sentinels before executing the embedded old producer and receiver initializer. The prior all-37 current contract, protected explore/review parity and both producer-leak and stale-receiver sensitivity witnesses remain executable.
+- `node scripts/vm679-normal-url-contract.mjs` — PASS; 37 profiles, 147 exact normal links and the old-producer leak witness executed.
+- Git-free exported-tree run of the same command — PASS from `vm679-gitless-67b4abd`, created outside the repository from the exact candidate archive and verified to contain no `.git` metadata. The archive and expanded tree were preserved for review.
+- `npm run test:placement` — PASS; 37 factions, 37 golden paths, followed by the corrected VM-679 guard PASS.
+- `node --check scripts/vm679-normal-url-contract.mjs` — PASS.
+- `git diff --check a8310845aa554ce465f5a35148e47d97e0f91fad..67b4abd577c02789d5c2a90afb4f77ee61726b77` — PASS.
+- `npm run task -- indexes --check` — PASS; 729 cards and 1,269 handoffs, no stale generated view at the frozen candidate.
+- Remote Deterministic Validation for the exact candidate also completed successfully in Actions run `38112715948`, job `114391428262`; this is supporting CI evidence rather than a substitute for the separate RobQA execution above.
+
+### Inherited evidence and limits
+
+The prior full runtime, receiver-adversarial and settled RG/Colorless browser evidence remains applicable by exact byte identity. Those checks established duplicate-first legacy cleanup with `history.state`, hash and unrelated parameters preserved; unknown explicit mode handling; transient review/explore preservation; rendered disclosure; saved primary Reading versus viewed-fit separation; reload, Back/Forward and native return; and Clipboard preservation. They were not rerun because this candidate changes only the deterministic test oracle and evidence records. The known unrelated VM-687 assertion in the broad Clipboard suite remains documented; the focused scratchpad store/controller and browser Clipboard evidence remain green and unchanged.
+
+No material correctness finding remains. Owner Review for `67b4abd577c02789d5c2a90afb4f77ee61726b77` is PENDING. The earlier Owner acceptance applies historically to `a8310845aa554ce465f5a35148e47d97e0f91fad` and is not transferred by this engineering verdict.
