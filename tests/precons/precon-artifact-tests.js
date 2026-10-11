@@ -808,3 +808,5 @@ assert.match(jundPreconSummaries.get("Blight Curse"), /-1\/-1 counters, sacrific
 assert.match(jundPreconSummaries.get("Graveyard Overdrive"), /graveyard value, self-mill, discard, and combat pressure/);
 
 console.log("PASS precon artifact tests");
+// Keep VM-693 discoverability coverage on the established precon test command.
+await import("./precon-discoverability-tests.js");

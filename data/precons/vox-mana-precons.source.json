@@ -12913,7 +12913,7 @@
     "sourcePage": "https://magic.wizards.com/en/news/announcements/marvel-super-heroes-commander-decklists",
     "productSection": "Marvel Super Heroes Commander",
     "deckName": "The Fantastic Four",
-    "mainCommander": "Invisible Woman; Mister Fantastic; Human Torch; The Thing",
+    "mainCommander": "Invisible Woman / Mister Fantastic / Human Torch / The Thing",
     "secondaryCommanders": [],
     "factionRefs": [],
     "colors": [
@@ -13731,7 +13731,7 @@
     "sourcePage": "https://magic.wizards.com/en/news/announcements/heads-i-win-tails-you-lose-commander-decklist-2021-11-18",
     "productSection": "Secret Lair",
     "deckName": "Heads I Win, Tails You Lose",
-    "mainCommander": "Zndrsplt, Eye of Wisdom; Okaun, Eye of Chaos",
+    "mainCommander": "Zndrsplt, Eye of Wisdom / Okaun, Eye of Chaos",
     "secondaryCommanders": [],
     "factionRefs": [],
     "colors": [

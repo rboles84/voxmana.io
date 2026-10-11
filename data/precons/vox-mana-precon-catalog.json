@@ -25118,8 +25118,8 @@
       "productSection": "Marvel Super Heroes Commander",
       "deckName": "The Fantastic Four",
       "deckSearchQuery": "The Fantastic Four",
-      "mainCommander": "Invisible Woman; Mister Fantastic; Human Torch; The Thing",
-      "commanderSearchQuery": "Invisible Woman; Mister Fantastic; Human Torch; The Thing",
+      "mainCommander": "Invisible Woman / Mister Fantastic / Human Torch / The Thing",
+      "commanderSearchQuery": "Invisible Woman / Mister Fantastic / Human Torch / The Thing",
       "secondaryCommanders": [],
       "factionRefs": [],
       "colors": [
@@ -25255,7 +25255,7 @@
       ],
       "searchTerms": [
         "the fantastic four",
-        "invisible woman mister fantastic human torch the thing",
+        "invisible woman / mister fantastic / human torch / the thing",
         "marvel super heroes commander",
         "noncreature spells protection",
         "noncreature spells",
@@ -26611,8 +26611,8 @@
       "productSection": "Secret Lair",
       "deckName": "Heads I Win, Tails You Lose",
       "deckSearchQuery": "Heads I Win, Tails You Lose",
-      "mainCommander": "Zndrsplt, Eye of Wisdom; Okaun, Eye of Chaos",
-      "commanderSearchQuery": "Zndrsplt, Eye of Wisdom; Okaun, Eye of Chaos",
+      "mainCommander": "Zndrsplt, Eye of Wisdom / Okaun, Eye of Chaos",
+      "commanderSearchQuery": "Zndrsplt, Eye of Wisdom / Okaun, Eye of Chaos",
       "secondaryCommanders": [],
       "factionRefs": [],
       "colors": [
@@ -26728,7 +26728,7 @@
       ],
       "searchTerms": [
         "heads i win tails you lose",
-        "zndrsplt eye of wisdom okaun eye of chaos",
+        "zndrsplt eye of wisdom / okaun eye of chaos",
         "secret lair",
         "coin flips commander damage",
         "coin flips",

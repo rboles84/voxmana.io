@@ -41,8 +41,8 @@ Use RobDev; validate factual sources, map only new completed rows into the exist
 Record version: 1
 Branch: codex/vm-693-new-precon-research
 Admission baseline: 58098283db657bcfe3da89636297384b7c2031a1
-Candidate: 4efbec64475eff4fce92ee88a4c0ed42c510b1f8
-RobQA: BLOCKED at 4efbec64475eff4fce92ee88a4c0ed42c510b1f8 ; prior PASS revoked by SEPARATE /root/precon_qa after deep recon; docs/handoffs/2026-10-11-robqa-vm693-precon-import.md
+Candidate: PENDING
+RobQA: PENDING; new candidate required after Owner-authorized two-record correction and regression tests
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
