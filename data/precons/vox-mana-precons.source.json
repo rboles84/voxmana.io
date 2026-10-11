@@ -13031,7 +13031,7 @@
       "Ramp",
       "Token creation"
     ],
-    "creatureTypeFocus": "None — non-tribal / role-agnostic strategy",
+    "creatureTypeFocus": null,
     "scores": {
       "beginnerFriendly": 2,
       "complexity": 3,
@@ -13197,7 +13197,7 @@
       "Cheat into play",
       "Legends"
     ],
-    "creatureTypeFocus": "None — legendary goodstuff / role-agnostic",
+    "creatureTypeFocus": null,
     "scores": {
       "beginnerFriendly": 1,
       "complexity": 5,
@@ -13275,7 +13275,7 @@
       "Populate",
       "+1/+1 counters"
     ],
-    "creatureTypeFocus": "None — token-focused",
+    "creatureTypeFocus": null,
     "scores": {
       "beginnerFriendly": 2,
       "complexity": 3,
@@ -13685,7 +13685,7 @@
       "Modal double-faced cards",
       "Cheat into play"
     ],
-    "creatureTypeFocus": "None — multitype legends",
+    "creatureTypeFocus": null,
     "scores": {
       "beginnerFriendly": 1,
       "complexity": 4,
@@ -13763,7 +13763,7 @@
       "Partner",
       "Commander damage"
     ],
-    "creatureTypeFocus": "None — partner commander pair",
+    "creatureTypeFocus": null,
     "scores": {
       "beginnerFriendly": 1,
       "complexity": 4,

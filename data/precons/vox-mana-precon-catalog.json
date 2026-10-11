@@ -25336,7 +25336,7 @@
         "Ramp",
         "Token creation"
       ],
-      "creatureTypeFocus": "None — non-tribal / role-agnostic strategy",
+      "creatureTypeFocus": null,
       "scores": {
         "beginnerFriendly": 2,
         "complexity": 3,
@@ -25390,8 +25390,7 @@
         "artifact synergy",
         "token creation",
         "tokens",
-        "vibranium",
-        "none non-tribal / role-agnostic strategy"
+        "vibranium"
       ],
       "matchWords": [
         "monarch",
@@ -25405,11 +25404,7 @@
         "synergy",
         "token",
         "creation",
-        "tokens",
-        "none",
-        "non-tribal",
-        "role-agnostic",
-        "strategy"
+        "tokens"
       ],
       "searchTerms": [
         "wakanda forever",
@@ -25425,8 +25420,7 @@
         "value",
         "combat",
         "artifact synergy",
-        "token creation",
-        "none non-tribal / role-agnostic strategy"
+        "token creation"
       ]
     },
     {
@@ -25637,7 +25631,7 @@
         "Cheat into play",
         "Legends"
       ],
-      "creatureTypeFocus": "None — legendary goodstuff / role-agnostic",
+      "creatureTypeFocus": null,
       "scores": {
         "beginnerFriendly": 1,
         "complexity": 5,
@@ -25689,8 +25683,7 @@
         "combo",
         "control",
         "token creation",
-        "cheat into play",
-        "none legendary goodstuff / role-agnostic"
+        "cheat into play"
       ],
       "matchWords": [
         "token",
@@ -25706,11 +25699,7 @@
         "creation",
         "cheat",
         "into",
-        "play",
-        "none",
-        "legendary",
-        "goodstuff",
-        "role-agnostic"
+        "play"
       ],
       "searchTerms": [
         "multiverse reforged",
@@ -25727,8 +25716,7 @@
         "combo",
         "control",
         "token creation",
-        "cheat into play",
-        "none legendary goodstuff / role-agnostic"
+        "cheat into play"
       ]
     },
     {
@@ -25791,7 +25779,7 @@
         "Populate",
         "+1/+1 counters"
       ],
-      "creatureTypeFocus": "None — token-focused",
+      "creatureTypeFocus": null,
       "scores": {
         "beginnerFriendly": 2,
         "complexity": 3,
@@ -25843,8 +25831,7 @@
         "value",
         "token creation",
         "populate",
-        "+1/+1 counters",
-        "none token-focused"
+        "+1/+1 counters"
       ],
       "matchWords": [
         "lifegain",
@@ -25856,9 +25843,7 @@
         "token",
         "creation",
         "populate",
-        "+1/+1",
-        "none",
-        "token-focused"
+        "+1/+1"
       ],
       "searchTerms": [
         "hatsune miku",
@@ -25873,8 +25858,7 @@
         "value",
         "token creation",
         "populate",
-        "+1/+1 counters",
-        "none token-focused"
+        "+1/+1 counters"
       ]
     },
     {
@@ -26536,7 +26520,7 @@
         "Modal double-faced cards",
         "Cheat into play"
       ],
-      "creatureTypeFocus": "None — multitype legends",
+      "creatureTypeFocus": null,
       "scores": {
         "beginnerFriendly": 1,
         "complexity": 4,
@@ -26587,8 +26571,7 @@
         "five-color",
         "value",
         "modal double-faced cards",
-        "cheat into play",
-        "none multitype legends"
+        "cheat into play"
       ],
       "matchWords": [
         "double-faced",
@@ -26603,9 +26586,7 @@
         "modal",
         "cheat",
         "into",
-        "play",
-        "none",
-        "multitype"
+        "play"
       ],
       "searchTerms": [
         "from cute to brute",
@@ -26620,8 +26601,7 @@
         "five-color",
         "value",
         "modal double-faced cards",
-        "cheat into play",
-        "none multitype legends"
+        "cheat into play"
       ]
     },
     {
@@ -26684,7 +26664,7 @@
         "Partner",
         "Commander damage"
       ],
-      "creatureTypeFocus": "None — partner commander pair",
+      "creatureTypeFocus": null,
       "scores": {
         "beginnerFriendly": 1,
         "complexity": 4,
@@ -26733,8 +26713,7 @@
         "chaos",
         "equipment",
         "combo",
-        "partner",
-        "none partner commander pair"
+        "partner"
       ],
       "matchWords": [
         "coin",
@@ -26745,9 +26724,7 @@
         "chaos",
         "equipment",
         "combo",
-        "partner",
-        "none",
-        "pair"
+        "partner"
       ],
       "searchTerms": [
         "heads i win tails you lose",
@@ -26760,8 +26737,7 @@
         "chaos",
         "equipment",
         "combo",
-        "partner",
-        "none partner commander pair"
+        "partner"
       ]
     }
   ]
