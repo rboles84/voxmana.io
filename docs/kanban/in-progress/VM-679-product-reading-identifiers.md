@@ -2,7 +2,7 @@
 
 ID: VM-679
 Title: Clean normal Archscry to Maze navigation URLs
-Status: In Progress
+Status: Owner Review
 Type: Bounded navigation correction
 Area: Archscry serializer and Maze normal ingress
 Priority: High
@@ -34,14 +34,14 @@ Excluded: theme/cache/assets, scoring/placement/semantics/certification, unrelat
 
 ## Acceptance Criteria
 
-- [ ] Actual all37 builders emit exact ordered normal3 selectors; explore/review unchanged.
-- [ ] Authoritative normal state/disclosure/query/safe return across absent/stale/same-fit/review/explore/malformed retained state.
-- [ ] Valid old normal URLs including duplicate IDs normalize address narrowly, preserving first-value parsing/history state/hash/unrelated params.
-- [ ] Documented banner policy holds on explicit launch/reload/BackForward/changed route.
-- [ ] Real browser RG and Colorless or WUBRG native click/Enter/modified-open/new-tab/reload/history/return/legacy cleanup/Clipboard preservation.
-- [ ] Leaking producer and stale-state inheritance fail new guards as sensitivity controls.
-- [ ] Affected navigation/Clipboard/focused guards/lint/frontend smoke/generated views checked; known VM-687 debt distinguished.
-- [ ] Independent RobQA on exact frozen runtime candidate passes; Owner Review PENDING, no integration/deployment.
+- [x] Actual all37 builders emit exact ordered normal3 selectors; explore/review unchanged.
+- [x] Authoritative normal state/disclosure/query/safe return across absent/stale/same-fit/review/explore/malformed retained state.
+- [x] Valid old normal URLs including duplicate IDs normalize address narrowly, preserving first-value parsing/history state/hash/unrelated params.
+- [x] Documented banner policy holds on explicit launch/reload/BackForward/changed route.
+- [x] Real browser RG and Colorless or WUBRG native click/Enter/modified-open/new-tab/reload/history/return/legacy cleanup/Clipboard preservation.
+- [x] Leaking producer and stale-state inheritance fail new guards as sensitivity controls.
+- [x] Affected navigation/Clipboard/focused guards/lint/frontend smoke/generated views checked; known VM-687 debt distinguished.
+- [x] Independent RobQA on exact frozen runtime candidate passes; Owner Review PENDING, no integration/deployment.
 
 ## Files Likely Impacted
 
@@ -60,11 +60,11 @@ Use configured RobDev Terra medium and independent RobQA Sol medium. Coordinator
 Record version: 1
 Branch: codex/vm-679-product-reading-identifiers
 Admission baseline: 47508d9c30f5e72282f0b1bf2bc75fcf7c814636
-Candidate: PENDING
-RobQA: PENDING
+Candidate: a8310845aa554ce465f5a35148e47d97e0f91fad
+RobQA: PASS at a8310845aa554ce465f5a35148e47d97e0f91fad — SEPARATE QA-3 by /root/normal_urls_qa; docs/handoffs/2026-10-10-robqa-vm679-normal-navigation.md, Final candidate verdict
 Owner: PENDING
 Integration: PENDING
-Evidence: Original research preserved unchanged in the five historical handoffs; current implementation/reconciliation packet docs/handoffs/2026-10-10-codex-vm679-normal-navigation.md; independent runtime QA pending.
+Evidence: Final candidate verdict in docs/handoffs/2026-10-10-robqa-vm679-normal-navigation.md; developer and coordinator handoffs document original research preservation, browser guard correction and focused passing evidence. Known stale VM-687 Clipboard topbar-token assertion remains FAIL; independent Clipboard store/controller and browser preservation PASS. Owner Review PENDING; no push, integration or deployment.
 Dependencies: None
 Decisions: Owner normal-navigation implementation request (attachment a5589c0b-8d4d-40c3-b335-b03c0f71d71e, 2026-10-10) authorizes exact normal3-selector serialization and bounded receiver/disclosure/banner/legacy cleanup, coupled tests and independent QA, stopping at Owner Review. Owner separately explicitly authorizes same-branch history reconciliation on 2026-10-10 ("lets fix this so we are operating on the best most cleanest version we can please, if the risk is low Id like to resolve it"). Full original research/merge history is preserved in archive/vm679-pre-reconciliation-20261010 and verified complete bundle; five research handoffs retain exact original bytes. Current admission baseline is verified synchronized main47508d9c30f5e72282f0b1bf2bc75fcf7c814636. No duplicate task/worktree, validator weakening, new public token, migration, registry, remote write, ACCEPT, integration or deployment.
 

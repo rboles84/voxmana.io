@@ -96,3 +96,32 @@ The independent external browser probe establishes that the frozen runtime behav
 - `/root/normal_urls_qa`: inspect the exact replacement diff, prove runtime bytes unchanged, rerun the focused contract/browser evidence as proportionate, and append the replacement candidate verdict here.
 - Coordinator: do not advance `de55e6c927dfa20917e850a4ae74aeb10df7799d` to Owner Review.
 
+## Final candidate verdict
+
+Task: VM-679
+Candidate: `a8310845aa554ce465f5a35148e47d97e0f91fad`
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: `/root/normal_urls_qa`
+Implementer: `/root/normal_urls_dev`
+
+The replacement changes only the recurring browser guard and durable handoff/index evidence from the blocked candidate. Runtime owners, deterministic URL/state guard, package wiring, placement/adjacent/Clipboard assertions and other product-test bytes are identical to `de55e6c927dfa20917e850a4ae74aeb10df7799d`. The correction resolves the blocking finding: the committed guard now waits for the canonical query and authoritative visible `reading` context after initial navigation, reload and forward navigation; activates the Archscry return through a measured native pointer hit area; and runs the settled reload, Back/Forward and native-return lifecycle for Colorless as well as RG.
+
+### Final-candidate evidence
+
+- `git diff --exit-code de55e6c927dfa20917e850a4ae74aeb10df7799d..a8310845aa554ce465f5a35148e47d97e0f91fad -- <runtime and non-browser test owners>` — PASS; exact bytes unchanged.
+- `node scripts/vm679-normal-url-contract.mjs` — PASS; 37 profiles, 147 exact normal links, unchanged protected modes/query semantics and both baseline sensitivity controls.
+- `node scripts/vm679-normal-navigation-browser.mjs` — PASS; settled RG and Colorless pointer/Enter/modified-tab navigation, reload, Back/Forward, native return, adjacent-fit isolation, Clipboard preservation and legacy cleanup.
+- `node tests/maze/maze-scratchpad-store-tests.js` — PASS; Clipboard store/controller contract.
+- `node scripts/lint-frontend-js.mjs` — PASS; 37 frontend files.
+- `npm run task -- indexes --check` — PASS; 729 cards and 1,269 handoffs, no stale generated view.
+- `node tests/shared/clipboard-tests.js` — FAIL before the changed all-37 URL section on known VM-687 harness debt: line 105 expects `vm-topbar.js?v=vm680`, while current accepted HTML uses the VM-682 theme/topbar generation. One causal check found no VM-679 relationship. The assertion was not weakened, retried or repaired. Clipboard storage and return preservation are directly green in the store test and browser guard.
+- Prior independent receiver and settled-browser evidence remains applicable because runtime bytes are identical. The external probes executed duplicate-first cleanup, `history.state`/hash/unrelated-parameter preservation, absent/stale/malformed/transient ownership, real disclosure DOM, primary saved Reading versus viewed fit, and RG/Colorless settled lifecycle.
+
+### Final stateful-adversarial result
+
+Explicit valid normal URL ownership defeats stale handoff ownership; route replacement resets obsolete ID/mode/placement/return data; same-route reload and Back/Forward retain only documented internal route metadata; normal disclosure is authorized by origin/mode rather than ID; URL, canonical query, disclosure and executed Scryfall state remain aligned; native return completes the reverse transition; and RG plus Colorless expose distinct route branches. The saved primary Reading remains independent when an adjacent viewed fit owns the route panel. No blocker or major correctness finding remains.
+
+### Evidence limits and Owner review
+
+No placement/semantic certification, screenshot, visual matrix or broad viewport suite was warranted because those owners did not change. `returnBannerDismissed` remains legacy metadata without a live dismiss UI; PASS covers actual rendered disclosure and does not claim a user-facing dismissal control. Owner Review remains PENDING and should judge only whether the clean normal URL, `From <identity> reading` disclosure and return flow feel clear in one ordinary Archscry-to-Maze journey. This engineering PASS does not imply Owner acceptance, integration or deployment.
