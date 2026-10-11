@@ -61,7 +61,7 @@ Owner: PENDING
 Integration: PENDING
 Evidence: [Corrected Clipboard / separate VM-679 recon](../../handoffs/2026-10-05-2150-codex-clipboard-vm679-recon.md). Historical unapproved [Owner design packet](../../handoffs/2026-10-05-1421-codex-vm679-owner-design.md), [VM-678 history](../../handoffs/2026-10-05-1421-robdev-vm679-history.md), [persistence inventory](../../handoffs/2026-10-05-1421-robdev-vm679-persistence.md) and [prior design QA](../../handoffs/2026-10-05-1421-robqa-vm679-design-review.md) are retained without edits. Current recon has no independent QA or engineering PASS claim; Owner explicitly assigns independent implementation QA to the later stage.
 Dependencies: None
-Decisions: Owner explicitly authorizes same-branch history reconciliation on 2026-10-10: "lets fix this so we are operating on the best most cleanest version we can please, if the risk is low Id like to resolve it". Preserve original research and prior merge history through archive/vm679-pre-reconciliation-20261010 and a verified complete-history bundle; reconstruct the existing task on synchronized main with a linear admission chain. Original admission baseline 8cee92d103f28c2ca23c21f20bb35f47a849b4f6 and original research head 59f2d959bb5e5f6bc2a6c74f4e721c13c8df0a0f remain preserved there. This is explicit reconciliation, not a duplicate task or implementation branch. Original documentation scope follows: Required Owner-directed deferred work from VM-678. Owner authorizes deep recon/design and an explicit decision packet on 2026-10-05 in this chat. Admit documentation-only investigation, attributed specialist handoffs and independent proposal review. Establish producers, consumers, persisted data, bookmark compatibility, rejected VM-678 directions, alternatives, concrete recommendation, blast radius, product benefit and exact Owner request. No runtime/test/fixture/data change, identifier minting, migration, transport experiment, integration or deployment is authorized. Return the concrete proposal to Owner before implementation. Scope amendment: add one documentation-only handoff for the Owner's corrected Clipboard and separate VM-679 reconnaissance, using this session without subagents; preserve prior evidence and leave implementation pending explicit instruction.
+Decisions: Owner explicitly authorizes same-branch history reconciliation on 2026-10-10: "lets fix this so we are operating on the best most cleanest version we can please, if the risk is low Id like to resolve it". Preserve original research and prior merge history through archive/vm679-pre-reconciliation-20261010 and a verified complete-history bundle; reconstruct the existing task on synchronized main with a linear admission chain. Original admission baseline 8cee92d103f28c2ca23c21f20bb35f47a849b4f6 and original research head 59f2d959bb5e5f6bc2a6c74f4e721c13c8df0a0f remain preserved there. This is explicit reconciliation, not a duplicate task or implementation branch. Original documentation scope follows: Required Owner-directed deferred work from VM-678. Owner authorizes deep recon/design and an explicit decision packet on 2026-10-05 in this chat. Admit documentation-only investigation, attributed specialist handoffs and independent proposal review. Establish producers, consumers, persisted data, bookmark compatibility, rejected VM-678 directions, alternatives, concrete recommendation, blast radius, product benefit and exact Owner request. No runtime/test/fixture/data change, identifier minting, migration, transport experiment, integration or deployment is authorized. Return the concrete proposal to Owner before implementation. Scope amendment: add one documentation-only handoff for the Owner's corrected Clipboard and separate VM-679 reconnaissance, using this session without subagents; preserve prior evidence and leave implementation pending explicit instruction. Scope amendment: Owner normal-navigation implementation request (attachment a5589c0b-8d4d-40c3-b335-b03c0f71d71e, 2026-10-10) authorizes two runtime owners, directly coupled assertions, focused deterministic/browser guards, recurring test wiring and separate role/coordinator handoffs. Normal public links have exactly from/fit/pathType with no public identifier; preserve original research and frozen VM-678 evidence. Independent RobQA and Owner Review required; no integration/deploy authorization.
 
 ## Admission Scope
 
@@ -73,6 +73,18 @@ Decisions: Owner explicitly authorizes same-branch history reconciliation on 202
 - `docs/handoffs/2026-10-05-1421-robqa-vm679-design-review.md`
 - `docs/handoffs/2026-10-05-1421-codex-vm679-owner-design.md`
 - `docs/handoffs/2026-10-05-2150-codex-clipboard-vm679-recon.md`
+
+- `assets/js/archscry/archscry-presentation.js`
+- `assets/js/maze/research-init.js`
+- `tests/placement/quick-reading-tests.js`
+- `tests/archscry/archscry-adjacent-navigation-tests.js`
+- `tests/shared/clipboard-tests.js`
+- `scripts/vm679-normal-url-contract.mjs`
+- `scripts/vm679-normal-navigation-browser.mjs`
+- `package.json`
+- `docs/handoffs/2026-10-10-robdev-vm679-normal-navigation.md`
+- `docs/handoffs/2026-10-10-robqa-vm679-normal-navigation.md`
+- `docs/handoffs/2026-10-10-codex-vm679-normal-navigation.md`
 
 ## Notes
 
