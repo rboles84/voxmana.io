@@ -4,7 +4,7 @@
     "dataset": "vox-mana-precons",
     "canonical_source": "json",
     "reference_csv": "data/precons/reference/vox-mana-precons.reference.csv",
-    "record_count": 172
+    "record_count": 175
   },
   "precons": [
     {
@@ -13804,6 +13804,72 @@
         "Commander damage"
       ]
     }
-  }
+  },
+    {
+      "sourcePage": "https://magic.wizards.com/en/news/announcements/secret-lair-commander-deck-odds-and-ends-decklist",
+      "productSection": "Secret Lair",
+      "deckName": "Odds and Ends",
+      "mainCommander": "Yennett, Cryptic Sovereign",
+      "secondaryCommanders": [],
+      "factionRefs": [],
+      "colors": ["White", "Blue", "Black"],
+      "theme": "Odd mana values, library manipulation",
+      "deckDescription": "Arrange the top of the library for Yennett, then attack to cast odd-mana-value cards without paying their mana costs.",
+      "iconicCards": ["Yennett, Cryptic Sovereign", "Void Winnower", "Sensei's Divining Top", "Breach the Multiverse"],
+      "notesMechanicsMentioned": "Odd mana values; top-deck manipulation; free casting",
+      "playstyleTags": ["topdeck", "free spells", "control", "value", "odd mana"],
+      "primaryTheme": "Odd-mana free casting",
+      "secondaryTheme": "Library manipulation",
+      "mainStrategy": "Attack with Yennett after arranging an odd-mana-value payoff on top, then use the free spell to swing the game state.",
+      "mechanics": ["Top-deck manipulation", "Free casting", "Odd mana values"],
+      "creatureTypeFocus": null,
+      "scores": {"beginnerFriendly": 1, "complexity": 4, "politicalSocialPlay": 2, "combatFocus": 2, "comboPotential": 4, "graveyardFocus": 2, "tokenFocus": 1, "artifactFocus": 2, "enchantmentFocus": 2, "spellslingerFocus": 3, "rampFocus": 2, "controlFocus": 5, "aggression": 2, "valueEngine": 5},
+      "recommendationProfile": {"recommendedFor": "Players who enjoy top-deck setup and unusual free-casting patterns.", "notRecommendedFor": "Players seeking a low-variance or beginner-friendly Commander deck.", "voxManaPlacementFit": "Editorial fit for an Esper top-deck and free-casting strategy."},
+      "learningProfile": {"colorPhilosophySummary": "Its colors support library setup, selective interaction, and high-impact spells.", "whatThisDeckTeachesAboutItsColors": "Shows how library manipulation can turn an attack trigger into a resource engine.", "beginnerLesson": "Sequence top-of-library effects before attacking with Yennett.", "strategyLesson": "Choose odd-mana-value spells that change the board when Yennett casts them for free.", "voxManaBasicsPageUse": "Useful strategy example for top-deck manipulation and free casting.", "relatedArchetypes": ["topdeck", "free spells", "control", "value", "odd mana"], "relatedMechanics": ["Top-deck manipulation", "Free casting", "Odd mana values"]}
+    },
+    {
+      "sourcePage": "https://mtg.wtf/deck/td0/deathdancer-xira",
+      "productSection": "Magic Online Commander Theme Decks (TD0)",
+      "deckName": "Deathdancer Xira",
+      "mainCommander": "Xira Arien",
+      "secondaryCommanders": [],
+      "factionRefs": [],
+      "colors": ["Black", "Red", "Green"],
+      "theme": "Graveyard recursion, reanimation",
+      "deckDescription": "A digital-only August 2009 Commander Theme Deck that uses dredge and graveyard recursion to recover creatures and reuse cards from the graveyard.",
+      "iconicCards": ["Xira Arien", "Golgari Grave-Troll", "Animate Dead", "Dread Return"],
+      "notesMechanicsMentioned": "Dredge; reanimation; graveyard recursion; mana fixing. Product facts and card list are established-database corroboration rather than an accessible first-party page.",
+      "playstyleTags": ["graveyard", "reanimator", "dredge", "recursion", "jund"],
+      "primaryTheme": "Graveyard recursion / reanimation",
+      "secondaryTheme": "Dredge / mana fixing",
+      "mainStrategy": "Fill the graveyard with dredge and discard effects, then recur key creatures and spells while using Jund fixing to deploy them.",
+      "mechanics": ["Dredge", "Reanimation", "Mana fixing"],
+      "creatureTypeFocus": null,
+      "scores": {"beginnerFriendly": 2, "complexity": 4, "politicalSocialPlay": 2, "combatFocus": 3, "comboPotential": 3, "graveyardFocus": 5, "tokenFocus": 1, "artifactFocus": 2, "enchantmentFocus": 2, "spellslingerFocus": 2, "rampFocus": 4, "controlFocus": 2, "aggression": 3, "valueEngine": 4},
+      "recommendationProfile": {"recommendedFor": "Players who enjoy graveyard resource loops and historic digital Commander products.", "notRecommendedFor": "Players who dislike graveyard tracking or a higher-complexity recursion plan.", "voxManaPlacementFit": "Editorial fit for a Jund graveyard-recursion strategy."},
+      "learningProfile": {"colorPhilosophySummary": "Its colors support graveyard setup, recursion, and mana development.", "whatThisDeckTeachesAboutItsColors": "Shows how graveyard resources can extend a multicolor creature strategy.", "beginnerLesson": "Track which graveyard cards can be returned before spending recursion effects.", "strategyLesson": "Use dredge and setup effects before committing reanimation to the highest-value target.", "voxManaBasicsPageUse": "Useful strategy example for graveyard recursion and reanimation.", "relatedArchetypes": ["graveyard", "reanimator", "dredge", "recursion", "jund"], "relatedMechanics": ["Dredge", "Reanimation", "Mana fixing"]}
+    },
+    {
+      "sourcePage": "https://mtg.wtf/deck/td0/enchantress-rubinia",
+      "productSection": "Magic Online Commander Theme Decks (TD0)",
+      "deckName": "Enchantress Rubinia",
+      "mainCommander": "Rubinia Soulsinger",
+      "secondaryCommanders": [],
+      "factionRefs": [],
+      "colors": ["White", "Blue", "Green"],
+      "theme": "Enchantments, creature control",
+      "deckDescription": "A digital-only August 2009 Commander Theme Deck built around enchantment permanents and Rubinia's repeatable creature-control ability.",
+      "iconicCards": ["Rubinia Soulsinger", "Sterling Grove", "Mirari's Wake", "Confiscate", "Oblivion Ring"],
+      "notesMechanicsMentioned": "Enchantment permanents; creature control; mana acceleration. Product facts and card list are established-database corroboration rather than an accessible first-party page.",
+      "playstyleTags": ["enchantments", "control", "permanents", "bant", "value"],
+      "primaryTheme": "Enchantments",
+      "secondaryTheme": "Creature control",
+      "mainStrategy": "Develop enchantment permanents, use Rubinia to control key creatures, and convert durable board resources into a Bant value advantage.",
+      "mechanics": ["Enchantment permanents", "Creature control", "Mana acceleration"],
+      "creatureTypeFocus": null,
+      "scores": {"beginnerFriendly": 2, "complexity": 3, "politicalSocialPlay": 3, "combatFocus": 2, "comboPotential": 2, "graveyardFocus": 1, "tokenFocus": 1, "artifactFocus": 2, "enchantmentFocus": 5, "spellslingerFocus": 2, "rampFocus": 3, "controlFocus": 5, "aggression": 1, "valueEngine": 4},
+      "recommendationProfile": {"recommendedFor": "Players who enjoy enchantment permanents and repeatable creature control.", "notRecommendedFor": "Players seeking a fast combat-first deck or a low-tracking game plan.", "voxManaPlacementFit": "Editorial fit for a Bant enchantment and creature-control strategy."},
+      "learningProfile": {"colorPhilosophySummary": "Its colors support durable enchantments, mana development, and selective creature control.", "whatThisDeckTeachesAboutItsColors": "Shows how permanent-based control can preserve options across a longer game.", "beginnerLesson": "Protect key enchantments and choose creature-control targets carefully.", "strategyLesson": "Build a durable enchantment board before using Rubinia to take the creature that matters most.", "voxManaBasicsPageUse": "Useful strategy example for enchantments and creature control.", "relatedArchetypes": ["enchantments", "control", "permanents", "bant", "value"], "relatedMechanics": ["Enchantment permanents", "Creature control", "Mana acceleration"]}
+    }
   ]
 }

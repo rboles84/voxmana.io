@@ -110,7 +110,7 @@ assert.ok(
 assert.deepEqual(themeSchema.required, ["_meta", "themes"], "expected theme taxonomy schema to require _meta and themes");
 assert.equal(sourceCatalog._meta.schema_version, "vox-mana-precons-source-v2.1", "expected source schema version to match");
 assert.equal(sourceCatalog._meta.record_count, sourceCatalog.precons.length, "expected source record_count to match precons length");
-assert.equal(sourceCatalog.precons.length, 172, "expected all completed canonical precons to remain present");
+assert.equal(sourceCatalog.precons.length, 175, "expected all completed canonical precons to remain present");
 
 function cloneSourceCatalog() {
   return JSON.parse(JSON.stringify(sourceCatalog));
@@ -176,7 +176,7 @@ assert.equal(rebuiltCatalog.precons[0].slug, generatedCatalog.precons[0].slug, "
 assert.ok(!JSON.stringify(rebuiltCatalog).includes("\uFFFD"), "expected rebuilt catalog text to exclude replacement characters");
 assert.equal(generatedCatalog._meta.schema_version, "vox-mana-precon-catalog-v2.1", "expected generated catalog schema version to match");
 assert.equal(generatedCatalog._meta.source_schema_version, "vox-mana-precons-source-v2.1", "expected generated catalog source schema version to match");
-assert.equal(generatedCatalog.precons.length, 172, "expected all completed generated precons to remain present");
+assert.equal(generatedCatalog.precons.length, 175, "expected all completed generated precons to remain present");
 
 assert.deepEqual(catalogSchema.required, ["_meta", "precons"], "expected generated catalog schema to require _meta and precons");
 assert.ok(

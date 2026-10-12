@@ -48,19 +48,27 @@ const expectedExactAssociations = {
   "Raining Cats and Dogs": ["NAYA"],
   "From Cute to Brute": ["WUBRG"],
   "Heads I Win, Tails You Lose": ["UR", "PRISMARI"],
+  "Odds and Ends": ["ESPER"],
+  "Deathdancer Xira": ["JUND"],
+  "Enchantress Rubinia": ["BANT"],
 };
 const newSourcePrecons = sourceCatalog.precons.slice(155);
 const newPrecons = preconCatalog.precons.slice(155);
 const profiles = ["beginner", "returning", "experienced", "advanced"];
 const identityKeys = Object.keys(identityLayers);
 
-assert.equal(newPrecons.length, 17, "expected the completed VM-693 import to retain 17 decks");
+assert.equal(newPrecons.length, 20, "expected the completed VM-693 import to retain 20 decks");
 assert.equal(identityKeys.length, 37, "expected the production identity layer to retain all 37 identities");
 assert.deepEqual(new Set(newPrecons.map((precon) => precon.deckName)), new Set(Object.keys(expectedExactAssociations)));
 
 const delimiterExpectations = new Map([
   ["The Fantastic Four", ["Invisible Woman", "Mister Fantastic", "Human Torch", "The Thing"]],
   ["Heads I Win, Tails You Lose", ["Zndrsplt, Eye of Wisdom", "Okaun, Eye of Chaos"]],
+]);
+const singleCommanderExpectations = new Map([
+  ["Odds and Ends", "Yennett, Cryptic Sovereign"],
+  ["Deathdancer Xira", "Xira Arien"],
+  ["Enchantress Rubinia", "Rubinia Soulsinger"],
 ]);
 for (const [deckName, commanderNames] of delimiterExpectations) {
   const expected = commanderNames.join(" / ");
@@ -75,9 +83,9 @@ const oldFantasticValue = [...delimiterExpectations.get("The Fantastic Four")].j
 assert.deepEqual(preconMainCommanderNames(oldFantasticValue), [oldFantasticValue], "expected the former semicolon delimiter to fail the production parser");
 const commanderHtml = buildPreconSectionHtml({
   hasAny: true,
-  otherExact: [...delimiterExpectations.keys()].map((deckName) => newPrecons.find((precon) => precon.deckName === deckName)),
+  otherExact: [...delimiterExpectations.keys(), ...singleCommanderExpectations.keys()].map((deckName) => newPrecons.find((precon) => precon.deckName === deckName)),
 });
-for (const commanderName of [...delimiterExpectations.get("The Fantastic Four"), ...delimiterExpectations.get("Heads I Win, Tails You Lose")]) {
+for (const commanderName of [...delimiterExpectations.get("The Fantastic Four"), ...delimiterExpectations.get("Heads I Win, Tails You Lose"), ...singleCommanderExpectations.values()]) {
   assert.match(commanderHtml, new RegExp(`data-card-preview-name="${commanderName}"`), `expected individual commander detail target ${commanderName}`);
   assert.match(commanderHtml, new RegExp(`data-action="open-card-detail"[^>]*data-card-name="${commanderName}"`), `expected individual commander detail action query ${commanderName}`);
 }
@@ -194,7 +202,7 @@ for (const experienceLevel of profiles) {
     }
     assert.ok(recommendations.stretch.length <= 2, `${experienceLevel}/${identityKey}: stretch lane remains capped at two`);
   }
-  assert.equal(exactAssociationCount, 18, `${experienceLevel}: expected 18 exact deck/identity associations`);
+  assert.equal(exactAssociationCount, 21, `${experienceLevel}: expected 21 exact deck/identity associations`);
 }
 assert.ok(overflowRoundTrips > 0, "expected at least one production identity/profile overflow toggle round trip");
 
