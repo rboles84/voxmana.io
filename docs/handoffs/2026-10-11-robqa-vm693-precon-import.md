@@ -109,3 +109,34 @@ Independent candidate-bound validation passed:
 - The pre-correction-to-candidate canonical source delta contains exactly the two appended `mainCommander` fields. The generated delta is limited to their rebuilt `mainCommander`, `commanderSearchQuery` and corresponding `searchTerms` entries. `git diff --check` passed.
 
 This PASS applies only to exact candidate `a5d4ac190ff408a2d1cf970e3ed358975f1fe3c8` and supersedes the BLOCKED verdict for `4efbec64475eff4fce92ee88a4c0ed42c510b1f8`. Owner Review remains required. The historical recon artifacts remain unchanged; correction-specific evidence is stored separately under the same visualization root.
+
+## Append-three candidate RobQA — 2026-10-11
+
+Task: VM-693
+Candidate: f155d2c9e1e651ec213a5531dae0d76a88580222
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: /root/precon_qa
+Implementer: /root/precon_import
+
+The Owner-authorized continuation appends Odds and Ends, Deathdancer Xira, and Enchantress Rubinia, bringing the canonical and generated catalogs from 172 to 175 records. The source delta is limited to the record count and those three records; the generated catalog is a deterministic builder projection. No runtime, schema, taxonomy, scoring, grouping, provider behavior, or existing record changed.
+
+Independent exact-candidate validation passed:
+
+- `npm.cmd run build:precons` rebuilt 175 records with no Git delta.
+- `node tests/precons/precon-discoverability-tests.js` passed the explicit 20-deck/21-association fixture across 37 canonical identities and beginner, returning, experienced, and advanced profiles.
+- `node --test tests/precons/precon-artifact-tests.js` passed schema, provenance, mechanics, source/generated, and registered discoverability coverage.
+- The independent production matrix passed 2,960 identity/deck/profile cells with 21 exact associations per profile and zero problems. Runtime dedupe, noneligible exclusion, no unsupported native associations, the two-entry stretch cap, ordered first-six plus remaining rendering, both toggle states, and exact commander preview/detail targets passed.
+- First-172 source and generated records match snapshots authenticated to pre-append commit `4d5d87fb0684b5c6867be191f846b47e23137eaf` in parsed values, order, and raw object bytes. The original 155 source and generated records independently match the original external baseline at those same layers.
+- Odds and Ends correctly keeps `creatureTypeFocus: null`; Deathdancer Xira uses graveyard-recovery language without claiming spells enter play directly; TD0 records use August 2009 because corroborating sources disagree on the exact day. Secondary commanders and faction references remain empty, and the corroborating-database limitation remains in source notes and research provenance.
+- `git diff --check 4d5d87fb0684b5c6867be191f846b47e23137eaf..f155d2c9e1e651ec213a5531dae0d76a88580222` passed.
+
+Returning-profile Owner Review locations:
+
+- Enchantress Rubinia: BANT, full position 6 of 11, first-six grid position 6. Toggle labels: `Display other 5` and `Show first 6 precons`.
+- Odds and Ends: ESPER, full position 11 of 13, remaining grid position 5. Toggle labels: `Display other 7` and `Show first 6 precons`.
+- Deathdancer Xira: JUND, full position 7 of 9, remaining grid position 1. Toggle labels: `Display other 3` and `Show first 6 precons`.
+
+The agent proved the full 37-identity matrix; Owner visual review can remain bounded to these three exact placements and commander interactions. The known broad dossier harness startup failure remains unrelated and was not rerun. No broader suite was required.
+
+External candidate receipt: `C:/Users/obake/.codex/visualizations/2026/10/11/01a12c34-a0b1-79a1-9ea5-67fb5f505a82/vm693-append3-qa-receipt.md`, SHA-256 `FB01F37E67D3732CBC04488DAA4F4193E35A360538E17AFFC12D5B98ABD3E2D0`. Matrix SHA-256: `726C8F517D78D4BA98C20ACCD5201A55748CFEE79EE351B9E7DF14EB6D5C6622`. Audit helper SHA-256: `A2C6CD1D4F6D79EA4E5109ACE7E0CCDE463BFE71C8BE5667A77B2C2C14663578`. Owner Review remains required.
