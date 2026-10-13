@@ -4011,6 +4011,10 @@ body.vm-archscry-route .precon-provider-menu{
   padding-top:0.7rem;
 }
 
+body.vm-archscry-route .precon-card.is-compact > .precon-provider-menu{
+  margin-top:auto;
+}
+
 body.vm-archscry-route .precon-provider-menu summary{
   display:inline-flex;
   align-items:center;
