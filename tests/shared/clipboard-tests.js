@@ -100,10 +100,17 @@ assert.match(corrupt.message, /could not read/);
 assert.strictEqual(getClipboard(), getClipboard(), "module consumers receive one shared instance per page");
 
 const pages = ["index.html", "archscry/index.html", "maze/index.html", "apocrypha/index.html", "library/index.html", "strategium/index.html", "strategium/console/index.html", "strategium/review/index.html", "strategium/before-game/index.html", "strategium/during-game/index.html", "strategium/find-a-table/index.html", "guide/index.html", "guide/reading/index.html", "guide/maze/index.html", "privacy/index.html", "terms/index.html"];
+const topbarEpochByPage = new Map([
+  ["index.html", "p7r3k8z2mvqh"], ["guide/index.html", "v2q8m4r9kpxh"], ["privacy/index.html", "v2q8m4r9kpxh"], ["terms/index.html", "v2q8m4r9kpxh"],
+  ["archscry/index.html", "t6m2z8q4rkvp"], ["maze/index.html", "t6m2z8q4rkvp"], ["apocrypha/index.html", "t6m2z8q4rkvp"], ["library/index.html", "t6m2z8q4rkvp"],
+  ["strategium/index.html", "t6m2z8q4rkvp"], ["strategium/console/index.html", "t6m2z8q4rkvp"], ["strategium/review/index.html", "t6m2z8q4rkvp"], ["strategium/before-game/index.html", "t6m2z8q4rkvp"], ["strategium/during-game/index.html", "t6m2z8q4rkvp"], ["strategium/find-a-table/index.html", "t6m2z8q4rkvp"],
+  ["guide/reading/index.html", "t6m2z8q4rkvp"], ["guide/maze/index.html", "t6m2z8q4rkvp"]
+]);
 for (const file of pages) {
   const html = await readFile(file, "utf8");
-  assert.match(html, /vm-topbar\.js\?v=vm680/);
-  assert.match(html, /topbar\.css\?v=vm680/);
+  const epoch = topbarEpochByPage.get(file);
+  assert.match(html, new RegExp(`vm-topbar\\.js\\?v=${epoch}`));
+  assert.match(html, new RegExp(`topbar\\.css\\?v=${epoch}`));
   assert.match(html, /class="vm-utility"/);
 }
 const component = await readFile("assets/js/shared/vm-clipboard.js", "utf8");
@@ -112,8 +119,18 @@ const dossier = await readFile("assets/js/archscry/runtime/dossier-view.js", "ut
 assert.doesNotMatch(dossier, /buildReadingFindsHtml|reading-finds-card|readLocalReadingFindsDraft|maze-scratchpad-store/);
 assert.match(dossier, /id="maze-discovery-paths"/);
 const old = file => execFileSync("git", ["show", `${baseline}:${file}`], { encoding: "utf8", maxBuffer: 8 * 1024 * 1024 }).replace(/\r\n/g, "\n");
+const admittedCacheTokens = new Map([
+  ["qx7m2r9k4vpa", "vm612"], ["n4z8wp2c6hyt", "vm614r7"], ["b7k3xv9m2qla", "vm614r8"], ["r5d9n2w8kqcx", "vm615"],
+  ["t8h4p7z2mkvq", "vm620"], ["c9w2r6x8phtm", "vm627"], ["m3q8v5k2zrpc", "vm635"], ["h7t2n9q4xvkm", "vm636"],
+  ["p4c8z2r7mkhv", "vm652"], ["v9m3q6t2kpxr", "vm663r1"], ["k2r7h4z9mqvc", "vm665"], ["x8p3m6q2vtrk", "vm666"],
+  ["z4k9r2m7qvph", "vm668r2"], ["q6v2x8m4rkpt", "vm668r4"], ["n8h3q7v2mkrc", "vm669"], ["r2p9k4x7mvqh", "vm674r3"],
+  ["t6m2z8q4rkvp", "vm680"], ["c4x9h2v7mqkr", "vm681r1"], ["p7r3k8z2mvqh", "vm682"], ["v2q8m4r9kpxh", "vm683"],
+  ["h9k2x7q4mvpr", "vm684"], ["m6v3p8r2qkxh", "vm685"], ["z7q4h9m2rkpx", "vm687"], ["k8m3v7q2rpxh", "vm688"],
+  ["q2r9x4m7kvph", "vm688r1"], ["p9h2k8v4mqrx", "vm689r1"]
+]);
+const restoreAdmittedCacheTokens = value => [...admittedCacheTokens].reduce((result, [opaque, task]) => result.replaceAll(`?v=${opaque}`, `?v=${task}`), value).replaceAll("?v=vm687", "?v=vm636");
 for (const file of ["assets/js/archscry/archscry-presentation.js", "assets/js/maze/maze-handoff.js", "assets/js/shared/shared.js", "assets/js/archscry/runtime/navigation.js", "assets/js/archscry/runtime/questionnaire.js", "assets/js/archscry/runtime/boot.js", "assets/js/maze/research-search.js"]) {
-  assert.equal((await readFile(file, "utf8")).replace(/\r\n/g, "\n"), old(file), `protected owner unchanged: ${file}`);
+  assert.equal(restoreAdmittedCacheTokens((await readFile(file, "utf8")).replace(/\r\n/g, "\n")), old(file), `protected owner unchanged: ${file}`);
 }
 const maze = (await readFile("assets/js/maze/research-init.js", "utf8")).replace(/\r\n/g, "\n");
 function block(source, start, end) { const first = source.indexOf(start); const last = source.indexOf(end, first); assert.ok(first >= 0 && last > first, start); return source.slice(first, last); }

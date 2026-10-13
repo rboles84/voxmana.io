@@ -66,12 +66,12 @@ async function staticContract() {
     const file = path.join(root, route.path, "index.html");
     const html = await readFile(file, "utf8");
     const css = [...html.matchAll(/<link rel="stylesheet" href="([^"]+)/g)].map(match => match[1]);
-    assert.equal(css.at(-1)?.endsWith("assets/css/site-skin.css?v=vm668r2"), true, `${route.path} should opt into the current site-skin owner after route CSS`);
+    assert.equal(css.at(-1)?.endsWith("assets/css/site-skin.css?v=z4k9r2m7qvph"), true, `${route.path} should opt into the current site-skin owner after route CSS`);
     assert.match(html, /<body class="vm-site-skin vm-maze-route vm-guide-route/, `${route.path} should preserve the Guide and Maze route roots`);
     assert.match(html, new RegExp(`<main id="${route.main.slice(1)}"[\\s\\S]*?<h1 id="${route.title.slice(1)}"`), `${route.path} should retain its main landmark and H1`);
   }
   const rootHtml = await readFile(path.join(root, "guide/index.html"), "utf8");
-  assert.match(rootHtml, /href="\.\.\/assets\/css\/guide\.css\?v=vm668r4"/, "Root Guide must load its corrected stylesheet cache key");
+  assert.match(rootHtml, /href="\.\.\/assets\/css\/guide\.css\?v=q6v2x8m4rkpt"/, "Root Guide must load its corrected stylesheet cache key");
   assert.match(rootHtml, /aria-pressed="true"[\s\S]*?data-guide-maze-mode="plain"/, "Plain Reading must remain initially selected");
   assert.match(rootHtml, /data-guide-maze-panel="operator" hidden/, "Inactive Guide mode panels must remain hidden initially");
   assert.match(rootHtml, /href="\.\.\/archscry\/index\.html"/, "Guide CTA targets must remain authored routes");

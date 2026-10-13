@@ -6,6 +6,16 @@ import vm from "node:vm";
 const source = await readFile("assets/js/shared/vm-theme.js", "utf8");
 const key = "vm_theme_mode_v1";
 const baseline = "7fcf62c0d4a1389b668a39c27c7075d18c221c99";
+const admittedCacheTokens = new Map([
+  ["qx7m2r9k4vpa", "vm612"], ["n4z8wp2c6hyt", "vm614r7"], ["b7k3xv9m2qla", "vm614r8"], ["r5d9n2w8kqcx", "vm615"],
+  ["t8h4p7z2mkvq", "vm620"], ["c9w2r6x8phtm", "vm627"], ["m3q8v5k2zrpc", "vm635"], ["h7t2n9q4xvkm", "vm636"],
+  ["p4c8z2r7mkhv", "vm652"], ["v9m3q6t2kpxr", "vm663r1"], ["k2r7h4z9mqvc", "vm665"], ["x8p3m6q2vtrk", "vm666"],
+  ["z4k9r2m7qvph", "vm668r2"], ["q6v2x8m4rkpt", "vm668r4"], ["n8h3q7v2mkrc", "vm669"], ["r2p9k4x7mvqh", "vm674r3"],
+  ["t6m2z8q4rkvp", "vm680"], ["c4x9h2v7mqkr", "vm681r1"], ["p7r3k8z2mvqh", "vm682"], ["v2q8m4r9kpxh", "vm683"],
+  ["h9k2x7q4mvpr", "vm684"], ["m6v3p8r2qkxh", "vm685"], ["z7q4h9m2rkpx", "vm687"], ["k8m3v7q2rpxh", "vm688"],
+  ["q2r9x4m7kvph", "vm688r1"], ["p9h2k8v4mqrx", "vm689r1"]
+]);
+const restoreAdmittedCacheTokens = value => [...admittedCacheTokens].reduce((result, [opaque, task]) => result.replaceAll(`?v=${opaque}`, `?v=${task}`), value);
 
 function baselineFile(file) {
   return execFileSync("git", ["show", `${baseline}:${file}`], { encoding: "utf8", maxBuffer: 8 * 1024 * 1024 });
@@ -14,12 +24,11 @@ function baselineFile(file) {
 function routeBody(html) {
   const match = html.match(/<body\b[\s\S]*<\/body>/i);
   assert.ok(match, "route source should contain one body");
-  return match[0]
-    .replace(/\r\n/g, "\n")
-    .replace(/vm-topbar\.js\?v=vm68[03]/g, "vm-topbar.js?v=BASELINE");
+  return restoreAdmittedCacheTokens(match[0])
+    .replace(/\r\n/g, "\n");
 }
 
-const repositoryBytes = value => value.replace(/\r\n/g, "\n");
+const repositoryBytes = value => restoreAdmittedCacheTokens(value).replace(/\r\n/g, "\n");
 
 function run({ optIn = "home", initial = {}, readThrows = false, writeThrows = false } = {}) {
   const values = new Map(Object.entries(initial));
@@ -121,16 +130,16 @@ assert.match(topbarCss, /width: 44px/);
 assert.match(topbarCss, /width: 26px/);
 assert.match(home, /html\[data-vm-theme="light"\]/);
 assert.match(index, /<html lang="en" data-vm-theme-opt-in="home">/);
-assert.match(index, /<script src="\.\/assets\/js\/shared\/vm-theme\.js\?v=vm682"><\/script>/);
-for (const asset of ["topbar.css", "home.css", "home-wip.css"]) assert.ok(index.includes(`./assets/css/${asset}?v=vm682`), `${asset} must bypass prior Home cache`);
-assert.ok(index.includes("./assets/js/shared/vm-topbar.js?v=vm682"), "topbar controller must bypass prior Home cache");
+assert.match(index, /<script src="\.\/assets\/js\/shared\/vm-theme\.js\?v=p7r3k8z2mvqh"><\/script>/);
+for (const asset of ["topbar.css", "home.css", "home-wip.css"]) assert.ok(index.includes(`./assets/css/${asset}?v=p7r3k8z2mvqh`), `${asset} must bypass prior Home cache`);
+assert.ok(index.includes("./assets/js/shared/vm-topbar.js?v=p7r3k8z2mvqh"), "topbar controller must bypass prior Home cache");
 for (const [route, source] of [["terms", terms], ["privacy", privacy], ["guide", guide]]) {
   assert.match(source, new RegExp(`<html lang="en" data-vm-theme-opt-in="${route}">`));
-  assert.match(source, /<script src="\.\.\/assets\/js\/shared\/vm-theme\.js\?v=vm683"><\/script>/);
-  assert.match(source, /<link rel="stylesheet" href="\.\.\/assets\/css\/theme-pages\.css\?v=vm683">/);
-  assert.ok(source.indexOf("../assets/js/shared/vm-theme.js?v=vm683") < source.indexOf('<link rel="stylesheet"'), `${route} executes the saved-light bootstrap before CSS can paint`);
+  assert.match(source, /<script src="\.\.\/assets\/js\/shared\/vm-theme\.js\?v=v2q8m4r9kpxh"><\/script>/);
+  assert.match(source, /<link rel="stylesheet" href="\.\.\/assets\/css\/theme-pages\.css\?v=v2q8m4r9kpxh">/);
+  assert.ok(source.indexOf("../assets/js/shared/vm-theme.js?v=v2q8m4r9kpxh") < source.indexOf('<link rel="stylesheet"'), `${route} executes the saved-light bootstrap before CSS can paint`);
   const stylesheets = [...source.matchAll(/<link rel="stylesheet" href="([^"]+)">/g)].map(match => match[1]);
-  assert.equal(stylesheets.at(-1), "../assets/css/theme-pages.css?v=vm683", `${route} loads its scoped theme adapter last`);
+  assert.equal(stylesheets.at(-1), "../assets/css/theme-pages.css?v=v2q8m4r9kpxh", `${route} loads its scoped theme adapter last`);
   assert.equal(routeBody(source), routeBody(baselineFile(`${route}/index.html`)), `${route} body copy, destinations, specimens and behavior hooks should remain baseline-identical apart from the topbar cache query`);
 }
 assert.match(themePages, /data-vm-theme-opt-in="guide"/);
@@ -138,23 +147,23 @@ assert.match(themePages, /data-vm-theme-opt-in="strategium"/);
 assert.match(themePages, /data-vm-theme-opt-in="apocrypha"/);
 for (const [route, source, prefix] of [["archscry", archscry, "../"], ["guide-reading", guideReading, "../../"]]) {
   assert.match(source, new RegExp(`<html lang="en" data-vm-theme-opt-in="${route}">`));
-  assert.match(source, new RegExp(`<script src="${prefix.replaceAll("/", "\\/")}assets\\/js\\/shared\\/vm-theme\\.js\\?v=vm687"><\\/script>`));
-  assert.equal([...source.matchAll(/<link rel="stylesheet" href="([^"]+)">/g)].map(match => match[1]).at(-1), `${prefix}assets/css/theme-pages.css?v=vm687`, `${route} loads the VM-687 theme adapter last`);
-  assert.ok(source.indexOf("vm-theme.js?v=vm687") < source.indexOf('<link rel="stylesheet"'), `${route} executes saved-light bootstrap before CSS`);
+  assert.match(source, new RegExp(`<script src="${prefix.replaceAll("/", "\\/")}assets\\/js\\/shared\\/vm-theme\\.js\\?v=z7q4h9m2rkpx"><\\/script>`));
+  assert.equal([...source.matchAll(/<link rel="stylesheet" href="([^"]+)">/g)].map(match => match[1]).at(-1), `${prefix}assets/css/theme-pages.css?v=z7q4h9m2rkpx`, `${route} loads the VM-687 theme adapter last`);
+  assert.ok(source.indexOf("vm-theme.js?v=z7q4h9m2rkpx") < source.indexOf('<link rel="stylesheet"'), `${route} executes saved-light bootstrap before CSS`);
 }
 for (const [route, source, file, prefix] of [["maze", maze, "maze/index.html", "../"], ["guide-maze", guideMaze, "guide/maze/index.html", "../../"]]) {
   assert.match(source, new RegExp(`<html lang="en" data-vm-theme-opt-in="${route}">`));
-  assert.match(source, new RegExp(`<script src="${prefix.replaceAll("/", "\\/")}assets\\/js\\/shared\\/vm-theme\\.js\\?v=vm688"><\\/script>`));
-  const adapterEpoch = route === "maze" ? "vm688r1" : "vm689r1";
+  assert.match(source, new RegExp(`<script src="${prefix.replaceAll("/", "\\/")}assets\\/js\\/shared\\/vm-theme\\.js\\?v=k8m3v7q2rpxh"><\\/script>`));
+  const adapterEpoch = route === "maze" ? "q2r9x4m7kvph" : "p9h2k8v4mqrx";
   assert.equal([...source.matchAll(/<link rel="stylesheet" href="([^"]+)">/g)].map(match => match[1]).at(-1), `${prefix}assets/css/theme-pages.css?v=${adapterEpoch}`, `${route} loads its current theme adapter last`);
-  assert.ok(source.indexOf("vm-theme.js?v=vm688") < source.indexOf('<link rel="stylesheet"'), `${route} executes saved-light bootstrap before CSS`);
+  assert.ok(source.indexOf("vm-theme.js?v=k8m3v7q2rpxh") < source.indexOf('<link rel="stylesheet"'), `${route} executes saved-light bootstrap before CSS`);
   assert.equal(routeBody(source), routeBody(baselineFile(file)), `${route} keeps its body, URLs, and runtime hooks baseline-identical`);
 }
 assert.match(apocrypha, /<html lang="en" data-vm-theme-opt-in="apocrypha">/);
-assert.match(apocrypha, /<script src="\.\.\/assets\/js\/shared\/vm-theme\.js\?v=vm682"><\/script>/);
-assert.match(apocrypha, /<link rel="stylesheet" href="\.\.\/assets\/css\/theme-pages\.css\?v=vm685">/);
-assert.ok(apocrypha.indexOf("vm-theme.js?v=vm682") < apocrypha.indexOf('<link rel="stylesheet"'), "apocrypha executes saved-light bootstrap before CSS");
-assert.equal([...apocrypha.matchAll(/<link rel="stylesheet" href="([^"]+)">/g)].map(match => match[1]).at(-1), "../assets/css/theme-pages.css?v=vm685", "apocrypha loads its scoped theme adapter last");
+assert.match(apocrypha, /<script src="\.\.\/assets\/js\/shared\/vm-theme\.js\?v=p7r3k8z2mvqh"><\/script>/);
+assert.match(apocrypha, /<link rel="stylesheet" href="\.\.\/assets\/css\/theme-pages\.css\?v=m6v3p8r2qkxh">/);
+assert.ok(apocrypha.indexOf("vm-theme.js?v=p7r3k8z2mvqh") < apocrypha.indexOf('<link rel="stylesheet"'), "apocrypha executes saved-light bootstrap before CSS");
+assert.equal([...apocrypha.matchAll(/<link rel="stylesheet" href="([^"]+)">/g)].map(match => match[1]).at(-1), "../assets/css/theme-pages.css?v=m6v3p8r2qkxh", "apocrypha loads its scoped theme adapter last");
 assert.equal((apocrypha.match(/assets\/vendor\/mana\/css\/mana\.min\.css/g) || []).length, 1, "apocrypha resolves the local Mana glyph stylesheet exactly once");
 assert.equal(routeBody(apocrypha), routeBody(baselineFile("apocrypha/index.html")), "apocrypha keeps its authored body, fallback, source links and behavior hooks baseline-identical");
 for (const [file, source] of [
@@ -164,10 +173,10 @@ for (const [file, source] of [
 ]) {
   const prefix = file === "strategium/index.html" ? "../" : "../../";
   assert.match(source, /<html lang="en" data-vm-theme-opt-in="strategium">/);
-  assert.match(source, new RegExp(`<script src="${prefix.replaceAll("/", "\\/")}assets\\/js\\/shared\\/vm-theme\\.js\\?v=vm684"><\\/script>`));
-  assert.ok(source.indexOf("vm-theme.js?v=vm684") < source.indexOf('<link rel="stylesheet"'), `${file} executes saved-light bootstrap before CSS`);
+  assert.match(source, new RegExp(`<script src="${prefix.replaceAll("/", "\\/")}assets\\/js\\/shared\\/vm-theme\\.js\\?v=h9k2x7q4mvpr"><\\/script>`));
+  assert.ok(source.indexOf("vm-theme.js?v=h9k2x7q4mvpr") < source.indexOf('<link rel="stylesheet"'), `${file} executes saved-light bootstrap before CSS`);
   const stylesheets = [...source.matchAll(/<link rel="stylesheet" href="([^"]+)"\s*\/?\s*>/g)].map(match => match[1]);
-  assert.equal(stylesheets.at(-1), `${prefix}assets/css/theme-pages.css?v=vm684`, `${file} loads the Strategium theme adapter last`);
+  assert.equal(stylesheets.at(-1), `${prefix}assets/css/theme-pages.css?v=h9k2x7q4mvpr`, `${file} loads the Strategium theme adapter last`);
   assert.equal(routeBody(source), routeBody(baselineFile(file)), `${file} keeps its authored body and behavior hooks`);
 }
 for (const [file, source] of [
@@ -177,8 +186,8 @@ for (const [file, source] of [
 ]) {
   const prefix = file === "strategium/index.html" ? "../" : "../../";
   const mana = `${prefix}assets/vendor/mana/css/mana.min.css`;
-  const topbar = `${prefix}assets/css/topbar.css?v=vm680`;
-  const routeCss = `${prefix}assets/css/strategium.css?v=vm635`;
+  const topbar = `${prefix}assets/css/topbar.css?v=t6m2z8q4rkvp`;
+  const routeCss = `${prefix}assets/css/strategium.css?v=m3q8v5k2zrpc`;
   assert.equal((source.match(/assets\/vendor\/mana\/css\/mana\.min\.css/g) || []).length, 1, `${file} resolves the local Mana glyph stylesheet exactly once`);
   assert.ok(source.indexOf(topbar) < source.indexOf(mana) && source.indexOf(mana) < source.indexOf(routeCss), `${file} loads the Mana glyph stylesheet after topbar and before Strategium CSS`);
 }

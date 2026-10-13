@@ -18,11 +18,11 @@ for (const [file, page, calloutId] of pages) {
   if ((current.match(new RegExp(repositoryLink.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "g")) ?? []).length !== 1 || current.includes("https://github.com/rboles84/voxmana.io/issues")) {
     fail(`${file}: expected one Owner-authorized public repository README link`);
   }
-  if (!current.includes('<link rel="stylesheet" href="../assets/css/legal.css?v=vm669">') ||
-      !current.includes('<link rel="stylesheet" href="../assets/css/site-skin.css?v=vm669">')) fail(`${file}: Legal stylesheet contract changed`);
+  if (!current.includes('<link rel="stylesheet" href="../assets/css/legal.css?v=n8h3q7v2mkrc">') ||
+      !current.includes('<link rel="stylesheet" href="../assets/css/site-skin.css?v=n8h3q7v2mkrc">')) fail(`${file}: Legal stylesheet contract changed`);
   const restored = current
-    .replace('<link rel="stylesheet" href="../assets/css/legal.css?v=vm669">', '<link rel="stylesheet" href="../assets/css/legal.css?v=vm635">')
-    .replace('\n<link rel="stylesheet" href="../assets/css/site-skin.css?v=vm669">', "")
+    .replace('<link rel="stylesheet" href="../assets/css/legal.css?v=n8h3q7v2mkrc">', '<link rel="stylesheet" href="../assets/css/legal.css?v=m3q8v5k2zrpc">')
+    .replace('\n<link rel="stylesheet" href="../assets/css/site-skin.css?v=n8h3q7v2mkrc">', "")
     .replace(`class="vm-site-skin vm-legal-route" data-page="${page}"`, `data-page="${page}"`)
     .replace(callout, `class="legal-section" aria-labelledby="${calloutId}"`)
     .replace(repositoryLink, '<a href="https://github.com/rboles84/voxmana.io/issues">Vox Mana public source repository</a>');

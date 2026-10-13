@@ -5,6 +5,16 @@ import { readFile, readdir } from "node:fs/promises";
 const baseline = "3cf826eb87702bd25b66a2853838b00a880d7307";
 const atBaseline = file => execFileSync("git", ["show", `${baseline}:${file}`], { encoding: "utf8", maxBuffer: 8 * 1024 * 1024 });
 const normalize = value => value.replace(/\r\n/g, "\n");
+const admittedCacheTokens = new Map([
+  ["qx7m2r9k4vpa", "vm612"], ["n4z8wp2c6hyt", "vm614r7"], ["b7k3xv9m2qla", "vm614r8"], ["r5d9n2w8kqcx", "vm615"],
+  ["t8h4p7z2mkvq", "vm620"], ["c9w2r6x8phtm", "vm627"], ["m3q8v5k2zrpc", "vm635"], ["h7t2n9q4xvkm", "vm636"],
+  ["p4c8z2r7mkhv", "vm652"], ["v9m3q6t2kpxr", "vm663r1"], ["k2r7h4z9mqvc", "vm665"], ["x8p3m6q2vtrk", "vm666"],
+  ["z4k9r2m7qvph", "vm668r2"], ["q6v2x8m4rkpt", "vm668r4"], ["n8h3q7v2mkrc", "vm669"], ["r2p9k4x7mvqh", "vm674r3"],
+  ["t6m2z8q4rkvp", "vm680"], ["c4x9h2v7mqkr", "vm681r1"], ["p7r3k8z2mvqh", "vm682"], ["v2q8m4r9kpxh", "vm683"],
+  ["h9k2x7q4mvpr", "vm684"], ["m6v3p8r2qkxh", "vm685"], ["z7q4h9m2rkpx", "vm687"], ["k8m3v7q2rpxh", "vm688"],
+  ["q2r9x4m7kvph", "vm688r1"], ["p9h2k8v4mqrx", "vm689r1"]
+]);
+const restoreAdmittedCacheTokens = value => [...admittedCacheTokens].reduce((result, [opaque, task]) => result.replaceAll(`?v=${opaque}`, `?v=${task}`), value);
 // The Owner admitted only these three precon-render changes; protect the rest of the view.
 function expectedRuntimeSource(file) {
   let expected = normalize(atBaseline(file));
@@ -32,29 +42,29 @@ const [archscry, reading, theme, controller, topbar, siteSkin, guideReadingCss] 
   readFile("assets/css/guide-reading.css", "utf8")
 ]);
 for (const [name, file, source, prefix, routeCss, skinCss] of [
-  ["archscry", "archscry/index.html", archscry, "../", "../assets/css/archscry.css?v=vm635", "../assets/css/site-skin.css?v=vm652"],
-  ["guide-reading", "guide/reading/index.html", reading, "../../", "../../assets/css/guide-reading.css?v=vm615", "../../assets/css/site-skin.css?v=vm668r2"]
+  ["archscry", "archscry/index.html", archscry, "../", "../assets/css/archscry.css?v=m3q8v5k2zrpc", "../assets/css/site-skin.css?v=p4c8z2r7mkhv"],
+  ["guide-reading", "guide/reading/index.html", reading, "../../", "../../assets/css/guide-reading.css?v=r5d9n2w8kqcx", "../../assets/css/site-skin.css?v=z4k9r2m7qvph"]
 ]) {
   assert.match(source, new RegExp(`<html lang="en" data-vm-theme-opt-in="${name}">`));
-  assert.ok(source.indexOf("vm-theme.js?v=vm687") < source.indexOf('<link rel="stylesheet"'), `${name} bootstrap must precede styles`);
-  assert.deepEqual(hrefs(source).slice(-3), [routeCss, skinCss, `${prefix}assets/css/theme-pages.css?v=vm687`], `${name} retains route/site-skin/adapter cascade`);
+  assert.ok(source.indexOf("vm-theme.js?v=z7q4h9m2rkpx") < source.indexOf('<link rel="stylesheet"'), `${name} bootstrap must precede styles`);
+  assert.deepEqual(hrefs(source).slice(-3), [routeCss, skinCss, `${prefix}assets/css/theme-pages.css?v=z7q4h9m2rkpx`], `${name} retains route/site-skin/adapter cascade`);
   assert.equal((source.match(/assets\/vendor\/mana\/css\/mana\.min\.css/g) || []).length, 1, `${name} keeps one Mana resource import`);
   const currentBody = normalize(body(source));
   const baselineBody = normalize(body(atBaseline(file)));
-  assert.equal(currentBody.replaceAll("index.js?v=vm687", "index.js?v=vm636"), baselineBody, `${name} body, hooks, content and targets remain protected except the admitted Archscry cache token`);
+  assert.equal(restoreAdmittedCacheTokens(currentBody).replaceAll("?v=vm687", "?v=vm636"), baselineBody, `${name} body, hooks, content and targets remain protected except the admitted Archscry cache token`);
 }
-assert.equal(normalize(controller).replace(', "archscry", "guide-reading"', ""), normalize(atBaseline("assets/js/shared/vm-theme.js")), "VM-687 changes controller allowlist only");
+assert.equal(normalize(controller).replace(', "archscry", "guide-reading"', "").replace(', "maze", "guide-maze"', ""), normalize(atBaseline("assets/js/shared/vm-theme.js")), "VM-687 changes controller allowlist only apart from the later VM-688 route opt-in");
 assert.equal(normalize(topbar), normalize(atBaseline("assets/css/topbar.css")), "Reading reuses the shared topbar without changing it");
 assert.equal(normalize(siteSkin), normalize(atBaseline("assets/css/site-skin.css")), "Reading keeps the shared skin owner byte-identical");
 assert.equal(normalize(guideReadingCss), normalize(atBaseline("assets/css/guide-reading.css")), "Reading route CSS remains authored by its existing owner");
 assert.match(siteSkin, /body\.vm-site-skin\.vm-guide-route \.guide-story > \.guide-chapter:first-child\s*\{\s*border-top-width:\s*0;\s*\}/, "shared skin reserves the hero transition exception for guide chapters");
-assert.match(archscry, /index\.js\?v=vm687/);
+assert.match(archscry, /index\.js\?v=z7q4h9m2rkpx/);
 const epochFiles = await archscryModules();
 for (const file of epochFiles) {
   const module = await readFile(file, "utf8");
   assert.ok(!module.includes("vm636"), `${file} cannot retain a stale Archscry import epoch`);
-  for (const specifier of module.matchAll(/(?:from\s*|import\s*\()(["'])(\.\.?\/[^"']+?\.js)(?:\?v=([^"']+))?\1/g)) assert.equal(specifier[3], "vm687", `${file} keeps every relative module edge on vm687`);
-  if (!file.endsWith("/dossier-radar.js")) assert.equal(normalize(module).replaceAll("vm687", "vm636"), expectedRuntimeSource(file), `${file} remains protected outside admitted cache transport and three precon edits`);
+  for (const specifier of module.matchAll(/(?:from\s*|import\s*\()(["'])(\.\.?\/[^"']+?\.js)(?:\?v=([^"']+))?\1/g)) assert.equal(specifier[3], "z7q4h9m2rkpx", `${file} keeps every relative module edge on z7q4h9m2rkpx`);
+  if (!file.endsWith("/dossier-radar.js")) assert.equal(restoreAdmittedCacheTokens(normalize(module)).replaceAll("vm687", "vm636"), expectedRuntimeSource(file), `${file} remains protected outside admitted cache transport and three precon edits`);
 }
 const marker = "/* VM-687:";
 const start = theme.indexOf(marker);
@@ -192,7 +202,7 @@ assert.match(dossierView, /<details class="precon-provider-menu">[\s\S]*<summary
 for (const file of ["assets/js/shared/vm-radar.js", "assets/js/archscry/runtime/dossier-view.js", "assets/js/archscry/runtime/state.js", "assets/js/archscry/runtime/data.js", "assets/js/archscry/runtime/dossier-controls.js", "assets/js/archscry/runtime/questionnaire.js", "assets/js/archscry/runtime/identity-atlas.js", "assets/js/archscry/runtime/card-media.js", "assets/js/guide/reading-walkthrough.js", "assets/js/shared/guide-walkthrough.js"]) {
   const current = normalize(await readFile(file, "utf8"));
   const expected = expectedRuntimeSource(file);
-  assert.equal(current.replaceAll("vm687", "vm636"), expected, `${file} remains baseline-identical except admitted cache transport`);
+  assert.equal(restoreAdmittedCacheTokens(current).replaceAll("vm687", "vm636"), expected, `${file} remains baseline-identical except admitted cache transport`);
 }
 // Execute production renderers and catalog fixtures without booting the app or inventing card facts.
 const [foundation, utils, content, catalog, validation] = await Promise.all([

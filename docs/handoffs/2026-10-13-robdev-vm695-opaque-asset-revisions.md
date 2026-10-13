@@ -31,11 +31,24 @@ Relative paths, any other query values/fragments, module instances, static/dynam
 - Active-source scan finds no remaining `v=vmNNN` values in the 16 active route trees and admitted `assets/js` chain.
 - `git diff --check`: PASS.
 
+## Replacement-candidate correction evidence
+
+- `npm.cmd run lint:html`: PASS.
+- `node scripts/check-page-backgrounds.mjs`: PASS after its direct CSS cache expectations were mapped by the admitted owner/route values.
+- `node tests/shared/theme-controller-tests.js`: PASS.
+- `node scripts/vm685-apocrypha-theme-source-tests.mjs`: PASS.
+- `node scripts/vm620-guide-beacon-tests.mjs`: expected pre-cache assertion failure on the pre-existing `Walk me through this search` copy mismatch; its direct Beacon URL expectations now use `t8h4p7z2mkvq`.
+- `node scripts/vm669-legal-surface-static.mjs`: retains a pre-existing historical-fixture mismatch: its 53f309 baseline has `vm618` topbar URLs while the task baseline already has the later `vm680` values. Direct VM-669 asset expectations now use `n8h3q7v2mkrc`; no fixture repair was made.
+- `tests/shared/clipboard-tests.js`, `scripts/vm687-archscry-theme-source-tests.mjs`, and `scripts/vm688-maze-theme-source-tests.mjs` now reverse only the listed opaque mappings for their protected-source comparisons. They still stop on later unrelated source evolution beyond those tokens; no source or harness repair was made.
+- `tests/maze/maze-hover-size-tests.js` could not reach its browser helper because the sandbox denied its localhost connection (`EACCES 127.0.0.1:63574`). `tests/maze/maze-modernization-remediation-tests.js` retains its unrelated historical assertion failure (`0 !== 1`).
+
 ## Risks and limitations
 
 The historical `scripts/vm620-guide-beacon-tests.mjs` fails before its cache-key assertions because its baseline expects `Walk me through this search` while accepted baseline `assets/js/maze/research-ui.js` already renders `Open the Maze guide`. This has no causal relation to VM-695; no repair or repeat run was performed. Existing specialized cache tests that encode earlier cache-key equality or historical fixture assumptions were not broadened or rewritten.
 
 ## RobQA packet
+
+Correction: RobQA blocked candidate `49e0d8bc98523b1117cbb8d2f142e3f2283d9326` because admitted executable contracts retained stale task-number URL expectations. This replacement candidate updates only those URL/cache expectation literals and comparison normalizers; path, order, dependency, and protected-content assertions remain in place. The unrelated Beacon copy failure remains unrepaired.
 
 Changed risk: a shared public dependency/cache-reference migration across route and module chains. Verify the 26-entry mapping is bijective; normalize the runtime diff by reversing only the recorded `v` tokens; resolve every active relative route/module reference; retain validator path/order/dependency assertions; and distinguish the documented Beacon harness debt from candidate effects. Objective criteria are mapping, URL resolution, chain parity, and lint; visual/aesthetic judgment remains Owner work. No browser screenshot, layout, state, or viewport claim is supplied.
 

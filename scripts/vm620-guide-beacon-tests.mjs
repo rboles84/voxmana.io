@@ -76,8 +76,8 @@ assert.match(mazeUi, /Field Guide[\s\S]*?Walk me through this search/);
 assert.doesNotMatch(mazeUi, /hasPresentedGuideBeaconSignal|reserveGuideBeaconSignal|bindGuideBeaconSignal/, "Maze should use the shared attention owner");
 
 for (const [route, source] of [["Home", homeHtml], ["Archscry", archscryHtml], ["Maze", mazeHtml]]) {
-  assert.match(source, /guide-beacon\.css\?v=vm620/, `${route} should load shared Beacon CSS`);
-  assert.match(source, /guide-beacon\.js\?v=vm620/, `${route} should load shared Beacon enhancement JS`);
+  assert.match(source, /guide-beacon\.css\?v=t8h4p7z2mkvq/, `${route} should load shared Beacon CSS`);
+  assert.match(source, /guide-beacon\.js\?v=t8h4p7z2mkvq/, `${route} should load shared Beacon enhancement JS`);
 }
 for (const [route, source] of [["Guide", guideHtml], ["Reading Guide", readingGuideHtml], ["Maze Guide", mazeGuideHtml]]) {
   assert.doesNotMatch(source, /guide-beacon\.(?:css|js)/, `${route} should not load contextual Beacon assets`);

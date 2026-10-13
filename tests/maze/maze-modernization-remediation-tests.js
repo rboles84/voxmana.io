@@ -58,7 +58,7 @@ assert.match(css, /linear-gradient\(165deg, rgba\(13, 17, 27, 0\.52\), rgba\(7, 
 assert.match(css, /main#maze-page-shell > section\.maze-command-deck\s*\{[\s\S]*?background:\s*transparent/);
 assert.match(css, /\.r-body > #r-main\.r-main[\s\S]*?background:\s*transparent/);
 assert.match(css, /#dossier-discovery-panel\.dossier-discovery-panel[\s\S]*?#dossier-discovery-panel \.dossier-thread-card[\s\S]*?background:\s*transparent/);
-assert.match(guideHtml, /assets\/css\/guide-maze\.css\?v=vm663r1/);
+assert.match(guideHtml, /assets\/css\/guide-maze\.css\?v=v9m3q6t2kpxr/);
 assert.match(guideCss, /body\.vm-guide-maze-route :is\([\s\S]*?\.maze-guide-hero\.maze-command-deck[\s\S]*?\.maze-recovery-card[\s\S]*?background:\s*transparent/);
 assert.match(initSource, /const PAGE_SIZE = 24;/);
 assert.match(initSource, /const sidebarFormat = document\.getElementById\("sb-format"\);[\s\S]*?return sidebarFormat \? sidebarFormat\.value : DEFAULT_FORMAT;/, "retiring the sidebar Format control must preserve the implicit Commander default");
