@@ -2,7 +2,7 @@
 
 Status: In Progress
 Related card: [VM-694](../kanban/in-progress/VM-694-precon-footer-alignment.md)
-Authorization: reconnaissance, plan and card reservation only. Product implementation is not performed by this plan.
+Authorization: Owner approved the scoped surgical implementation on 2026-10-13 after reviewing this plan. Product changes remain limited to the admitted CSS rule; no integration/deployment is authorized.
 
 ## Pending work and ownership
 

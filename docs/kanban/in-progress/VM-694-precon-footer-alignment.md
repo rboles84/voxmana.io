@@ -10,11 +10,11 @@ Created: 2026-10-13
 
 ## Summary
 
-Plan a surgical CSS correction that places each compact precon card's Decks / Browse builds menu at the bottom of the card across all37 identity dossiers and both primary/remaining lists. Preserve natural card heights and native menu behavior.
+Implement the Owner-authorized surgical CSS correction that places each compact precon card's Decks / Browse builds menu at the bottom of the card across all37 identity dossiers and both primary/remaining lists. Preserve natural card heights and native menu behavior.
 
 ## Source
 
-Owner's screenshots and follow-up request: recon all37 UI placements, check pending work, take the next available card number, and propose a surgical CSS update with a few agent checks and a few Owner checks. Current authorization is reconnaissance, planning and card reservation only; no product implementation or release in this turn.
+Owner's screenshots and follow-up request: recon all37 UI placements, check pending work, take the next available card number, and propose a surgical CSS update with a few agent checks and a few Owner checks. Initial authorization covered reconnaissance, planning and card reservation. Owner subsequently explicitly instructed: proceed with this surgical implementation. Implement the agreed CSS-only correction and return for Owner Review; no integration or deployment is authorized.
 
 ## Acceptance Criteria
 
@@ -47,7 +47,7 @@ RobQA: PENDING
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
-Decisions: Owner authorized recon, scoped plan and next-number reservation only. All175 precon source/catalog records are read-only, especially original155. VM-693 remains Done. VM-686 is a separate site-wide page-footer backlog; no shared footer/navigation work is included. Expected UI change is CSS only, with existing markup and runtime retained. Agent and Owner each check a few representative cases; no all37 manual-browser checklist or broad engine certification is needed for one common style rule.
+Decisions: Owner initially authorized recon, scoped plan and next-number reservation, then explicitly authorized the agreed surgical CSS implementation. All175 precon source/catalog records are read-only, especially original155. VM-693 remains Done. VM-686 is a separate site-wide page-footer backlog; no shared footer/navigation work is included. Expected UI change is CSS only, with existing markup and runtime retained. Agent and Owner each check a few representative cases; no all37 manual-browser checklist or broad engine certification is needed for one common style rule.
 Evidence: Admission start VM-694 ELIGIBLE from clean synchronized mainb322f24ddcaf3f4a5cc3fc7f63732ee2a98b9b8b; no matching existing admission/branch/worktree. Current corpus contains730 cards and21 records outside Done; highest assigned base number693. Canonical factions and identity expressions each contain37 matching keys. Supplied screenshots and prior read-only recon identify fixed menu top margin within stretched flex-column cards. Plan and specialist QA selection will be recorded before presenting findings.
 
 ## Admission Scope
@@ -61,4 +61,4 @@ Evidence: Admission start VM-694 ELIGIBLE from clean synchronized mainb322f24ddc
 
 ## Plan
 
-[Detailed surgical CSS plan](../../plans/vm694-precon-footer-alignment.md). Planning complete; no product implementation yet.
+[Detailed surgical CSS plan](../../plans/vm694-precon-footer-alignment.md). Planning complete; agreed surgical CSS implementation authorized on 2026-10-13.
