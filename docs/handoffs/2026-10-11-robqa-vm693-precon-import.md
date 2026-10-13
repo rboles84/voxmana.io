@@ -169,3 +169,26 @@ Manual finding converted to invariant: rendered title coverage does not prove a 
 Stateful-adversarial result: PASS. Cold and warm exact-print paths, name-versus-print cache isolation, two printings in one Heads card, canonical-versus-flavor Miku identity, close/reopen, late success/error, corrupted cache replacement, and detail-required refresh were covered. The ordinary no-ID preview identity and unrelated existing-card renderer output remain unchanged.
 
 The known broad dossier harness `interview` startup failure is unrelated and was not rerun. CPU-heavy/full repository suites and screenshots were not required. Engineering PASS applies only to candidate `3ec91cf6d27ac60bf16670d26d37ea8c056a5ae8`; Owner product/visual acceptance remains a separate decision.
+
+## CI import-token correction RobQA — 2026-10-13
+
+Task: VM-693
+Candidate: 7de6ca7de36c5a2bce1b8d2db861ffae60108032
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: /root/precon_qa
+Implementer: /root/precon_import
+
+The accepted candidate failed CI because the new precon-printing import used the unrecognized cache token `?v=vm693`. The corrected material candidate changes that production import to the repository-required `?v=vm687`. The only executable delta from `3ec91cf6d27ac60bf16670d26d37ea8c056a5ae8` is this import token; accompanying changes are lifecycle/handoff evidence.
+
+Independent exact-candidate validation passed:
+
+- `npm.cmd run lint:html`: PASS. This is the mandatory check that failed on the superseded candidate.
+- `node --test tests/precons/precon-artifact-tests.js`: PASS, including the registered 37-identity, four-profile discoverability test for all 20 decks, 21 exact associations, both preview grids, all provider links, and all 16 printing references.
+- `node scripts/vm551-scryfall-cache-tests.mjs`: PASS for exact-print cache isolation, policy/record guards, corrupt and sparse cache rows, response identity, retry/backoff, and detail requirements.
+- `npm.cmd run build:precons`: PASS at 175 records with no generated delta.
+- Independent preservation helper: PASS. Both 175-record source/generated files remain byte-identical to the correction snapshots; the original 155 parsed values, raw object bytes, and order remain equal to the original baseline; all original 155 rendered cards remain byte-identical to the frozen `3329d7f799c4b4aa53281b289c33213e2a713b52` renderer.
+- Focused localhost Edge rerun: PASS. The corrected browser import loads successfully. Live exact-ID hover/detail images and Scryfall targets pass for primary FDC, remaining-grid SLD after the actual toggle, both Heads commanders including `380★`, and canonical Trostani with the Miku SLD 2429 printing. Controlled late-success and late-error detail responses remain suppressed after close/reopen. No screenshots were used.
+- `git diff --check 3ec91cf6d27ac60bf16670d26d37ea8c056a5ae8..7de6ca7de36c5a2bce1b8d2db861ffae60108032`: PASS. Candidate state was clean before this authorized append-only QA record.
+
+CPU-heavy and broad repository suites were not required. The known unrelated broad dossier harness debt was not rerun. This engineering PASS applies only to `7de6ca7de36c5a2bce1b8d2db861ffae60108032`; the earlier Owner acceptance cannot be transferred automatically, and fresh Owner Review remains separate under workflow.

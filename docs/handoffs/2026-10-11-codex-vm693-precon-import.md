@@ -150,3 +150,16 @@ Attempted PR head: e6ebe5fc2f36a2e5b2d2b30ba9f3a9985a3dba1d
 CI run: https://github.com/rboles84/voxmana.io/actions/runs/38400042582
 
 Authenticated host read confirms Deterministic Validation failed at lint:html: the newly added relative printing-module import uses vm693 while the existing Archscry import contract requires vm687. No merge was attempted; Pages remains unchanged. The prior exact-candidate QA did not catch this required integration lint. Fix only that admitted renderer import token, preserve the validator and all data/runtime behavior, then obtain fresh exact-candidate independent QA and Owner Review. Under workflow ACCEPT, material CI correction invalidates the current delivery binding; the genuine historical Owner acceptance above remains preserved but cannot authorize merging the replacement. Keep the same branch and PR. No rebase, force push, extra PR, schema/workbook/placement changes or data edits are needed. Root owns lifecycle evidence; /root/precon_import owns the one-line code correction; /root/precon_qa owns independent validation. All175 source/catalog bytes and original155 remain protected.
+## Corrected import candidate ready for Owner Review — 2026-10-13
+
+Task: VM-693
+Candidate: 7de6ca7de36c5a2bce1b8d2db861ffae60108032
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: /root/precon_qa
+Implementer: /root/precon_import
+Owner: PENDING
+
+The only executable delta from previously accepted3ec is the new registry import query vm693 to requiredvm687; no validator or test contracts were weakened. Independent QA rechecked mandatory HTML validation, all20 across37 identities/four profiles/both grids, all16 printing references and provider mappings, cache guards, deterministic rebuild175, all175 full-file bytes and original155 parsed/raw/order/frozen-renderer parity, plus corrected-import browser interactions. Original175 records remain unchanged. External vm693-ci-correction-qa-receipt.md SHA-256 9E3496667913CC2200F21D6F38547F1ACBB6772917BDC30FAEF1BB4A57E4F575 binds the exact replacement. Required host Deterministic Validation run38400601626 completed success at exact material SHA; its logs are not substituted for independent QA.
+
+The coordinator inspected the individual RobDev and RobQA handoffs. Existing configured role routes are RobDev gpt-5.6-terra medium and RobQA gpt-5.6-sol medium; no backend telemetry is claimed. Read-only deployment recon is retained externally in vm693-deployment-recon-handoff.md SHA-256 126BAFED22DCBB797F1890670173A39A8FB1310EC0429047E6EB5C541FD461E3: Pages publishes main automatically, so actual live source/catalog/asset and placement verification follows a successful authorized merge. Neither merge nor deployment has occurred. The existing PR81 is retained; no new PR or history repair. Final Git accounting is external vm693-ci-correction-git-report.md under the existing validator. Renewed exact-candidate Owner acceptance is required by workflow ACCEPT: material CI corrections return through RobDev, RobQA and Owner Review. No repeated product QA checklist is required by this engineering fix.
