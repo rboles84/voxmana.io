@@ -18,8 +18,8 @@ Owner's screenshots and follow-up request: recon all37 UI placements, check pend
 
 ## Acceptance Criteria
 
-- [ ] Record pending-work overlap review, admission, all37 identity inventory and common renderer/style ownership.
-- [ ] Define the single scoped CSS correction and a small representative agent/Owner verification split.
+- [x] Record pending-work overlap review, admission, all37 identity inventory and common renderer/style ownership.
+- [x] Define the single scoped CSS correction and a small representative agent/Owner verification split.
 - [ ] After Owner authorizes implementation, anchor closed provider menus to consistent card-bottom padding in both primary and remaining grids; open links expand naturally without overlap or clipping.
 - [ ] Preserve responsive layouts, themes, keyboard access and existing conditional no-links behavior.
 - [ ] Keep all175 source/generated records byte-identical, especially original155; preserve ordering, ranking, identity placements, provider destinations, commander printings and HTML/JavaScript behavior.
@@ -58,3 +58,7 @@ Evidence: Admission start VM-694 ELIGIBLE from clean synchronized mainb322f24ddc
 - `docs/kanban/board.md`
 - `docs/handoffs/HANDOFF_INDEX.md`
 - `assets/css/archscry.css`
+
+## Plan
+
+[Detailed surgical CSS plan](../../plans/vm694-precon-footer-alignment.md). Planning complete; no product implementation yet.
