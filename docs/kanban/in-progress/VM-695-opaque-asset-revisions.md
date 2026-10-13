@@ -2,7 +2,7 @@
 
 ID: VM-695
 Title: Opaque Public Asset Revision Keys
-Status: In Progress
+Status: Owner Review
 Type: Bounded cache-key migration
 Area: Public route asset URLs
 Priority: Medium
@@ -18,11 +18,11 @@ Owner instruction for VM-695 dated 2026-10-13, bounded to active public asset UR
 
 ## Acceptance Criteria
 
-- [ ] Active public routes use opaque, non-task-number `v=` values for each current `v=vm…` asset URL.
-- [ ] Each of the 26 prior distinct values maps consistently to one unique replacement; no two prior values merge.
-- [ ] Active relative paths, other query parameters, fragments, module instances, loading attributes, `defer`/`async`, script/style order, dynamic-import timing, CSS/font/vendor bytes, and runtime behavior remain unchanged.
-- [ ] Direct executable URL validators retain their route path, order, dependency, and cache-key assertions using the opaque values.
-- [ ] The implementation handoff, independent RobQA handoff, and generated views are current; this task stops before Owner acceptance, integration, merge, push, or deployment.
+- [x] Active public routes use opaque, non-task-number `v=` values for each current `v=vm…` asset URL.
+- [x] Each of the 26 prior distinct values maps consistently to one unique replacement; no two prior values merge.
+- [x] Active relative paths, other query parameters, fragments, module instances, loading attributes, `defer`/`async`, script/style order, dynamic-import timing, CSS/font/vendor bytes, and runtime behavior remain unchanged.
+- [x] Direct executable URL validators retain their route path, order, dependency, and cache-key assertions using the opaque values.
+- [x] The implementation handoff, independent RobQA handoff, and generated views are current; this task stops before Owner acceptance, integration, merge, push, or deployment.
 
 ## Implementation Contract
 
@@ -80,13 +80,13 @@ Stop and report if completion requires logical edits, asset relocation/consolida
 Record version: 1
 Branch: codex/vm-695-opaque-asset-revisions
 Admission baseline: 78c6be6fdb01dc1e227e255758176ade9a8cf9d5
-Candidate: PENDING
-RobQA: PENDING
+Candidate: 1a7564c3e8a9c92b75557ba836058291e832e0d7
+RobQA: PASS at 1a7564c3e8a9c92b75557ba836058291e832e0d7 ; SEPARATE /root/asset_qa; docs/handoffs/2026-10-13-robqa-vm695-opaque-asset-revisions.md
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Decisions: Bounded opaque substitutions only. Preserve all executable URL paths and dependency/order behavior; do not change public behavior, deployment/cache headers, or protected data/state. Stop at Owner Review after independent RobQA; no merge, push, or deployment.
-Evidence: [RobDev handoff](../../handoffs/2026-10-13-robdev-vm695-opaque-asset-revisions.md); [coordinator handoff](../../handoffs/2026-10-13-codex-vm695-opaque-asset-revisions.md); independent RobQA PENDING.
+Evidence: [RobDev handoff](../../handoffs/2026-10-13-robdev-vm695-opaque-asset-revisions.md); [coordinator handoff](../../handoffs/2026-10-13-codex-vm695-opaque-asset-revisions.md); [independent RobQA PASS](../../handoffs/2026-10-13-robqa-vm695-opaque-asset-revisions.md). Exact 26-pair reversal, unchanged 106-file/475-edge graph, all 281 affected refs resolve, zero targeted active revisions. Local Edge verifies theme, Clipboard, Archscry data, cached repeats, Maze handoff and walkthrough initialization. Full walkthrough advancement and production cache propagation unverified; historical harness debt preserved. Owner PENDING; no push/merge/deploy.
 
 ## Admission Scope
 
