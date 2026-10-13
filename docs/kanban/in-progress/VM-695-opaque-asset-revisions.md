@@ -2,7 +2,7 @@
 
 ID: VM-695
 Title: Opaque Public Asset Revision Keys
-Status: Owner Review
+Status: Accepted
 Type: Bounded cache-key migration
 Area: Public route asset URLs
 Priority: Medium
@@ -82,7 +82,7 @@ Branch: codex/vm-695-opaque-asset-revisions
 Admission baseline: 78c6be6fdb01dc1e227e255758176ade9a8cf9d5
 Candidate: 1a7564c3e8a9c92b75557ba836058291e832e0d7
 RobQA: PASS at 1a7564c3e8a9c92b75557ba836058291e832e0d7 ; SEPARATE /root/asset_qa; docs/handoffs/2026-10-13-robqa-vm695-opaque-asset-revisions.md
-Owner: PENDING
+Owner: ACCEPTED at 1a7564c3e8a9c92b75557ba836058291e832e0d7 ; Rob Boles explicit conversation ACCEPT VM-695 on 2026-10-13; coordinator handoff Owner Acceptance section
 Integration: PENDING
 Dependencies: None
 Decisions: Bounded opaque substitutions only. Preserve all executable URL paths and dependency/order behavior; do not change public behavior, deployment/cache headers, or protected data/state. Stop at Owner Review after independent RobQA; no merge, push, or deployment.

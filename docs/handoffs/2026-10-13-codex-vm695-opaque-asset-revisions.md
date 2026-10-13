@@ -28,3 +28,14 @@ Bounded Owner review: serve this branch locally, open Home with the existing the
 Revert path: revert the three material implementation commits in reverse order (`1a7564c3e8a9c92b75557ba836058291e832e0d7`, `fb024d4c64e50f229bb6238b2ca6c105346bec93`, `49e0d8bc98523b1117cbb8d2f142e3f2283d9326`) through the governed correction workflow, then reconcile task evidence/views. This restores old revisions and checks; no data or state rollback is involved. If later integrated as a squash, revert that verified squash instead. No revert is executed here.
 
 Next suggested actor: Owner ACCEPT or REJECT of the exact material candidate. This delivery stops at Owner Review; no push, PR, merge, deployment, relocation, runtime refactoring, or later-scope repair occurred.
+
+## Owner Acceptance — 2026-10-13
+
+Task: VM-695
+Candidate: 1a7564c3e8a9c92b75557ba836058291e832e0d7
+Owner: ACCEPT
+Decision reference: Rob Boles message in this chat on 2026-10-13: "ACCEPT VM-695. Go ahead and integrate the approved candidate and sync main."
+
+The coordinator verified this genuine Owner decision against the exact candidate presented above. Acceptance authorizes integration and main synchronization under the existing workflow; the prior stop at Owner Review is now superseded. It does not alter the material candidate, its protected boundaries, historical validation limitations, or independent QA binding.
+
+Integration routing: discovered callable GitHub connector supports identity/repository reads, PR discovery/create/read, CI reads and guarded squash merge using expected_head_sha. Approved host read and merge routes are connector only; ordinary Git transport is used for push/fetch. Authenticated rboles84 repository permissions report admin/push/pull. Initial PR lookup found no same-branch PR. Native Git admission confirms clean feature HEAD 1619005e572d9d44d543086793cf7d53f2a16b0d and unchanged live main 78c6be6fdb01dc1e227e255758176ade9a8cf9d5. No credential retrieval or alternate authentication route is needed. Integration remains PENDING until exact-head CI and the guarded merge succeed.
