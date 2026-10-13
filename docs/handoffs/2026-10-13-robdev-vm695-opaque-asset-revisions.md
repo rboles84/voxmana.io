@@ -41,6 +41,7 @@ Relative paths, any other query values/fragments, module instances, static/dynam
 - `node scripts/vm669-legal-surface-static.mjs`: retains a pre-existing historical-fixture mismatch: its 53f309 baseline has `vm618` topbar URLs while the task baseline already has the later `vm680` values. Direct VM-669 asset expectations now use `n8h3q7v2mkrc`; no fixture repair was made.
 - `tests/shared/clipboard-tests.js`, `scripts/vm687-archscry-theme-source-tests.mjs`, and `scripts/vm688-maze-theme-source-tests.mjs` now reverse only the listed opaque mappings for their protected-source comparisons. They still stop on later unrelated source evolution beyond those tokens; no source or harness repair was made.
 - `tests/maze/maze-hover-size-tests.js` could not reach its browser helper because the sandbox denied its localhost connection (`EACCES 127.0.0.1:63574`). `tests/maze/maze-modernization-remediation-tests.js` retains its unrelated historical assertion failure (`0 !== 1`).
+- RobQA C2 correction: removed the VM-688 allowlist accommodation from the VM-687 historical controller comparison. The original substantive assertion is restored; its later-route mismatch remains disclosed historical debt, outside VM-695.
 
 ## Risks and limitations
 

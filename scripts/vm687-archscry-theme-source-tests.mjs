@@ -53,7 +53,7 @@ for (const [name, file, source, prefix, routeCss, skinCss] of [
   const baselineBody = normalize(body(atBaseline(file)));
   assert.equal(restoreAdmittedCacheTokens(currentBody).replaceAll("?v=vm687", "?v=vm636"), baselineBody, `${name} body, hooks, content and targets remain protected except the admitted Archscry cache token`);
 }
-assert.equal(normalize(controller).replace(', "archscry", "guide-reading"', "").replace(', "maze", "guide-maze"', ""), normalize(atBaseline("assets/js/shared/vm-theme.js")), "VM-687 changes controller allowlist only apart from the later VM-688 route opt-in");
+assert.equal(normalize(controller).replace(', "archscry", "guide-reading"', ""), normalize(atBaseline("assets/js/shared/vm-theme.js")), "VM-687 changes controller allowlist only");
 assert.equal(normalize(topbar), normalize(atBaseline("assets/css/topbar.css")), "Reading reuses the shared topbar without changing it");
 assert.equal(normalize(siteSkin), normalize(atBaseline("assets/css/site-skin.css")), "Reading keeps the shared skin owner byte-identical");
 assert.equal(normalize(guideReadingCss), normalize(atBaseline("assets/css/guide-reading.css")), "Reading route CSS remains authored by its existing owner");
