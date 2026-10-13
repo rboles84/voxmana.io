@@ -6,7 +6,7 @@ import {
   getCardIdentityKey,
   getTotalQuantity,
   initScratchpad
-} from "../maze/maze-scratchpad-store.js?v=vm680";
+} from "../maze/maze-scratchpad-store.js?v=t6m2z8q4rkvp";
 
 // One controller per module URL/page. No quiz or search runtime owns this draft.
 let sharedClipboard;

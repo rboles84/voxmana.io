@@ -11,12 +11,12 @@ import {
   selectReadingTagRefs,
   withArchscryMazeContext,
   withGateAPublicState,
-} from "../archscry-presentation.js?v=vm687";
+} from "../archscry-presentation.js?v=z7q4h9m2rkpx";
 
 import {
   destroyDossierManaRadar,
   renderDossierRadarSection,
-} from "../dossier-radar.js?v=vm687";
+} from "../dossier-radar.js?v=z7q4h9m2rkpx";
 
 import {
   buildBasicLandCards,
@@ -24,30 +24,30 @@ import {
   getExternalDeckRoutingAlias,
   getServiceChipMeta,
   hasRenderableLandTier,
-} from "../dossier/foundation.js?v=vm687";
+} from "../dossier/foundation.js?v=z7q4h9m2rkpx";
 
 import {
   buildPreconRecommendations,
   selectPreconPreviewRecommendations,
-} from "../dossier/precons.js?v=vm687";
+} from "../dossier/precons.js?v=z7q4h9m2rkpx";
 
 import {
   preconCommanderPrinting,
-} from "../precon-commander-printings.js?v=vm687";
+} from "../precon-commander-printings.js?v=z7q4h9m2rkpx";
 
 import {
   buildCommanderDossier,
-} from "../dossier/reading.js?v=vm687";
+} from "../dossier/reading.js?v=z7q4h9m2rkpx";
 
 import {
   getExpressionKindLabel,
   normalizeLayeredIdentity,
-} from "../identity-layers.js?v=vm687";
+} from "../identity-layers.js?v=z7q4h9m2rkpx";
 
 import {
   hydrateVisibleResultCardArt,
   shouldDisableResultCardArt,
-} from "./card-media.js?v=vm687";
+} from "./card-media.js?v=z7q4h9m2rkpx";
 
 import {
   addUsageCards,
@@ -60,12 +60,12 @@ import {
   filterStarterCardsForUsage,
   selectApprovedCardRationales,
   selectApprovedCardVoices,
-} from "./content.js?v=vm687";
+} from "./content.js?v=z7q4h9m2rkpx";
 
 import {
   matrixFlavorSnippetsForFaction,
   playerFacingIdentityDisplayLabel,
-} from "./data.js?v=vm687";
+} from "./data.js?v=z7q4h9m2rkpx";
 
 import {
   MANA_BASE_SEGMENTS,
@@ -82,11 +82,11 @@ import {
   normalizeDossierPanelId,
   normalizeDossierSegment,
   resolveDossierConsoleState,
-} from "./dossier-controls.js?v=vm687";
+} from "./dossier-controls.js?v=z7q4h9m2rkpx";
 
 import {
   showSection,
-} from "./navigation.js?v=vm687";
+} from "./navigation.js?v=z7q4h9m2rkpx";
 
 import {
   MANA_SYMBOL_NAMES,
@@ -97,7 +97,7 @@ import {
   normalizeCardName,
   renderPlayerCopy,
   renderStaticTagChips,
-} from "./render-utils.js?v=vm687";
+} from "./render-utils.js?v=z7q4h9m2rkpx";
 
 import {
   APP_STATE,
@@ -105,7 +105,7 @@ import {
   getResumableQuickQuestion,
   getStarterProfile,
   placementQuestionById,
-} from "./state.js?v=vm687";
+} from "./state.js?v=z7q4h9m2rkpx";
 
 export const ARCHSCRY_MAZE_HANDOFF_KEY = "vm_archscry_maze_handoff_v1";
 

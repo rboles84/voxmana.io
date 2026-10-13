@@ -86,7 +86,7 @@ Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Decisions: Bounded opaque substitutions only. Preserve all executable URL paths and dependency/order behavior; do not change public behavior, deployment/cache headers, or protected data/state. Stop at Owner Review after independent RobQA; no merge, push, or deployment.
-Evidence: PENDING
+Evidence: [RobDev handoff](../../handoffs/2026-10-13-robdev-vm695-opaque-asset-revisions.md); [coordinator handoff](../../handoffs/2026-10-13-codex-vm695-opaque-asset-revisions.md); independent RobQA PENDING.
 
 ## Admission Scope
 

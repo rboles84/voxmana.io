@@ -9,14 +9,14 @@ import {
   getCommanderFactionGuidance,
   normalizeDisplayName,
   uniqueByDisplayName,
-} from "./foundation.js?v=vm687";
+} from "./foundation.js?v=z7q4h9m2rkpx";
 
 import {
   buildDossierAuditSectionContract,
   hasPlaceholderSummaryText,
   hasStarterCardReferences,
   hasUsableSummaryText,
-} from "./reading.js?v=vm687";
+} from "./reading.js?v=z7q4h9m2rkpx";
 
 export function renderLinkList(links = []) {
   return dedupeLinks(links)

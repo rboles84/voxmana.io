@@ -16,7 +16,7 @@ import {
   hideGlossaryTooltip,
   openCardDetail,
   positionGlossaryTooltip,
-} from "./card-media.js?v=vm687";
+} from "./card-media.js?v=z7q4h9m2rkpx";
 
 import {
   initializeDossierMobileTabs,
@@ -24,20 +24,20 @@ import {
   setDossierLayoutMode,
   setDossierPanel,
   setDossierSegment,
-} from "./dossier-controls.js?v=vm687";
+} from "./dossier-controls.js?v=z7q4h9m2rkpx";
 
 import {
   returnToPrimaryReading,
   showBoundedDirection,
   switchAdjacentView,
   togglePreconPreview,
-} from "./dossier-view.js?v=vm687";
+} from "./dossier-view.js?v=z7q4h9m2rkpx";
 
 import {
   forgetSavedReading,
   handleRetake,
   showSection,
-} from "./navigation.js?v=vm687";
+} from "./navigation.js?v=z7q4h9m2rkpx";
 
 import {
   answerQuickQuestion,
@@ -48,7 +48,7 @@ import {
   revisitRefinementAnswer,
   startQuickFlow,
   startTargetedRefinement,
-} from "./questionnaire.js?v=vm687";
+} from "./questionnaire.js?v=z7q4h9m2rkpx";
 
 export function bindArchscryControls() {
   const app = document.querySelector(".app");

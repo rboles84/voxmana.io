@@ -1,24 +1,24 @@
 import {
   classifyResultArtRecord,
-} from "../archscry-presentation.js?v=vm687";
+} from "../archscry-presentation.js?v=z7q4h9m2rkpx";
 
 import {
   buildIdentityCardModalHeading,
-} from "../dossier-card-review-text.js?v=vm687";
+} from "../dossier-card-review-text.js?v=z7q4h9m2rkpx";
 
 import {
   createScryfallNamedCardLookup,
-} from "../scryfall-card-cache.js?v=vm687";
+} from "../scryfall-card-cache.js?v=z7q4h9m2rkpx";
 
 import {
   createScryfallTransformMediaBehavior,
   createScryfallTransformFaceState,
   flipScryfallTransformFaceState,
-} from "../../shared/scryfall-transform-faces.js?v=vm687";
+} from "../../shared/scryfall-transform-faces.js?v=z7q4h9m2rkpx";
 
 import {
   approvedCardRationaleForFaction,
-} from "./content.js?v=vm687";
+} from "./content.js?v=z7q4h9m2rkpx";
 
 import {
   buildActionAttrs,
@@ -28,11 +28,11 @@ import {
   escapeHtml,
   normalizeCardName,
   renderManaCost,
-} from "./render-utils.js?v=vm687";
+} from "./render-utils.js?v=z7q4h9m2rkpx";
 
 import {
   APP_STATE,
-} from "./state.js?v=vm687";
+} from "./state.js?v=z7q4h9m2rkpx";
 
 export function shouldDisableResultCardArt() {
   return globalThis.__vmVisualRegressionDisableCardArt === true;
