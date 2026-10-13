@@ -1,6 +1,6 @@
 # VM-694 — Surgical precon footer alignment plan
 
-Status: Accepted
+Status: Integrated
 Related card: [VM-694](../kanban/in-progress/VM-694-precon-footer-alignment.md)
 Authorization: Owner approved the scoped surgical implementation on 2026-10-13 after reviewing this plan. Product changes remain limited to the admitted CSS rule; no integration/deployment is authorized.
 

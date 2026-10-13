@@ -64,3 +64,15 @@ Owner: ACCEPT
 Decision reference: Rob Boles's current human conversation message: "Looks good. ACCEPT VM-694 candidate 7ab79f369. Merge and deploy it, then verify the footer alignment live and confirm all 175 records remain untouched."
 
 Coordinator verified genuine acceptance against separate exact-candidate RobQA PASS. Implementation is frozen. This authorizes the normal guarded squash integration, main-branch Pages deployment and actual live footer/data verification. Before host operations, exposed connector schemas were inspected for authenticated reads, PR creation/metadata and merge expected_head_sha. Connector is the sole approved/selected read and merge route; no gh/browser fallback or unresolved write exists. Authenticated rboles84 has repository push/admin/pull and squash permission. Existing task/head PR inventory was empty. Optional branch-policy visibility will be recorded from its governed connector read without changing authentication if unavailable. No source/catalog, CSS, HTML, runtime or test changes follow the accepted candidate. Owner acceptance does not imply CI, integration or live deployment success; those remain pending actual proof.
+## Verified integration — 2026-10-13
+
+Task: VM-694
+Candidate: 7ab79f369e6834613a66cce332ea77b4044ea7b7
+PR82: https://github.com/rboles84/voxmana.io/pull/82
+Integration: INTEGRATED
+Merge: ac84e4517904d9d264bedce4a1ca63364fb817a5
+Evidence head: c01b924e50cdba7928c726bc8389a09f639db219
+
+Exact PR-head Deterministic Validation completed success. Integration checker PASS validated authentic acceptedcandidate/separateQA, current main, reviewed evidence-only descendants, clean mergeability, complete authenticated6file/blob and5commit scope parity, and server atomic expected-head guard. Connector guarded squash returned mergedtrue; authenticated post-read confirms PR82 closed/merged at the SHA above. Squash parent is exactly baselineb322f24ddcaf3f4a5cc3fc7f63732ee2a98b9b8b; treee74ce1f50ca99b85aba93f7a36633dab90eda701 equals verified evidencehead tree. AcceptedCSS and all175 data remain unchanged.
+
+Fetch downloaded complete squash/tree/history objects but again encountered the known pre-existing broken Codex checkpoint ref. Explicit commit/tree/missing-object inspection confirmed completeness, fresh authenticated main confirmed the mergeSHA, and an exact-old-SHA tracking update plus localmain fast-forward synchronized origin/main and main without deleting/rewriting checkpoint or user refs/history/config. Ephemeral maintenance options avoided unrelated GC; no permanent config changed. GitHub already auto-deleted the remote mergedtaskbranch; local feature head remains exactly verifiedc01 pending authorized cleanup. Onlyprimaryworktree is registered. Pages publishes main automatically; actual normalstylesheet URL/live footer/data proof remains pending separate verification and is not inferred from merge or CI. Supplemental branch-policy GET returned403 through the preapproved connector; ordinary optionalvisibility rule retained mandatoryCI/mergeability/guard without authentication fallback.
