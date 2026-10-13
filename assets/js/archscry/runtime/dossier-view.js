@@ -32,6 +32,10 @@ import {
 } from "../dossier/precons.js?v=vm687";
 
 import {
+  preconCommanderPrinting,
+} from "../precon-commander-printings.js?v=vm693";
+
+import {
   buildCommanderDossier,
 } from "../dossier/reading.js?v=vm687";
 
@@ -888,12 +892,32 @@ export function buildDeckDiscoveryHtml(groups = []) {
 
 export const VALIDATED_EDHREC_PRECON_URLS = Object.freeze({
   "Abzan Armor": "https://edhrec.com/precon/abzan-armor",
+  "20 Ways to Win": "https://edhrec.com/precon/20-ways-to-win",
+  "Avengers Assemble": "https://edhrec.com/precon/avengers-assemble",
   "Buckle Up": "https://edhrec.com/precon/buckle-up",
+  "Calling All Angels": "https://edhrec.com/precon/calling-all-angels",
+  "Deathdancer Xira": "https://edhrec.com/precon/deathdancer-xira",
+  "Doom Prevails": "https://edhrec.com/precon/doom-prevails",
   "Eldrazi Unbound": "https://edhrec.com/precon/eldrazi-unbound",
+  "Enchantress Rubinia": "https://edhrec.com/precon/enchantress-rubinia",
+  "Everyone's Invited": "https://edhrec.com/precon/everyones-invited",
   "First Flight": "https://edhrec.com/precon/first-flight",
+  "From Cute to Brute": "https://edhrec.com/precon/from-cute-to-brute",
+  "Goblin Storm": "https://edhrec.com/precon/goblin-storm",
+  "Hatsune Miku": "https://edhrec.com/precon/hatsune-miku",
+  "Heads I Win, Tails You Lose": "https://edhrec.com/precon/heads-i-win-tails-you-lose",
+  "Keen Engineering": "https://edhrec.com/precon/keen-engineering",
+  "Multiverse Reforged": "https://edhrec.com/precon/multiverse-reforged",
+  "Odds and Ends": "https://edhrec.com/precon/odds-and-ends",
   "Phantom Premonition": "https://edhrec.com/precon/phantom-premonition",
+  "Raining Cats and Dogs": "https://edhrec.com/precon/raining-cats-and-dogs",
+  "Reign of Dragons": "https://edhrec.com/precon/reign-of-dragons",
   "Spirit Squadron": "https://edhrec.com/precon/spirit-squadron",
   "Stalwart Unity": "https://edhrec.com/precon/stalwart-unity",
+  "The Fantastic Four": "https://edhrec.com/precon/the-fantastic-four",
+  "Tramplesaurus Rex": "https://edhrec.com/precon/tramplesaurus-rex",
+  "Wakanda Forever": "https://edhrec.com/precon/wakanda-forever",
+  "Wretched Ranks": "https://edhrec.com/precon/wretched-ranks",
 });
 
 export function validatedEdhrecPreconUrl(deckName) {
@@ -1006,8 +1030,10 @@ export function buildPreconCardHtml(precon, usedCardIds = new Set()) {
     : `This card appears because it is the cataloged main commander of ${precon.deckName}.`;
   const commanderProvenance = `data/precons/vox-mana-precons.source.json#${precon.deckName}.mainCommander`;
   const commanderHtml = commanderNames.map((commanderName) => {
+    const printing = preconCommanderPrinting(precon, commanderName);
     const commanderButtonAttrs = buildActionAttrs("open-card-detail", {
       cardName: commanderName,
+      scryfallId: printing?.id,
       cardRationale: commanderRationale,
       cardProvenance: commanderProvenance,
       cardTags: chips.join("|"),
@@ -1015,7 +1041,7 @@ export function buildPreconCardHtml(precon, usedCardIds = new Set()) {
     // Keep tracking the commander in the local allocation set, but never remove
     // the factual hover/detail affordance from a repeated precon reference.
     usedCardIds.add(canonicalUsageCardId(commanderName));
-    return `<button class="precon-commander-trigger" type="button" data-card-preview-name="${escapeAttributeValue(commanderName)}" ${commanderButtonAttrs}>${escapeHtml(commanderName)}</button>`;
+    return `<button class="precon-commander-trigger" type="button" data-card-preview-name="${escapeAttributeValue(commanderName)}"${printing ? ` data-card-scryfall-id="${escapeAttributeValue(printing.id)}"` : ""} ${commanderButtonAttrs}>${escapeHtml(commanderName)}</button>`;
   }).join(" / ") || escapeHtml(precon.mainCommander);
 
   return `

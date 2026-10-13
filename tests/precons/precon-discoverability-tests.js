@@ -18,7 +18,9 @@ import {
   buildPreconSectionHtml,
   preconMainCommanderNames,
   togglePreconPreview,
+  validatedEdhrecPreconUrl,
 } from "../../assets/js/archscry/runtime/dossier-view.js";
+import { PRECON_COMMANDER_PRINTINGS } from "../../assets/js/archscry/precon-commander-printings.js";
 
 const readJson = async (path) => JSON.parse(await readFile(new URL(path, import.meta.url), "utf8"));
 const factions = (await readJson("../../data/factions.json")).factions;
@@ -28,6 +30,7 @@ const tagTaxonomy = await readJson("../../data/taxonomy/vox-mana-tags.json");
 const themeTaxonomy = await readJson("../../data/taxonomy/vox-mana-precon-themes.json");
 const sourceCatalog = await readJson("../../data/precons/vox-mana-precons.source.json");
 const preconCatalog = await readJson("../../data/precons/vox-mana-precon-catalog.json");
+const cardMediaSource = await readFile(new URL("../../assets/js/archscry/runtime/card-media.js", import.meta.url), "utf8");
 const deckTagCatalog = createArchidektTagCatalog(await readJson("../../data/deck-tags_expanded.json"));
 
 const expectedExactAssociations = {
@@ -52,6 +55,37 @@ const expectedExactAssociations = {
   "Deathdancer Xira": ["JUND"],
   "Enchantress Rubinia": ["BANT"],
 };
+const expectedVm693EdhrecUrls = {
+  "20 Ways to Win": "https://edhrec.com/precon/20-ways-to-win",
+  "Avengers Assemble": "https://edhrec.com/precon/avengers-assemble",
+  "Calling All Angels": "https://edhrec.com/precon/calling-all-angels",
+  "Deathdancer Xira": "https://edhrec.com/precon/deathdancer-xira",
+  "Doom Prevails": "https://edhrec.com/precon/doom-prevails",
+  "Enchantress Rubinia": "https://edhrec.com/precon/enchantress-rubinia",
+  "Everyone's Invited": "https://edhrec.com/precon/everyones-invited",
+  "From Cute to Brute": "https://edhrec.com/precon/from-cute-to-brute",
+  "Goblin Storm": "https://edhrec.com/precon/goblin-storm",
+  "Hatsune Miku": "https://edhrec.com/precon/hatsune-miku",
+  "Heads I Win, Tails You Lose": "https://edhrec.com/precon/heads-i-win-tails-you-lose",
+  "Keen Engineering": "https://edhrec.com/precon/keen-engineering",
+  "Multiverse Reforged": "https://edhrec.com/precon/multiverse-reforged",
+  "Odds and Ends": "https://edhrec.com/precon/odds-and-ends",
+  "Raining Cats and Dogs": "https://edhrec.com/precon/raining-cats-and-dogs",
+  "Reign of Dragons": "https://edhrec.com/precon/reign-of-dragons",
+  "The Fantastic Four": "https://edhrec.com/precon/the-fantastic-four",
+  "Tramplesaurus Rex": "https://edhrec.com/precon/tramplesaurus-rex",
+  "Wakanda Forever": "https://edhrec.com/precon/wakanda-forever",
+  "Wretched Ranks": "https://edhrec.com/precon/wretched-ranks",
+};
+const expectedHistoricEdhrecUrls = {
+  "Abzan Armor": "https://edhrec.com/precon/abzan-armor",
+  "Buckle Up": "https://edhrec.com/precon/buckle-up",
+  "Eldrazi Unbound": "https://edhrec.com/precon/eldrazi-unbound",
+  "First Flight": "https://edhrec.com/precon/first-flight",
+  "Phantom Premonition": "https://edhrec.com/precon/phantom-premonition",
+  "Spirit Squadron": "https://edhrec.com/precon/spirit-squadron",
+  "Stalwart Unity": "https://edhrec.com/precon/stalwart-unity",
+};
 const newSourcePrecons = sourceCatalog.precons.slice(155);
 const newPrecons = preconCatalog.precons.slice(155);
 const profiles = ["beginner", "returning", "experienced", "advanced"];
@@ -60,6 +94,14 @@ const identityKeys = Object.keys(identityLayers);
 assert.equal(newPrecons.length, 20, "expected the completed VM-693 import to retain 20 decks");
 assert.equal(identityKeys.length, 37, "expected the production identity layer to retain all 37 identities");
 assert.deepEqual(new Set(newPrecons.map((precon) => precon.deckName)), new Set(Object.keys(expectedExactAssociations)));
+assert.deepEqual(new Set(newPrecons.map((precon) => precon.deckName)), new Set(Object.keys(expectedVm693EdhrecUrls)), "expected every VM-693 deck to have an explicit EDHREC precon URL");
+for (const [deckName, url] of Object.entries(expectedHistoricEdhrecUrls)) {
+  assert.equal(validatedEdhrecPreconUrl(deckName), url, `${deckName}: existing EDHREC mapping remains unchanged`);
+}
+for (const [deckName, url] of Object.entries(expectedVm693EdhrecUrls)) {
+  assert.equal(validatedEdhrecPreconUrl(deckName), url, `${deckName}: validated EDHREC mapping remains exact`);
+}
+assert.equal(validatedEdhrecPreconUrl("Unvalidated VM-693 fixture"), "", "unknown decks remain suppressed from the validated EDHREC allowlist");
 
 const delimiterExpectations = new Map([
   ["The Fantastic Four", ["Invisible Woman", "Mister Fantastic", "Human Torch", "The Thing"]],
@@ -70,6 +112,35 @@ const singleCommanderExpectations = new Map([
   ["Deathdancer Xira", "Xira Arien"],
   ["Enchantress Rubinia", "Rubinia Soulsinger"],
 ]);
+const expectedPrintingIds = {
+  "Calling All Angels|Giada, Font of Hope": "4ebc7622-08a1-4f43-92dd-8675d395e8f6",
+  "Keen Engineering|Sai, Master Thopterist": "5650587a-27a5-4d68-97e2-5745627bd094",
+  "Wretched Ranks|Ghoulcaller Gisa": "909e62fa-4585-495e-812b-5df56af24610",
+  "Reign of Dragons|Lathliss, Dragon Queen": "8a17ec4e-b508-41af-803b-32acd863e598",
+  "Tramplesaurus Rex|Ghalta, Primal Hunger": "5d9951d1-3228-4d69-8e63-6e6f0a893a86",
+  "Hatsune Miku|Trostani, Selesnya's Voice": "6ab6e6c9-fe20-40d3-997e-fe3480081f03",
+  "Goblin Storm|Zada, Hedron Grinder": "b17fb671-f7ff-4633-bdef-39375c6f857c",
+  "Everyone's Invited|Morophon, the Boundless": "58e4a55f-b35a-411a-9a05-0cbb0d767920",
+  "20 Ways to Win|Go-Shintai of Life's Origin": "4e9a1f19-6ee3-49fb-a08d-4048ee7c1e34",
+  "From Cute to Brute|Esika, God of the Tree // The Prismatic Bridge": "46d43696-3c63-4c55-bc61-e1560c8b8201",
+  "Raining Cats and Dogs|Rin and Seri, Inseparable": "a129558c-45a1-441c-97f0-b70b4e9d8a56",
+  "Heads I Win, Tails You Lose|Zndrsplt, Eye of Wisdom": "d5dfd236-b1da-4552-b94f-ebf6bb9dafdf",
+  "Heads I Win, Tails You Lose|Okaun, Eye of Chaos": "8421ad46-dc7f-4b66-800b-e41c30835300",
+  "Odds and Ends|Yennett, Cryptic Sovereign": "c4e4bcb1-e9c8-4b45-a780-986f7a38d199",
+  "Deathdancer Xira|Xira Arien": "8c961265-72a8-4521-b413-0d51fd2e10ad",
+  "Enchantress Rubinia|Rubinia Soulsinger": "65a6b9a5-11d6-4f6d-a646-b1ef9c9b68aa",
+};
+assert.equal(Object.keys(PRECON_COMMANDER_PRINTINGS).length, 16, "expected only the 16 Owner-verified precon commander printings");
+assert.match(cardMediaSource, /trigger\.scryfallId \? `\$\{previewBaseTarget\}\|\$\{trigger\.scryfallId\}` : previewBaseTarget/, "no-ID preview targets retain the existing name-only identity");
+assert.match(cardMediaSource, /requestedBaseTarget.*trigger\?\.scryfallId \? `\$\{requestedBaseTarget\}\|\$\{trigger\.scryfallId\}` : requestedBaseTarget/s, "pointer move distinguishes exact-print previews without changing no-ID identities");
+assert.match(cardMediaSource, /const requestId = \+\+cardDetailRequestId;[\s\S]*?requestId !== cardDetailRequestId \|\| !dialog\.open/, "card detail ignores a late exact-print response after supersession or close");
+for (const [deckAndCommander, printingId] of Object.entries(expectedPrintingIds)) {
+  const [deckName, commanderName] = deckAndCommander.split("|");
+  const precon = newPrecons.find((record) => record.deckName === deckName);
+  const html = buildPreconSectionHtml({ hasAny: true, otherExact: [precon] });
+  assert.match(html, new RegExp(`data-card-preview-name="${commanderName.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}"[^>]*data-card-scryfall-id="${printingId}"`), `${deckName}: preview target retains its exact printing ID`);
+  assert.match(html, new RegExp(`data-action="open-card-detail"[^>]*data-scryfall-id="${printingId}"`), `${deckName}: detail target retains its exact printing ID`);
+}
 for (const [deckName, commanderNames] of delimiterExpectations) {
   const expected = commanderNames.join(" / ");
   const source = newSourcePrecons.find((precon) => precon.deckName === deckName);
@@ -130,7 +201,18 @@ function renderedTitlesForGrid(html, grid) {
     .map((match) => match[1].replaceAll("&amp;", "&").replaceAll("&#039;", "'"));
 }
 
+function renderedPreconProviderUrlsForGrid(html, grid) {
+  const marker = `data-precon-preview-grid="${grid}"`;
+  const afterMarker = html.split(marker)[1] || "";
+  const beforeNextGrid = afterMarker.split('data-precon-preview-grid="')[0];
+  return new Map([...beforeNextGrid.matchAll(/<div class="precon-card[\s\S]*?<div class="precon-title">([^<]+)<\/div>([\s\S]*?)(?=<div class="precon-card|$)/g)]
+    .map((match) => [match[1].replaceAll("&amp;", "&").replaceAll("&#039;", "'"), [...match[2].matchAll(/href="([^"]+)"/g)].map((link) => link[1])])
+  );
+}
+
 let overflowRoundTrips = 0;
+let renderedVm693ProviderCardsInPrimary = 0;
+let renderedVm693ProviderCardsInRemaining = 0;
 for (const experienceLevel of profiles) {
   let exactAssociationCount = 0;
   for (const identityKey of identityKeys) {
@@ -157,6 +239,18 @@ for (const experienceLevel of profiles) {
       preview.remaining.map((precon) => precon.deckName),
       `${experienceLevel}/${identityKey}: remaining grid renders every overflow product sequence`
     );
+    const providerUrlsByDeck = new Map([
+      ...renderedPreconProviderUrlsForGrid(html, "primary"),
+      ...renderedPreconProviderUrlsForGrid(html, "remaining"),
+    ]);
+    for (const record of records.filter((precon) => expectedVm693EdhrecUrls[precon.deckName])) {
+      assert.ok(
+        providerUrlsByDeck.get(record.deckName)?.includes(expectedVm693EdhrecUrls[record.deckName]),
+        `${experienceLevel}/${identityKey}/${record.deckName}: rendered card retains its exact validated EDHREC footer link`
+      );
+      if (renderedPreconProviderUrlsForGrid(html, "primary").has(record.deckName)) renderedVm693ProviderCardsInPrimary += 1;
+      if (renderedPreconProviderUrlsForGrid(html, "remaining").has(record.deckName)) renderedVm693ProviderCardsInRemaining += 1;
+    }
     if (preview.hasOverflow) {
       const primary = { hidden: false };
       const remaining = { hidden: true };
@@ -205,5 +299,7 @@ for (const experienceLevel of profiles) {
   assert.equal(exactAssociationCount, 21, `${experienceLevel}: expected 21 exact deck/identity associations`);
 }
 assert.ok(overflowRoundTrips > 0, "expected at least one production identity/profile overflow toggle round trip");
+assert.ok(renderedVm693ProviderCardsInPrimary > 0, "expected VM-693 EDHREC footers in the first-six grid");
+assert.ok(renderedVm693ProviderCardsInRemaining > 0, "expected VM-693 EDHREC footers in the remaining grid");
 
 console.log("PASS precon discoverability tests");
