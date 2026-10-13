@@ -2,7 +2,7 @@
 
 ID: VM-693
 Title: Append Completed New Precon Research
-Status: Integrated
+Status: Done
 Type: Data import
 Area: Archscry precons
 Priority: Owner request
@@ -44,10 +44,10 @@ Admission baseline: 58098283db657bcfe3da89636297384b7c2031a1
 Candidate: 7de6ca7de36c5a2bce1b8d2db861ffae60108032
 RobQA: PASS at 7de6ca7de36c5a2bce1b8d2db861ffae60108032 ; SEPARATE /root/precon_qa; docs/handoffs/2026-10-11-robqa-vm693-precon-import.md
 Owner: ACCEPTED at 7de6ca7de36c5a2bce1b8d2db861ffae60108032 ; Rob Boles explicit renewed conversation ACCEPT on 2026-10-13
-Integration: INTEGRATED ; PR81 squash b6fb5d5937a6ac86c4b3d6a495c80ed6f344932a ; main synchronized; Pages publication and live verification pending
+Integration: INTEGRATED ; PR81 squash b6fb5d5937a6ac86c4b3d6a495c80ed6f344932a ; deployed via Pages; all20 placements and original155 live preservation verified
 Dependencies: None
 Decisions: Existing 155 records are immutable for this task. New Precon Research is the sole workbook candidate tab. Existing 155 workbook rows are duplicate-detection input only. Scope amendment: update only the existing precon artifact test's total-count assertions to reflect completed additions; retain all existing substantive assertions and independently verify original-155 preservation. Owner subsequently authorized correcting only the two new-record commander delimiters, regression tests, rebuild, all-37/expanded-list verification and independent QA before returning for Owner Review. QA routes focused production-path regression coverage to tests/precons/precon-discoverability-tests.js because the existing dossier harness has a pre-existing startup failure. Runtime, placement rules and original 155 records remain protected. Scope amendment: Owner rejection on 2026-10-12 authorizes the missing precon EDHREC/Browse controls and deck-scoped exact product commander printings; add only the named renderer, printing registry, media, cache and focused regression paths. Original 155 and all current 175 source/catalog records remain read-only; default named-card selection and placement remain protected.
-Evidence: Independent RobQA PASS binds to corrected candidate7de6ca7de36c5a2bce1b8d2db861ffae60108032. The sole executable change from prior accepted3ec is the required printing-module import query vm693 to vm687. Mandatory HTML validation, all20 across37 identities/four profiles/both grids, provider/printing/cache guards, deterministic rebuild175, all175 file-byte and original155 parsed/raw/order/render preservation, and focused localhost browser interactions pass. Exact-candidate GitHub Deterministic Validation run38400601626 completed success. External vm693-ci-correction-qa-receipt.md SHA-256 9E3496667913CC2200F21D6F38547F1ACBB6772917BDC30FAEF1BB4A57E4F575 retains separate QA. Prior Owner acceptance is preserved historically and cannot transfer under ACCEPT material-correction rule. Owner PENDING; no merge or deployment.
+Evidence: Accepted candidate7de6ca7de36c5a2bce1b8d2db861ffae60108032 retains separate RobQA PASS and successful exact PR-head CI/integration gate. PR81 verified guarded squash b6fb5d5937a6ac86c4b3d6a495c80ed6f344932a; local/origin/live main synchronized and task branches cleaned. Pages live source/catalog plus four changed runtime assets match accepted bytes. All20 additions pass37 identities/four profiles,21 exact associations, initial/remaining grids, toggle/provider/16printing invariants. Existing155 source/generated parsed/raw/order preserve baseline; fullcatalog175. LiveWhite independently confirms Calling All Angels/footer/GiadaID and successful exactScryfallresponse. Fresh live image/detail pixels remain unconfirmed after headless overlay timeout and bounded Edge temporary-profile launch failures; accepted browser/cache tests and deployedbyte parity remain valid. External vm693-live-qa-receipt.md SHA-256 62EE0D52B69D179EDA0A510EEB0AC9C06050EDCA86475766D4AE5B84E4BA5329 and live result/handoff retain exact proof/limitation. Integrated closeout PASS; final Done closeout to be rechecked.
 
 ## Owner-authorized additional records — 2026-10-11
 
