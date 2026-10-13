@@ -2,7 +2,7 @@
 
 ID: VM-693
 Title: Append Completed New Precon Research
-Status: Owner Review
+Status: Accepted
 Type: Data import
 Area: Archscry precons
 Priority: Owner request
@@ -43,7 +43,7 @@ Branch: codex/vm-693-new-precon-research
 Admission baseline: 58098283db657bcfe3da89636297384b7c2031a1
 Candidate: 7de6ca7de36c5a2bce1b8d2db861ffae60108032
 RobQA: PASS at 7de6ca7de36c5a2bce1b8d2db861ffae60108032 ; SEPARATE /root/precon_qa; docs/handoffs/2026-10-11-robqa-vm693-precon-import.md
-Owner: PENDING
+Owner: ACCEPTED at 7de6ca7de36c5a2bce1b8d2db861ffae60108032 ; Rob Boles explicit renewed conversation ACCEPT on 2026-10-13
 Integration: PENDING ; PR81 corrected candidate passes Deterministic Validation; renewed exact-candidate Owner acceptance required before guarded merge
 Dependencies: None
 Decisions: Existing 155 records are immutable for this task. New Precon Research is the sole workbook candidate tab. Existing 155 workbook rows are duplicate-detection input only. Scope amendment: update only the existing precon artifact test's total-count assertions to reflect completed additions; retain all existing substantive assertions and independently verify original-155 preservation. Owner subsequently authorized correcting only the two new-record commander delimiters, regression tests, rebuild, all-37/expanded-list verification and independent QA before returning for Owner Review. QA routes focused production-path regression coverage to tests/precons/precon-discoverability-tests.js because the existing dossier harness has a pre-existing startup failure. Runtime, placement rules and original 155 records remain protected. Scope amendment: Owner rejection on 2026-10-12 authorizes the missing precon EDHREC/Browse controls and deck-scoped exact product commander printings; add only the named renderer, printing registry, media, cache and focused regression paths. Original 155 and all current 175 source/catalog records remain read-only; default named-card selection and placement remain protected.
