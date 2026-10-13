@@ -33,7 +33,7 @@ import {
 
 import {
   preconCommanderPrinting,
-} from "../precon-commander-printings.js?v=vm693";
+} from "../precon-commander-printings.js?v=vm687";
 
 import {
   buildCommanderDossier,

@@ -110,3 +110,9 @@ External receipts in C:/Users/obake/.codex/visualizations/2026/10/11/01a12c34-a0
 - Exact cache hits validate their stored `card.id` against the requested ID and obey `requireDetails`; sparse or mismatched rows are refreshed through the exact endpoint. Detail requests use their own exact-print in-flight key.
 - The printing suffix is added to hover/pointer identity only when an ID exists, leaving no-ID preview target strings unchanged. Focused cache and renderer checks cover these protections.
 - Card detail now has an incrementing request token which advances on every open and close; late exact-print success or failure returns without replacing a superseding dialog or reopening/rewriting a closed one.
+
+## Integration CI cache-token correction — 2026-10-13
+
+- **Cause:** PR #81 CI rejected the newly added relative Archscry module import because the repository-wide epoch validator requires `?v=vm687` on every relative edge. The new registry import used `?v=vm693`.
+- **Fix:** Changed only `assets/js/archscry/runtime/dossier-view.js` from `../precon-commander-printings.js?v=vm693` to `?v=vm687`. No validator, cache contract, source/catalog record, or runtime behavior changed.
+- **Developer validation:** `npm run lint:html`, `node tests/precons/precon-discoverability-tests.js`, and `node scripts/vm551-scryfall-cache-tests.mjs` passed after the correction. RobDev does not restore Owner acceptance, issue QA, commit, or integrate; this is a new material CI-fix candidate for the governing workflow.
