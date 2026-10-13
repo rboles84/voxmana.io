@@ -2,7 +2,7 @@
 
 ID: VM-693
 Title: Append Completed New Precon Research
-Status: In Progress
+Status: Owner Review
 Type: Data import
 Area: Archscry precons
 Priority: Owner request
@@ -41,13 +41,13 @@ Use RobDev; validate factual sources, map only new completed rows into the exist
 Record version: 1
 Branch: codex/vm-693-new-precon-research
 Admission baseline: 58098283db657bcfe3da89636297384b7c2031a1
-Candidate: PENDING
-RobQA: PENDING for Owner-requested provider-link and product-printing corrections; historical exact-candidate verdicts remain in docs/handoffs/2026-10-11-robqa-vm693-precon-import.md
+Candidate: 3ec91cf6d27ac60bf16670d26d37ea8c056a5ae8
+RobQA: PASS at 3ec91cf6d27ac60bf16670d26d37ea8c056a5ae8 ; SEPARATE /root/precon_qa; docs/handoffs/2026-10-11-robqa-vm693-precon-import.md
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Decisions: Existing 155 records are immutable for this task. New Precon Research is the sole workbook candidate tab. Existing 155 workbook rows are duplicate-detection input only. Scope amendment: update only the existing precon artifact test's total-count assertions to reflect completed additions; retain all existing substantive assertions and independently verify original-155 preservation. Owner subsequently authorized correcting only the two new-record commander delimiters, regression tests, rebuild, all-37/expanded-list verification and independent QA before returning for Owner Review. QA routes focused production-path regression coverage to tests/precons/precon-discoverability-tests.js because the existing dossier harness has a pre-existing startup failure. Runtime, placement rules and original 155 records remain protected. Scope amendment: Owner rejection on 2026-10-12 authorizes the missing precon EDHREC/Browse controls and deck-scoped exact product commander printings; add only the named renderer, printing registry, media, cache and focused regression paths. Original 155 and all current 175 source/catalog records remain read-only; default named-card selection and placement remain protected.
-Evidence: Owner rejected f155d2c9e1e651ec213a5531dae0d76a88580222 on 2026-10-12; original report and screenshots are preserved externally. RobQA is PENDING for the corrected candidate. Missing new-deck Browse controls trace to absent validated EDHREC mappings; product-printing references require a deck-scoped optional ID lookup with isolated cache keys. Pre-correction source/catalog snapshots contain 175 records, including the protected original155; no record edit is planned. Exact-print reconnaissance verified 16 requested references against Scryfall. Scope-only amendment d4f31598a2e9549cad368052a37b4837c5e70914 and continuation PASS precede resumed corrections. Owner/integration PENDING for the new candidate; no push, merge or deployment.
+Evidence: Independent RobQA PASS binds to corrected candidate 3ec91cf6d27ac60bf16670d26d37ea8c056a5ae8. All20 appended decks retain exact EDHREC links in both grids across all37 identities/four profiles, with16 verified product-printing references for15 decks. Cache identity/policy/detail guards and stale-request safety pass. Localhost real-pointer browser checks passed using live Scryfall responses/images for FDC, expanded SLD, both Heads printings including380-star, and Miku/Trostani; controlled late-success/error races pass. All175 source/catalog file bytes are unchanged from pre-correction snapshots; original155 parsed/order/raw records and rendered cards match their baselines. External vm693-owner-fix-qa-receipt.md SHA-256 14DEC243815497A6CA12711C2343E677338CB7F8D727D025A7E3729A172F2589 and appended QA handoff retain evidence. Corrected checklist binds to this SHA with fresh PENDING state and localhost URL; prior rejected report is preserved. Known unrelated dossier harness debt is unchanged. Owner/integration PENDING; no push, PR, merge or deployment.
 
 ## Owner-authorized additional records — 2026-10-11
 
@@ -63,9 +63,9 @@ Authorized corrections: restore the existing EDHREC precon/Browse affordance for
 
 Acceptance for the correction:
 
-- [ ] All 20 new decks expose the exact EDHREC precon link through the existing Browse menu in both initial and remaining grids; retain all existing links and unknown-deck suppression.
-- [ ] Requested product printings resolve consistently for preview and detail, scoped to the affected deck/commander; unrelated and original precon card behavior is preserved.
-- [ ] Owner-reported missing-affordance and wrong-printing defect classes gain focused regressions and independent candidate-bound QA before returning for Owner Review.
+- [x] All 20 new decks expose the exact EDHREC precon link through the existing Browse menu in both initial and remaining grids; retain all existing links and unknown-deck suppression.
+- [x] Requested product printings resolve consistently for preview and detail, scoped to the affected deck/commander; unrelated and original precon card behavior is preserved.
+- [x] Owner-reported missing-affordance and wrong-printing defect classes gain focused regressions and independent candidate-bound QA before returning for Owner Review.
 
 ## Admission Scope
 

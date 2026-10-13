@@ -140,3 +140,32 @@ Returning-profile Owner Review locations:
 The agent proved the full 37-identity matrix; Owner visual review can remain bounded to these three exact placements and commander interactions. The known broad dossier harness startup failure remains unrelated and was not rerun. No broader suite was required.
 
 External candidate receipt: `C:/Users/obake/.codex/visualizations/2026/10/11/01a12c34-a0b1-79a1-9ea5-67fb5f505a82/vm693-append3-qa-receipt.md`, SHA-256 `FB01F37E67D3732CBC04488DAA4F4193E35A360538E17AFFC12D5B98ABD3E2D0`. Matrix SHA-256: `726C8F517D78D4BA98C20ACCD5201A55748CFEE79EE351B9E7DF14EB6D5C6622`. Audit helper SHA-256: `A2C6CD1D4F6D79EA4E5109ACE7E0CCDE463BFE71C8BE5667A77B2C2C14663578`. Owner Review remains required.
+
+## Owner REJECT correction RobQA — 2026-10-12
+
+Task: VM-693
+Candidate: 3ec91cf6d27ac60bf16670d26d37ea8c056a5ae8
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: /root/precon_qa
+Implementer: /root/precon_import
+
+QA tier: QA-2 component interaction. The correction gives all 20 VM-693 decks the Owner-supplied EDHREC precon footer and gives 16 deck/commander pairs their exact product-specific Scryfall printing. Exact-print ownership is scoped by precon slug plus canonical commander, while the ordinary name-only card path remains unchanged. Placement, ranking, schema, taxonomy, canonical precon facts, and the original provider/card behavior remain protected.
+
+Independent exact-candidate evidence passed:
+
+- `npm.cmd run build:precons`: deterministic 175-record build.
+- `node --test tests/precons/precon-artifact-tests.js`: PASS, including the registered discoverability regression.
+- `node tests/precons/precon-discoverability-tests.js`: PASS across all 37 identities and four experience profiles. The 20-deck/21-association fixture retains complete primary-six plus remaining-grid coverage, exact EDHREC destinations, dedupe, toggle, exclusion, grouping, and all 16 emitted printing IDs.
+- `node scripts/vm551-scryfall-cache-tests.mjs`: PASS. Exact `/cards/{id}` lookup uses isolated `printing:{id}` keys and preserves record-type and authored-projection network guards. Warm name cache, distinct-print cache, malformed ID, 404, 429/backoff, mismatched cached/response ID, sparse detail refresh, and concurrent preview/detail cases passed.
+- Independent preservation helper: PASS. Both current 175-record source/generated files are byte-identical to the pre-correction snapshots. The original 155 parsed values, raw object bytes, and order remain equal to the original baseline. With identical provider state, all 155 `buildPreconCardHtml` results are byte-for-byte equal to the frozen `3329d7f799c4b4aa53281b289c33213e2a713b52` renderer.
+- Focused localhost Edge QA: PASS. Real pointer hover and ordinary clicks used the local candidate at `127.0.0.1:8765`; no live Site URL or screenshots were used. Live Scryfall `/cards/{id}` responses and image sources proved Calling All Angels in the primary grid, Odds and Ends after the real remaining-grid toggle, both Heads commanders including Okaun `380★`, and Hatsune Miku retaining canonical Trostani identity with SLD 2429. Each tested card exposed its exact EDHREC footer and preview/detail printing.
+- Controlled browser timing: PASS. Using the source-verified Heads IDs with only response timing mocked, a pending detail was closed and another opened; late success and late error from the obsolete request could not overwrite the new dialog or expose a stale error.
+- Corrected external Owner checklist smoke: PASS. It opens with this full candidate SHA, contains 21 associations, defaults to `PENDING`, and exports the same candidate and pending Owner decision.
+- `git diff --check 58098283db657bcfe3da89636297384b7c2031a1..3ec91cf6d27ac60bf16670d26d37ea8c056a5ae8`: PASS. Candidate worktree was clean before this owned append-only QA record.
+
+Manual finding converted to invariant: rendered title coverage does not prove a usable provider footer or requested card art. Every appended rendered card occurrence must carry its exact validated precon link, and each Owner-selected deck/commander pair must carry an exact printing ID through both hover and detail without contaminating ordinary name-cache behavior.
+
+Stateful-adversarial result: PASS. Cold and warm exact-print paths, name-versus-print cache isolation, two printings in one Heads card, canonical-versus-flavor Miku identity, close/reopen, late success/error, corrupted cache replacement, and detail-required refresh were covered. The ordinary no-ID preview identity and unrelated existing-card renderer output remain unchanged.
+
+The known broad dossier harness `interview` startup failure is unrelated and was not rerun. CPU-heavy/full repository suites and screenshots were not required. Engineering PASS applies only to candidate `3ec91cf6d27ac60bf16670d26d37ea8c056a5ae8`; Owner product/visual acceptance remains a separate decision.
