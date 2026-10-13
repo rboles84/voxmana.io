@@ -1,7 +1,7 @@
 import {
   getCommanderFactionGuidance,
   getExternalDeckRoutingAlias,
-} from "./dossier/foundation.js?v=vm687";
+} from "./dossier/foundation.js?v=z7q4h9m2rkpx";
 import {
   buildDossierMazePathEntries,
   mazeSearchLink as buildMazeSearchLink,
@@ -10,7 +10,7 @@ import {
   resolveMazePathType,
   resolveMazePlainReadingQuery,
   resolveMazeDiscoveryCatalogProvenance,
-} from "../maze/maze-handoff.js?v=vm687";
+} from "../maze/maze-handoff.js?v=z7q4h9m2rkpx";
 
 export const MAZE_PATH_LABELS = {
   "commanders-that-fit": "Commanders in this identity",

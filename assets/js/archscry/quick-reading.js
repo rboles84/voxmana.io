@@ -1,4 +1,4 @@
-import { normalizeLayeredIdentity } from "./identity-layers.js?v=vm687";
+import { normalizeLayeredIdentity } from "./identity-layers.js?v=z7q4h9m2rkpx";
 
 export const RESULT_VERSION = "2026-05-05";
 export const MANA_ORDER = ["W", "U", "B", "R", "G"];

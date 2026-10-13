@@ -1,4 +1,4 @@
-import { translateScryfallSyntaxToPlainText } from "./research-syntax-language.js?v=vm627";
+import { translateScryfallSyntaxToPlainText } from "./research-syntax-language.js?v=c9w2r6x8phtm";
 
 /**
  * Resolves what the search input should display when modes change.

@@ -19,8 +19,8 @@ const browserCandidates = [
 const mazeHtml = await readFile(path.join(root, "maze", "index.html"), "utf8");
 const mazeCss = await readFile(path.join(root, "assets", "css", "maze.css"), "utf8");
 
-assert.match(mazeHtml, /assets\/css\/maze\.css\?v=vm681r1/, "Maze must carry the fresh CSS-only VM-681 cache key");
-assert.match(mazeHtml, /assets\/js\/maze\/research-init\.js\?v=vm680/, "Maze controller key must remain unchanged");
+assert.match(mazeHtml, /assets\/css\/maze\.css\?v=c4x9h2v7mqkr/, "Maze must carry the fresh CSS-only VM-681 cache key");
+assert.match(mazeHtml, /assets\/js\/maze\/research-init\.js\?v=t6m2z8q4rkvp/, "Maze controller key must remain unchanged");
 assert.match(mazeCss, /\.card-item \.transform-card-media:hover\s*\{[^}]*transform:\s*scale\(1\.6\);[^}]*\}/, "direct media hover must settle at 1.6x");
 assert.match(mazeCss, /\.card-item:hover \.transform-card-media\s*\{[^}]*transform:\s*scale\(1\.6\);[^}]*\}/, "card hover must settle at 1.6x");
 

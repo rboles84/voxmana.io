@@ -60,21 +60,21 @@ const scriptSources = {
   guide: await readFile("assets/js/guide/guide.js", "utf8"),
 };
 const themeBootstrapByRoute = {
-  home: '<script src="./assets/js/shared/vm-theme.js?v=vm682">',
-  guide: '<script src="../assets/js/shared/vm-theme.js?v=vm683">',
-  privacy: '<script src="../assets/js/shared/vm-theme.js?v=vm683">',
-  terms: '<script src="../assets/js/shared/vm-theme.js?v=vm683">',
-  strategium: '<script src="../assets/js/shared/vm-theme.js?v=vm684">',
-  strategiumFindTable: '<script src="../../assets/js/shared/vm-theme.js?v=vm684">',
-  strategiumBeforeGame: '<script src="../../assets/js/shared/vm-theme.js?v=vm684">',
-  strategiumDuringGame: '<script src="../../assets/js/shared/vm-theme.js?v=vm684">',
-  strategiumConsole: '<script src="../../assets/js/shared/vm-theme.js?v=vm684">',
-  strategiumReview: '<script src="../../assets/js/shared/vm-theme.js?v=vm684">',
-  apocrypha: '<script src="../assets/js/shared/vm-theme.js?v=vm682">',
-  archscry: '<script src="../assets/js/shared/vm-theme.js?v=vm687">',
-  guideReading: '<script src="../../assets/js/shared/vm-theme.js?v=vm687">',
-  maze: '<script src="../assets/js/shared/vm-theme.js?v=vm688">',
-  guideMaze: '<script src="../../assets/js/shared/vm-theme.js?v=vm688">',
+  home: '<script src="./assets/js/shared/vm-theme.js?v=p7r3k8z2mvqh">',
+  guide: '<script src="../assets/js/shared/vm-theme.js?v=v2q8m4r9kpxh">',
+  privacy: '<script src="../assets/js/shared/vm-theme.js?v=v2q8m4r9kpxh">',
+  terms: '<script src="../assets/js/shared/vm-theme.js?v=v2q8m4r9kpxh">',
+  strategium: '<script src="../assets/js/shared/vm-theme.js?v=h9k2x7q4mvpr">',
+  strategiumFindTable: '<script src="../../assets/js/shared/vm-theme.js?v=h9k2x7q4mvpr">',
+  strategiumBeforeGame: '<script src="../../assets/js/shared/vm-theme.js?v=h9k2x7q4mvpr">',
+  strategiumDuringGame: '<script src="../../assets/js/shared/vm-theme.js?v=h9k2x7q4mvpr">',
+  strategiumConsole: '<script src="../../assets/js/shared/vm-theme.js?v=h9k2x7q4mvpr">',
+  strategiumReview: '<script src="../../assets/js/shared/vm-theme.js?v=h9k2x7q4mvpr">',
+  apocrypha: '<script src="../assets/js/shared/vm-theme.js?v=p7r3k8z2mvqh">',
+  archscry: '<script src="../assets/js/shared/vm-theme.js?v=z7q4h9m2rkpx">',
+  guideReading: '<script src="../../assets/js/shared/vm-theme.js?v=z7q4h9m2rkpx">',
+  maze: '<script src="../assets/js/shared/vm-theme.js?v=k8m3v7q2rpxh">',
+  guideMaze: '<script src="../../assets/js/shared/vm-theme.js?v=k8m3v7q2rpxh">',
 };
 const guideCssSource = await readFile("assets/css/guide.css", "utf8");
 const livePublicPageKeys = Object.keys(publicPages).filter(key => key !== "library");
@@ -226,8 +226,8 @@ for (const [key, source] of Object.entries(sources)) {
 }
 
 const homeHead = getHeadSource(sources.home);
-const homeThemeBootstrap = '<script src="./assets/js/shared/vm-theme.js?v=vm682">';
-expect(countMatches(sources.home, /assets\/js\/shared\/vm-theme\.js\?v=vm682/g) === 1 && homeHead.includes(homeThemeBootstrap),
+const homeThemeBootstrap = '<script src="./assets/js/shared/vm-theme.js?v=p7r3k8z2mvqh">';
+expect(countMatches(sources.home, /assets\/js\/shared\/vm-theme\.js\?v=p7r3k8z2mvqh/g) === 1 && homeHead.includes(homeThemeBootstrap),
   "index.html should expose exactly one synchronous Home theme bootstrap in head");
 expect(homeHead.indexOf(homeThemeBootstrap) < homeHead.indexOf('<link rel="stylesheet"'),
   "index.html should load the Home theme bootstrap before Home styles");
@@ -238,11 +238,11 @@ for (const key of ["guide", "privacy", "terms"]) {
   const bootstrap = themeBootstrapByRoute[key];
   expect(sources[key].match(/data-vm-theme-opt-in="(guide|privacy|terms)"/g)?.length === 1,
     `${file} should expose exactly one route-scoped theme opt-in`);
-  expect(countMatches(sources[key], /assets\/js\/shared\/vm-theme\.js\?v=vm683/g) === 1 && head.includes(bootstrap),
+  expect(countMatches(sources[key], /assets\/js\/shared\/vm-theme\.js\?v=v2q8m4r9kpxh/g) === 1 && head.includes(bootstrap),
     `${file} should expose exactly one synchronous VM-683 theme bootstrap in head`);
   expect(head.indexOf(bootstrap) < head.indexOf('<link rel="stylesheet"'),
     `${file} should load the VM-683 theme bootstrap before styles`);
-  expect(getStylesheetHrefs(sources[key]).at(-1) === "../assets/css/theme-pages.css?v=vm683",
+  expect(getStylesheetHrefs(sources[key]).at(-1) === "../assets/css/theme-pages.css?v=v2q8m4r9kpxh",
     `${file} should load the route-scoped VM-683 theme adapter last`);
 }
 
@@ -253,11 +253,11 @@ for (const key of ["strategium", "strategiumFindTable", "strategiumBeforeGame", 
   const prefix = key === "strategium" ? "../" : "../../";
   expect(sources[key].match(/data-vm-theme-opt-in="strategium"/g)?.length === 1,
     `${file} should expose exactly one Strategium route-scoped theme opt-in`);
-  expect(countMatches(sources[key], /assets\/js\/shared\/vm-theme\.js\?v=vm684/g) === 1 && head.includes(bootstrap),
+  expect(countMatches(sources[key], /assets\/js\/shared\/vm-theme\.js\?v=h9k2x7q4mvpr/g) === 1 && head.includes(bootstrap),
     `${file} should expose exactly one synchronous VM-684 theme bootstrap in head`);
   expect(head.indexOf(bootstrap) < head.indexOf('<link rel="stylesheet"'),
     `${file} should load the VM-684 theme bootstrap before styles`);
-  expect(getStylesheetHrefs(sources[key]).at(-1) === `${prefix}assets/css/theme-pages.css?v=vm684`,
+  expect(getStylesheetHrefs(sources[key]).at(-1) === `${prefix}assets/css/theme-pages.css?v=h9k2x7q4mvpr`,
     `${file} should load the route-scoped VM-684 theme adapter last`);
 }
 
@@ -267,11 +267,11 @@ for (const key of ["strategium", "strategiumFindTable", "strategiumBeforeGame", 
   const bootstrap = themeBootstrapByRoute.apocrypha;
   expect(sources.apocrypha.match(/data-vm-theme-opt-in="apocrypha"/g)?.length === 1,
     `${file} should expose exactly one Apocrypha route-scoped theme opt-in`);
-  expect(countMatches(sources.apocrypha, /assets\/js\/shared\/vm-theme\.js\?v=vm682/g) === 1 && head.includes(bootstrap),
+  expect(countMatches(sources.apocrypha, /assets\/js\/shared\/vm-theme\.js\?v=p7r3k8z2mvqh/g) === 1 && head.includes(bootstrap),
     `${file} should expose exactly one synchronous VM-682 theme bootstrap in head`);
   expect(head.indexOf(bootstrap) < head.indexOf('<link rel="stylesheet"'),
     `${file} should load the saved-theme bootstrap before styles`);
-  expect(getStylesheetHrefs(sources.apocrypha).at(-1) === "../assets/css/theme-pages.css?v=vm685",
+  expect(getStylesheetHrefs(sources.apocrypha).at(-1) === "../assets/css/theme-pages.css?v=m6v3p8r2qkxh",
     `${file} should load the route-scoped VM-685 theme adapter last`);
 }
 
@@ -281,11 +281,11 @@ for (const [key, route, prefix] of [["maze", "maze", "../"], ["guideMaze", "guid
   const bootstrap = themeBootstrapByRoute[key];
   expect(sources[key].match(new RegExp(`data-vm-theme-opt-in="${route}"`, "g"))?.length === 1,
     `${file} should expose exactly one route-scoped theme opt-in`);
-  expect(countMatches(sources[key], /assets\/js\/shared\/vm-theme\.js\?v=vm688/g) === 1 && head.includes(bootstrap),
+  expect(countMatches(sources[key], /assets\/js\/shared\/vm-theme\.js\?v=k8m3v7q2rpxh/g) === 1 && head.includes(bootstrap),
     `${file} should expose exactly one synchronous VM-688 theme bootstrap in head`);
   expect(head.indexOf(bootstrap) < head.indexOf('<link rel="stylesheet"'),
     `${file} should load the VM-688 theme bootstrap before styles`);
-  const adapterEpoch = key === "maze" ? "vm688r1" : "vm689r1";
+  const adapterEpoch = key === "maze" ? "q2r9x4m7kvph" : "p9h2k8v4mqrx";
   expect(getStylesheetHrefs(sources[key]).at(-1) === `${prefix}assets/css/theme-pages.css?v=${adapterEpoch}`,
     `${file} should load the VM-688 theme adapter last`);
 }
@@ -418,7 +418,7 @@ for (const file of canonicalNavPages) {
     `${file} should place Guide before the menu trigger so Feedback can insert between them`
   );
   expect(
-    source.includes(`assets/js/shared/vm-topbar.js?v=${file === "index.html" ? "vm682" : ["guide/index.html", "privacy/index.html", "terms/index.html"].includes(file) ? "vm683" : "vm680"}`),
+    source.includes(`assets/js/shared/vm-topbar.js?v=${file === "index.html" ? "p7r3k8z2mvqh" : ["guide/index.html", "privacy/index.html", "terms/index.html"].includes(file) ? "v2q8m4r9kpxh" : "t6m2z8q4rkvp"}`),
     `${file} should load its current shared topbar runtime cache key`
   );
 }
@@ -451,7 +451,7 @@ expectAbsent(
   "archscry/index.html should not ship inline event attributes"
 );
 expect(
-  sources.archscry.includes('<link rel="stylesheet" href="../assets/css/archscry.css?v=vm635">'),
+  sources.archscry.includes('<link rel="stylesheet" href="../assets/css/archscry.css?v=m3q8v5k2zrpc">'),
   'archscry/index.html should load "../assets/css/archscry.css"'
 );
 expectAbsent(
@@ -464,11 +464,11 @@ expect(
   'index.html should load the pinned local Keyrune stylesheet'
 );
 expect(
-  sources.home.includes('<link rel="stylesheet" href="./assets/css/home.css?v=vm682" />'),
+  sources.home.includes('<link rel="stylesheet" href="./assets/css/home.css?v=p7r3k8z2mvqh" />'),
   'index.html should load "./assets/css/home.css"'
 );
 expect(
-  sources.home.includes('<script src="./assets/js/home/home.js?v=vm682" defer></script>'),
+  sources.home.includes('<script src="./assets/js/home/home.js?v=p7r3k8z2mvqh" defer></script>'),
   'index.html should load the versioned Home atmosphere as a deferred external script'
 );
 expectAbsent(
@@ -497,8 +497,8 @@ expectAbsent(sources.home, /<meta\b[^>]*name="robots"[^>]*content="[^"]*noindex/
   "index.html should not retain the temporary preview noindex directive");
 
 expect(
-  sources.guide.includes('<link rel="stylesheet" href="../assets/css/maze.css?v=vm635">') &&
-    sources.guide.includes('<link rel="stylesheet" href="../assets/css/guide.css?v=vm668r4">'),
+  sources.guide.includes('<link rel="stylesheet" href="../assets/css/maze.css?v=m3q8v5k2zrpc">') &&
+    sources.guide.includes('<link rel="stylesheet" href="../assets/css/guide.css?v=q6v2x8m4rkpt">'),
   "guide/index.html should inherit the actual Maze route stylesheet before its Guide adapters"
 );
 expect(
@@ -550,7 +550,7 @@ expect(
 expect(
   countMatches(sources.guide, /<h1\b/gi) === 1 &&
     sources.guide.includes('data-vm-current="guide"') &&
-    sources.guide.includes('src="../assets/js/guide/guide.js?v=vm614r7"'),
+    sources.guide.includes('src="../assets/js/guide/guide.js?v=n4z8wp2c6hyt"'),
   "guide/index.html should expose one h1 and the Guide active-state key"
 );
 expect(
@@ -618,7 +618,7 @@ expect(
 );
 
 expect(
-  sources.strategium.includes('<link rel="stylesheet" href="../assets/css/strategium.css?v=vm635" />'),
+  sources.strategium.includes('<link rel="stylesheet" href="../assets/css/strategium.css?v=m3q8v5k2zrpc" />'),
   'strategium/index.html should load "../assets/css/strategium.css"'
 );
 expect(
@@ -647,9 +647,9 @@ for (const key of ["strategiumConsole", "strategiumReview"]) {
 }
 
 const homeStylesheetHrefs = getStylesheetHrefs(sources.home);
-const homeTopbarLinkIndex = homeStylesheetHrefs.indexOf('./assets/css/topbar.css?v=vm682');
+const homeTopbarLinkIndex = homeStylesheetHrefs.indexOf('./assets/css/topbar.css?v=p7r3k8z2mvqh');
 const homeKeyruneLinkIndex = homeStylesheetHrefs.indexOf('./assets/vendor/keyrune/css/keyrune.min.css?v=3.19.0');
-const homeRouteCssIndex = homeStylesheetHrefs.indexOf('./assets/css/home.css?v=vm682');
+const homeRouteCssIndex = homeStylesheetHrefs.indexOf('./assets/css/home.css?v=p7r3k8z2mvqh');
 expect(
   homeTopbarLinkIndex !== -1 &&
     homeKeyruneLinkIndex !== -1 &&
@@ -660,16 +660,16 @@ expect(
 );
 expect(
   homeRouteCssIndex < homeStylesheetHrefs.length - 1 &&
-    homeStylesheetHrefs[homeStylesheetHrefs.length - 1] === './assets/css/home-wip.css?v=vm682',
+    homeStylesheetHrefs[homeStylesheetHrefs.length - 1] === './assets/css/home-wip.css?v=p7r3k8z2mvqh',
   "index.html should load the accepted Home skin last, after home.css"
 );
 
 const archscryStylesheetHrefs = getStylesheetHrefs(sources.archscry);
 const archscryBodyClasses = sources.archscry.match(/<body\b[^>]*\bclass="([^"]*)"/i)?.[1].split(/\s+/) ?? [];
 expect(
-  archscryStylesheetHrefs.at(-3) === '../assets/css/archscry.css?v=vm635' &&
-    archscryStylesheetHrefs.at(-2) === '../assets/css/site-skin.css?v=vm652' &&
-    archscryStylesheetHrefs.at(-1) === '../assets/css/theme-pages.css?v=vm687' &&
+  archscryStylesheetHrefs.at(-3) === '../assets/css/archscry.css?v=m3q8v5k2zrpc' &&
+    archscryStylesheetHrefs.at(-2) === '../assets/css/site-skin.css?v=p4c8z2r7mkhv' &&
+    archscryStylesheetHrefs.at(-1) === '../assets/css/theme-pages.css?v=z7q4h9m2rkpx' &&
     archscryStylesheetHrefs.filter(href => /\/site-skin\.css(?:\?|$)/.test(href)).length === 1 &&
     archscryBodyClasses.includes('vm-site-skin') &&
     archscryBodyClasses.includes('vm-archscry-route'),
@@ -680,9 +680,9 @@ const apocryphaStylesheetHrefs = getStylesheetHrefs(sources.apocrypha);
 const apocryphaBodyTag = sources.apocrypha.match(/<body\b[^>]*>/i)?.[0] ?? "";
 const apocryphaBodyClasses = apocryphaBodyTag.match(/\bclass="([^"]*)"/i)?.[1].split(/\s+/) ?? [];
 expect(
-  apocryphaStylesheetHrefs.at(-3) === '../assets/css/apocrypha.css?v=vm635' &&
-    apocryphaStylesheetHrefs.at(-2) === '../assets/css/site-skin.css?v=vm665' &&
-    apocryphaStylesheetHrefs.at(-1) === '../assets/css/theme-pages.css?v=vm685' &&
+  apocryphaStylesheetHrefs.at(-3) === '../assets/css/apocrypha.css?v=m3q8v5k2zrpc' &&
+    apocryphaStylesheetHrefs.at(-2) === '../assets/css/site-skin.css?v=k2r7h4z9mqvc' &&
+    apocryphaStylesheetHrefs.at(-1) === '../assets/css/theme-pages.css?v=m6v3p8r2qkxh' &&
     apocryphaStylesheetHrefs.filter(href => /\/site-skin\.css(?:\?|$)/.test(href)).length === 1 &&
     apocryphaBodyClasses.includes('vm-site-skin') &&
     apocryphaBodyClasses.includes('vm-apocrypha-route') &&
@@ -696,20 +696,20 @@ expect(
 );
 
 for (const [key, routeCss, attributes] of [
-  ["strategium", "../assets/css/strategium.css?v=vm635", ["data-page=\"strategium\"", "data-vm-current=\"strategium\"", "data-bg=\"medium\""]],
-  ["strategiumFindTable", "../../assets/css/strategium.css?v=vm635", ["data-page=\"strategium-find-table\"", "data-lifecycle-route=\"find-a-table\"", "data-vm-current=\"strategium\"", "data-bg=\"medium\""]],
-  ["strategiumBeforeGame", "../../assets/css/strategium.css?v=vm635", ["data-page=\"strategium-before-game\"", "data-lifecycle-route=\"before-game\"", "data-vm-current=\"strategium\"", "data-bg=\"medium\""]],
-  ["strategiumDuringGame", "../../assets/css/strategium.css?v=vm635", ["data-page=\"strategium-during-game\"", "data-lifecycle-route=\"during-game\"", "data-vm-current=\"strategium\"", "data-bg=\"medium\""]],
-  ["strategiumReview", "../../assets/css/strategium.css?v=vm635", ["data-page=\"strategium-review\"", "data-vm-current=\"strategium\"", "data-bg=\"medium\""]],
-  ["strategiumConsole", "../../assets/css/strategium.css?v=vm635", ["data-page=\"strategium-console\"", "data-vm-current=\"strategium\"", "data-bg=\"medium\""]],
+  ["strategium", "../assets/css/strategium.css?v=m3q8v5k2zrpc", ["data-page=\"strategium\"", "data-vm-current=\"strategium\"", "data-bg=\"medium\""]],
+  ["strategiumFindTable", "../../assets/css/strategium.css?v=m3q8v5k2zrpc", ["data-page=\"strategium-find-table\"", "data-lifecycle-route=\"find-a-table\"", "data-vm-current=\"strategium\"", "data-bg=\"medium\""]],
+  ["strategiumBeforeGame", "../../assets/css/strategium.css?v=m3q8v5k2zrpc", ["data-page=\"strategium-before-game\"", "data-lifecycle-route=\"before-game\"", "data-vm-current=\"strategium\"", "data-bg=\"medium\""]],
+  ["strategiumDuringGame", "../../assets/css/strategium.css?v=m3q8v5k2zrpc", ["data-page=\"strategium-during-game\"", "data-lifecycle-route=\"during-game\"", "data-vm-current=\"strategium\"", "data-bg=\"medium\""]],
+  ["strategiumReview", "../../assets/css/strategium.css?v=m3q8v5k2zrpc", ["data-page=\"strategium-review\"", "data-vm-current=\"strategium\"", "data-bg=\"medium\""]],
+  ["strategiumConsole", "../../assets/css/strategium.css?v=m3q8v5k2zrpc", ["data-page=\"strategium-console\"", "data-vm-current=\"strategium\"", "data-bg=\"medium\""]],
 ]) {
   const hrefs = getStylesheetHrefs(sources[key]);
   const bodyTag = sources[key].match(/<body\b[^>]*>/i)?.[0] ?? "";
   const classes = bodyTag.match(/\bclass="([^"]*)"/i)?.[1].split(/\s+/) ?? [];
   expect(
     hrefs.at(-3) === routeCss &&
-      hrefs.at(-2) === routeCss.replace("strategium.css?v=vm635", "site-skin.css?v=vm666") &&
-      hrefs.at(-1) === routeCss.replace("strategium.css?v=vm635", "theme-pages.css?v=vm684") &&
+      hrefs.at(-2) === routeCss.replace("strategium.css?v=m3q8v5k2zrpc", "site-skin.css?v=x8p3m6q2vtrk") &&
+      hrefs.at(-1) === routeCss.replace("strategium.css?v=m3q8v5k2zrpc", "theme-pages.css?v=h9k2x7q4mvpr") &&
       hrefs.filter(href => /\/site-skin\.css(?:\?|$)/.test(href)).length === 1 &&
       classes.includes("vm-site-skin") && classes.includes("vm-strategium-route") &&
       attributes.every(attribute => bodyTag.includes(attribute)),
@@ -760,20 +760,20 @@ expect(
 
 const guideStylesheetHrefs = getStylesheetHrefs(sources.guide);
 expect(
-  guideStylesheetHrefs.at(-4) === "../assets/css/maze.css?v=vm635" &&
-    guideStylesheetHrefs.at(-3) === "../assets/css/guide.css?v=vm668r4" &&
-    guideStylesheetHrefs.at(-2) === "../assets/css/site-skin.css?v=vm668r2" &&
-    guideStylesheetHrefs.at(-1) === "../assets/css/theme-pages.css?v=vm683" &&
+  guideStylesheetHrefs.at(-4) === "../assets/css/maze.css?v=m3q8v5k2zrpc" &&
+    guideStylesheetHrefs.at(-3) === "../assets/css/guide.css?v=q6v2x8m4rkpt" &&
+    guideStylesheetHrefs.at(-2) === "../assets/css/site-skin.css?v=z4k9r2m7qvph" &&
+    guideStylesheetHrefs.at(-1) === "../assets/css/theme-pages.css?v=v2q8m4r9kpxh" &&
     guideStylesheetHrefs.filter(href => /\/site-skin\.css(?:\?|$)/.test(href)).length === 1,
   "guide/index.html should retain Guide route CSS before the scoped site skin and VM-683 theme adapter"
 );
 expect(
-  getStylesheetHrefs(sources.guide).at(-2)?.endsWith("assets/css/site-skin.css?v=vm668r2") &&
-    getStylesheetHrefs(sources.guideReading).at(-2)?.endsWith("assets/css/site-skin.css?v=vm668r2") &&
-    getStylesheetHrefs(sources.guideReading).at(-1)?.endsWith("assets/css/theme-pages.css?v=vm687") &&
-    getStylesheetHrefs(sources.guideMaze).at(-2)?.endsWith("assets/css/site-skin.css?v=vm668r2") &&
-    getStylesheetHrefs(sources.guideMaze).at(-1)?.endsWith("assets/css/theme-pages.css?v=vm689r1") &&
-    getStylesheetHrefs(sources.maze).at(-1)?.endsWith("assets/css/theme-pages.css?v=vm688r1"),
+  getStylesheetHrefs(sources.guide).at(-2)?.endsWith("assets/css/site-skin.css?v=z4k9r2m7qvph") &&
+    getStylesheetHrefs(sources.guideReading).at(-2)?.endsWith("assets/css/site-skin.css?v=z4k9r2m7qvph") &&
+    getStylesheetHrefs(sources.guideReading).at(-1)?.endsWith("assets/css/theme-pages.css?v=z7q4h9m2rkpx") &&
+    getStylesheetHrefs(sources.guideMaze).at(-2)?.endsWith("assets/css/site-skin.css?v=z4k9r2m7qvph") &&
+    getStylesheetHrefs(sources.guideMaze).at(-1)?.endsWith("assets/css/theme-pages.css?v=p9h2k8v4mqrx") &&
+    getStylesheetHrefs(sources.maze).at(-1)?.endsWith("assets/css/theme-pages.css?v=q2r9x4m7kvph"),
   "admitted Guide routes append their route-scoped theme adapter after the current site-skin owner"
 );
 
@@ -787,41 +787,41 @@ const relativeModuleImportPattern = /(?:\bfrom\s+|\bimport\s+|\bimport\(\s*)["']
 for (const file of archscryModuleFiles) {
   const source = await readFile(file, "utf8");
   for (const match of source.matchAll(relativeModuleImportPattern)) {
-    if (match[2] !== "vm687") {
+    if (match[2] !== "z7q4h9m2rkpx") {
       archscryImportRevisionFailures.push(`${file}: ${match[0]}`);
     }
   }
 }
 expect(
   archscryImportRevisionFailures.length === 0,
-  `Every relative Archscry JavaScript import must use vm687; found ${archscryImportRevisionFailures.join("; ")}`
+  `Every relative Archscry JavaScript import must use z7q4h9m2rkpx; found ${archscryImportRevisionFailures.join("; ")}`
 );
 expect(
-  sources.archscry.includes('src="../assets/js/archscry/index.js?v=vm687"') &&
-    scriptSources.archscry.includes('from "./runtime/actions.js?v=vm687"') &&
-    scriptSources.archscry.includes('from "./runtime/boot.js?v=vm687"') &&
-    scriptSources.archscry.includes('from "./runtime/data.js?v=vm687"') &&
-    scriptSources.archscry.includes('from "./runtime/dossier-view.js?v=vm687"') &&
-    scriptSources.archscry.includes('from "./runtime/questionnaire.js?v=vm687"') &&
-    scriptSources.archscry.includes('from "./runtime/identity-atlas.js?v=vm687"') &&
-    scriptSources.archscry.includes('import("./runtime/dev-review.js?v=vm687")') &&
-    scriptSources.archscryActions.includes('from "./dossier-view.js?v=vm687"') &&
-    scriptSources.archscryActions.includes('from "./questionnaire.js?v=vm687"') &&
-    scriptSources.archscryBoot.includes('from "./dossier-view.js?v=vm687"') &&
-    scriptSources.archscryDevReview.includes('from "./dossier-view.js?v=vm687"') &&
-    scriptSources.archscryDevReview.includes('from "./questionnaire.js?v=vm687"') &&
-    scriptSources.archscryIdentityAtlas.includes('from "./dossier-view.js?v=vm687"') &&
-    scriptSources.archscryQuestionnaire.includes('from "../archscry-presentation.js?v=vm687"') &&
-    scriptSources.archscryQuestionnaire.includes('from "./dossier-view.js?v=vm687"') &&
-    scriptSources.archscryDossierView.includes('from "../archscry-presentation.js?v=vm687"') &&
-    scriptSources.archscryPresentation.includes('from "../maze/maze-handoff.js?v=vm687"') &&
-    scriptSources.archscryData.includes('from "../../maze/maze-handoff.js?v=vm687"'),
+  sources.archscry.includes('src="../assets/js/archscry/index.js?v=z7q4h9m2rkpx"') &&
+    scriptSources.archscry.includes('from "./runtime/actions.js?v=z7q4h9m2rkpx"') &&
+    scriptSources.archscry.includes('from "./runtime/boot.js?v=z7q4h9m2rkpx"') &&
+    scriptSources.archscry.includes('from "./runtime/data.js?v=z7q4h9m2rkpx"') &&
+    scriptSources.archscry.includes('from "./runtime/dossier-view.js?v=z7q4h9m2rkpx"') &&
+    scriptSources.archscry.includes('from "./runtime/questionnaire.js?v=z7q4h9m2rkpx"') &&
+    scriptSources.archscry.includes('from "./runtime/identity-atlas.js?v=z7q4h9m2rkpx"') &&
+    scriptSources.archscry.includes('import("./runtime/dev-review.js?v=z7q4h9m2rkpx")') &&
+    scriptSources.archscryActions.includes('from "./dossier-view.js?v=z7q4h9m2rkpx"') &&
+    scriptSources.archscryActions.includes('from "./questionnaire.js?v=z7q4h9m2rkpx"') &&
+    scriptSources.archscryBoot.includes('from "./dossier-view.js?v=z7q4h9m2rkpx"') &&
+    scriptSources.archscryDevReview.includes('from "./dossier-view.js?v=z7q4h9m2rkpx"') &&
+    scriptSources.archscryDevReview.includes('from "./questionnaire.js?v=z7q4h9m2rkpx"') &&
+    scriptSources.archscryIdentityAtlas.includes('from "./dossier-view.js?v=z7q4h9m2rkpx"') &&
+    scriptSources.archscryQuestionnaire.includes('from "../archscry-presentation.js?v=z7q4h9m2rkpx"') &&
+    scriptSources.archscryQuestionnaire.includes('from "./dossier-view.js?v=z7q4h9m2rkpx"') &&
+    scriptSources.archscryDossierView.includes('from "../archscry-presentation.js?v=z7q4h9m2rkpx"') &&
+    scriptSources.archscryPresentation.includes('from "../maze/maze-handoff.js?v=z7q4h9m2rkpx"') &&
+    scriptSources.archscryData.includes('from "../../maze/maze-handoff.js?v=z7q4h9m2rkpx"'),
   "Archscry should cache-bust the complete Archscry catalog-to-handoff module chain"
 );
 expect(
-  scriptSources.maze.includes('from "./maze-query-core.js?v=vm636"') &&
-    scriptSources.maze.includes('from "./maze-handoff.js?v=vm674r3"') &&
-    scriptSources.mazeQueryCore.includes('from "./maze-handoff.js?v=vm636"'),
+  scriptSources.maze.includes('from "./maze-query-core.js?v=h7t2n9q4xvkm"') &&
+    scriptSources.maze.includes('from "./maze-handoff.js?v=r2p9k4x7mvqh"') &&
+    scriptSources.mazeQueryCore.includes('from "./maze-handoff.js?v=h7t2n9q4xvkm"'),
   "Maze should cache-bust the complete Maze rehydration-to-query module chain"
 );
 expect(
@@ -859,11 +859,11 @@ for (const key of ["privacy", "terms"]) {
   const bodyClasses = sources[key].match(/<body\b[^>]*\bclass="([^"]*)"/i)?.[1].split(/\s+/) ?? [];
 
   expect(
-    sources[key].includes('<link rel="stylesheet" href="../assets/css/legal.css?v=vm669">'),
+    sources[key].includes('<link rel="stylesheet" href="../assets/css/legal.css?v=n8h3q7v2mkrc">'),
     `${file} should load "../assets/css/legal.css"`
   );
   expect(
-    stylesheetHrefs.at(-2) === "../assets/css/site-skin.css?v=vm669" &&
+    stylesheetHrefs.at(-2) === "../assets/css/site-skin.css?v=n8h3q7v2mkrc" &&
       stylesheetHrefs.filter(href => /\/site-skin\.css(?:\?|$)/.test(href)).length === 1 &&
       bodyClasses.includes("vm-site-skin") && bodyClasses.includes("vm-legal-route"),
     `${file} should retain the scoped Legal site skin before the VM-683 theme adapter`

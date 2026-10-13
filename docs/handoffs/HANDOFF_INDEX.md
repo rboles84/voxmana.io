@@ -1,4 +1,4 @@
-<!-- task-view-sha256:ecf77a4f27ee8eb234fb9e5e2da8f6192461022ce278002d9932b09363ea604a -->
+<!-- task-view-sha256:5ca585352f7336eb7319c4e6cd60904c74fefcd781496b58f3d77eafe4471c0a -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -9,6 +9,9 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 | Authored / filename date | Agent | Handoff | Related task references | Diagnostics |
 |---|---|---|---|---|
 | 2026-10-13T00:00:00Z (filename) | /root coordinator | [VM-694 — Precon footer reconnaissance and planning handoff](2026-10-13-codex-vm694-precon-footer-plan.md) | VM-694 | Identity displayed from heading; not admission metadata. |
+| 2026-10-13T00:00:00Z (filename) | /root/asset_dev | [Coordinator Handoff — VM-695 Opaque Asset Revisions](2026-10-13-codex-vm695-opaque-asset-revisions.md) | VM-695 | Identity displayed from heading; not admission metadata. |
+| 2026-10-13T00:00:00Z (filename) | `/root/asset_dev` (RobDev) | [RobDev Handoff — VM-695 Opaque Asset Revisions](2026-10-13-robdev-vm695-opaque-asset-revisions.md) | VM-695 | Identity displayed from heading; not admission metadata. |
+| 2026-10-13T00:00:00Z (filename) | Unknown | [Independent RobQA — VM-695 Opaque Asset Revisions](2026-10-13-robqa-vm695-opaque-asset-revisions.md) | VM-695 | Identity displayed from heading; not admission metadata. |
 | 2026-10-11T00:00:00Z (authored) | Codex coordinator | [VM-693 — Append-only precon import coordination](2026-10-11-codex-vm693-precon-import.md) | VM-693 | Identity displayed from heading; not admission metadata. |
 | 2026-10-11T00:00:00Z (filename) | Unknown | [RobDev source-research handoff — VM-693 precon import](2026-10-11-robdev-vm693-precon-import.md) | VM-693 | Identity displayed from heading; not admission metadata. |
 | 2026-10-11T00:00:00Z (filename) | Unknown | [RobQA handoff — VM-693 new precon import](2026-10-11-robqa-vm693-precon-import.md) | VM-693 | Identity displayed from heading; not admission metadata. |

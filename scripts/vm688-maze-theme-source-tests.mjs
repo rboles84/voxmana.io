@@ -5,6 +5,16 @@ import { readFile, readdir } from "node:fs/promises";
 const baseline = "72d2fff4c38e32eeed2974769c6b436471c45e55";
 const readBaseline = file => execFileSync("git", ["show", `${baseline}:${file}`], { encoding: "utf8", maxBuffer: 8 * 1024 * 1024 }).replace(/\r\n/g, "\n");
 const normalize = value => value.replace(/\r\n/g, "\n");
+const admittedCacheTokens = new Map([
+  ["qx7m2r9k4vpa", "vm612"], ["n4z8wp2c6hyt", "vm614r7"], ["b7k3xv9m2qla", "vm614r8"], ["r5d9n2w8kqcx", "vm615"],
+  ["t8h4p7z2mkvq", "vm620"], ["c9w2r6x8phtm", "vm627"], ["m3q8v5k2zrpc", "vm635"], ["h7t2n9q4xvkm", "vm636"],
+  ["p4c8z2r7mkhv", "vm652"], ["v9m3q6t2kpxr", "vm663r1"], ["k2r7h4z9mqvc", "vm665"], ["x8p3m6q2vtrk", "vm666"],
+  ["z4k9r2m7qvph", "vm668r2"], ["q6v2x8m4rkpt", "vm668r4"], ["n8h3q7v2mkrc", "vm669"], ["r2p9k4x7mvqh", "vm674r3"],
+  ["t6m2z8q4rkvp", "vm680"], ["c4x9h2v7mqkr", "vm681r1"], ["p7r3k8z2mvqh", "vm682"], ["v2q8m4r9kpxh", "vm683"],
+  ["h9k2x7q4mvpr", "vm684"], ["m6v3p8r2qkxh", "vm685"], ["z7q4h9m2rkpx", "vm687"], ["k8m3v7q2rpxh", "vm688"],
+  ["q2r9x4m7kvph", "vm688r1"], ["p9h2k8v4mqrx", "vm689r1"]
+]);
+const restoreAdmittedCacheTokens = value => [...admittedCacheTokens].reduce((result, [opaque, task]) => result.replaceAll(`?v=${opaque}`, `?v=${task}`), value);
 const body = source => source.match(/<body\b[\s\S]*<\/body>/i)?.[0];
 const hrefs = source => [...source.matchAll(/<link rel="stylesheet" href="([^"]+)"/g)].map(match => match[1]);
 async function filesIn(root) {
@@ -25,21 +35,21 @@ const [maze, guideMaze, theme, controller, mazeCss, guideMazeCss, siteSkin, topb
 ]);
 
 for (const [name, file, source, prefix, routeCss, skinCss] of [
-  ["maze", "maze/index.html", maze, "../", "../assets/css/maze.css?v=vm681r1", "../assets/css/site-skin.css?v=vm652"],
-  ["guide-maze", "guide/maze/index.html", guideMaze, "../../", "../../assets/css/guide-maze.css?v=vm663r1", "../../assets/css/site-skin.css?v=vm668r2"]
+  ["maze", "maze/index.html", maze, "../", "../assets/css/maze.css?v=c4x9h2v7mqkr", "../assets/css/site-skin.css?v=p4c8z2r7mkhv"],
+  ["guide-maze", "guide/maze/index.html", guideMaze, "../../", "../../assets/css/guide-maze.css?v=v9m3q6t2kpxr", "../../assets/css/site-skin.css?v=z4k9r2m7qvph"]
 ]) {
   assert.match(source, new RegExp(`<html lang="en" data-vm-theme-opt-in="${name}">`));
-  const bootstrap = `<script src="${prefix}assets/js/shared/vm-theme.js?v=vm688">`;
-  assert.equal((source.match(/assets\/js\/shared\/vm-theme\.js\?v=vm688/g) || []).length, 1, `${name} owns one synchronous theme bootstrap`);
+  const bootstrap = `<script src="${prefix}assets/js/shared/vm-theme.js?v=k8m3v7q2rpxh">`;
+  assert.equal((source.match(/assets\/js\/shared\/vm-theme\.js\?v=k8m3v7q2rpxh/g) || []).length, 1, `${name} owns one synchronous theme bootstrap`);
   assert.ok(source.indexOf(bootstrap) < source.indexOf('<link rel="stylesheet"'), `${name} applies saved theme before styles can paint`);
-  const adapterEpoch = name === "maze" ? "vm688r1" : "vm689r1";
+  const adapterEpoch = name === "maze" ? "q2r9x4m7kvph" : "p9h2k8v4mqrx";
   assert.deepEqual(hrefs(source).slice(-3), [routeCss, skinCss, `${prefix}assets/css/theme-pages.css?v=${adapterEpoch}`], `${name} preserves route and skin cascade before its adapter`);
-  assert.equal(normalize(body(source)), readBaseline(file).match(/<body\b[\s\S]*<\/body>/i)?.[0], `${name} keeps body content, IDs, URLs, and runtime hooks baseline-identical`);
+  assert.equal(restoreAdmittedCacheTokens(normalize(body(source))), readBaseline(file).match(/<body\b[\s\S]*<\/body>/i)?.[0], `${name} keeps body content, IDs, URLs, and runtime hooks baseline-identical`);
 }
 
 assert.equal(normalize(controller).replace(', "maze", "guide-maze"', ""), readBaseline("assets/js/shared/vm-theme.js"), "controller changes its allowlist only");
-for (const [file, source] of [["assets/css/maze.css", mazeCss], ["assets/css/guide-maze.css", guideMazeCss], ["assets/css/site-skin.css", siteSkin], ["assets/css/topbar.css", topbar], ["assets/js/maze/research-init.js", researchInit], ["assets/js/guide/maze-walkthrough.js", walkthrough], ["assets/js/shared/vm-clipboard.js", clipboard], ["assets/js/shared/vm-feedback.js", feedback]]) assert.equal(normalize(source), readBaseline(file), `${file} remains protected baseline source`);
-for (const file of await filesIn("assets/js/maze")) assert.equal(normalize(await readFile(file, "utf8")), readBaseline(file), `${file} remains baseline-identical`);
+for (const [file, source] of [["assets/css/maze.css", mazeCss], ["assets/css/guide-maze.css", guideMazeCss], ["assets/css/site-skin.css", siteSkin], ["assets/css/topbar.css", topbar], ["assets/js/maze/research-init.js", researchInit], ["assets/js/guide/maze-walkthrough.js", walkthrough], ["assets/js/shared/vm-clipboard.js", clipboard], ["assets/js/shared/vm-feedback.js", feedback]]) assert.equal(restoreAdmittedCacheTokens(normalize(source)), readBaseline(file), `${file} remains protected baseline source`);
+for (const file of await filesIn("assets/js/maze")) assert.equal(restoreAdmittedCacheTokens(normalize(await readFile(file, "utf8"))), readBaseline(file), `${file} remains baseline-identical`);
 for (const file of ["assets/js/shared/vm-topbar.js", "assets/js/shared/vm-rich-atmosphere.js", "assets/js/shared/reduce-motion.js", "assets/js/shared/guide-beacon.js"]) assert.equal(normalize(await readFile(file, "utf8")), readBaseline(file), `${file} remains baseline-identical`);
 
 assert.match(mazeCss, /\.card-item \.transform-card-media:hover\s*\{[\s\S]*?transform:\s*scale\(1\.6\)/, "first Maze hover scale remains 1.6");

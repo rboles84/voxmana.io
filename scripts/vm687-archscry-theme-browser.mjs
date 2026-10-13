@@ -139,12 +139,12 @@ try{
   browser=await puppeteer.launch({executablePath:EDGE,headless:true,userDataDir:profile,protocolTimeout:10000,args:["--no-first-run","--no-default-browser-check","--disable-background-networking","--disable-component-update"]});
 
   mark("saved-light Jund composed dossier and chart continuity");
-  const savedContext=await newContext();const saved=await fresh(savedContext);await seed(saved,{vm_theme_mode_v1:"light",vm_archscry_saved_reading_v1:JSON.stringify(jund),vm687_unrelated:"unchanged",vm_reduce_motion:"true"});
+  const savedContext=await newContext();const saved=await fresh(savedContext);await seed(saved,{vm_theme_mode_v1:"light",vm_archscry_saved_reading_v1:JSON.stringify(jund),z7q4h9m2rkpx_unrelated:"unchanged",vm_reduce_motion:"true"});
   await nav(saved,"/archscry/","!!document.querySelector('#result:not(.hidden) #dossierManaRadar')&&!!window.Chart?.getChart(document.querySelector('#dossierManaRadar'))");
   assert.deepEqual(await read(saved.client,"window.__vm687Dom"),{theme:"light",scheme:"light"});
   await wait(saved.client,"window.__vm687Paint.some(x=>x.name==='first-contentful-paint')","non-vacuous first contentful paint");
   const firstPaint=await read(saved.client,"window.__vm687Paint");assert.ok(firstPaint.length>0&&firstPaint.some(x=>x.name==="first-paint")&&firstPaint.some(x=>x.name==="first-contentful-paint")&&firstPaint.every(x=>x.theme==="light"));await theme(saved,"light");
-  await requested(saved,"Archscry",["/assets/css/theme-pages.css?v=vm687","/assets/js/shared/vm-theme.js?v=vm687","/assets/js/archscry/index.js?v=vm687"]);
+  await requested(saved,"Archscry",["/assets/css/theme-pages.css?v=z7q4h9m2rkpx","/assets/js/shared/vm-theme.js?v=z7q4h9m2rkpx","/assets/js/archscry/index.js?v=z7q4h9m2rkpx"]);
   const initial=await read(saved.client,chartState);assert.ok(initial.chart&&initial.panels>=7&&initial.visible.includes("placement"));
   await click(saved,"[data-dossier-axis-index='1']");await click(saved,"#dossierComponentToggle");await click(saved,"#dossierCompositeToggle");
   const selected=await read(saved.client,chartState);assert.equal(selected.pinned,"1");
@@ -161,7 +161,7 @@ try{
   await paint(saved,"saved Jund dossier",[".guild-banner",".dossier-console","#dossier-panel-placement",".vm-controls",".app-footer",".vm-topbar"]);
 
   mark("fresh Archscry flow, Atlas, Colorless and reset seams");
-  const flowContext=await newContext();const flow=await fresh(flowContext);await seed(flow,{vm_theme_mode_v1:"light",vm687_unrelated:"unchanged"});await nav(flow,"/archscry/","!!document.querySelector('[data-action=\"start-quick-flow\"]')");
+  const flowContext=await newContext();const flow=await fresh(flowContext);await seed(flow,{vm_theme_mode_v1:"light",z7q4h9m2rkpx_unrelated:"unchanged"});await nav(flow,"/archscry/","!!document.querySelector('[data-action=\"start-quick-flow\"]')");
   await click(flow,'[data-action="start-quick-flow"]');await wait(flow.client,"document.querySelectorAll('#answer-grid [data-action=\"answer-quick-question\"]').length>=3","first question");
   const question=await read(flow.client,"(()=>({progress:document.querySelector('#progress-copy').textContent.trim(),title:document.querySelector('#question-title').textContent.trim(),count:document.querySelectorAll('#answer-grid [data-action=\"answer-quick-question\"]').length,template:document.querySelector('#answer-grid').dataset.answerCount}))()");
   assert.ok(question.title&&question.count>=3);assert.equal(question.template,String(question.count));await click(flow,'#answer-grid [data-action="answer-quick-question"]');
@@ -174,10 +174,10 @@ try{
   const colorless=await read(flow.client,"(()=>({name:document.querySelector('.guild-name')?.textContent.trim(),colors:document.querySelectorAll('.guild-banner .ms').length,placement:!!document.querySelector('[data-dossier-panel=\"placement\"]'),saved:localStorage.getItem('vm_archscry_saved_reading_v1')}))()");
   assert.match(colorless.name,/Colorless/i);assert.equal(colorless.colors,0);assert.equal(colorless.placement,false);assert.equal(colorless.saved,null);
 
-  await seed(flow,{vm_theme_mode_v1:"light",vm_archscry_saved_reading_v1:JSON.stringify(jund),vm687_unrelated:"unchanged"});await nav(flow,"/archscry/","!!document.querySelector('[data-action=\"retake\"]')");
+  await seed(flow,{vm_theme_mode_v1:"light",vm_archscry_saved_reading_v1:JSON.stringify(jund),z7q4h9m2rkpx_unrelated:"unchanged"});await nav(flow,"/archscry/","!!document.querySelector('[data-action=\"retake\"]')");
   flow.page.once("dialog",d=>d.accept());await click(flow,'[data-action="retake"]');await wait(flow.client,"!document.querySelector('#landing').classList.contains('hidden')","Retake landing");assert.equal(await read(flow.client,"JSON.parse(localStorage.getItem('vm_archscry_saved_reading_v1')).faction"),"JUND");
   await nav(flow,"/archscry/","!!document.querySelector('[data-action=\"forget-saved-reading\"]')");await click(flow,'[data-action="forget-saved-reading"]');await wait(flow.client,"localStorage.getItem('vm_archscry_saved_reading_v1')===null","Forget");
-  await flow.page.reload({waitUntil:"load",timeout:10000});await wait(flow.client,"!document.querySelector('#landing').classList.contains('hidden')","forgotten absent");assert.equal(await read(flow.client,"localStorage.getItem('vm687_unrelated')"),"unchanged");
+  await flow.page.reload({waitUntil:"load",timeout:10000});await wait(flow.client,"!document.querySelector('#landing').classList.contains('hidden')","forgotten absent");assert.equal(await read(flow.client,"localStorage.getItem('z7q4h9m2rkpx_unrelated')"),"unchanged");
 
   await seed(flow,{vm_theme_mode_v1:"light",vm_archscry_saved_reading_v1:JSON.stringify(yore)});await nav(flow,"/archscry/","!!document.querySelector('#result-inner [data-result-state],#result-inner [data-action=\"start-result-refinement\"],#result-inner [data-action=\"revisit-result-answer\"]')");
   const recoveryState=await read(flow.client,"(()=>({text:document.querySelector('#result-inner')?.textContent.replace(/\\s+/g,' ').trim(),refine:!!document.querySelector('[data-action=\"start-result-refinement\"], [data-action=\"revisit-result-answer\"]')}))()");
@@ -206,8 +206,8 @@ try{
   await flow.page.setViewport({width:390,height:844,deviceScaleFactor:1});await seed(flow,{vm_theme_mode_v1:"light",vm_archscry_saved_reading_v1:JSON.stringify(jund)});await nav(flow,"/archscry/?panel=starter-cards","!!document.querySelector('[data-dossier-panel=\"starter-cards\"]')");await click(flow,"[data-vm-menu-trigger]");await contain(flow,[".app",".vm-menu-panel",".dossier-console",'[data-dossier-panel="starter-cards"]']);await flow.page.keyboard.press("Escape");
 
   mark("Reading Guide static and exact four-step late walkthrough");
-  const guideContext=await newContext();const guide=await fresh(guideContext);await seed(guide,{vm_theme_mode_v1:"light",vm687_unrelated:"unchanged"});await nav(guide,"/guide/reading/","!!document.querySelector('#reading-guide-main')");await theme(guide,"light");
-  await requested(guide,"Reading Guide",["/assets/css/theme-pages.css?v=vm687","/assets/js/shared/vm-theme.js?v=vm687","/assets/js/guide/reading-walkthrough.js"]);
+  const guideContext=await newContext();const guide=await fresh(guideContext);await seed(guide,{vm_theme_mode_v1:"light",z7q4h9m2rkpx_unrelated:"unchanged"});await nav(guide,"/guide/reading/","!!document.querySelector('#reading-guide-main')");await theme(guide,"light");
+  await requested(guide,"Reading Guide",["/assets/css/theme-pages.css?v=z7q4h9m2rkpx","/assets/js/shared/vm-theme.js?v=z7q4h9m2rkpx","/assets/js/guide/reading-walkthrough.js"]);
   assert.equal(await read(guide.client,"document.querySelectorAll('.driver-popover.vm-guide-walkthrough-popover').length"),0);assert.equal(await read(guide.client,"document.querySelectorAll('.reading-dossier-roles > div').length"),7);
   await paint(guide,"Reading Guide",[".reading-guide-hero",".reading-guide-section",".reading-intent-grid article",".reading-next-actions",".maze-footer.guide-footer"]);
   const links=await read(guide.client,"[...document.querySelectorAll('a[href]')].map(a=>new URL(a.href).pathname)");assert.ok(links.some(x=>x.includes('/archscry/'))&&links.some(x=>x.includes('/maze/'))&&links.some(x=>x.includes('/guide/')));
@@ -220,7 +220,7 @@ try{
   await guide.page.setViewport({width:390,height:844,deviceScaleFactor:1});await seed(guide,{vm_theme_mode_v1:"light"});await nav(guide,"/guide/reading/?guided=dossier-reading","!!document.querySelector('.driver-popover.vm-guide-walkthrough-popover')");await contain(guide,["#reading-guide-main",".driver-popover.vm-guide-walkthrough-popover"]);
 
   mark("unconverted Maze isolation and storage continuity");
-  await nav(saved,"/maze/");assert.equal(await read(saved.client,"document.documentElement.dataset.vmTheme||null"),null);assert.equal(await read(saved.client,"!!document.querySelector('[data-vm-theme-toggle]')"),false);assert.equal(await read(saved.client,"localStorage.getItem('vm_theme_mode_v1')"),"light");assert.equal(await read(saved.client,"localStorage.getItem('vm687_unrelated')"),"unchanged");
+  await nav(saved,"/maze/");assert.equal(await read(saved.client,"document.documentElement.dataset.vmTheme||null"),null);assert.equal(await read(saved.client,"!!document.querySelector('[data-vm-theme-toggle]')"),false);assert.equal(await read(saved.client,"localStorage.getItem('vm_theme_mode_v1')"),"light");assert.equal(await read(saved.client,"localStorage.getItem('z7q4h9m2rkpx_unrelated')"),"unchanged");
   await savedContext.close();await flowContext.close();await guideContext.close();
   assert.deepEqual(evidence.errors,[]);evidence.attempt.result="PASS"
 }catch(error){evidence.attempt.result="FAIL";evidence.attempt.failure=error.stack||String(error);process.exitCode=1;console.error(error)}

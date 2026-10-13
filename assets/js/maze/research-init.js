@@ -1,17 +1,17 @@
 ﻿import { loadDictionaryFromSeedUrl } from "./scryfall-dictionary.js";
 import { normalizeSortDirection, setScryfallDictionary } from "./scryfall-parser.js";
-import { buildVisualBuilderQuery, isValidReleaseYear, parseKeywordInput, validateVisualBuilderFilters } from "./research-builder.js?v=vm627";
+import { buildVisualBuilderQuery, isValidReleaseYear, parseKeywordInput, validateVisualBuilderFilters } from "./research-builder.js?v=c9w2r6x8phtm";
 import {
   loadPlainReadingSemanticRegistryFromUrl,
   loadScryfallGroundingFromUrl,
   setPlainReadingSemanticRegistry,
   setScryfallGrounding
 } from "./scryfall-grounded-compiler.js";
-import { setScryfallSyntaxDisplayLookup, translateScryfallSyntaxToPlainText } from "./research-syntax-language.js?v=vm627";
-import { applyMazeFormatToQuery, resolveMazeQueryRequest } from "./maze-query-core.js?v=vm636";
-import { resolveModeInputValue } from "./research-mode.js?v=vm627";
+import { setScryfallSyntaxDisplayLookup, translateScryfallSyntaxToPlainText } from "./research-syntax-language.js?v=c9w2r6x8phtm";
+import { applyMazeFormatToQuery, resolveMazeQueryRequest } from "./maze-query-core.js?v=h7t2n9q4xvkm";
+import { resolveModeInputValue } from "./research-mode.js?v=c9w2r6x8phtm";
 import * as ResearchSearch from "./research-search.js";
-import { buildScryfallWebSearchUrl, renderExactQuery, renderQueryInspector } from "./research-ui.js?v=vm620";
+import { buildScryfallWebSearchUrl, renderExactQuery, renderQueryInspector } from "./research-ui.js?v=t8h4p7z2mkvq";
 import {
   buildDossierMazePathEntries,
   isMazeOperatorQuery,
@@ -20,7 +20,7 @@ import {
   resolveMazeDiscoveryCatalogProvenance,
   resolveMazeDiscoveryProfile,
   resolveMazeLaunchState,
-} from "./maze-handoff.js?v=vm674r3";
+} from "./maze-handoff.js?v=r2p9k4x7mvqh";
 import {
   READING_FIND_SECTION_CONFIG,
   READING_FIND_SECTION_IDS,

@@ -16,8 +16,10 @@ for (const file of routes) {
   assert.match(html, /class="vm-bg" aria-hidden="true"/, `Preserve atmosphere: ${file}`);
   if (file !== "library/index.html") assert.match(html, /class="vm-bg__stars"/, `Preserve stars: ${file}`);
   assert.ok(!html.includes('<picture class="vm-bg__picture">'), `No painted picture: ${file}`);
+  const opaqueCssVersions = { tokens: "m3q8v5k2zrpc", layout: "m3q8v5k2zrpc", atmosphere: "m3q8v5k2zrpc", home: "p7r3k8z2mvqh", archscry: "m3q8v5k2zrpc", maze: "c4x9h2v7mqkr", strategium: "m3q8v5k2zrpc", apocrypha: "m3q8v5k2zrpc", legal: "n8h3q7v2mkrc" };
   for (const match of html.matchAll(/assets\/css\/(tokens|layout|atmosphere|home|archscry|maze|strategium|apocrypha|legal)\.css([^"']*)/g)) {
-    assert.equal(match[2], "?v=vm635", `Refresh changed CSS: ${file} ${match[1]}`);
+    const expected = match[1] === "maze" && file !== "maze/index.html" ? "m3q8v5k2zrpc" : opaqueCssVersions[match[1]];
+    assert.equal(match[2], `?v=${expected}`, `Refresh changed CSS: ${file} ${match[1]}`);
   }
 }
 for (const tag of read("index.html").matchAll(/<[^>]+\bclass="[^"]*\bvm-color-axis\b[^"]*"[^>]*>/g)) {
