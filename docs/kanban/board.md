@@ -1,4 +1,4 @@
-<!-- task-view-sha256:617944e225c3ab32e5cb478e038ec00571f4cdd44bee1ddb3817ca4bb5f0bfc7 -->
+<!-- task-view-sha256:8507247661201a32cda8c16921a195e5f20759ae71d825baadcab589ff9a8936 -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -57,7 +57,6 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 |---|---|---|---|
 | VM-658 | [Maze Instrument Frame](in-progress/VM-658-maze-instrument-frame.md) | Integrated |  |
 | VM-660 | [Maze Performance Recon](in-progress/VM-660-maze-performance-recon.md) | Integrated |  |
-| VM-695 | [Opaque Public Asset Revision Keys](in-progress/VM-695-opaque-asset-revisions.md) | Integrated |  |
 
 ## Blocked
 
@@ -709,6 +708,7 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | VM-690 | [Theme Recon and Local Leftovers](done/VM-690-theme-recon.md) | Done |  |
 | VM-693 | [Append Completed New Precon Research](done/VM-693-new-precon-research.md) | Done |  |
 | VM-694 | [Precon Browse Builds Footer Alignment](done/VM-694-precon-footer-alignment.md) | Done |  |
+| VM-695 | [Opaque Public Asset Revision Keys](done/VM-695-opaque-asset-revisions.md) | Done |  |
 
 ## Unresolved
 

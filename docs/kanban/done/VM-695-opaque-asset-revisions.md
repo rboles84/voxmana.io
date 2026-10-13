@@ -2,7 +2,7 @@
 
 ID: VM-695
 Title: Opaque Public Asset Revision Keys
-Status: Integrated
+Status: Done
 Type: Bounded cache-key migration
 Area: Public route asset URLs
 Priority: Medium
@@ -86,7 +86,7 @@ Owner: ACCEPTED at 1a7564c3e8a9c92b75557ba836058291e832e0d7 ; Rob Boles explicit
 Integration: INTEGRATED ; PR83 https://github.com/rboles84/voxmana.io/pull/83 ; guarded squash 8442ed53bb7a204163daf19c1d4aac3fbe2c6877
 Dependencies: None
 Decisions: Bounded opaque substitutions only. Preserve all executable URL paths and dependency/order behavior; do not change public behavior, deployment/cache headers, or protected data/state. Stop at Owner Review after independent RobQA; no merge, push, or deployment.
-Evidence: [RobDev handoff](../../handoffs/2026-10-13-robdev-vm695-opaque-asset-revisions.md); [coordinator handoff](../../handoffs/2026-10-13-codex-vm695-opaque-asset-revisions.md); [independent RobQA PASS](../../handoffs/2026-10-13-robqa-vm695-opaque-asset-revisions.md). Exact 26-pair reversal, unchanged 106-file/475-edge graph, all 281 affected refs resolve, zero targeted active revisions. Local Edge verifies theme, Clipboard, Archscry data, cached repeats, Maze handoff and walkthrough initialization. Full walkthrough advancement and production cache propagation unverified; historical harness debt preserved. Owner PENDING; no push/merge/deploy.
+Evidence: [RobDev handoff](../../handoffs/2026-10-13-robdev-vm695-opaque-asset-revisions.md); [coordinator handoff](../../handoffs/2026-10-13-codex-vm695-opaque-asset-revisions.md); [independent RobQA PASS](../../handoffs/2026-10-13-robqa-vm695-opaque-asset-revisions.md). Owner ACCEPT verified; exact-head CI and integration checker PASS; PR83 guarded squash verified; main synchronized. Closeout PASS at 61311460e175da0c27bb275d8b1ca1bd8e0e3c77, branches cleaned, no dirty work or extra worktree. Exact 26-pair/106-file/475-edge/281-reference proofs retained. Full walkthrough advancement and production cache propagation unverified; historical harness/checkpoint debt preserved. No separate deployment action. Final persisted Done closeout will be checked before reporting.
 
 ## Admission Scope
 

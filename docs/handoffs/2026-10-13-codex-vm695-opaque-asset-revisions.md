@@ -53,3 +53,15 @@ Supplemental main-protection visibility returned403 Resource not accessible by i
 Normal fetch/pull encountered the known pre-existing broken refs/codex/turn-diffs/checkpoints object. Fetch downloaded the verified merge and complete reachable history/tree. Fresh authenticated main and native ls-remote both returned the squash SHA; read-only missing-object inspection found none, and the squash tree exactly matched the verified PR head tree with baseline parent78c6be6fdb01dc1e227e255758176ade9a8cf9d5. An expected-old local tracking update advanced origin/main from that baseline to the authenticated squash, then local main fast-forwarded. No checkpoint ref, user work, configuration or history was repaired/deleted/rewritten.
 
 Only lifecycle evidence follows the accepted product tree. All runtime/test/policy/data/vendor/hosting bytes remain those accepted and merged. No separate deployment action was invoked; any existing automatic publishing behavior is outside these verification claims. Production hosting/cache propagation and the documented walkthrough-advancement limitation remain unverified. Required closeout and safe task-branch cleanup follow.
+
+## Completed Closeout — 2026-10-13
+
+Task: VM-695
+Candidate: 1a7564c3e8a9c92b75557ba836058291e832e0d7
+Boundaries: PASS
+
+Closeout checker PASS at synchronized main61311460e175da0c27bb275d8b1ca1bd8e0e3c77 verified authentic independent QA/Owner decisions, original PR83 files/commits/head/CI, guarded squash8442ed53bb7a204163daf19c1d4aac3fbe2c6877 parent/tree, evidence-only lifecycle content, generated-view freshness and clean checkout. GitHub auto-deleted the remote task branch; exact merged local branch was safely removed with git branch -d and its stale tracking ref removed after live absence was observed. One primary worktree remains on main, no unrelated WIP or cleanup deferral. The known broken checkpoint refs remain untouched.
+
+The card is now [Done](../kanban/done/VM-695-opaque-asset-revisions.md), retaining the original admission scope and exact accepted candidate. This final change is only card relocation/status/evidence, this appended observation and generated views. External vm695-integration-git-report.md derives material61/evidence5/original-total62 and separate final-main accounting from Git; the unchanged change-report validator is required to pass. The final persisted Done state is checked again before completion is reported. No product, test, policy, source/generated data, storage, hosting or deployment configuration changes follow the merge.
+
+Next suggested actor: none for integration. Future live-cache observation or the pre-existing harness/checkpoint debts remain separate bounded work if requested. Production propagation and full walkthrough advancement are not claimed by this closeout.
