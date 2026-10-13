@@ -306,4 +306,67 @@ for (let index = 0; index < SCRYFALL_CACHE_MAX_RECORDS + 5; index += 1) {
 }
 assert.equal(Object.keys(boundedLookup.inspect().records).length, SCRYFALL_CACHE_MAX_RECORDS, "The persistent cache must remain bounded.");
 
+const printingId = "4ebc7622-08a1-4f43-92dd-8675d395e8f6";
+const otherPrintingId = "5650587a-27a5-4d68-97e2-5745627bd094";
+const printingStorage = new MemoryStorage();
+let printingCalls = 0;
+const printingLookup = createScryfallNamedCardLookup({
+  storage: printingStorage,
+  now,
+  localResolver: (name) => name === "Giada, Font of Hope" ? card(name) : null,
+  fetchImpl: async (url) => {
+    printingCalls += 1;
+    const id = url.split("/").at(-1);
+    return response(200, { ...card("Giada, Font of Hope"), id, scryfall_uri: `https://scryfall.com/card/fdc/${id}` });
+  },
+});
+const namedGiada = await printingLookup.lookup("Giada, Font of Hope");
+const printedGiada = await printingLookup.lookup("Giada, Font of Hope", { scryfallId: printingId });
+assert.equal(namedGiada.id, "giada,-font-of-hope-id", "Name lookup remains isolated from a requested exact printing.");
+assert.equal(printedGiada.id, printingId, "Exact printing lookup returns the requested Scryfall ID.");
+assert.equal(printingCalls, 1, "Exact printing bypasses local and name caches.");
+assert.equal((await printingLookup.lookup("Giada, Font of Hope", { scryfallId: printingId })).id, printingId, "Warm printing cache is reusable.");
+assert.equal((await printingLookup.lookup("Giada, Font of Hope", { scryfallId: otherPrintingId })).id, otherPrintingId, "Different printings retain distinct cache keys.");
+assert.ok(Object.keys(printingLookup.inspect().records).includes(`printing:${printingId}`));
+assert.ok(!Object.keys(printingLookup.inspect().records).includes(printingId), "Printing cache keys cannot contaminate name keys.");
+assert.equal(await printingLookup.lookup("Giada, Font of Hope", { scryfallId: "not-a-uuid" }), null, "Malformed printing IDs never dispatch a fuzzy fallback.");
+const missingPrinting = createScryfallNamedCardLookup({ storage: new MemoryStorage(), now, fetchImpl: async () => response(404) });
+assert.equal(await missingPrinting.lookup("Giada, Font of Hope", { scryfallId: printingId }), null, "Printing 404 remains an exact failure.");
+const mismatchPrinting = createScryfallNamedCardLookup({ storage: new MemoryStorage(), now, fetchImpl: async () => response(200, { ...card("Giada, Font of Hope"), id: otherPrintingId }) });
+assert.equal(await mismatchPrinting.lookup("Giada, Font of Hope", { scryfallId: printingId }), null, "Mismatched exact-print payloads cannot be accepted.");
+let printingLimitCalls = 0;
+const limitedPrinting = createScryfallNamedCardLookup({ storage: new MemoryStorage(), now, fetchImpl: async () => { printingLimitCalls += 1; return response(429); } });
+assert.equal(await limitedPrinting.lookup("Giada, Font of Hope", { scryfallId: printingId }), null);
+assert.equal(await limitedPrinting.lookup("Sai, Master Thopterist", { scryfallId: otherPrintingId }), null);
+assert.equal(printingLimitCalls, 2, "Exact-printing backoff prevents a second ID from dispatching after bounded retry.");
+
+let guardedPrintingCalls = 0;
+const guardedPrinting = createScryfallNamedCardLookup({ storage: new MemoryStorage(), now, fetchImpl: async () => { guardedPrintingCalls += 1; return response(200, { ...card("Giada, Font of Hope"), id: printingId }); } });
+assert.equal(await guardedPrinting.lookup("Giada, Font of Hope", { recordType: "PRECON", scryfallId: printingId }), null, "Non-card records cannot dispatch an exact printing lookup.");
+assert.equal(await guardedPrinting.lookup("Giada, Font of Hope", { policy: "authored_projection", scryfallId: printingId }), null, "Authored-projection misses cannot dispatch an exact printing lookup.");
+assert.equal(guardedPrintingCalls, 0, "Exact printing preserves existing non-network policy guards.");
+
+const stalePrintingStorage = new MemoryStorage();
+stalePrintingStorage.setItem(SCRYFALL_NAMED_CACHE_KEY, JSON.stringify({ version: 4, records: {
+  [`printing:${printingId}`]: { status: "success", timestamp: now(), last_accessed: now(), card: { ...card("Giada, Font of Hope"), id: otherPrintingId } },
+}, backoff: null }));
+let stalePrintingCalls = 0;
+const stalePrintingLookup = createScryfallNamedCardLookup({ storage: stalePrintingStorage, now, fetchImpl: async () => { stalePrintingCalls += 1; return response(200, { ...card("Giada, Font of Hope"), id: printingId, oracle_text: "Exact printing details." }); } });
+assert.equal((await stalePrintingLookup.lookup("Giada, Font of Hope", { scryfallId: printingId })).id, printingId, "A mismatched printing cache row cannot satisfy the requested ID.");
+assert.equal(stalePrintingCalls, 1, "Mismatched printing cache rows are replaced through the exact endpoint.");
+
+const sparsePrintingStorage = new MemoryStorage();
+sparsePrintingStorage.setItem(SCRYFALL_NAMED_CACHE_KEY, JSON.stringify({ version: 4, records: {
+  [`printing:${printingId}`]: { status: "success", timestamp: now(), last_accessed: now(), card: { id: printingId, name: "Giada, Font of Hope", image_uris: { normal: "https://cards.scryfall.io/normal/sparse.jpg" }, scryfall_uri: "https://scryfall.com/card/fdc/4/giada-font-of-hope" } },
+}, backoff: null }));
+let sparsePrintingCalls = 0;
+const sparsePrintingLookup = createScryfallNamedCardLookup({ storage: sparsePrintingStorage, now, fetchImpl: async () => { sparsePrintingCalls += 1; return response(200, { ...card("Giada, Font of Hope"), id: printingId, oracle_text: "Exact printing details." }); } });
+const [sparsePreview, sparseDetail] = await Promise.all([
+  sparsePrintingLookup.lookup("Giada, Font of Hope", { scryfallId: printingId }),
+  sparsePrintingLookup.lookup("Giada, Font of Hope", { scryfallId: printingId, requireDetails: true }),
+]);
+assert.equal(sparsePreview.id, printingId);
+assert.equal(sparseDetail.oracle_text, "Exact printing details.", "Detail-required exact lookups cannot reuse a sparse printing cache row.");
+assert.ok(sparsePrintingCalls >= 1, "Sparse exact printing cache entries must refresh through the exact endpoint.");
+
 console.log("PASS VM-551 reload-persistent Scryfall cache checks");

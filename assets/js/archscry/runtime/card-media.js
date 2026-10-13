@@ -334,6 +334,8 @@ export let cardDetailTransformState = null;
 
 export let cardDetailContext = null;
 
+export let cardDetailRequestId = 0;
+
 export let glossaryTooltip = null;
 
 export let glossaryTooltipTarget = null;
@@ -454,7 +456,8 @@ export async function showCardPreviewOverlay(trigger, event = null) {
   const overlay = ensureCardPreviewOverlay();
   const overlayImage = overlay.querySelector("img");
   const flipButton = overlay.querySelector(".card-preview-flip");
-  const previewTarget = trigger.cardName || trigger.image?.currentSrc || trigger.image?.src || "";
+  const previewBaseTarget = trigger.cardName || trigger.image?.currentSrc || trigger.image?.src || "";
+  const previewTarget = trigger.scryfallId ? `${previewBaseTarget}|${trigger.scryfallId}` : previewBaseTarget;
   if (overlay.classList.contains("is-visible") && overlay.dataset.previewResolvedTarget === previewTarget) {
     cardPreviewBoundary = trigger.boundary;
     positionCardPreviewOverlay(overlay, trigger.boundary);
@@ -479,7 +482,7 @@ export async function showCardPreviewOverlay(trigger, event = null) {
   let transformMedia = null;
   if (trigger.cardName) {
     try {
-      resolvedCard = await loadCachedScryfallNamedCard(trigger.cardName);
+      resolvedCard = await loadCachedScryfallNamedCard(trigger.cardName, { scryfallId: trigger.scryfallId || "" });
       transformMedia = createScryfallTransformMediaBehavior(resolvedCard);
       imageUrl = transformMedia?.currentFace.image || cardImageUrl(resolvedCard);
     } catch (_) {
@@ -592,6 +595,7 @@ export function cardPreviewTriggerFromEvent(event) {
       image: target,
       boundary: namedBoundary || imageLink || target,
       cardName: namedBoundary?.dataset.cardPreviewName || "",
+      scryfallId: namedBoundary?.dataset.cardScryfallId || "",
     };
   }
 
@@ -604,6 +608,7 @@ export function cardPreviewTriggerFromEvent(event) {
       image: image instanceof HTMLImageElement ? image : null,
       boundary: imageTrigger,
       cardName: imageTrigger.dataset.cardPreviewName || "",
+      scryfallId: imageTrigger.dataset.cardScryfallId || "",
     };
   }
 
@@ -614,6 +619,7 @@ export function cardPreviewTriggerFromEvent(event) {
       image: image instanceof HTMLImageElement ? image : null,
       boundary: namedBoundary,
       cardName: namedBoundary.dataset.cardPreviewName || "",
+      scryfallId: namedBoundary.dataset.cardScryfallId || "",
     };
   }
 
@@ -633,7 +639,8 @@ export function handleCardPreviewPointerOver(event) {
 
 export function handleCardPreviewPointerMove(event) {
   const trigger = cardPreviewTriggerFromEvent(event);
-  const requestedTarget = trigger?.cardName || trigger?.image?.currentSrc || trigger?.image?.src || "";
+  const requestedBaseTarget = trigger?.cardName || trigger?.image?.currentSrc || trigger?.image?.src || "";
+  const requestedTarget = trigger?.scryfallId ? `${requestedBaseTarget}|${trigger.scryfallId}` : requestedBaseTarget;
   if (trigger) cancelCardPreviewDismissal();
   if (!cardPreviewOverlay?.classList.contains("is-visible")) {
     const sameTargetIsLoading = cardPreviewOverlay?.classList.contains("is-loading") &&
@@ -721,6 +728,7 @@ export function ensureCardDetailDialog() {
     }
   });
   dialog.addEventListener("close", () => {
+    cardDetailRequestId += 1;
     const invoker = cardDetailInvoker;
     cardDetailInvoker = null;
     cardDetailCard = null;
@@ -796,10 +804,12 @@ export function flipCardDetailFace() {
 
 export async function openCardDetail(actionNode) {
   const cardName = String(actionNode?.dataset.cardName || "").trim();
+  const scryfallId = String(actionNode?.dataset.scryfallId || "").trim();
   const identityName = String(actionNode?.dataset.cardIdentityName || "").trim();
   const identityContext = String(actionNode?.dataset.cardIdentityContext || "").trim();
   const identityContextKind = String(actionNode?.dataset.cardIdentityContextKind || "").trim();
   if (!cardName) return;
+  const requestId = ++cardDetailRequestId;
   hideCardPreviewOverlay();
   const dialog = ensureCardDetailDialog();
   const content = dialog.querySelector("[data-card-dialog-content]");
@@ -809,12 +819,14 @@ export async function openCardDetail(actionNode) {
   if (!dialog.open) dialog.showModal();
 
   try {
-    const card = await loadCachedScryfallNamedCard(cardName, { requireDetails: true });
+    const card = await loadCachedScryfallNamedCard(cardName, { requireDetails: true, scryfallId });
+    if (requestId !== cardDetailRequestId || !dialog.open) return;
     cardDetailCard = card;
     cardDetailTransformState = createScryfallTransformFaceState(card);
     cardDetailContext = { cardName, identityName, identityContext, identityContextKind };
     renderCardDetailContent(content, card, cardDetailTransformState, cardDetailContext);
   } catch (_) {
+    if (requestId !== cardDetailRequestId || !dialog.open) return;
     content.innerHTML = `<p class="archscry-card-dialog-status">Verified card details are unavailable. No fallback description was generated.</p>`;
   }
 }

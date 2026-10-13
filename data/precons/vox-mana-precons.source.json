@@ -4,7 +4,7 @@
     "dataset": "vox-mana-precons",
     "canonical_source": "json",
     "reference_csv": "data/precons/reference/vox-mana-precons.reference.csv",
-    "record_count": 155
+    "record_count": 175
   },
   "precons": [
     {
@@ -12453,6 +12453,1423 @@
     ]
   },
   "factionRefs": []
+    },
+  {
+    "sourcePage": "https://magic.wizards.com/en/news/announcements/foundations-commander-decklists",
+    "productSection": "Foundations Commander",
+    "deckName": "Calling All Angels",
+    "mainCommander": "Giada, Font of Hope",
+    "secondaryCommanders": [],
+    "factionRefs": [],
+    "colors": [
+      "White"
+    ],
+    "theme": "Angels",
+    "deckDescription": "A beginner-focused mono-white Angel deck. Giada provides early ramp for expensive Angels and makes later Angels larger, creating a fair but powerful mid-complexity game plan.",
+    "iconicCards": [
+      "Giada, Font of Hope",
+      "Lyra Dawnbringer",
+      "Linvala, the Preserver"
+    ],
+    "notesMechanicsMentioned": "Angel tribal; ramp from commander; +1/+1 counter scaling",
+    "playstyleTags": [
+      "angels",
+      "tribal",
+      "ramp",
+      "counters",
+      "combat"
+    ],
+    "primaryTheme": "Angels tribal",
+    "secondaryTheme": "Ramp / +1/+1 counters",
+    "mainStrategy": "Cast Giada early, accelerate into Angels, and build an increasingly large flying board for combat wins.",
+    "mechanics": [
+      "Ramp",
+      "+1/+1 counters",
+      "Flying"
+    ],
+    "creatureTypeFocus": "Angels",
+    "scores": {
+      "beginnerFriendly": 3,
+      "complexity": 2,
+      "politicalSocialPlay": 1,
+      "combatFocus": 4,
+      "comboPotential": 1,
+      "graveyardFocus": 2,
+      "tokenFocus": 3,
+      "artifactFocus": 1,
+      "enchantmentFocus": 1,
+      "spellslingerFocus": 1,
+      "rampFocus": 3,
+      "controlFocus": 2,
+      "aggression": 3,
+      "valueEngine": 3
+    },
+    "recommendationProfile": {
+      "recommendedFor": "New players who want a balanced, approachable creature deck and players who enjoy Angels.",
+      "notRecommendedFor": "Players seeking intricate combo lines or a highly reactive strategy.",
+      "voxManaPlacementFit": "Strong beginner White placement: flying tribal, orderly growth, and fair combat."
+    },
+    "learningProfile": {
+      "colorPhilosophySummary": "White builds a disciplined community where each Angel strengthens the next.",
+      "whatThisDeckTeachesAboutItsColors": "Teaches tribal curves, flying combat, and building a board in stages.",
+      "beginnerLesson": "Teaches tribal curves, flying combat, and building a board in stages.",
+      "strategyLesson": "Play Giada early, sequence Angels so later threats enter larger, then win in the air.",
+      "voxManaBasicsPageUse": "Excellent beginner page example for mono-white tribal and flying.",
+      "relatedArchetypes": [
+        "angels",
+        "tribal",
+        "flying",
+        "counters",
+        "ramp"
+      ],
+      "relatedMechanics": [
+        "Flying",
+        "+1/+1 counters",
+        "Angel cost support"
+      ]
+    }
+  },
+  {
+    "sourcePage": "https://magic.wizards.com/en/news/announcements/foundations-commander-decklists",
+    "productSection": "Foundations Commander",
+    "deckName": "Keen Engineering",
+    "mainCommander": "Sai, Master Thopterist",
+    "secondaryCommanders": [],
+    "factionRefs": [],
+    "colors": [
+      "Blue"
+    ],
+    "theme": "Artifacts, Thopters",
+    "deckDescription": "A mono-blue artifact deck that creates Thopter tokens and converts artifacts into card advantage. It is sold as a beginner product but offers more decisions and upgrade depth than the other Foundations decks.",
+    "iconicCards": [
+      "Sai, Master Thopterist",
+      "Urza, Lord High Artificer"
+    ],
+    "notesMechanicsMentioned": "Artifact casting; Thopter token creation; converting artifacts into cards",
+    "playstyleTags": [
+      "artifacts",
+      "thopters",
+      "tokens",
+      "card draw",
+      "value"
+    ],
+    "primaryTheme": "Artifacts",
+    "secondaryTheme": "Thopters / card advantage",
+    "mainStrategy": "Deploy many artifacts, generate Thopters from Sai, and turn expendable artifacts into cards while building an evasive token board.",
+    "mechanics": [
+      "Artifact synergy",
+      "Token creation",
+      "Card draw",
+      "Sacrifice"
+    ],
+    "creatureTypeFocus": "Thopters",
+    "scores": {
+      "beginnerFriendly": 2,
+      "complexity": 3,
+      "politicalSocialPlay": 1,
+      "combatFocus": 2,
+      "comboPotential": 3,
+      "graveyardFocus": 1,
+      "tokenFocus": 5,
+      "artifactFocus": 5,
+      "enchantmentFocus": 1,
+      "spellslingerFocus": 2,
+      "rampFocus": 2,
+      "controlFocus": 3,
+      "aggression": 2,
+      "valueEngine": 4
+    },
+    "recommendationProfile": {
+      "recommendedFor": "Players who enjoy artifacts, decision-rich value engines, and a deck with room to upgrade.",
+      "notRecommendedFor": "First-time TCG players who want the most straightforward Foundations option.",
+      "voxManaPlacementFit": "Strong Blue artifact/value placement with a higher decision load than the other beginner decks."
+    },
+    "learningProfile": {
+      "colorPhilosophySummary": "Blue turns invention into incremental cards, tokens, and scalable artifact engines.",
+      "whatThisDeckTeachesAboutItsColors": "Teaches sequencing artifacts, token utility, and converting permanents into cards.",
+      "beginnerLesson": "Teaches sequencing artifacts, token utility, and converting permanents into cards.",
+      "strategyLesson": "Cast artifacts to create Thopters, use them as pressure or resources, and draw into a finisher.",
+      "voxManaBasicsPageUse": "Good intermediate basics example for artifacts and value engines.",
+      "relatedArchetypes": [
+        "artifacts",
+        "thopters",
+        "tokens",
+        "card draw",
+        "value"
+      ],
+      "relatedMechanics": [
+        "Artifact casting",
+        "Thopter tokens",
+        "Card draw",
+        "Sacrifice"
+      ]
+    }
+  },
+  {
+    "sourcePage": "https://magic.wizards.com/en/news/announcements/foundations-commander-decklists",
+    "productSection": "Foundations Commander",
+    "deckName": "Wretched Ranks",
+    "mainCommander": "Ghoulcaller Gisa",
+    "secondaryCommanders": [],
+    "factionRefs": [],
+    "colors": [
+      "Black"
+    ],
+    "theme": "Zombies, sacrifice",
+    "deckDescription": "A mono-black deck combining resilient Zombies with sacrifice payoffs. Recurring or replaceable creatures make sacrifice costs easier to absorb while the deck accumulates incremental advantage.",
+    "iconicCards": [
+      "Ghoulcaller Gisa"
+    ],
+    "notesMechanicsMentioned": "Zombie tribal; creature sacrifice; recursion; token creation",
+    "playstyleTags": [
+      "zombies",
+      "tribal",
+      "sacrifice",
+      "graveyard",
+      "tokens",
+      "value"
+    ],
+    "primaryTheme": "Zombies tribal",
+    "secondaryTheme": "Sacrifice",
+    "mainStrategy": "Build a Zombie board, sacrifice creatures for powerful effects, and use the tribe's resilience to recover resources and pull ahead over a longer game.",
+    "mechanics": [
+      "Sacrifice",
+      "Recursion",
+      "Token creation"
+    ],
+    "creatureTypeFocus": "Zombies",
+    "scores": {
+      "beginnerFriendly": 3,
+      "complexity": 2,
+      "politicalSocialPlay": 1,
+      "combatFocus": 3,
+      "comboPotential": 2,
+      "graveyardFocus": 5,
+      "tokenFocus": 5,
+      "artifactFocus": 1,
+      "enchantmentFocus": 1,
+      "spellslingerFocus": 1,
+      "rampFocus": 1,
+      "controlFocus": 2,
+      "aggression": 3,
+      "valueEngine": 4
+    },
+    "recommendationProfile": {
+      "recommendedFor": "Players who enjoy attrition, sacrifice decisions, Zombies, and gradual resource advantages.",
+      "notRecommendedFor": "Players uncomfortable sacrificing their own permanents or seeking a fast, flashy game plan.",
+      "voxManaPlacementFit": "Strong Black placement for sacrifice, recursion, Zombies, and attrition."
+    },
+    "learningProfile": {
+      "colorPhilosophySummary": "Black treats creatures and the graveyard as renewable resources.",
+      "whatThisDeckTeachesAboutItsColors": "Teaches that sacrificing a creature can create more total value than keeping it.",
+      "beginnerLesson": "Teaches that sacrificing a creature can create more total value than keeping it.",
+      "strategyLesson": "Sacrifice large or expendable creatures, create Zombie armies, and recur resources to repeat the loop.",
+      "voxManaBasicsPageUse": "Excellent beginner example for sacrifice and graveyard value.",
+      "relatedArchetypes": [
+        "zombies",
+        "sacrifice",
+        "graveyard",
+        "tokens",
+        "attrition"
+      ],
+      "relatedMechanics": [
+        "Sacrifice",
+        "Recursion",
+        "Zombie tokens"
+      ]
+    }
+  },
+  {
+    "sourcePage": "https://magic.wizards.com/en/news/announcements/foundations-commander-decklists",
+    "productSection": "Foundations Commander",
+    "deckName": "Reign of Dragons",
+    "mainCommander": "Lathliss, Dragon Queen",
+    "secondaryCommanders": [],
+    "factionRefs": [],
+    "colors": [
+      "Red"
+    ],
+    "theme": "Dragons, Treasures",
+    "deckDescription": "A mono-red deck built to ramp into large Dragons. Treasure tokens help pay for expensive threats, while Lathliss rewards each additional Dragon with even more flying power.",
+    "iconicCards": [
+      "Lathliss, Dragon Queen"
+    ],
+    "notesMechanicsMentioned": "Dragon tribal; Treasure ramp; Dragon token creation; large flying creatures",
+    "playstyleTags": [
+      "dragons",
+      "tribal",
+      "treasures",
+      "ramp",
+      "tokens",
+      "combat"
+    ],
+    "primaryTheme": "Dragons tribal",
+    "secondaryTheme": "Treasures / ramp",
+    "mainStrategy": "Generate Treasure mana, cast large Dragons, and use Lathliss to multiply the flying threats and overwhelm opponents in combat.",
+    "mechanics": [
+      "Treasure creation",
+      "Ramp",
+      "Token creation",
+      "Flying"
+    ],
+    "creatureTypeFocus": "Dragons",
+    "scores": {
+      "beginnerFriendly": 3,
+      "complexity": 2,
+      "politicalSocialPlay": 1,
+      "combatFocus": 5,
+      "comboPotential": 2,
+      "graveyardFocus": 1,
+      "tokenFocus": 3,
+      "artifactFocus": 2,
+      "enchantmentFocus": 1,
+      "spellslingerFocus": 1,
+      "rampFocus": 5,
+      "controlFocus": 1,
+      "aggression": 5,
+      "valueEngine": 3
+    },
+    "recommendationProfile": {
+      "recommendedFor": "Players who value big, flashy plays and want a clear ramp-then-attack plan.",
+      "notRecommendedFor": "Players who prioritize subtle optimization, control, or low-cost interaction.",
+      "voxManaPlacementFit": "Strong Red placement for explosive mana, Dragons, and high-impact combat."
+    },
+    "learningProfile": {
+      "colorPhilosophySummary": "Red converts temporary Treasure mana into immediate, spectacular threats.",
+      "whatThisDeckTeachesAboutItsColors": "Teaches ramp timing and the payoff of committing to an expensive creature tribe.",
+      "beginnerLesson": "Teaches ramp timing and the payoff of committing to an expensive creature tribe.",
+      "strategyLesson": "Make Treasure, reduce Dragon costs, then multiply flying threats with Lathliss.",
+      "voxManaBasicsPageUse": "Excellent beginner example for Dragon tribal and Treasure ramp.",
+      "relatedArchetypes": [
+        "dragons",
+        "treasures",
+        "ramp",
+        "tribal",
+        "combat"
+      ],
+      "relatedMechanics": [
+        "Treasure",
+        "Dragon tokens",
+        "Cost reduction",
+        "Flying"
+      ]
+    }
+  },
+  {
+    "sourcePage": "https://magic.wizards.com/en/news/announcements/foundations-commander-decklists",
+    "productSection": "Foundations Commander",
+    "deckName": "Tramplesaurus Rex",
+    "mainCommander": "Ghalta, Primal Hunger",
+    "secondaryCommanders": [],
+    "factionRefs": [],
+    "colors": [
+      "Green"
+    ],
+    "theme": "Large Dinosaurs",
+    "deckDescription": "A straightforward mono-green Dinosaur deck that ramps into enormous creatures. Ghalta can become extremely cheap once the battlefield already contains substantial power.",
+    "iconicCards": [
+      "Ghalta, Primal Hunger"
+    ],
+    "notesMechanicsMentioned": "Ramp; large creatures; cost reduction; trample",
+    "playstyleTags": [
+      "dinosaurs",
+      "tribal",
+      "ramp",
+      "big creatures",
+      "combat"
+    ],
+    "primaryTheme": "Dinosaurs / big creatures",
+    "secondaryTheme": "Ramp / cost reduction",
+    "mainStrategy": "Develop mana and battlefield power, cast enormous Dinosaurs ahead of curve, then win through oversized trampling attacks.",
+    "mechanics": [
+      "Ramp",
+      "Cost reduction",
+      "Trample"
+    ],
+    "creatureTypeFocus": "Dinosaurs",
+    "scores": {
+      "beginnerFriendly": 3,
+      "complexity": 1,
+      "politicalSocialPlay": 1,
+      "combatFocus": 5,
+      "comboPotential": 1,
+      "graveyardFocus": 1,
+      "tokenFocus": 1,
+      "artifactFocus": 1,
+      "enchantmentFocus": 1,
+      "spellslingerFocus": 1,
+      "rampFocus": 5,
+      "controlFocus": 1,
+      "aggression": 5,
+      "valueEngine": 3
+    },
+    "recommendationProfile": {
+      "recommendedFor": "New players and casual groups who want the simplest plan: cast the largest threats and attack.",
+      "notRecommendedFor": "Players who prefer complex decision trees, spell-based decks, or reactive control.",
+      "voxManaPlacementFit": "Strong Green beginner placement for ramp, oversized creatures, and trample."
+    },
+    "learningProfile": {
+      "colorPhilosophySummary": "Green expresses power through mana growth and creatures that dominate combat naturally.",
+      "whatThisDeckTeachesAboutItsColors": "Teaches the clean relationship between mana development, board power, and combat damage.",
+      "beginnerLesson": "Teaches the clean relationship between mana development, board power, and combat damage.",
+      "strategyLesson": "Ramp, establish power, cast Ghalta cheaply, and push excess damage through blockers.",
+      "voxManaBasicsPageUse": "Excellent first-deck example for ramp and trample.",
+      "relatedArchetypes": [
+        "dinosaurs",
+        "stompy",
+        "ramp",
+        "big creatures"
+      ],
+      "relatedMechanics": [
+        "Ramp",
+        "Cost reduction",
+        "Trample"
+      ]
+    }
+  },
+  {
+    "sourcePage": "https://magic.wizards.com/en/news/announcements/marvel-super-heroes-commander-decklists",
+    "productSection": "Marvel Super Heroes Commander",
+    "deckName": "Avengers Assemble",
+    "mainCommander": "Captain America, Team Leader",
+    "secondaryCommanders": [],
+    "factionRefs": [],
+    "colors": [
+      "White",
+      "Blue",
+      "Red"
+    ],
+    "theme": "Heroes, +1/+1 counters",
+    "deckDescription": "A Jeskai Hero deck that assembles Avengers, grants combat utility, and distributes counters and tokens. Captain America is the primary commander, while Nick Fury offers cost reduction and card advantage.",
+    "iconicCards": [
+      "Captain America, Team Leader",
+      "Director Nick Fury",
+      "Avengers Quinjet",
+      "Avengers Tower"
+    ],
+    "notesMechanicsMentioned": "Hero subtype; +1/+1 counters; vigilance and haste; token creation; cost reduction; card advantage",
+    "playstyleTags": [
+      "heroes",
+      "tribal",
+      "counters",
+      "tokens",
+      "combat",
+      "value"
+    ],
+    "primaryTheme": "Heroes tribal",
+    "secondaryTheme": "+1/+1 counters",
+    "mainStrategy": "Cast a broad team of Heroes, use Captain America to accelerate their combat impact, and scale the team with counters and supporting value pieces.",
+    "mechanics": [
+      "+1/+1 counters",
+      "Token creation",
+      "Haste",
+      "Vigilance",
+      "Cost reduction"
+    ],
+    "creatureTypeFocus": "Heroes",
+    "scores": {
+      "beginnerFriendly": 2,
+      "complexity": 2,
+      "politicalSocialPlay": 2,
+      "combatFocus": 4,
+      "comboPotential": 2,
+      "graveyardFocus": 1,
+      "tokenFocus": 3,
+      "artifactFocus": 3,
+      "enchantmentFocus": 1,
+      "spellslingerFocus": 1,
+      "rampFocus": 2,
+      "controlFocus": 2,
+      "aggression": 4,
+      "valueEngine": 4
+    },
+    "recommendationProfile": {
+      "recommendedFor": "Marvel fans and players who want accessible creature synergy with a broad cast of Heroes.",
+      "notRecommendedFor": "Players seeking unusual combo play or a strategy independent of creature types.",
+      "voxManaPlacementFit": "Accessible Jeskai Heroes deck with combat haste, counters, and card advantage."
+    },
+    "learningProfile": {
+      "colorPhilosophySummary": "White organizes the team, Blue supplies cards, and Red gives the Heroes speed.",
+      "whatThisDeckTeachesAboutItsColors": "Teaches creature-type synergy and why immediate combat impact matters.",
+      "beginnerLesson": "Teaches creature-type synergy and why immediate combat impact matters.",
+      "strategyLesson": "Build a diverse Hero team, grant haste and vigilance, and maintain cards through Nick Fury.",
+      "voxManaBasicsPageUse": "Good basics example for typal synergy without a traditional fantasy tribe.",
+      "relatedArchetypes": [
+        "heroes",
+        "tribal",
+        "counters",
+        "tokens",
+        "combat"
+      ],
+      "relatedMechanics": [
+        "Hero matters",
+        "+1/+1 counters",
+        "Haste",
+        "Vigilance"
+      ]
+    }
+  },
+  {
+    "sourcePage": "https://magic.wizards.com/en/news/announcements/marvel-super-heroes-commander-decklists",
+    "productSection": "Marvel Super Heroes Commander",
+    "deckName": "The Fantastic Four",
+    "mainCommander": "Invisible Woman / Mister Fantastic / Human Torch / The Thing",
+    "secondaryCommanders": [],
+    "factionRefs": [],
+    "colors": [
+      "White",
+      "Blue",
+      "Red",
+      "Green"
+    ],
+    "theme": "Noncreature spells, protection",
+    "deckDescription": "A four-color noncreature-spell deck with four featured commander choices. Invisible Woman creates Walls and enables a large unblockable attacker, Mister Fantastic supplies cards and triggered-ability value, and Human Torch or The Thing support Voltron paths.",
+    "iconicCards": [
+      "Invisible Woman",
+      "Mister Fantastic",
+      "Human Torch",
+      "The Thing",
+      "The Fantasticar"
+    ],
+    "notesMechanicsMentioned": "Noncreature spell triggers; protection; Walls; unblockable attacks; triggered-ability copying; Voltron",
+    "playstyleTags": [
+      "spellslinger",
+      "protection",
+      "walls",
+      "voltron",
+      "value",
+      "four-color"
+    ],
+    "primaryTheme": "Noncreature spells",
+    "secondaryTheme": "Protection / commander choice",
+    "mainStrategy": "Cast noncreature spells to trigger the selected Fantastic Four leader, protect the engine, and pivot among token, value, or Voltron finishes.",
+    "mechanics": [
+      "Noncreature spell triggers",
+      "Protection",
+      "Wall tokens",
+      "Unblockable",
+      "Trigger copying"
+    ],
+    "creatureTypeFocus": "Walls / flexible by commander",
+    "scores": {
+      "beginnerFriendly": 2,
+      "complexity": 4,
+      "politicalSocialPlay": 2,
+      "combatFocus": 3,
+      "comboPotential": 4,
+      "graveyardFocus": 1,
+      "tokenFocus": 3,
+      "artifactFocus": 2,
+      "enchantmentFocus": 2,
+      "spellslingerFocus": 5,
+      "rampFocus": 2,
+      "controlFocus": 4,
+      "aggression": 2,
+      "valueEngine": 4
+    },
+    "recommendationProfile": {
+      "recommendedFor": "Players who enjoy flexible deckbuilding, spell sequencing, and choosing among several commander paths.",
+      "notRecommendedFor": "Beginners wanting a single obvious game plan or players who prefer low-complexity mana bases.",
+      "voxManaPlacementFit": "Advanced four-color flexible placement with four commander paths and noncreature-spell sequencing."
+    },
+    "learningProfile": {
+      "colorPhilosophySummary": "The four colors combine protection, invention, passion, and growth into flexible problem solving.",
+      "whatThisDeckTeachesAboutItsColors": "Teaches how commander choice changes the role of the same 99 cards.",
+      "beginnerLesson": "Teaches how commander choice changes the role of the same 99 cards.",
+      "strategyLesson": "Select a leader, cast noncreature spells for repeated triggers, protect the engine, and finish through value or Voltron.",
+      "voxManaBasicsPageUse": "Excellent advanced basics page for commander-dependent deck identity.",
+      "relatedArchetypes": [
+        "spellslinger",
+        "protection",
+        "walls",
+        "voltron",
+        "value"
+      ],
+      "relatedMechanics": [
+        "Noncreature spell triggers",
+        "Protection",
+        "Trigger copying"
+      ]
+    }
+  },
+  {
+    "sourcePage": "https://magic.wizards.com/en/news/announcements/marvel-super-heroes-commander-decklists",
+    "productSection": "Marvel Super Heroes Commander",
+    "deckName": "Wakanda Forever",
+    "mainCommander": "T'Challa, the Black Panther",
+    "secondaryCommanders": [
+      "Shuri, the Black Panther"
+    ],
+    "factionRefs": [],
+    "colors": [
+      "White",
+      "Green"
+    ],
+    "theme": "Monarch, artifacts",
+    "deckDescription": "A Selesnya artifact deck built around Vibranium and the monarch. T’Challa ramps through large artifacts and grows into a threat, while Shuri rewards maintaining a substantial artifact board.",
+    "iconicCards": [
+      "T'Challa, the Black Panther",
+      "Shuri, the Black Panther",
+      "Heart-Shaped Herb",
+      "Vibranium Mining Mech"
+    ],
+    "notesMechanicsMentioned": "Monarch; artifact ramp; Vibranium tokens; artifact-matters scaling",
+    "playstyleTags": [
+      "artifacts",
+      "monarch",
+      "ramp",
+      "counters",
+      "value",
+      "combat"
+    ],
+    "primaryTheme": "Artifacts",
+    "secondaryTheme": "Monarch / Vibranium",
+    "mainStrategy": "Ramp with artifacts and Vibranium, claim and defend the monarchy, and turn accumulated artifact resources into combat power and extra cards.",
+    "mechanics": [
+      "Monarch",
+      "Artifact synergy",
+      "Ramp",
+      "Token creation"
+    ],
+    "creatureTypeFocus": null,
+    "scores": {
+      "beginnerFriendly": 2,
+      "complexity": 3,
+      "politicalSocialPlay": 4,
+      "combatFocus": 4,
+      "comboPotential": 2,
+      "graveyardFocus": 1,
+      "tokenFocus": 3,
+      "artifactFocus": 5,
+      "enchantmentFocus": 1,
+      "spellslingerFocus": 1,
+      "rampFocus": 4,
+      "controlFocus": 3,
+      "aggression": 3,
+      "valueEngine": 4
+    },
+    "recommendationProfile": {
+      "recommendedFor": "Players who enjoy artifacts, resource growth, and the table-wide contest created by monarch.",
+      "notRecommendedFor": "Players who dislike becoming a combat target or relying on a developed artifact board.",
+      "voxManaPlacementFit": "Distinct Selesnya artifact/monarch placement with ramp and political pressure."
+    },
+    "learningProfile": {
+      "colorPhilosophySummary": "White establishes rulership and protection while Green turns material resources into growth.",
+      "whatThisDeckTeachesAboutItsColors": "Teaches monarch incentives and how artifacts can support Green-White rather than Blue.",
+      "beginnerLesson": "Teaches monarch incentives and how artifacts can support Green-White rather than Blue.",
+      "strategyLesson": "Generate Vibranium and artifact mana, claim the monarchy, and convert resources into combat power.",
+      "voxManaBasicsPageUse": "Strong example for monarch and off-color artifact identity.",
+      "relatedArchetypes": [
+        "artifacts",
+        "monarch",
+        "ramp",
+        "tokens",
+        "combat"
+      ],
+      "relatedMechanics": [
+        "Monarch",
+        "Artifact synergy",
+        "Vibranium",
+        "Ramp"
+      ]
+    }
+  },
+  {
+    "sourcePage": "https://magic.wizards.com/en/news/announcements/marvel-super-heroes-commander-decklists",
+    "productSection": "Marvel Super Heroes Commander",
+    "deckName": "Doom Prevails",
+    "mainCommander": "Doctor Doom, King of Latveria",
+    "secondaryCommanders": [],
+    "factionRefs": [],
+    "colors": [
+      "Blue",
+      "Black",
+      "Red"
+    ],
+    "theme": "Connive, life drain",
+    "deckDescription": "A Grixis Villain deck using connive to improve creatures or fuel table-wide life drain. Doctor Doom supports both Villain synergy and discard-based damage, while Loki offers a copying-oriented alternative.",
+    "iconicCards": [
+      "Doctor Doom, King of Latveria",
+      "Loki, the Deceiver",
+      "Doom's Time Platform",
+      "Loki's Scepter"
+    ],
+    "notesMechanicsMentioned": "Villain subtype; connive; discard; life drain; copying creatures",
+    "playstyleTags": [
+      "villains",
+      "connive",
+      "discard",
+      "life drain",
+      "tribal",
+      "value"
+    ],
+    "primaryTheme": "Villains / connive",
+    "secondaryTheme": "Life drain",
+    "mainStrategy": "Connive repeatedly to filter cards and enable Doom's life-drain plan, using Villain synergies and value pieces to pressure the table.",
+    "mechanics": [
+      "Connive",
+      "Discard",
+      "Life drain",
+      "Copy effects"
+    ],
+    "creatureTypeFocus": "Villains",
+    "scores": {
+      "beginnerFriendly": 2,
+      "complexity": 3,
+      "politicalSocialPlay": 2,
+      "combatFocus": 2,
+      "comboPotential": 4,
+      "graveyardFocus": 3,
+      "tokenFocus": 2,
+      "artifactFocus": 3,
+      "enchantmentFocus": 1,
+      "spellslingerFocus": 2,
+      "rampFocus": 2,
+      "controlFocus": 4,
+      "aggression": 3,
+      "valueEngine": 5
+    },
+    "recommendationProfile": {
+      "recommendedFor": "Players who enjoy Villain flavor, hand filtering, incremental life drain, and synergistic value engines.",
+      "notRecommendedFor": "Players who prefer straightforward combat or dislike tracking discard and trigger interactions.",
+      "voxManaPlacementFit": "Strong Grixis Villain placement for connive, discard, copying, and life drain."
+    },
+    "learningProfile": {
+      "colorPhilosophySummary": "Blue plans, Black exploits discarded resources and life, and Red accelerates the scheme.",
+      "whatThisDeckTeachesAboutItsColors": "Teaches hand filtering and turning discard into pressure rather than card loss.",
+      "beginnerLesson": "Teaches hand filtering and turning discard into pressure rather than card loss.",
+      "strategyLesson": "Connive repeatedly, trigger Doom's drain plan, and use Villain synergies to control the table.",
+      "voxManaBasicsPageUse": "Good intermediate example for connive and life-drain value.",
+      "relatedArchetypes": [
+        "villains",
+        "connive",
+        "discard",
+        "life drain",
+        "copy effects"
+      ],
+      "relatedMechanics": [
+        "Connive",
+        "Discard",
+        "Life drain",
+        "Copy"
+      ]
+    }
+  },
+  {
+    "sourcePage": "https://magic.wizards.com/en/news/announcements/reality-fracture-multiverse-reforged-commander-decklist",
+    "productSection": "Reality Fracture Commander",
+    "deckName": "Multiverse Reforged",
+    "mainCommander": "Jace, Multiverse Architect",
+    "secondaryCommanders": [
+      "Nissa, Leyline Tamer"
+    ],
+    "factionRefs": [],
+    "colors": [
+      "White",
+      "Blue",
+      "Black",
+      "Red"
+    ],
+    "theme": "Token transformation, alternate-reality legends",
+    "deckDescription": "A four-color deck led by Jace that turns small creature tokens into powerful Echoverse legends and supports the plan with token makers, polymorph effects, and high-impact creatures.",
+    "iconicCards": [
+      "Jace, Multiverse Architect",
+      "Nissa, Leyline Tamer",
+      "Darksteel Angel",
+      "Avacyn, Angel of Horror",
+      "Omnath, Locus of the Void"
+    ],
+    "notesMechanicsMentioned": "Creature tokens; polymorph / transformation effects; cheating legends into play; four-color mana",
+    "playstyleTags": [
+      "tokens",
+      "polymorph",
+      "legends",
+      "value",
+      "combo",
+      "control"
+    ],
+    "primaryTheme": "Token transformation / polymorph",
+    "secondaryTheme": "Echoverse legends",
+    "mainStrategy": "Create expendable creature tokens, then use Jace and mass-polymorph effects to turn them into much larger legendary threats.",
+    "mechanics": [
+      "Token creation",
+      "Polymorph",
+      "Cheat into play",
+      "Legends"
+    ],
+    "creatureTypeFocus": null,
+    "scores": {
+      "beginnerFriendly": 1,
+      "complexity": 5,
+      "politicalSocialPlay": 2,
+      "combatFocus": 3,
+      "comboPotential": 5,
+      "graveyardFocus": 2,
+      "tokenFocus": 5,
+      "artifactFocus": 3,
+      "enchantmentFocus": 2,
+      "spellslingerFocus": 3,
+      "rampFocus": 3,
+      "controlFocus": 4,
+      "aggression": 2,
+      "valueEngine": 5
+    },
+    "recommendationProfile": {
+      "recommendedFor": "Experienced players who enjoy four-color mana, token transformation, iconic legends, and high-variance engine decks.",
+      "notRecommendedFor": "Beginners or players who prefer straightforward combat and low setup requirements.",
+      "voxManaPlacementFit": "Advanced four-color placement for players who enjoy transformation engines and alternate-reality legends."
+    },
+    "learningProfile": {
+      "colorPhilosophySummary": "White, Blue, Black, and Red combine token production, manipulation, ambition, and explosive transformation.",
+      "whatThisDeckTeachesAboutItsColors": "Not a beginner deck; teaches probability, setup, and protecting a high-variance engine.",
+      "beginnerLesson": "Not a beginner deck; teaches probability, setup, and protecting a high-variance engine.",
+      "strategyLesson": "Build token density, manage the top end carefully, and transform low-value bodies into game-ending threats.",
+      "voxManaBasicsPageUse": "Strong advanced example for polymorph and cheat-into-play strategies.",
+      "relatedArchetypes": [
+        "polymorph",
+        "tokens",
+        "legends",
+        "cheat into play",
+        "combo"
+      ],
+      "relatedMechanics": [
+        "Token creation",
+        "Polymorph",
+        "Cheat into play"
+      ]
+    }
+  },
+  {
+    "sourcePage": "https://magic.wizards.com/en/news/announcements/secret-lair-commander-deck-hatsune-miku-decklist",
+    "productSection": "Secret Lair",
+    "deckName": "Hatsune Miku",
+    "mainCommander": "Trostani, Selesnya's Voice",
+    "secondaryCommanders": [],
+    "factionRefs": [],
+    "colors": [
+      "White",
+      "Green"
+    ],
+    "theme": "Lifegain, creature tokens",
+    "deckDescription": "Play creatures and tokens, gain life from entries, then convert the high life total into counters and alternate-win pressure.",
+    "iconicCards": [
+      "Trostani, Selesnya's Voice",
+      "Archangel of Thune",
+      "Aetherflux Reservoir",
+      "Halo Fountain"
+    ],
+    "notesMechanicsMentioned": "Creature entry lifegain; token creation; life-total payoffs",
+    "playstyleTags": [
+      "lifegain",
+      "tokens",
+      "counters",
+      "go-wide",
+      "value"
+    ],
+    "primaryTheme": "Lifegain",
+    "secondaryTheme": "Creature tokens / counters",
+    "mainStrategy": "Build a wide board, gain life from every entry, and turn that life into larger creatures or alternate wins.",
+    "mechanics": [
+      "Lifegain",
+      "Token creation",
+      "Populate",
+      "+1/+1 counters"
+    ],
+    "creatureTypeFocus": null,
+    "scores": {
+      "beginnerFriendly": 2,
+      "complexity": 3,
+      "politicalSocialPlay": 2,
+      "combatFocus": 4,
+      "comboPotential": 3,
+      "graveyardFocus": 1,
+      "tokenFocus": 5,
+      "artifactFocus": 2,
+      "enchantmentFocus": 2,
+      "spellslingerFocus": 1,
+      "rampFocus": 3,
+      "controlFocus": 2,
+      "aggression": 3,
+      "valueEngine": 5
+    },
+    "recommendationProfile": {
+      "recommendedFor": "Players drawn to lifegain who enjoy a distinctive, collector-focused preconstructed deck.",
+      "notRecommendedFor": "New players who want the simplest possible deck or players who dislike the deck's central variance/setup requirements.",
+      "voxManaPlacementFit": "Distinct product-facing fit built around lifegain."
+    },
+    "learningProfile": {
+      "colorPhilosophySummary": "Its colors combine their established strengths to support lifegain.",
+      "whatThisDeckTeachesAboutItsColors": "Teaches the core sequencing and resource decisions behind lifegain.",
+      "beginnerLesson": "Teaches the core sequencing and resource decisions behind lifegain.",
+      "strategyLesson": "Build a wide board, gain life from every entry, and turn that life into larger creatures or alternate wins.",
+      "voxManaBasicsPageUse": "Useful archetype example for lifegain.",
+      "relatedArchetypes": [
+        "lifegain",
+        "tokens",
+        "counters",
+        "go-wide",
+        "value"
+      ],
+      "relatedMechanics": [
+        "Lifegain",
+        "Token creation",
+        "Populate",
+        "+1/+1 counters"
+      ]
+    }
+  },
+  {
+    "sourcePage": "https://magic.wizards.com/en/news/announcements/secret-lair-commander-deck-goblin-storm-decklist",
+    "productSection": "Secret Lair",
+    "deckName": "Goblin Storm",
+    "mainCommander": "Zada, Hedron Grinder",
+    "secondaryCommanders": [],
+    "factionRefs": [],
+    "colors": [
+      "Red"
+    ],
+    "theme": "Goblins, storm, spell copying",
+    "deckDescription": "Create many Goblins, then use Zada and storm spells to multiply cantrips, buffs, mana, and damage across the board.",
+    "iconicCards": [
+      "Zada, Hedron Grinder",
+      "Krenko, Mob Boss",
+      "Empty the Warrens",
+      "Grapeshot",
+      "Past in Flames"
+    ],
+    "notesMechanicsMentioned": "Goblin tokens; storm; spell copying; rituals",
+    "playstyleTags": [
+      "goblins",
+      "storm",
+      "spellslinger",
+      "tokens",
+      "combo",
+      "aggro"
+    ],
+    "primaryTheme": "Goblins / spell copying",
+    "secondaryTheme": "Storm",
+    "mainStrategy": "Build a Goblin board, cast rituals and cheap targeted spells, then let Zada and storm multiply the turn.",
+    "mechanics": [
+      "Storm",
+      "Spell copying",
+      "Token creation",
+      "Ritual mana"
+    ],
+    "creatureTypeFocus": "Goblins",
+    "scores": {
+      "beginnerFriendly": 1,
+      "complexity": 4,
+      "politicalSocialPlay": 1,
+      "combatFocus": 4,
+      "comboPotential": 5,
+      "graveyardFocus": 3,
+      "tokenFocus": 5,
+      "artifactFocus": 1,
+      "enchantmentFocus": 1,
+      "spellslingerFocus": 5,
+      "rampFocus": 3,
+      "controlFocus": 1,
+      "aggression": 5,
+      "valueEngine": 4
+    },
+    "recommendationProfile": {
+      "recommendedFor": "Players drawn to goblins / spell copying who enjoy a distinctive, collector-focused preconstructed deck.",
+      "notRecommendedFor": "New players who want the simplest possible deck or players who dislike the deck's central variance/setup requirements.",
+      "voxManaPlacementFit": "Distinct product-facing fit built around goblins / spell copying."
+    },
+    "learningProfile": {
+      "colorPhilosophySummary": "Its colors combine their established strengths to support goblins / spell copying.",
+      "whatThisDeckTeachesAboutItsColors": "Teaches the core sequencing and resource decisions behind goblins / spell copying.",
+      "beginnerLesson": "Teaches the core sequencing and resource decisions behind goblins / spell copying.",
+      "strategyLesson": "Build a Goblin board, cast rituals and cheap targeted spells, then let Zada and storm multiply the turn.",
+      "voxManaBasicsPageUse": "Useful archetype example for goblins / spell copying.",
+      "relatedArchetypes": [
+        "goblins",
+        "storm",
+        "spellslinger",
+        "tokens",
+        "combo",
+        "aggro"
+      ],
+      "relatedMechanics": [
+        "Storm",
+        "Spell copying",
+        "Token creation",
+        "Ritual mana"
+      ]
+    }
+  },
+  {
+    "sourcePage": "https://magic.wizards.com/en/news/announcements/secret-lair-everyones-invited-commander-decklist",
+    "productSection": "Secret Lair",
+    "deckName": "Everyone's Invited",
+    "mainCommander": "Morophon, the Boundless",
+    "secondaryCommanders": [],
+    "factionRefs": [],
+    "colors": [
+      "White",
+      "Blue",
+      "Black",
+      "Red",
+      "Green"
+    ],
+    "theme": "Changeling, every-creature-type typal",
+    "deckDescription": "Use Changelings and global typal payoffs so every creature type contributes to one five-color synergy engine.",
+    "iconicCards": [
+      "Morophon, the Boundless",
+      "Maskwood Nexus",
+      "Coat of Arms",
+      "Kindred Discovery",
+      "Rukarumel, Biologist"
+    ],
+    "notesMechanicsMentioned": "Changeling; creature-type selection; cost reduction; typal payoffs",
+    "playstyleTags": [
+      "changeling",
+      "tribal",
+      "five-color",
+      "cost reduction",
+      "value"
+    ],
+    "primaryTheme": "Changeling / all creature types",
+    "secondaryTheme": "Typal payoffs",
+    "mainStrategy": "Choose useful creature types, deploy Changelings, and stack global typal bonuses until the mixed board acts as one tribe.",
+    "mechanics": [
+      "Changeling",
+      "Cost reduction",
+      "Typal buffs"
+    ],
+    "creatureTypeFocus": "All creature types",
+    "scores": {
+      "beginnerFriendly": 1,
+      "complexity": 4,
+      "politicalSocialPlay": 3,
+      "combatFocus": 4,
+      "comboPotential": 4,
+      "graveyardFocus": 2,
+      "tokenFocus": 4,
+      "artifactFocus": 2,
+      "enchantmentFocus": 1,
+      "spellslingerFocus": 1,
+      "rampFocus": 3,
+      "controlFocus": 3,
+      "aggression": 4,
+      "valueEngine": 5
+    },
+    "recommendationProfile": {
+      "recommendedFor": "Players drawn to changeling / all creature types who enjoy a distinctive, collector-focused preconstructed deck.",
+      "notRecommendedFor": "New players who want the simplest possible deck or players who dislike the deck's central variance/setup requirements.",
+      "voxManaPlacementFit": "Distinct product-facing fit built around changeling / all creature types."
+    },
+    "learningProfile": {
+      "colorPhilosophySummary": "Its colors combine their established strengths to support changeling / all creature types.",
+      "whatThisDeckTeachesAboutItsColors": "Teaches the core sequencing and resource decisions behind changeling / all creature types.",
+      "beginnerLesson": "Teaches the core sequencing and resource decisions behind changeling / all creature types.",
+      "strategyLesson": "Choose useful creature types, deploy Changelings, and stack global typal bonuses until the mixed board acts as one tribe.",
+      "voxManaBasicsPageUse": "Useful archetype example for changeling / all creature types.",
+      "relatedArchetypes": [
+        "changeling",
+        "tribal",
+        "five-color",
+        "cost reduction",
+        "value"
+      ],
+      "relatedMechanics": [
+        "Changeling",
+        "Cost reduction",
+        "Typal buffs"
+      ]
+    }
+  },
+  {
+    "sourcePage": "https://magic.wizards.com/en/news/announcements/secret-lair-commander-deck-20-ways-to-win-full-decklist",
+    "productSection": "Secret Lair",
+    "deckName": "20 Ways to Win",
+    "mainCommander": "Go-Shintai of Life's Origin",
+    "secondaryCommanders": [],
+    "factionRefs": [],
+    "colors": [
+      "White",
+      "Blue",
+      "Black",
+      "Red",
+      "Green"
+    ],
+    "theme": "Alternate win conditions",
+    "deckDescription": "Develop a five-color resource engine and pursue whichever alternate victory condition best fits the current board.",
+    "iconicCards": [
+      "Go-Shintai of Life's Origin",
+      "Maze's End",
+      "Approach of the Second Sun",
+      "Revel in Riches",
+      "Halo Fountain"
+    ],
+    "notesMechanicsMentioned": "Shrines; alternate wins; Gates; counters; treasures; life-total wins",
+    "playstyleTags": [
+      "alternate wins",
+      "shrines",
+      "gates",
+      "combo",
+      "control",
+      "five-color"
+    ],
+    "primaryTheme": "Alternate win conditions",
+    "secondaryTheme": "Shrines / Gates",
+    "mainStrategy": "Stabilize, identify the live victory condition, and build specifically toward it while opponents answer competing threats.",
+    "mechanics": [
+      "Alternate wins",
+      "Shrines",
+      "Gates",
+      "Treasure",
+      "Counters"
+    ],
+    "creatureTypeFocus": "Shrines",
+    "scores": {
+      "beginnerFriendly": 1,
+      "complexity": 5,
+      "politicalSocialPlay": 3,
+      "combatFocus": 2,
+      "comboPotential": 5,
+      "graveyardFocus": 3,
+      "tokenFocus": 3,
+      "artifactFocus": 3,
+      "enchantmentFocus": 4,
+      "spellslingerFocus": 3,
+      "rampFocus": 4,
+      "controlFocus": 5,
+      "aggression": 1,
+      "valueEngine": 5
+    },
+    "recommendationProfile": {
+      "recommendedFor": "Players drawn to alternate win conditions who enjoy a distinctive, collector-focused preconstructed deck.",
+      "notRecommendedFor": "New players who want the simplest possible deck or players who dislike the deck's central variance/setup requirements.",
+      "voxManaPlacementFit": "Distinct product-facing fit built around alternate win conditions."
+    },
+    "learningProfile": {
+      "colorPhilosophySummary": "Its colors combine their established strengths to support alternate win conditions.",
+      "whatThisDeckTeachesAboutItsColors": "Teaches the core sequencing and resource decisions behind alternate win conditions.",
+      "beginnerLesson": "Teaches the core sequencing and resource decisions behind alternate win conditions.",
+      "strategyLesson": "Stabilize, identify the live victory condition, and build specifically toward it while opponents answer competing threats.",
+      "voxManaBasicsPageUse": "Useful archetype example for alternate win conditions.",
+      "relatedArchetypes": [
+        "alternate wins",
+        "shrines",
+        "gates",
+        "combo",
+        "control",
+        "five-color"
+      ],
+      "relatedMechanics": [
+        "Alternate wins",
+        "Shrines",
+        "Gates",
+        "Treasure",
+        "Counters"
+      ]
+    }
+  },
+  {
+    "sourcePage": "https://magic.wizards.com/en/news/announcements/secret-lair-commander-deck-raining-cats-and-dogs",
+    "productSection": "Secret Lair",
+    "deckName": "Raining Cats and Dogs",
+    "mainCommander": "Rin and Seri, Inseparable",
+    "secondaryCommanders": [],
+    "factionRefs": [],
+    "colors": [
+      "White",
+      "Red",
+      "Green"
+    ],
+    "theme": "Cats, Dogs, creature tokens",
+    "deckDescription": "Cast Cats and Dogs to create the opposite token type, then use tribal lords and go-wide payoffs to overwhelm the table.",
+    "iconicCards": [
+      "Rin and Seri, Inseparable",
+      "Jetmir, Nexus of Revels",
+      "Jinnie Fay, Jetmir's Second",
+      "Anointed Procession"
+    ],
+    "notesMechanicsMentioned": "Cat and Dog tribal; token creation; go-wide buffs; direct damage",
+    "playstyleTags": [
+      "cats",
+      "dogs",
+      "tribal",
+      "tokens",
+      "go-wide",
+      "combat"
+    ],
+    "primaryTheme": "Cats and Dogs tribal",
+    "secondaryTheme": "Token doubling / go-wide",
+    "mainStrategy": "Alternate Cat and Dog spells, multiply tokens, and finish through team-wide combat buffs or Rin and Seri activations.",
+    "mechanics": [
+      "Token creation",
+      "Tribal buffs",
+      "Token doubling"
+    ],
+    "creatureTypeFocus": "Cats; Dogs",
+    "scores": {
+      "beginnerFriendly": 2,
+      "complexity": 3,
+      "politicalSocialPlay": 2,
+      "combatFocus": 5,
+      "comboPotential": 2,
+      "graveyardFocus": 1,
+      "tokenFocus": 5,
+      "artifactFocus": 2,
+      "enchantmentFocus": 2,
+      "spellslingerFocus": 1,
+      "rampFocus": 3,
+      "controlFocus": 2,
+      "aggression": 5,
+      "valueEngine": 4
+    },
+    "recommendationProfile": {
+      "recommendedFor": "Players drawn to cats and dogs tribal who enjoy a distinctive, collector-focused preconstructed deck.",
+      "notRecommendedFor": "New players who want the simplest possible deck or players who dislike the deck's central variance/setup requirements.",
+      "voxManaPlacementFit": "Distinct product-facing fit built around cats and dogs tribal."
+    },
+    "learningProfile": {
+      "colorPhilosophySummary": "Its colors combine their established strengths to support cats and dogs tribal.",
+      "whatThisDeckTeachesAboutItsColors": "Teaches the core sequencing and resource decisions behind cats and dogs tribal.",
+      "beginnerLesson": "Teaches the core sequencing and resource decisions behind cats and dogs tribal.",
+      "strategyLesson": "Alternate Cat and Dog spells, multiply tokens, and finish through team-wide combat buffs or Rin and Seri activations.",
+      "voxManaBasicsPageUse": "Useful archetype example for cats and dogs tribal.",
+      "relatedArchetypes": [
+        "cats",
+        "dogs",
+        "tribal",
+        "tokens",
+        "go-wide",
+        "combat"
+      ],
+      "relatedMechanics": [
+        "Token creation",
+        "Tribal buffs",
+        "Token doubling"
+      ]
+    }
+  },
+  {
+    "sourcePage": "https://magic.wizards.com/en/news/announcements/commander-returns-to-secret-lair-with-from-cute-to-brute",
+    "productSection": "Secret Lair",
+    "deckName": "From Cute to Brute",
+    "mainCommander": "Esika, God of the Tree // The Prismatic Bridge",
+    "secondaryCommanders": [],
+    "factionRefs": [],
+    "colors": [
+      "White",
+      "Blue",
+      "Black",
+      "Red",
+      "Green"
+    ],
+    "theme": "Double-faced cards, transformation",
+    "deckDescription": "Use five-color fixing and The Prismatic Bridge to deploy transforming creatures, planeswalkers, and other high-impact double-faced permanents.",
+    "iconicCards": [
+      "Esika, God of the Tree",
+      "Archangel Avacyn",
+      "Nicol Bolas, the Ravager",
+      "Westvale Abbey"
+    ],
+    "notesMechanicsMentioned": "Double-faced cards; transform; five-color legends; cheat into play",
+    "playstyleTags": [
+      "transform",
+      "double-faced",
+      "legends",
+      "five-color",
+      "value"
+    ],
+    "primaryTheme": "Transform / double-faced cards",
+    "secondaryTheme": "Legendary permanents",
+    "mainStrategy": "Fix five colors, choose the useful face of modal cards, and let The Prismatic Bridge generate recurring high-end value.",
+    "mechanics": [
+      "Transform",
+      "Modal double-faced cards",
+      "Cheat into play"
+    ],
+    "creatureTypeFocus": null,
+    "scores": {
+      "beginnerFriendly": 1,
+      "complexity": 4,
+      "politicalSocialPlay": 2,
+      "combatFocus": 3,
+      "comboPotential": 3,
+      "graveyardFocus": 3,
+      "tokenFocus": 2,
+      "artifactFocus": 3,
+      "enchantmentFocus": 3,
+      "spellslingerFocus": 2,
+      "rampFocus": 4,
+      "controlFocus": 3,
+      "aggression": 2,
+      "valueEngine": 5
+    },
+    "recommendationProfile": {
+      "recommendedFor": "Players drawn to transform / double-faced cards who enjoy a distinctive, collector-focused preconstructed deck.",
+      "notRecommendedFor": "New players who want the simplest possible deck or players who dislike the deck's central variance/setup requirements.",
+      "voxManaPlacementFit": "Distinct product-facing fit built around transform / double-faced cards."
+    },
+    "learningProfile": {
+      "colorPhilosophySummary": "Its colors combine their established strengths to support transform / double-faced cards.",
+      "whatThisDeckTeachesAboutItsColors": "Teaches the core sequencing and resource decisions behind transform / double-faced cards.",
+      "beginnerLesson": "Teaches the core sequencing and resource decisions behind transform / double-faced cards.",
+      "strategyLesson": "Fix five colors, choose the useful face of modal cards, and let The Prismatic Bridge generate recurring high-end value.",
+      "voxManaBasicsPageUse": "Useful archetype example for transform / double-faced cards.",
+      "relatedArchetypes": [
+        "transform",
+        "double-faced",
+        "legends",
+        "five-color",
+        "value"
+      ],
+      "relatedMechanics": [
+        "Transform",
+        "Modal double-faced cards",
+        "Cheat into play"
+      ]
+    }
+  },
+  {
+    "sourcePage": "https://magic.wizards.com/en/news/announcements/heads-i-win-tails-you-lose-commander-decklist-2021-11-18",
+    "productSection": "Secret Lair",
+    "deckName": "Heads I Win, Tails You Lose",
+    "mainCommander": "Zndrsplt, Eye of Wisdom / Okaun, Eye of Chaos",
+    "secondaryCommanders": [],
+    "factionRefs": [],
+    "colors": [
+      "Blue",
+      "Red"
+    ],
+    "theme": "Coin flips, commander damage",
+    "deckDescription": "Use repeated coin flips to draw cards with Zndrsplt and grow Okaun into a lethal commander-damage threat.",
+    "iconicCards": [
+      "Zndrsplt, Eye of Wisdom",
+      "Okaun, Eye of Chaos",
+      "Krark's Thumb",
+      "Chance Encounter",
+      "Stitch in Time"
+    ],
+    "notesMechanicsMentioned": "Coin flips; partner commanders; commander damage; equipment",
+    "playstyleTags": [
+      "coin flips",
+      "chaos",
+      "commander damage",
+      "equipment",
+      "combo"
+    ],
+    "primaryTheme": "Coin flips",
+    "secondaryTheme": "Commander damage",
+    "mainStrategy": "Deploy Zndrsplt for cards, amplify flips with Krark's Thumb, then make Okaun enormous and connect safely.",
+    "mechanics": [
+      "Coin flips",
+      "Partner",
+      "Commander damage"
+    ],
+    "creatureTypeFocus": null,
+    "scores": {
+      "beginnerFriendly": 1,
+      "complexity": 4,
+      "politicalSocialPlay": 3,
+      "combatFocus": 4,
+      "comboPotential": 5,
+      "graveyardFocus": 1,
+      "tokenFocus": 1,
+      "artifactFocus": 3,
+      "enchantmentFocus": 1,
+      "spellslingerFocus": 2,
+      "rampFocus": 2,
+      "controlFocus": 2,
+      "aggression": 4,
+      "valueEngine": 4
+    },
+    "recommendationProfile": {
+      "recommendedFor": "Players drawn to coin flips who enjoy a distinctive, collector-focused preconstructed deck.",
+      "notRecommendedFor": "New players who want the simplest possible deck or players who dislike the deck's central variance/setup requirements.",
+      "voxManaPlacementFit": "Distinct product-facing fit built around coin flips."
+    },
+    "learningProfile": {
+      "colorPhilosophySummary": "Its colors combine their established strengths to support coin flips.",
+      "whatThisDeckTeachesAboutItsColors": "Teaches the core sequencing and resource decisions behind coin flips.",
+      "beginnerLesson": "Teaches the core sequencing and resource decisions behind coin flips.",
+      "strategyLesson": "Deploy Zndrsplt for cards, amplify flips with Krark's Thumb, then make Okaun enormous and connect safely.",
+      "voxManaBasicsPageUse": "Useful archetype example for coin flips.",
+      "relatedArchetypes": [
+        "coin flips",
+        "chaos",
+        "commander damage",
+        "equipment",
+        "combo"
+      ],
+      "relatedMechanics": [
+        "Coin flips",
+        "Partner",
+        "Commander damage"
+      ]
+    }
+  },
+    {
+      "sourcePage": "https://magic.wizards.com/en/news/announcements/secret-lair-commander-deck-odds-and-ends-decklist",
+      "productSection": "Secret Lair",
+      "deckName": "Odds and Ends",
+      "mainCommander": "Yennett, Cryptic Sovereign",
+      "secondaryCommanders": [],
+      "factionRefs": [],
+      "colors": ["White", "Blue", "Black"],
+      "theme": "Odd mana values, library manipulation",
+      "deckDescription": "Arrange the top of the library for Yennett, then attack to cast odd-mana-value cards without paying their mana costs.",
+      "iconicCards": ["Yennett, Cryptic Sovereign", "Void Winnower", "Sensei's Divining Top", "Breach the Multiverse"],
+      "notesMechanicsMentioned": "Odd mana values; top-deck manipulation; free casting",
+      "playstyleTags": ["topdeck", "free spells", "control", "value", "odd mana"],
+      "primaryTheme": "Odd-mana free casting",
+      "secondaryTheme": "Library manipulation",
+      "mainStrategy": "Attack with Yennett after arranging an odd-mana-value payoff on top, then use the free spell to swing the game state.",
+      "mechanics": ["Top-deck manipulation", "Free casting", "Odd mana values"],
+      "creatureTypeFocus": null,
+      "scores": {"beginnerFriendly": 1, "complexity": 4, "politicalSocialPlay": 2, "combatFocus": 2, "comboPotential": 4, "graveyardFocus": 2, "tokenFocus": 1, "artifactFocus": 2, "enchantmentFocus": 2, "spellslingerFocus": 3, "rampFocus": 2, "controlFocus": 5, "aggression": 2, "valueEngine": 5},
+      "recommendationProfile": {"recommendedFor": "Players who enjoy top-deck setup and unusual free-casting patterns.", "notRecommendedFor": "Players seeking a low-variance or beginner-friendly Commander deck.", "voxManaPlacementFit": "Editorial fit for an Esper top-deck and free-casting strategy."},
+      "learningProfile": {"colorPhilosophySummary": "Its colors support library setup, selective interaction, and high-impact spells.", "whatThisDeckTeachesAboutItsColors": "Shows how library manipulation can turn an attack trigger into a resource engine.", "beginnerLesson": "Sequence top-of-library effects before attacking with Yennett.", "strategyLesson": "Choose odd-mana-value spells that change the board when Yennett casts them for free.", "voxManaBasicsPageUse": "Useful strategy example for top-deck manipulation and free casting.", "relatedArchetypes": ["topdeck", "free spells", "control", "value", "odd mana"], "relatedMechanics": ["Top-deck manipulation", "Free casting", "Odd mana values"]}
+    },
+    {
+      "sourcePage": "https://mtg.wtf/deck/td0/deathdancer-xira",
+      "productSection": "Magic Online Commander Theme Decks (TD0)",
+      "deckName": "Deathdancer Xira",
+      "mainCommander": "Xira Arien",
+      "secondaryCommanders": [],
+      "factionRefs": [],
+      "colors": ["Black", "Red", "Green"],
+      "theme": "Graveyard recursion, reanimation",
+      "deckDescription": "A digital-only August 2009 Commander Theme Deck that uses dredge and graveyard recursion to recover creatures and reuse cards from the graveyard.",
+      "iconicCards": ["Xira Arien", "Golgari Grave-Troll", "Animate Dead", "Dread Return"],
+      "notesMechanicsMentioned": "Dredge; reanimation; graveyard recursion; mana fixing. Product facts and card list are established-database corroboration rather than an accessible first-party page.",
+      "playstyleTags": ["graveyard", "reanimator", "dredge", "recursion", "jund"],
+      "primaryTheme": "Graveyard recursion / reanimation",
+      "secondaryTheme": "Dredge / mana fixing",
+      "mainStrategy": "Fill the graveyard with dredge and discard effects, then recur key creatures and spells while using Jund fixing to deploy them.",
+      "mechanics": ["Dredge", "Reanimation", "Mana fixing"],
+      "creatureTypeFocus": null,
+      "scores": {"beginnerFriendly": 2, "complexity": 4, "politicalSocialPlay": 2, "combatFocus": 3, "comboPotential": 3, "graveyardFocus": 5, "tokenFocus": 1, "artifactFocus": 2, "enchantmentFocus": 2, "spellslingerFocus": 2, "rampFocus": 4, "controlFocus": 2, "aggression": 3, "valueEngine": 4},
+      "recommendationProfile": {"recommendedFor": "Players who enjoy graveyard resource loops and historic digital Commander products.", "notRecommendedFor": "Players who dislike graveyard tracking or a higher-complexity recursion plan.", "voxManaPlacementFit": "Editorial fit for a Jund graveyard-recursion strategy."},
+      "learningProfile": {"colorPhilosophySummary": "Its colors support graveyard setup, recursion, and mana development.", "whatThisDeckTeachesAboutItsColors": "Shows how graveyard resources can extend a multicolor creature strategy.", "beginnerLesson": "Track which graveyard cards can be returned before spending recursion effects.", "strategyLesson": "Use dredge and setup effects before committing reanimation to the highest-value target.", "voxManaBasicsPageUse": "Useful strategy example for graveyard recursion and reanimation.", "relatedArchetypes": ["graveyard", "reanimator", "dredge", "recursion", "jund"], "relatedMechanics": ["Dredge", "Reanimation", "Mana fixing"]}
+    },
+    {
+      "sourcePage": "https://mtg.wtf/deck/td0/enchantress-rubinia",
+      "productSection": "Magic Online Commander Theme Decks (TD0)",
+      "deckName": "Enchantress Rubinia",
+      "mainCommander": "Rubinia Soulsinger",
+      "secondaryCommanders": [],
+      "factionRefs": [],
+      "colors": ["White", "Blue", "Green"],
+      "theme": "Enchantments, creature control",
+      "deckDescription": "A digital-only August 2009 Commander Theme Deck built around enchantment permanents and Rubinia's repeatable creature-control ability.",
+      "iconicCards": ["Rubinia Soulsinger", "Sterling Grove", "Mirari's Wake", "Confiscate", "Oblivion Ring"],
+      "notesMechanicsMentioned": "Enchantment permanents; creature control; mana acceleration. Product facts and card list are established-database corroboration rather than an accessible first-party page.",
+      "playstyleTags": ["enchantments", "control", "permanents", "bant", "value"],
+      "primaryTheme": "Enchantments",
+      "secondaryTheme": "Creature control",
+      "mainStrategy": "Develop enchantment permanents, use Rubinia to control key creatures, and convert durable board resources into a Bant value advantage.",
+      "mechanics": ["Enchantment permanents", "Creature control", "Mana acceleration"],
+      "creatureTypeFocus": null,
+      "scores": {"beginnerFriendly": 2, "complexity": 3, "politicalSocialPlay": 3, "combatFocus": 2, "comboPotential": 2, "graveyardFocus": 1, "tokenFocus": 1, "artifactFocus": 2, "enchantmentFocus": 5, "spellslingerFocus": 2, "rampFocus": 3, "controlFocus": 5, "aggression": 1, "valueEngine": 4},
+      "recommendationProfile": {"recommendedFor": "Players who enjoy enchantment permanents and repeatable creature control.", "notRecommendedFor": "Players seeking a fast combat-first deck or a low-tracking game plan.", "voxManaPlacementFit": "Editorial fit for a Bant enchantment and creature-control strategy."},
+      "learningProfile": {"colorPhilosophySummary": "Its colors support durable enchantments, mana development, and selective creature control.", "whatThisDeckTeachesAboutItsColors": "Shows how permanent-based control can preserve options across a longer game.", "beginnerLesson": "Protect key enchantments and choose creature-control targets carefully.", "strategyLesson": "Build a durable enchantment board before using Rubinia to take the creature that matters most.", "voxManaBasicsPageUse": "Useful strategy example for enchantments and creature control.", "relatedArchetypes": ["enchantments", "control", "permanents", "bant", "value"], "relatedMechanics": ["Enchantment permanents", "Creature control", "Mana acceleration"]}
     }
   ]
 }
