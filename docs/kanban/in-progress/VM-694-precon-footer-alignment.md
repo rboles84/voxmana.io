@@ -2,7 +2,7 @@
 
 ID: VM-694
 Title: Precon Browse Builds Footer Alignment
-Status: In Progress
+Status: Owner Review
 Type: UI presentation
 Area: Archscry precon card CSS
 Priority: Owner request
@@ -20,10 +20,10 @@ Owner's screenshots and follow-up request: recon all37 UI placements, check pend
 
 - [x] Record pending-work overlap review, admission, all37 identity inventory and common renderer/style ownership.
 - [x] Define the single scoped CSS correction and a small representative agent/Owner verification split.
-- [ ] After Owner authorizes implementation, anchor closed provider menus to consistent card-bottom padding in both primary and remaining grids; open links expand naturally without overlap or clipping.
-- [ ] Preserve responsive layouts, themes, keyboard access and existing conditional no-links behavior.
-- [ ] Keep all175 source/generated records byte-identical, especially original155; preserve ordering, ranking, identity placements, provider destinations, commander printings and HTML/JavaScript behavior.
-- [ ] Verify a frozen candidate using proportional QA and return for Owner Review before integration.
+- [x] After Owner authorizes implementation, anchor closed provider menus to consistent card-bottom padding in both primary and remaining grids; open links expand naturally without overlap or clipping.
+- [x] Preserve responsive layouts, themes, keyboard access and existing conditional no-links behavior.
+- [x] Keep all175 source/generated records byte-identical, especially original155; preserve ordering, ranking, identity placements, provider destinations, commander printings and HTML/JavaScript behavior.
+- [x] Verify a frozen candidate using proportional QA and return for Owner Review before integration.
 
 ## Files Likely Impacted
 
@@ -42,13 +42,13 @@ After implementation authorization and continuation admission, reuse the existin
 Record version: 1
 Branch: codex/vm-694-precon-footer-alignment
 Admission baseline: b322f24ddcaf3f4a5cc3fc7f63732ee2a98b9b8b
-Candidate: PENDING
-RobQA: PENDING
+Candidate: 7ab79f369e6834613a66cce332ea77b4044ea7b7
+RobQA: PASS at 7ab79f369e6834613a66cce332ea77b4044ea7b7 ; SEPARATE /root/precon_qa; external vm694-qa-receipt.md and coordinator handoff
 Owner: PENDING
 Integration: PENDING
 Dependencies: None
 Decisions: Owner initially authorized recon, scoped plan and next-number reservation, then explicitly authorized the agreed surgical CSS implementation. All175 precon source/catalog records are read-only, especially original155. VM-693 remains Done. VM-686 is a separate site-wide page-footer backlog; no shared footer/navigation work is included. Expected UI change is CSS only, with existing markup and runtime retained. Agent and Owner each check a few representative cases; no all37 manual-browser checklist or broad engine certification is needed for one common style rule.
-Evidence: Admission start VM-694 ELIGIBLE from clean synchronized mainb322f24ddcaf3f4a5cc3fc7f63732ee2a98b9b8b; no matching existing admission/branch/worktree. Current corpus contains730 cards and21 records outside Done; highest assigned base number693. Canonical factions and identity expressions each contain37 matching keys. Supplied screenshots and prior read-only recon identify fixed menu top margin within stretched flex-column cards. Plan and specialist QA selection will be recorded before presenting findings.
+Evidence: Independent RobQA PASS binds to exact candidate7ab79f369e6834613a66cce332ea77b4044ea7b7. Only product change is the scoped four-line CSS rule. Whitedesktop both themes and Prismari real expanded/keyboard route checks pass exact same-row menu coordinates and17px bottom inset; Espermobile production-built Experienced output passes normal-flow open/close and0px overflow. Provider links/focus/dualcommander/no-links behavior pass; no page errors. HTMLlint/Gitdiff checks pass. Full175 source/catalog remain byte-identical; runtime/publicHTML unchanged. External vm694-qa-receipt.md SHA-256 EEFEBC258FB7BDAB72775D5071319DA0FB26AD36CBF4EBC7B89B2030388898D4 and individual QA/browser artifacts retain evidence. Owner PENDING for Selesnya desktop, Redmobile and Bantdesktop review; no push/PR/merge/deployment.
 
 ## Admission Scope
 
