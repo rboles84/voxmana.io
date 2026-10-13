@@ -171,3 +171,15 @@ Owner: ACCEPT
 Decision reference: Rob Boles's current human conversation message on 2026-10-13: "ACCEPT VM-693 candidate 7de6ca7de. Merge and deploy it, then verify all 20 new decks are live under the correct placements and the existing 155 are untouched."
 
 The coordinator verifies genuine renewed acceptance of the exact independent-QA-passed replacement. Implementation remains frozen. Existing PR81 and single branch are retained. Connector schemas for authenticated reads, PR metadata and expected_head_sha guarded squash merge were inspected before this continuation's host operations; connector is the only approved read/merge route. No auth fallback or unresolved write exists. Previously observed optional branch-policy visibility was forbidden to the integration; that limitation does not waive required Deterministic Validation. Acceptance authorizes integration, automatic main-branch Pages deployment and actual live verification. Original155 and all175 current source/catalog records remain immutable. Integration remains PENDING until exact-head CI and integration verification pass.
+## Verified integration — 2026-10-13
+
+Task: VM-693
+Candidate: 7de6ca7de36c5a2bce1b8d2db861ffae60108032
+PR81: https://github.com/rboles84/voxmana.io/pull/81
+Integration: INTEGRATED
+Merge: b6fb5d5937a6ac86c4b3d6a495c80ed6f344932a
+Evidence head: 3a9d7556ee2da94b5825924e0beae86313d014af
+
+Exact PR-head Deterministic Validation completed success. The integration checker PASS validated genuine renewed Owner ACCEPT, separate QA, complete authenticated host file/blob and21commit scope parity, clean mergeability, current main, reviewed evidence-only descendants and server expected-head guard. Connector squash merge returned mergedtrue; authenticated post-read confirms PR81 closed and merged at the SHA above. The squash has exactly baseline58098283db657bcfe3da89636297384b7c2031a1 as parent and tree96ac1043086eb36bbbc6ecde6f4499c97ca8aa13, identical to verified evidence head. Production implementation and all175 record bytes remain frozen at acceptedcandidate.
+
+Normal fetch and an ephemeral no-negotiation refetch encountered a pre-existing broken refs/codex/turn-diffs/checkpoints object. Fetch had downloaded the complete squash/tree/history objects. Read-only explicit commit/tree and missing-object inspection verified completeness; fresh authenticated main observation confirmed exact mergeSHA. An expected-old-SHA local tracking update advanced origin/main from verified baseline to verified merge, followed by main fast-forward. No Codex checkpoint, user branch, history or config was deleted/rewritten. The underlying Codex checkpoint defect remains outside this task. Pages publishes main automatically; initial cache-busted newasset observation was404 during propagation. Live proof remains pending and will not be inferred from merge/CI. Remaining task branches are eligible for normal cleanup after verifying their unchanged integration heads.
