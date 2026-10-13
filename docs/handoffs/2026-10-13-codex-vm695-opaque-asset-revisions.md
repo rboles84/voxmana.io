@@ -39,3 +39,17 @@ Decision reference: Rob Boles message in this chat on 2026-10-13: "ACCEPT VM-695
 The coordinator verified this genuine Owner decision against the exact candidate presented above. Acceptance authorizes integration and main synchronization under the existing workflow; the prior stop at Owner Review is now superseded. It does not alter the material candidate, its protected boundaries, historical validation limitations, or independent QA binding.
 
 Integration routing: discovered callable GitHub connector supports identity/repository reads, PR discovery/create/read, CI reads and guarded squash merge using expected_head_sha. Approved host read and merge routes are connector only; ordinary Git transport is used for push/fetch. Authenticated rboles84 repository permissions report admin/push/pull. Initial PR lookup found no same-branch PR. Native Git admission confirms clean feature HEAD 1619005e572d9d44d543086793cf7d53f2a16b0d and unchanged live main 78c6be6fdb01dc1e227e255758176ade9a8cf9d5. No credential retrieval or alternate authentication route is needed. Integration remains PENDING until exact-head CI and the guarded merge succeed.
+
+## Verified Integration — 2026-10-13
+
+Task: VM-695
+Candidate: 1a7564c3e8a9c92b75557ba836058291e832e0d7
+Boundaries: PASS
+
+PR83 https://github.com/rboles84/voxmana.io/pull/83 merged through the authenticated connector with expected_head_sha bbc13b29b62edb270a43dbe1302caa5d7a2d8cca and squash subject VM-695: Opaque Public Asset Revision Keys. GitHub returned merged=true and squash 8442ed53bb7a204163daf19c1d4aac3fbe2c6877; an independent subsequent PR read confirmed closed/merged and that exact commit. Exact-head Deterministic Validation succeeded (run38459702586, job115511365306), and the integration checker passed before merge. Complete host-observed files/blobs and all six branch commits matched Git. Owner acceptance and independent QA remained bound to the unchanged material candidate.
+
+Supplemental main-protection visibility returned403 Resource not accessible by integration through the approved connector. That visibility is optional under the governing ordinary ACCEPT rule; no alternate authentication route or permission change was attempted. Required CI and expected-head protection were verified and used.
+
+Normal fetch/pull encountered the known pre-existing broken refs/codex/turn-diffs/checkpoints object. Fetch downloaded the verified merge and complete reachable history/tree. Fresh authenticated main and native ls-remote both returned the squash SHA; read-only missing-object inspection found none, and the squash tree exactly matched the verified PR head tree with baseline parent78c6be6fdb01dc1e227e255758176ade9a8cf9d5. An expected-old local tracking update advanced origin/main from that baseline to the authenticated squash, then local main fast-forwarded. No checkpoint ref, user work, configuration or history was repaired/deleted/rewritten.
+
+Only lifecycle evidence follows the accepted product tree. All runtime/test/policy/data/vendor/hosting bytes remain those accepted and merged. No separate deployment action was invoked; any existing automatic publishing behavior is outside these verification claims. Production hosting/cache propagation and the documented walkthrough-advancement limitation remain unverified. Required closeout and safe task-branch cleanup follow.
