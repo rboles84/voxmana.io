@@ -231,6 +231,16 @@ test("closeout: tracked deletion without a snapshot entry blocks", () => { const
 test("closeout: tracked deletion with a hash blocks", () => { const f = closeout(); preservedDeletion(f, { sha256: "a".repeat(64) }); blocked(f, /requires sha256:null/); });
 test("closeout: extant preserved file with null hash blocks", () => { const f = closeout(); put(f.root, "owner-wip.md", "Owner-authored untracked work\n"); f.packet.closeout.preservation = { verified: true, source: ref(f, "preservation.json", JSON.stringify({ root: f.root, files: [{ path: "owner-wip.md", status: "??", sha256: null }] })) }; blocked(f, /Preserved bytes/); });
 test("closeout: tracked deletion reappearance blocks", () => { const f = closeout(); const d = preservedDeletion(f, { staged: true }); fs.mkdirSync(path.join(f.root, d.file)); blocked(f, /ownership\/status|reappeared/); });
+test("closeout: generated view deletion in other worktree blocks", () => {
+  const f = closeout(), other = path.join(f.outer, "other-worktree"), view = VIEWS[0];
+  git(f.root, "worktree", "add", "-q", "-b", "owner-preserved-wip", other, "main");
+  fs.unlinkSync(path.join(other, view));
+  const status = execFileSync("git", ["status", "--porcelain=v1", "--", view], { cwd: other, encoding: "utf8", stdio: ["pipe", "pipe", "pipe"] }).slice(0, 2);
+  assert.equal(status, " D");
+  const source = ref(f, "other-worktree-preservation.json", JSON.stringify({ root: other, files: [{ path: view, status, sha256: null }] }));
+  f.packet.closeout.otherWorktrees = [{ root: other, verified: true, source }];
+  blocked(f, /Preserved generated view cannot be deleted/);
+});
 function snapshot(root) {
   const result = [];
   function walk(dir) {

@@ -47,6 +47,8 @@ reappearance, status changes, hash mismatches, and task-owned laundering.
 - Use the existing test fixture and its preservation source transport; no new harness.
 - Treat `sha256: null` as a deletion-only representation, never as a general absent-file
   escape hatch.
+- Preserve generated-view semantics by rejecting their deletion before the tracked-deletion
+  allowance can accept an absent path.
 
 ## Files Changed
 
@@ -60,6 +62,8 @@ reappearance, status changes, hash mismatches, and task-owned laundering.
 - The existing fixture now covers unstaged and staged deletion success, missing snapshot
   inventory, non-null deletion digest, extant null digest, and reappearance. Existing
   preservation and task-laundering negatives remain in the suite.
+- A registered other worktree with a deleted generated view now blocks before the deletion
+  allowance can bypass the view freshness/meaning checks.
 
 ## Why
 
@@ -73,6 +77,9 @@ Git deletion status plus an explicitly absent path, not a digest of a replacemen
 - After the fixture read raw porcelain status, the focused staged/unstaged pair passed
   (2/2), and `node --test tests/governance/task-delivery.test.mjs` passed (100/100,
   438.005 s).
+- Independent review found that the prior candidate could accept a generated-view deletion
+  in another registered worktree. The new affected deletion regression set passed (7/7,
+  36.160 s), including that realistic other-worktree path.
 - `git diff --check` → PASS.
 
 ## RobDevPass Implementation Packet
@@ -89,6 +96,8 @@ Git deletion status plus an explicitly absent path, not a digest of a replacemen
 - Extant preservation, generated views, status/ownership matching, scope exclusion,
   untracked-commit prevention, evidence delta, host checks, and workflow policy are
   unchanged.
+- Generated views remain excluded from the deletion representation because an absent view
+  cannot satisfy their required freshness and preserved-meaning checks.
 - Renames, conflicts, untracked deletions, task-owned dirty files, and reappearance are
   not newly supported.
 

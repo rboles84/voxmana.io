@@ -33,6 +33,7 @@ function preserve(root, preservation, head, taskRecord) {
     const entry = snapshot.files.find(f => f.path === row.path);
     requireFact(entry && !row.sourcePath && row.status === entry.status, "Dirty work changed ownership/status: " + row.path);
     if (row.status === " D" || row.status === "D ") {
+      requireFact(!VIEWS.includes(row.path), "Preserved generated view cannot be deleted: " + row.path);
       requireFact(entry.sha256 === null, "Tracked deletion requires sha256:null: " + row.path);
       let absent = false;
       try { fs.lstatSync(safeFile(root, row.path)); }
