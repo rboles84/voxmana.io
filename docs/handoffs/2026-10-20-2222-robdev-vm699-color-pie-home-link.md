@@ -164,3 +164,26 @@ Boundaries: PASS
 Integration is verified. Closeout is not claimed: the known preservation-checker deletion
 limitation remains, and feature-branch/worktree cleanup plus a refreshed host packet are
 still required before a closeout check can be run.
+
+## Publication And Actual Closeout Outcome
+
+Task: VM-699
+Candidate: 4d0268a31631239aeab33900949be052db0f6b42
+Publication: GitHub Pages run `39545554443` completed with build `119042812389`, deploy
+`119042941421`, and report `119042941478` all successful.
+Closeout: BLOCKED
+Blocker: the unchanged closeout checker raised `ENOENT` while opening the deleted original
+path `docs/research/canon/guilds/azorius/README.md`; no other blocker was observed.
+
+Cleanup is complete: the app-managed VM-699 worktree was archived, the local feature
+branch was safely deleted, and the remote feature branch and stale tracking ref were
+removed. Prism remains unchanged at `0b69a0bb1603a331d30ed1c1a51b24a52d0308fe`.
+
+Post-publication browser evidence: `https://voxmana.io/#what` displayed Color Pie fifth
+below Apocrypha; its CTA opened a new tab at `https://colorpie.voxmana.io/` with the
+wheel loaded at frame revision `7a0d19e427e7`, while the original Home tab remained.
+Screenshot: `C:\Users\obake\.codex\visualizations\2026\10\20\01a15b48-da5a-7302-a5ce-4e88eb7dba74\vox-mana-color-pie-live.png`.
+
+The original research snapshot remains preserved exactly: all 155 present-file hashes
+match and all 154 deleted paths remain absent. VM-699 remains Integrated; no Done or
+closeout PASS claim is made.

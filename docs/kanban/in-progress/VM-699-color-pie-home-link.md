@@ -79,7 +79,7 @@ Integration: INTEGRATED via PR84 guarded squash merge ca8dfce007d84eb0387fe7259a
 Dependencies: None
 Decisions: The external Color Pie is a fifth Home destination below Apocrypha; use the
 existing directory presentation without CSS changes. Stop at Owner Review.
-Evidence: [RobDev handoff](../../handoffs/2026-10-20-2222-robdev-vm699-color-pie-home-link.md); [independent RobQA PASS](../../handoffs/2026-10-20-2222-robqa-vm699-color-pie-home-link.md) (SHA-256 `d82c46393276d3fa306ef5b20a36ee9f7e3fa3c48765eda454e60869e6f49d3a`).
+Evidence: [RobDev handoff](../../handoffs/2026-10-20-2222-robdev-vm699-color-pie-home-link.md); [independent RobQA PASS](../../handoffs/2026-10-20-2222-robqa-vm699-color-pie-home-link.md) (SHA-256 `d82c46393276d3fa306ef5b20a36ee9f7e3fa3c48765eda454e60869e6f49d3a`); publication verified, while closeout is BLOCKED on the known deleted-WIP preservation-checker limitation.
 
 ## Admission Scope
 
