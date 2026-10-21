@@ -106,3 +106,23 @@ row keeps the existing directory presentation and makes its new-tab behavior cle
 ## Next Suggested Agent
 
 - Independent RobQA (configured Sol medium route), then Owner Review.
+
+## Coordinator Evidence Addendum
+
+- Independent RobQA recorded `RobQAPass PASS` for exact material candidate
+  `4d0268a31631239aeab33900949be052db0f6b42` in
+  [the candidate-bound QA handoff](2026-10-20-2222-robqa-vm699-color-pie-home-link.md).
+- The lifecycle record now waits for Owner Review with Owner `PENDING` and integration
+  `NOT STARTED`. The latest external HTTPS certificate observation remains pending; it
+  is an integration hold and is not a live-readiness claim.
+
+## Coordinator External Readiness Update
+
+- Coordinator-attributed verification now supersedes the earlier pending certificate
+  observation: `https://colorpie.voxmana.io/` returned HTTP 200 at its clean root, with
+  deployed revision `7a0d19e427e7`; GitHub Pages run `39544184074` reported build and
+  deploy success.
+- A live public CUA check confirmed the Color Pie root, wheel, query/hash preservation,
+  Azorius `WU` result, 84/84 explorer self-check, both bridges, stamped frame revision,
+  and the legacy GitHub Pages redirect. External readiness no longer holds later
+  integration, but Owner remains `PENDING` and integration remains `NOT STARTED`.

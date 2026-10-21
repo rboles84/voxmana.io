@@ -2,7 +2,7 @@
 
 ID: VM-699
 Title: Color Pie Home Link
-Status: In Progress
+Status: Owner Review
 Type: Production implementation
 Area: Home directory
 Priority: Normal
@@ -47,7 +47,7 @@ were created. The Color Pie hosting task is separate; no Prism VM-698 work is in
   identities.`, and `Explore Color Pie`.
 - [x] The Home introduction truthfully describes five focused paths and color exploration.
 - [x] The existing smoke and HTML validators assert all five ordered destinations.
-- [ ] The exact candidate receives independent RobQA and stops for Owner Review.
+- [x] The exact candidate receives independent RobQA and stops for Owner Review.
 
 ## Files Likely Impacted
 
@@ -72,13 +72,14 @@ were created. The Color Pie hosting task is separate; no Prism VM-698 work is in
 Record version: 1
 Branch: codex/vm-699-color-pie-home-link
 Admission baseline: 3c254af9727833c04eb118c35aeed11e0baecd28
-Candidate: PENDING
-RobQA: PENDING
+Candidate: 4d0268a31631239aeab33900949be052db0f6b42
+RobQA: PASS at 4d0268a31631239aeab33900949be052db0f6b42 (Execution: SEPARATE; Reviewer: /root/vm699_qa; Implementer: /root/vm699_dev)
 Owner: PENDING
 Integration: NOT STARTED
 Dependencies: None
 Decisions: The external Color Pie is a fifth Home destination below Apocrypha; use the
 existing directory presentation without CSS changes. Stop at Owner Review.
+Evidence: [RobDev handoff](../../handoffs/2026-10-20-2222-robdev-vm699-color-pie-home-link.md); [independent RobQA PASS](../../handoffs/2026-10-20-2222-robqa-vm699-color-pie-home-link.md) (SHA-256 `d82c46393276d3fa306ef5b20a36ee9f7e3fa3c48765eda454e60869e6f49d3a`).
 
 ## Admission Scope
 
