@@ -154,3 +154,14 @@ Independent RobQA recorded `RobQAPass PASS` for exact material candidate
 The lifecycle record now waits for Owner Review with Owner `PENDING` and integration
 `NOT STARTED`. This is evidence-only consolidation; no candidate source, test, or policy
 scope changed.
+
+## Owner Acceptance After Rebase
+
+Task: VM-700
+Candidate: `67c0bedc1ead851b190505da50717c891b005c06`
+Owner: ACCEPT
+Decision reference: current chat Owner request 2026-10-21: "Okay, go ahead and rebase the VM-700 checker fix, have QA verify it, and merge it. Preserve my research changes, then remove the old Prism branch and worktree without merging any of its code."
+
+The Owner authorized the rebase and integration after independent QA and byte-equivalence verification. Fresh separate RobQA PASS, exact source/test blob equality with the previously reviewed candidate, and the candidate delivery check are now verified. The Owner did not supply the new candidate SHA.
+
+Candidate PASS is recorded for the exact rebased SHA. Approved connector routing and native Git push are authorized for the coordinator's later integration work; this evidence commit does not push, merge, or integrate.

@@ -2,7 +2,7 @@
 
 ID: VM-700
 Title: Closeout Deletion Preservation
-Status: In Progress
+Status: Accepted
 Type: Governance delivery-check correction
 Area: Closeout preservation
 Priority: High
@@ -45,7 +45,7 @@ coordinator-owned and does not broaden this correction.
 - [x] Existing extant-file byte/status/ownership and generated-view checks remain
   unchanged.
 - [x] Focused regressions fail against prior behavior and pass with the correction.
-- [ ] Independent RobQA reviews the exact candidate; work stops at Owner Review.
+- [x] Independent RobQA reviews the exact candidate; work stops at Owner Review.
 
 ## Files Likely Impacted
 
@@ -69,9 +69,9 @@ coordinator-owned and does not broaden this correction.
 Record version: 1
 Branch: codex/vm-700-closeout-deletions
 Admission baseline: 9765fa66dac30e18db6ac085bcfab4dca6ca187c
-Candidate: PENDING
-RobQA: PENDING
-Owner: PENDING
+Candidate: 67c0bedc1ead851b190505da50717c891b005c06
+RobQA: PASS at 67c0bedc1ead851b190505da50717c891b005c06 (Execution: SEPARATE; Reviewer: /root/vm699_qa; Implementer: /root/colorpie_root)
+Owner: ACCEPTED at 67c0bedc1ead851b190505da50717c891b005c06
 Integration: NOT STARTED
 Dependencies: None
 Decisions: Keep the current fixture and preserve all extant-file checks. Stop at Owner

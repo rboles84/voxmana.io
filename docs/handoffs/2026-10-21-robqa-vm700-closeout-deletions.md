@@ -219,3 +219,132 @@ or authority to replace/re-root the VM-700 admission branch.
 
 Coordinator for durable lifecycle consolidation, bounded Owner decision, and the already
 defined VM-699 closeout sequence.
+
+
+# Agent Handoff: RobQA — VM-700 Rebased Candidate
+
+Date: 2026-10-21
+
+## Rebased Candidate Delivery Binding
+
+Task: VM-700
+Candidate: 67c0bedc1ead851b190505da50717c891b005c06
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: /root/vm699_qa
+Implementer: /root/colorpie_root
+
+### Status
+
+RobQAPass PASS for the exact rebased candidate over baseline
+`9765fa66dac30e18db6ac085bcfab4dca6ca187c`. Owner acceptance, integration, push,
+merge, and later Prism work remain separate decisions.
+
+### Requested Route
+
+- Configured/requested role route: `gpt-5.6-sol`, medium reasoning.
+- Host observation: the configured RobQA role accepted the assignment. No backend model
+  identity, billing, or token-saving measurement was exposed or inferred.
+
+### Change And Risk Classification
+
+- QA tier: QA-5, shared delivery/governance integration.
+- Execution mode: SEPARATE because the checker controls candidate, integration, and
+  closeout decisions and the reviewer did not implement the material change.
+- Seven admitted Git paths contain the checker, its owning fixture, the task card, the
+  RobDev and historical RobQA handoffs, and the two generated task views.
+- Runtime behavior is unchanged from the prior independently reviewed material candidate
+  `afca257b785de88c2a2cb3b590dad1b1a8f40423`.
+- No Prism path appears in the baseline-to-candidate diff.
+
+### Rebase Identity And Preservation
+
+- `scripts/lib/task-delivery.mjs` blob at both candidates:
+  `95b970294107e18e933300dc2867e6ffa19637f0`.
+- `tests/governance/task-delivery.test.mjs` blob at both candidates:
+  `e23927be70deaefbb089299b3a2c80c0e0209e29`.
+- Independent `git diff --exit-code` comparisons for both executable paths passed.
+- New main baseline is an ancestor of the candidate. The VM-699 Done card and committed
+  closeout handoff both exist at the candidate and are byte-identical to baseline.
+- Reconciled admission commit:
+  `a779f95a0eb35e23f7d8e42730dd0df12991292f`.
+- Rebase-only records reset current Candidate, RobQA, and Owner fields to pending and
+  retain the prior candidate/QA record as historical evidence.
+
+### Source Review
+
+- Status and snapshot inventory equality are checked before any deletion allowance.
+- Only exact unstaged (` D`) and staged (`D `) tracked-deletion statuses enter the new
+  branch.
+- A deletion requires `sha256: null` and `lstatSync()` must prove the bounded final path
+  has no filesystem entry.
+- Generated-view deletion is rejected before the allowance, including in a registered
+  secondary worktree.
+- Extant byte hashes, ownership/status checks, scope, evidence delta, host verification,
+  and read-only behavior retain their prior paths.
+
+### Independent Checks
+
+- `npm run validate:admission -- --task=VM-700 --mode=continue` — PASS. Head is the exact
+  candidate; remote main, local main, admission baseline, and merge base are all
+  `9765fa66dac30e18db6ac085bcfab4dca6ca187c`; admission and current scope are the same
+  seven Git rows.
+- Focused final regression selection — PASS, 9/9 in 50.015 seconds:
+  - exact unstaged tracked deletion accepted;
+  - exact staged tracked deletion accepted;
+  - missing snapshot inventory blocked;
+  - deletion with a non-null hash blocked;
+  - extant file with a null hash blocked;
+  - deleted path reappearance blocked;
+  - generated-view deletion in a registered other worktree blocked;
+  - external-observation CLI remained read-only and local self-authored transport blocked;
+  - task-owned dirty-byte laundering blocked.
+- `npm run task -- indexes --check` — PASS; 734 cards, 1,280 handoffs, no stale or
+  written views.
+- `git diff --check 9765fa66dac30e18db6ac085bcfab4dca6ca187c..67c0bedc1ead851b190505da50717c891b005c06`
+  — PASS.
+- Baseline ancestry, VM-699 Done record presence, and byte preservation — PASS.
+- Candidate worktree cleanliness and exact HEAD — PASS after validation.
+
+The required GitHub Deterministic Validation workflow will run the full delivery suite
+and other governed suites on the pull request. Local rebase QA remained proportionate
+because the checker and test blobs are byte-identical to the prior reviewed candidate;
+the affected adversarial states were rerun at the new exact SHA.
+
+### Stateful Adversarial Coverage
+
+- Forward states: staged and unstaged tracked deletion with null digest pass.
+- Reverse state: filesystem reappearance blocks.
+- Perturbations: missing inventory, non-null deletion digest, and null extant digest each
+  block independently.
+- Protected owner: generated-view deletion in a real registered other-worktree fixture
+  blocks before the deletion allowance.
+- Ownership seam: task-owned dirty work cannot be relabeled as preservation.
+- Visible/executed seam: raw two-character porcelain status is asserted without trimming;
+  checker execution is read-only.
+- Causal control: the prior baseline's unconditional read and VM-699 `ENOENT` provide the
+  red witness; the unchanged candidate blobs and focused green set provide the regression
+  witness.
+
+### Residual Risk And Owner Judgment
+
+- Direct dangling-link creation remains unavailable on this Windows host. Source review
+  confirms `lstatSync()` treats a dangling link as a filesystem entry, while the portable
+  directory-reappearance regression executes the same entry-exists invariant.
+- Exact-head GitHub CI remains required before integration.
+- Owner decides acceptance and integration of this rebased candidate. No visual review is
+  applicable.
+
+### Files Changed By Reviewer
+
+- External QA artifact only:
+  `C:/Users/obake/AppData/Local/Temp/vm700-rebased-robqa.md`.
+
+The reviewer did not edit or commit candidate source, tests, cards, handoffs, generated
+views, VM-699 records, Prism, research, or Git history.
+
+### Decision
+
+RobQAPass PASS for exact candidate
+`67c0bedc1ead851b190505da50717c891b005c06` over baseline
+`9765fa66dac30e18db6ac085bcfab4dca6ca187c`.
