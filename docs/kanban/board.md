@@ -1,4 +1,4 @@
-<!-- task-view-sha256:b29a9b8a9b44e7ffc5fb4909e8e65834ce4c3caba24be2b52ea14869eb41e2d1 -->
+<!-- task-view-sha256:9f333d7ae637c5c600f5ed903b929fbc301e4b41e8c941fa6460f23db14afa0c -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -57,7 +57,6 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 |---|---|---|---|
 | VM-658 | [Maze Instrument Frame](in-progress/VM-658-maze-instrument-frame.md) | Integrated |  |
 | VM-660 | [Maze Performance Recon](in-progress/VM-660-maze-performance-recon.md) | Integrated |  |
-| VM-700 | [Closeout Deletion Preservation](in-progress/VM-700-closeout-deletions.md) | Integrated |  |
 
 ## Blocked
 
@@ -711,6 +710,7 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | VM-694 | [Precon Browse Builds Footer Alignment](done/VM-694-precon-footer-alignment.md) | Done |  |
 | VM-695 | [Opaque Public Asset Revision Keys](done/VM-695-opaque-asset-revisions.md) | Done |  |
 | VM-699 | [Color Pie Home Link](done/VM-699-color-pie-home-link.md) | Done |  |
+| VM-700 | [Closeout Deletion Preservation](done/VM-700-closeout-deletions.md) | Done |  |
 
 ## Unresolved
 

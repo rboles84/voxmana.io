@@ -184,3 +184,13 @@ Candidate: `67c0bedc1ead851b190505da50717c891b005c06`
 Boundaries: PASS
 
 No Prism code or research changes are part of VM-700 integration. Cleanup remains parent-owned and pending. This record does not claim Done, push, final closeout, or cleanup completion.
+
+## Closeout PASS Record
+
+Task: VM-700
+Candidate: `67c0bedc1ead851b190505da50717c891b005c06`
+Closeout: PASS on published main `9f6ee7e81522c7ce906cd4a3bafef41fa4e3be03` using the integrated checker.
+
+Cleanup is verified: the VM-700 worktree is archived, the local feature branch is safely deleted, and the remote feature branch is absent. Prism branch and worktree were explicitly removed without merging Prism code after full recovery-bundle verification. The root research snapshot remains exact at 309 preserved statuses.
+
+See `C:\Users\obake\AppData\Local\Temp\vm700-final-main-report.md` for the post-Done published recheck record; that recheck awaits the parent and is not claimed here.
