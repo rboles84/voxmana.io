@@ -187,3 +187,22 @@ Screenshot: `C:\Users\obake\.codex\visualizations\2026\10\20\01a15b48-da5a-7302-
 The original research snapshot remains preserved exactly: all 155 present-file hashes
 match and all 154 deleted paths remain absent. VM-699 remains Integrated; no Done or
 closeout PASS claim is made.
+
+## Pre-Done Closeout Record
+
+Task: VM-699
+Candidate: 4d0268a31631239aeab33900949be052db0f6b42
+Closeout: PASS
+Checker: temporary read-only use of unmerged, independently QA-passed VM-700 candidate
+`afca257b785de88c2a2cb3b590dad1b1a8f40423`; this record does not claim that checker is
+integrated.
+Checked at: 2026-10-21T14:55:00Z
+Boundaries: PASS
+
+The real original-main 309-row research boundary passed under that checker: all 155
+present-file hashes matched and all 154 recorded deletions remained absent. PR84 remains
+the verified guarded squash merge `ca8dfce007d84eb0387fe7259a75d2124b91bdce`; cleanup
+and live publication were already verified. VM-699 may be recorded Done on this basis.
+
+Final Done recheck remains pending until this lifecycle commit is pushed and the
+coordinator refreshes the host evidence against the resulting main head.
