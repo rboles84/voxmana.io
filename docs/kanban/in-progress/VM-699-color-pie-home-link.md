@@ -2,7 +2,7 @@
 
 ID: VM-699
 Title: Color Pie Home Link
-Status: Owner Review
+Status: Accepted
 Type: Production implementation
 Area: Home directory
 Priority: Normal
@@ -74,7 +74,7 @@ Branch: codex/vm-699-color-pie-home-link
 Admission baseline: 3c254af9727833c04eb118c35aeed11e0baecd28
 Candidate: 4d0268a31631239aeab33900949be052db0f6b42
 RobQA: PASS at 4d0268a31631239aeab33900949be052db0f6b42 (Execution: SEPARATE; Reviewer: /root/vm699_qa; Implementer: /root/vm699_dev)
-Owner: PENDING
+Owner: ACCEPTED at 4d0268a31631239aeab33900949be052db0f6b42 (Decision reference: async reply call_fafec2c73fbc4291ab637e32e2b693b5)
 Integration: NOT STARTED
 Dependencies: None
 Decisions: The external Color Pie is a fifth Home destination below Apocrypha; use the

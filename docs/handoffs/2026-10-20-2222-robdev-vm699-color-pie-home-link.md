@@ -126,3 +126,17 @@ row keeps the existing directory presentation and makes its new-tab behavior cle
   Azorius `WU` result, 84/84 explorer self-check, both bridges, stamped frame revision,
   and the legacy GitHub Pages redirect. External readiness no longer holds later
   integration, but Owner remains `PENDING` and integration remains `NOT STARTED`.
+
+## Owner Acceptance Record
+
+Task: VM-699
+Candidate: 4d0268a31631239aeab33900949be052db0f6b42
+Owner: ACCEPT
+Decision reference: async reply `call_fafec2c73fbc4291ab637e32e2b693b5`; exact Owner answer: `Accept and publish the homepage link`.
+
+The Owner accepted this exact candidate and authorized merge/publication. Integration
+remains `NOT STARTED` pending the separate governed host-operation stage.
+
+Implementation attribution clarification: the prior QA binding labels the implementer
+`/root/vm699_dev`; the actual implementation agent was `/root/colorpie_root`. This is
+an attribution clarification only; it does not alter the independent RobQA finding.
