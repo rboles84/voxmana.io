@@ -133,3 +133,13 @@ Git deletion status plus an explicitly absent path, not a digest of a replacemen
 ## Next Suggested Agent
 
 - Independent RobQA (configured Sol medium route), then Owner Review.
+
+## Coordinator QA Binding
+
+Independent RobQA recorded `RobQAPass PASS` for exact material candidate
+`afca257b785de88c2a2cb3b590dad1b1a8f40423` in
+[the candidate-bound QA handoff](2026-10-21-robqa-vm700-closeout-deletions.md).
+
+The lifecycle record now waits for Owner Review with Owner `PENDING` and integration
+`NOT STARTED`. This is evidence-only consolidation; no candidate source, test, or policy
+scope changed.
