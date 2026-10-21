@@ -18,7 +18,9 @@ checks for every extant preserved file.
 
 Current Owner request. Admission START was ELIGIBLE on clean main
 `c9aa001043d780aa44ab2669f2384ee617cad87a` before this worktree and branch were
-created. VM-699 sequencing is coordinator-owned and does not broaden this correction.
+created. Owner authorized reconciliation onto verified main
+`9765fa66dac30e18db6ac085bcfab4dca6ca187c`; VM-699 sequencing remains
+coordinator-owned and does not broaden this correction.
 
 ## Scope
 
@@ -74,6 +76,9 @@ Integration: NOT STARTED
 Dependencies: None
 Decisions: Keep the current fixture and preserve all extant-file checks. Stop at Owner
 Review after separate RobQA.
+Rebase provenance: reviewed candidate `afca257b785de88c2a2cb3b590dad1b1a8f40423`
+was rebased onto the recorded admission baseline. Its QA/Owner records are historical;
+the current candidate and fresh independent RobQA are pending.
 
 ## Admission Scope
 

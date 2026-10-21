@@ -130,6 +130,17 @@ Git deletion status plus an explicitly absent path, not a digest of a replacemen
 - Run separate QA-5 only against the exact candidate; do not use VM-700 to reconcile
   VM-699 closeout sequencing.
 
+## Rebase Provenance
+
+- Owner authorized this branch to reconcile from
+  `c9aa001043d780aa44ab2669f2384ee617cad87a` onto verified main
+  `9765fa66dac30e18db6ac085bcfab4dca6ca187c`.
+- The prior reviewed candidate
+  `afca257b785de88c2a2cb3b590dad1b1a8f40423` and its RobQA record remain historical
+  evidence only. Current Candidate, RobQA, and Owner card fields are reset to `PENDING`.
+- The delivery-check source and fixture test bytes are preserved exactly; a new candidate
+  SHA requires fresh independent RobQA before Owner acceptance.
+
 ## Next Suggested Agent
 
 - Independent RobQA (configured Sol medium route), then Owner Review.
