@@ -1,4 +1,4 @@
-<!-- task-view-sha256:5ca585352f7336eb7319c4e6cd60904c74fefcd781496b58f3d77eafe4471c0a -->
+<!-- task-view-sha256:cc0135fc30af5e440179799ca4954e05e9cc4f8a232e51bb84e7197c6ff42ed5 -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -8,6 +8,7 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 
 | Authored / filename date | Agent | Handoff | Related task references | Diagnostics |
 |---|---|---|---|---|
+| 2026-10-20T00:00:00Z (authored) | Unknown | [Agent Handoff: RobDev — VM-699 Color Pie Home Link](2026-10-20-2222-robdev-vm699-color-pie-home-link.md) | VM-699 | Identity displayed from heading; not admission metadata. |
 | 2026-10-13T00:00:00Z (filename) | /root coordinator | [VM-694 — Precon footer reconnaissance and planning handoff](2026-10-13-codex-vm694-precon-footer-plan.md) | VM-694 | Identity displayed from heading; not admission metadata. |
 | 2026-10-13T00:00:00Z (filename) | /root/asset_dev | [Coordinator Handoff — VM-695 Opaque Asset Revisions](2026-10-13-codex-vm695-opaque-asset-revisions.md) | VM-695 | Identity displayed from heading; not admission metadata. |
 | 2026-10-13T00:00:00Z (filename) | `/root/asset_dev` (RobDev) | [RobDev Handoff — VM-695 Opaque Asset Revisions](2026-10-13-robdev-vm695-opaque-asset-revisions.md) | VM-695 | Identity displayed from heading; not admission metadata. |

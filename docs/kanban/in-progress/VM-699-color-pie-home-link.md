@@ -39,14 +39,14 @@ were created. The Color Pie hosting task is separate; no Prism VM-698 work is in
 
 ## Acceptance Criteria
 
-- [ ] Home retains its first four directory rows byte-for-byte and adds Color Pie directly
+- [x] Home retains its first four directory rows byte-for-byte and adds Color Pie directly
   below Apocrypha.
-- [ ] The new row links to `https://colorpie.voxmana.io/` in a new tab with
+- [x] The new row links to `https://colorpie.voxmana.io/` in a new tab with
   `rel="noopener noreferrer"` and visible/accessibly named new-tab indication.
-- [ ] The row reads `Color Pie`, `Explore Magic’s colors, philosophies, and mechanical
+- [x] The row reads `Color Pie`, `Explore Magic’s colors, philosophies, and mechanical
   identities.`, and `Explore Color Pie`.
-- [ ] The Home introduction truthfully describes five focused paths and color exploration.
-- [ ] The existing smoke and HTML validators assert all five ordered destinations.
+- [x] The Home introduction truthfully describes five focused paths and color exploration.
+- [x] The existing smoke and HTML validators assert all five ordered destinations.
 - [ ] The exact candidate receives independent RobQA and stops for Owner Review.
 
 ## Files Likely Impacted
