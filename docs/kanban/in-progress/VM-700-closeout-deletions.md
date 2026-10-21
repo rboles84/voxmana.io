@@ -36,13 +36,13 @@ created. VM-699 sequencing is coordinator-owned and does not broaden this correc
 
 ## Acceptance Criteria
 
-- [ ] A verified snapshot can preserve a tracked deletion only when its snapshot entry
+- [x] A verified snapshot can preserve a tracked deletion only when its snapshot entry
   has `sha256: null` and the path remains absent.
-- [ ] Reappearance, dangling-link status, missing-file/hash mismatch, changed Git
+- [x] Reappearance, dangling-link status, missing-file/hash mismatch, changed Git
   status, and task-owned laundering remain blocked.
-- [ ] Existing extant-file byte/status/ownership and generated-view checks remain
+- [x] Existing extant-file byte/status/ownership and generated-view checks remain
   unchanged.
-- [ ] Focused regressions fail against prior behavior and pass with the correction.
+- [x] Focused regressions fail against prior behavior and pass with the correction.
 - [ ] Independent RobQA reviews the exact candidate; work stops at Owner Review.
 
 ## Files Likely Impacted

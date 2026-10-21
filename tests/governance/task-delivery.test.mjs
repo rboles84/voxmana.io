@@ -60,6 +60,7 @@ function fixture({ linkedPlan = true, admittedPlan = true, recordQa = true } = {
   });
   put(root, "docs/archive/phase4-manual-views/manifest.json", JSON.stringify({ revision: "a".repeat(40), files }));
   put(root, "implementation.js", "export const value = 1;\n"); put(root, "tests/contract.js", "assert.equal(value, 1);\n");
+  put(root, "owner-delete.md", "Owner-authored tracked work\n");
   fs.mkdirSync(path.join(root, "docs/handoffs"), { recursive: true });
   generateViews(root).outputs.forEach((text, i) => put(root, VIEWS[i], text));
   const f = { root, outer, remote, card: cardPath };
@@ -213,9 +214,23 @@ function preserved(f) {
   const snapshot = { root: f.root, files: [{ path: "owner-wip.md", status: "??", sha256: sha256(fs.readFileSync(path.join(f.root, "owner-wip.md"))) }] };
   f.packet.closeout.preservation = { verified: true, source: ref(f, "preservation.json", JSON.stringify(snapshot)) };
 }
+function preservedDeletion(f, { staged = false, sha256: digest = null } = {}) {
+  const file = "owner-delete.md";
+  fs.unlinkSync(path.join(f.root, file));
+  if (staged) git(f.root, "add", "-u", "--", file);
+  const status = git(f.root, "status", "--porcelain=v1", "--", file).slice(0, 2);
+  f.packet.closeout.preservation = { verified: true, source: ref(f, "preservation.json", JSON.stringify({ root: f.root, files: [{ path: file, status, sha256: digest }] })) };
+  return { file, status };
+}
 test("closeout: unrelated dirty work preserved exactly", () => { const f = closeout(); preserved(f); pass(f); });
 test("closeout: unrelated dirty work altered", () => { const f = closeout(); preserved(f); put(f.root, "owner-wip.md", "altered"); blocked(f, /Preserved bytes/); });
 test("closeout: unrelated work silently committed is detected", () => { const f = closeout(); preserved(f); git(f.root, "add", "owner-wip.md"); blocked(f, /ownership\/status/); });
+test("closeout: unstaged tracked deletion preserved exactly", () => { const f = closeout(); const d = preservedDeletion(f); assert.equal(d.status, " D"); pass(f); });
+test("closeout: staged tracked deletion preserved exactly", () => { const f = closeout(); const d = preservedDeletion(f, { staged: true }); assert.equal(d.status, "D "); pass(f); });
+test("closeout: tracked deletion without a snapshot entry blocks", () => { const f = closeout(); const d = preservedDeletion(f); f.packet.closeout.preservation = { verified: true, source: ref(f, "preservation.json", JSON.stringify({ root: f.root, files: [] })) }; blocked(f, /inventory/); });
+test("closeout: tracked deletion with a hash blocks", () => { const f = closeout(); preservedDeletion(f, { sha256: "a".repeat(64) }); blocked(f, /requires sha256:null/); });
+test("closeout: extant preserved file with null hash blocks", () => { const f = closeout(); put(f.root, "owner-wip.md", "Owner-authored untracked work\n"); f.packet.closeout.preservation = { verified: true, source: ref(f, "preservation.json", JSON.stringify({ root: f.root, files: [{ path: "owner-wip.md", status: "??", sha256: null }] })) }; blocked(f, /Preserved bytes/); });
+test("closeout: tracked deletion reappearance blocks", () => { const f = closeout(); const d = preservedDeletion(f, { staged: true }); fs.mkdirSync(path.join(f.root, d.file)); blocked(f, /ownership\/status|reappeared/); });
 function snapshot(root) {
   const result = [];
   function walk(dir) {
