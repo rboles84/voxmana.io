@@ -218,7 +218,7 @@ function preservedDeletion(f, { staged = false, sha256: digest = null } = {}) {
   const file = "owner-delete.md";
   fs.unlinkSync(path.join(f.root, file));
   if (staged) git(f.root, "add", "-u", "--", file);
-  const status = git(f.root, "status", "--porcelain=v1", "--", file).slice(0, 2);
+  const status = execFileSync("git", ["status", "--porcelain=v1", "--", file], { cwd: f.root, encoding: "utf8", stdio: ["pipe", "pipe", "pipe"] }).slice(0, 2);
   f.packet.closeout.preservation = { verified: true, source: ref(f, "preservation.json", JSON.stringify({ root: f.root, files: [{ path: file, status, sha256: digest }] })) };
   return { file, status };
 }

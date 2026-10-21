@@ -68,7 +68,11 @@ Git deletion status plus an explicitly absent path, not a digest of a replacemen
 
 ## Tests / Checks Run
 
-- `node --test tests/governance/task-delivery.test.mjs` → PASS.
+- The initial full-suite invocation did not establish a passing result: the new unstaged
+  regression failed because the fixture's trimmed Git helper changed ` D` to `D `.
+- After the fixture read raw porcelain status, the focused staged/unstaged pair passed
+  (2/2), and `node --test tests/governance/task-delivery.test.mjs` passed (100/100,
+  438.005 s).
 - `git diff --check` → PASS.
 
 ## RobDevPass Implementation Packet
@@ -120,7 +124,3 @@ Git deletion status plus an explicitly absent path, not a digest of a replacemen
 ## Next Suggested Agent
 
 - Independent RobQA (configured Sol medium route), then Owner Review.
-
-## Next Suggested Agent
-
-- RobDev implementation, then independent RobQA.
