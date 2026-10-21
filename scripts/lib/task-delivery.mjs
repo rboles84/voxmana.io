@@ -32,6 +32,18 @@ function preserve(root, preservation, head, taskRecord) {
     if (taskRecord) requireFact(VIEWS.includes(row.path) || (!inScope(row.path, taskRecord.scope) && idFromFilename(row.path) !== taskRecord.id), "Task-owned dirty work cannot be relabeled unrelated preservation: " + row.path);
     const entry = snapshot.files.find(f => f.path === row.path);
     requireFact(entry && !row.sourcePath && row.status === entry.status, "Dirty work changed ownership/status: " + row.path);
+    if (row.status === " D" || row.status === "D ") {
+      requireFact(!VIEWS.includes(row.path), "Preserved generated view cannot be deleted: " + row.path);
+      requireFact(entry.sha256 === null, "Tracked deletion requires sha256:null: " + row.path);
+      let absent = false;
+      try { fs.lstatSync(safeFile(root, row.path)); }
+      catch (error) {
+        if (error?.code !== "ENOENT") throw error;
+        absent = true;
+      }
+      requireFact(absent, "Preserved deletion reappeared: " + row.path);
+      continue;
+    }
     const current = fs.readFileSync(safeFile(root, row.path));
     if (VIEWS.includes(row.path) && entry.bytes && snapshot.tasks?.length) {
       const original = Buffer.from(entry.bytes, "base64");
