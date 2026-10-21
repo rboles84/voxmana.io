@@ -140,3 +140,27 @@ remains `NOT STARTED` pending the separate governed host-operation stage.
 Implementation attribution clarification: the prior QA binding labels the implementer
 `/root/vm699_dev`; the actual implementation agent was `/root/colorpie_root`. This is
 an attribution clarification only; it does not alter the independent RobQA finding.
+
+## Integration Record
+
+Task: VM-699
+Candidate: 4d0268a31631239aeab33900949be052db0f6b42
+Integration: INTEGRATED
+PR84: guarded squash merge `ca8dfce007d84eb0387fe7259a75d2124b91bdce`.
+Deterministic Validation: run `39545307424`, job `119042032142`, completed success.
+
+The authenticated connector confirmed PR84 merged/closed and live `main` at the merge.
+The integration route used connector read/create and guarded merge. The connector omitted
+normalized merge-state and commit-list fields; those facts were supplemented by the public
+unauthenticated API without credential access. Branch-policy visibility was optional and
+unavailable because no branch-policy tool was exposed.
+
+## Closeout Boundary Record
+
+Task: VM-699
+Candidate: 4d0268a31631239aeab33900949be052db0f6b42
+Boundaries: PASS
+
+Integration is verified. Closeout is not claimed: the known preservation-checker deletion
+limitation remains, and feature-branch/worktree cleanup plus a refreshed host packet are
+still required before a closeout check can be run.
