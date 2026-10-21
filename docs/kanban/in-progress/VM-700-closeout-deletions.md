@@ -2,7 +2,7 @@
 
 ID: VM-700
 Title: Closeout Deletion Preservation
-Status: Accepted
+Status: Integrated
 Type: Governance delivery-check correction
 Area: Closeout preservation
 Priority: High
@@ -72,7 +72,7 @@ Admission baseline: 9765fa66dac30e18db6ac085bcfab4dca6ca187c
 Candidate: 67c0bedc1ead851b190505da50717c891b005c06
 RobQA: PASS at 67c0bedc1ead851b190505da50717c891b005c06 (Execution: SEPARATE; Reviewer: /root/vm699_qa; Implementer: /root/colorpie_root)
 Owner: ACCEPTED at 67c0bedc1ead851b190505da50717c891b005c06
-Integration: NOT STARTED
+Integration: INTEGRATED via PR85 merge bbd466ebd9a2f3d0e3396008ddf5d48321386bb4
 Dependencies: None
 Decisions: Keep the current fixture and preserve all extant-file checks. Stop at Owner
 Review after separate RobQA.

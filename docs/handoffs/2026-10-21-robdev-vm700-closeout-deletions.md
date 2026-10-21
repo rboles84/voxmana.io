@@ -165,3 +165,22 @@ Decision reference: current chat Owner request 2026-10-21: "Okay, go ahead and r
 The Owner authorized the rebase and integration after independent QA and byte-equivalence verification. Fresh separate RobQA PASS, exact source/test blob equality with the previously reviewed candidate, and the candidate delivery check are now verified. The Owner did not supply the new candidate SHA.
 
 Candidate PASS is recorded for the exact rebased SHA. Approved connector routing and native Git push are authorized for the coordinator's later integration work; this evidence commit does not push, merge, or integrate.
+
+## Integration Record
+
+Task: VM-700
+Candidate: `67c0bedc1ead851b190505da50717c891b005c06`
+PR85: merged
+Merge/head: `bbd466ebd9a2f3d0e3396008ddf5d48321386bb4`
+CI: GitHub Deterministic Validation run `39642289106`, job `119368643820`, SUCCESS.
+Checker: integration checker PASS.
+
+PR85 was guarded-squash merged from exact evidence head `bf862a338442ac9ed5b278594b1381187941d491`. Authenticated merge and native live main were confirmed; original main was fast-forwarded after parent/tree/object completeness verification.
+
+## Closeout Boundary Record
+
+Task: VM-700
+Candidate: `67c0bedc1ead851b190505da50717c891b005c06`
+Boundaries: PASS
+
+No Prism code or research changes are part of VM-700 integration. Cleanup remains parent-owned and pending. This record does not claim Done, push, final closeout, or cleanup completion.
