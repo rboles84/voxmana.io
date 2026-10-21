@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <!-- task-view-sha256:3f766b0cfe48ee86c15255589f046f78584feea3488d095fcb72a64e4f17ad24 -->
+=======
+<!-- task-view-sha256:58b66cf7eb29a39b85377c0f0082ba0ba75c675e8d33247b52b0bca24b55c19d -->
+>>>>>>> ba84c5164 (VM-700: admit closeout deletion preservation)
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -39,6 +43,7 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 
 | ID | Card | Declared status | Diagnostics |
 |---|---|---|---|
+| VM-700 | [Closeout Deletion Preservation](in-progress/VM-700-closeout-deletions.md) | In Progress |  |
 
 ## Owner Review
 
