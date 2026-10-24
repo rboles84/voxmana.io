@@ -9,6 +9,7 @@ const witnessDir = process.env.VM_OWNER_REVIEW_OUTPUT
   ? path.resolve(process.env.VM_OWNER_REVIEW_OUTPUT)
   : path.join(root, "artifacts", "vm618-topbar");
 const failures = [];
+const toolsOnly = process.argv.includes("--tools-only");
 const primaryOrder = ["home", "archscry", "maze", "strategium", "apocrypha"];
 const primaryRoutes = [
   ["home", "/"],
@@ -139,17 +140,152 @@ async function readDesktopState(page) {
   });
 }
 
+async function clickPointer(page, selector) {
+  const element = await page.$(selector);
+  const box = await element?.boundingBox();
+  if (!box) throw new Error(`Could not find a clickable ${selector}.`);
+  await page.mouse.click(box.x + box.width / 2, box.y + box.height / 2);
+}
+
+async function readToolsState(page) {
+  return page.evaluate(() => {
+    const trigger = document.querySelector("[data-vm-tools-trigger]");
+    const panel = document.querySelector("[data-vm-tools-panel]");
+    const tools = document.querySelector("[data-vm-tools]");
+    const nav = document.querySelector(".vm-nav");
+    const menu = document.querySelector("[data-vm-menu-panel]");
+    const links = [...panel.querySelectorAll(".vm-tools-link")];
+    const desktopOrder = [...nav.children].map(node => node.dataset.vmNav || node.dataset.vmTools || "other");
+    const menuNodes = [...menu.querySelectorAll("[data-vm-menu-nav] > *")];
+    const menuTools = menu.querySelector(".vm-menu-tools");
+    const menuLinks = menuTools ? [...menuTools.querySelectorAll("a")].map(link => link.textContent.trim()) : [];
+    const guide = menu.querySelector('[data-vm-menu-nav] [data-vm-nav="guide"]');
+    const rect = panel.getBoundingClientRect();
+    const triggerRect = trigger.getBoundingClientRect();
+    const previousRect = tools.previousElementSibling?.getBoundingClientRect();
+    const utilityRect = document.querySelector(".vm-utility")?.getBoundingClientRect();
+    const toolsRect = tools.getBoundingClientRect();
+    const active = document.activeElement;
+    return {
+      desktopOrder,
+      expanded: trigger.getAttribute("aria-expanded"),
+      panelHidden: panel.hidden,
+      menuOpen: menu.dataset.open,
+      links: links.map(link => ({ href: link.href, target: link.target, rel: link.rel, text: link.textContent.trim(), arrow: link.querySelector('[aria-hidden="true"]')?.textContent, disclosure: link.querySelector('.visually-hidden')?.textContent })),
+      panelAfterTrigger: rect.top >= triggerRect.bottom,
+      triggerClearOfApocrypha: !previousRect || previousRect.right <= triggerRect.left,
+      toolsClearOfUtility: !utilityRect || toolsRect.right <= utilityRect.left || utilityRect.right <= toolsRect.left,
+      mobileToolsAfterApocrypha: menuNodes.indexOf(menuTools) === 5,
+      mobileToolsBeforeGuide: Boolean(menuTools && guide && menuTools.compareDocumentPosition(guide) & Node.DOCUMENT_POSITION_FOLLOWING),
+      mobileLinks: menuLinks,
+      mobileLinkSemantics: menuTools ? [...menuTools.querySelectorAll("a")].map(link => ({ href: link.href, target: link.target, rel: link.rel, arrow: link.querySelector('[aria-hidden="true"]')?.textContent, disclosure: link.querySelector('.visually-hidden')?.textContent })) : [],
+      activeClass: active?.className || "",
+      overflowHasVisibleFocus: menu.contains(active) && active.getClientRects().length > 0 && getComputedStyle(active).visibility !== "hidden",
+      overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+    };
+  });
+}
+
+async function runToolsOnly(page) {
+  for (const [name, route] of [["Home", "/"], ["Apocrypha", "/apocrypha/"]]) {
+    await page.setViewport({ width: 1440, height: 1000, deviceScaleFactor: 1 });
+    await page.goto(`${baseUrl}${route}`, { waitUntil: "domcontentloaded" });
+    await waitForTopbar(page);
+    let state = await readToolsState(page);
+    expect(JSON.stringify(state.desktopOrder) === JSON.stringify([...primaryOrder, "true"]), `${name}: Tools should follow Apocrypha in the desktop nav`);
+    expect(state.expanded === "false" && state.panelHidden, `${name}: Tools should begin closed`);
+    expect(state.triggerClearOfApocrypha, `${name}: Tools trigger should not overlap Apocrypha`);
+    expect(state.toolsClearOfUtility, `${name}: Tools should not overlap utility controls`);
+    expect(JSON.stringify(state.links.map(link => link.href)) === JSON.stringify(["https://colorpie.voxmana.io/", "https://manascope.voxmana.io/"]), `${name}: Tools should expose Color Pie then Deck Explorer exactly once`);
+    expect(state.links.every(link => link.target === "_blank" && link.rel === "noopener noreferrer" && link.arrow === "↗" && link.disclosure === " (opens in a new tab)"), `${name}: Tools external-link semantics should be complete`);
+    await clickPointer(page, "[data-vm-tools-trigger]");
+    state = await readToolsState(page);
+    expect(state.expanded === "true" && !state.panelHidden && state.panelAfterTrigger, `${name}: pointer click should open the desktop Tools disclosure`);
+    await page.keyboard.press("Tab");
+    expect((await readToolsState(page)).activeClass.includes("vm-tools-link"), `${name}: Tab should reach Color Pie from Tools`);
+    await page.keyboard.press("Tab");
+    expect((await page.evaluate(() => document.activeElement?.href)) === "https://manascope.voxmana.io/", `${name}: second Tab should reach Deck Explorer`);
+    await page.keyboard.press("Escape");
+    state = await readToolsState(page);
+    expect(state.expanded === "false" && state.panelHidden && state.activeClass.includes("vm-tools-trigger"), `${name}: Escape should close Tools and restore trigger focus`);
+    await page.focus("[data-vm-tools-trigger]");
+    await page.keyboard.press(" ");
+    expect((await readToolsState(page)).expanded === "true", `${name}: Space should open Tools`);
+    await page.keyboard.press("Escape");
+    await page.keyboard.press("Enter");
+    expect((await readToolsState(page)).expanded === "true", `${name}: Enter should open Tools`);
+    await page.keyboard.press("Escape");
+    await page.focus("[data-vm-tools-trigger]");
+    await page.keyboard.press("Tab");
+    expect(!(await readToolsState(page)).activeClass.includes("vm-tools-link"), `${name}: closed Tools should not expose hidden links to Tab`);
+    await clickPointer(page, "[data-vm-tools-trigger]");
+    await page.mouse.click(8, 900);
+    expect((await readToolsState(page)).panelHidden, `${name}: outside pointer click should close Tools`);
+    await clickPointer(page, "[data-vm-tools-trigger]");
+    await page.keyboard.press("Tab");
+    await page.keyboard.press("Tab");
+    await page.keyboard.press("Tab");
+    expect((await readToolsState(page)).panelHidden, `${name}: focus departure should close Tools`);
+    await clickPointer(page, "[data-vm-tools-trigger]");
+    await clickPointer(page, "[data-vm-menu-trigger]");
+    await new Promise(resolve => setTimeout(resolve, 220));
+    state = await readToolsState(page);
+    expect(state.panelHidden && state.menuOpen === "true" && state.overflowHasVisibleFocus, `${name}: opening overflow should close Tools and focus its first visible control`);
+    await page.keyboard.press("Escape");
+    await clickPointer(page, "[data-vm-menu-trigger]");
+    await clickPointer(page, "[data-vm-tools-trigger]");
+    state = await readToolsState(page);
+    expect(!state.panelHidden && state.menuOpen === "false", `${name}: opening Tools should close overflow`);
+    await page.keyboard.press("Tab");
+    await page.setViewport({ width: 390, height: 844, deviceScaleFactor: 1 });
+    await page.waitForFunction(() => document.querySelector("[data-vm-tools-panel]").hidden === true);
+    state = await readToolsState(page);
+    expect(state.panelHidden && !state.activeClass.includes("vm-tools-link"), `${name}: resize should close Tools without leaving focus on hidden links`);
+    expect(state.overflow <= 0, `${name}: narrow topbar should not create horizontal overflow`);
+    await clickPointer(page, "[data-vm-menu-trigger]");
+    state = await readToolsState(page);
+    expect(state.mobileToolsAfterApocrypha && state.mobileToolsBeforeGuide, `${name}: mobile Tools should follow Apocrypha and precede Guide`);
+    expect(JSON.stringify(state.mobileLinkSemantics) === JSON.stringify([
+      { href: "https://colorpie.voxmana.io/", target: "_blank", rel: "noopener noreferrer", arrow: "↗", disclosure: " (opens in a new tab)" },
+      { href: "https://manascope.voxmana.io/", target: "_blank", rel: "noopener noreferrer", arrow: "↗", disclosure: " (opens in a new tab)" },
+    ]), `${name}: mobile Tools links should preserve exact external-link semantics`);
+    await page.setViewport({ width: 1440, height: 1000, deviceScaleFactor: 1 });
+    await page.waitForFunction(() => document.querySelector("[data-vm-menu-panel]").dataset.open === "false");
+    state = await readToolsState(page);
+    expect(state.menuOpen === "false" && !state.activeClass.includes("vm-menu-link") && state.overflow <= 0, `${name}: resize back should close mobile overflow without hidden focus`);
+  }
+
+  await page.setViewport({ width: 390, height: 844, deviceScaleFactor: 1 });
+  await page.goto(`${baseUrl}/`, { waitUntil: "domcontentloaded" });
+  await waitForTopbar(page);
+  await clickPointer(page, "[data-vm-menu-trigger]");
+  let mobile = await readToolsState(page);
+  expect(mobile.mobileToolsAfterApocrypha && mobile.mobileToolsBeforeGuide, "Mobile: labeled Tools group should follow Apocrypha and precede Guide");
+  expect(JSON.stringify(mobile.mobileLinks) === JSON.stringify(["Color Pie ↗ (opens in a new tab)", "Deck Explorer ↗ (opens in a new tab)"]), "Mobile: Tools group should retain the ordered external links");
+  await page.keyboard.press("Escape");
+  await clickPointer(page, "[data-vm-menu-trigger]");
+  await page.keyboard.press("Escape");
+  await new Promise(resolve => setTimeout(resolve, 220));
+  mobile = await readToolsState(page);
+  expect(mobile.menuOpen === "false" && !mobile.activeClass.includes("vm-menu-link"), "Mobile: rapid overflow dismissal should not focus a closed panel link");
+  await page.setViewport({ width: 1440, height: 1000, deviceScaleFactor: 1 });
+  expect((await readToolsState(page)).overflow <= 0, "Desktop: Tools should not create horizontal overflow");
+}
+
 const { server, baseUrl } = await startServer();
 let browser;
 
 try {
-  await mkdir(witnessDir, { recursive: true });
+  if (!toolsOnly) await mkdir(witnessDir, { recursive: true });
   browser = await puppeteer.launch({
     executablePath: await findBrowser(),
     headless: true,
     args: ["--disable-gpu", "--no-sandbox"],
   });
   const page = await browser.newPage();
+  if (toolsOnly) {
+    await runToolsOnly(page);
+  } else {
   await page.setViewport({ width: 1440, height: 1000, deviceScaleFactor: 1 });
 
   for (const [routeName, routePath] of primaryRoutes) {
@@ -276,6 +412,7 @@ try {
   }));
   expect(reducedMotion.menuTransition <= 0.001 && reducedMotion.utilityTransition <= 0.001,
     "Reduced motion: menu and Guide utility transitions should collapse");
+  }
 } finally {
   await browser?.close();
   await new Promise(resolve => server.close(resolve));
@@ -287,4 +424,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log(`Topbar browser smoke passed. Witnesses: ${path.relative(root, witnessDir)}`);
+console.log(toolsOnly ? "Topbar Tools browser smoke passed." : `Topbar browser smoke passed. Witnesses: ${path.relative(root, witnessDir)}`);

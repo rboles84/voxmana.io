@@ -1,4 +1,4 @@
-<!-- task-view-sha256:6e5e58aef8d3618183c5aaa536e847872cbf4713b5970b42d246dcb5f9374726 -->
+<!-- task-view-sha256:b1d1f550106d32a6d132cb35c86ac39cba4e17f3fc2b8116f39ec23f3292fbf7 -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -8,10 +8,15 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 
 | Authored / filename date | Agent | Handoff | Related task references | Diagnostics |
 |---|---|---|---|---|
+| 2026-10-23T21:21:00Z (authored) | Kanban Steward `/root/vm701_records` | [VM-701 Kanban Scope Amendment — Shared Tools](2026-10-23-2121-kanban-vm701-tools.md) | VM-701 | Identity displayed from heading; not admission metadata. |
+| 2026-10-23T21:21:00Z (filename) | Unknown | [Planning Architect Handoff — VM-701 Tools Topbar Amendment](2026-10-23-2121-plan-vm701-tools.md) | VM-701 | Identity displayed from heading; not admission metadata. |
 | 2026-10-23T20:20:00Z (authored) | Kanban Steward `/root/vm701_records` | [VM-701 Kanban Admission Record](2026-10-23-2020-kanban-vm701-deck-explorer.md) | VM-701 | Identity displayed from heading; not admission metadata. |
 | 2026-10-23T00:00:00Z (authored) | /root | [Coordinator Handoff: VM-701 Deck Explorer Home Link](2026-10-23-2020-codex-vm701-deck-explorer.md) | VM-701 | Identity displayed from heading; not admission metadata. |
 | 2026-10-23T00:00:00Z (authored) | /root/vm701_dev | [Agent Handoff: RobDev — VM-701 Deck Explorer Home Link](2026-10-23-2020-robdev-vm701-deck-explorer.md) | VM-701 | Identity displayed from heading; not admission metadata. |
 | 2026-10-23T00:00:00Z (authored) | /root/vm701_qa | [Independent RobQA Handoff — VM-701 Deck Explorer Home Link](2026-10-23-2020-robqa-vm701-deck-explorer.md) | VM-701 | Identity displayed from heading; not admission metadata. |
+| 2026-10-23T00:00:00Z (authored) | /root | [Coordinator Handoff: VM-701 Home and Tools Navigation](2026-10-23-2121-codex-vm701-tools.md) | VM-701 | Identity displayed from heading; not admission metadata. |
+| 2026-10-23T00:00:00Z (authored) | /root/vm701_dev | [Agent Handoff: RobDev — VM-701 Tools Disclosure](2026-10-23-2121-robdev-vm701-tools.md) | VM-701 | Identity displayed from heading; not admission metadata. |
+| 2026-10-23T00:00:00Z (authored) | /root/vm701_qa | [Test Strategist Handoff — VM-701 Shared Tools Navigation](2026-10-23-2121-test-vm701-tools.md) | VM-701 | Identity displayed from heading; not admission metadata. |
 | 2026-10-21T00:00:00Z (authored) | Unknown | [Agent Handoff: RobDev — VM-700 Closeout Deletion Preservation](2026-10-21-robdev-vm700-closeout-deletions.md) | VM-700 | Identity displayed from heading; not admission metadata. |
 | 2026-10-21T00:00:00Z (authored) | Unknown | [Agent Handoff: RobQA — VM-700 Closeout Deletion Preservation](2026-10-21-robqa-vm700-closeout-deletions.md) | VM-700 | Identity displayed from heading; not admission metadata. |
 | 2026-10-20T00:00:00Z (authored) | Unknown | [Agent Handoff: RobDev — VM-699 Color Pie Home Link](2026-10-20-2222-robdev-vm699-color-pie-home-link.md) | VM-699 | Identity displayed from heading; not admission metadata. |

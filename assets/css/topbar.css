@@ -230,6 +230,125 @@
   color: #f0dcad;
 }
 
+.vm-tools {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  margin-left: calc(var(--vm-nav-separator-space) + var(--vm-nav-separator-space));
+}
+
+.vm-tools::before {
+  content: "";
+  position: absolute;
+  left: calc(0px - var(--vm-nav-separator-space));
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  transform: translate(-50%, -50%) rotate(45deg);
+  border-radius: 1px;
+  background: rgba(236, 212, 160, 0.55);
+  box-shadow: 0 0 8px rgba(212, 180, 97, 0.24), 0 0 14px rgba(26, 170, 150, 0.08);
+}
+
+.vm-tools-trigger {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: color-mix(in srgb, var(--text-dim) 74%, #f2dfb2 26%);
+  cursor: pointer;
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.72);
+  text-transform: uppercase;
+}
+
+.vm-tools-trigger:hover,
+.vm-tools-trigger:focus-visible,
+.vm-tools-trigger[aria-expanded="true"] {
+  color: #f0dcad;
+}
+
+.vm-tools-trigger:focus-visible,
+.vm-tools-link:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--gold-l) 74%, var(--teal-l) 26%);
+  outline-offset: 3px;
+}
+
+.vm-tools-trigger > span {
+  margin-left: 0.22rem;
+  font-size: 1rem;
+  line-height: 0.6;
+  transform: translateY(-1px);
+}
+
+.vm-tools-panel {
+  position: absolute;
+  top: calc(100% + 13px);
+  left: 50%;
+  z-index: 110;
+  display: grid;
+  gap: 3px;
+  width: max-content;
+  min-width: 12rem;
+  padding: 8px;
+  transform: translateX(-50%);
+  border: 1px solid rgba(218, 184, 107, 0.28);
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.012)), rgba(7, 11, 18, 0.98);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07), 0 16px 38px rgba(0, 0, 0, 0.38);
+}
+
+.vm-tools-panel[hidden] { display: none; }
+
+.vm-tools-link {
+  display: flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0.45rem 0.62rem;
+  border-radius: 8px;
+  color: color-mix(in srgb, var(--text-dim) 74%, #f2dfb2 26%);
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  font-weight: 650;
+  letter-spacing: 0.09em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.vm-tools-link:hover,
+.vm-tools-link:focus-visible {
+  color: var(--gold-l);
+  background: rgba(212, 180, 97, 0.08);
+}
+
+/* Home's preview nav has a deliberately plainer link treatment. */
+.vm-home-preview .vm-tools-trigger {
+  min-height: 66px;
+  color: var(--preview-muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.065em;
+  text-shadow: none;
+}
+
+.vm-home-preview .vm-tools {
+  min-height: 66px;
+  margin-left: 0;
+}
+
+.vm-home-preview .vm-tools::before { display: none; }
+
+.vm-home-preview .vm-tools-trigger:hover,
+.vm-home-preview .vm-tools-trigger:focus-visible,
+.vm-home-preview .vm-tools-trigger[aria-expanded="true"] { color: var(--preview-gold); }
+
 .vm-nav-hint {
   position: absolute;
   left: 50%;
@@ -990,6 +1109,27 @@ body.vm-feedback-open {
   border-radius: 0 0 12px 12px;
 }
 
+.vm-menu-tools {
+  display: grid;
+  gap: 4px;
+  margin: 4px 0 8px;
+  padding: 8px 0;
+  border-top: 1px solid rgba(218, 184, 107, 0.14);
+  border-bottom: 1px solid rgba(218, 184, 107, 0.12);
+}
+
+.vm-menu-tools-label {
+  padding: 0 0.75rem;
+  color: var(--text-muted);
+  font-family: var(--font-ui);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.vm-menu-link--tool span[aria-hidden="true"] { margin-left: 0.35rem; }
+
 .vm-menu-link .vm-nav-hint {
   display: none;
 }
@@ -1366,6 +1506,11 @@ dialog.vm-clipboard-dialog :is(.vm-clipboard-head h2, .vm-clipboard-group h3, .v
 .vm-theme-toggle--menu .vm-theme-toggle-copy { position: static; width: auto; height: auto; overflow: visible; clip: auto; }
 html[data-vm-theme="light"] .vm-topbar { background: rgba(244, 234, 212, 0.94); color: #211b18; border-color: rgba(110, 80, 39, 0.28); }
 html[data-vm-theme="light"] .vm-menu-panel { --gold-l: #8a5b19; --teal-l: #0d6e60; background: #f4ead4; color: #211b18; border-color: rgba(110, 80, 39, 0.32); }
+html[data-vm-theme="light"] .vm-tools-trigger { color: #3b3028; text-shadow: none; }
+html[data-vm-theme="light"] .vm-tools-panel { background: #f4ead4; border-color: rgba(110, 80, 39, 0.32); }
+html[data-vm-theme="light"] .vm-tools-link { color: #3b3028; }
+html[data-vm-theme="light"] .vm-tools-link:hover,
+html[data-vm-theme="light"] .vm-tools-link:focus-visible { color: #8a5b19; background: rgba(138, 91, 25, 0.1); }
 html[data-vm-theme="light"] .vm-clipboard-dialog { --vm-clipboard-surface: #f7edd8; --vm-clipboard-copy: #211b18; --vm-clipboard-ink: #211b18; --vm-clipboard-rule: rgba(110, 80, 39, 0.32); --vm-clipboard-gold: #8a5b19; }
 html[data-vm-theme="light"] .vm-clipboard-title,
 html[data-vm-theme="light"] .vm-clipboard-section,
