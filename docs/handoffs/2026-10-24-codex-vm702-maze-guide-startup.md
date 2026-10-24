@@ -380,3 +380,200 @@ PASS cases:
 No page errors. Evidence: external `vm702-readiness-regression.json` and reproduction script `vm702-readiness-regression.mjs` in this chat's visualization directory. The original investigation remains separately preserved as `vm702-startup-evidence.json`. The first new regression run completed the normal case but failed its delayed-case input assertion because it omitted the native Enter newline. A single causal check corrected that harness assumption; completed normal evidence was retained and only remaining cases were run. No product behavior was changed for that assertion. The final evidence records this limitation/correction and source SHA-256 fingerprints. These checks do not measure production latency, live Scryfall availability, or whole-product readiness.
 
 Focused developer checks PASS: new startup readiness Node test; existing VM-616 Guide/context static check after its one directly relevant expectation update; JavaScript lint; HTML lint; whitespace check. No broad suite, screenshot, visual matrix or deferred cleanup. Owner review is limited to whether the preparing label/disabled action reads clearly and Search becomes usable after startup. No push, merge, deploy or additional scope is authorized.
+
+
+## Replacement readiness candidate — independent RobQA original packet
+
+# VM-702 — Independent RobQA for Search readiness replacement candidate
+
+Task: VM-702
+Candidate: caef44d55bb3f018d4578005563b9f69724f3d44
+Baseline: 6dd4576fc4ae938799a74849140f8c2b9973109a
+RobQA: PASS
+Execution: SEPARATE
+Reviewer: /root/guide_qa
+Implementer: /root/guide_copy and /root
+Branch: codex/vm-702-maze-guide-startup-readiness
+
+## Agent name
+
+`/root/guide_qa` — independent RobQA reviewer. Requested/configured route: RobQA, `gpt-5.6-sol`, medium. The host accepted the configured role; backend-effective model/effort telemetry is unverified.
+
+## Task requested
+
+Independently review replacement candidate `caef44d55bb3f018d4578005563b9f69724f3d44` after the Owner-authorized narrow Search-readiness repair. Inspect the exact candidate, amended card, production boundary, focused test, and existing candidate-bound browser evidence. Run proportional focused checks without editing the repository or rerunning browser evidence unless required.
+
+The prior Guide-only candidate `91f4688dc163183a3ad0b404931a61269bdab3b8` and its PASS are immutable historical evidence and are superseded for current delivery.
+
+## Files reviewed
+
+- Reused unchanged governing `.agents/skills/robqa/SKILL.md` and full `docs/qa/RobQAPass.md`
+- `docs/kanban/in-progress/VM-702-maze-guide-startup-readiness.md`
+- `docs/handoffs/2026-10-24-codex-vm702-maze-guide-startup.md`
+- Exact baseline-to-candidate diff and focused `174c0dc7..caef44d55bb3f018d4578005563b9f69724f3d44` readiness delta
+- `maze/index.html`
+- `assets/js/maze/research-init.js`
+- `tests/maze/maze-startup-readiness-tests.js`
+- `scripts/vm616-maze-context-recovery-tests.mjs`
+- Preserved Guide correction and current VM-663 mode ownership from the prior independent review
+- External `vm702-readiness-regression.json`, `vm702-readiness-regression-first.json`, and `vm702-readiness-regression.mjs`
+
+## Files changed
+
+- Outside-repository QA evidence only: `vm702-readiness-robqa.md`
+- Repository files changed: none
+
+## What changed
+
+- Both existing Search controls now start disabled in Maze HTML with truthful `Preparing search…` text.
+- After awaited startup data handling, normal control binding, Plain mode setup, and action setup, the existing `setLoading(false)` helper enables both controls and restores their established labels.
+- The enable point occurs before the existing guide-return early exit and before route/deep-link launch handling.
+- The Maze module script received an opaque revision update.
+- A focused startup-readiness test was added; the older VM-616 canonical Search assertion now expects the readiness gate.
+- The prior Guide copy/static-guard correction remains part of the candidate.
+
+## Why it changed
+
+The bounded investigation established that an enabled Search control could receive a click before ordinary handlers bound and silently do nothing. The Owner then explicitly authorized the smallest readiness repair: keep Search unavailable until it is ready, run focused checks, and stop for review.
+
+## Change classification
+
+- QA tier: QA-2 — a bounded startup control-availability and interaction-state transition, plus retained QA-1 Guide copy.
+- Changed behavior: Plain and Loom Search begin unavailable with preparation feedback and become available at the existing post-initialization boundary.
+- Protected behavior intentionally untouched: parser/compiler semantics, Scryfall request/query/cache/dedupe, mode semantics, input editability, Clipboard/storage/history, routes, Guide anchors/telemetry/style, early event binding, queuing, and broader loading design.
+- QA execution mode, reviewer/agent, and risk-based reason: SEPARATE by `/root/guide_qa`; startup interaction timing affects a shared primary action, and the reviewer did not implement the candidate.
+- Exact candidate SHA and evidence reference: `caef44d55bb3f018d4578005563b9f69724f3d44`; this packet and the three external regression artifacts above.
+
+## Findings and decisions
+
+No blocker, major correctness defect, or scope drift remains.
+
+The production correction is narrow. The exact readiness delta changes two initial button states/labels, adds one call to the unchanged loading helper at the post-setup boundary, revises the module URL, updates one directly obsolete static assertion, and adds the focused regression. No CSS, queue, cache, parser, query, mode, route, Clipboard, history, or telemetry implementation changed.
+
+The enable boundary is correctly ordered after `initializeParserDictionary()`, `initializeMazeDiscoveryProfiles()`, control construction, `bindMazeControls()`, input-focus binding, `setMode("ai")`, and `updateSearchActions()`. It precedes `restoreMazeGuideReturnState()` and route/deep-link execution. A startup-data failure is already caught by the existing fallback, so the readiness transition remains reachable after a seed 503. A total module/startup failure leaves the controls disabled with truthful preparation feedback rather than exposing an inert action.
+
+The supplied browser report is bound to the exact candidate and current sources. Report candidate is `caef44d55bb3f018d4578005563b9f69724f3d44`; current SHA-256 values independently match:
+
+- `maze/index.html`: `228662b1e6a023818b429c286eaf645c2ed8f8c2b0327ad024172ed39d7bb577`
+- `assets/js/maze/research-init.js`: `55b44c0279d88987b833f1faf17635679549743966584af3999f77a4da51ed92`
+
+The four focused cases passed:
+
+- Normal startup: shell showed disabled preparation state; typed input stayed editable; both controls enabled after readiness; pointer Search entered the existing in-flight disabled state, returned focus, and dispatched the expected query; subsequent Enter dispatched the second expected query; Operator/Loom switches dispatched zero requests.
+- Controlled 6000 ms seed hold: disabled pointer and pre-handler Enter attempts dispatched zero requests; Enter inserted the textarea's native newline, but authored text was retained through initialization; post-ready pointer and Enter searches dispatched the same normalized expected queries; in-flight disabling/focus and zero-request mode switches remained intact.
+- Existing seed fallback: controlled seed 503 still reached enabled readiness and preserved pointer/Enter execution, in-flight disabling/focus, and zero-request mode switches.
+- Existing query link: `?q=t%3Avampire` still auto-executed once after readiness and left both controls enabled.
+
+Scryfall was a mocked valid empty-list response. The first ordinary response was held only long enough to observe the established in-flight disabled state, then released. This proves the focused application interaction contract, not live-service availability, result correctness, production latency, or real-player incidence.
+
+The initial failed evidence file is properly retained. Its failure was a harness assumption that native Enter before handler binding would not insert a newline into an editable textarea. The corrected harness checks retained authored text and exact state continuity through initialization. No product change was made to satisfy that correction, and the final delayed case confirms the newline-normalized request executes as the same query.
+
+## Tests selected
+
+- Test: `node tests/maze/maze-startup-readiness-tests.js`
+  - Reason: lowest reliable focused source/behavior guard for initial disabled controls, setup ordering, fallback retention, unchanged loading-helper ownership, enabled labels, and editable/retained input.
+  - Result: PASS — `Maze startup readiness tests passed.`
+- Test: `node scripts/vm616-maze-context-recovery-tests.mjs`
+  - Reason: directly updated canonical Search markup assertion plus retained Guide and Maze context/recovery contracts.
+  - Result: PASS — `VM-616 Maze context and recovery static tests passed.`
+- Test: `npm.cmd run lint:js`
+  - Reason: relevant source validation for the modified Maze module and new JavaScript test.
+  - Result: PASS — frontend JS lint passed for 37 files.
+- Test: `npm.cmd run lint:html`
+  - Reason: relevant validation for modified Maze and Guide HTML.
+  - Result: PASS — frontend HTML validation passed.
+- Test: `git diff --check 6dd4576fc4ae938799a74849140f8c2b9973109a..caef44d55bb3f018d4578005563b9f69724f3d44`
+  - Reason: exact-candidate whitespace validation.
+  - Result: PASS — no output.
+- Inspection: exact diff, source hashes, browser report/script, prior failed report, and repository state.
+  - Reason: verify actual scope, exact-source evidence binding, honest harness correction, and clean candidate.
+  - Result: PASS — HEAD matched the candidate and the worktree remained clean.
+
+## Tests intentionally skipped
+
+- Browser rerun: not required. Existing candidate-bound evidence covers the objective readiness, delayed-startup, fallback, deep-link, in-flight, focus, Enter, pointer, and mode-switch risks; its source hashes match current files.
+- Screenshots, visual regression, viewport matrices, or subjective optical review: not required under OWNER-VISUAL MODE; no styling or layout changed.
+- Broad Maze route/state/parser/placement/recovery/mutation/stress suites: disproportionate because those protected owners are unchanged.
+- Live Scryfall execution: not required for the changed readiness boundary and would introduce provider/network variability without proving additional candidate behavior.
+
+## CPU-heavy validation
+
+`NOT REQUIRED`
+
+## Self-QA objective evidence
+
+- Deterministic case: Search controls are unavailable with truthful feedback until ordinary setup completes, then preserve existing pointer/Enter execution and in-flight behavior.
+- Verification layer: exact HTML/runtime source, focused Node regression, and existing exact-source-bound browser interaction evidence.
+- Browser justification, if any: the existing browser evidence was justified because disabled native pointer behavior, pre-handler Enter behavior, delayed asynchronous readiness, in-flight focus, fallback, and deep-link execution cannot all be established reliably from static source alone. It was inspected rather than rerun.
+- Interaction checked: disabled pointer/Enter attempt, delayed readiness, post-ready pointer and Enter, seed fallback, deep-link auto-search, in-flight disable/restore, focus restoration, and Operator/Loom zero-request switching.
+- Objective result: PASS. The inert pre-ready action is removed without broadening startup or search behavior.
+
+## Stateful adversarial coverage
+
+- Relevant state owners and materially changed ownership seams: initial HTML button state → awaited startup data/setup → existing loading helper → ready Search; existing in-flight helper remains the separate execution-state owner.
+- Request/source provenance owners, when relevant: not materially changed; typed Plain request and deep-link Operator query remain governed by existing owners.
+- Forward transition: initial disabled/preparing → post-setup enabled/Search passed in normal and delayed cases.
+- Reverse transition or reason not applicable: existing ready → in-flight disabled → ready transition passed with focus restoration; startup readiness itself is one-way per page load.
+- Perturb/restore: imposed seed delay and release retained the editable request and converged on ready execution.
+- Replacement/reset: not applicable; no source replacement or reset contract changed.
+- Same-visible-state/different-history comparison, including authoritative hidden state/provenance: normal startup, delayed startup, and seed-failure fallback all converged on enabled controls and the same request execution contract.
+- Representation round-trip: not applicable; no representation boundary changed.
+- Visible/current versus executed state and applicable normalization contract: delayed native Enter inserted a trailing newline; the retained visible request normalized under the existing contract to `type:vampire type:creature c:r o:sacrifice`, matching normal execution.
+- Structurally different representative or reason not applicable: query-link auto-execution (`t:vampire`) exercised the alternate startup branch; Operator and Loom switches exercised distinct mode owners with zero requests.
+- Sensitivity/causal control for an Owner QA escape when practical, or why not required: the pre-repair investigation is the red witness—enabled-before-binding accepted an inert click. The replacement evidence shows disabled native pointer/Enter attempts dispatch zero requests and post-ready actions dispatch normally.
+- Objective result: PASS.
+
+## Manual findings converted to invariants
+
+- Finding: an enabled Search action could accept a pre-handler click with no request or feedback.
+- Defect class: primary action availability preceded actual interaction readiness.
+- Regression invariant: both Search controls begin disabled with truthful preparation text and become enabled only after startup data handling and ordinary control/mode/action setup; input remains editable and retained, and existing post-ready/in-flight execution still works.
+
+## Remaining Owner judgment
+
+OWNER-VISUAL MODE remains active. The Owner should judge whether the brief preparation label is understandable and whether the revised Guide remains natural and useful. This engineering PASS does not claim Owner acceptance or aesthetic/product approval.
+
+Shortest Owner check:
+
+1. Open `/maze/` and confirm Search briefly presents `Preparing search…` only while unavailable, then becomes the ordinary Search action without losing typed text.
+2. Run one Plain request and confirm the existing searching state and results feedback still feel coherent.
+3. Open `/guide/maze/` and confirm the revised Plain Reading / Operator's Hand explanation reads naturally.
+
+PASS if readiness feedback is clear, typed text is preserved, ordinary Search feels unchanged after readiness, and the Guide's mode boundary is useful. FAIL if Search appears actionable before it works, stays unavailable, loses text, or the Guide remains misleading.
+
+## Risks / uncertainties
+
+- Browser evidence uses installed headless Edge, checked-in startup data, and mocked empty Scryfall results. Live provider behavior and production exposure frequency remain unknown.
+- A native Enter before handler binding inserts a newline because the input remains an editable textarea; this is disclosed and the existing normalization produces the same query after readiness.
+- The readiness enable call reuses an existing helper whose labels and in-flight focus behavior remain shared; focused regression covers that shared seam.
+- Owner visual/product judgment remains pending.
+
+## Not touched
+
+- Repository files, commits, browser evidence, or runtime installation during review
+- Queueing, early event binding, caching, parser/compiler/query semantics, mode semantics, Clipboard/storage/history
+- CSS, layout, Guide anchors/routes/telemetry, deployment, PR, integration, or Owner decision
+
+## Follow-up recommendations
+
+- Append this packet to the admitted VM-702 lifecycle evidence and refresh derived views without changing the material candidate binding.
+- Stop at Owner Review. Do not infer production latency or live-service behavior from the controlled browser evidence.
+
+## Next suggested agent
+
+Coordinator `/root` for evidence recording and candidate delivery validation, then Product Owner review.
+
+## Related records
+
+- `docs/kanban/in-progress/VM-702-maze-guide-startup-readiness.md`
+- `docs/handoffs/2026-10-24-codex-vm702-maze-guide-startup.md`
+- External `vm702-readiness-regression.json`, `vm702-readiness-regression-first.json`, and `vm702-readiness-regression.mjs`
+
+## Verdict
+
+RobQA PASS for exact replacement candidate `caef44d55bb3f018d4578005563b9f69724f3d44`. This permits Owner Review only. Owner acceptance, production claims, PR activity, integration, and deployment remain pending or outside scope.
+
+
+## Replacement candidate Owner Review record
+
+Coordinator verified the separate QA role and original source packet. Clean exact-candidate checker PASS at `caef44d55bb3f018d4578005563b9f69724f3d44`. Owner remains PENDING; no integration authorized. The preceding Guide-only candidate remains historical evidence and is superseded by this readiness candidate. The appended packet and faithful card/derived status updates are evidence-only. Whole-task Git accounting is in external `vm702-readiness-git-report.md`, validated with the repository change-report validator. Owner research WIP is to be restored after final clean candidate checks; tip-jar plan remains shelved.

@@ -2,7 +2,7 @@
 
 ID: VM-702
 Title: Maze Guide correction and bounded startup readiness investigation
-Status: In Progress
+Status: Owner Review
 Type: Copy correction and functional investigation
 Area: Maze Guide / Maze
 Priority: Normal
@@ -41,13 +41,13 @@ Apply RobDev and RobQA. Correct Guide copy from current runtime and VM-663. Use 
 Record version: 1
 Branch: codex/vm-702-maze-guide-startup-readiness
 Admission baseline: 6dd4576fc4ae938799a74849140f8c2b9973109a
-Candidate: PENDING
-RobQA: PENDING
+Candidate: caef44d55bb3f018d4578005563b9f69724f3d44
+RobQA: PASS at caef44d55bb3f018d4578005563b9f69724f3d44 — SEPARATE /root/guide_qa; original vm702-readiness-robqa.md and appended task handoff.
 Owner: PENDING
 Integration: PENDING; no merge or deployment authorized
 Dependencies: None
 Decisions: Scope amendment: Owner explicitly authorized on 2026-10-24 in this chat: "fix Search so it only becomes available when it’s ready. Keep it small, run the focused checks, and stop for my review." Add only Maze startup action readiness and focused validation; all other deferred scope remains deferred. Owner research moves are intentional; preserved temporarily in stash and to be restored. Tip-jar plan separately shelved at Owner request.
-Evidence: VM-663 accepted card; [task implementation, startup and independent QA handoff](../../handoffs/2026-10-24-codex-vm702-maze-guide-startup.md). Prior Guide-only candidate 91f4688dc163183a3ad0b404931a61269bdab3b8 passed independent QA; superseded for readiness correction by the subsequent Owner request. New candidate and QA PENDING.
+Evidence: VM-663 accepted card; [task implementation, startup and independent QA handoff](../../handoffs/2026-10-24-codex-vm702-maze-guide-startup.md). Prior Guide-only candidate 91f4688dc163183a3ad0b404931a61269bdab3b8 passed independent QA; superseded for readiness correction by the subsequent Owner request. Replacement readiness candidate caef44d55bb3f018d4578005563b9f69724f3d44 passed independent RobQA and the clean exact-candidate delivery check. Owner PENDING.
 
 ## Admission Scope
 
