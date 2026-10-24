@@ -74,7 +74,7 @@ RobQA: PASS at 28b4148859523718d1e89f74c8ae45044f2e97fc (Execution: SEPARATE; Re
 Owner: PENDING
 Integration: NOT STARTED
 Dependencies: None
-Decisions: Append Deck Explorer as the sixth Home destination below Color Pie using the approved exact copy and existing directory presentation. The first five cards are frozen. Stop at Owner Review.
+Decisions: Append Deck Explorer as the sixth Home destination below Color Pie using the approved exact copy and existing directory presentation. The first five cards are frozen. Stop at Owner Review. Scope amendment: Owner approved Tools immediately after Apocrypha with Color Pie and Deck Explorer; extend shared topbar runtime, styles, mobile projection, active-consumer cache revisions, and focused interaction validation on the same task branch before a new Owner Review.
 Evidence: [VM-699 predecessor card](../done/VM-699-color-pie-home-link.md); [RobDev handoff](../../handoffs/2026-10-23-2020-robdev-vm701-deck-explorer.md); [independent RobQA PASS](../../handoffs/2026-10-23-2020-robqa-vm701-deck-explorer.md); [coordinator handoff](../../handoffs/2026-10-23-2020-codex-vm701-deck-explorer.md).
 
 ## Admission Scope
@@ -89,3 +89,29 @@ Evidence: [VM-699 predecessor card](../done/VM-699-color-pie-home-link.md); [Rob
 - `docs/handoffs/2026-10-23-2020-codex-vm701-deck-explorer.md`
 - `docs/kanban/board.md`
 - `docs/handoffs/HANDOFF_INDEX.md`
+- `assets/js/shared/vm-topbar.js`
+- `assets/css/topbar.css`
+- `scripts/topbar-browser-smoke.mjs`
+- `tests/shared/clipboard-tests.js`
+- `tests/shared/theme-controller-tests.js`
+- `archscry/index.html`
+- `maze/index.html`
+- `apocrypha/index.html`
+- `library/index.html`
+- `guide/index.html`
+- `guide/reading/index.html`
+- `guide/maze/index.html`
+- `privacy/index.html`
+- `terms/index.html`
+- `strategium/index.html`
+- `strategium/before-game/index.html`
+- `strategium/console/index.html`
+- `strategium/during-game/index.html`
+- `strategium/find-a-table/index.html`
+- `strategium/review/index.html`
+- `docs/handoffs/2026-10-23-2121-plan-vm701-tools.md`
+- `docs/handoffs/2026-10-23-2121-test-vm701-tools.md`
+- `docs/handoffs/2026-10-23-2121-kanban-vm701-tools.md`
+- `docs/handoffs/2026-10-23-2121-robdev-vm701-tools.md`
+- `docs/handoffs/2026-10-23-2121-robqa-vm701-tools.md`
+- `docs/handoffs/2026-10-23-2121-codex-vm701-tools.md`
