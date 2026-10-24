@@ -45,7 +45,7 @@ RobQA: PASS at 91f4688dc163183a3ad0b404931a61269bdab3b8 — SEPARATE /root/guide
 Owner: PENDING
 Integration: PENDING; no merge or deployment authorized
 Dependencies: None
-Decisions: Owner research moves are intentional; preserved temporarily in stash and to be restored. Tip-jar plan separately shelved at Owner request.
+Decisions: Scope amendment: Owner explicitly authorized on 2026-10-24 in this chat: "fix Search so it only becomes available when it’s ready. Keep it small, run the focused checks, and stop for my review." Add only Maze startup action readiness and focused validation; all other deferred scope remains deferred. Owner research moves are intentional; preserved temporarily in stash and to be restored. Tip-jar plan separately shelved at Owner request.
 Evidence: VM-663 accepted card; [task implementation, startup and independent QA handoff](../../handoffs/2026-10-24-codex-vm702-maze-guide-startup.md). Candidate delivery check PASS before Owner Review record; Owner PENDING.
 
 ## Admission Scope
@@ -56,3 +56,7 @@ Evidence: VM-663 accepted card; [task implementation, startup and independent QA
 - `docs/kanban/board.md`
 - `docs/handoffs/HANDOFF_INDEX.md`
 - `docs/handoffs/2026-10-24-codex-vm702-maze-guide-startup.md`
+
+- `maze/index.html`
+- `assets/js/maze/research-init.js`
+- `tests/maze/maze-startup-readiness-tests.js`
