@@ -144,10 +144,9 @@
     trigger.dataset.vmToolsTrigger = "true";
     trigger.setAttribute("aria-expanded", "false");
     trigger.setAttribute("aria-controls", "vm-tools-panel");
-    trigger.appendChild(document.createTextNode("Tools "));
+    trigger.appendChild(document.createTextNode("Tools"));
     var indicator = document.createElement("span");
     indicator.setAttribute("aria-hidden", "true");
-    indicator.textContent = "⌄";
     trigger.appendChild(indicator);
     var panel = document.createElement("div");
     panel.className = "vm-tools-panel";

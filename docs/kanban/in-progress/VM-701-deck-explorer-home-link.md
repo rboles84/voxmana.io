@@ -22,7 +22,7 @@ Current Owner request and approved revised plan. The initial START on primary ma
 - Use heading `Deck Explorer`, the approved description `Import your Commander deck, explore its cards’ flavor text and mechanics, and save new discoveries.`, and CTA `Open Deck Explorer` with decorative `aria-hidden` ↗ plus visually hidden ` (opens in a new tab)`.
 - Update the Home introduction to `Six focused paths for finding your Commander direction, searching cards, reading the sources, exploring Magic’s colors, learning the table, and exploring your deck.`
 - Update the two ordered destination arrays and five-to-six diagnostics in `scripts/frontend-smoke.mjs` and `scripts/validate-frontend-html.mjs`.
-- Add Tools immediately after Apocrypha in the shared topbar, with Color Pie then Deck Explorer as safely and accessibly disclosed new-tab destinations; project the equivalent mobile Tools group before Guide.
+- Add a `Tools` button immediately after Apocrypha in the shared topbar, with a compact decorative chevron aligned beside Tools. Color Pie then Deck Explorer remain safely and accessibly disclosed new-tab destinations; project the equivalent mobile Tools group before Guide.
 - Extend the shared topbar runtime and scoped styles, revise cache keys only on the 16 canonical active consumers, and add narrow shared interaction validation.
 - Record Kanban, RobDev, RobQA, and Codex handoffs and regenerate the board and handoff index.
 
@@ -42,7 +42,7 @@ Current Owner request and approved revised plan. The initial START on primary ma
 - [x] The existing smoke and HTML validators assert all six ordered destinations and their six-card diagnostics.
 - [x] Focused QA-1 passes: `npm run lint:html`, `npm run test:frontend-smoke`, `git diff --check`, and the source contract.
 - [x] The previous Home-only candidate received independent RobQA and stopped for Owner Review.
-- [ ] Shared desktop topbar places Tools immediately after Apocrypha and exposes Color Pie then Deck Explorer, with safe and accessible new-tab disclosure for both external destinations.
+- [ ] Shared desktop topbar places a Tools button with a compact decorative chevron aligned beside Tools immediately after Apocrypha and exposes Color Pie then Deck Explorer, with safe and accessible new-tab disclosure for both external destinations.
 - [ ] Mobile navigation projects an equivalent Tools group before Guide without changing the first five Home directory cards.
 - [ ] Shared runtime injection and scoped CSS update the canonical 16 topbar consumers with cache-key-only revisions.
 - [ ] QA-2 runs focused Home and Apocrypha interactions at desktop 1440 and mobile 390 without screenshots, plus `lint:js`, `lint:html`, frontend smoke, `topbar-browser-smoke --tools-only`, clipboard TOPBAR CACHE-MAP ASSERTIONS, `git diff --check`, and source-contract checks. If a later unrelated protected-owner assertion remains red, record the whole clipboard command as `Automated test: FAIL / known historical harness debt` without weakening or rebaselining it.
@@ -98,7 +98,7 @@ Current Owner request and approved revised plan. The initial START on primary ma
 
 ## Implementation Prompt
 
-Preserve the completed Home sixth-row implementation and its first-five-card invariant. Add Tools immediately after Apocrypha to the shared topbar, listing Color Pie then Deck Explorer with safe/accessibly disclosed external links, and project equivalent mobile Tools before Guide. Change only shared topbar runtime, scoped topbar CSS, cache-key-only revisions on the canonical 16 active consumers, and narrow interaction validation. Do not alter footer, data, hosting, DNS, deployment, external destination implementation/configuration, or unrelated application behavior. Run QA-2 focused Home and Apocrypha interactions at desktop 1440 and mobile 390 without screenshots; run focused lint, smoke, Tools-only topbar browser, clipboard, diff, and source-contract checks; obtain independent exact-candidate RobQA and stop for a new Owner Review.
+Preserve the completed Home sixth-row implementation and its first-five-card invariant. Add a Tools button immediately after Apocrypha to the shared topbar, with a compact decorative chevron aligned beside Tools, listing Color Pie then Deck Explorer with safe/accessibly disclosed external links, and project equivalent mobile Tools before Guide. Change only shared topbar runtime, scoped topbar CSS, cache-key-only revisions on the canonical 16 active consumers, and narrow interaction validation. Do not alter footer, data, hosting, DNS, deployment, external destination implementation/configuration, or unrelated application behavior. Run QA-2 focused Home and Apocrypha interactions at desktop 1440 and mobile 390 without screenshots; run focused lint, smoke, Tools-only topbar browser, clipboard, diff, and source-contract checks; obtain independent exact-candidate RobQA and stop for a new Owner Review.
 
 ## Delivery
 
