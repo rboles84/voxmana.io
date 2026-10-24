@@ -2,7 +2,7 @@
 
 ID: VM-701
 Title: Deck Explorer Home Link and Shared Tools
-Status: Accepted
+Status: Integrated
 Type: Production implementation
 Area: Home directory and shared topbar
 Priority: Normal
@@ -108,7 +108,7 @@ Admission baseline: 6fdfbd3c6ab6b7cbe209a6359a17ac8e1db1cbbc
 Candidate: 96871351b3114e7db8dd1d2006f9fd03341a5583
 RobQA: PASS at 96871351b3114e7db8dd1d2006f9fd03341a5583 (Execution: SEPARATE; Reviewer: /root/vm701_qa; Implementer: /root/vm701_dev)
 Owner: ACCEPTED at 96871351b3114e7db8dd1d2006f9fd03341a5583 (Decision reference: current chat Owner message `Looks good now. ACCEPT VM-701.`, 2026-10-23, after Owner Review evidence head `a36898e8e59664dc3efc6b72fafde6f2c1d39d34`)
-Integration: PENDING
+Integration: INTEGRATED via PR86 guarded squash merge `a0ca182bac53af2193565ef8fcee2449f8575c67` for accepted candidate `96871351b3114e7db8dd1d2006f9fd03341a5583`; evidence head `ff026e63daf28f851c106c83b7949df68f988fbf`; Integration checker PASS; Deterministic Validation run `40060786214`, job `120773607701`: success. Primary `main` was fast-forwarded to the verified merge; merge parent is baseline `6fdfbd3c6ab6b7cbe209a6359a17ac8e1db1cbbc` and its tree matches the evidence head.
 Dependencies: None
 Decisions: Append Deck Explorer as the sixth Home destination below Color Pie using the approved exact copy and existing directory presentation. The first five cards are frozen. Stop at Owner Review. Scope amendment: Owner approved Tools immediately after Apocrypha with Color Pie and Deck Explorer; extend shared topbar runtime, styles, mobile projection, active-consumer cache revisions, and focused interaction validation on the same task branch before a new Owner Review.
 Evidence: Previous Home-only candidate `28b4148859523718d1e89f74c8ae45044f2e97fc` passed independent RobQA at evidence head `9eb99e08`; it remains historical evidence only and is not reused for this amended scope. Pre-candidate QA found `tests/shared/clipboard-tests.js` passes all 16 VM-701 topbar cache-map assertions before an unrelated protected-owner failure: current/baseline blob `869db77f22014d04fef69034df46daa8e6a459cb` in `assets/js/archscry/archscry-presentation.js` is compared with stale `8cee92d103f28c2ca23c21f20bb35f47a849b4f6`; the file was last changed by VM-695. Future debt follow-up: reconcile that protected baseline with accepted VM-695 outside VM-701. [VM-699 predecessor card](../done/VM-699-color-pie-home-link.md); [prior RobDev handoff](../../handoffs/2026-10-23-2020-robdev-vm701-deck-explorer.md); [prior independent RobQA PASS](../../handoffs/2026-10-23-2020-robqa-vm701-deck-explorer.md); [prior coordinator handoff](../../handoffs/2026-10-23-2020-codex-vm701-deck-explorer.md); [amended RobQA PASS](../../handoffs/2026-10-23-2121-robqa-vm701-tools.md) (source SHA-256 `9a42aa8d171ced92a345adffa67a628cc182c51fee1874fb0ccab0ec10a31f37`); [Owner decision](../../handoffs/2026-10-23-2121-codex-vm701-tools.md).
