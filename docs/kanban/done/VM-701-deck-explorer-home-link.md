@@ -2,7 +2,7 @@
 
 ID: VM-701
 Title: Deck Explorer Home Link and Shared Tools
-Status: Integrated
+Status: Done
 Type: Production implementation
 Area: Home directory and shared topbar
 Priority: Normal
