@@ -118,9 +118,12 @@ assert.match(guideBeaconCss, /\.vm-guide-beacon:hover::after,[\s\S]*?\.vm-guide-
 assert.match(guideBeaconCss, /@media \(prefers-reduced-motion: reduce\)[\s\S]*?\.vm-guide-beacon::after/);
 
 assert.match(guideHtml, /<h1 id="maze-guide-title" tabindex="-1">Read the search\. Change one thing\.<\/h1>/);
-assert.match(guideHtml, /Red vampires that sacrifice creatures[\s\S]*?type:vampire type:creature c:r o:sacrifice/);
-assert.match(guideHtml, /Black Lotus with mana value 99 in Commander[\s\S]*?c:b legal:commander[\s\S]*?Unresolved: lotus, mana, value/);
-assert.match(guideHtml, /f:commander mv=99/);
+assert.match(guideHtml, /Interpretation details[\s\S]*?recognized and ignored terms, applied defaults, assumptions, and alternatives[\s\S]*?Important warnings, unresolved terms, and recovery stay visible[\s\S]*?Operator's Hand/);
+assert.match(guideHtml, /Illustrative Plain Reading[\s\S]*?Example request[\s\S]*?Red vampires that sacrifice creatures[\s\S]*?Plain Reading shows[\s\S]*?Recognized: red, vampires, creatures, sacrifice/);
+assert.match(guideHtml, /Interpretation needs attention[\s\S]*?Black Lotus with mana value 99 in Commander[\s\S]*?Unresolved: lotus, mana, value/);
+assert.match(guideHtml, /Operator's Hand example:<\/strong> <code>f:commander mv=99<\/code>/);
+assert.match(guideHtml, /To refine an exact query, switch to <strong>Operator's Hand<\/strong>; Copy and Open in Scryfall stay with that syntax there\./);
+assert.doesNotMatch(guideHtml, /You wrote|Maze translated|Confidence \d+%/);
 assert.match(guideHtml, /id="recovery"/, "internal recovery anchor should remain available for direct/reference links");
 assert.match(guideHtml, /Standalone search[\s\S]*?Reading available[\s\S]*?Dossier thread[\s\S]*?Searching independently/);
 assert.match(guideHtml, /setting aside the retained reading context[\s\S]*?Restore reading context[\s\S]*?Cards from every search join the same Clipboard/);

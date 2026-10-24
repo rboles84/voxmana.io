@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vox Mana - Read and Recover a Maze Search</title>
-<meta name="description" content="Read what the Maze translated, understand reading context and Commander colors, and recover from weak or zero-result searches without silent query changes.">
+<meta name="description" content="Read Plain Reading interpretation, understand reading context and Commander colors, and recover from weak or zero-result searches without silent query changes.">
 <link rel="canonical" href="https://voxmana.io/guide/maze/">
 <meta property="og:site_name" content="Vox Mana">
 <meta property="og:type" content="website">
@@ -83,25 +83,25 @@
     <section id="translation" class="r-main maze-guide-section" aria-labelledby="translation-title">
       <header class="maze-guide-section-head">
         <span class="guide-kicker">I // What did Maze understand?</span>
-        <h2 id="translation-title" tabindex="-1">Read the request beside the query.</h2>
-        <p>In Plain Reading, <strong>You wrote</strong> preserves your words. <strong>Maze translated</strong> is the exact Scryfall query that ran. Recognized, ignored, warning, and unresolved rows explain the current translation.</p>
+        <h2 id="translation-title" tabindex="-1">Read the request with its interpretation.</h2>
+        <p>Plain Reading keeps your words in the request field, with <strong>Maze Interpretation</strong> below Search. Open <strong>Interpretation details</strong> for recognized and ignored terms, applied defaults, assumptions, and alternatives. Important warnings, unresolved terms, and recovery stay visible above the disclosure. Switch to <strong>Operator's Hand</strong> to inspect or edit exact Scryfall syntax.</p>
       </header>
       <div class="maze-translation-grid">
         <figure class="guide-specimen maze-query-specimen">
-          <figcaption><span>Clean translation</span><strong>Current deterministic output</strong></figcaption>
+          <figcaption><span>Illustrative Plain Reading</span><strong>Read the recognized meaning</strong></figcaption>
           <dl>
-            <div><dt>You wrote</dt><dd>Red vampires that sacrifice creatures</dd></div>
-            <div><dt>Maze translated</dt><dd><code>type:vampire type:creature c:r o:sacrifice</code></dd></div>
+            <div><dt>Example request</dt><dd>Red vampires that sacrifice creatures</dd></div>
+            <div><dt>Plain Reading shows</dt><dd>Recognized terms and any interpretation details that need review.</dd></div>
           </dl>
-          <div class="maze-diagnostic-row"><span>Confidence 96%</span><span>Recognized: red, vampires, creatures, sacrifice</span><span>Ignored: that</span></div>
+          <div class="maze-diagnostic-row"><span>Recognized: red, vampires, creatures, sacrifice</span><span>Ignored: that</span></div>
         </figure>
         <figure class="guide-specimen maze-query-specimen maze-query-specimen--warning">
-          <figcaption><span>Weak translation</span><strong>Part of the request was not mapped</strong></figcaption>
+          <figcaption><span>Interpretation needs attention</span><strong>Part of this teaching example was not mapped</strong></figcaption>
           <dl>
-            <div><dt>You wrote</dt><dd>Black Lotus with mana value 99 in Commander</dd></div>
-            <div><dt>Maze translated</dt><dd><code>c:b legal:commander</code></dd></div>
+            <div><dt>Example request</dt><dd>Black Lotus with mana value 99 in Commander</dd></div>
+            <div><dt>Plain Reading shows</dt><dd>Maze could not map part of this request.</dd></div>
           </dl>
-          <div class="maze-diagnostic-row"><span>Confidence 63%</span><span>Recognized: black, Commander legal</span><span>Unresolved: lotus, mana, value</span></div>
+          <div class="maze-diagnostic-row"><span>Recognized: black, Commander legal</span><span>Unresolved: lotus, mana, value</span></div>
           <p class="maze-specimen-next"><strong>Next:</strong> Rephrase or remove one unresolved term, then search again.</p>
         </figure>
       </div>
@@ -147,7 +147,7 @@
           <span>The query ran; zero cards matched</span>
           <strong>Signs</strong>
           <p>A valid executable query, no material translation issue, and a zero result.</p>
-          <code>f:commander mv=99</code>
+          <p class="maze-specimen-next"><strong>Operator's Hand example:</strong> <code>f:commander mv=99</code></p>
           <strong>Next action</strong>
           <p>Broaden or remove one constraint, then search again. Maze does not guess which constraint caused the miss.</p>
         </article>
@@ -158,7 +158,7 @@
       <div>
         <span class="guide-kicker">IV // Useful results</span>
         <h2 id="maze-next-title" tabindex="-1">Inspect, refine, or carry the thread forward.</h2>
-        <p>Open a card for detail, refine the visible query, set a useful card aside, or open the same query in Scryfall. Clipboard keeps useful cards together on this device across searches, pages and reloads. Open it from the top bar to review cards, change quantities, undo removal or clearing, and export a card list. It is not a deckbuilder.</p>
+        <p>Open a card for detail or set a useful card aside. To refine an exact query, switch to <strong>Operator's Hand</strong>; Copy and Open in Scryfall stay with that syntax there. Clipboard keeps useful cards together on this device across searches, pages and reloads. Open it from the top bar to review cards, change quantities, undo removal or clearing, and export a card list. It is not a deckbuilder.</p>
       </div>
       <a class="guide-cta" data-guide-cta="maze" href="../../maze/index.html">Return to the Implicit Maze <span aria-hidden="true">→</span></a>
     </section>
