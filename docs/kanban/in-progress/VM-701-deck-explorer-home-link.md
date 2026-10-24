@@ -2,7 +2,7 @@
 
 ID: VM-701
 Title: Deck Explorer Home Link and Shared Tools
-Status: In Progress
+Status: Owner Review
 Type: Production implementation
 Area: Home directory and shared topbar
 Priority: Normal
@@ -42,11 +42,11 @@ Current Owner request and approved revised plan. The initial START on primary ma
 - [x] The existing smoke and HTML validators assert all six ordered destinations and their six-card diagnostics.
 - [x] Focused QA-1 passes: `npm run lint:html`, `npm run test:frontend-smoke`, `git diff --check`, and the source contract.
 - [x] The previous Home-only candidate received independent RobQA and stopped for Owner Review.
-- [ ] Shared desktop topbar places a Tools button with a compact decorative chevron aligned beside Tools immediately after Apocrypha and exposes Color Pie then Deck Explorer, with safe and accessible new-tab disclosure for both external destinations.
-- [ ] Mobile navigation projects an equivalent Tools group before Guide without changing the first five Home directory cards.
-- [ ] Shared runtime injection and scoped CSS update the canonical 16 topbar consumers with cache-key-only revisions.
-- [ ] QA-2 runs focused Home and Apocrypha interactions at desktop 1440 and mobile 390 without screenshots, plus `lint:js`, `lint:html`, frontend smoke, `topbar-browser-smoke --tools-only`, clipboard TOPBAR CACHE-MAP ASSERTIONS, `git diff --check`, and source-contract checks. If a later unrelated protected-owner assertion remains red, record the whole clipboard command as `Automated test: FAIL / known historical harness debt` without weakening or rebaselining it.
-- [ ] The amended exact candidate receives independent RobQA before a new Owner Review.
+- [x] Shared desktop topbar places a Tools button with a compact decorative chevron aligned beside Tools immediately after Apocrypha and exposes Color Pie then Deck Explorer, with safe and accessible new-tab disclosure for both external destinations.
+- [x] Mobile navigation projects an equivalent Tools group before Guide without changing the first five Home directory cards.
+- [x] Shared runtime injection and scoped CSS update the canonical 16 topbar consumers with cache-key-only revisions.
+- [x] QA-2 runs focused Home and Apocrypha interactions at desktop 1440 and mobile 390 without screenshots, plus `lint:js`, `lint:html`, frontend smoke, `topbar-browser-smoke --tools-only`, clipboard TOPBAR CACHE-MAP ASSERTIONS, `git diff --check`, and source-contract checks. If a later unrelated protected-owner assertion remains red, record the whole clipboard command as `Automated test: FAIL / known historical harness debt` without weakening or rebaselining it.
+- [x] The amended exact candidate receives independent RobQA before a new Owner Review.
 
 ## Files Likely Impacted
 
@@ -105,13 +105,13 @@ Preserve the completed Home sixth-row implementation and its first-five-card inv
 Record version: 1
 Branch: codex/vm-701-deck-explorer-home-link
 Admission baseline: 6fdfbd3c6ab6b7cbe209a6359a17ac8e1db1cbbc
-Candidate: PENDING
-RobQA: PENDING
+Candidate: 96871351b3114e7db8dd1d2006f9fd03341a5583
+RobQA: PASS at 96871351b3114e7db8dd1d2006f9fd03341a5583 (Execution: SEPARATE; Reviewer: /root/vm701_qa; Implementer: /root/vm701_dev)
 Owner: PENDING
 Integration: NOT STARTED
 Dependencies: None
 Decisions: Append Deck Explorer as the sixth Home destination below Color Pie using the approved exact copy and existing directory presentation. The first five cards are frozen. Stop at Owner Review. Scope amendment: Owner approved Tools immediately after Apocrypha with Color Pie and Deck Explorer; extend shared topbar runtime, styles, mobile projection, active-consumer cache revisions, and focused interaction validation on the same task branch before a new Owner Review.
-Evidence: Previous Home-only candidate `28b4148859523718d1e89f74c8ae45044f2e97fc` passed independent RobQA at evidence head `9eb99e08`; it remains historical evidence only and is not reused for this amended scope. Pre-candidate QA found `tests/shared/clipboard-tests.js` passes all 16 VM-701 topbar cache-map assertions before an unrelated protected-owner failure: current/baseline blob `869db77f22014d04fef69034df46daa8e6a459cb` in `assets/js/archscry/archscry-presentation.js` is compared with stale `8cee92d103f28c2ca23c21f20bb35f47a849b4f6`; the file was last changed by VM-695. Future debt follow-up: reconcile that protected baseline with accepted VM-695 outside VM-701. [VM-699 predecessor card](../done/VM-699-color-pie-home-link.md); [prior RobDev handoff](../../handoffs/2026-10-23-2020-robdev-vm701-deck-explorer.md); [prior independent RobQA PASS](../../handoffs/2026-10-23-2020-robqa-vm701-deck-explorer.md); [prior coordinator handoff](../../handoffs/2026-10-23-2020-codex-vm701-deck-explorer.md); amended-scope handoffs PENDING.
+Evidence: Previous Home-only candidate `28b4148859523718d1e89f74c8ae45044f2e97fc` passed independent RobQA at evidence head `9eb99e08`; it remains historical evidence only and is not reused for this amended scope. Pre-candidate QA found `tests/shared/clipboard-tests.js` passes all 16 VM-701 topbar cache-map assertions before an unrelated protected-owner failure: current/baseline blob `869db77f22014d04fef69034df46daa8e6a459cb` in `assets/js/archscry/archscry-presentation.js` is compared with stale `8cee92d103f28c2ca23c21f20bb35f47a849b4f6`; the file was last changed by VM-695. Future debt follow-up: reconcile that protected baseline with accepted VM-695 outside VM-701. [VM-699 predecessor card](../done/VM-699-color-pie-home-link.md); [prior RobDev handoff](../../handoffs/2026-10-23-2020-robdev-vm701-deck-explorer.md); [prior independent RobQA PASS](../../handoffs/2026-10-23-2020-robqa-vm701-deck-explorer.md); [prior coordinator handoff](../../handoffs/2026-10-23-2020-codex-vm701-deck-explorer.md); [amended RobQA PASS](../../handoffs/2026-10-23-2121-robqa-vm701-tools.md) (source SHA-256 `9a42aa8d171ced92a345adffa67a628cc182c51fee1874fb0ccab0ec10a31f37`).
 
 ## Admission Scope
 
