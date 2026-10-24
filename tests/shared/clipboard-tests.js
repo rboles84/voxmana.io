@@ -101,10 +101,10 @@ assert.strictEqual(getClipboard(), getClipboard(), "module consumers receive one
 
 const pages = ["index.html", "archscry/index.html", "maze/index.html", "apocrypha/index.html", "library/index.html", "strategium/index.html", "strategium/console/index.html", "strategium/review/index.html", "strategium/before-game/index.html", "strategium/during-game/index.html", "strategium/find-a-table/index.html", "guide/index.html", "guide/reading/index.html", "guide/maze/index.html", "privacy/index.html", "terms/index.html"];
 const topbarEpochByPage = new Map([
-  ["index.html", "p7r3k8z2mvqh"], ["guide/index.html", "v2q8m4r9kpxh"], ["privacy/index.html", "v2q8m4r9kpxh"], ["terms/index.html", "v2q8m4r9kpxh"],
-  ["archscry/index.html", "t6m2z8q4rkvp"], ["maze/index.html", "t6m2z8q4rkvp"], ["apocrypha/index.html", "t6m2z8q4rkvp"], ["library/index.html", "t6m2z8q4rkvp"],
-  ["strategium/index.html", "t6m2z8q4rkvp"], ["strategium/console/index.html", "t6m2z8q4rkvp"], ["strategium/review/index.html", "t6m2z8q4rkvp"], ["strategium/before-game/index.html", "t6m2z8q4rkvp"], ["strategium/during-game/index.html", "t6m2z8q4rkvp"], ["strategium/find-a-table/index.html", "t6m2z8q4rkvp"],
-  ["guide/reading/index.html", "t6m2z8q4rkvp"], ["guide/maze/index.html", "t6m2z8q4rkvp"]
+  ["index.html", "d8q4v7n2kmxh"], ["guide/index.html", "d8q4v7n2kmxh"], ["privacy/index.html", "d8q4v7n2kmxh"], ["terms/index.html", "d8q4v7n2kmxh"],
+  ["archscry/index.html", "d8q4v7n2kmxh"], ["maze/index.html", "d8q4v7n2kmxh"], ["apocrypha/index.html", "d8q4v7n2kmxh"], ["library/index.html", "d8q4v7n2kmxh"],
+  ["strategium/index.html", "d8q4v7n2kmxh"], ["strategium/console/index.html", "d8q4v7n2kmxh"], ["strategium/review/index.html", "d8q4v7n2kmxh"], ["strategium/before-game/index.html", "d8q4v7n2kmxh"], ["strategium/during-game/index.html", "d8q4v7n2kmxh"], ["strategium/find-a-table/index.html", "d8q4v7n2kmxh"],
+  ["guide/reading/index.html", "d8q4v7n2kmxh"], ["guide/maze/index.html", "d8q4v7n2kmxh"]
 ]);
 for (const file of pages) {
   const html = await readFile(file, "utf8");

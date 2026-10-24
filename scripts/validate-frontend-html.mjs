@@ -375,6 +375,7 @@ for (const key of livePublicPageKeys) {
 }
 
 const acceptedNavOrder = ["home", "archscry", "maze", "strategium", "apocrypha"];
+const topbarCacheToken = "d8q4v7n2kmxh";
 const guideUtilityTargets = {
   "index.html": "./guide/index.html",
   "guide/index.html": "./index.html",
@@ -418,7 +419,8 @@ for (const file of canonicalNavPages) {
     `${file} should place Guide before the menu trigger so Feedback can insert between them`
   );
   expect(
-    source.includes(`assets/js/shared/vm-topbar.js?v=${file === "index.html" ? "p7r3k8z2mvqh" : ["guide/index.html", "privacy/index.html", "terms/index.html"].includes(file) ? "v2q8m4r9kpxh" : "t6m2z8q4rkvp"}`),
+    source.includes(`assets/js/shared/vm-topbar.js?v=${topbarCacheToken}`) &&
+      source.includes(`assets/css/topbar.css?v=${topbarCacheToken}`),
     `${file} should load its current shared topbar runtime cache key`
   );
 }
@@ -432,6 +434,20 @@ expect(
   scriptSources.topbar.includes('clone.classList.remove("vm-nav-link")') &&
     scriptSources.topbar.includes('guideClone.classList.add("vm-menu-link", "vm-menu-link--utility")'),
   "assets/js/shared/vm-topbar.js should project primary links plus one utility Guide into mobile navigation"
+);
+expect(
+  scriptSources.topbar.includes('tools.dataset.vmTools = "true"') &&
+    scriptSources.topbar.includes('apocrypha.insertAdjacentElement("afterend", tools)') &&
+    scriptSources.topbar.includes('https://colorpie.voxmana.io/') &&
+    scriptSources.topbar.includes('https://manascope.voxmana.io/') &&
+    scriptSources.topbar.includes('target = "_blank"') &&
+    scriptSources.topbar.includes('rel = "noopener noreferrer"') &&
+    scriptSources.topbar.includes('vm-menu-tools-label') &&
+    scriptSources.topbar.includes('window.dispatchEvent(new CustomEvent("vm:tools-open"))') &&
+    scriptSources.topbar.includes('window.addEventListener("vm:tools-open"') &&
+    scriptSources.topbar.includes('window.addEventListener("vm:menu-open"') &&
+    scriptSources.topbar.includes('if (panel.dataset.open === "true") focusFirstItem();'),
+  "assets/js/shared/vm-topbar.js should inject the ordered Tools disclosure with accessible external links and coordinated menu focus"
 );
 expect(
   scriptSources.maze.includes('const MODAL_BACKGROUND_SELECTOR = "[data-maze-modal-background]"') &&
@@ -484,9 +500,9 @@ const homeDirectoryPaths = [...sources.home.matchAll(/<a\b[^>]*class="vm-preview
   .map(match => match[1]);
 expect(
   JSON.stringify(homeDirectoryPaths) === JSON.stringify([
-    "./archscry/index.html", "./maze/index.html", "./strategium/index.html", "./apocrypha/index.html", "https://colorpie.voxmana.io/",
+    "./archscry/index.html", "./maze/index.html", "./strategium/index.html", "./apocrypha/index.html", "https://colorpie.voxmana.io/", "https://manascope.voxmana.io/",
   ]),
-  "index.html should preserve the five ordered Home tool destinations"
+  "index.html should preserve the six ordered Home tool destinations"
 );
 expect(
   countMatches(sources.home, /data-guide-beacon-id="home-guide-entry"/g) === 1 &&
@@ -647,7 +663,7 @@ for (const key of ["strategiumConsole", "strategiumReview"]) {
 }
 
 const homeStylesheetHrefs = getStylesheetHrefs(sources.home);
-const homeTopbarLinkIndex = homeStylesheetHrefs.indexOf('./assets/css/topbar.css?v=p7r3k8z2mvqh');
+const homeTopbarLinkIndex = homeStylesheetHrefs.indexOf(`./assets/css/topbar.css?v=${topbarCacheToken}`);
 const homeKeyruneLinkIndex = homeStylesheetHrefs.indexOf('./assets/vendor/keyrune/css/keyrune.min.css?v=3.19.0');
 const homeRouteCssIndex = homeStylesheetHrefs.indexOf('./assets/css/home.css?v=p7r3k8z2mvqh');
 expect(
