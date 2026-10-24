@@ -1,4 +1,4 @@
-<!-- task-view-sha256:2a578a690b90d755d31dd24f1bd54958cf91fa5e995b8d7938a3c56727f496c7 -->
+<!-- task-view-sha256:c86010aa41b1270f402f1e9008a63121855ff05312cbdfb07bb43a5543213aab -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -8,7 +8,7 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 
 | Authored / filename date | Agent | Handoff | Related task references | Diagnostics |
 |---|---|---|---|---|
-| 2026-10-24T00:00:00Z (filename) | `/root/guide_copy` — RobDev implementation specialist. Requested/configured route: `robdev` role, Terra medium. The host accepted the configured role; backend-effective model/effort telemetry is unverified. | [VM-702 — Maze Guide and startup readiness](2026-10-24-codex-vm702-maze-guide-startup.md) | VM-702 | Identity displayed from heading; not admission metadata. |
+| 2026-10-24T00:00:00Z (filename) | `/root/guide_copy` — RobDev implementation specialist. Requested/configured route: `robdev` role, Terra medium. The host accepted the configured role; backend-effective model/effort telemetry is unverified. | [VM-702 — Maze Guide and startup readiness](2026-10-24-codex-vm702-maze-guide-startup.md) | VM-702, VM-663 | Identity displayed from heading; not admission metadata. |
 | 2026-10-23T21:21:00Z (authored) | Kanban Steward `/root/vm701_records` | [VM-701 Kanban Scope Amendment — Shared Tools](2026-10-23-2121-kanban-vm701-tools.md) | VM-701 | Identity displayed from heading; not admission metadata. |
 | 2026-10-23T21:21:00Z (filename) | Unknown | [Planning Architect Handoff — VM-701 Tools Topbar Amendment](2026-10-23-2121-plan-vm701-tools.md) | VM-701 | Identity displayed from heading; not admission metadata. |
 | 2026-10-23T20:20:00Z (authored) | Kanban Steward `/root/vm701_records` | [VM-701 Kanban Admission Record](2026-10-23-2020-kanban-vm701-deck-explorer.md) | VM-701 | Identity displayed from heading; not admission metadata. |

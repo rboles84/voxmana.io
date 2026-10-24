@@ -2,7 +2,7 @@
 
 ID: VM-702
 Title: Maze Guide correction and bounded startup readiness investigation
-Status: In Progress
+Status: Owner Review
 Type: Copy correction and functional investigation
 Area: Maze Guide / Maze
 Priority: Normal
@@ -40,13 +40,13 @@ Apply RobDev and RobQA. Correct Guide copy from current runtime and VM-663. Use 
 Record version: 1
 Branch: codex/vm-702-maze-guide-startup-readiness
 Admission baseline: 6dd4576fc4ae938799a74849140f8c2b9973109a
-Candidate: PENDING
-RobQA: PENDING
+Candidate: 91f4688dc163183a3ad0b404931a61269bdab3b8
+RobQA: PASS at 91f4688dc163183a3ad0b404931a61269bdab3b8 — SEPARATE /root/guide_qa; original vm702-robqa.md and appended task handoff evidence.
 Owner: PENDING
 Integration: PENDING; no merge or deployment authorized
 Dependencies: None
 Decisions: Owner research moves are intentional; preserved temporarily in stash and to be restored. Tip-jar plan separately shelved at Owner request.
-Evidence: VM-663 accepted card; task handoff to follow.
+Evidence: VM-663 accepted card; [task implementation, startup and independent QA handoff](../../handoffs/2026-10-24-codex-vm702-maze-guide-startup.md). Candidate delivery check PASS before Owner Review record; Owner PENDING.
 
 ## Admission Scope
 
