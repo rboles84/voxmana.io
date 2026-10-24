@@ -577,3 +577,17 @@ RobQA PASS for exact replacement candidate `caef44d55bb3f018d4578005563b9f69724f
 ## Replacement candidate Owner Review record
 
 Coordinator verified the separate QA role and original source packet. Clean exact-candidate checker PASS at `caef44d55bb3f018d4578005563b9f69724f3d44`. Owner remains PENDING; no integration authorized. The preceding Guide-only candidate remains historical evidence and is superseded by this readiness candidate. The appended packet and faithful card/derived status updates are evidence-only. Whole-task Git accounting is in external `vm702-readiness-git-report.md`, validated with the repository change-report validator. Owner research WIP is to be restored after final clean candidate checks; tip-jar plan remains shelved.
+
+
+## Owner acceptance and integration authority — 2026-10-24
+
+Task: VM-702
+Candidate: caef44d55bb3f018d4578005563b9f69724f3d44
+Owner: ACCEPT
+Decision reference: Current Codex chat 01a16fde-3a8b-7ea2-a3d4-33b5f07c0f25, Owner message on 2026-10-24 following the caef44d5 review handoff: "ACCEPT VM-702. Go ahead and integrate it, preserve my research changes, and keep everything else deferred."
+
+This is the Owner's explicit integration authorization for the current independently QA-passed material candidate. Research changes must be preserved; every other recommendation remains deferred.
+
+Capability routing before host operations: authenticated connector read/create/update/CI/expected-head squash merge selected from actual discovered schemas. Login rboles84 and repository admin/push permissions verified through that connector. Only connector is approved for authenticated host read and merge; native Git retains ordinary fetch/push. No gh/browser authentication route needed or probed. Where normalized connector metadata omits public PR commits/tree/merge-state facts, unauthenticated public GitHub REST may supplement those facts without retrieving credentials. No alternate authenticated route is authorized. Policy visibility is supplemental under the canonical main-protection exception; required exact-head Deterministic Validation remains mandatory.
+
+Before mutation, captured complete original research path/status/raw SHA-256 preservation snapshot in external vm702-accept-preservation.json; preserved current research in stash 3569030c45c1b95c7b25238413d699dc2d8eeaeb. Research is excluded from the PR; tip-jar plan remains shelved. No product file is changed after the accepted candidate.
