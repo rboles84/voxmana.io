@@ -2,7 +2,7 @@
 
 ID: VM-701
 Title: Deck Explorer Home Link
-Status: In Progress
+Status: Owner Review
 Type: Production implementation
 Area: Home directory
 Priority: Normal
@@ -33,13 +33,13 @@ Current Owner request and approved revised plan. The initial START on primary ma
 
 ## Acceptance Criteria
 
-- [ ] Home retains its first five directory rows unchanged and adds Deck Explorer directly below Color Pie.
-- [ ] The new row links to `https://manascope.voxmana.io/` in a new tab with `rel="noopener noreferrer"`, decorative `aria-hidden` ↗, and visually hidden ` (opens in a new tab)` indication.
-- [ ] The row reads `Deck Explorer`, `Import your Commander deck, explore its cards’ flavor text and mechanics, and save new discoveries.`, and `Open Deck Explorer`.
-- [ ] The Home introduction exactly describes six focused paths and deck exploration.
-- [ ] The existing smoke and HTML validators assert all six ordered destinations and their six-card diagnostics.
-- [ ] Focused QA-1 passes: `npm run lint:html`, `npm run test:frontend-smoke`, `git diff --check`, and the source contract.
-- [ ] The exact candidate receives independent RobQA and stops for Owner Review.
+- [x] Home retains its first five directory rows unchanged and adds Deck Explorer directly below Color Pie.
+- [x] The new row links to `https://manascope.voxmana.io/` in a new tab with `rel="noopener noreferrer"`, decorative `aria-hidden` ↗, and visually hidden ` (opens in a new tab)` indication.
+- [x] The row reads `Deck Explorer`, `Import your Commander deck, explore its cards’ flavor text and mechanics, and save new discoveries.`, and `Open Deck Explorer`.
+- [x] The Home introduction exactly describes six focused paths and deck exploration.
+- [x] The existing smoke and HTML validators assert all six ordered destinations and their six-card diagnostics.
+- [x] Focused QA-1 passes: `npm run lint:html`, `npm run test:frontend-smoke`, `git diff --check`, and the source contract.
+- [x] The exact candidate receives independent RobQA and stops for Owner Review.
 
 ## Files Likely Impacted
 
@@ -69,13 +69,13 @@ Append the sixth existing-style Home directory row below Color Pie using the app
 Record version: 1
 Branch: codex/vm-701-deck-explorer-home-link
 Admission baseline: 6fdfbd3c6ab6b7cbe209a6359a17ac8e1db1cbbc
-Candidate: PENDING
-RobQA: PENDING
+Candidate: 28b4148859523718d1e89f74c8ae45044f2e97fc
+RobQA: PASS at 28b4148859523718d1e89f74c8ae45044f2e97fc (Execution: SEPARATE; Reviewer: /root/vm701_qa; Implementer: /root/vm701_dev)
 Owner: PENDING
 Integration: NOT STARTED
 Dependencies: None
 Decisions: Append Deck Explorer as the sixth Home destination below Color Pie using the approved exact copy and existing directory presentation. The first five cards are frozen. Stop at Owner Review.
-Evidence: [VM-699 predecessor card](../done/VM-699-color-pie-home-link.md); RobDev, RobQA, and Codex handoffs PENDING.
+Evidence: [VM-699 predecessor card](../done/VM-699-color-pie-home-link.md); [RobDev handoff](../../handoffs/2026-10-23-2020-robdev-vm701-deck-explorer.md); [independent RobQA PASS](../../handoffs/2026-10-23-2020-robqa-vm701-deck-explorer.md); [coordinator handoff](../../handoffs/2026-10-23-2020-codex-vm701-deck-explorer.md).
 
 ## Admission Scope
 

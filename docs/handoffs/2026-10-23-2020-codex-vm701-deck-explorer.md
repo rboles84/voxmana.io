@@ -50,3 +50,39 @@ Original research working files, existing five Home cards, CSS/runtime JavaScrip
 ## Follow-up and next suggested agent
 
 Complete the scoped implementation and independent RobQA, bind exact-candidate evidence, validate the candidate delivery record and Git change report, verify preservation, and stop at Owner Review. The Owner then judges the bounded Home card presentation before any later ACCEPT/integration phase.
+
+## Material candidate
+
+- Baseline: `6fdfbd3c6ab6b7cbe209a6359a17ac8e1db1cbbc`
+- Candidate: `28b4148859523718d1e89f74c8ae45044f2e97fc`
+- Changed paths: `9`
+
+## Files changed
+
+- `docs/handoffs/2026-10-23-2020-codex-vm701-deck-explorer.md`
+- `docs/handoffs/2026-10-23-2020-kanban-vm701-deck-explorer.md`
+- `docs/handoffs/2026-10-23-2020-robdev-vm701-deck-explorer.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-701-deck-explorer-home-link.md`
+- `index.html`
+- `scripts/frontend-smoke.mjs`
+- `scripts/validate-frontend-html.mjs`
+
+## Owner Review evidence
+
+Task: VM-701
+Candidate: 28b4148859523718d1e89f74c8ae45044f2e97fc
+Current stage: Owner Review
+Owner: PENDING
+Integration: NOT STARTED
+
+Independent RobQA PASS by /root/vm701_qa, distinct from implementer /root/vm701_dev, is recorded in 2026-10-23-2020-robqa-vm701-deck-explorer.md. The coordinator inspected the original artifact and copied it unchanged into the admitted handoff path. The initial candidate delivery check passed using the supported durable-qa binding while the material worktree was clean.
+
+Focused checks passed: npm run lint:html; npm run test:frontend-smoke; git diff --check; independent committed-source contract proving six ordered rows, exact new URL/copy/target/rel/arrow/disclosure, and exact preservation of the first five row blocks. No heavier suite was required.
+
+Owner review URL: http://127.0.0.1:8171/#what . The localhost server serves this task worktree and returned HTTP 200 with the approved card copy. The sandboxed preview could not answer local requests; it was stopped and the approved localhost server was started outside that sandbox. This was a preview environment restriction, not a candidate defect. Owner should inspect the sixth row after Color Pie for natural wording, placement, and wrapping.
+
+The original primary checkout preservation check passed for all 308 recorded research paths (154 deletions and 154 present untracked files), including file hashes. No original working file was moved or edited. No push, PR, merge, or deployment occurred.
+
+The final material/evidence/total-branch accounting and exact evidence-head hashes are recorded in the durable [Git change report](C:/Users/obake/.codex/visualizations/2026/10/24/01a16b99-0a2a-7293-bd93-5cfafe7b7560/vm701-change-report.md), generated from Git after the consolidated evidence commit. This material list is the baseline-to-candidate scope; it is not replaced by the smaller evidence-only delta.

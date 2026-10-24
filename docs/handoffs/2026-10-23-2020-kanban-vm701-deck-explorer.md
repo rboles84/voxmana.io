@@ -76,3 +76,7 @@ RobDev implementation role, followed by independent RobQA.
 ## Related Kanban Card
 
 [VM-701 — Deck Explorer Home Link](../kanban/in-progress/VM-701-deck-explorer-home-link.md)
+
+## Evidence-Only Lifecycle Addendum
+
+Authorized lifecycle update recorded the initial candidate delivery-gate PASS for material candidate `28b4148859523718d1e89f74c8ae45044f2e97fc` against baseline `6fdfbd3c6ab6b7cbe209a6359a17ac8e1db1cbbc`. Independent RobQA `/root/vm701_qa` issued PASS in SEPARATE execution from implementer `/root/vm701_dev`; focused checks and the source contract passed. The card is now in Owner Review with Owner PENDING and Integration NOT STARTED. This addendum is evidence-only and does not change the material candidate, scope, or prior record content.
