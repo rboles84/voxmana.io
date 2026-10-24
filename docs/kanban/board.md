@@ -1,4 +1,4 @@
-<!-- task-view-sha256:8b8137bf49fb0ac02231f6a8b863764b3e0be7a67b7e84738ee15b14a8180f0c -->
+<!-- task-view-sha256:659b70636fb1f172df28cf29bba31e51a1f27dab15237dfb1fc92783c63628de -->
 # Vox Mana Kanban Board
 
 Generated from individual cards. Do not edit; run npm run task -- indexes --write.
@@ -57,7 +57,6 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 |---|---|---|---|
 | VM-658 | [Maze Instrument Frame](in-progress/VM-658-maze-instrument-frame.md) | Integrated |  |
 | VM-660 | [Maze Performance Recon](in-progress/VM-660-maze-performance-recon.md) | Integrated |  |
-| VM-702 | [Maze Guide correction and bounded startup readiness investigation](in-progress/VM-702-maze-guide-startup-readiness.md) | Integrated |  |
 
 ## Blocked
 
@@ -713,6 +712,7 @@ Protected work remains governed by [AGENTS](../../AGENTS.md) and the [CRIT-001 i
 | VM-699 | [Color Pie Home Link](done/VM-699-color-pie-home-link.md) | Done |  |
 | VM-700 | [Closeout Deletion Preservation](done/VM-700-closeout-deletions.md) | Done |  |
 | VM-701 | [Deck Explorer Home Link and Shared Tools](done/VM-701-deck-explorer-home-link.md) | Done |  |
+| VM-702 | [Maze Guide correction and bounded startup readiness investigation](done/VM-702-maze-guide-startup-readiness.md) | Done |  |
 
 ## Unresolved
 

@@ -2,7 +2,7 @@
 
 ID: VM-702
 Title: Maze Guide correction and bounded startup readiness investigation
-Status: Integrated
+Status: Done
 Type: Copy correction and functional investigation
 Area: Maze Guide / Maze
 Priority: Normal
@@ -44,7 +44,7 @@ Admission baseline: 6dd4576fc4ae938799a74849140f8c2b9973109a
 Candidate: caef44d55bb3f018d4578005563b9f69724f3d44
 RobQA: PASS at caef44d55bb3f018d4578005563b9f69724f3d44 — SEPARATE /root/guide_qa; original vm702-readiness-robqa.md and appended task handoff.
 Owner: ACCEPTED at caef44d55bb3f018d4578005563b9f69724f3d44 — explicit ACCEPT VM-702 in this chat on 2026-10-24; see Owner acceptance handoff section.
-Integration: INTEGRATED via PR #87 at 52b016e37c3b457a9af83d3b336cfee66f6cfa45; exact-head guarded squash verified; main synchronized; lifecycle closeout pending
+Integration: INTEGRATED via PR #87 at 52b016e37c3b457a9af83d3b336cfee66f6cfa45; exact-head guarded squash verified; main synchronized; branch cleanup and closeout PASS verified
 Dependencies: None
 Decisions: Scope amendment: Owner explicitly authorized on 2026-10-24 in this chat: "fix Search so it only becomes available when it’s ready. Keep it small, run the focused checks, and stop for my review." Add only Maze startup action readiness and focused validation; all other deferred scope remains deferred. Owner research moves are intentional; preserved temporarily in stash and to be restored. Tip-jar plan separately shelved at Owner request.
 Evidence: VM-663 accepted card; [task implementation, startup and independent QA handoff](../../handoffs/2026-10-24-codex-vm702-maze-guide-startup.md). Prior Guide-only candidate 91f4688dc163183a3ad0b404931a61269bdab3b8 passed independent QA; superseded for readiness correction by the subsequent Owner request. Replacement readiness candidate caef44d55bb3f018d4578005563b9f69724f3d44 passed independent RobQA and the clean exact-candidate delivery check. Owner PENDING.
