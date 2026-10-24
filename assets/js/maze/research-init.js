@@ -962,6 +962,7 @@ async function initializeResearchArchives() {
   bindSearchInputSelectOnFocus();
   setMode("ai");
   updateSearchActions();
+  setLoading(false);
   if (restoreMazeGuideReturnState()) return;
 
   const launch = resolveMazeLaunchState(urlParams, readActiveArchscryMazeHandoff() || {});

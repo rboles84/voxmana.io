@@ -82,7 +82,7 @@ assert.match(
   "Maze must begin with hidden, dynamically populated reading context while retaining the independent-search action"
 );
 assert.doesNotMatch(mazeHtml, /id="maze-reading-context"[\s\S]*?Standalone search/, "Maze must not restore the retired permanent standalone-search context");
-assert.match(mazeHtml, /id="search-btn" type="button" data-action="search">Search<\/button>/, "Maze must retain its independent canonical Search action");
+assert.match(mazeHtml, /id="search-btn" type="button" data-action="search" disabled>Preparing search…<\/button>/, "Maze must retain its canonical Search action behind the startup readiness gate");
 assert.match(mazeHtml, /then keep useful cards in Clipboard to revisit later\./);
 assert.doesNotMatch(mazeHtml, /Finds saved with a reading stay linked to it; standalone Finds remain standalone\./, "Maze must not retain the retired permanent Reading Finds copy");
 assert.match(guideHtml, /Cards from every search join the same Clipboard\./, "Maze Guide must describe one independent Clipboard");
