@@ -1,4 +1,4 @@
-<!-- task-view-sha256:a3db8264bd0365434d5b8a99df33d4c1c57e1032e94d3b6856891e50d9eae024 -->
+<!-- task-view-sha256:daf10f10c9e90bc01d3b2ef6fe9eca32b673a11cbeff2a259480be1dc4861f97 -->
 # Vox Mana Agent Handoff Index
 
 Generated from individual handoffs. Do not edit; run npm run task -- indexes --write.
@@ -8,6 +8,9 @@ Historical manual views and index-only narrative: [archive](../archive/phase4-ma
 
 | Authored / filename date | Agent | Handoff | Related task references | Diagnostics |
 |---|---|---|---|---|
+| 2026-10-23T20:20:00Z (authored) | Kanban Steward `/root/vm701_records` | [VM-701 Kanban Admission Record](2026-10-23-2020-kanban-vm701-deck-explorer.md) | VM-701 | Identity displayed from heading; not admission metadata. |
+| 2026-10-23T00:00:00Z (authored) | /root | [Coordinator Handoff: VM-701 Deck Explorer Home Link](2026-10-23-2020-codex-vm701-deck-explorer.md) | VM-701 | Identity displayed from heading; not admission metadata. |
+| 2026-10-23T00:00:00Z (authored) | /root/vm701_dev | [Agent Handoff: RobDev — VM-701 Deck Explorer Home Link](2026-10-23-2020-robdev-vm701-deck-explorer.md) | VM-701 | Identity displayed from heading; not admission metadata. |
 | 2026-10-21T00:00:00Z (authored) | Unknown | [Agent Handoff: RobDev — VM-700 Closeout Deletion Preservation](2026-10-21-robdev-vm700-closeout-deletions.md) | VM-700 | Identity displayed from heading; not admission metadata. |
 | 2026-10-21T00:00:00Z (authored) | Unknown | [Agent Handoff: RobQA — VM-700 Closeout Deletion Preservation](2026-10-21-robqa-vm700-closeout-deletions.md) | VM-700 | Identity displayed from heading; not admission metadata. |
 | 2026-10-20T00:00:00Z (authored) | Unknown | [Agent Handoff: RobDev — VM-699 Color Pie Home Link](2026-10-20-2222-robdev-vm699-color-pie-home-link.md) | VM-699 | Identity displayed from heading; not admission metadata. |

@@ -180,9 +180,9 @@ if (/["'`]\/data\//.test(archscryRuntimeSource)) {
 const homeDirectoryPaths = [...homeSource.matchAll(/<a\b[^>]*class="vm-preview-destination"[^>]*href="([^"]+)"/g)]
   .map(match => match[1]);
 if (JSON.stringify(homeDirectoryPaths) !== JSON.stringify([
-  "./archscry/index.html", "./maze/index.html", "./strategium/index.html", "./apocrypha/index.html", "https://colorpie.voxmana.io/",
+  "./archscry/index.html", "./maze/index.html", "./strategium/index.html", "./apocrypha/index.html", "https://colorpie.voxmana.io/", "https://manascope.voxmana.io/",
 ])) {
-  failures.push("Home directory smoke check failed: the five ordered tool destinations changed");
+  failures.push("Home directory smoke check failed: the six ordered tool destinations changed");
 }
 if ((homeSource.match(/data-guide-beacon-id="home-guide-entry"/g) ?? []).length !== 1 || !homeSource.includes('href="./guide/?guided=vox-mana-intro"')) {
   failures.push("Home Guide discovery smoke check failed: bounded Guide entry is missing");

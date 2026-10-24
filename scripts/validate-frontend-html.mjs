@@ -484,9 +484,9 @@ const homeDirectoryPaths = [...sources.home.matchAll(/<a\b[^>]*class="vm-preview
   .map(match => match[1]);
 expect(
   JSON.stringify(homeDirectoryPaths) === JSON.stringify([
-    "./archscry/index.html", "./maze/index.html", "./strategium/index.html", "./apocrypha/index.html", "https://colorpie.voxmana.io/",
+    "./archscry/index.html", "./maze/index.html", "./strategium/index.html", "./apocrypha/index.html", "https://colorpie.voxmana.io/", "https://manascope.voxmana.io/",
   ]),
-  "index.html should preserve the five ordered Home tool destinations"
+  "index.html should preserve the six ordered Home tool destinations"
 );
 expect(
   countMatches(sources.home, /data-guide-beacon-id="home-guide-entry"/g) === 1 &&
