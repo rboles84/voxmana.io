@@ -591,3 +591,16 @@ This is the Owner's explicit integration authorization for the current independe
 Capability routing before host operations: authenticated connector read/create/update/CI/expected-head squash merge selected from actual discovered schemas. Login rboles84 and repository admin/push permissions verified through that connector. Only connector is approved for authenticated host read and merge; native Git retains ordinary fetch/push. No gh/browser authentication route needed or probed. Where normalized connector metadata omits public PR commits/tree/merge-state facts, unauthenticated public GitHub REST may supplement those facts without retrieving credentials. No alternate authenticated route is authorized. Policy visibility is supplemental under the canonical main-protection exception; required exact-head Deterministic Validation remains mandatory.
 
 Before mutation, captured complete original research path/status/raw SHA-256 preservation snapshot in external vm702-accept-preservation.json; preserved current research in stash 3569030c45c1b95c7b25238413d699dc2d8eeaeb. Research is excluded from the PR; tip-jar plan remains shelved. No product file is changed after the accepted candidate.
+
+
+## Verified integration — 2026-10-24
+
+Task: VM-702
+Candidate: caef44d55bb3f018d4578005563b9f69724f3d44
+Integration: INTEGRATED
+PR87: https://github.com/rboles84/voxmana.io/pull/87
+Merge: 52b016e37c3b457a9af83d3b336cfee66f6cfa45
+
+Authenticated connector performed expected-head guarded squash at d5631d8ec231b07e4ac73c5af5112d639b33fb11, returned merged=true, then confirmed PR87 closed/merged at the same SHA. Exact-head Deterministic Validation and integration checker PASS preceded merge. Native Git verifies squash parent equals accepted main baseline and merged tree exactly equals verified PR head. Main fast-forwarded to the merge. GitHub auto-deleted remote task branch; exact local task branch was safely deleted with git branch -d after tree verification, stale tracking ref removed. Research remains preserved pending restoration. No other recommendations implemented.
+
+This lifecycle-only append records actual host/Git observations; product, tests, criteria and admission scope are unchanged. Original external QA/Owner evidence and original PR scope/checks remain available for closeout. Research preservation is verified against the original raw-byte/status snapshot after restoration. Tip-jar remains shelved; every other recommendation is deferred.
